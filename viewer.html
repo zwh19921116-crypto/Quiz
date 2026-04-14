@@ -8,9 +8,22 @@
 </head>
 <body>
   <div class="container">
-    <h1 id="quizTitle">Quiz Viewer</h1>
+    <a class="back-link" href="index.html">← Back to Home</a>
+    <h1 id="quizTitle">📋 Quiz Viewer</h1>
+
+    <div class="quiz-progress" id="quizProgress" style="display:none">
+      <div class="progress-label" id="progressLabel">Question 0 of 0</div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressBarFill" style="width:0%"></div>
+      </div>
+    </div>
+
     <div id="quizContainer"></div>
-    <button class="btn" id="submitQuizBtn">Submit Quiz</button>
+
+    <div class="button-group" style="margin-top:24px">
+      <button class="btn" id="submitQuizBtn" style="display:none">Submit Quiz</button>
+    </div>
+
     <div id="resultBox"></div>
   </div>
 

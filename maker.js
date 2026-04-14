@@ -2,11 +2,14 @@ const MAKER_PASSWORD = "zwh52cd8e"; // change this to a stronger password
 let folderDB = {
   name: "root",
   folders: [],
-  quizzes: [] // {title, questions}
+  quizzes: []
 };
 let currentFolder = folderDB;
 let questions = [];
 
+function saveFolderDB() {
+  localStorage.setItem("folderDB", JSON.stringify(folderDB));
+}
 
 function encodeData(obj) {
   try { return btoa(unescape(encodeURIComponent(JSON.stringify(obj)))); }
@@ -18,7 +21,6 @@ function decodeData(str) {
   catch (e) { try { return JSON.parse(decodeURIComponent(str)); } catch (e2) { return null; } }
 }
 
-
 function authenticate(password) {
   if (password === MAKER_PASSWORD) {
     sessionStorage.setItem("makerAuth", "true");
@@ -26,7 +28,6 @@ function authenticate(password) {
     const main = document.getElementById("mainContainer");
     if (overlay) overlay.style.display = "none";
     if (main) main.style.display = "";
-    // initialize after auth
     initFromStorage();
     setupEventListeners();
     return true;
@@ -51,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // If already authenticated in session, show main UI immediately
   if (sessionStorage.getItem("makerAuth") === "true") {
     const overlay = document.getElementById("loginOverlay");
     const main = document.getElementById("mainContainer");
@@ -66,13 +66,14 @@ function renderFolderTree() {
   const treeDiv = document.getElementById("folderTree");
   if (!treeDiv) return;
   function renderNode(node, path) {
-    let html = `<div style='margin-left:${path.length*16}px'>
-      <span class='folder' data-path='${path.join("/")}' style='cursor:pointer;font-weight:${currentFolder===node?"bold":"normal"}'>📁 ${node.name}</span>
-      <button class='btn' style='padding:2px 6px;font-size:0.8em' onclick='window.selectFolderForQuiz && window.selectFolderForQuiz([${path.map(p=>`"${p}"`).join(",")}])'>Select</button>
+    const isCurrent = currentFolder === node;
+    let html = `<div class="folder-node" style="margin-left:${path.length * 16}px">
+      <span class="folder-label" style="font-weight:${isCurrent ? '600' : '400'}">📁 ${node.name}</span>
+      <button class="btn btn-sm" onclick="window.selectFolderForQuiz([${path.map(p => `"${p}"`).join(",")}])">Select</button>
     </div>`;
-    node.folders.forEach((f,i)=>{ html += renderNode(f, path.concat([i])); });
-    node.quizzes.forEach((q,qi)=>{
-      html += `<div style='margin-left:${(path.length+1)*16}px'>📝 ${q.title}</div>`;
+    node.folders.forEach((f, i) => { html += renderNode(f, path.concat([i])); });
+    node.quizzes.forEach((q) => {
+      html += `<div class="quiz-leaf" style="margin-left:${(path.length + 1) * 16}px">📝 ${q.title}</div>`;
     });
     return html;
   }
@@ -81,24 +82,24 @@ function renderFolderTree() {
 
 window.selectFolderForQuiz = function(pathArr) {
   let node = folderDB;
-  for(const idx of pathArr) node = node.folders[idx];
+  for (const idx of pathArr) node = node.folders[idx];
   currentFolder = node;
   renderFolderTree();
-  renderQuestions();
-}
+  renderFolderQuizzes();
+};
 
-function renderQuestions() {
-  // Show quizzes in current folder
+function renderFolderQuizzes() {
   const questionsList = document.getElementById("questionsList");
+  if (!questionsList) return;
   questionsList.innerHTML = "";
   if (!currentFolder.quizzes.length) {
-    questionsList.innerHTML = "<p>No quizzes in this folder.</p>";
+    questionsList.innerHTML = "<p style='color:var(--text-muted);font-size:0.9rem'>No quizzes in this folder.</p>";
     return;
   }
   currentFolder.quizzes.forEach((quiz, idx) => {
     const div = document.createElement("div");
     div.className = "question-card";
-    div.innerHTML = `<strong>${quiz.title}</strong> <button class='btn' onclick='window.loadQuizToEditor(${idx})'>Edit</button>`;
+    div.innerHTML = `<strong>${quiz.title}</strong> &nbsp; <button class="btn btn-sm" onclick="window.loadQuizToEditor(${idx})">✏️ Edit</button>`;
     questionsList.appendChild(div);
   });
 }
@@ -106,54 +107,66 @@ function renderQuestions() {
 window.loadQuizToEditor = function(idx) {
   const quiz = currentFolder.quizzes[idx];
   document.getElementById("quizTitle").value = quiz.title;
-  questions = quiz.questions.map(q=>({...q}));
-  renderQuestions();
-}
+  questions = quiz.questions.map(q => ({ ...q }));
+  renderEditingQuestions();
+  updateEmbedLinks();
+};
 
-  const questionsList = document.getElementById("questionsList");
-  questionsList.innerHTML = "";
-
+function renderEditingQuestions() {
+  const editList = document.getElementById("editingQuestionsList");
+  if (!editList) return;
+  editList.innerHTML = "";
   if (questions.length === 0) {
-    questionsList.innerHTML = "<p>No questions added yet.</p>";
+    editList.innerHTML = "<p style='color:var(--text-muted);font-size:0.9rem'>No questions added yet.</p>";
     return;
   }
-
   questions.forEach((q, index) => {
     const div = document.createElement("div");
     div.className = "question-card";
-
     div.innerHTML = `
       <strong>Q${index + 1}: ${q.question}</strong>
       <ul>
-        ${q.options.map((opt, i) => `
-          <li>${opt} ${i === q.correctAnswer ? "✅" : ""}</li>
-        `).join("")}
+        ${q.options.map((opt, i) => `<li>${opt} ${i === q.correctAnswer ? "✅" : ""}</li>`).join("")}
       </ul>
-      <button class="btn danger" onclick="deleteQuestion(${index})">Delete</button>
+      <button class="btn danger btn-sm" onclick="deleteQuestion(${index})">🗑 Delete</button>
     `;
-
-    questionsList.appendChild(div);
+    editList.appendChild(div);
   });
 }
 
-function deleteQuestion(index) {
+window.deleteQuestion = function(index) {
   questions.splice(index, 1);
-  renderQuestions();
+  renderEditingQuestions();
+};
+
+function updateEmbedLinks() {
+  const quizTitle = document.getElementById("quizTitle").value.trim() || "Untitled Quiz";
+  const quizData = { title: quizTitle, questions };
+  const viewerBase = `${window.location.origin}${window.location.pathname.replace("maker.html", "viewer.html")}`;
+  const encoded = encodeData(quizData);
+  const viewerUrlWithHash = `${viewerBase}#${encoded}`;
+  const fragIframe = `<iframe src="${viewerUrlWithHash}" width="100%" height="600" frameborder="0"></iframe>`;
+  const postMessageSnippet = `<script>(function(){\n  const quiz = ${JSON.stringify(quizData)};\n  const iframe = document.createElement('iframe');\n  iframe.src = '${viewerBase}';\n  iframe.width = '100%'; iframe.height = '600'; iframe.frameBorder = 0;\n  document.body.appendChild(iframe);\n  iframe.onload = () => iframe.contentWindow.postMessage({type:'quiz-data', payload: quiz}, '*');\n})();<\/script>`;
+  document.getElementById("embedLink").value = viewerUrlWithHash;
+  document.getElementById("iframeCode").value = postMessageSnippet + "\n\n<!-- Alternative (URL fragment): -->\n" + fragIframe;
 }
 
 function setupEventListeners() {
   document.getElementById("addFolderBtn").addEventListener("click", () => {
     const name = prompt("Folder name?");
     if (!name) return;
-    currentFolder.folders.push({name, folders:[], quizzes:[]});
+    currentFolder.folders.push({ name, folders: [], quizzes: [] });
+    saveFolderDB();
     renderFolderTree();
   });
+
   document.getElementById("moveQuizBtn").addEventListener("click", () => {
-    // Simple move: move last quiz to root for demo
-    if (!currentFolder.quizzes.length) return alert("No quiz to move");
+    if (!currentFolder.quizzes.length) { alert("No quiz to move."); return; }
     const quiz = currentFolder.quizzes.pop();
     folderDB.quizzes.push(quiz);
+    saveFolderDB();
     renderFolderTree();
+    renderFolderQuizzes();
   });
 
   document.getElementById("addQuestionBtn").addEventListener("click", () => {
@@ -169,11 +182,7 @@ function setupEventListeners() {
       return;
     }
 
-    questions.push({
-      question,
-      options: [option1, option2, option3, option4],
-      correctAnswer
-    });
+    questions.push({ question, options: [option1, option2, option3, option4], correctAnswer });
 
     document.getElementById("questionText").value = "";
     document.getElementById("option1").value = "";
@@ -182,44 +191,28 @@ function setupEventListeners() {
     document.getElementById("option4").value = "";
     document.getElementById("correctAnswer").value = "0";
 
-    renderQuestions();
+    renderEditingQuestions();
   });
 
   document.getElementById("saveQuizBtn").addEventListener("click", () => {
-    // Save quiz to current folder
     const quizTitle = document.getElementById("quizTitle").value.trim() || "Untitled Quiz";
-    const quizData = { title: quizTitle, questions: questions.map(q=>({...q})) };
-    // If editing, replace; else, add
-    const idx = currentFolder.quizzes.findIndex(q=>q.title===quizTitle);
-    if(idx>-1) currentFolder.quizzes[idx]=quizData;
+    const quizData = { title: quizTitle, questions: questions.map(q => ({ ...q })) };
+    const idx = currentFolder.quizzes.findIndex(q => q.title === quizTitle);
+    if (idx > -1) currentFolder.quizzes[idx] = quizData;
     else currentFolder.quizzes.push(quizData);
-    renderFolderTree();
-    renderQuestions();
-  });
-    const quizTitle = document.getElementById("quizTitle").value.trim() || "Untitled Quiz";
-
-    const quizData = {
-      title: quizTitle,
-      questions
-    };
-
     localStorage.setItem("quizData", JSON.stringify(quizData));
-    alert("Quiz saved.");
-
-    const viewerBase = `${window.location.origin}${window.location.pathname.replace("maker.html", "viewer.html")}`;
-    const encoded = encodeData(quizData);
-    const viewerUrlWithHash = `${viewerBase}#${encoded}`;
-    const fragIframe = `<iframe src="${viewerUrlWithHash}" width="100%" height="600" frameborder="0"></iframe>`;
-    const postMessageSnippet = `<script>(function(){\n  const quiz = ${JSON.stringify(quizData)};\n  const iframe = document.createElement('iframe');\n  iframe.src = '${viewerBase}';\n  iframe.width = '100%'; iframe.height = '600'; iframe.frameBorder = 0;\n  document.body.appendChild(iframe);\n  iframe.onload = () => iframe.contentWindow.postMessage({type:'quiz-data', payload: quiz}, '*');\n})();</script>`;
-    document.getElementById("embedLink").value = viewerBase;
-    document.getElementById("iframeCode").value = postMessageSnippet + "\n\n<!-- Alternative (URL fragment): -->\n" + fragIframe;
+    saveFolderDB();
+    renderFolderTree();
+    renderFolderQuizzes();
+    updateEmbedLinks();
+    alert("Quiz saved! ✅");
   });
 
   document.getElementById("exportQuizBtn").addEventListener("click", () => {
-    const blob = new Blob([JSON.stringify(folderDB, null, 2)], {type: 'application/json'});
-    const a = document.createElement('a');
+    const blob = new Blob([JSON.stringify(folderDB, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = `quiz_database.json`;
+    a.download = "quiz_database.json";
     a.click();
   });
 
@@ -234,12 +227,13 @@ function setupEventListeners() {
     reader.onload = function(evt) {
       try {
         const data = JSON.parse(evt.target.result);
-        if(data.folders && data.quizzes) {
+        if (data.folders && data.quizzes) {
           folderDB = data;
           currentFolder = folderDB;
+          saveFolderDB();
           renderFolderTree();
-          renderQuestions();
-          alert("Database imported!");
+          renderFolderQuizzes();
+          alert("Database imported! ✅");
         } else {
           alert("Invalid database file.");
         }
@@ -251,39 +245,41 @@ function setupEventListeners() {
   });
 
   document.getElementById("clearQuizBtn").addEventListener("click", () => {
-    questions = [];
-    document.getElementById("quizTitle").value = "";
-    renderQuestions();
-  });
-    if (!confirm("Clear current quiz?")) return;
-
+    if (!confirm("Clear current quiz form?")) return;
     questions = [];
     document.getElementById("quizTitle").value = "";
     localStorage.removeItem("quizData");
-    renderQuestions();
+    renderEditingQuestions();
     document.getElementById("embedLink").value = "";
     document.getElementById("iframeCode").value = "";
   });
 }
 
 function initFromStorage() {
+  const savedDB = localStorage.getItem("folderDB");
+  if (savedDB) {
+    try {
+      const parsed = JSON.parse(savedDB);
+      if (parsed.folders && parsed.quizzes) {
+        folderDB = parsed;
+        currentFolder = folderDB;
+      }
+    } catch (e) { /* ignore */ }
+  }
+
   renderFolderTree();
-  renderQuestions();
+  renderFolderQuizzes();
 
   const saved = localStorage.getItem("quizData");
   if (saved) {
-    const quizData = JSON.parse(saved);
-    document.getElementById("quizTitle").value = quizData.title || "";
-    questions = quizData.questions || [];
-    renderQuestions();
-
-    const viewerBase = `${window.location.origin}${window.location.pathname.replace("maker.html", "viewer.html")}`;
-    const viewerQuizData = { title: document.getElementById("quizTitle").value.trim() || "Untitled Quiz", questions };
-    const encoded = encodeData(viewerQuizData);
-    const viewerUrlWithHash = `${viewerBase}#${encoded}`;
-    const fragIframe = `<iframe src="${viewerUrlWithHash}" width="100%" height="600" frameborder="0"></iframe>`;
-    const postMessageSnippet = `<script>(function(){\n  const quiz = ${JSON.stringify(viewerQuizData)};\n  const iframe = document.createElement('iframe');\n  iframe.src = '${viewerBase}';\n  iframe.width = '100%'; iframe.height = '600'; iframe.frameBorder = 0;\n  document.body.appendChild(iframe);\n  iframe.onload = () => iframe.contentWindow.postMessage({type:'quiz-data', payload: quiz}, '*');\n})();</script>`;
-    document.getElementById("embedLink").value = viewerBase;
-    document.getElementById("iframeCode").value = postMessageSnippet + "\n\n<!-- Alternative (URL fragment): -->\n" + fragIframe;
+    try {
+      const quizData = JSON.parse(saved);
+      document.getElementById("quizTitle").value = quizData.title || "";
+      questions = quizData.questions || [];
+      renderEditingQuestions();
+      updateEmbedLinks();
+    } catch (e) { /* ignore */ }
+  } else {
+    renderEditingQuestions();
   }
 }
