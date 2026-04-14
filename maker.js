@@ -371,6 +371,120 @@ function toggleOptionsBlock(question) {
   document.getElementById("optionsBlock").style.display = isChoiceType ? "block" : "none";
 }
 
+function getChoiceOptions(question) {
+  if (!question) return [];
+  const options = Array.isArray(question.options) ? question.options : [];
+  return options.map((item) => String(item || "").trim()).filter((item) => item !== "");
+}
+
+function ensureDefaultCorrectAnswer(question) {
+  if (!question) return;
+
+  const resultType = question.resultType || "multiple-choice";
+  if (!["multiple-choice", "true-false"].includes(resultType)) {
+    return;
+  }
+
+  const choiceOptions = getChoiceOptions(question);
+  if (choiceOptions.length === 0) {
+    question.correctAnswer = "";
+    return;
+  }
+
+  const isValidAnswer = choiceOptions.some((item) => normalizeText(item) === normalizeText(question.correctAnswer));
+  if (!isValidAnswer) {
+    question.correctAnswer = choiceOptions[0];
+  }
+}
+
+function refreshCorrectAnswerSelect(question) {
+  const select = document.getElementById("correctAnswerSelect");
+  const textInput = document.getElementById("correctAnswer");
+  const checkboxWrap = document.getElementById("correctAnswerCheckboxWrap");
+  const hint = document.getElementById("correctAnswerHint");
+  const resultType = question ? (question.resultType || "multiple-choice") : "multiple-choice";
+  const choiceOptions = getChoiceOptions(question);
+
+  const useSelect = ["multiple-choice", "true-false"].includes(resultType);
+  const useCheckboxPicker = resultType === "checkbox";
+  select.style.display = useSelect ? "block" : "none";
+  textInput.style.display = (!useSelect && !useCheckboxPicker) ? "block" : "none";
+  checkboxWrap.style.display = useCheckboxPicker ? "block" : "none";
+
+  if (resultType === "short-answer") {
+    hint.textContent = "Enter the expected answer text.";
+  } else if (resultType === "checkbox") {
+    hint.textContent = "Choose one or more correct options.";
+  } else {
+    hint.textContent = "Choose the correct option from the list.";
+  }
+
+  if (useCheckboxPicker) {
+    checkboxWrap.innerHTML = "";
+
+    if (choiceOptions.length === 0) {
+      checkboxWrap.innerHTML = "<p class='checkbox-answer-empty'>Add options to select correct answers.</p>";
+      return;
+    }
+
+    const existingAnswers = String(question.correctAnswer || "")
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item !== "")
+      .map(normalizeText);
+
+    const list = document.createElement("div");
+    list.className = "checkbox-answer-list";
+
+    choiceOptions.forEach((optionText, index) => {
+      const label = document.createElement("label");
+      label.className = "checkbox-answer-item";
+      label.innerHTML = `
+        <input type="checkbox" data-role="correct-answer-check" data-index="${index}" value="${optionText}" />
+        <span>${optionText}</span>
+      `;
+
+      const input = label.querySelector("input");
+      if (input) {
+        input.checked = existingAnswers.includes(normalizeText(optionText));
+      }
+
+      list.appendChild(label);
+    });
+
+    checkboxWrap.appendChild(list);
+  }
+
+  if (!useSelect) {
+    return;
+  }
+
+  select.innerHTML = "";
+  if (choiceOptions.length === 0) {
+    const option = document.createElement("option");
+    option.value = "";
+    option.textContent = "No options available";
+    select.appendChild(option);
+    select.value = "";
+    return;
+  }
+
+  const placeholder = document.createElement("option");
+  placeholder.value = "";
+  placeholder.textContent = "Select correct option";
+  select.appendChild(placeholder);
+
+  choiceOptions.forEach((item, index) => {
+    const option = document.createElement("option");
+    option.value = String(index);
+    option.textContent = item;
+    select.appendChild(option);
+  });
+
+  const selectedIndex = choiceOptions.findIndex((item) => normalizeText(item) === normalizeText(question.correctAnswer));
+  select.value = selectedIndex >= 0 ? String(selectedIndex) : "";
+}
+
 function updateNotesPreview(attachments) {
   const button = document.getElementById("notesBtn");
   const preview = document.getElementById("notesPreview");
@@ -397,11 +511,14 @@ function renderEditor() {
     document.getElementById("option3").value = "";
     document.getElementById("option4").value = "";
     document.getElementById("correctAnswer").value = "";
+    document.getElementById("correctAnswerSelect").innerHTML = "";
+    document.getElementById("correctAnswerCheckboxWrap").innerHTML = "";
     document.getElementById("attachmentsInput").value = "";
     document.getElementById("questionImage").value = "";
     document.getElementById("solutionText").value = "";
     updateNotesPreview([]);
     toggleOptionsBlock({ resultType: "multiple-choice" });
+    refreshCorrectAnswerSelect({ resultType: "multiple-choice", options: ["", "", "", ""], correctAnswer: "" });
     renderValidationBox(null);
     return;
   }
@@ -414,11 +531,14 @@ function renderEditor() {
   document.getElementById("option3").value = question.options[2] || "";
   document.getElementById("option4").value = question.options[3] || "";
   document.getElementById("correctAnswer").value = question.correctAnswer || "";
+  document.getElementById("correctAnswerSelect").innerHTML = "";
+  document.getElementById("correctAnswerCheckboxWrap").innerHTML = "";
   document.getElementById("attachmentsInput").value = (question.notesAttachments || []).join("\n");
   document.getElementById("questionImage").value = question.image || "";
   document.getElementById("solutionText").value = question.solution || "";
   updateNotesPreview(question.notesAttachments || []);
   toggleOptionsBlock(question);
+  refreshCorrectAnswerSelect(question);
   renderValidationBox(question);
 }
 
@@ -502,19 +622,40 @@ function addQuestion() {
   renderAll();
 }
 
+function requireDeletePhrase(scopeLabel) {
+  const typed = prompt(`To delete this ${scopeLabel}, type DELETE in uppercase:`);
+  if (typed === "DELETE") {
+    return true;
+  }
+
+  if (typed === null) {
+    showToast("Delete canceled.", "info");
+  } else {
+    showToast("Delete blocked. Type DELETE exactly.", "warning");
+  }
+
+  return false;
+}
+
 function deleteCategory(id) {
+  if (!requireDeletePhrase("category")) return;
+
   const index = state.categories.findIndex((item) => item.id === id);
   if (index === -1) return;
   state.categories.splice(index, 1);
+  showToast("Category deleted.", "info");
   renderAll();
 }
 
 function deleteQuiz(id) {
+  if (!requireDeletePhrase("quiz")) return;
+
   const category = activeCategory();
   if (!category) return;
   const index = category.quizzes.findIndex((item) => item.id === id);
   if (index === -1) return;
   category.quizzes.splice(index, 1);
+  showToast("Quiz deleted.", "info");
   renderAll();
 }
 
@@ -542,7 +683,26 @@ function updateQuestionFromForm() {
     question.options = ["True", "False", "", ""];
   }
 
-  question.correctAnswer = document.getElementById("correctAnswer").value.trim();
+  ensureDefaultCorrectAnswer(question);
+
+  refreshCorrectAnswerSelect(question);
+
+  if (["multiple-choice", "true-false"].includes(question.resultType)) {
+    const select = document.getElementById("correctAnswerSelect");
+    const index = Number.parseInt(select.value, 10);
+    const choiceOptions = getChoiceOptions(question);
+    question.correctAnswer = Number.isInteger(index) && index >= 0 && index < choiceOptions.length
+      ? choiceOptions[index]
+      : "";
+  } else if (question.resultType === "checkbox") {
+    const checked = Array.from(document.querySelectorAll("input[data-role='correct-answer-check']:checked"))
+      .map((item) => item.value.trim())
+      .filter((item) => item !== "");
+    question.correctAnswer = checked.join(", ");
+  } else {
+    question.correctAnswer = document.getElementById("correctAnswer").value.trim();
+  }
+
   question.notesAttachments = document.getElementById("attachmentsInput").value
     .split("\n")
     .map((item) => item.trim())
@@ -700,6 +860,15 @@ document.getElementById("notesBtn").addEventListener("click", () => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);
   });
+
+document.getElementById("correctAnswerSelect").addEventListener("change", updateQuestionFromForm);
+
+document.getElementById("correctAnswerCheckboxWrap").addEventListener("change", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return;
+  if (target.dataset.role !== "correct-answer-check") return;
+  updateQuestionFromForm();
+});
 
 document.getElementById("downloadQuizBtn").addEventListener("click", () => {
   const json = JSON.stringify(getQuizData(), null, 2);
