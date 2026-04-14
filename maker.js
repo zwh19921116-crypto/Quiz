@@ -139,7 +139,7 @@ document.getElementById("saveQuizBtn").addEventListener("click", () => {
   document.getElementById("iframeCode").value =
     `<iframe src="${viewerUrl}" width="100%" height="700" frameborder="0" allowfullscreen></iframe>`;
 
-  showToast("✅ Quiz saved and published!");
+  showToast("✅ Quiz saved!");
 });
 
 /* ── Clear quiz ────────────────────────────────────────────── */
