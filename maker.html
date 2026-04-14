@@ -8,59 +8,66 @@
 </head>
 <body>
   <div class="container">
-    <h1>Quiz Maker</h1>
+    <div class="page-header">
+      <span class="icon">🛠️</span>
+      <h1>Quiz Maker</h1>
+    </div>
 
     <label>Quiz Title</label>
-    <input type="text" id="quizTitle" placeholder="Enter quiz title" />
+    <input type="text" id="quizTitle" placeholder="e.g. Chapter 3 — Cell Biology" />
 
     <hr />
 
-    <h2>Add Question</h2>
+    <h2>Add a Question</h2>
 
     <label>Question</label>
-    <input type="text" id="questionText" placeholder="Enter question" />
+    <input type="text" id="questionText" placeholder="Type your question here…" />
 
-    <label>Option 1</label>
-    <input type="text" id="option1" placeholder="Option 1" />
+    <label>Option A</label>
+    <input type="text" id="option1" placeholder="Option A" />
 
-    <label>Option 2</label>
-    <input type="text" id="option2" placeholder="Option 2" />
+    <label>Option B</label>
+    <input type="text" id="option2" placeholder="Option B" />
 
-    <label>Option 3</label>
-    <input type="text" id="option3" placeholder="Option 3" />
+    <label>Option C</label>
+    <input type="text" id="option3" placeholder="Option C" />
 
-    <label>Option 4</label>
-    <input type="text" id="option4" placeholder="Option 4" />
+    <label>Option D</label>
+    <input type="text" id="option4" placeholder="Option D" />
 
     <label>Correct Answer</label>
     <select id="correctAnswer">
-      <option value="0">Option 1</option>
-      <option value="1">Option 2</option>
-      <option value="2">Option 3</option>
-      <option value="3">Option 4</option>
+      <option value="0">Option A</option>
+      <option value="1">Option B</option>
+      <option value="2">Option C</option>
+      <option value="3">Option D</option>
     </select>
 
     <div class="button-group">
-      <button class="btn" id="addQuestionBtn">Add Question</button>
-      <button class="btn secondary" id="saveQuizBtn">Save Quiz</button>
-      <button class="btn danger" id="clearQuizBtn">Clear Quiz</button>
+      <button class="btn" id="addQuestionBtn">➕ Add Question</button>
+      <button class="btn secondary" id="saveQuizBtn">💾 Save Quiz</button>
+      <button class="btn danger" id="clearQuizBtn">🗑️ Clear Quiz</button>
     </div>
 
     <hr />
 
-    <h2>Questions</h2>
+    <h2>Questions <span id="questionCount" style="font-size:0.85rem;color:#6b7280;text-transform:none;font-weight:500;letter-spacing:0;"></span></h2>
     <div id="questionsList"></div>
 
     <hr />
 
-    <h2>Embed Link</h2>
-    <p>Use this page in an iframe:</p>
+    <h2>Share</h2>
+    <p style="color:#6b7280;font-size:0.92rem;margin-top:-6px;">Send the viewer link or embed code to your students.</p>
+
+    <label>Viewer Link</label>
     <input type="text" id="embedLink" readonly />
 
-    <p>Example iframe code:</p>
-    <textarea id="iframeCode" rows="4" readonly></textarea>
+    <label>Embed Code (iframe)</label>
+    <textarea id="iframeCode" rows="3" readonly></textarea>
   </div>
 
+  <div class="toast" id="toast"></div>
+  <script src="utils.js"></script>
   <script src="maker.js"></script>
 </body>
 </html>
