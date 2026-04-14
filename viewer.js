@@ -1,3 +1,12 @@
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 // Accept base64 or URI-encoded JSON in the fragment
 function decodeData(str) {
   try { return JSON.parse(decodeURIComponent(escape(atob(str)))); }
@@ -46,12 +55,12 @@ function renderQuiz(quizData) {
     card.className = "question-card";
 
     card.innerHTML = `
-      <p><strong>Q${qIndex + 1}. ${q.question}</strong></p>
+      <p><strong>Q${qIndex + 1}. ${escapeHtml(q.question)}</strong></p>
       ${q.options.map((option, oIndex) => `
         <div class="option-item">
           <label>
             <input type="radio" name="question-${qIndex}" value="${oIndex}" />
-            ${option}
+            ${escapeHtml(option)}
           </label>
         </div>
       `).join("")}

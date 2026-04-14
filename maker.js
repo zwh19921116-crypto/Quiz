@@ -1,4 +1,4 @@
-const MAKER_PASSWORD = "zwh52cd8e"; // change this to a stronger password
+const MAKER_PASSWORD = "zwh52cd8e"; // change this to a stronger password — note: client-side auth is for convenience only
 let folderDB = {
   name: "root",
   folders: [],
@@ -6,6 +6,15 @@ let folderDB = {
 };
 let currentFolder = folderDB;
 let questions = [];
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
 function saveFolderDB() {
   localStorage.setItem("folderDB", JSON.stringify(folderDB));
@@ -68,12 +77,12 @@ function renderFolderTree() {
   function renderNode(node, path) {
     const isCurrent = currentFolder === node;
     let html = `<div class="folder-node" style="margin-left:${path.length * 16}px">
-      <span class="folder-label" style="font-weight:${isCurrent ? '600' : '400'}">📁 ${node.name}</span>
+      <span class="folder-label" style="font-weight:${isCurrent ? '600' : '400'}">📁 ${escapeHtml(node.name)}</span>
       <button class="btn btn-sm" onclick="window.selectFolderForQuiz([${path.map(p => `"${p}"`).join(",")}])">Select</button>
     </div>`;
     node.folders.forEach((f, i) => { html += renderNode(f, path.concat([i])); });
     node.quizzes.forEach((q) => {
-      html += `<div class="quiz-leaf" style="margin-left:${(path.length + 1) * 16}px">📝 ${q.title}</div>`;
+      html += `<div class="quiz-leaf" style="margin-left:${(path.length + 1) * 16}px">📝 ${escapeHtml(q.title)}</div>`;
     });
     return html;
   }
@@ -99,7 +108,7 @@ function renderFolderQuizzes() {
   currentFolder.quizzes.forEach((quiz, idx) => {
     const div = document.createElement("div");
     div.className = "question-card";
-    div.innerHTML = `<strong>${quiz.title}</strong> &nbsp; <button class="btn btn-sm" onclick="window.loadQuizToEditor(${idx})">✏️ Edit</button>`;
+    div.innerHTML = `<strong>${escapeHtml(quiz.title)}</strong> &nbsp; <button class="btn btn-sm" onclick="window.loadQuizToEditor(${idx})">✏️ Edit</button>`;
     questionsList.appendChild(div);
   });
 }
@@ -124,11 +133,11 @@ function renderEditingQuestions() {
     const div = document.createElement("div");
     div.className = "question-card";
     div.innerHTML = `
-      <strong>Q${index + 1}: ${q.question}</strong>
+      <strong>Q${index + 1}: ${escapeHtml(q.question)}</strong>
       <ul>
-        ${q.options.map((opt, i) => `<li>${opt} ${i === q.correctAnswer ? "✅" : ""}</li>`).join("")}
+        ${q.options.map((opt, i) => `<li>${escapeHtml(opt)} ${i === q.correctAnswer ? "✅" : ""}</li>`).join("")}
       </ul>
-      <button class="btn danger btn-sm" onclick="deleteQuestion(${index})">🗑 Delete</button>
+      <button class="btn danger btn-sm" onclick="window.deleteQuestion(${index})">🗑 Delete</button>
     `;
     editList.appendChild(div);
   });
