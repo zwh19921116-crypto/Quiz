@@ -14,12 +14,26 @@
         <h1 id="quizTitle">Quiz Viewer</h1>
       </div>
 
+      <div id="quizSelectorWrap" class="section-card viewer-quiz-picker hidden">
+        <label for="quizSelector">Choose Quiz</label>
+        <select id="quizSelector"></select>
+      </div>
+
       <div class="progress-row">
         <span id="progressText">Question 1 of 1</span>
         <span id="scoreText">Score: 0</span>
       </div>
 
+      <div class="viewer-progress-track">
+        <div id="viewerProgressFill" class="viewer-progress-fill"></div>
+      </div>
+
       <div id="quizContainer"></div>
+
+      <div class="viewer-meta-row">
+        <button class="btn secondary" id="notesViewerBtn" type="button">Notes: N/A</button>
+        <div id="notesViewerPanel" class="viewer-notes-panel hidden"></div>
+      </div>
 
       <div id="solutionBox" class="solution-box hidden"></div>
 
@@ -32,6 +46,6 @@
     </div>
   </div>
 
-  <script src="viewer.js?v=20260415-3"></script>
+  <script src="viewer.js?v=20260415-5"></script>
 </body>
 </html>
