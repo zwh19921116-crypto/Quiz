@@ -1,15 +1,32 @@
-function loadQuiz() {
-  const saved = localStorage.getItem("quizData");
+const DATABASE_FILE = "quiz-database.json";
+
+async function loadQuiz() {
   const quizContainer = document.getElementById("quizContainer");
   const quizTitle = document.getElementById("quizTitle");
+  const submitBtn = document.getElementById("submitQuizBtn");
 
-  if (!saved) {
-    quizContainer.innerHTML = "<p>No quiz found. Please create one in Quiz Maker.</p>";
-    document.getElementById("submitQuizBtn").style.display = "none";
+  let quizData;
+
+  try {
+    const response = await fetch(DATABASE_FILE, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`Failed to load ${DATABASE_FILE}`);
+    }
+    quizData = await response.json();
+  } catch (error) {
+    quizContainer.innerHTML = "<p>Could not load quiz database file.</p>";
+    submitBtn.style.display = "none";
     return;
   }
 
-  const quizData = JSON.parse(saved);
+  if (!quizData || !Array.isArray(quizData.questions) || quizData.questions.length === 0) {
+    quizContainer.innerHTML = "<p>No quiz questions found in database file.</p>";
+    submitBtn.style.display = "none";
+    return;
+  }
+
+  window.currentQuizData = quizData;
+
   quizTitle.textContent = quizData.title || "Quiz Viewer";
 
   quizContainer.innerHTML = "";
@@ -35,10 +52,9 @@ function loadQuiz() {
 }
 
 document.getElementById("submitQuizBtn").addEventListener("click", () => {
-  const saved = localStorage.getItem("quizData");
-  if (!saved) return;
+  const quizData = window.currentQuizData;
+  if (!quizData || !Array.isArray(quizData.questions)) return;
 
-  const quizData = JSON.parse(saved);
   let score = 0;
 
   quizData.questions.forEach((q, qIndex) => {

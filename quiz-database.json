@@ -1,0 +1,15 @@
+{
+  "title": "Sample Quiz",
+  "questions": [
+    {
+      "question": "What is 2 + 2?",
+      "options": ["1", "2", "3", "4"],
+      "correctAnswer": 3
+    },
+    {
+      "question": "Which planet is known as the Red Planet?",
+      "options": ["Earth", "Mars", "Venus", "Jupiter"],
+      "correctAnswer": 1
+    }
+  ]
+}
