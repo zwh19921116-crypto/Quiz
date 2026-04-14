@@ -181,6 +181,12 @@ textarea {
   background: #fff5f5;
 }
 
+.icon-btn.secondary {
+  border-color: #bfdbfe;
+  color: #1d4ed8;
+  background: #eff6ff;
+}
+
 .helper-text {
   margin: 4px 0 0;
   color: var(--muted);
@@ -341,6 +347,11 @@ textarea {
 .viewer-quiz-picker {
   margin-bottom: 14px;
   padding: 14px;
+}
+
+#iframeCodeOutput {
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.86rem;
 }
 
 .viewer-progress-fill {

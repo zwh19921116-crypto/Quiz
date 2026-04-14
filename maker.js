@@ -150,6 +150,23 @@ function normalizeText(value) {
   return String(value || "").trim().toLowerCase();
 }
 
+function slugify(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80) || "quiz";
+}
+
+function getSelectedQuizFileName() {
+  const selectedQuiz = activeQuiz();
+  if (!selectedQuiz) {
+    return "quiz.json";
+  }
+
+  return `${slugify(selectedQuiz.title)}.json`;
+}
+
 function getQuestionValidationIssues(question) {
   const issues = [];
   const resultType = question.resultType || "multiple-choice";
@@ -278,10 +295,42 @@ function renderQuizList() {
     row.className = `list-item ${quiz.id === state.selectedQuizId ? "active" : ""}`;
     row.innerHTML = `
       <button class="list-main" data-id="${quiz.id}" type="button">${quiz.title}</button>
+      <button class="icon-btn secondary" data-action="embed" data-id="${quiz.id}" type="button">Link</button>
       <button class="icon-btn danger" data-action="delete" data-id="${quiz.id}" type="button">x</button>
     `;
     host.appendChild(row);
   });
+}
+
+function buildQuizIframeCode(quizId) {
+  const category = activeCategory();
+  if (!category) return "";
+  const quiz = category.quizzes.find((item) => item.id === quizId);
+  if (!quiz) return "";
+
+  const fileName = `${slugify(quiz.title)}.json`;
+  const viewerUrl = new URL("viewer.html", window.location.href);
+  viewerUrl.searchParams.set("file", fileName);
+
+  return `<iframe src="${viewerUrl.toString()}" width="100%" height="640" style="border:0;" loading="lazy" allowfullscreen></iframe>`;
+}
+
+async function generateAndCopyIframeCode(quizId) {
+  const code = buildQuizIframeCode(quizId);
+  if (!code) {
+    showToast("Could not generate iframe code.", "error");
+    return;
+  }
+
+  const output = document.getElementById("iframeCodeOutput");
+  output.value = code;
+
+  try {
+    await navigator.clipboard.writeText(code);
+    showToast("Iframe code copied.", "success");
+  } catch (error) {
+    showToast("Could not copy iframe code.", "error");
+  }
 }
 
 function renderQuestionsList() {
@@ -375,6 +424,7 @@ function renderEditor() {
 
 function getQuizData() {
   const selectedQuiz = activeQuiz();
+  const category = activeCategory();
   const selectedQuestions = selectedQuiz
     ? selectedQuiz.questions.map((item) => ({
       question: item.question || "",
@@ -388,14 +438,16 @@ function getQuizData() {
     : [];
 
   return {
+    id: selectedQuiz ? selectedQuiz.id : "",
     title: selectedQuiz ? selectedQuiz.title : "Untitled Quiz",
-    questions: selectedQuestions,
-    categories: state.categories
+    category: category ? category.name : "General",
+    questions: selectedQuestions
   };
 }
 
 function updateGeneratedJson() {
   document.getElementById("generatedJson").value = JSON.stringify(getQuizData(), null, 2);
+  document.getElementById("quizFileName").value = getSelectedQuizFileName();
 }
 
 function renderAll() {
@@ -552,6 +604,11 @@ document.getElementById("quizList").addEventListener("click", (event) => {
     return;
   }
 
+  if (target.dataset.action === "embed") {
+    generateAndCopyIframeCode(id);
+    return;
+  }
+
   state.selectedQuizId = id;
   state.selectedQuestionIndex = -1;
   renderAll();
@@ -651,7 +708,7 @@ document.getElementById("downloadQuizBtn").addEventListener("click", () => {
   const link = document.createElement("a");
 
   link.href = url;
-  link.download = "quiz-database.json";
+  link.download = getSelectedQuizFileName();
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -699,6 +756,19 @@ function normalizeQuestion(item) {
 }
 
 function loadImportedData(data) {
+  if (Array.isArray(data.questions) && !Array.isArray(data.categories)) {
+    const category = createCategory(data.category || "General");
+    const quiz = createQuiz(data.title || "Imported Quiz");
+    quiz.questions = data.questions.map(normalizeQuestion);
+    category.quizzes.push(quiz);
+    state.categories = [category];
+    state.selectedCategoryId = category.id;
+    state.selectedQuizId = quiz.id;
+    state.selectedQuestionIndex = quiz.questions.length > 0 ? 0 : -1;
+    renderAll();
+    return;
+  }
+
   if (Array.isArray(data.categories)) {
     state.categories = data.categories.map((category) => ({
       id: category.id || `cat-${categorySeed++}`,
@@ -772,7 +842,7 @@ window.addEventListener("keydown", (event) => {
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {
     event.preventDefault();
     document.getElementById("downloadQuizBtn").click();
-    showToast("Downloaded quiz-database.json", "success");
+    showToast(`Downloaded ${getSelectedQuizFileName()}`, "success");
     return;
   }
 

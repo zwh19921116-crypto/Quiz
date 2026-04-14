@@ -24,10 +24,13 @@
         <div class="toolbar-row">
           <label for="importQuizFile">Import JSON (optional)</label>
           <input type="file" id="importQuizFile" accept="application/json" />
+
+          <label for="quizFileName">Selected Quiz Filename</label>
+          <input type="text" id="quizFileName" readonly />
         </div>
 
         <div class="button-group">
-          <button class="btn secondary" id="downloadQuizBtn">Download quiz-database.json</button>
+          <button class="btn secondary" id="downloadQuizBtn">Download Selected Quiz JSON</button>
           <button class="btn secondary" id="copyJsonBtn">Copy JSON</button>
           <button class="btn danger" id="clearQuizBtn">Clear All</button>
         </div>
@@ -110,7 +113,12 @@
       <section class="section-card">
         <h2>Generated JSON</h2>
         <textarea id="generatedJson" rows="12" readonly></textarea>
-        <p class="helper-text">Export includes category and quiz structure, plus a viewer-compatible selected quiz snapshot.</p>
+        <p class="helper-text">Output now contains only the selected quiz. Save each quiz as its own JSON file.</p>
+      </section>
+
+      <section class="section-card">
+        <h2>Quiz Iframe Code</h2>
+        <textarea id="iframeCodeOutput" rows="4" readonly placeholder="Use the Link button beside a quiz to generate embed code."></textarea>
       </section>
     </div>
   </div>

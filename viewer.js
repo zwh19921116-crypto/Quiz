@@ -1,7 +1,4 @@
-const DATABASE_FILE = "quiz-database.json?v=20260415-5";
-
 let quizData = null;
-let allQuizzes = [];
 let currentIndex = 0;
 let score = 0;
 let answerChecked = false;
@@ -46,46 +43,7 @@ function normalizeQuestion(item) {
   };
 }
 
-function parseQuizzesFromData(data) {
-  const results = [];
-
-  if (Array.isArray(data.categories)) {
-    data.categories.forEach((category, categoryIndex) => {
-      if (!Array.isArray(category.quizzes)) return;
-      category.quizzes.forEach((quiz, quizIndex) => {
-        const questions = Array.isArray(quiz.questions) ? quiz.questions.map(normalizeQuestion) : [];
-        results.push({
-          id: quiz.id || `cat-${categoryIndex}-quiz-${quizIndex}`,
-          title: quiz.title || `Quiz ${quizIndex + 1}`,
-          categoryName: category.name || `Category ${categoryIndex + 1}`,
-          questions
-        });
-      });
-    });
-  }
-
-  if (results.length === 0 && Array.isArray(data.questions)) {
-    results.push({
-      id: "default-quiz",
-      title: data.title || "Quiz Viewer",
-      categoryName: "General",
-      questions: data.questions.map(normalizeQuestion)
-    });
-  }
-
-  return results;
-}
-
-function applyQuiz(quizId) {
-  const selectedQuiz = allQuizzes.find((item) => item.id === quizId) || null;
-  if (!selectedQuiz) return;
-
-  quizData = {
-    title: selectedQuiz.title,
-    categoryName: selectedQuiz.categoryName,
-    questions: selectedQuiz.questions
-  };
-
+function resetRuntimeForLoadedQuiz() {
   currentIndex = 0;
   score = 0;
   answerChecked = false;
@@ -95,14 +53,15 @@ function applyQuiz(quizId) {
   document.getElementById("resultBox").textContent = "";
   document.getElementById("resultBox").className = "";
   document.getElementById("solutionBox").classList.add("hidden");
-  document.getElementById("quizTitle").textContent = `${selectedQuiz.categoryName}: ${selectedQuiz.title}`;
+}
 
-  const selector = document.getElementById("quizSelector");
-  if (selector) {
-    selector.value = selectedQuiz.id;
-  }
+function applySingleQuiz(quiz) {
+  quizData = quiz;
 
-  if (!Array.isArray(selectedQuiz.questions) || selectedQuiz.questions.length === 0) {
+  resetRuntimeForLoadedQuiz();
+  document.getElementById("quizTitle").textContent = quiz.title || "Quiz Viewer";
+
+  if (!Array.isArray(quiz.questions) || quiz.questions.length === 0) {
     document.getElementById("quizContainer").innerHTML = "<p>This quiz has no questions yet.</p>";
     document.getElementById("checkAnswerBtn").style.display = "none";
     document.getElementById("nextQuestionBtn").style.display = "none";
@@ -117,25 +76,10 @@ function applyQuiz(quizId) {
   renderQuestion();
 }
 
-function renderQuizSelector() {
-  const wrap = document.getElementById("quizSelectorWrap");
-  const select = document.getElementById("quizSelector");
-  select.innerHTML = "";
-
-  if (allQuizzes.length <= 1) {
-    wrap.classList.add("hidden");
-    return;
-  }
-
-  allQuizzes.forEach((quiz) => {
-    const option = document.createElement("option");
-    option.value = quiz.id;
-    option.textContent = `${quiz.categoryName} - ${quiz.title}`;
-    select.appendChild(option);
-  });
-
-  wrap.classList.remove("hidden");
-  select.value = allQuizzes[0].id;
+function getRequestedFile() {
+  const params = new URLSearchParams(window.location.search);
+  const requested = params.get("file");
+  return requested ? requested.trim() : "quiz-database.json";
 }
 
 function setError(message) {
@@ -381,34 +325,30 @@ function goNext() {
 }
 
 async function loadQuiz() {
+  document.getElementById("quizSelectorWrap").classList.add("hidden");
+
+  const requestedFile = getRequestedFile();
   try {
-    const response = await fetch(DATABASE_FILE, { cache: "no-store" });
+    const response = await fetch(requestedFile, { cache: "no-store" });
     if (!response.ok) {
       throw new Error("load failed");
     }
     const rawData = await response.json();
-    allQuizzes = parseQuizzesFromData(rawData);
+
+    const parsedQuiz = {
+      title: rawData.title || "Quiz Viewer",
+      questions: Array.isArray(rawData.questions) ? rawData.questions.map(normalizeQuestion) : []
+    };
+
+    applySingleQuiz(parsedQuiz);
   } catch (error) {
-    setError("Could not load quiz database file.");
+    setError(`Could not load quiz file: ${requestedFile}`);
     return;
   }
-
-  if (!Array.isArray(allQuizzes) || allQuizzes.length === 0) {
-    setError("No quiz questions found in database file.");
-    return;
-  }
-
-  renderQuizSelector();
-  applyQuiz(allQuizzes[0].id);
 }
 
 document.getElementById("checkAnswerBtn").addEventListener("click", checkAnswer);
 document.getElementById("nextQuestionBtn").addEventListener("click", goNext);
-document.getElementById("quizSelector").addEventListener("change", (event) => {
-  const target = event.target;
-  if (!(target instanceof HTMLSelectElement)) return;
-  applyQuiz(target.value);
-});
 document.getElementById("notesViewerBtn").addEventListener("click", () => {
   const panel = document.getElementById("notesViewerPanel");
   if (panel.innerHTML.trim() === "") {
