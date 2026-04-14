@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz App</title>
+  <title>Quiz Viewer</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Quiz App</h1>
-    <p>Select a page:</p>
-
-    <div class="button-group">
-      <a class="btn" href="maker.html">Open Quiz Maker</a>
-      <a class="btn" href="viewer.html">Open Quiz Viewer</a>
-    </div>
+    <h1 id="quizTitle">Quiz Viewer</h1>
+    <div id="quizContainer"></div>
+    <button class="btn" id="submitQuizBtn">Submit Quiz</button>
+    <div id="resultBox"></div>
   </div>
+
+  <script src="viewer.js"></script>
 </body>
 </html>

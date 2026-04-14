@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Maker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Quiz Maker</h1>
+
+    <label>Quiz Title</label>
+    <input type="text" id="quizTitle" placeholder="Enter quiz title" />
+
+    <hr />
+
+    <h2>Add Question</h2>
+
+    <label>Question</label>
+    <input type="text" id="questionText" placeholder="Enter question" />
+
+    <label>Option 1</label>
+    <input type="text" id="option1" placeholder="Option 1" />
+
+    <label>Option 2</label>
+    <input type="text" id="option2" placeholder="Option 2" />
+
+    <label>Option 3</label>
+    <input type="text" id="option3" placeholder="Option 3" />
+
+    <label>Option 4</label>
+    <input type="text" id="option4" placeholder="Option 4" />
+
+    <label>Correct Answer</label>
+    <select id="correctAnswer">
+      <option value="0">Option 1</option>
+      <option value="1">Option 2</option>
+      <option value="2">Option 3</option>
+      <option value="3">Option 4</option>
+    </select>
+
+    <div class="button-group">
+      <button class="btn" id="addQuestionBtn">Add Question</button>
+      <button class="btn secondary" id="saveQuizBtn">Save Quiz</button>
+      <button class="btn danger" id="clearQuizBtn">Clear Quiz</button>
+    </div>
+
+    <hr />
+
+    <h2>Questions</h2>
+    <div id="questionsList"></div>
+
+    <hr />
+
+    <h2>Embed Link</h2>
+    <p>Use this page in an iframe:</p>
+    <input type="text" id="embedLink" readonly />
+
+    <p>Example iframe code:</p>
+    <textarea id="iframeCode" rows="4" readonly></textarea>
+  </div>
+
+  <script src="maker.js"></script>
+</body>
+</html>
