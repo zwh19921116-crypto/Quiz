@@ -8,12 +8,31 @@
 </head>
 <body>
   <div class="container">
-    <h1 id="quizTitle">Quiz Viewer</h1>
+    <div class="page-header">
+      <span class="icon">📝</span>
+      <h1 id="quizTitle">Quiz</h1>
+    </div>
+
+    <div class="progress-wrap" id="progressWrap" style="display:none;">
+      <div class="progress-label">
+        <span id="progressText">Question 0 of 0</span>
+        <span id="progressPct">0%</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+      </div>
+    </div>
+
     <div id="quizContainer"></div>
-    <button class="btn" id="submitQuizBtn">Submit Quiz</button>
+
+    <div class="button-group" id="submitRow" style="display:none;">
+      <button class="btn" id="submitQuizBtn">✅ Submit Quiz</button>
+    </div>
+
     <div id="resultBox"></div>
   </div>
 
+  <script src="utils.js"></script>
   <script src="viewer.js"></script>
 </body>
 </html>
