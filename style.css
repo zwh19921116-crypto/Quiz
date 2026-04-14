@@ -79,3 +79,8 @@ input, select, textarea {
   font-size: 18px;
   font-weight: bold;
 }
+
+.helper-text {
+  color: #475569;
+  margin-top: 0;
+}

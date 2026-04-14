@@ -1,11 +1,34 @@
 let questions = [];
 
+function getQuizData() {
+  const title = document.getElementById("quizTitle").value.trim() || "Untitled Quiz";
+  return {
+    title,
+    questions
+  };
+}
+
+function updateGeneratedJson() {
+  const jsonBox = document.getElementById("generatedJson");
+  jsonBox.value = JSON.stringify(getQuizData(), null, 2);
+}
+
+function clearQuestionForm() {
+  document.getElementById("questionText").value = "";
+  document.getElementById("option1").value = "";
+  document.getElementById("option2").value = "";
+  document.getElementById("option3").value = "";
+  document.getElementById("option4").value = "";
+  document.getElementById("correctAnswer").value = "0";
+}
+
 function renderQuestions() {
   const questionsList = document.getElementById("questionsList");
   questionsList.innerHTML = "";
 
   if (questions.length === 0) {
     questionsList.innerHTML = "<p>No questions added yet.</p>";
+    updateGeneratedJson();
     return;
   }
 
@@ -17,19 +40,22 @@ function renderQuestions() {
       <strong>Q${index + 1}: ${q.question}</strong>
       <ul>
         ${q.options.map((opt, i) => `
-          <li>${opt} ${i === q.correctAnswer ? "✅" : ""}</li>
+          <li>${opt}${i === q.correctAnswer ? " ✅" : ""}</li>
         `).join("")}
       </ul>
-      <button class="btn danger" onclick="deleteQuestion(${index})">Delete</button>
+      <button class="btn danger" data-index="${index}">Delete</button>
     `;
+
+    const deleteBtn = div.querySelector("button");
+    deleteBtn.addEventListener("click", () => {
+      questions.splice(index, 1);
+      renderQuestions();
+    });
 
     questionsList.appendChild(div);
   });
-}
 
-function deleteQuestion(index) {
-  questions.splice(index, 1);
-  renderQuestions();
+  updateGeneratedJson();
 }
 
 document.getElementById("addQuestionBtn").addEventListener("click", () => {
@@ -39,43 +65,46 @@ document.getElementById("addQuestionBtn").addEventListener("click", () => {
   const option3 = document.getElementById("option3").value.trim();
   const option4 = document.getElementById("option4").value.trim();
   const correctAnswer = parseInt(document.getElementById("correctAnswer").value, 10);
+  const options = [option1, option2, option3, option4];
 
-  if (!question || !option1 || !option2 || !option3 || !option4) {
-    alert("Please fill in all fields.");
+  if (!question || options.some((opt) => !opt)) {
+    alert("Please fill in question and all 4 options.");
     return;
   }
 
   questions.push({
     question,
-    options: [option1, option2, option3, option4],
+    options,
     correctAnswer
   });
 
-  document.getElementById("questionText").value = "";
-  document.getElementById("option1").value = "";
-  document.getElementById("option2").value = "";
-  document.getElementById("option3").value = "";
-  document.getElementById("option4").value = "";
-  document.getElementById("correctAnswer").value = "0";
-
+  clearQuestionForm();
   renderQuestions();
 });
 
-document.getElementById("saveQuizBtn").addEventListener("click", () => {
-  const quizTitle = document.getElementById("quizTitle").value.trim() || "Untitled Quiz";
+document.getElementById("downloadQuizBtn").addEventListener("click", () => {
+  const json = JSON.stringify(getQuizData(), null, 2);
+  const blob = new Blob([json], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
 
-  const quizData = {
-    title: quizTitle,
-    questions
-  };
+  link.href = url;
+  link.download = "quiz-database.json";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+});
 
-  localStorage.setItem("quizData", JSON.stringify(quizData));
-  alert("Quiz saved.");
+document.getElementById("copyJsonBtn").addEventListener("click", async () => {
+  const json = JSON.stringify(getQuizData(), null, 2);
 
-  const viewerUrl = `${window.location.origin}${window.location.pathname.replace("maker.html", "viewer.html")}`;
-  document.getElementById("embedLink").value = viewerUrl;
-  document.getElementById("iframeCode").value =
-    `<iframe src="${viewerUrl}" width="100%" height="600" frameborder="0"></iframe>`;
+  try {
+    await navigator.clipboard.writeText(json);
+    alert("JSON copied.");
+  } catch (error) {
+    alert("Could not copy JSON. Please copy from the Generated JSON box.");
+  }
 });
 
 document.getElementById("clearQuizBtn").addEventListener("click", () => {
@@ -83,23 +112,34 @@ document.getElementById("clearQuizBtn").addEventListener("click", () => {
 
   questions = [];
   document.getElementById("quizTitle").value = "";
-  localStorage.removeItem("quizData");
+  clearQuestionForm();
   renderQuestions();
-  document.getElementById("embedLink").value = "";
-  document.getElementById("iframeCode").value = "";
 });
 
-window.addEventListener("load", () => {
-  const saved = localStorage.getItem("quizData");
-  if (saved) {
-    const quizData = JSON.parse(saved);
-    document.getElementById("quizTitle").value = quizData.title || "";
-    questions = quizData.questions || [];
-    renderQuestions();
+document.getElementById("importQuizFile").addEventListener("change", async (event) => {
+  const file = event.target.files && event.target.files[0];
+  if (!file) return;
 
-    const viewerUrl = `${window.location.origin}${window.location.pathname.replace("maker.html", "viewer.html")}`;
-    document.getElementById("embedLink").value = viewerUrl;
-    document.getElementById("iframeCode").value =
-      `<iframe src="${viewerUrl}" width="100%" height="600" frameborder="0"></iframe>`;
+  try {
+    const text = await file.text();
+    const data = JSON.parse(text);
+
+    if (!Array.isArray(data.questions)) {
+      throw new Error("Invalid quiz file");
+    }
+
+    document.getElementById("quizTitle").value = data.title || "";
+    questions = data.questions;
+    renderQuestions();
+  } catch (error) {
+    alert("Invalid JSON file. Please choose a valid quiz-database.json file.");
   }
+
+  event.target.value = "";
+});
+
+document.getElementById("quizTitle").addEventListener("input", updateGeneratedJson);
+
+window.addEventListener("load", () => {
+  renderQuestions();
 });
