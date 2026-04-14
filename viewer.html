@@ -7,13 +7,31 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1 id="quizTitle">Quiz Viewer</h1>
-    <div id="quizContainer"></div>
-    <button class="btn" id="submitQuizBtn">Submit Quiz</button>
-    <div id="resultBox"></div>
+  <div class="app-shell">
+    <div class="container viewer-container">
+      <div class="page-header">
+        <p class="eyebrow">Learner View</p>
+        <h1 id="quizTitle">Quiz Viewer</h1>
+      </div>
+
+      <div class="progress-row">
+        <span id="progressText">Question 1 of 1</span>
+        <span id="scoreText">Score: 0</span>
+      </div>
+
+      <div id="quizContainer"></div>
+
+      <div id="solutionBox" class="solution-box hidden"></div>
+
+      <div class="button-group">
+        <button class="btn" id="checkAnswerBtn">Check Answer</button>
+        <button class="btn secondary" id="nextQuestionBtn" disabled>Next Question</button>
+      </div>
+
+      <div id="resultBox"></div>
+    </div>
   </div>
 
-  <script src="viewer.js?v=20260415-2"></script>
+  <script src="viewer.js?v=20260415-3"></script>
 </body>
 </html>

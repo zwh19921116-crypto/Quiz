@@ -20,6 +20,7 @@ function clearQuestionForm() {
   document.getElementById("option3").value = "";
   document.getElementById("option4").value = "";
   document.getElementById("correctAnswer").value = "0";
+  document.getElementById("solutionText").value = "";
 }
 
 function renderQuestions() {
@@ -40,9 +41,10 @@ function renderQuestions() {
       <strong>Q${index + 1}: ${q.question}</strong>
       <ul>
         ${q.options.map((opt, i) => `
-          <li>${opt}${i === q.correctAnswer ? " ✅" : ""}</li>
+          <li>${opt}${i === q.correctAnswer ? " (Correct)" : ""}</li>
         `).join("")}
       </ul>
+      <p class="solution-preview"><strong>Solution:</strong> ${q.solution || q.options[q.correctAnswer]}</p>
       <button class="btn danger" data-index="${index}">Delete</button>
     `;
 
@@ -65,6 +67,7 @@ document.getElementById("addQuestionBtn").addEventListener("click", () => {
   const option3 = document.getElementById("option3").value.trim();
   const option4 = document.getElementById("option4").value.trim();
   const correctAnswer = parseInt(document.getElementById("correctAnswer").value, 10);
+  const solution = document.getElementById("solutionText").value.trim();
   const options = [option1, option2, option3, option4];
 
   if (!question || options.some((opt) => !opt)) {
@@ -75,7 +78,8 @@ document.getElementById("addQuestionBtn").addEventListener("click", () => {
   questions.push({
     question,
     options,
-    correctAnswer
+    correctAnswer,
+    solution: solution || options[correctAnswer]
   });
 
   clearQuestionForm();
@@ -129,7 +133,12 @@ document.getElementById("importQuizFile").addEventListener("change", async (even
     }
 
     document.getElementById("quizTitle").value = data.title || "";
-    questions = data.questions;
+    questions = data.questions.map((item) => ({
+      question: item.question,
+      options: Array.isArray(item.options) ? item.options.slice(0, 4) : [],
+      correctAnswer: Number.isInteger(item.correctAnswer) ? item.correctAnswer : 0,
+      solution: item.solution || (Array.isArray(item.options) ? item.options[item.correctAnswer] : "")
+    }));
     renderQuestions();
   } catch (error) {
     alert("Invalid JSON file. Please choose a valid quiz-database.json file.");

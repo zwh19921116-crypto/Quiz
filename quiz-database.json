@@ -4,12 +4,14 @@
     {
       "question": "What is 2 + 2?",
       "options": ["1", "2", "3", "4"],
-      "correctAnswer": 3
+      "correctAnswer": 3,
+      "solution": "2 + 2 equals 4, so Option 4 is correct."
     },
     {
       "question": "Which planet is known as the Red Planet?",
       "options": ["Earth", "Mars", "Venus", "Jupiter"],
-      "correctAnswer": 1
+      "correctAnswer": 1,
+      "solution": "Mars is called the Red Planet because of iron oxide on its surface."
     }
   ]
 }
