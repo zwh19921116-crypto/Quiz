@@ -1,4 +1,4 @@
-const DATABASE_FILE = "quiz-database.json";
+const DATABASE_FILE = "quiz-database.json?v=20260415-2";
 
 async function loadQuiz() {
   const quizContainer = document.getElementById("quizContainer");
