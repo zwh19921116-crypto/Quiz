@@ -5,9 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz Maker</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Simple overlay styles for password gate */
+    .overlay { position:fixed; inset:0; background:rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index:9999; }
+    .overlay-content { background:#fff; padding:20px; border-radius:8px; max-width:360px; width:90%; box-shadow:0 6px 24px rgba(0,0,0,0.2); text-align:center; }
+    .overlay-content input { width:100%; padding:8px; margin-top:8px; box-sizing:border-box; }
+    #mainContainer { max-width:900px; margin:40px auto; padding:16px; }
+  </style>
 </head>
 <body>
-  <div class="container">
+  <div id="loginOverlay" class="overlay">
+    <div class="overlay-content">
+      <h2>Enter password to access Quiz Maker</h2>
+      <input type="password" id="makerPasswordInput" placeholder="Password" />
+      <div class="button-group" style="margin-top:12px;">
+        <button class="btn" id="makerLoginBtn">Login</button>
+      </div>
+      <p style="font-size:0.85em;color:#666;margin-top:8px">Change the password in maker.js (MAKER_PASSWORD constant).</p>
+    </div>
+  </div>
+
+  <div class="container" id="mainContainer" style="display:none">
     <h1>Quiz Maker</h1>
 
     <label>Quiz Title</label>
@@ -43,11 +61,20 @@
     <div class="button-group">
       <button class="btn" id="addQuestionBtn">Add Question</button>
       <button class="btn secondary" id="saveQuizBtn">Save Quiz</button>
+      <button class="btn" id="exportQuizBtn">Export JSON</button>
+      <input type="file" id="importQuizInput" accept="application/json" style="display:none" />
+      <button class="btn" id="importQuizBtn">Import JSON</button>
       <button class="btn danger" id="clearQuizBtn">Clear Quiz</button>
     </div>
 
     <hr />
 
+    <h2>Quiz Folders</h2>
+    <div id="folderTree"></div>
+    <div style="margin:8px 0;">
+      <button class="btn" id="addFolderBtn">New Folder</button>
+      <button class="btn" id="moveQuizBtn">Move Quiz</button>
+    </div>
     <h2>Questions</h2>
     <div id="questionsList"></div>
 
