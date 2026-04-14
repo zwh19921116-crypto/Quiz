@@ -3,15 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz Viewer</title>
+  <title>QuizMaster</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1 id="quizTitle">Quiz Viewer</h1>
-    <div id="quizContainer"></div>
-    <button class="btn" id="submitQuizBtn">Submit Quiz</button>
-    <div id="resultBox"></div>
+  <div class="page-wrapper">
+    <div class="container">
+
+      <!-- Welcome screen -->
+      <div id="welcomeScreen" class="card welcome-screen fade-in" style="display:none">
+        <div class="welcome-icon">🎓</div>
+        <h1 class="welcome-title" id="welcomeTitle">Quiz</h1>
+        <div class="welcome-meta">
+          <span class="meta-item">📋 <span id="questionCount">0</span> Questions</span>
+          <span class="meta-item">⏱ Take your time</span>
+        </div>
+        <p style="margin-bottom:32px; max-width:380px; margin-left:auto; margin-right:auto;">
+          Answer each question carefully and submit when you're ready. Good luck!
+        </p>
+        <button class="btn btn-primary btn-lg" id="startQuizBtn">Start Quiz &rarr;</button>
+      </div>
+
+      <!-- Quiz screen -->
+      <div id="quizScreen" style="display:none">
+        <div class="progress-wrapper fade-in">
+          <div class="progress-info">
+            <span class="progress-label" id="progressLabel">Question 1 of 1</span>
+            <span class="progress-label" id="progressPercent">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width:0%"></div>
+          </div>
+        </div>
+
+        <div class="question-card" id="questionCard">
+          <div class="question-number" id="questionNumber">QUESTION 1</div>
+          <div class="question-text" id="questionText"></div>
+          <div id="optionsContainer"></div>
+          <div style="display:flex; justify-content:flex-end; margin-top:24px; gap:10px;">
+            <button class="btn btn-primary" id="nextBtn" style="display:none">Next &rarr;</button>
+            <button class="btn btn-success" id="submitBtn" style="display:none">Submit Quiz ✓</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result screen -->
+      <div id="resultScreen" class="card result-screen fade-in" style="display:none">
+        <div class="score-circle">
+          <span class="score-percent" id="scorePercent">0%</span>
+          <span class="score-label">Score</span>
+        </div>
+        <h2 class="result-title" id="resultTitle">Well done!</h2>
+        <p class="result-subtitle" id="resultSubtitle"></p>
+        <button class="btn btn-primary btn-lg" id="retakeBtn">Try Again</button>
+      </div>
+
+      <!-- No quiz state -->
+      <div id="noQuizScreen" class="card empty-state fade-in" style="display:none">
+        <div class="empty-state-icon">📭</div>
+        <h2>No Quiz Available</h2>
+        <p>No quiz has been set up yet. Please check back later.</p>
+      </div>
+
+    </div>
   </div>
 
   <script src="viewer.js"></script>

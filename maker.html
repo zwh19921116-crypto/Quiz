@@ -3,63 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz Maker</title>
+  <title>Quiz Maker — Admin</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <div class="container">
-    <h1>Quiz Maker</h1>
+<body style="background: linear-gradient(135deg, #EEF2FF 0%, #F3E8FF 100%); min-height: 100vh;">
+  <div class="container" style="padding-top: 32px; padding-bottom: 48px;">
 
-    <label>Quiz Title</label>
-    <input type="text" id="quizTitle" placeholder="Enter quiz title" />
-
-    <hr />
-
-    <h2>Add Question</h2>
-
-    <label>Question</label>
-    <input type="text" id="questionText" placeholder="Enter question" />
-
-    <label>Option 1</label>
-    <input type="text" id="option1" placeholder="Option 1" />
-
-    <label>Option 2</label>
-    <input type="text" id="option2" placeholder="Option 2" />
-
-    <label>Option 3</label>
-    <input type="text" id="option3" placeholder="Option 3" />
-
-    <label>Option 4</label>
-    <input type="text" id="option4" placeholder="Option 4" />
-
-    <label>Correct Answer</label>
-    <select id="correctAnswer">
-      <option value="0">Option 1</option>
-      <option value="1">Option 2</option>
-      <option value="2">Option 3</option>
-      <option value="3">Option 4</option>
-    </select>
-
-    <div class="button-group">
-      <button class="btn" id="addQuestionBtn">Add Question</button>
-      <button class="btn secondary" id="saveQuizBtn">Save Quiz</button>
-      <button class="btn danger" id="clearQuizBtn">Clear Quiz</button>
+    <!-- Admin Header -->
+    <div class="admin-header">
+      <div>
+        <h1>⚙️ Quiz Maker</h1>
+        <p>Create and manage your quiz questions</p>
+      </div>
+      <span class="admin-badge">Admin</span>
     </div>
 
-    <hr />
+    <!-- Quiz Settings -->
+    <div class="card">
+      <h2>📝 Quiz Settings</h2>
+      <div class="form-group">
+        <label for="quizTitle">Quiz Title</label>
+        <input type="text" id="quizTitle" placeholder="e.g. Introduction to Biology" />
+      </div>
+    </div>
 
-    <h2>Questions</h2>
-    <div id="questionsList"></div>
+    <!-- Add Question -->
+    <div class="card">
+      <h2>➕ Add Question</h2>
+      <div class="form-group">
+        <label for="questionText">Question</label>
+        <input type="text" id="questionText" placeholder="Enter your question here" />
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="form-group">
+          <label for="option1">Option A</label>
+          <input type="text" id="option1" placeholder="Option A" />
+        </div>
+        <div class="form-group">
+          <label for="option2">Option B</label>
+          <input type="text" id="option2" placeholder="Option B" />
+        </div>
+        <div class="form-group">
+          <label for="option3">Option C</label>
+          <input type="text" id="option3" placeholder="Option C" />
+        </div>
+        <div class="form-group">
+          <label for="option4">Option D</label>
+          <input type="text" id="option4" placeholder="Option D" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="correctAnswer">Correct Answer</label>
+        <select id="correctAnswer">
+          <option value="0">Option A</option>
+          <option value="1">Option B</option>
+          <option value="2">Option C</option>
+          <option value="3">Option D</option>
+        </select>
+      </div>
+      <div class="button-group">
+        <button class="btn btn-primary" id="addQuestionBtn">Add Question</button>
+      </div>
+    </div>
 
-    <hr />
+    <!-- Questions List -->
+    <div class="card">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+        <h2 style="margin-bottom:0">📋 Questions</h2>
+        <span class="badge badge-primary" id="questionCountBadge">0 questions</span>
+      </div>
+      <div id="questionsList"></div>
+      <hr class="divider" />
+      <div class="button-group">
+        <button class="btn btn-success" id="saveQuizBtn">💾 Save Quiz</button>
+        <button class="btn btn-outline-danger" id="clearQuizBtn">🗑 Clear All</button>
+      </div>
+    </div>
 
-    <h2>Embed Link</h2>
-    <p>Use this page in an iframe:</p>
-    <input type="text" id="embedLink" readonly />
+    <!-- Share -->
+    <div class="card">
+      <h2>🔗 Share Quiz</h2>
+      <div class="form-group">
+        <label>Viewer URL</label>
+        <input type="text" id="embedLink" readonly placeholder="Save your quiz to generate a link" />
+      </div>
+      <div class="form-group">
+        <label>Embed Code</label>
+        <textarea id="iframeCode" rows="3" readonly placeholder="Save your quiz to generate embed code"></textarea>
+      </div>
+    </div>
 
-    <p>Example iframe code:</p>
-    <textarea id="iframeCode" rows="4" readonly></textarea>
   </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
 
   <script src="maker.js"></script>
 </body>
