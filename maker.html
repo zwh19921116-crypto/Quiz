@@ -7,8 +7,21 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Quiz Maker</h1>
+  <div id="loginOverlay" class="overlay">
+    <div class="overlay-content">
+      <h2>🔐 Quiz Maker</h2>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-top:4px">Enter your password to continue</p>
+      <input type="password" id="makerPasswordInput" placeholder="Password" />
+      <div class="button-group" style="margin-top:14px;justify-content:center">
+        <button class="btn" id="makerLoginBtn">Login</button>
+      </div>
+      <p class="overlay-hint">Change the password in maker.js (MAKER_PASSWORD constant).</p>
+    </div>
+  </div>
+
+  <div class="container" id="mainContainer" style="display:none">
+    <a class="back-link" href="index.html">← Back to Home</a>
+    <h1>🛠️ Quiz Maker</h1>
 
     <label>Quiz Title</label>
     <input type="text" id="quizTitle" placeholder="Enter quiz title" />
@@ -18,7 +31,7 @@
     <h2>Add Question</h2>
 
     <label>Question</label>
-    <input type="text" id="questionText" placeholder="Enter question" />
+    <input type="text" id="questionText" placeholder="Enter your question" />
 
     <label>Option 1</label>
     <input type="text" id="option1" placeholder="Option 1" />
@@ -41,24 +54,39 @@
     </select>
 
     <div class="button-group">
-      <button class="btn" id="addQuestionBtn">Add Question</button>
-      <button class="btn secondary" id="saveQuizBtn">Save Quiz</button>
-      <button class="btn danger" id="clearQuizBtn">Clear Quiz</button>
+      <button class="btn" id="addQuestionBtn">➕ Add Question</button>
+      <button class="btn secondary" id="saveQuizBtn">💾 Save Quiz</button>
+      <button class="btn" id="exportQuizBtn">📤 Export JSON</button>
+      <input type="file" id="importQuizInput" accept="application/json" style="display:none" />
+      <button class="btn" id="importQuizBtn">📥 Import JSON</button>
+      <button class="btn danger" id="clearQuizBtn">🗑 Clear</button>
     </div>
 
     <hr />
 
-    <h2>Questions</h2>
+    <h2>Current Questions</h2>
+    <div id="editingQuestionsList"></div>
+
+    <hr />
+
+    <h2>Quiz Folders</h2>
+    <div id="folderTree"></div>
+    <div class="button-group" style="margin-top:10px">
+      <button class="btn" id="addFolderBtn">📁 New Folder</button>
+      <button class="btn" id="moveQuizBtn">📦 Move Quiz to Root</button>
+    </div>
+
+    <h2>Saved Quizzes</h2>
     <div id="questionsList"></div>
 
     <hr />
 
     <h2>Embed Link</h2>
-    <p>Use this page in an iframe:</p>
-    <input type="text" id="embedLink" readonly />
+    <label>Direct Viewer URL</label>
+    <input type="text" id="embedLink" readonly placeholder="Save a quiz to generate the link" />
 
-    <p>Example iframe code:</p>
-    <textarea id="iframeCode" rows="4" readonly></textarea>
+    <label>iframe / postMessage Code</label>
+    <textarea id="iframeCode" rows="5" readonly placeholder="Save a quiz to generate embed code"></textarea>
   </div>
 
   <script src="maker.js"></script>
