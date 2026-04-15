@@ -1,9 +1,11 @@
 let categorySeed = 1;
 let quizSeed = 1;
 const DRAFT_STORAGE_KEY = "quiz-maker-draft-v1";
+const DEFAULT_QUIZ_ROOT = "quizzes";
 
 const state = {
   categories: [],
+  rootFolder: DEFAULT_QUIZ_ROOT,
   selectedCategoryId: null,
   selectedQuizId: null,
   selectedQuestionIndex: -1,
@@ -51,6 +53,7 @@ function reseedCountersFromState() {
 function saveDraft() {
   const payload = {
     categories: state.categories,
+    rootFolder: state.rootFolder,
     selectedCategoryId: state.selectedCategoryId,
     selectedQuizId: state.selectedQuizId,
     selectedQuestionIndex: state.selectedQuestionIndex
@@ -87,10 +90,13 @@ function loadDraft() {
           id: quiz.id || `quiz-${quizSeed++}`,
           title: quiz.title || "Untitled Quiz",
           fileName: quiz.fileName || "",
+          sourcePath: quiz.sourcePath || "",
           questions: Array.isArray(quiz.questions) ? quiz.questions.map(normalizeQuestion) : []
         }))
         : []
     }));
+
+    state.rootFolder = String(parsed.rootFolder || DEFAULT_QUIZ_ROOT).trim() || DEFAULT_QUIZ_ROOT;
 
     ensureQuizFileNames();
 
@@ -131,6 +137,7 @@ function createQuiz(title) {
     id,
     title,
     fileName: buildUniqueQuizFileName(title, id),
+    sourcePath: "",
     questions: []
   };
 }
@@ -217,6 +224,234 @@ function ensureQuizFileNames() {
       reservedNames.add(candidate.toLowerCase());
     });
   });
+}
+
+function normalizeRootFolder(value) {
+  return String(value || "")
+    .trim()
+    .replace(/\\/g, "/")
+    .replace(/\/+$/g, "") || DEFAULT_QUIZ_ROOT;
+}
+
+function baseNameFromPath(path) {
+  const normalized = String(path || "").trim().replace(/\\/g, "/");
+  if (!normalized) return "quiz.json";
+  const parts = normalized.split("/").filter((item) => item !== "");
+  return parts.length > 0 ? parts[parts.length - 1] : "quiz.json";
+}
+
+function categoryNameFromFolder(folderName) {
+  return String(folderName || "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, (char) => char.toUpperCase()) || "Category";
+}
+
+function extractDirectoryEntries(html, responseUrl) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(String(html || ""), "text/html");
+  const baseUrl = new URL(responseUrl, window.location.href);
+  const basePath = baseUrl.pathname.endsWith("/") ? baseUrl.pathname : `${baseUrl.pathname}/`;
+  const folders = new Set();
+  const jsonFiles = new Set();
+
+  Array.from(doc.querySelectorAll("a[href]")).forEach((link) => {
+    const href = String(link.getAttribute("href") || "").trim();
+    if (!href || href.startsWith("#") || href.startsWith("?")) {
+      return;
+    }
+
+    let resolved;
+    try {
+      resolved = new URL(href, baseUrl.toString());
+    } catch (error) {
+      return;
+    }
+
+    let relativePath = decodeURIComponent(resolved.pathname);
+    if (relativePath.startsWith(basePath)) {
+      relativePath = relativePath.slice(basePath.length);
+    }
+
+    relativePath = relativePath.replace(/^\/+/, "");
+    if (!relativePath || relativePath.startsWith("..")) {
+      return;
+    }
+
+    if (relativePath.endsWith("/")) {
+      const folder = relativePath.replace(/\/+$/, "").split("/")[0];
+      if (folder) {
+        folders.add(folder);
+      }
+      return;
+    }
+
+    if (relativePath.toLowerCase().endsWith(".json")) {
+      jsonFiles.add(relativePath);
+    }
+  });
+
+  return {
+    folders: Array.from(folders),
+    jsonFiles: Array.from(jsonFiles)
+  };
+}
+
+async function readDirectoryEntries(folderPath) {
+  const normalizedFolder = normalizeRootFolder(folderPath);
+  const response = await fetch(`${normalizedFolder}/`, { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error(`Could not read ${normalizedFolder}/`);
+  }
+
+  const html = await response.text();
+  return extractDirectoryEntries(html, response.url);
+}
+
+async function loadLibraryFromCategoryFolders(rootFolder) {
+  const rootEntries = await readDirectoryEntries(rootFolder);
+  if (!Array.isArray(rootEntries.folders) || rootEntries.folders.length === 0) {
+    throw new Error(`No category folders found in ${rootFolder}/`);
+  }
+
+  const loadedCategories = [];
+
+  for (const folder of rootEntries.folders) {
+    const category = createCategory(categoryNameFromFolder(folder));
+    const folderEntries = await readDirectoryEntries(`${rootFolder}/${folder}`);
+    const jsonFiles = (folderEntries.jsonFiles || []).filter((entry) => entry.toLowerCase().endsWith(".json"));
+
+    for (const fileEntry of jsonFiles) {
+      const relativeFilePath = fileEntry.includes("/") ? fileEntry : `${folder}/${fileEntry}`;
+      const quizResponse = await fetch(`${rootFolder}/${relativeFilePath}`, { cache: "no-store" });
+      if (!quizResponse.ok) {
+        continue;
+      }
+
+      const quizJson = await quizResponse.json();
+      const quiz = createQuiz(quizJson.title || baseNameFromPath(relativeFilePath).replace(/\.json$/i, ""));
+      quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativeFilePath));
+      quiz.sourcePath = `${rootFolder}/${relativeFilePath}`;
+      quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
+      category.quizzes.push(quiz);
+    }
+
+    if (category.quizzes.length > 0) {
+      loadedCategories.push(category);
+    }
+  }
+
+  if (loadedCategories.length === 0) {
+    throw new Error(`No JSON quizzes found in category folders under ${rootFolder}/`);
+  }
+
+  return loadedCategories;
+}
+
+async function loadLibraryFromManifest(rootFolder) {
+  const indexPath = `${rootFolder}/index.json`;
+  const response = await fetch(indexPath, { cache: "no-store" });
+
+  if (!response.ok) {
+    throw new Error(`Could not read ${indexPath}`);
+  }
+
+  const manifest = await response.json();
+  if (!manifest || !Array.isArray(manifest.categories)) {
+    throw new Error(`Invalid ${indexPath}`);
+  }
+
+  const loadedCategories = [];
+
+  for (const categoryInfo of manifest.categories) {
+    const category = createCategory(categoryInfo.name || "Category");
+    const quizEntries = Array.isArray(categoryInfo.quizzes) ? categoryInfo.quizzes : [];
+
+    for (const entry of quizEntries) {
+      const relativePath = String(entry.file || "").trim().replace(/^\/+/, "");
+      if (!relativePath) {
+        continue;
+      }
+
+      const quizResponse = await fetch(`${rootFolder}/${relativePath}`, { cache: "no-store" });
+      if (!quizResponse.ok) {
+        continue;
+      }
+
+      const quizJson = await quizResponse.json();
+      const quiz = createQuiz(quizJson.title || entry.title || baseNameFromPath(relativePath).replace(/\.json$/i, ""));
+      quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
+      quiz.sourcePath = `${rootFolder}/${relativePath}`;
+      quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
+      category.quizzes.push(quiz);
+    }
+
+    if (category.quizzes.length > 0) {
+      loadedCategories.push(category);
+    }
+  }
+
+  if (loadedCategories.length === 0) {
+    throw new Error(`No quizzes found in ${indexPath}`);
+  }
+
+  return loadedCategories;
+}
+
+function setRootStatus(message) {
+  const status = document.getElementById("rootStatusText");
+  if (!status) return;
+  status.textContent = message;
+}
+
+async function loadLibraryFromRoot() {
+  const rootFolder = normalizeRootFolder(state.rootFolder);
+  let loadedCategories = [];
+  let sourceMode = "manifest";
+
+  try {
+    loadedCategories = await loadLibraryFromCategoryFolders(rootFolder);
+    sourceMode = "folder-scan";
+  } catch (folderScanError) {
+    loadedCategories = await loadLibraryFromManifest(rootFolder);
+    sourceMode = "manifest";
+  }
+
+  state.categories = loadedCategories;
+  state.rootFolder = rootFolder;
+  state.selectedCategoryId = loadedCategories[0].id;
+  state.selectedQuizId = loadedCategories[0].quizzes[0].id;
+  state.selectedQuestionIndex = loadedCategories[0].quizzes[0].questions.length > 0 ? 0 : -1;
+  ensureQuizFileNames();
+  return sourceMode;
+}
+
+async function refreshLibraryFromRoot(notify = true) {
+  const rootInput = document.getElementById("quizRootFolder");
+  if (rootInput) {
+    state.rootFolder = normalizeRootFolder(rootInput.value);
+    rootInput.value = state.rootFolder;
+  }
+
+  try {
+    const sourceMode = await loadLibraryFromRoot();
+    renderAll();
+    const sourceText = sourceMode === "folder-scan"
+      ? `Source: auto-detected from category folders in ${state.rootFolder}/`
+      : `Source: auto-detected from ${state.rootFolder}/index.json`;
+    setRootStatus(sourceText);
+    if (notify) {
+      showToast("Root library detected and loaded.", "success");
+    }
+    return true;
+  } catch (error) {
+    setRootStatus(`Source: could not load ${state.rootFolder}/index.json`);
+    if (notify) {
+      showToast(String(error.message || "Could not load root library."), "warning");
+    }
+    return false;
+  }
 }
 
 function getSelectedQuizFileName() {
@@ -630,6 +865,7 @@ function getQuizData() {
     id: selectedQuiz ? selectedQuiz.id : "",
     title: selectedQuiz ? selectedQuiz.title : "Untitled Quiz",
     fileName: selectedQuiz ? getSelectedQuizFileName() : "quiz.json",
+    sourcePath: selectedQuiz ? (selectedQuiz.sourcePath || "") : "",
     category: category ? category.name : "General",
     questions: selectedQuestions
   };
@@ -638,6 +874,11 @@ function getQuizData() {
 function updateGeneratedJson() {
   document.getElementById("generatedJson").value = JSON.stringify(getQuizData(), null, 2);
   document.getElementById("quizFileName").value = getSelectedQuizFileName();
+
+  const rootInput = document.getElementById("quizRootFolder");
+  if (rootInput) {
+    rootInput.value = state.rootFolder;
+  }
 }
 
 function renderAll() {
@@ -1057,6 +1298,17 @@ document.getElementById("clearQuizBtn").addEventListener("click", () => {
   renderAll();
 });
 
+document.getElementById("refreshRootBtn").addEventListener("click", async () => {
+  await refreshLibraryFromRoot(true);
+});
+
+document.getElementById("quizRootFolder").addEventListener("change", () => {
+  const rootInput = document.getElementById("quizRootFolder");
+  state.rootFolder = normalizeRootFolder(rootInput.value);
+  rootInput.value = state.rootFolder;
+  saveDraft();
+});
+
 function normalizeQuestion(item) {
   const options = Array.isArray(item.options) ? item.options.slice(0, 4) : ["", "", "", ""];
   while (options.length < 4) {
@@ -1083,6 +1335,7 @@ function loadImportedData(data) {
     const category = createCategory(data.category || "General");
     const quiz = createQuiz(data.title || "Imported Quiz");
     quiz.fileName = buildUniqueQuizFileName(data.fileName || data.title || "Imported Quiz", quiz.id);
+    quiz.sourcePath = data.sourcePath || data.fileName || "";
     quiz.questions = data.questions.map(normalizeQuestion);
     category.quizzes.push(quiz);
     state.categories = [category];
@@ -1103,6 +1356,7 @@ function loadImportedData(data) {
           id: quiz.id || `quiz-${quizSeed++}`,
           title: quiz.title || "Untitled Quiz",
           fileName: quiz.fileName || "",
+          sourcePath: quiz.sourcePath || "",
           questions: Array.isArray(quiz.questions) ? quiz.questions.map(normalizeQuestion) : []
         }))
         : []
@@ -1116,6 +1370,7 @@ function loadImportedData(data) {
     const category = createCategory("General");
     const quiz = createQuiz(data.title || "Imported Quiz");
     quiz.fileName = buildUniqueQuizFileName(data.fileName || data.title || "Imported Quiz", quiz.id);
+    quiz.sourcePath = data.sourcePath || data.fileName || "";
     quiz.questions = data.questions.map(normalizeQuestion);
     category.quizzes.push(quiz);
     state.categories = [category];
@@ -1140,7 +1395,11 @@ document.getElementById("importQuizFile").addEventListener("change", async (even
     if (data && typeof data === "object" && !Array.isArray(data) && !data.fileName) {
       data.fileName = file.name;
     }
+    if (data && typeof data === "object" && !Array.isArray(data) && !data.sourcePath) {
+      data.sourcePath = file.name;
+    }
     loadImportedData(data);
+    setRootStatus(`Source: imported ${file.name}`);
     showToast("Quiz imported.", "success");
   } catch (error) {
     showToast("Invalid JSON file.", "error");
@@ -1149,11 +1408,17 @@ document.getElementById("importQuizFile").addEventListener("change", async (even
   event.target.value = "";
 });
 
-function initialize() {
-  const hasDraft = loadDraft();
+async function initialize() {
+  const loadedFromRoot = await refreshLibraryFromRoot(false);
+  if (loadedFromRoot) {
+    showToast("Detected quizzes from root folder.", "success");
+    return;
+  }
 
+  const hasDraft = loadDraft();
   if (hasDraft) {
     renderAll();
+    setRootStatus(`Source: draft data (root ${state.rootFolder})`);
     showToast("Draft restored.", "info");
     return;
   }
@@ -1168,6 +1433,7 @@ function initialize() {
   state.selectedQuizId = starterQuiz.id;
   state.selectedQuestionIndex = 0;
   renderAll();
+  setRootStatus("Source: starter quiz (no root index found)");
 }
 
 window.addEventListener("keydown", (event) => {
@@ -1200,4 +1466,6 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
-window.addEventListener("load", initialize);
+window.addEventListener("load", () => {
+  initialize();
+});

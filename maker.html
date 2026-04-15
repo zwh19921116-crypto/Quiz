@@ -22,12 +22,18 @@
 
       <section class="section-card">
         <div class="toolbar-row">
+          <label for="quizRootFolder">Quiz Root Folder</label>
+          <input type="text" id="quizRootFolder" value="quizzes" />
+
+          <button class="btn secondary" id="refreshRootBtn" type="button">Refresh from Root</button>
+
           <label for="importQuizFile">Import JSON (optional)</label>
           <input type="file" id="importQuizFile" accept="application/json" />
 
           <label for="quizFileName">Selected Quiz Filename</label>
           <input type="text" id="quizFileName" placeholder="sample-quiz.json" />
         </div>
+        <p class="helper-text" id="rootStatusText">Source: auto-detect from category folders in quizzes/</p>
 
         <div class="button-group">
           <button class="btn secondary" id="downloadQuizBtn">Download Selected Quiz JSON</button>

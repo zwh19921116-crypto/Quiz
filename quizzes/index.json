@@ -1,0 +1,23 @@
+{
+  "root": "quizzes",
+  "categories": [
+    {
+      "name": "General",
+      "quizzes": [
+        {
+          "title": "Sample Quiz",
+          "file": "general/sample-quiz.json"
+        }
+      ]
+    },
+    {
+      "name": "Science",
+      "quizzes": [
+        {
+          "title": "Planets Quiz",
+          "file": "science/planets-quiz.json"
+        }
+      ]
+    }
+  ]
+}
