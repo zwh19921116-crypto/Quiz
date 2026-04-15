@@ -1,34 +1,50 @@
 {
-  "id": "sample-quiz",
-  "title": "Sample Quiz",
+  "id": "quiz-3",
+  "title": "Quiz 1",
+  "fileName": "quiz-1.json",
   "category": "General",
   "questions": [
     {
-      "question": "What is 2 + 2?",
+      "question": "1+1=",
       "resultType": "multiple-choice",
-      "options": ["1", "2", "3", "4"],
-      "correctAnswer": "4",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "1",
       "notesAttachments": [],
       "image": "",
-      "solution": "2 + 2 equals 4, so the last option is correct."
+      "solution": ""
     },
     {
-      "question": "Which planet is known as the Red Planet?",
+      "question": "2+2=",
       "resultType": "multiple-choice",
-      "options": ["Earth", "Mars", "Venus", "Jupiter"],
-      "correctAnswer": "Mars",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
       "notesAttachments": [],
       "image": "",
-      "solution": "Mars is called the Red Planet because of iron oxide on its surface."
+      "solution": "hi"
     },
     {
-      "question": "Is the Earth flat?",
-      "resultType": "true-false",
-      "options": ["True", "False"],
-      "correctAnswer": "False",
+      "question": "how are you feeling",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "fantastic",
       "notesAttachments": [],
       "image": "",
-      "solution": "The Earth is an oblate spheroid — roughly spherical but slightly flattened at the poles."
+      "solution": ""
     }
   ]
 }
