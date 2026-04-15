@@ -501,6 +501,8 @@ function updateNotesPreview(attachments) {
 function renderEditor() {
   const hint = document.getElementById("editorHint");
   const question = activeQuestion();
+  const attachImageBtn = document.getElementById("attachImageBtn");
+  const imageAttachHint = document.getElementById("imageAttachHint");
 
   if (!question) {
     hint.textContent = "Select a question to edit details.";
@@ -516,6 +518,8 @@ function renderEditor() {
     document.getElementById("attachmentsInput").value = "";
     document.getElementById("questionImage").value = "";
     document.getElementById("solutionText").value = "";
+    attachImageBtn.disabled = true;
+    imageAttachHint.textContent = "Select a question first to attach an image.";
     updateNotesPreview([]);
     toggleOptionsBlock({ resultType: "multiple-choice" });
     refreshCorrectAnswerSelect({ resultType: "multiple-choice", options: ["", "", "", ""], correctAnswer: "" });
@@ -536,6 +540,8 @@ function renderEditor() {
   document.getElementById("attachmentsInput").value = (question.notesAttachments || []).join("\n");
   document.getElementById("questionImage").value = question.image || "";
   document.getElementById("solutionText").value = question.solution || "";
+  attachImageBtn.disabled = false;
+  imageAttachHint.textContent = "Attach image for the selected question, or paste a URL above.";
   updateNotesPreview(question.notesAttachments || []);
   toggleOptionsBlock(question);
   refreshCorrectAnswerSelect(question);
@@ -730,9 +736,62 @@ function moveQuestion(fromIndex, toIndex) {
   renderAll();
 }
 
+function attachImageToQuestion(file) {
+  const question = activeQuestion();
+  if (!question) {
+    showToast("Select a question first. Image attaches to the active question only.", "warning");
+    return;
+  }
+
+  if (!file) {
+    return;
+  }
+
+  if (!file.type.startsWith("image/")) {
+    showToast("Please select an image file.", "warning");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = () => {
+    const dataUrl = typeof reader.result === "string" ? reader.result : "";
+    if (!dataUrl) {
+      showToast("Could not read image file.", "error");
+      return;
+    }
+
+    document.getElementById("questionImage").value = dataUrl;
+    updateQuestionFromForm();
+    showToast("Image attached to question.", "success");
+  };
+
+  reader.onerror = () => {
+    showToast("Could not read image file.", "error");
+  };
+
+  reader.readAsDataURL(file);
+}
+
 document.getElementById("addCategoryBtn").addEventListener("click", addCategory);
 document.getElementById("addQuizBtn").addEventListener("click", addQuiz);
 document.getElementById("addQuestionBtn").addEventListener("click", addQuestion);
+document.getElementById("attachImageBtn").addEventListener("click", () => {
+  const question = activeQuestion();
+  if (!question) {
+    showToast("Select a question first.", "warning");
+    return;
+  }
+
+  document.getElementById("imageFileInput").click();
+});
+
+document.getElementById("imageFileInput").addEventListener("change", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return;
+  const file = target.files && target.files[0];
+  attachImageToQuestion(file || null);
+  target.value = "";
+});
 
 document.getElementById("categoryList").addEventListener("click", (event) => {
   const target = event.target;
