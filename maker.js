@@ -86,10 +86,13 @@ function loadDraft() {
         ? category.quizzes.map((quiz) => ({
           id: quiz.id || `quiz-${quizSeed++}`,
           title: quiz.title || "Untitled Quiz",
+          fileName: quiz.fileName || "",
           questions: Array.isArray(quiz.questions) ? quiz.questions.map(normalizeQuestion) : []
         }))
         : []
     }));
+
+    ensureQuizFileNames();
 
     state.selectedCategoryId = parsed.selectedCategoryId || null;
     state.selectedQuizId = parsed.selectedQuizId || null;
@@ -123,9 +126,11 @@ function createCategory(name) {
 }
 
 function createQuiz(title) {
+  const id = `quiz-${quizSeed++}`;
   return {
-    id: `quiz-${quizSeed++}`,
+    id,
     title,
+    fileName: buildUniqueQuizFileName(title, id),
     questions: []
   };
 }
@@ -158,13 +163,69 @@ function slugify(value) {
     .slice(0, 80) || "quiz";
 }
 
+function normalizeQuizFileName(value) {
+  const raw = String(value || "").trim().replace(/\.json$/i, "");
+  return `${slugify(raw)}.json`;
+}
+
+function buildUniqueQuizFileName(value, excludedQuizId = null) {
+  const normalized = normalizeQuizFileName(value);
+  const usedNames = new Set();
+
+  state.categories.forEach((category) => {
+    (category.quizzes || []).forEach((quiz) => {
+      if (!quiz || quiz.id === excludedQuizId) return;
+      const fileName = String(quiz.fileName || "").trim().toLowerCase();
+      if (fileName) {
+        usedNames.add(fileName);
+      }
+    });
+  });
+
+  if (!usedNames.has(normalized.toLowerCase())) {
+    return normalized;
+  }
+
+  const base = normalized.replace(/\.json$/i, "");
+  let counter = 2;
+  let candidate = `${base}-${counter}.json`;
+
+  while (usedNames.has(candidate.toLowerCase())) {
+    counter += 1;
+    candidate = `${base}-${counter}.json`;
+  }
+
+  return candidate;
+}
+
+function ensureQuizFileNames() {
+  const reservedNames = new Set();
+
+  state.categories.forEach((category) => {
+    (category.quizzes || []).forEach((quiz) => {
+      const normalized = normalizeQuizFileName(quiz.fileName || quiz.title || "quiz");
+      const base = normalized.replace(/\.json$/i, "");
+      let candidate = normalized;
+      let counter = 2;
+
+      while (reservedNames.has(candidate.toLowerCase())) {
+        candidate = `${base}-${counter}.json`;
+        counter += 1;
+      }
+
+      quiz.fileName = candidate;
+      reservedNames.add(candidate.toLowerCase());
+    });
+  });
+}
+
 function getSelectedQuizFileName() {
   const selectedQuiz = activeQuiz();
   if (!selectedQuiz) {
     return "quiz.json";
   }
 
-  return `${slugify(selectedQuiz.title)}.json`;
+  return selectedQuiz.fileName || normalizeQuizFileName(selectedQuiz.title);
 }
 
 function getQuestionValidationIssues(question) {
@@ -308,7 +369,7 @@ function buildQuizIframeCode(quizId) {
   const quiz = category.quizzes.find((item) => item.id === quizId);
   if (!quiz) return "";
 
-  const fileName = `${slugify(quiz.title)}.json`;
+  const fileName = quiz.fileName || normalizeQuizFileName(quiz.title);
   const viewerUrl = new URL("viewer.html", window.location.href);
   viewerUrl.searchParams.set("file", fileName);
 
@@ -568,6 +629,7 @@ function getQuizData() {
   return {
     id: selectedQuiz ? selectedQuiz.id : "",
     title: selectedQuiz ? selectedQuiz.title : "Untitled Quiz",
+    fileName: selectedQuiz ? getSelectedQuizFileName() : "quiz.json",
     category: category ? category.name : "General",
     questions: selectedQuestions
   };
@@ -944,6 +1006,24 @@ document.getElementById("correctAnswerCheckboxWrap").addEventListener("change", 
   updateQuestionFromForm();
 });
 
+document.getElementById("quizFileName").addEventListener("change", () => {
+  const quiz = activeQuiz();
+  if (!quiz) return;
+
+  const input = document.getElementById("quizFileName");
+  const nextFileName = buildUniqueQuizFileName(input.value || quiz.title, quiz.id);
+  const changed = nextFileName !== quiz.fileName;
+
+  quiz.fileName = nextFileName;
+  input.value = nextFileName;
+  updateGeneratedJson();
+  saveDraft();
+
+  if (changed) {
+    showToast(`Filename set to ${nextFileName}`, "success");
+  }
+});
+
 document.getElementById("downloadQuizBtn").addEventListener("click", () => {
   const json = JSON.stringify(getQuizData(), null, 2);
   const blob = new Blob([json], { type: "application/json" });
@@ -1002,12 +1082,14 @@ function loadImportedData(data) {
   if (Array.isArray(data.questions) && !Array.isArray(data.categories)) {
     const category = createCategory(data.category || "General");
     const quiz = createQuiz(data.title || "Imported Quiz");
+    quiz.fileName = buildUniqueQuizFileName(data.fileName || data.title || "Imported Quiz", quiz.id);
     quiz.questions = data.questions.map(normalizeQuestion);
     category.quizzes.push(quiz);
     state.categories = [category];
     state.selectedCategoryId = category.id;
     state.selectedQuizId = quiz.id;
     state.selectedQuestionIndex = quiz.questions.length > 0 ? 0 : -1;
+    ensureQuizFileNames();
     renderAll();
     return;
   }
@@ -1020,10 +1102,12 @@ function loadImportedData(data) {
         ? category.quizzes.map((quiz) => ({
           id: quiz.id || `quiz-${quizSeed++}`,
           title: quiz.title || "Untitled Quiz",
+          fileName: quiz.fileName || "",
           questions: Array.isArray(quiz.questions) ? quiz.questions.map(normalizeQuestion) : []
         }))
         : []
     }));
+    ensureQuizFileNames();
     renderAll();
     return;
   }
@@ -1031,12 +1115,14 @@ function loadImportedData(data) {
   if (Array.isArray(data.questions)) {
     const category = createCategory("General");
     const quiz = createQuiz(data.title || "Imported Quiz");
+    quiz.fileName = buildUniqueQuizFileName(data.fileName || data.title || "Imported Quiz", quiz.id);
     quiz.questions = data.questions.map(normalizeQuestion);
     category.quizzes.push(quiz);
     state.categories = [category];
     state.selectedCategoryId = category.id;
     state.selectedQuizId = quiz.id;
     state.selectedQuestionIndex = quiz.questions.length > 0 ? 0 : -1;
+    ensureQuizFileNames();
     renderAll();
     return;
   }
@@ -1051,6 +1137,9 @@ document.getElementById("importQuizFile").addEventListener("change", async (even
   try {
     const text = await file.text();
     const data = JSON.parse(text);
+    if (data && typeof data === "object" && !Array.isArray(data) && !data.fileName) {
+      data.fileName = file.name;
+    }
     loadImportedData(data);
     showToast("Quiz imported.", "success");
   } catch (error) {
