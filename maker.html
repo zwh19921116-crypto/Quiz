@@ -36,6 +36,8 @@
         <p class="helper-text" id="rootStatusText">Source: auto-detect from category folders in quizzes/</p>
 
         <div class="button-group">
+          <button class="btn secondary" id="connectRootBtn" type="button">Connect Root Folder</button>
+          <button class="btn" id="saveQuizBtn">Save Selected Quiz</button>
           <button class="btn secondary" id="downloadQuizBtn">Download Selected Quiz JSON</button>
           <button class="btn secondary" id="copyJsonBtn">Copy JSON</button>
           <button class="btn danger" id="clearQuizBtn">Clear All</button>
@@ -121,6 +123,8 @@
 
             <label for="solutionText">6) Solution</label>
             <textarea id="solutionText" rows="3" placeholder="Explain the solution"></textarea>
+            <button class="btn" id="saveQuestionBtn" type="button">Save Question Changes</button>
+            <p class="helper-text">This confirms question edits in Maker. Use Save Selected Quiz to write JSON to file.</p>
           </section>
         </div>
       </section>
@@ -133,7 +137,12 @@
 
       <section class="section-card">
         <h2>Quiz Iframe Code</h2>
-        <textarea id="iframeCodeOutput" rows="4" readonly placeholder="Use the Link button beside a quiz to generate embed code."></textarea>
+        <label for="embedFormatSelect">Output Format</label>
+        <select id="embedFormatSelect">
+          <option value="link">Link</option>
+          <option value="iframe" selected>Iframe</option>
+        </select>
+        <textarea id="iframeCodeOutput" rows="4" readonly placeholder="Use the Link button beside a quiz to generate either a direct link or iframe code."></textarea>
       </section>
     </div>
   </div>

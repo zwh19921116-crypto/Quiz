@@ -441,6 +441,7 @@ textarea {
 .options-list {
   display: grid;
   gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .option-item {
@@ -453,12 +454,45 @@ textarea {
   border-radius: 10px;
   background: #f8fbff;
   transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+  cursor: pointer;
+  min-height: 48px;
+  position: relative;
+  user-select: none;
 }
 
 .option-item:hover {
   border-color: #93c5fd;
   box-shadow: 0 8px 18px rgba(30, 64, 175, 0.12);
   transform: translateY(-1px);
+}
+
+.option-item input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+.option-item.is-selected {
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.14);
+}
+
+.option-item span {
+  display: block;
+  width: 100%;
+}
+
+.viewer-actions {
+  margin-top: 14px;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.viewer-actions .btn {
+  min-width: 180px;
 }
 
 .solution-box {
@@ -592,6 +626,18 @@ textarea {
 
   .btn {
     width: 100%;
+  }
+
+  .options-list {
+    grid-template-columns: 1fr;
+  }
+
+  .viewer-actions {
+    gap: 10px;
+  }
+
+  .viewer-actions .btn {
+    min-width: 0;
   }
 
   .progress-row {

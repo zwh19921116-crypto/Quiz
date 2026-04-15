@@ -30,7 +30,7 @@ function showToast(message, variant = "info") {
 
 function normalizeQuestion(item) {
   const options = Array.isArray(item.options) ? item.options.filter((opt) => String(opt).trim() !== "") : [];
-  const resultType = item.resultType || "multiple-choice";
+  const resultType = normalizeResultType(item.resultType);
 
   return {
     question: item.question || "Untitled Question",
@@ -41,6 +41,21 @@ function normalizeQuestion(item) {
     image: item.image || "",
     solution: item.solution || ""
   };
+}
+
+function normalizeResultType(value) {
+  const normalized = String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[_\s]+/g, "-");
+
+  if (!normalized) return "multiple-choice";
+  if (["multiple-choice", "multiplechoice", "mcq"].includes(normalized)) return "multiple-choice";
+  if (["short-answer", "shortanswer", "short"].includes(normalized)) return "short-answer";
+  if (["true-false", "truefalse", "boolean"].includes(normalized)) return "true-false";
+  if (["checkbox", "multi-select", "multiselect"].includes(normalized)) return "checkbox";
+
+  return "multiple-choice";
 }
 
 function resetRuntimeForLoadedQuiz() {
@@ -182,6 +197,30 @@ function renderNotesPanel(question) {
   notesPanel.classList.add("hidden");
 }
 
+function syncOptionSelectionState() {
+  const optionItems = document.querySelectorAll(".option-item");
+  optionItems.forEach((item) => {
+    if (!(item instanceof HTMLElement)) return;
+    const input = item.querySelector("input");
+    if (!(input instanceof HTMLInputElement)) return;
+    item.classList.toggle("is-selected", input.checked);
+  });
+}
+
+function wireOptionSelectionUI(question) {
+  if (question.resultType === "short-answer") return;
+
+  const selector = question.resultType === "checkbox"
+    ? "input[name='activeQuestionCheck']"
+    : "input[name='activeQuestion']";
+  const inputs = document.querySelectorAll(selector);
+  inputs.forEach((input) => {
+    if (!(input instanceof HTMLInputElement)) return;
+    input.addEventListener("change", syncOptionSelectionState);
+  });
+  syncOptionSelectionState();
+}
+
 function renderQuestion() {
   const question = quizData.questions[currentIndex];
   const quizContainer = document.getElementById("quizContainer");
@@ -210,6 +249,7 @@ function renderQuestion() {
     </div>
   `;
 
+  wireOptionSelectionUI(question);
   renderNotesPanel(question);
   updateHeader();
 }

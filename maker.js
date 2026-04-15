@@ -2,6 +2,14 @@ let categorySeed = 1;
 let quizSeed = 1;
 const DRAFT_STORAGE_KEY = "quiz-maker-draft-v1";
 const DEFAULT_QUIZ_ROOT = "quizzes";
+let rootDirectoryHandle = null;
+
+function splitPath(value) {
+  return String(value || "")
+    .replace(/\\/g, "/")
+    .split("/")
+    .filter((item) => item !== "");
+}
 
 const state = {
   categories: [],
@@ -114,7 +122,7 @@ function loadDraft() {
 function createEmptyQuestion() {
   return {
     question: "",
-    resultType: "multiple-choice",
+    resultType: normalizeResultType("multiple-choice"),
     options: ["", "", "", ""],
     correctAnswer: "",
     notesAttachments: [],
@@ -160,6 +168,18 @@ function activeQuestion() {
 
 function normalizeText(value) {
   return String(value || "").trim().toLowerCase();
+}
+
+function normalizeResultType(value) {
+  const normalized = String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[_\s]+/g, "-");
+
+  if (["short-answer", "shortanswer", "short"].includes(normalized)) return "short-answer";
+  if (["true-false", "truefalse", "boolean"].includes(normalized)) return "true-false";
+  if (["checkbox", "multi-select", "multiselect"].includes(normalized)) return "checkbox";
+  return "multiple-choice";
 }
 
 function slugify(value) {
@@ -238,6 +258,241 @@ function baseNameFromPath(path) {
   if (!normalized) return "quiz.json";
   const parts = normalized.split("/").filter((item) => item !== "");
   return parts.length > 0 ? parts[parts.length - 1] : "quiz.json";
+}
+
+function getCategoryFolderName(category) {
+  const quiz = (category && Array.isArray(category.quizzes))
+    ? category.quizzes.find((item) => item && typeof item.sourcePath === "string" && item.sourcePath.trim() !== "")
+    : null;
+
+  if (!quiz || !quiz.sourcePath) {
+    return slugify(category && category.name ? category.name : "category");
+  }
+
+  const normalizedRoot = `${normalizeRootFolder(state.rootFolder)}/`;
+  const normalizedSource = String(quiz.sourcePath).replace(/\\/g, "/");
+  const relative = normalizedSource.startsWith(normalizedRoot)
+    ? normalizedSource.slice(normalizedRoot.length)
+    : normalizedSource;
+  const folder = relative.split("/")[0] || "";
+  return folder || slugify(category && category.name ? category.name : "category");
+}
+
+function supportsFolderDeletion() {
+  return typeof window.showDirectoryPicker === "function";
+}
+
+async function getRootDirectoryHandle() {
+  if (rootDirectoryHandle) {
+    return rootDirectoryHandle;
+  }
+
+  const handle = await window.showDirectoryPicker({ mode: "readwrite" });
+  rootDirectoryHandle = handle;
+  return handle;
+}
+
+async function getConfiguredRootHandle(options = {}) {
+  const { create = false } = options;
+  const rootHandle = await getRootDirectoryHandle();
+  const rootSegments = splitPath(normalizeRootFolder(state.rootFolder));
+  if (rootSegments.length === 0) {
+    return rootHandle;
+  }
+
+  let cursor = rootHandle;
+  try {
+    for (const segment of rootSegments) {
+      cursor = await cursor.getDirectoryHandle(segment, { create: false });
+    }
+    return cursor;
+  } catch (error) {
+    if (!create) {
+      return rootHandle;
+    }
+  }
+
+  cursor = rootHandle;
+  for (const segment of rootSegments) {
+    cursor = await cursor.getDirectoryHandle(segment, { create: true });
+  }
+  return cursor;
+}
+
+async function connectRootDirectoryHandle() {
+  rootDirectoryHandle = null;
+  try {
+    const selected = await getRootDirectoryHandle();
+    const target = await getConfiguredRootHandle({ create: false });
+    const modeText = selected.name === target.name
+      ? `using ${selected.name}`
+      : `using ${selected.name}/${normalizeRootFolder(state.rootFolder)}`;
+    showToast(`Connected root folder (${modeText})`, "success");
+    return true;
+  } catch (error) {
+    if (error && error.name === "AbortError") {
+      showToast("Root folder selection canceled.", "info");
+      return false;
+    }
+
+    showToast("Could not connect root folder.", "warning");
+    return false;
+  }
+}
+
+async function pathExistsInHandle(rootHandle, relativePath) {
+  const parts = String(relativePath || "").split("/").filter((item) => item !== "");
+  if (parts.length === 0) {
+    return false;
+  }
+
+  let directoryHandle = rootHandle;
+  const fileName = parts.pop();
+
+  try {
+    for (const segment of parts) {
+      directoryHandle = await directoryHandle.getDirectoryHandle(segment, { create: false });
+    }
+
+    await directoryHandle.getFileHandle(fileName, { create: false });
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+async function resolveWritableQuizRelativePath(rootHandle, quiz, category) {
+  const rootFolder = normalizeRootFolder(state.rootFolder);
+  const rawSourcePath = String(quiz.sourcePath || "").replace(/\\/g, "/").replace(/^\/+/, "");
+  const fallbackPath = `${slugify(category.name || "category")}/${normalizeQuizFileName(quiz.fileName || quiz.title || "quiz")}`;
+  const candidates = [];
+
+  if (rawSourcePath) {
+    const prefix = `${rootFolder}/`;
+    if (rawSourcePath.startsWith(prefix)) {
+      candidates.push(rawSourcePath.slice(prefix.length));
+    } else {
+      candidates.push(rawSourcePath);
+    }
+  }
+
+  candidates.push(fallbackPath);
+
+  const uniqueCandidates = Array.from(new Set(candidates.filter((item) => item && item.includes("/"))));
+  for (const candidate of uniqueCandidates) {
+    if (await pathExistsInHandle(rootHandle, candidate)) {
+      return candidate;
+    }
+  }
+
+  return rawSourcePath.startsWith(`${rootFolder}/`) ? rawSourcePath.slice(rootFolder.length + 1) : (rawSourcePath || fallbackPath);
+}
+
+async function deleteCategoryFolderFromDisk(category) {
+  if (!supportsFolderDeletion()) {
+    showToast("Category removed in app. Browser cannot auto-delete local folders here.", "warning");
+    return;
+  }
+
+  const folderName = getCategoryFolderName(category);
+  if (!folderName) {
+    return;
+  }
+
+  try {
+    const configuredRoot = await getConfiguredRootHandle({ create: false });
+    await configuredRoot.removeEntry(folderName, { recursive: true });
+    showToast(`Folder deleted: ${folderName}`, "success");
+  } catch (error) {
+    if (error && error.name === "AbortError") {
+      showToast("Category removed. Folder delete canceled.", "info");
+      return;
+    }
+
+    if (error && error.name === "NotFoundError") {
+      showToast(`Category removed. Folder not found: ${folderName}`, "info");
+      return;
+    }
+
+    showToast("Category removed. Could not delete folder on disk.", "warning");
+  }
+}
+
+async function createCategoryFolderOnDisk(category) {
+  if (!supportsFolderDeletion()) {
+    showToast("Category created in app. Browser cannot auto-create local folders here.", "warning");
+    return;
+  }
+
+  const folderName = getCategoryFolderName(category);
+  if (!folderName) {
+    return;
+  }
+
+  try {
+    const configuredRoot = await getConfiguredRootHandle({ create: true });
+    await configuredRoot.getDirectoryHandle(folderName, { create: true });
+    showToast(`Folder ready: ${folderName}`, "success");
+  } catch (error) {
+    if (error && error.name === "AbortError") {
+      showToast("Category created. Folder create canceled.", "info");
+      return;
+    }
+
+    showToast("Category created. Could not create folder on disk.", "warning");
+  }
+}
+
+async function createStarterQuizFileOnDisk(category, quiz) {
+  if (!supportsFolderDeletion()) {
+    return;
+  }
+
+  if (!category || !quiz) {
+    return;
+  }
+
+  const folderName = getCategoryFolderName(category);
+  const fileName = normalizeQuizFileName(quiz.fileName || quiz.title || "new-quiz");
+  const sourcePath = `${normalizeRootFolder(state.rootFolder)}/${folderName}/${fileName}`;
+
+  try {
+    const configuredRoot = await getConfiguredRootHandle({ create: true });
+    const categoryHandle = await configuredRoot.getDirectoryHandle(folderName, { create: true });
+    const fileHandle = await categoryHandle.getFileHandle(fileName, { create: true });
+    const writable = await fileHandle.createWritable();
+
+    const starterPayload = {
+      id: slugify(quiz.title || "new-quiz"),
+      title: quiz.title || "New Quiz",
+      category: category.name || "Category",
+      questions: Array.isArray(quiz.questions) && quiz.questions.length > 0
+        ? quiz.questions.map((item) => ({
+          question: item.question || "",
+          resultType: item.resultType || "multiple-choice",
+          options: Array.isArray(item.options) ? item.options : ["", "", "", ""],
+          correctAnswer: item.correctAnswer || "",
+          notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
+          image: item.image || "",
+          solution: item.solution || ""
+        }))
+        : [createEmptyQuestion()]
+    };
+
+    await writable.write(`${JSON.stringify(starterPayload, null, 2)}\n`);
+    await writable.close();
+
+    quiz.fileName = fileName;
+    quiz.sourcePath = sourcePath;
+    showToast(`Starter quiz file created: ${folderName}/${fileName}`, "success");
+  } catch (error) {
+    if (error && error.name === "AbortError") {
+      showToast("Category created. Starter quiz file create canceled.", "info");
+      return;
+    }
+
+    showToast("Category created. Could not create starter quiz file.", "warning");
+  }
 }
 
 function categoryNameFromFolder(folderName) {
@@ -591,6 +846,7 @@ function renderQuizList() {
     row.className = `list-item ${quiz.id === state.selectedQuizId ? "active" : ""}`;
     row.innerHTML = `
       <button class="list-main" data-id="${quiz.id}" type="button">${quiz.title}</button>
+      <button class="icon-btn secondary" data-action="rename" data-id="${quiz.id}" type="button">Rename</button>
       <button class="icon-btn secondary" data-action="embed" data-id="${quiz.id}" type="button">Link</button>
       <button class="icon-btn danger" data-action="delete" data-id="${quiz.id}" type="button">x</button>
     `;
@@ -598,23 +854,64 @@ function renderQuizList() {
   });
 }
 
-function buildQuizIframeCode(quizId) {
+function buildQuizViewerUrl(quizId) {
   const category = activeCategory();
-  if (!category) return "";
+  if (!category) return null;
   const quiz = category.quizzes.find((item) => item.id === quizId);
-  if (!quiz) return "";
+  if (!quiz) return null;
 
-  const fileName = quiz.fileName || normalizeQuizFileName(quiz.title);
+  const fileName = quiz.sourcePath || quiz.fileName || normalizeQuizFileName(quiz.title);
   const viewerUrl = new URL("viewer.html", window.location.href);
   viewerUrl.searchParams.set("file", fileName);
+
+  return viewerUrl;
+}
+
+function buildQuizIframeCode(quizId) {
+  const viewerUrl = buildQuizViewerUrl(quizId);
+  if (!viewerUrl) return "";
 
   return `<iframe src="${viewerUrl.toString()}" width="100%" height="640" style="border:0;" loading="lazy" allowfullscreen></iframe>`;
 }
 
-async function generateAndCopyIframeCode(quizId) {
-  const code = buildQuizIframeCode(quizId);
+function buildQuizLinkCode(quizId) {
+  const viewerUrl = buildQuizViewerUrl(quizId);
+  return viewerUrl ? viewerUrl.toString() : "";
+}
+
+function getSelectedEmbedFormat() {
+  const select = document.getElementById("embedFormatSelect");
+  if (!(select instanceof HTMLSelectElement)) {
+    return "iframe";
+  }
+
+  return select.value === "link" ? "link" : "iframe";
+}
+
+function buildEmbedCodeForQuiz(quizId, format) {
+  return format === "link" ? buildQuizLinkCode(quizId) : buildQuizIframeCode(quizId);
+}
+
+function updateEmbedOutputForActiveQuiz() {
+  const output = document.getElementById("iframeCodeOutput");
+  if (!(output instanceof HTMLTextAreaElement)) return;
+
+  const quiz = activeQuiz();
+  if (!quiz) {
+    output.value = "";
+    return;
+  }
+
+  const format = getSelectedEmbedFormat();
+  output.value = buildEmbedCodeForQuiz(quiz.id, format);
+}
+
+async function generateAndCopyEmbedCode(quizId) {
+  const format = getSelectedEmbedFormat();
+
+  const code = buildEmbedCodeForQuiz(quizId, format);
   if (!code) {
-    showToast("Could not generate iframe code.", "error");
+    showToast("Could not generate code.", "error");
     return;
   }
 
@@ -623,9 +920,9 @@ async function generateAndCopyIframeCode(quizId) {
 
   try {
     await navigator.clipboard.writeText(code);
-    showToast("Iframe code copied.", "success");
+    showToast(`${format === "link" ? "Link" : "Iframe"} copied.`, "success");
   } catch (error) {
-    showToast("Could not copy iframe code.", "error");
+    showToast("Could not copy code.", "error");
   }
 }
 
@@ -663,8 +960,14 @@ function renderQuestionsList() {
 }
 
 function toggleOptionsBlock(question) {
-  const isChoiceType = question && ["multiple-choice", "checkbox", "true-false"].includes(question.resultType);
+  const isChoiceType = question && ["multiple-choice", "checkbox"].includes(question.resultType);
   document.getElementById("optionsBlock").style.display = isChoiceType ? "block" : "none";
+}
+
+function ensureTrueFalseOptions(question) {
+  if (!question) return;
+  if ((question.resultType || "multiple-choice") !== "true-false") return;
+  question.options = ["True", "False", "", ""];
 }
 
 function getChoiceOptions(question) {
@@ -677,6 +980,10 @@ function ensureDefaultCorrectAnswer(question) {
   if (!question) return;
 
   const resultType = question.resultType || "multiple-choice";
+  if (resultType === "true-false") {
+    ensureTrueFalseOptions(question);
+  }
+
   if (!["multiple-choice", "true-false"].includes(resultType)) {
     return;
   }
@@ -825,6 +1132,7 @@ function renderEditor() {
   }
 
   hint.textContent = `Editing question ${state.selectedQuestionIndex + 1}`;
+  ensureTrueFalseOptions(question);
   document.getElementById("questionText").value = question.question || "";
   document.getElementById("resultType").value = question.resultType || "multiple-choice";
   document.getElementById("option1").value = question.options[0] || "";
@@ -888,19 +1196,26 @@ function renderAll() {
   renderQuestionsList();
   renderEditor();
   updateGeneratedJson();
+  updateEmbedOutputForActiveQuiz();
   saveDraft();
 }
 
-function addCategory() {
+async function addCategory() {
   const name = prompt("Category name:", `Category ${state.categories.length + 1}`);
   if (!name || !name.trim()) return;
 
   const category = createCategory(name.trim());
-  category.quizzes.push(createQuiz("New Quiz"));
+  const quiz = createQuiz("New Quiz");
+  quiz.questions.push(createEmptyQuestion());
+  category.quizzes.push(quiz);
   state.categories.push(category);
   state.selectedCategoryId = category.id;
   state.selectedQuizId = category.quizzes[0].id;
-  state.selectedQuestionIndex = -1;
+  state.selectedQuestionIndex = 0;
+  renderAll();
+
+  await createCategoryFolderOnDisk(category);
+  await createStarterQuizFileOnDisk(category, quiz);
   renderAll();
 }
 
@@ -915,10 +1230,29 @@ function addQuiz() {
   if (!title || !title.trim()) return;
 
   const quiz = createQuiz(title.trim());
+  quiz.questions.push(createEmptyQuestion());
   category.quizzes.push(quiz);
   state.selectedQuizId = quiz.id;
-  state.selectedQuestionIndex = -1;
+  state.selectedQuestionIndex = 0;
   renderAll();
+}
+
+function renameQuiz(id) {
+  const category = activeCategory();
+  if (!category) return;
+
+  const quiz = category.quizzes.find((item) => item.id === id);
+  if (!quiz) return;
+
+  const nextTitle = prompt("Rename quiz:", quiz.title || "Quiz");
+  if (!nextTitle || !nextTitle.trim()) return;
+
+  const changed = nextTitle.trim() !== quiz.title;
+  if (!changed) return;
+
+  quiz.title = nextTitle.trim();
+  renderAll();
+  showToast("Quiz renamed.", "success");
 }
 
 function addQuestion() {
@@ -948,14 +1282,17 @@ function requireDeletePhrase(scopeLabel) {
   return false;
 }
 
-function deleteCategory(id) {
+async function deleteCategory(id) {
   if (!requireDeletePhrase("category")) return;
 
   const index = state.categories.findIndex((item) => item.id === id);
   if (index === -1) return;
+  const category = state.categories[index];
   state.categories.splice(index, 1);
   showToast("Category deleted.", "info");
   renderAll();
+
+  await deleteCategoryFolderFromDisk(category);
 }
 
 function deleteQuiz(id) {
@@ -982,7 +1319,7 @@ function updateQuestionFromForm() {
   if (!question) return;
 
   question.question = document.getElementById("questionText").value.trim();
-  question.resultType = document.getElementById("resultType").value;
+  question.resultType = normalizeResultType(document.getElementById("resultType").value);
   question.options = [
     document.getElementById("option1").value.trim(),
     document.getElementById("option2").value.trim(),
@@ -991,7 +1328,7 @@ function updateQuestionFromForm() {
   ];
 
   if (question.resultType === "true-false") {
-    question.options = ["True", "False", "", ""];
+    ensureTrueFalseOptions(question);
   }
 
   ensureDefaultCorrectAnswer(question);
@@ -1027,6 +1364,7 @@ function updateQuestionFromForm() {
   renderQuestionsList();
   renderValidationBox(question);
   updateGeneratedJson();
+  saveDraft();
 }
 
 function updateImagePreview(src) {
@@ -1039,6 +1377,132 @@ function updateImagePreview(src) {
     preview.src = "";
     preview.classList.add("hidden");
   }
+}
+
+function buildPersistedQuizPayload() {
+  const selectedQuiz = activeQuiz();
+  const category = activeCategory();
+  if (!selectedQuiz || !category) {
+    return null;
+  }
+
+  return {
+    id: selectedQuiz.id || slugify(selectedQuiz.title || "quiz"),
+    title: selectedQuiz.title || "Untitled Quiz",
+    category: category.name || "General",
+    questions: (selectedQuiz.questions || []).map((item) => ({
+      question: item.question || "",
+      resultType: item.resultType || "multiple-choice",
+      options: Array.isArray(item.options) ? item.options : ["", "", "", ""],
+      correctAnswer: item.correctAnswer || "",
+      notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
+      image: item.image || "",
+      solution: item.solution || ""
+    }))
+  };
+}
+
+function resolveQuizRelativePath(quiz, category) {
+  const rootFolder = normalizeRootFolder(state.rootFolder);
+  const rawSourcePath = String(quiz.sourcePath || "").replace(/\\/g, "/");
+  if (rawSourcePath) {
+    const rootPrefix = `${rootFolder}/`;
+    if (rawSourcePath.startsWith(rootPrefix)) {
+      return rawSourcePath.slice(rootPrefix.length);
+    }
+
+    if (!rawSourcePath.includes("/")) {
+      return `${slugify(category.name || "category")}/${rawSourcePath}`;
+    }
+
+    return rawSourcePath;
+  }
+
+  return `${slugify(category.name || "category")}/${normalizeQuizFileName(quiz.fileName || quiz.title || "quiz")}`;
+}
+
+async function writeSelectedQuizToDisk() {
+  const quiz = activeQuiz();
+  const category = activeCategory();
+  const payload = buildPersistedQuizPayload();
+  if (!quiz || !category || !payload) {
+    showToast("Select a quiz first.", "warning");
+    return false;
+  }
+
+  if (!supportsFolderDeletion()) {
+    return false;
+  }
+
+  try {
+    const configuredRoot = await getConfiguredRootHandle({ create: true });
+    const relativePath = await resolveWritableQuizRelativePath(configuredRoot, quiz, category);
+    const parts = relativePath.split("/").filter((item) => item !== "");
+    if (parts.length === 0) {
+      showToast("Could not resolve save path.", "error");
+      return false;
+    }
+
+    const fileName = parts.pop();
+    if (!fileName || !fileName.toLowerCase().endsWith(".json")) {
+      showToast("Quiz file name must end with .json", "warning");
+      return false;
+    }
+
+    let directoryHandle = configuredRoot;
+    for (const segment of parts) {
+      directoryHandle = await directoryHandle.getDirectoryHandle(segment, { create: true });
+    }
+
+    const fileHandle = await directoryHandle.getFileHandle(fileName, { create: true });
+    const writable = await fileHandle.createWritable();
+    await writable.write(`${JSON.stringify(payload, null, 2)}\n`);
+    await writable.close();
+
+    quiz.fileName = normalizeQuizFileName(fileName);
+
+    const normalizedRoot = normalizeRootFolder(state.rootFolder);
+    const savedRelative = [...parts, fileName].join("/");
+    quiz.sourcePath = savedRelative.startsWith(`${normalizedRoot}/`)
+      ? savedRelative
+      : `${normalizedRoot}/${savedRelative}`;
+
+    updateGeneratedJson();
+    saveDraft();
+    showToast(`Saved ${[...parts, fileName].join("/")}`, "success");
+    return true;
+  } catch (error) {
+    if (error && error.name === "AbortError") {
+      showToast("Save canceled.", "info");
+      return false;
+    }
+
+    showToast("Could not save to local folder.", "warning");
+    return false;
+  }
+}
+
+function downloadSelectedQuizJson() {
+  const json = JSON.stringify(getQuizData(), null, 2);
+  const blob = new Blob([json], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = getSelectedQuizFileName();
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
+async function saveSelectedQuiz() {
+  const saved = await writeSelectedQuizToDisk();
+  if (!saved) {
+    showToast("Save failed. Use Connect Root Folder and try again.", "warning");
+  }
+
+  return saved;
 }
 
 function moveQuestion(fromIndex, toIndex) {
@@ -1141,8 +1605,13 @@ document.getElementById("quizList").addEventListener("click", (event) => {
     return;
   }
 
+  if (target.dataset.action === "rename") {
+    renameQuiz(id);
+    return;
+  }
+
   if (target.dataset.action === "embed") {
-    generateAndCopyIframeCode(id);
+    generateAndCopyEmbedCode(id);
     return;
   }
 
@@ -1232,6 +1701,23 @@ document.getElementById("notesBtn").addEventListener("click", () => {
   showToast(`Attachments: ${question.notesAttachments.length}`, "success");
 });
 
+document.getElementById("saveQuestionBtn").addEventListener("click", async () => {
+  const question = activeQuestion();
+  if (!question) {
+    showToast("Select a question first.", "warning");
+    return;
+  }
+
+  updateQuestionFromForm();
+  const saved = await saveSelectedQuiz();
+  if (saved) {
+    showToast("Question changes saved.", "success");
+    return;
+  }
+
+  showToast("Question updated in Maker, but file save failed.", "warning");
+});
+
 ["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "questionImage", "solutionText"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
@@ -1245,6 +1731,10 @@ document.getElementById("correctAnswerCheckboxWrap").addEventListener("change", 
   if (!(target instanceof HTMLInputElement)) return;
   if (target.dataset.role !== "correct-answer-check") return;
   updateQuestionFromForm();
+});
+
+document.getElementById("embedFormatSelect").addEventListener("change", () => {
+  updateEmbedOutputForActiveQuiz();
 });
 
 document.getElementById("quizFileName").addEventListener("change", () => {
@@ -1265,18 +1755,16 @@ document.getElementById("quizFileName").addEventListener("change", () => {
   }
 });
 
-document.getElementById("downloadQuizBtn").addEventListener("click", () => {
-  const json = JSON.stringify(getQuizData(), null, 2);
-  const blob = new Blob([json], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
+document.getElementById("saveQuizBtn").addEventListener("click", async () => {
+  await saveSelectedQuiz();
+});
 
-  link.href = url;
-  link.download = getSelectedQuizFileName();
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
+document.getElementById("connectRootBtn").addEventListener("click", async () => {
+  await connectRootDirectoryHandle();
+});
+
+document.getElementById("downloadQuizBtn").addEventListener("click", () => {
+  downloadSelectedQuizJson();
 });
 
 document.getElementById("copyJsonBtn").addEventListener("click", async () => {
@@ -1315,13 +1803,22 @@ function normalizeQuestion(item) {
     options.push("");
   }
 
+  const resultType = normalizeResultType(item.resultType || "multiple-choice");
+
   const correctAnswerValue = Number.isInteger(item.correctAnswer)
     ? (options[item.correctAnswer] || "")
     : (item.correctAnswer || "");
 
+  if (resultType === "true-false") {
+    options[0] = "True";
+    options[1] = "False";
+    options[2] = "";
+    options[3] = "";
+  }
+
   return {
     question: item.question || "",
-    resultType: item.resultType || "multiple-choice",
+    resultType,
     options,
     correctAnswer: correctAnswerValue,
     notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
@@ -1439,8 +1936,7 @@ async function initialize() {
 window.addEventListener("keydown", (event) => {
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {
     event.preventDefault();
-    document.getElementById("downloadQuizBtn").click();
-    showToast(`Downloaded ${getSelectedQuizFileName()}`, "success");
+    document.getElementById("saveQuizBtn").click();
     return;
   }
 
