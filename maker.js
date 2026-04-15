@@ -518,6 +518,7 @@ function renderEditor() {
     document.getElementById("attachmentsInput").value = "";
     document.getElementById("questionImage").value = "";
     document.getElementById("solutionText").value = "";
+    updateImagePreview("");
     attachImageBtn.disabled = true;
     imageAttachHint.textContent = "Select a question first to attach an image.";
     updateNotesPreview([]);
@@ -540,6 +541,7 @@ function renderEditor() {
   document.getElementById("attachmentsInput").value = (question.notesAttachments || []).join("\n");
   document.getElementById("questionImage").value = question.image || "";
   document.getElementById("solutionText").value = question.solution || "";
+  updateImagePreview(question.image || "");
   attachImageBtn.disabled = false;
   imageAttachHint.textContent = "Attach image for the selected question, or paste a URL above.";
   updateNotesPreview(question.notesAttachments || []);
@@ -718,9 +720,22 @@ function updateQuestionFromForm() {
 
   toggleOptionsBlock(question);
   updateNotesPreview(question.notesAttachments);
+  updateImagePreview(question.image);
   renderQuestionsList();
   renderValidationBox(question);
   updateGeneratedJson();
+}
+
+function updateImagePreview(src) {
+  const preview = document.getElementById("questionImagePreview");
+  if (!preview) return;
+  if (src) {
+    preview.src = src;
+    preview.classList.remove("hidden");
+  } else {
+    preview.src = "";
+    preview.classList.add("hidden");
+  }
 }
 
 function moveQuestion(fromIndex, toIndex) {
