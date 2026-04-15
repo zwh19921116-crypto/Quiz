@@ -6,7 +6,7 @@
       "quizzes": [
         {
           "title": "Sample Quiz",
-          "file": "general/sample-quiz.json"
+          "file": "General/sample-quiz.json"
         }
       ]
     },
@@ -15,7 +15,16 @@
       "quizzes": [
         {
           "title": "Planets Quiz",
-          "file": "science/planets-quiz.json"
+          "file": "Science/planets-quiz.json"
+        }
+      ]
+    },
+    {
+      "name": "Space",
+      "quizzes": [
+        {
+          "title": "New Quiz",
+          "file": "space/new-quiz.json"
         }
       ]
     }
