@@ -142,7 +142,8 @@ function createEmptyQuestion() {
     correctAnswer: "",
     notesAttachments: [],
     image: "",
-    solution: ""
+    solution: "",
+    solutionAttachments: []
   };
 }
 
@@ -789,7 +790,8 @@ async function createStarterQuizFileOnDisk(category, quiz) {
           correctAnswer: item.correctAnswer || "",
           notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
           image: item.image || "",
-          solution: item.solution || ""
+          solution: item.solution || "",
+          solutionAttachments: Array.isArray(item.solutionAttachments) ? item.solutionAttachments : []
         }))
         : [createEmptyQuestion()]
     };
@@ -1673,6 +1675,19 @@ function updateNotesPreview(attachments) {
   preview.textContent = attachments.join(" | ");
 }
 
+function updateSolutionAttachmentsPreview(attachments) {
+  const button = document.getElementById("solutionAssetsBtn");
+  const preview = document.getElementById("solutionAttachmentsPreview");
+  if (!attachments || attachments.length === 0) {
+    button.textContent = "Solution Files: N/A";
+    preview.textContent = "n/a";
+    return;
+  }
+
+  button.textContent = `Solution Files: ${attachments.length} attachment(s)`;
+  preview.textContent = attachments.join(" | ");
+}
+
 function renderEditor() {
   const hint = document.getElementById("editorHint");
   const question = activeQuestion();
@@ -1693,10 +1708,12 @@ function renderEditor() {
     document.getElementById("attachmentsInput").value = "";
     document.getElementById("questionImage").value = "";
     document.getElementById("solutionText").value = "";
+    document.getElementById("solutionAttachmentsInput").value = "";
     updateImagePreview("");
     attachImageBtn.disabled = true;
     imageAttachHint.textContent = "Select a question first to attach an image.";
     updateNotesPreview([]);
+    updateSolutionAttachmentsPreview([]);
     toggleOptionsBlock({ resultType: "multiple-choice" });
     refreshCorrectAnswerSelect({ resultType: "multiple-choice", options: ["", "", "", ""], correctAnswer: "" });
     renderValidationBox(null);
@@ -1717,10 +1734,12 @@ function renderEditor() {
   document.getElementById("attachmentsInput").value = (question.notesAttachments || []).join("\n");
   document.getElementById("questionImage").value = question.image || "";
   document.getElementById("solutionText").value = question.solution || "";
+  document.getElementById("solutionAttachmentsInput").value = (question.solutionAttachments || []).join("\n");
   updateImagePreview(question.image || "");
   attachImageBtn.disabled = false;
   imageAttachHint.textContent = "Attach image for the selected question, or paste a URL above.";
   updateNotesPreview(question.notesAttachments || []);
+  updateSolutionAttachmentsPreview(question.solutionAttachments || []);
   toggleOptionsBlock(question);
   refreshCorrectAnswerSelect(question);
   renderValidationBox(question);
@@ -1737,7 +1756,8 @@ function getQuizData() {
       correctAnswer: item.correctAnswer || "",
       notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
       image: item.image || "",
-      solution: item.solution || ""
+      solution: item.solution || "",
+      solutionAttachments: Array.isArray(item.solutionAttachments) ? item.solutionAttachments : []
     }))
     : [];
 
@@ -1953,9 +1973,14 @@ function updateQuestionFromForm() {
     .filter((item) => item !== "");
   question.image = document.getElementById("questionImage").value.trim();
   question.solution = document.getElementById("solutionText").value.trim();
+  question.solutionAttachments = document.getElementById("solutionAttachmentsInput").value
+    .split("\n")
+    .map((item) => item.trim())
+    .filter((item) => item !== "");
 
   toggleOptionsBlock(question);
   updateNotesPreview(question.notesAttachments);
+  updateSolutionAttachmentsPreview(question.solutionAttachments);
   updateImagePreview(question.image);
   renderQuestionsList();
   renderValidationBox(question);
@@ -1993,7 +2018,8 @@ function buildPersistedQuizPayload() {
       correctAnswer: item.correctAnswer || "",
       notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
       image: item.image || "",
-      solution: item.solution || ""
+      solution: item.solution || "",
+      solutionAttachments: Array.isArray(item.solutionAttachments) ? item.solutionAttachments : []
     }))
   };
 }
@@ -2314,7 +2340,7 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   showToast("Question updated in Maker, but file save failed.", "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "questionImage", "solutionText"]
+["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "questionImage", "solutionText", "solutionAttachmentsInput"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);
@@ -2426,7 +2452,8 @@ function normalizeQuestion(item) {
     correctAnswer: correctAnswerValue,
     notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
     image: item.image || "",
-    solution: item.solution || ""
+    solution: item.solution || "",
+    solutionAttachments: Array.isArray(item.solutionAttachments) ? item.solutionAttachments : []
   };
 }
 
