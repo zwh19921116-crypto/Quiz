@@ -272,6 +272,41 @@ function isHttpUrl(value) {
   return /^https?:\/\//i.test(String(value || "").trim());
 }
 
+function buildGithubContext(owner, repo, branch, repoPath, rootFolder) {
+  const cleanRepoPath = String(repoPath || "").replace(/^\/+|\/+$/g, "");
+  const rawBase = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}${cleanRepoPath ? `/${cleanRepoPath}` : ""}`;
+  return {
+    rootFolder,
+    fetchBase: rawBase,
+    supportsDirectoryScan: false,
+    githubRepo: {
+      owner,
+      repo,
+      branch,
+      repoPath: cleanRepoPath
+    }
+  };
+}
+
+function inferGithubContextFromPages(rootFolder) {
+  const host = String(window.location.hostname || "").toLowerCase();
+  if (!host.endsWith(".github.io")) {
+    return null;
+  }
+
+  const owner = host.replace(/\.github\.io$/i, "");
+  const pathSegments = String(window.location.pathname || "")
+    .split("/")
+    .filter((item) => item !== "");
+  const repo = pathSegments[0] || "";
+  if (!owner || !repo) {
+    return null;
+  }
+
+  const repoPath = normalizeRootFolder(rootFolder);
+  return buildGithubContext(owner, repo, "main", repoPath, rootFolder);
+}
+
 function joinPath(base, relativePath) {
   const cleanBase = String(base || "").replace(/\/+$/g, "");
   const cleanRelative = String(relativePath || "").replace(/^\/+/, "");
@@ -303,19 +338,14 @@ function resolveRootFetchContext(rootFolder) {
       const branch = rawSegments[2] || "main";
       const repoPath = rawSegments.slice(3).join("/");
 
-      return {
-        rootFolder: normalized,
-        fetchBase: `${parsed.origin}${parsed.pathname}`.replace(/\/+$/g, ""),
-        supportsDirectoryScan: false,
-        githubRepo: owner && repo
-          ? {
-            owner,
-            repo,
-            branch,
-            repoPath
-          }
-          : null
-      };
+      return owner && repo
+        ? buildGithubContext(owner, repo, branch, repoPath, normalized)
+        : {
+          rootFolder: normalized,
+          fetchBase: `${parsed.origin}${parsed.pathname}`.replace(/\/+$/g, ""),
+          supportsDirectoryScan: false,
+          githubRepo: null
+        };
     }
 
     if (host !== "github.com" || segments.length < 2) {
@@ -342,18 +372,7 @@ function resolveRootFetchContext(rootFolder) {
       repoPath = segments.slice(4, -1).join("/");
     }
 
-    const rawBase = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}${repoPath ? `/${repoPath}` : ""}`;
-    return {
-      rootFolder: normalized,
-      fetchBase: rawBase,
-      supportsDirectoryScan: false,
-      githubRepo: {
-        owner,
-        repo,
-        branch,
-        repoPath
-      }
-    };
+    return buildGithubContext(owner, repo, branch, repoPath, normalized);
   } catch (error) {
     return {
       rootFolder: normalized,
@@ -1019,14 +1038,21 @@ function setRootStatus(message) {
 
 async function loadLibraryFromRoot() {
   const rootFolder = normalizeRootFolder(state.rootFolder);
-  const context = resolveRootFetchContext(rootFolder);
+  let context = resolveRootFetchContext(rootFolder);
   const rootSourceMode = normalizeRootSourceMode(state.rootSourceMode);
   let loadedCategories = [];
   let sourceMode = "manifest";
 
   if (rootSourceMode === ROOT_SOURCE_MODES.GITHUB) {
     if (!context.githubRepo) {
-      throw new Error("GitHub mode requires a GitHub repository URL as Quiz Root Folder.");
+      const inferred = inferGithubContextFromPages(rootFolder);
+      if (inferred) {
+        context = inferred;
+      }
+    }
+
+    if (!context.githubRepo) {
+      throw new Error("GitHub mode requires a GitHub URL, or running on a github.io site with a repo root like quizzes.");
     }
 
     try {
