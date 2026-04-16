@@ -2,6 +2,11 @@ let categorySeed = 1;
 let quizSeed = 1;
 const DRAFT_STORAGE_KEY = "quiz-maker-draft-v1";
 const DEFAULT_QUIZ_ROOT = "quizzes";
+const ROOT_SOURCE_MODES = {
+  AUTO: "auto",
+  LOCAL: "local",
+  GITHUB: "github"
+};
 let rootDirectoryHandle = null;
 
 function splitPath(value) {
@@ -14,11 +19,19 @@ function splitPath(value) {
 const state = {
   categories: [],
   rootFolder: DEFAULT_QUIZ_ROOT,
+  rootSourceMode: ROOT_SOURCE_MODES.AUTO,
   selectedCategoryId: null,
   selectedQuizId: null,
   selectedQuestionIndex: -1,
   draggingQuestionIndex: -1
 };
+
+function normalizeRootSourceMode(value) {
+  const mode = String(value || "").trim().toLowerCase();
+  if (mode === ROOT_SOURCE_MODES.LOCAL) return ROOT_SOURCE_MODES.LOCAL;
+  if (mode === ROOT_SOURCE_MODES.GITHUB) return ROOT_SOURCE_MODES.GITHUB;
+  return ROOT_SOURCE_MODES.AUTO;
+}
 
 function ensureToastHost() {
   let host = document.getElementById("toastStack");
@@ -62,6 +75,7 @@ function saveDraft() {
   const payload = {
     categories: state.categories,
     rootFolder: state.rootFolder,
+    rootSourceMode: state.rootSourceMode,
     selectedCategoryId: state.selectedCategoryId,
     selectedQuizId: state.selectedQuizId,
     selectedQuestionIndex: state.selectedQuestionIndex
@@ -105,6 +119,7 @@ function loadDraft() {
     }));
 
     state.rootFolder = String(parsed.rootFolder || DEFAULT_QUIZ_ROOT).trim() || DEFAULT_QUIZ_ROOT;
+    state.rootSourceMode = normalizeRootSourceMode(parsed.rootSourceMode || ROOT_SOURCE_MODES.AUTO);
 
     ensureQuizFileNames();
 
@@ -758,6 +773,137 @@ async function readDirectoryEntries(folderPath) {
   return extractDirectoryEntries(html, response.url);
 }
 
+async function readJsonFromFileHandle(fileHandle) {
+  const file = await fileHandle.getFile();
+  const text = await file.text();
+  return JSON.parse(text);
+}
+
+async function getFileHandleByRelativePath(rootHandle, relativePath) {
+  const parts = String(relativePath || "").replace(/\\/g, "/").split("/").filter((item) => item !== "");
+  if (parts.length === 0) {
+    throw new Error("Invalid relative file path.");
+  }
+
+  const fileName = parts.pop();
+  let directoryHandle = rootHandle;
+  for (const segment of parts) {
+    directoryHandle = await directoryHandle.getDirectoryHandle(segment, { create: false });
+  }
+
+  return directoryHandle.getFileHandle(fileName, { create: false });
+}
+
+async function listDirectoryEntriesFromHandle(directoryHandle) {
+  const folders = [];
+  const files = [];
+
+  // The picker-backed handle supports async iteration across child entries.
+  for await (const [name, handle] of directoryHandle.entries()) {
+    if (handle.kind === "directory") {
+      folders.push(name);
+      continue;
+    }
+
+    if (handle.kind === "file") {
+      files.push(name);
+    }
+  }
+
+  return { folders, files };
+}
+
+async function loadLibraryFromHandleCategoryFolders(rootHandle, rootFolder) {
+  const rootEntries = await listDirectoryEntriesFromHandle(rootHandle);
+  if (!Array.isArray(rootEntries.folders) || rootEntries.folders.length === 0) {
+    throw new Error(`No category folders found in ${rootFolder}/`);
+  }
+
+  const loadedCategories = [];
+
+  for (const folder of rootEntries.folders) {
+    const category = createCategory(categoryNameFromFolder(folder));
+    let categoryHandle;
+
+    try {
+      categoryHandle = await rootHandle.getDirectoryHandle(folder, { create: false });
+    } catch (error) {
+      loadedCategories.push(category);
+      continue;
+    }
+
+    const categoryEntries = await listDirectoryEntriesFromHandle(categoryHandle);
+    const jsonFiles = (categoryEntries.files || []).filter((name) => String(name || "").toLowerCase().endsWith(".json"));
+
+    for (const fileName of jsonFiles) {
+      let quizJson;
+      try {
+        const fileHandle = await categoryHandle.getFileHandle(fileName, { create: false });
+        quizJson = await readJsonFromFileHandle(fileHandle);
+      } catch (error) {
+        continue;
+      }
+
+      const relativePath = `${folder}/${fileName}`;
+      const quiz = createQuiz(quizJson.title || baseNameFromPath(relativePath).replace(/\.json$/i, ""));
+      quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
+      quiz.sourcePath = `${rootFolder}/${relativePath}`;
+      quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
+      category.quizzes.push(quiz);
+    }
+
+    loadedCategories.push(category);
+  }
+
+  return loadedCategories;
+}
+
+async function loadLibraryFromHandleManifest(rootHandle, rootFolder) {
+  let indexHandle;
+  try {
+    indexHandle = await rootHandle.getFileHandle("index.json", { create: false });
+  } catch (error) {
+    throw new Error(`Could not read ${rootFolder}/index.json`);
+  }
+
+  const manifest = await readJsonFromFileHandle(indexHandle);
+  if (!manifest || !Array.isArray(manifest.categories)) {
+    throw new Error(`Invalid ${rootFolder}/index.json`);
+  }
+
+  const loadedCategories = [];
+
+  for (const categoryInfo of manifest.categories) {
+    const category = createCategory(categoryInfo.name || "Category");
+    const quizEntries = Array.isArray(categoryInfo.quizzes) ? categoryInfo.quizzes : [];
+
+    for (const entry of quizEntries) {
+      const relativePath = String(entry.file || "").trim().replace(/^\/+/, "");
+      if (!relativePath) {
+        continue;
+      }
+
+      let quizJson;
+      try {
+        const fileHandle = await getFileHandleByRelativePath(rootHandle, relativePath);
+        quizJson = await readJsonFromFileHandle(fileHandle);
+      } catch (error) {
+        continue;
+      }
+
+      const quiz = createQuiz(quizJson.title || entry.title || baseNameFromPath(relativePath).replace(/\.json$/i, ""));
+      quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
+      quiz.sourcePath = `${rootFolder}/${relativePath}`;
+      quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
+      category.quizzes.push(quiz);
+    }
+
+    loadedCategories.push(category);
+  }
+
+  return loadedCategories;
+}
+
 async function loadLibraryFromCategoryFolders(rootFolder) {
   const rootEntries = await readDirectoryEntries(rootFolder);
   if (!Array.isArray(rootEntries.folders) || rootEntries.folders.length === 0) {
@@ -874,10 +1020,51 @@ function setRootStatus(message) {
 async function loadLibraryFromRoot() {
   const rootFolder = normalizeRootFolder(state.rootFolder);
   const context = resolveRootFetchContext(rootFolder);
+  const rootSourceMode = normalizeRootSourceMode(state.rootSourceMode);
   let loadedCategories = [];
   let sourceMode = "manifest";
 
-  if (context.githubRepo) {
+  if (rootSourceMode === ROOT_SOURCE_MODES.GITHUB) {
+    if (!context.githubRepo) {
+      throw new Error("GitHub mode requires a GitHub repository URL as Quiz Root Folder.");
+    }
+
+    try {
+      loadedCategories = await loadLibraryFromGithubFolders(context);
+      sourceMode = "github-folder-scan";
+    } catch (githubScanError) {
+      loadedCategories = await loadLibraryFromManifest(context);
+      sourceMode = "manifest";
+    }
+  } else if (rootSourceMode === ROOT_SOURCE_MODES.LOCAL) {
+    if (isHttpUrl(rootFolder)) {
+      throw new Error("Local mode expects a local path like quizzes, not an http URL.");
+    }
+
+    try {
+      loadedCategories = await loadLibraryFromCategoryFolders(rootFolder);
+      sourceMode = "folder-scan";
+    } catch (folderScanError) {
+      try {
+        loadedCategories = await loadLibraryFromManifest(context);
+        sourceMode = "manifest";
+      } catch (manifestError) {
+        const shouldTryHandleFallback = supportsFolderDeletion();
+        if (!shouldTryHandleFallback) {
+          throw manifestError;
+        }
+
+        const configuredRoot = await getConfiguredRootHandle({ create: false });
+        try {
+          loadedCategories = await loadLibraryFromHandleCategoryFolders(configuredRoot, rootFolder);
+          sourceMode = "handle-folder-scan";
+        } catch (handleFolderError) {
+          loadedCategories = await loadLibraryFromHandleManifest(configuredRoot, rootFolder);
+          sourceMode = "handle-manifest";
+        }
+      }
+    }
+  } else if (context.githubRepo) {
     try {
       loadedCategories = await loadLibraryFromGithubFolders(context);
       sourceMode = "github-folder-scan";
@@ -890,8 +1077,24 @@ async function loadLibraryFromRoot() {
       loadedCategories = await loadLibraryFromCategoryFolders(rootFolder);
       sourceMode = "folder-scan";
     } catch (folderScanError) {
-      loadedCategories = await loadLibraryFromManifest(context);
-      sourceMode = "manifest";
+      try {
+        loadedCategories = await loadLibraryFromManifest(context);
+        sourceMode = "manifest";
+      } catch (manifestError) {
+        const shouldTryHandleFallback = supportsFolderDeletion() && (window.location.protocol === "file:" || rootDirectoryHandle !== null);
+        if (!shouldTryHandleFallback) {
+          throw manifestError;
+        }
+
+        const configuredRoot = await getConfiguredRootHandle({ create: false });
+        try {
+          loadedCategories = await loadLibraryFromHandleCategoryFolders(configuredRoot, rootFolder);
+          sourceMode = "handle-folder-scan";
+        } catch (handleFolderError) {
+          loadedCategories = await loadLibraryFromHandleManifest(configuredRoot, rootFolder);
+          sourceMode = "handle-manifest";
+        }
+      }
     }
   } else {
     loadedCategories = await loadLibraryFromManifest(context);
@@ -910,9 +1113,14 @@ async function loadLibraryFromRoot() {
 
 async function refreshLibraryFromRoot(notify = true) {
   const rootInput = document.getElementById("quizRootFolder");
+  const rootSourceModeInput = document.getElementById("rootSourceMode");
   if (rootInput) {
     state.rootFolder = normalizeRootFolder(rootInput.value);
     rootInput.value = state.rootFolder;
+  }
+  if (rootSourceModeInput) {
+    state.rootSourceMode = normalizeRootSourceMode(rootSourceModeInput.value);
+    rootSourceModeInput.value = state.rootSourceMode;
   }
 
   try {
@@ -922,6 +1130,10 @@ async function refreshLibraryFromRoot(notify = true) {
       ? `Source: auto-detected from GitHub category folders in ${state.rootFolder}`
       : sourceMode === "folder-scan"
         ? `Source: auto-detected from category folders in ${state.rootFolder}/`
+        : sourceMode === "handle-folder-scan"
+          ? `Source: auto-detected from local selected folder in ${state.rootFolder}/`
+          : sourceMode === "handle-manifest"
+            ? `Source: auto-detected from local selected folder manifest ${state.rootFolder}/index.json`
         : `Source: auto-detected from ${state.rootFolder}/index.json`;
     setRootStatus(sourceText);
     if (notify) {
@@ -1414,6 +1626,11 @@ function updateGeneratedJson() {
   const rootInput = document.getElementById("quizRootFolder");
   if (rootInput) {
     rootInput.value = state.rootFolder;
+  }
+
+  const rootSourceModeInput = document.getElementById("rootSourceMode");
+  if (rootSourceModeInput) {
+    rootSourceModeInput.value = normalizeRootSourceMode(state.rootSourceMode);
   }
 }
 
@@ -2022,6 +2239,13 @@ document.getElementById("quizRootFolder").addEventListener("change", () => {
   const rootInput = document.getElementById("quizRootFolder");
   state.rootFolder = normalizeRootFolder(rootInput.value);
   rootInput.value = state.rootFolder;
+  saveDraft();
+});
+
+document.getElementById("rootSourceMode").addEventListener("change", () => {
+  const rootSourceModeInput = document.getElementById("rootSourceMode");
+  state.rootSourceMode = normalizeRootSourceMode(rootSourceModeInput.value);
+  rootSourceModeInput.value = state.rootSourceMode;
   saveDraft();
 });
 
