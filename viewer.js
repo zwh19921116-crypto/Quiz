@@ -352,16 +352,67 @@ function checkAnswer() {
   const fallback = expectedAnswers.length > 0 ? expectedAnswers.join(question.resultType === "checkbox" ? ", " : "") : "N/A";
   const solutionText = question.solution || `Correct answer: ${fallback}`;
 
+  // Visual feedback for selected options
+  highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswers);
+
+  // Result display with icon
   const resultBox = document.getElementById("resultBox");
-  resultBox.textContent = isCorrect ? "Correct." : "Not quite.";
+  const icon = isCorrect ? "✓" : "✗";
+  resultBox.innerHTML = `<span class="result-icon">${icon}</span> ${isCorrect ? "Correct!" : "Incorrect"}`;
   resultBox.className = isCorrect ? "result-correct" : "result-incorrect";
 
-  document.getElementById("solutionBox").textContent = `Solution: ${solutionText}`;
+  // Show correct answer if wrong
+  let solutionDisplay = solutionText;
+  if (!isCorrect && expectedAnswers.length > 0) {
+    solutionDisplay = `Correct answer: ${fallback}\n\n${solutionText}`;
+  }
+
+  document.getElementById("solutionBox").innerHTML = `<strong>Solution:</strong> ${escapeHtml(solutionDisplay).replace(/\n/g, "<br>")}`;
   document.getElementById("solutionBox").classList.remove("hidden");
   document.getElementById("nextQuestionBtn").disabled = false;
   answerChecked = true;
 
   updateHeader();
+}
+
+function highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswers) {
+  if (question.resultType === "multiple-choice" || question.resultType === "true-false") {
+    const options = document.querySelectorAll(".option-item");
+    options.forEach((option) => {
+      const input = option.querySelector("input");
+      if (!input) return;
+
+      const isUserSelected = input.value === userAnswer;
+      const isCorrectAnswer = expectedAnswers.includes(input.value);
+
+      if (isUserSelected && isCorrect) {
+        option.classList.add("feedback-correct");
+        option.classList.remove("feedback-incorrect");
+      } else if (isUserSelected && !isCorrect) {
+        option.classList.add("feedback-incorrect");
+        option.classList.remove("feedback-correct");
+      } else if (isCorrectAnswer && !isCorrect) {
+        option.classList.add("feedback-correct");
+      }
+    });
+  } else if (question.resultType === "checkbox") {
+    const checkboxes = document.querySelectorAll("input[name='activeQuestionCheck']");
+    checkboxes.forEach((checkbox) => {
+      const option = checkbox.closest(".option-item");
+      if (!option) return;
+
+      const isUserSelected = checkbox.checked;
+      const isCorrectAnswer = expectedAnswers.includes(checkbox.value);
+
+      if (isUserSelected && isCorrectAnswer) {
+        option.classList.add("feedback-correct");
+      } else if (isUserSelected && !isCorrectAnswer) {
+        option.classList.add("feedback-incorrect");
+      } else if (isCorrectAnswer && !isUserSelected) {
+        option.classList.add("feedback-correct");
+      }
+    });
+  }
 }
 
 function goNext() {
