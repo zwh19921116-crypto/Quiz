@@ -253,6 +253,79 @@ function normalizeRootFolder(value) {
     .replace(/\/+$/g, "") || DEFAULT_QUIZ_ROOT;
 }
 
+function isHttpUrl(value) {
+  return /^https?:\/\//i.test(String(value || "").trim());
+}
+
+function joinPath(base, relativePath) {
+  const cleanBase = String(base || "").replace(/\/+$/g, "");
+  const cleanRelative = String(relativePath || "").replace(/^\/+/, "");
+  return `${cleanBase}/${cleanRelative}`;
+}
+
+function resolveRootFetchContext(rootFolder) {
+  const normalized = normalizeRootFolder(rootFolder);
+  const fallback = {
+    rootFolder: normalized,
+    fetchBase: normalized,
+    supportsDirectoryScan: !isHttpUrl(normalized)
+  };
+
+  if (!isHttpUrl(normalized)) {
+    return fallback;
+  }
+
+  try {
+    const parsed = new URL(normalized);
+    const host = parsed.hostname.toLowerCase();
+    const segments = parsed.pathname.split("/").filter((item) => item !== "");
+
+    if (host === "raw.githubusercontent.com") {
+      return {
+        rootFolder: normalized,
+        fetchBase: `${parsed.origin}${parsed.pathname}`.replace(/\/+$/g, ""),
+        supportsDirectoryScan: false
+      };
+    }
+
+    if (host !== "github.com" || segments.length < 2) {
+      return {
+        rootFolder: normalized,
+        fetchBase: normalized,
+        supportsDirectoryScan: false
+      };
+    }
+
+    const owner = segments[0];
+    const repo = segments[1];
+    let branch = "main";
+    let repoPath = "";
+
+    if (segments[2] === "tree" && segments[3]) {
+      branch = segments[3];
+      repoPath = segments.slice(4).join("/");
+    }
+
+    if (segments[2] === "blob" && segments[3]) {
+      branch = segments[3];
+      repoPath = segments.slice(4, -1).join("/");
+    }
+
+    const rawBase = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}${repoPath ? `/${repoPath}` : ""}`;
+    return {
+      rootFolder: normalized,
+      fetchBase: rawBase,
+      supportsDirectoryScan: false
+    };
+  } catch (error) {
+    return {
+      rootFolder: normalized,
+      fetchBase: normalized,
+      supportsDirectoryScan: false
+    };
+  }
+}
+
 function baseNameFromPath(path) {
   const normalized = String(path || "").trim().replace(/\\/g, "/");
   if (!normalized) return "quiz.json";
@@ -604,8 +677,8 @@ async function loadLibraryFromCategoryFolders(rootFolder) {
   return loadedCategories;
 }
 
-async function loadLibraryFromManifest(rootFolder) {
-  const indexPath = `${rootFolder}/index.json`;
+async function loadLibraryFromManifest(context) {
+  const indexPath = joinPath(context.fetchBase, "index.json");
   const response = await fetch(indexPath, { cache: "no-store" });
 
   if (!response.ok) {
@@ -629,7 +702,8 @@ async function loadLibraryFromManifest(rootFolder) {
         continue;
       }
 
-      const quizResponse = await fetch(`${rootFolder}/${relativePath}`, { cache: "no-store" });
+      const quizPath = joinPath(context.fetchBase, relativePath);
+      const quizResponse = await fetch(quizPath, { cache: "no-store" });
       if (!quizResponse.ok) {
         continue;
       }
@@ -637,7 +711,7 @@ async function loadLibraryFromManifest(rootFolder) {
       const quizJson = await quizResponse.json();
       const quiz = createQuiz(quizJson.title || entry.title || baseNameFromPath(relativePath).replace(/\.json$/i, ""));
       quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
-      quiz.sourcePath = `${rootFolder}/${relativePath}`;
+      quiz.sourcePath = quizPath;
       quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
       category.quizzes.push(quiz);
     }
@@ -662,14 +736,20 @@ function setRootStatus(message) {
 
 async function loadLibraryFromRoot() {
   const rootFolder = normalizeRootFolder(state.rootFolder);
+  const context = resolveRootFetchContext(rootFolder);
   let loadedCategories = [];
   let sourceMode = "manifest";
 
-  try {
-    loadedCategories = await loadLibraryFromCategoryFolders(rootFolder);
-    sourceMode = "folder-scan";
-  } catch (folderScanError) {
-    loadedCategories = await loadLibraryFromManifest(rootFolder);
+  if (context.supportsDirectoryScan) {
+    try {
+      loadedCategories = await loadLibraryFromCategoryFolders(rootFolder);
+      sourceMode = "folder-scan";
+    } catch (folderScanError) {
+      loadedCategories = await loadLibraryFromManifest(context);
+      sourceMode = "manifest";
+    }
+  } else {
+    loadedCategories = await loadLibraryFromManifest(context);
     sourceMode = "manifest";
   }
 
