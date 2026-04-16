@@ -37,24 +37,7 @@ body {
 }
 
 .page-header {
-  margin-bottom: 18px;
-}
-
-.shortcut-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.shortcut-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid #d7e3f2;
-  background: #f6fbff;
+  display: none;
   color: #334155;
   font-size: 0.82rem;
   font-weight: 600;
@@ -495,16 +478,6 @@ textarea {
   min-width: 180px;
 }
 
-.solution-box {
-  margin: 10px 0 14px;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid #a7f3d0;
-  background: #ecfdf5;
-  color: #065f46;
-  font-weight: 600;
-}
-
 #resultBox {
   min-height: 24px;
   font-size: 1.05rem;
@@ -550,6 +523,102 @@ textarea {
   color: #dc2626;
   font-weight: 700;
   margin-right: 6px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.viewer-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.viewer-modal.hidden {
+  display: none;
+}
+
+.viewer-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.56);
+  backdrop-filter: blur(3px);
+}
+
+.viewer-modal-dialog {
+  position: relative;
+  width: min(760px, 100%);
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  border-radius: 18px;
+  border: 1px solid #dbe3ee;
+  background: #ffffff;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.28);
+  padding: 20px;
+}
+
+.viewer-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.viewer-modal-header h2 {
+  margin: 0;
+}
+
+.viewer-modal-body {
+  display: grid;
+  gap: 14px;
+}
+
+.solution-modal-section {
+  padding: 14px;
+  border: 1px solid #dbe3ee;
+  border-radius: 12px;
+  background: #f8fbff;
+}
+
+.solution-modal-label {
+  margin: 0 0 6px;
+  color: #475569;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.solution-modal-answer {
+  margin: 0;
+  color: #065f46;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.solution-modal-copy {
+  color: #0f172a;
+  line-height: 1.6;
+}
+
+.solution-attachment-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.solution-attachment-list li {
+  margin: 6px 0;
+}
+
+.solution-attachment-list a {
+  color: #075985;
+  word-break: break-all;
 }
 
 .viewer-meta-row {
@@ -676,6 +745,15 @@ textarea {
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
+  }
+
+  .viewer-modal {
+    padding: 12px;
+  }
+
+  .viewer-modal-dialog {
+    max-height: calc(100vh - 24px);
+    padding: 16px;
   }
 
   .maker-grid {

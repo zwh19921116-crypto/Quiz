@@ -38,6 +38,7 @@ function normalizeQuestion(item) {
     options,
     correctAnswer: item.correctAnswer,
     notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
+    solutionAttachments: Array.isArray(item.solutionAttachments) ? item.solutionAttachments : [],
     image: item.image || "",
     solution: item.solution || ""
   };
@@ -65,9 +66,10 @@ function resetRuntimeForLoadedQuiz() {
   document.getElementById("checkAnswerBtn").style.display = "inline-block";
   document.getElementById("nextQuestionBtn").style.display = "inline-block";
   document.getElementById("notesViewerBtn").style.display = "inline-block";
+  document.getElementById("showSolutionBtn").classList.add("hidden");
   document.getElementById("resultBox").textContent = "";
   document.getElementById("resultBox").className = "";
-  document.getElementById("solutionBox").classList.add("hidden");
+  closeSolutionModal();
 }
 
 function applySingleQuiz(quiz) {
@@ -263,17 +265,17 @@ function wireOptionSelectionUI(question) {
 function renderQuestion() {
   const question = quizData.questions[currentIndex];
   const quizContainer = document.getElementById("quizContainer");
-  const solutionBox = document.getElementById("solutionBox");
   const resultBox = document.getElementById("resultBox");
   const nextBtn = document.getElementById("nextQuestionBtn");
+  const showSolutionBtn = document.getElementById("showSolutionBtn");
 
   answerChecked = false;
   resultBox.textContent = "";
   resultBox.className = "";
-  solutionBox.classList.add("hidden");
-  solutionBox.textContent = "";
   nextBtn.disabled = true;
+  showSolutionBtn.classList.add("hidden");
   nextBtn.textContent = currentIndex === quizData.questions.length - 1 ? "Finish Quiz" : "Next Question";
+  closeSolutionModal();
 
   const imageMarkup = question.image
     ? `<img class="question-image" src="${escapeHtml(question.image)}" alt="Question visual" />`
@@ -349,30 +351,62 @@ function checkAnswer() {
   }
 
   const expectedAnswers = getExpectedAnswers(question);
-  const fallback = expectedAnswers.length > 0 ? expectedAnswers.join(question.resultType === "checkbox" ? ", " : "") : "N/A";
-  const solutionText = question.solution || `Correct answer: ${fallback}`;
 
   // Visual feedback for selected options
   highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswers);
 
-  // Result display with icon
-  const resultBox = document.getElementById("resultBox");
-  const icon = isCorrect ? "✓" : "✗";
-  resultBox.innerHTML = `<span class="result-icon">${icon}</span> ${isCorrect ? "Correct!" : "Incorrect"}`;
-  resultBox.className = isCorrect ? "result-correct" : "result-incorrect";
-
-  // Show correct answer if wrong
-  let solutionDisplay = solutionText;
-  if (!isCorrect && expectedAnswers.length > 0) {
-    solutionDisplay = `Correct answer: ${fallback}\n\n${solutionText}`;
-  }
-
-  document.getElementById("solutionBox").innerHTML = `<strong>Solution:</strong> ${escapeHtml(solutionDisplay).replace(/\n/g, "<br>")}`;
-  document.getElementById("solutionBox").classList.remove("hidden");
+  prepareSolutionModal(question, expectedAnswers);
+  document.getElementById("showSolutionBtn").classList.remove("hidden");
   document.getElementById("nextQuestionBtn").disabled = false;
   answerChecked = true;
 
   updateHeader();
+}
+
+function prepareSolutionModal(question, expectedAnswers) {
+  const fallback = expectedAnswers.length > 0 ? expectedAnswers.join(question.resultType === "checkbox" ? ", " : "") : "N/A";
+  const rawSolution = String(question.solution || "").trim();
+  const defaultSolution = `Correct answer: ${fallback}`;
+  const hasDistinctSolution = rawSolution !== "" && norm(rawSolution) !== norm(defaultSolution);
+  const solutionAttachments = Array.isArray(question.solutionAttachments) ? question.solutionAttachments : [];
+  const modalBody = document.getElementById("solutionModalBody");
+
+  modalBody.innerHTML = `
+    <div class="solution-modal-section">
+      <p class="solution-modal-label">Correct answer</p>
+      <p class="solution-modal-answer">${escapeHtml(fallback)}</p>
+    </div>
+    ${hasDistinctSolution ? `
+      <div class="solution-modal-section">
+        <p class="solution-modal-label">Explanation</p>
+        <div class="solution-modal-copy">${escapeHtml(rawSolution).replace(/\n/g, "<br>")}</div>
+      </div>
+    ` : ""}
+    ${solutionAttachments.length > 0 ? `
+      <div class="solution-modal-section">
+        <p class="solution-modal-label">Attachments</p>
+        <ul class="solution-attachment-list">
+          ${solutionAttachments.map((item) => `<li><a href="${escapeHtml(item)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item)}</a></li>`).join("")}
+        </ul>
+      </div>
+    ` : ""}
+  `;
+}
+
+function openSolutionModal() {
+  const modal = document.getElementById("solutionModal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeSolutionModal() {
+  const modal = document.getElementById("solutionModal");
+  if (!modal) return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
 }
 
 function highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswers) {
@@ -433,13 +467,14 @@ function goNext() {
       <button class="btn" id="restartBtn">Restart Quiz</button>
     </div>
   `;
-  document.getElementById("solutionBox").classList.add("hidden");
   document.getElementById("resultBox").textContent = "";
   document.getElementById("checkAnswerBtn").style.display = "none";
   document.getElementById("nextQuestionBtn").style.display = "none";
   document.getElementById("notesViewerBtn").style.display = "none";
+  document.getElementById("showSolutionBtn").classList.add("hidden");
   document.getElementById("notesViewerPanel").classList.add("hidden");
   document.getElementById("notesViewerPanel").innerHTML = "";
+  closeSolutionModal();
   document.getElementById("progressText").textContent = "Complete";
   document.getElementById("scoreText").textContent = `Final Score: ${score} / ${total}`;
   document.getElementById("viewerProgressFill").style.width = "100%";
@@ -450,6 +485,7 @@ function goNext() {
     document.getElementById("checkAnswerBtn").style.display = "inline-block";
     document.getElementById("nextQuestionBtn").style.display = "inline-block";
     document.getElementById("notesViewerBtn").style.display = "inline-block";
+    document.getElementById("showSolutionBtn").classList.add("hidden");
     renderQuestion();
   });
 }
@@ -485,6 +521,7 @@ async function loadQuiz() {
 }
 
 document.getElementById("checkAnswerBtn").addEventListener("click", checkAnswer);
+document.getElementById("showSolutionBtn").addEventListener("click", openSolutionModal);
 document.getElementById("nextQuestionBtn").addEventListener("click", goNext);
 document.getElementById("notesViewerBtn").addEventListener("click", () => {
   const panel = document.getElementById("notesViewerPanel");
@@ -493,6 +530,18 @@ document.getElementById("notesViewerBtn").addEventListener("click", () => {
     return;
   }
   panel.classList.toggle("hidden");
+});
+document.getElementById("closeSolutionBtn").addEventListener("click", closeSolutionModal);
+document.getElementById("solutionModal").addEventListener("click", (event) => {
+  const target = event.target;
+  if (target instanceof HTMLElement && target.dataset.closeSolution === "true") {
+    closeSolutionModal();
+  }
+});
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeSolutionModal();
+  }
 });
 
 window.addEventListener("load", loadQuiz);

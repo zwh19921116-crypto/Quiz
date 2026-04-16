@@ -35,14 +35,24 @@
         <div id="notesViewerPanel" class="viewer-notes-panel hidden"></div>
       </div>
 
-      <div id="solutionBox" class="solution-box hidden"></div>
-
       <div class="button-group viewer-actions" id="viewerActionBar">
         <button class="btn" id="checkAnswerBtn">Check Answer</button>
+        <button class="btn secondary hidden" id="showSolutionBtn" type="button">Show Solution</button>
         <button class="btn secondary" id="nextQuestionBtn" disabled>Next Question</button>
       </div>
 
       <div id="resultBox"></div>
+    </div>
+  </div>
+
+  <div id="solutionModal" class="viewer-modal hidden" aria-hidden="true">
+    <div class="viewer-modal-backdrop" data-close-solution="true"></div>
+    <div class="viewer-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="solutionModalTitle">
+      <div class="viewer-modal-header">
+        <h2 id="solutionModalTitle">Solution</h2>
+        <button class="icon-btn" id="closeSolutionBtn" type="button" aria-label="Close solution">×</button>
+      </div>
+      <div id="solutionModalBody" class="viewer-modal-body"></div>
     </div>
   </div>
 
