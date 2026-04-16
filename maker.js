@@ -211,6 +211,84 @@ function normalizeQuizFileName(value) {
   return `${slugify(raw)}.json`;
 }
 
+function isDataUrl(value) {
+  return /^data:/i.test(String(value || "").trim());
+}
+
+function deriveAttachmentName(url) {
+  const raw = String(url || "").trim();
+  if (!raw) return "Attachment";
+  if (isDataUrl(raw)) return "Embedded attachment";
+
+  try {
+    const parsed = new URL(raw, window.location.href);
+    const segments = parsed.pathname.split("/").filter((item) => item !== "");
+    return decodeURIComponent(segments[segments.length - 1] || raw);
+  } catch (error) {
+    const segments = raw.split("/").filter((item) => item !== "");
+    return segments[segments.length - 1] || raw;
+  }
+}
+
+function normalizeSolutionAttachment(item) {
+  if (typeof item === "string") {
+    const url = item.trim();
+    if (!url) return null;
+    return {
+      name: deriveAttachmentName(url),
+      url,
+      embedded: isDataUrl(url)
+    };
+  }
+
+  if (!item || typeof item !== "object") {
+    return null;
+  }
+
+  const url = String(item.url || item.href || "").trim();
+  if (!url) return null;
+  return {
+    name: String(item.name || "").trim() || deriveAttachmentName(url),
+    url,
+    embedded: Boolean(item.embedded) || isDataUrl(url)
+  };
+}
+
+function normalizeSolutionAttachments(items) {
+  if (!Array.isArray(items)) return [];
+  return items.map(normalizeSolutionAttachment).filter((item) => item && item.url);
+}
+
+function parseSolutionAttachmentLines(text) {
+  return String(text || "")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line !== "")
+    .map((line) => {
+      const divider = line.indexOf("|");
+      if (divider > 0) {
+        return normalizeSolutionAttachment({
+          name: line.slice(0, divider).trim(),
+          url: line.slice(divider + 1).trim()
+        });
+      }
+      return normalizeSolutionAttachment(line);
+    })
+    .filter((item) => item && item.url);
+}
+
+function serializeManualSolutionAttachments(items) {
+  return normalizeSolutionAttachments(items)
+    .filter((item) => !item.embedded)
+    .map((item) => {
+      const defaultName = deriveAttachmentName(item.url);
+      return item.name && item.name !== defaultName
+        ? `${item.name} | ${item.url}`
+        : item.url;
+    })
+    .join("\n");
+}
+
 function buildUniqueQuizFileName(value, excludedQuizId = null) {
   const normalized = normalizeQuizFileName(value);
   const usedNames = new Set();
@@ -1678,14 +1756,15 @@ function updateNotesPreview(attachments) {
 function updateSolutionAttachmentsPreview(attachments) {
   const button = document.getElementById("solutionAssetsBtn");
   const preview = document.getElementById("solutionAttachmentsPreview");
-  if (!attachments || attachments.length === 0) {
+  const normalized = normalizeSolutionAttachments(attachments);
+  if (normalized.length === 0) {
     button.textContent = "Solution Files: N/A";
     preview.textContent = "n/a";
     return;
   }
 
-  button.textContent = `Solution Files: ${attachments.length} attachment(s)`;
-  preview.textContent = attachments.join(" | ");
+  button.textContent = `Solution Files: ${normalized.length} attachment(s)`;
+  preview.textContent = normalized.map((item) => item.name).join(" | ");
 }
 
 function renderEditor() {
@@ -1693,6 +1772,8 @@ function renderEditor() {
   const question = activeQuestion();
   const attachImageBtn = document.getElementById("attachImageBtn");
   const imageAttachHint = document.getElementById("imageAttachHint");
+  const attachSolutionFileBtn = document.getElementById("attachSolutionFileBtn");
+  const solutionAttachHint = document.getElementById("solutionAttachHint");
 
   if (!question) {
     hint.textContent = "Select a question to edit details.";
@@ -1711,7 +1792,9 @@ function renderEditor() {
     document.getElementById("solutionAttachmentsInput").value = "";
     updateImagePreview("");
     attachImageBtn.disabled = true;
+    attachSolutionFileBtn.disabled = true;
     imageAttachHint.textContent = "Select a question first to attach an image.";
+    solutionAttachHint.textContent = "Select a question first to attach solution files.";
     updateNotesPreview([]);
     updateSolutionAttachmentsPreview([]);
     toggleOptionsBlock({ resultType: "multiple-choice" });
@@ -1734,10 +1817,12 @@ function renderEditor() {
   document.getElementById("attachmentsInput").value = (question.notesAttachments || []).join("\n");
   document.getElementById("questionImage").value = question.image || "";
   document.getElementById("solutionText").value = question.solution || "";
-  document.getElementById("solutionAttachmentsInput").value = (question.solutionAttachments || []).join("\n");
+  document.getElementById("solutionAttachmentsInput").value = serializeManualSolutionAttachments(question.solutionAttachments || []);
   updateImagePreview(question.image || "");
   attachImageBtn.disabled = false;
+  attachSolutionFileBtn.disabled = false;
   imageAttachHint.textContent = "Attach image for the selected question, or paste a URL above.";
+  solutionAttachHint.textContent = "Add links above, or attach local files to embed them in the quiz JSON.";
   updateNotesPreview(question.notesAttachments || []);
   updateSolutionAttachmentsPreview(question.solutionAttachments || []);
   toggleOptionsBlock(question);
@@ -1757,7 +1842,7 @@ function getQuizData() {
       notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
       image: item.image || "",
       solution: item.solution || "",
-      solutionAttachments: Array.isArray(item.solutionAttachments) ? item.solutionAttachments : []
+      solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)
     }))
     : [];
 
@@ -1973,10 +2058,10 @@ function updateQuestionFromForm() {
     .filter((item) => item !== "");
   question.image = document.getElementById("questionImage").value.trim();
   question.solution = document.getElementById("solutionText").value.trim();
-  question.solutionAttachments = document.getElementById("solutionAttachmentsInput").value
-    .split("\n")
-    .map((item) => item.trim())
-    .filter((item) => item !== "");
+  question.solutionAttachments = [
+    ...parseSolutionAttachmentLines(document.getElementById("solutionAttachmentsInput").value),
+    ...normalizeSolutionAttachments(question.solutionAttachments).filter((item) => item.embedded)
+  ];
 
   toggleOptionsBlock(question);
   updateNotesPreview(question.notesAttachments);
@@ -2019,7 +2104,7 @@ function buildPersistedQuizPayload() {
       notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
       image: item.image || "",
       solution: item.solution || "",
-      solutionAttachments: Array.isArray(item.solutionAttachments) ? item.solutionAttachments : []
+      solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)
     }))
   };
 }
@@ -2176,6 +2261,55 @@ function attachImageToQuestion(file) {
   reader.readAsDataURL(file);
 }
 
+function readFileAsDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const dataUrl = typeof reader.result === "string" ? reader.result : "";
+      if (!dataUrl) {
+        reject(new Error("Could not read file."));
+        return;
+      }
+      resolve(dataUrl);
+    };
+    reader.onerror = () => reject(new Error("Could not read file."));
+    reader.readAsDataURL(file);
+  });
+}
+
+async function attachSolutionFilesToQuestion(fileList) {
+  const question = activeQuestion();
+  if (!question) {
+    showToast("Select a question first.", "warning");
+    return;
+  }
+
+  const files = Array.from(fileList || []);
+  if (files.length === 0) {
+    return;
+  }
+
+  updateQuestionFromForm();
+
+  try {
+    const embeddedAttachments = await Promise.all(files.map(async (file) => ({
+      name: file.name || "Attachment",
+      url: await readFileAsDataUrl(file),
+      embedded: true
+    })));
+    question.solutionAttachments = [
+      ...normalizeSolutionAttachments(question.solutionAttachments),
+      ...embeddedAttachments
+    ];
+    renderEditor();
+    updateGeneratedJson();
+    saveDraft();
+    showToast(`Attached ${embeddedAttachments.length} solution file(s).`, "success");
+  } catch (error) {
+    showToast("Could not read solution file.", "error");
+  }
+}
+
 document.getElementById("addCategoryBtn").addEventListener("click", addCategory);
 document.getElementById("addQuizBtn").addEventListener("click", addQuiz);
 document.getElementById("addQuestionBtn").addEventListener("click", addQuestion);
@@ -2189,11 +2323,28 @@ document.getElementById("attachImageBtn").addEventListener("click", () => {
   document.getElementById("imageFileInput").click();
 });
 
+document.getElementById("attachSolutionFileBtn").addEventListener("click", () => {
+  const question = activeQuestion();
+  if (!question) {
+    showToast("Select a question first.", "warning");
+    return;
+  }
+
+  document.getElementById("solutionFileInput").click();
+});
+
 document.getElementById("imageFileInput").addEventListener("change", (event) => {
   const target = event.target;
   if (!(target instanceof HTMLInputElement)) return;
   const file = target.files && target.files[0];
   attachImageToQuestion(file || null);
+  target.value = "";
+});
+
+document.getElementById("solutionFileInput").addEventListener("change", async (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return;
+  await attachSolutionFilesToQuestion(target.files);
   target.value = "";
 });
 
@@ -2453,7 +2604,7 @@ function normalizeQuestion(item) {
     notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
     image: item.image || "",
     solution: item.solution || "",
-    solutionAttachments: Array.isArray(item.solutionAttachments) ? item.solutionAttachments : []
+    solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)
   };
 }
 

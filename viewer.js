@@ -3,6 +3,54 @@ let currentIndex = 0;
 let score = 0;
 let answerChecked = false;
 
+function isDataUrl(value) {
+  return /^data:/i.test(String(value || "").trim());
+}
+
+function deriveAttachmentName(url) {
+  const raw = String(url || "").trim();
+  if (!raw) return "Attachment";
+  if (isDataUrl(raw)) return "Embedded attachment";
+
+  try {
+    const parsed = new URL(raw, window.location.href);
+    const segments = parsed.pathname.split("/").filter((item) => item !== "");
+    return decodeURIComponent(segments[segments.length - 1] || raw);
+  } catch (error) {
+    const segments = raw.split("/").filter((item) => item !== "");
+    return segments[segments.length - 1] || raw;
+  }
+}
+
+function normalizeSolutionAttachment(item) {
+  if (typeof item === "string") {
+    const url = item.trim();
+    if (!url) return null;
+    return {
+      name: deriveAttachmentName(url),
+      url,
+      embedded: isDataUrl(url)
+    };
+  }
+
+  if (!item || typeof item !== "object") {
+    return null;
+  }
+
+  const url = String(item.url || item.href || "").trim();
+  if (!url) return null;
+  return {
+    name: String(item.name || "").trim() || deriveAttachmentName(url),
+    url,
+    embedded: Boolean(item.embedded) || isDataUrl(url)
+  };
+}
+
+function normalizeSolutionAttachments(items) {
+  if (!Array.isArray(items)) return [];
+  return items.map(normalizeSolutionAttachment).filter((item) => item && item.url);
+}
+
 function ensureToastHost() {
   let host = document.getElementById("toastStack");
   if (!host) {
@@ -38,7 +86,7 @@ function normalizeQuestion(item) {
     options,
     correctAnswer: item.correctAnswer,
     notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
-    solutionAttachments: Array.isArray(item.solutionAttachments) ? item.solutionAttachments : [],
+    solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments),
     image: item.image || "",
     solution: item.solution || ""
   };
@@ -368,7 +416,7 @@ function prepareSolutionModal(question, expectedAnswers) {
   const rawSolution = String(question.solution || "").trim();
   const defaultSolution = `Correct answer: ${fallback}`;
   const hasDistinctSolution = rawSolution !== "" && norm(rawSolution) !== norm(defaultSolution);
-  const solutionAttachments = Array.isArray(question.solutionAttachments) ? question.solutionAttachments : [];
+  const solutionAttachments = normalizeSolutionAttachments(question.solutionAttachments);
   const modalBody = document.getElementById("solutionModalBody");
 
   modalBody.innerHTML = `
@@ -386,7 +434,7 @@ function prepareSolutionModal(question, expectedAnswers) {
       <div class="solution-modal-section">
         <p class="solution-modal-label">Attachments</p>
         <ul class="solution-attachment-list">
-          ${solutionAttachments.map((item) => `<li><a href="${escapeHtml(item)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item)}</a></li>`).join("")}
+          ${solutionAttachments.map((item) => `<li><a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.name)}</a></li>`).join("")}
         </ul>
       </div>
     ` : ""}

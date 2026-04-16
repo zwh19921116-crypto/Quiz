@@ -133,6 +133,11 @@
 
             <label for="solutionAttachmentsInput">7) Solution Attachments (one per line)</label>
             <textarea id="solutionAttachmentsInput" rows="3" placeholder="https://example.com/solution.pdf"></textarea>
+            <div class="image-tools">
+              <button class="btn secondary small" id="attachSolutionFileBtn" type="button">Attach Solution File</button>
+              <input type="file" id="solutionFileInput" class="hidden" multiple />
+              <span class="helper-text" id="solutionAttachHint">Add links above, or attach local files to embed them in the quiz JSON.</span>
+            </div>
             <button class="btn secondary" id="solutionAssetsBtn" type="button">Solution Files: N/A</button>
             <div id="solutionAttachmentsPreview" class="helper-text">n/a</div>
 
