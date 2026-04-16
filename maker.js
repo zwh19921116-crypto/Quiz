@@ -1705,15 +1705,26 @@ function renameQuiz(id) {
   const quiz = category.quizzes.find((item) => item.id === id);
   if (!quiz) return;
 
-  const nextTitle = prompt("Rename quiz:", quiz.title || "Quiz");
-  if (!nextTitle || !nextTitle.trim()) return;
+  const currentStem = String(quiz.fileName || quiz.title || "quiz").replace(/\.json$/i, "");
+  const nextStem = prompt("Rename quiz file (without .json):", currentStem);
+  if (!nextStem || !nextStem.trim()) return;
 
-  const changed = nextTitle.trim() !== quiz.title;
-  if (!changed) return;
+  const nextFileName = buildUniqueQuizFileName(nextStem.trim(), quiz.id);
+  if (nextFileName === quiz.fileName) return;
 
-  quiz.title = nextTitle.trim();
+  quiz.fileName = nextFileName;
+  quiz.title = nextFileName.replace(/\.json$/i, "");
+  // Force save path resolution to use the renamed filename on next save.
+  quiz.sourcePath = "";
+
   renderAll();
-  showToast("Quiz renamed.", "success");
+
+  if (normalizeRootSourceMode(state.rootSourceMode) === ROOT_SOURCE_MODES.GITHUB || isHttpUrl(state.rootFolder)) {
+    showToast("Filename updated in Maker. For GitHub, rename file in repo and refresh.", "info");
+    return;
+  }
+
+  showToast("Filename updated. Click Save Selected Quiz to write the new file.", "success");
 }
 
 function addQuestion() {
