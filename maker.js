@@ -431,19 +431,27 @@ async function loadLibraryFromGithubFlatIndex(context) {
   const rootPath = String(githubRepo.repoPath || "").replace(/^\/+|\/+$/g, "");
   const rootPrefix = rootPath ? `/${rootPath}/` : "/";
   const indexUrl = `https://data.jsdelivr.com/v1/package/gh/${encodeURIComponent(githubRepo.owner)}/${encodeURIComponent(githubRepo.repo)}@${encodeURIComponent(githubRepo.branch)}/flat`;
+  
+  console.log("[CDN Fallback] Fetching index from:", indexUrl);
+  console.log("[CDN Fallback] Looking for rootPath:", rootPath, "rootPrefix:", rootPrefix);
+  
   const indexResponse = await fetch(indexUrl, { cache: "no-store" });
   if (!indexResponse.ok) {
-    throw new Error(`Could not read ${rootPath || "repository root"} index from CDN`);
+    throw new Error(`Could not read ${rootPath || "repository root"} index from CDN (status ${indexResponse.status})`);
   }
 
   const indexPayload = await indexResponse.json();
   const files = Array.isArray(indexPayload && indexPayload.files) ? indexPayload.files : [];
+  console.log("[CDN Fallback] Total files in repository:", files.length);
+  
   const quizFilePaths = files
     .map((entry) => String(entry && entry.name ? entry.name : ""))
     .filter((name) => name.startsWith(rootPrefix))
     .filter((name) => name.toLowerCase().endsWith(".json"))
     .filter((name) => !name.toLowerCase().endsWith("/index.json"));
 
+  console.log("[CDN Fallback] Quiz file paths found:", quizFilePaths.length, quizFilePaths.slice(0, 5));
+  
   if (quizFilePaths.length === 0) {
     throw new Error(`No quiz JSON files found in ${rootPath || "repository root"}`);
   }
@@ -1120,10 +1128,17 @@ async function loadLibraryFromRoot() {
   let context = resolveRootFetchContext(rootFolder);
   const rootSourceMode = normalizeRootSourceMode(state.rootSourceMode);
 
+  console.log("[loadLibraryFromRoot] rootFolder:", rootFolder, "rootSourceMode:", rootSourceMode);
+  console.log("[loadLibraryFromRoot] Initial context:", { githubRepo: context.githubRepo ? "present" : "null", supportsDirectoryScan: context.supportsDirectoryScan });
+
   if (rootSourceMode === ROOT_SOURCE_MODES.AUTO && !context.githubRepo && !isHttpUrl(rootFolder)) {
+    console.log("[loadLibraryFromRoot] AUTO mode: attempting GitHub context inference");
     const inferred = inferGithubContextFromPages(rootFolder);
     if (inferred) {
+      console.log("[loadLibraryFromRoot] GitHub context inferred successfully");
       context = inferred;
+    } else {
+      console.log("[loadLibraryFromRoot] GitHub context inference failed (not on github.io)");
     }
   }
 
@@ -1131,6 +1146,7 @@ async function loadLibraryFromRoot() {
   let sourceMode = "manifest";
 
   if (rootSourceMode === ROOT_SOURCE_MODES.GITHUB) {
+    console.log("[loadLibraryFromRoot] Entering GITHUB mode block");
     if (!context.githubRepo) {
       const inferred = inferGithubContextFromPages(rootFolder);
       if (inferred) {
@@ -1146,10 +1162,12 @@ async function loadLibraryFromRoot() {
       loadedCategories = await loadLibraryFromGithubFolders(context);
       sourceMode = "github-folder-scan";
     } catch (githubScanError) {
+      console.log("[loadLibraryFromRoot] GitHub API scan failed, trying CDN fallback: ", githubScanError.message);
       try {
         loadedCategories = await loadLibraryFromGithubFlatIndex(context);
         sourceMode = "github-flat-scan";
       } catch (cdnScanError) {
+        console.error("[loadLibraryFromRoot] Both GitHub API and CDN fallback failed");
         throw new Error(`Could not read category folders from GitHub root: ${state.rootFolder}`);
       }
     }
@@ -1176,14 +1194,17 @@ async function loadLibraryFromRoot() {
       }
     }
   } else if (context.githubRepo) {
+    console.log("[loadLibraryFromRoot] AUTO mode with GitHub context detected");
     try {
       loadedCategories = await loadLibraryFromGithubFolders(context);
       sourceMode = "github-folder-scan";
     } catch (githubScanError) {
+      console.log("[loadLibraryFromRoot] GitHub API scan failed, trying CDN fallback: ", githubScanError.message);
       try {
         loadedCategories = await loadLibraryFromGithubFlatIndex(context);
         sourceMode = "github-flat-scan";
       } catch (cdnScanError) {
+        console.error("[loadLibraryFromRoot] Both GitHub API and CDN fallback failed");
         throw new Error(`Could not read category folders from GitHub root: ${state.rootFolder}`);
       }
     }
