@@ -468,7 +468,7 @@ async function loadLibraryFromGithubFolders(context) {
       }
 
       const quizJson = await quizResponse.json();
-      const quiz = createQuiz(quizJson.title || baseNameFromPath(relativePath).replace(/\.json$/i, ""));
+      const quiz = createQuiz(quizTitleFromFilePath(relativePath));
       quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
       quiz.sourcePath = quizPath;
       quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
@@ -486,6 +486,10 @@ function baseNameFromPath(path) {
   if (!normalized) return "quiz.json";
   const parts = normalized.split("/").filter((item) => item !== "");
   return parts.length > 0 ? parts[parts.length - 1] : "quiz.json";
+}
+
+function quizTitleFromFilePath(path) {
+  return baseNameFromPath(path).replace(/\.json$/i, "") || "Untitled Quiz";
 }
 
 function getCategoryFolderName(category) {
@@ -864,7 +868,7 @@ async function loadLibraryFromHandleCategoryFolders(rootHandle, rootFolder) {
       }
 
       const relativePath = `${folder}/${fileName}`;
-      const quiz = createQuiz(quizJson.title || baseNameFromPath(relativePath).replace(/\.json$/i, ""));
+      const quiz = createQuiz(quizTitleFromFilePath(relativePath));
       quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
       quiz.sourcePath = `${rootFolder}/${relativePath}`;
       quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
@@ -910,7 +914,7 @@ async function loadLibraryFromHandleManifest(rootHandle, rootFolder) {
         continue;
       }
 
-      const quiz = createQuiz(quizJson.title || entry.title || baseNameFromPath(relativePath).replace(/\.json$/i, ""));
+      const quiz = createQuiz(quizTitleFromFilePath(relativePath));
       quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
       quiz.sourcePath = `${rootFolder}/${relativePath}`;
       quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
@@ -944,7 +948,7 @@ async function loadLibraryFromCategoryFolders(rootFolder) {
       }
 
       const quizJson = await quizResponse.json();
-      const quiz = createQuiz(quizJson.title || baseNameFromPath(relativeFilePath).replace(/\.json$/i, ""));
+      const quiz = createQuiz(quizTitleFromFilePath(relativeFilePath));
       quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativeFilePath));
       quiz.sourcePath = `${rootFolder}/${relativeFilePath}`;
       quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
@@ -1011,7 +1015,7 @@ async function loadLibraryFromManifest(context) {
       }
 
       const quizJson = await quizResponse.json();
-      const quiz = createQuiz(quizJson.title || entry.title || baseNameFromPath(relativePath).replace(/\.json$/i, ""));
+      const quiz = createQuiz(quizTitleFromFilePath(relativePath));
       quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
       quiz.sourcePath = quizPath;
       quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
