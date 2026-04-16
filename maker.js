@@ -441,13 +441,7 @@ async function loadLibraryFromGithubFolders(context) {
       category.quizzes.push(quiz);
     }
 
-    if (category.quizzes.length > 0) {
-      loadedCategories.push(category);
-    }
-  }
-
-  if (loadedCategories.length === 0) {
-    throw new Error("No quiz JSON files found in GitHub category folders.");
+    loadedCategories.push(category);
   }
 
   return loadedCategories;
@@ -792,16 +786,32 @@ async function loadLibraryFromCategoryFolders(rootFolder) {
       category.quizzes.push(quiz);
     }
 
-    if (category.quizzes.length > 0) {
-      loadedCategories.push(category);
-    }
-  }
-
-  if (loadedCategories.length === 0) {
-    throw new Error(`No JSON quizzes found in category folders under ${rootFolder}/`);
+    loadedCategories.push(category);
   }
 
   return loadedCategories;
+}
+
+function pickInitialSelection(categories) {
+  if (!Array.isArray(categories) || categories.length === 0) {
+    return {
+      categoryId: null,
+      quizId: null,
+      questionIndex: -1
+    };
+  }
+
+  const firstCategoryWithQuiz = categories.find((category) => Array.isArray(category.quizzes) && category.quizzes.length > 0);
+  const selectedCategory = firstCategoryWithQuiz || categories[0];
+  const selectedQuiz = selectedCategory && Array.isArray(selectedCategory.quizzes)
+    ? selectedCategory.quizzes[0] || null
+    : null;
+
+  return {
+    categoryId: selectedCategory ? selectedCategory.id : null,
+    quizId: selectedQuiz ? selectedQuiz.id : null,
+    questionIndex: selectedQuiz && Array.isArray(selectedQuiz.questions) && selectedQuiz.questions.length > 0 ? 0 : -1
+  };
 }
 
 async function loadLibraryFromManifest(context) {
@@ -890,9 +900,10 @@ async function loadLibraryFromRoot() {
 
   state.categories = loadedCategories;
   state.rootFolder = rootFolder;
-  state.selectedCategoryId = loadedCategories[0].id;
-  state.selectedQuizId = loadedCategories[0].quizzes[0].id;
-  state.selectedQuestionIndex = loadedCategories[0].quizzes[0].questions.length > 0 ? 0 : -1;
+  const initialSelection = pickInitialSelection(loadedCategories);
+  state.selectedCategoryId = initialSelection.categoryId;
+  state.selectedQuizId = initialSelection.quizId;
+  state.selectedQuestionIndex = initialSelection.questionIndex;
   ensureQuizFileNames();
   return sourceMode;
 }
