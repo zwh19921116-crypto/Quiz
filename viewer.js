@@ -104,6 +104,44 @@ function setError(message) {
   document.getElementById("notesViewerBtn").style.display = "none";
 }
 
+function splitPath(value) {
+  return String(value || "")
+    .replace(/\\/g, "/")
+    .split("/")
+    .filter((item) => item !== "");
+}
+
+function parseQuizPayload(rawData) {
+  return {
+    title: rawData.title || "Quiz Viewer",
+    questions: Array.isArray(rawData.questions) ? rawData.questions.map(normalizeQuestion) : []
+  };
+}
+
+async function loadQuizFromLocalHandle(requestedFile) {
+  if (typeof window.showDirectoryPicker !== "function") {
+    throw new Error("Local file access is not supported in this browser.");
+  }
+
+  const rootHandle = await window.showDirectoryPicker({ mode: "read" });
+  const segments = splitPath(requestedFile);
+  if (segments.length === 0) {
+    throw new Error("Invalid quiz path.");
+  }
+
+  const fileName = segments.pop();
+  let directoryHandle = rootHandle;
+
+  for (const segment of segments) {
+    directoryHandle = await directoryHandle.getDirectoryHandle(segment, { create: false });
+  }
+
+  const fileHandle = await directoryHandle.getFileHandle(fileName, { create: false });
+  const file = await fileHandle.getFile();
+  const text = await file.text();
+  return JSON.parse(text);
+}
+
 function updateHeader() {
   const total = quizData.questions.length;
   const done = currentIndex;
@@ -182,12 +220,13 @@ function renderNotesPanel(question) {
   const items = question.notesAttachments || [];
 
   if (items.length === 0) {
-    notesBtn.textContent = "Notes: N/A";
+    notesBtn.style.display = "none";
     notesPanel.classList.add("hidden");
     notesPanel.innerHTML = "";
     return;
   }
 
+  notesBtn.style.display = "inline-block";
   notesBtn.textContent = `Notes: ${items.length}`;
   notesPanel.innerHTML = `
     <ul class="notes-list">
@@ -374,14 +413,21 @@ async function loadQuiz() {
       throw new Error("load failed");
     }
     const rawData = await response.json();
-
-    const parsedQuiz = {
-      title: rawData.title || "Quiz Viewer",
-      questions: Array.isArray(rawData.questions) ? rawData.questions.map(normalizeQuestion) : []
-    };
-
+    const parsedQuiz = parseQuizPayload(rawData);
     applySingleQuiz(parsedQuiz);
   } catch (error) {
+    if (window.location.protocol === "file:") {
+      try {
+        const rawData = await loadQuizFromLocalHandle(requestedFile);
+        const parsedQuiz = parseQuizPayload(rawData);
+        applySingleQuiz(parsedQuiz);
+        showToast("Loaded local quiz after folder selection.", "success");
+        return;
+      } catch (localError) {
+        // Fall through to user-facing error below.
+      }
+    }
+
     setError(`Could not load quiz file: ${requestedFile}`);
     return;
   }
