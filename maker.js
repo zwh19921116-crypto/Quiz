@@ -1059,8 +1059,7 @@ async function loadLibraryFromRoot() {
       loadedCategories = await loadLibraryFromGithubFolders(context);
       sourceMode = "github-folder-scan";
     } catch (githubScanError) {
-      loadedCategories = await loadLibraryFromManifest(context);
-      sourceMode = "manifest";
+      throw new Error(`Could not read category folders from GitHub root: ${state.rootFolder}`);
     }
   } else if (rootSourceMode === ROOT_SOURCE_MODES.LOCAL) {
     if (isHttpUrl(rootFolder)) {
@@ -1072,22 +1071,16 @@ async function loadLibraryFromRoot() {
       sourceMode = "folder-scan";
     } catch (folderScanError) {
       try {
-        loadedCategories = await loadLibraryFromManifest(context);
-        sourceMode = "manifest";
-      } catch (manifestError) {
         const shouldTryHandleFallback = supportsFolderDeletion();
         if (!shouldTryHandleFallback) {
-          throw manifestError;
+          throw folderScanError;
         }
 
         const configuredRoot = await getConfiguredRootHandle({ create: false });
-        try {
-          loadedCategories = await loadLibraryFromHandleCategoryFolders(configuredRoot, rootFolder);
-          sourceMode = "handle-folder-scan";
-        } catch (handleFolderError) {
-          loadedCategories = await loadLibraryFromHandleManifest(configuredRoot, rootFolder);
-          sourceMode = "handle-manifest";
-        }
+        loadedCategories = await loadLibraryFromHandleCategoryFolders(configuredRoot, rootFolder);
+        sourceMode = "handle-folder-scan";
+      } catch (localFolderError) {
+        throw new Error(`Could not read category folders from local root: ${state.rootFolder}`);
       }
     }
   } else if (context.githubRepo) {
@@ -1095,8 +1088,7 @@ async function loadLibraryFromRoot() {
       loadedCategories = await loadLibraryFromGithubFolders(context);
       sourceMode = "github-folder-scan";
     } catch (githubScanError) {
-      loadedCategories = await loadLibraryFromManifest(context);
-      sourceMode = "manifest";
+      throw new Error(`Could not read category folders from GitHub root: ${state.rootFolder}`);
     }
   } else if (context.supportsDirectoryScan) {
     try {
@@ -1104,22 +1096,16 @@ async function loadLibraryFromRoot() {
       sourceMode = "folder-scan";
     } catch (folderScanError) {
       try {
-        loadedCategories = await loadLibraryFromManifest(context);
-        sourceMode = "manifest";
-      } catch (manifestError) {
         const shouldTryHandleFallback = supportsFolderDeletion() && (window.location.protocol === "file:" || rootDirectoryHandle !== null);
         if (!shouldTryHandleFallback) {
-          throw manifestError;
+          throw folderScanError;
         }
 
         const configuredRoot = await getConfiguredRootHandle({ create: false });
-        try {
-          loadedCategories = await loadLibraryFromHandleCategoryFolders(configuredRoot, rootFolder);
-          sourceMode = "handle-folder-scan";
-        } catch (handleFolderError) {
-          loadedCategories = await loadLibraryFromHandleManifest(configuredRoot, rootFolder);
-          sourceMode = "handle-manifest";
-        }
+        loadedCategories = await loadLibraryFromHandleCategoryFolders(configuredRoot, rootFolder);
+        sourceMode = "handle-folder-scan";
+      } catch (localFolderError) {
+        throw new Error(`Could not read category folders from local root: ${state.rootFolder}`);
       }
     }
   } else {
