@@ -918,16 +918,18 @@ async function refreshLibraryFromRoot(notify = true) {
   try {
     const sourceMode = await loadLibraryFromRoot();
     renderAll();
-    const sourceText = sourceMode === "folder-scan"
-      ? `Source: auto-detected from category folders in ${state.rootFolder}/`
-      : `Source: auto-detected from ${state.rootFolder}/index.json`;
+    const sourceText = sourceMode === "github-folder-scan"
+      ? `Source: auto-detected from GitHub category folders in ${state.rootFolder}`
+      : sourceMode === "folder-scan"
+        ? `Source: auto-detected from category folders in ${state.rootFolder}/`
+        : `Source: auto-detected from ${state.rootFolder}/index.json`;
     setRootStatus(sourceText);
     if (notify) {
       showToast("Root library detected and loaded.", "success");
     }
     return true;
   } catch (error) {
-    setRootStatus(`Source: could not load ${state.rootFolder}/index.json`);
+    setRootStatus(`Source: could not load categories from ${state.rootFolder} (folder scan and index.json fallback failed)`);
     if (notify) {
       showToast(String(error.message || "Could not load root library."), "warning");
     }
