@@ -417,6 +417,81 @@ async function readGitHubDirectoryEntries(githubRepo, path) {
   return payload;
 }
 
+function buildGitHubCdnUrl(githubRepo, filePath) {
+  const cleanPath = String(filePath || "").replace(/^\/+/, "");
+  return `https://cdn.jsdelivr.net/gh/${encodeURIComponent(githubRepo.owner)}/${encodeURIComponent(githubRepo.repo)}@${encodeURIComponent(githubRepo.branch)}/${cleanPath}`;
+}
+
+async function loadLibraryFromGithubFlatIndex(context) {
+  if (!context.githubRepo) {
+    throw new Error("GitHub repository context is missing.");
+  }
+
+  const githubRepo = context.githubRepo;
+  const rootPath = String(githubRepo.repoPath || "").replace(/^\/+|\/+$/g, "");
+  const rootPrefix = rootPath ? `/${rootPath}/` : "/";
+  const indexUrl = `https://data.jsdelivr.com/v1/package/gh/${encodeURIComponent(githubRepo.owner)}/${encodeURIComponent(githubRepo.repo)}@${encodeURIComponent(githubRepo.branch)}/flat`;
+  const indexResponse = await fetch(indexUrl, { cache: "no-store" });
+  if (!indexResponse.ok) {
+    throw new Error(`Could not read ${rootPath || "repository root"} index from CDN`);
+  }
+
+  const indexPayload = await indexResponse.json();
+  const files = Array.isArray(indexPayload && indexPayload.files) ? indexPayload.files : [];
+  const quizFilePaths = files
+    .map((entry) => String(entry && entry.name ? entry.name : ""))
+    .filter((name) => name.startsWith(rootPrefix))
+    .filter((name) => name.toLowerCase().endsWith(".json"))
+    .filter((name) => !name.toLowerCase().endsWith("/index.json"));
+
+  if (quizFilePaths.length === 0) {
+    throw new Error(`No quiz JSON files found in ${rootPath || "repository root"}`);
+  }
+
+  const groupedByFolder = new Map();
+  quizFilePaths.forEach((fullPath) => {
+    const relative = rootPath ? fullPath.slice(rootPrefix.length) : fullPath.replace(/^\/+/, "");
+    const folder = relative.split("/")[0] || "";
+    if (!folder) {
+      return;
+    }
+
+    const list = groupedByFolder.get(folder) || [];
+    list.push(relative);
+    groupedByFolder.set(folder, list);
+  });
+
+  if (groupedByFolder.size === 0) {
+    throw new Error(`No category folders found in ${rootPath || "repository root"}`);
+  }
+
+  const loadedCategories = [];
+
+  for (const [folder, relativePaths] of groupedByFolder.entries()) {
+    const category = createCategory(categoryNameFromFolder(folder));
+
+    for (const relativePath of relativePaths) {
+      const repoFilePath = rootPath ? `${rootPath}/${relativePath}` : relativePath;
+      const quizPath = buildGitHubCdnUrl(githubRepo, repoFilePath);
+      const quizResponse = await fetch(quizPath, { cache: "no-store" });
+      if (!quizResponse.ok) {
+        continue;
+      }
+
+      const quizJson = await quizResponse.json();
+      const quiz = createQuiz(quizTitleFromFilePath(relativePath));
+      quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
+      quiz.sourcePath = quizPath;
+      quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
+      category.quizzes.push(quiz);
+    }
+
+    loadedCategories.push(category);
+  }
+
+  return loadedCategories;
+}
+
 async function loadLibraryFromGithubFolders(context) {
   if (!context.githubRepo) {
     throw new Error("GitHub repository context is missing.");
@@ -1071,7 +1146,12 @@ async function loadLibraryFromRoot() {
       loadedCategories = await loadLibraryFromGithubFolders(context);
       sourceMode = "github-folder-scan";
     } catch (githubScanError) {
-      throw new Error(`Could not read category folders from GitHub root: ${state.rootFolder}`);
+      try {
+        loadedCategories = await loadLibraryFromGithubFlatIndex(context);
+        sourceMode = "github-flat-scan";
+      } catch (cdnScanError) {
+        throw new Error(`Could not read category folders from GitHub root: ${state.rootFolder}`);
+      }
     }
   } else if (rootSourceMode === ROOT_SOURCE_MODES.LOCAL) {
     if (isHttpUrl(rootFolder)) {
@@ -1100,7 +1180,12 @@ async function loadLibraryFromRoot() {
       loadedCategories = await loadLibraryFromGithubFolders(context);
       sourceMode = "github-folder-scan";
     } catch (githubScanError) {
-      throw new Error(`Could not read category folders from GitHub root: ${state.rootFolder}`);
+      try {
+        loadedCategories = await loadLibraryFromGithubFlatIndex(context);
+        sourceMode = "github-flat-scan";
+      } catch (cdnScanError) {
+        throw new Error(`Could not read category folders from GitHub root: ${state.rootFolder}`);
+      }
     }
   } else if (context.supportsDirectoryScan) {
     try {
@@ -1152,6 +1237,8 @@ async function refreshLibraryFromRoot(notify = true) {
     renderAll();
     const sourceText = sourceMode === "github-folder-scan"
       ? `Source: auto-detected from GitHub category folders in ${state.rootFolder}`
+      : sourceMode === "github-flat-scan"
+        ? `Source: auto-detected from GitHub file index in ${state.rootFolder}`
       : sourceMode === "folder-scan"
         ? `Source: auto-detected from category folders in ${state.rootFolder}/`
         : sourceMode === "handle-folder-scan"
