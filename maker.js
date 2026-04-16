@@ -268,7 +268,8 @@ function resolveRootFetchContext(rootFolder) {
   const fallback = {
     rootFolder: normalized,
     fetchBase: normalized,
-    supportsDirectoryScan: !isHttpUrl(normalized)
+    supportsDirectoryScan: !isHttpUrl(normalized),
+    githubRepo: null
   };
 
   if (!isHttpUrl(normalized)) {
@@ -281,10 +282,24 @@ function resolveRootFetchContext(rootFolder) {
     const segments = parsed.pathname.split("/").filter((item) => item !== "");
 
     if (host === "raw.githubusercontent.com") {
+      const rawSegments = parsed.pathname.split("/").filter((item) => item !== "");
+      const owner = rawSegments[0] || "";
+      const repo = rawSegments[1] || "";
+      const branch = rawSegments[2] || "main";
+      const repoPath = rawSegments.slice(3).join("/");
+
       return {
         rootFolder: normalized,
         fetchBase: `${parsed.origin}${parsed.pathname}`.replace(/\/+$/g, ""),
-        supportsDirectoryScan: false
+        supportsDirectoryScan: false,
+        githubRepo: owner && repo
+          ? {
+            owner,
+            repo,
+            branch,
+            repoPath
+          }
+          : null
       };
     }
 
@@ -292,7 +307,8 @@ function resolveRootFetchContext(rootFolder) {
       return {
         rootFolder: normalized,
         fetchBase: normalized,
-        supportsDirectoryScan: false
+        supportsDirectoryScan: false,
+        githubRepo: null
       };
     }
 
@@ -315,15 +331,126 @@ function resolveRootFetchContext(rootFolder) {
     return {
       rootFolder: normalized,
       fetchBase: rawBase,
-      supportsDirectoryScan: false
+      supportsDirectoryScan: false,
+      githubRepo: {
+        owner,
+        repo,
+        branch,
+        repoPath
+      }
     };
   } catch (error) {
     return {
       rootFolder: normalized,
       fetchBase: normalized,
-      supportsDirectoryScan: false
+      supportsDirectoryScan: false,
+      githubRepo: null
     };
   }
+}
+
+function toGitHubApiContentsUrl(githubRepo, path) {
+  const encodedPath = String(path || "")
+    .split("/")
+    .filter((segment) => segment !== "")
+    .map((segment) => encodeURIComponent(segment))
+    .join("/");
+  const base = `https://api.github.com/repos/${encodeURIComponent(githubRepo.owner)}/${encodeURIComponent(githubRepo.repo)}/contents`;
+  const target = encodedPath ? `${base}/${encodedPath}` : base;
+  return `${target}?ref=${encodeURIComponent(githubRepo.branch)}`;
+}
+
+function getGitHubDownloadUrl(entry, githubRepo, path) {
+  if (entry && typeof entry.download_url === "string" && entry.download_url.trim() !== "") {
+    return entry.download_url;
+  }
+
+  const cleanPath = String(path || "").replace(/^\/+/, "");
+  return `https://raw.githubusercontent.com/${githubRepo.owner}/${githubRepo.repo}/${githubRepo.branch}/${cleanPath}`;
+}
+
+async function readGitHubDirectoryEntries(githubRepo, path) {
+  const response = await fetch(toGitHubApiContentsUrl(githubRepo, path), { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error(`Could not read ${path || githubRepo.repoPath || "/"} from GitHub`);
+  }
+
+  const payload = await response.json();
+  if (!Array.isArray(payload)) {
+    throw new Error(`Unexpected GitHub directory payload for ${path || "/"}`);
+  }
+
+  return payload;
+}
+
+async function loadLibraryFromGithubFolders(context) {
+  if (!context.githubRepo) {
+    throw new Error("GitHub repository context is missing.");
+  }
+
+  const githubRepo = context.githubRepo;
+  const rootPath = String(githubRepo.repoPath || "").replace(/^\/+|\/+$/g, "");
+  const rootEntries = await readGitHubDirectoryEntries(githubRepo, rootPath);
+  const categoryFolders = rootEntries
+    .filter((entry) => entry && entry.type === "dir")
+    .map((entry) => String(entry.name || "").trim())
+    .filter((name) => name !== "");
+
+  if (categoryFolders.length === 0) {
+    throw new Error(`No category folders found in ${rootPath || "repository root"}`);
+  }
+
+  const loadedCategories = [];
+
+  for (const folder of categoryFolders) {
+    const category = createCategory(categoryNameFromFolder(folder));
+    const folderPath = rootPath ? `${rootPath}/${folder}` : folder;
+    let folderEntries = [];
+
+    try {
+      folderEntries = await readGitHubDirectoryEntries(githubRepo, folderPath);
+    } catch (error) {
+      continue;
+    }
+
+    const jsonFiles = folderEntries.filter((entry) => {
+      if (!entry || entry.type !== "file") return false;
+      const name = String(entry.name || "").toLowerCase();
+      return name.endsWith(".json") && name !== "index.json";
+    });
+
+    for (const fileEntry of jsonFiles) {
+      const fileName = String(fileEntry.name || "").trim();
+      if (!fileName) {
+        continue;
+      }
+
+      const relativePath = `${folder}/${fileName}`;
+      const repoFilePath = rootPath ? `${rootPath}/${relativePath}` : relativePath;
+      const quizPath = getGitHubDownloadUrl(fileEntry, githubRepo, repoFilePath);
+      const quizResponse = await fetch(quizPath, { cache: "no-store" });
+      if (!quizResponse.ok) {
+        continue;
+      }
+
+      const quizJson = await quizResponse.json();
+      const quiz = createQuiz(quizJson.title || baseNameFromPath(relativePath).replace(/\.json$/i, ""));
+      quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
+      quiz.sourcePath = quizPath;
+      quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
+      category.quizzes.push(quiz);
+    }
+
+    if (category.quizzes.length > 0) {
+      loadedCategories.push(category);
+    }
+  }
+
+  if (loadedCategories.length === 0) {
+    throw new Error("No quiz JSON files found in GitHub category folders.");
+  }
+
+  return loadedCategories;
 }
 
 function baseNameFromPath(path) {
@@ -740,7 +867,15 @@ async function loadLibraryFromRoot() {
   let loadedCategories = [];
   let sourceMode = "manifest";
 
-  if (context.supportsDirectoryScan) {
+  if (context.githubRepo) {
+    try {
+      loadedCategories = await loadLibraryFromGithubFolders(context);
+      sourceMode = "github-folder-scan";
+    } catch (githubScanError) {
+      loadedCategories = await loadLibraryFromManifest(context);
+      sourceMode = "manifest";
+    }
+  } else if (context.supportsDirectoryScan) {
     try {
       loadedCategories = await loadLibraryFromCategoryFolders(rootFolder);
       sourceMode = "folder-scan";
