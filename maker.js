@@ -1811,11 +1811,10 @@ function updateQuestionFromForm() {
     ensureTrueFalseOptions(question);
   }
 
-  ensureDefaultCorrectAnswer(question);
-
-  refreshCorrectAnswerSelect(question);
-
   if (["multiple-choice", "true-false"].includes(question.resultType)) {
+    ensureDefaultCorrectAnswer(question);
+    refreshCorrectAnswerSelect(question);
+
     const select = document.getElementById("correctAnswerSelect");
     const index = Number.parseInt(select.value, 10);
     const choiceOptions = getChoiceOptions(question);
@@ -1823,13 +1822,22 @@ function updateQuestionFromForm() {
       ? choiceOptions[index]
       : "";
   } else if (question.resultType === "checkbox") {
-    const checked = Array.from(document.querySelectorAll("input[data-role='correct-answer-check']:checked"))
+    const choiceOptions = getChoiceOptions(question);
+    const currentChecked = Array.from(document.querySelectorAll("input[data-role='correct-answer-check']:checked"))
       .map((item) => item.value.trim())
       .filter((item) => item !== "");
-    question.correctAnswer = checked.join(", ");
+    const fallbackChecked = String(question.correctAnswer || "")
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item !== "")
+      .filter((answer) => choiceOptions.some((option) => normalizeText(option) === normalizeText(answer)));
+    const nextChecked = currentChecked.length > 0 ? currentChecked : fallbackChecked;
+    question.correctAnswer = nextChecked.join(", ");
   } else {
     question.correctAnswer = document.getElementById("correctAnswer").value.trim();
   }
+
+  refreshCorrectAnswerSelect(question);
 
   question.notesAttachments = document.getElementById("attachmentsInput").value
     .split("\n")
