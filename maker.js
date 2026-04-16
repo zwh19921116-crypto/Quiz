@@ -1044,6 +1044,14 @@ async function loadLibraryFromRoot() {
   const rootFolder = normalizeRootFolder(state.rootFolder);
   let context = resolveRootFetchContext(rootFolder);
   const rootSourceMode = normalizeRootSourceMode(state.rootSourceMode);
+
+  if (rootSourceMode === ROOT_SOURCE_MODES.AUTO && !context.githubRepo && !isHttpUrl(rootFolder)) {
+    const inferred = inferGithubContextFromPages(rootFolder);
+    if (inferred) {
+      context = inferred;
+    }
+  }
+
   let loadedCategories = [];
   let sourceMode = "manifest";
 
