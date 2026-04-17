@@ -236,6 +236,63 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
+function extractYoutubeVideoId(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+
+  try {
+    const parsed = new URL(raw);
+    const host = parsed.hostname.toLowerCase();
+
+    if (host === "youtu.be") {
+      return parsed.pathname.replace(/^\/+/, "").split("/")[0] || "";
+    }
+
+    if (host.endsWith("youtube.com")) {
+      const idFromSearch = parsed.searchParams.get("v");
+      if (idFromSearch) return idFromSearch;
+
+      const pathParts = parsed.pathname.split("/").filter((item) => item !== "");
+      if (["embed", "shorts", "live"].includes(pathParts[0] || "")) {
+        return pathParts[1] || "";
+      }
+    }
+
+    return "";
+  } catch (error) {
+    return "";
+  }
+}
+
+function isPdfAttachment(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return false;
+  if (/^data:application\/pdf/i.test(raw)) return true;
+
+  try {
+    const parsed = new URL(raw, window.location.href);
+    return /\.pdf$/i.test(parsed.pathname);
+  } catch (error) {
+    return /\.pdf($|\?)/i.test(raw);
+  }
+}
+
+function getNotesAttachmentLabel(item) {
+  const value = String(item || "").trim();
+  if (!value) return "Attachment";
+
+  const youtubeId = extractYoutubeVideoId(value);
+  if (youtubeId) {
+    return `YouTube video (${youtubeId})`;
+  }
+
+  if (isPdfAttachment(value)) {
+    return value.startsWith("data:") ? "Embedded PDF" : `PDF: ${deriveAttachmentName(value)}`;
+  }
+
+  return deriveAttachmentName(value);
+}
+
 function renderAnswerInput(question) {
   if (question.resultType === "short-answer") {
     return `
@@ -280,7 +337,7 @@ function renderNotesPanel(question) {
   notesBtn.textContent = `Notes: ${items.length}`;
   notesPanel.innerHTML = `
     <ul class="notes-list">
-      ${items.map((item) => `<li><a href="${escapeHtml(item)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item)}</a></li>`).join("")}
+      ${items.map((item) => `<li><a href="${escapeHtml(item)}" target="_blank" rel="noopener noreferrer">${escapeHtml(getNotesAttachmentLabel(item))}</a></li>`).join("")}
     </ul>
   `;
   notesPanel.classList.add("hidden");

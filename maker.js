@@ -351,6 +351,108 @@ function isHttpUrl(value) {
   return /^https?:\/\//i.test(String(value || "").trim());
 }
 
+function extractYoutubeVideoId(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+
+  try {
+    const parsed = new URL(raw);
+    const host = parsed.hostname.toLowerCase();
+
+    if (host === "youtu.be") {
+      const idFromPath = parsed.pathname.replace(/^\/+/, "").split("/")[0] || "";
+      return /^[a-zA-Z0-9_-]{6,}$/.test(idFromPath) ? idFromPath : "";
+    }
+
+    if (host.endsWith("youtube.com")) {
+      const idFromSearch = parsed.searchParams.get("v") || "";
+      if (/^[a-zA-Z0-9_-]{6,}$/.test(idFromSearch)) {
+        return idFromSearch;
+      }
+
+      const pathParts = parsed.pathname.split("/").filter((item) => item !== "");
+      const marker = pathParts[0] || "";
+      if (["embed", "shorts", "live"].includes(marker)) {
+        const idFromPath = pathParts[1] || "";
+        return /^[a-zA-Z0-9_-]{6,}$/.test(idFromPath) ? idFromPath : "";
+      }
+    }
+
+    return "";
+  } catch (error) {
+    return "";
+  }
+}
+
+function normalizeYoutubeUrl(value) {
+  const id = extractYoutubeVideoId(value);
+  return id ? `https://www.youtube.com/watch?v=${id}` : "";
+}
+
+function isPdfAttachment(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return false;
+  if (/^data:application\/pdf/i.test(raw)) return true;
+
+  try {
+    const parsed = new URL(raw, window.location.href);
+    return /\.pdf$/i.test(parsed.pathname);
+  } catch (error) {
+    return /\.pdf($|\?)/i.test(raw);
+  }
+}
+
+function splitNotesAttachments(items) {
+  const result = {
+    youtube: "",
+    pdf: "",
+    other: []
+  };
+
+  const values = Array.isArray(items) ? items : [];
+  values.forEach((item) => {
+    const value = String(item || "").trim();
+    if (!value) return;
+
+    const youtube = normalizeYoutubeUrl(value);
+    if (youtube) {
+      if (!result.youtube) {
+        result.youtube = youtube;
+      }
+      return;
+    }
+
+    if (isPdfAttachment(value)) {
+      if (!result.pdf) {
+        result.pdf = value;
+      }
+      return;
+    }
+
+    result.other.push(value);
+  });
+
+  return result;
+}
+
+function buildNotesAttachments(parts) {
+  const list = [];
+  if (parts.youtube) {
+    list.push(parts.youtube);
+  }
+  if (parts.pdf) {
+    list.push(parts.pdf);
+  }
+  if (Array.isArray(parts.other) && parts.other.length > 0) {
+    list.push(...parts.other);
+  }
+  return list;
+}
+
+function serializeManualNotesAttachments(items) {
+  return splitNotesAttachments(items).other.join("\n");
+}
+
 function buildGithubContext(owner, repo, branch, repoPath, rootFolder) {
   const cleanRepoPath = String(repoPath || "").replace(/^\/+|\/+$/g, "");
   const rawBase = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}${cleanRepoPath ? `/${cleanRepoPath}` : ""}`;
@@ -1743,14 +1845,27 @@ function refreshCorrectAnswerSelect(question) {
 function updateNotesPreview(attachments) {
   const button = document.getElementById("notesBtn");
   const preview = document.getElementById("notesPreview");
-  if (!attachments || attachments.length === 0) {
+  const list = Array.isArray(attachments) ? attachments : [];
+  if (list.length === 0) {
     button.textContent = "Notes: N/A";
     preview.textContent = "n/a";
     return;
   }
 
-  button.textContent = `Notes: ${attachments.length} attachment(s)`;
-  preview.textContent = attachments.join(" | ");
+  const parts = splitNotesAttachments(list);
+  const chunks = [];
+  if (parts.youtube) {
+    chunks.push("YouTube: attached");
+  }
+  if (parts.pdf) {
+    chunks.push(parts.pdf.startsWith("data:") ? "PDF: embedded" : "PDF: linked");
+  }
+  if (parts.other.length > 0) {
+    chunks.push(`Other links: ${parts.other.length}`);
+  }
+
+  button.textContent = `Notes: ${list.length} attachment(s)`;
+  preview.textContent = chunks.join(" | ") || "n/a";
 }
 
 function updateSolutionAttachmentsPreview(attachments) {
@@ -1774,6 +1889,8 @@ function renderEditor() {
   const imageAttachHint = document.getElementById("imageAttachHint");
   const attachSolutionFileBtn = document.getElementById("attachSolutionFileBtn");
   const solutionAttachHint = document.getElementById("solutionAttachHint");
+  const attachNotesPdfBtn = document.getElementById("attachNotesPdfBtn");
+  const notesPdfHint = document.getElementById("notesPdfHint");
 
   if (!question) {
     hint.textContent = "Select a question to edit details.";
@@ -1787,14 +1904,17 @@ function renderEditor() {
     document.getElementById("correctAnswerSelect").innerHTML = "";
     document.getElementById("correctAnswerCheckboxWrap").innerHTML = "";
     document.getElementById("attachmentsInput").value = "";
+    document.getElementById("notesYoutubeInput").value = "";
     document.getElementById("questionImage").value = "";
     document.getElementById("solutionText").value = "";
     document.getElementById("solutionAttachmentsInput").value = "";
     updateImagePreview("");
     attachImageBtn.disabled = true;
     attachSolutionFileBtn.disabled = true;
+    attachNotesPdfBtn.disabled = true;
     imageAttachHint.textContent = "Select a question first to attach an image.";
     solutionAttachHint.textContent = "Select a question first to attach solution files.";
+    notesPdfHint.textContent = "Select a question first to attach notes PDF.";
     updateNotesPreview([]);
     updateSolutionAttachmentsPreview([]);
     toggleOptionsBlock({ resultType: "multiple-choice" });
@@ -1814,15 +1934,21 @@ function renderEditor() {
   document.getElementById("correctAnswer").value = question.correctAnswer || "";
   document.getElementById("correctAnswerSelect").innerHTML = "";
   document.getElementById("correctAnswerCheckboxWrap").innerHTML = "";
-  document.getElementById("attachmentsInput").value = (question.notesAttachments || []).join("\n");
+  const notesParts = splitNotesAttachments(question.notesAttachments || []);
+  document.getElementById("attachmentsInput").value = serializeManualNotesAttachments(question.notesAttachments || []);
+  document.getElementById("notesYoutubeInput").value = notesParts.youtube;
   document.getElementById("questionImage").value = question.image || "";
   document.getElementById("solutionText").value = question.solution || "";
   document.getElementById("solutionAttachmentsInput").value = serializeManualSolutionAttachments(question.solutionAttachments || []);
   updateImagePreview(question.image || "");
   attachImageBtn.disabled = false;
   attachSolutionFileBtn.disabled = false;
+  attachNotesPdfBtn.disabled = false;
   imageAttachHint.textContent = "Attach image for the selected question, or paste a URL above.";
   solutionAttachHint.textContent = "Add links above, or attach local files to embed them in the quiz JSON.";
+  notesPdfHint.textContent = notesParts.pdf
+    ? (notesParts.pdf.startsWith("data:") ? "A PDF is embedded for this question." : "A PDF link is set for this question.")
+    : "Attach one PDF for notes (embedded in quiz JSON).";
   updateNotesPreview(question.notesAttachments || []);
   updateSolutionAttachmentsPreview(question.solutionAttachments || []);
   toggleOptionsBlock(question);
@@ -2011,6 +2137,8 @@ function updateQuestionFromForm() {
   const question = activeQuestion();
   if (!question) return;
 
+  const previousNotesParts = splitNotesAttachments(question.notesAttachments || []);
+
   question.question = document.getElementById("questionText").value.trim();
   question.resultType = normalizeResultType(document.getElementById("resultType").value);
   question.options = [
@@ -2052,10 +2180,20 @@ function updateQuestionFromForm() {
 
   refreshCorrectAnswerSelect(question);
 
-  question.notesAttachments = document.getElementById("attachmentsInput").value
+  const manualNoteLinks = document.getElementById("attachmentsInput").value
     .split("\n")
     .map((item) => item.trim())
     .filter((item) => item !== "");
+  const manualParts = splitNotesAttachments(manualNoteLinks);
+  const youtubeFromField = normalizeYoutubeUrl(document.getElementById("notesYoutubeInput").value);
+  const nextNotesParts = {
+    youtube: youtubeFromField || manualParts.youtube,
+    pdf: manualParts.pdf || previousNotesParts.pdf,
+    other: manualParts.other
+  };
+  question.notesAttachments = buildNotesAttachments(nextNotesParts);
+  document.getElementById("attachmentsInput").value = nextNotesParts.other.join("\n");
+  document.getElementById("notesYoutubeInput").value = nextNotesParts.youtube;
   question.image = document.getElementById("questionImage").value.trim();
   question.solution = document.getElementById("solutionText").value.trim();
   question.solutionAttachments = [
@@ -2310,6 +2448,38 @@ async function attachSolutionFilesToQuestion(fileList) {
   }
 }
 
+async function attachNotesPdfToQuestion(file) {
+  const question = activeQuestion();
+  if (!question) {
+    showToast("Select a question first.", "warning");
+    return;
+  }
+
+  if (!file) {
+    return;
+  }
+
+  if (!/application\/pdf/i.test(file.type) && !/\.pdf$/i.test(file.name || "")) {
+    showToast("Please select a PDF file.", "warning");
+    return;
+  }
+
+  updateQuestionFromForm();
+
+  try {
+    const pdfDataUrl = await readFileAsDataUrl(file);
+    const parts = splitNotesAttachments(question.notesAttachments || []);
+    parts.pdf = pdfDataUrl;
+    question.notesAttachments = buildNotesAttachments(parts);
+    renderEditor();
+    updateGeneratedJson();
+    saveDraft();
+    showToast("Notes PDF attached.", "success");
+  } catch (error) {
+    showToast("Could not read PDF file.", "error");
+  }
+}
+
 document.getElementById("addCategoryBtn").addEventListener("click", addCategory);
 document.getElementById("addQuizBtn").addEventListener("click", addQuiz);
 document.getElementById("addQuestionBtn").addEventListener("click", addQuestion);
@@ -2333,6 +2503,16 @@ document.getElementById("attachSolutionFileBtn").addEventListener("click", () =>
   document.getElementById("solutionFileInput").click();
 });
 
+document.getElementById("attachNotesPdfBtn").addEventListener("click", () => {
+  const question = activeQuestion();
+  if (!question) {
+    showToast("Select a question first.", "warning");
+    return;
+  }
+
+  document.getElementById("notesPdfInput").click();
+});
+
 document.getElementById("imageFileInput").addEventListener("change", (event) => {
   const target = event.target;
   if (!(target instanceof HTMLInputElement)) return;
@@ -2345,6 +2525,14 @@ document.getElementById("solutionFileInput").addEventListener("change", async (e
   const target = event.target;
   if (!(target instanceof HTMLInputElement)) return;
   await attachSolutionFilesToQuestion(target.files);
+  target.value = "";
+});
+
+document.getElementById("notesPdfInput").addEventListener("change", async (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return;
+  const file = target.files && target.files[0];
+  await attachNotesPdfToQuestion(file || null);
   target.value = "";
 });
 
@@ -2491,7 +2679,7 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   showToast("Question updated in Maker, but file save failed.", "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "questionImage", "solutionText", "solutionAttachmentsInput"]
+["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "questionImage", "solutionText", "solutionAttachmentsInput"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);
@@ -2601,7 +2789,7 @@ function normalizeQuestion(item) {
     resultType,
     options,
     correctAnswer: correctAnswerValue,
-    notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
+    notesAttachments: buildNotesAttachments(splitNotesAttachments(Array.isArray(item.notesAttachments) ? item.notesAttachments : [])),
     image: item.image || "",
     solution: item.solution || "",
     solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)

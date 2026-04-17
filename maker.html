@@ -114,8 +114,15 @@
             <div id="correctAnswerCheckboxWrap" class="correct-answer-checkbox-wrap"></div>
             <p id="correctAnswerHint" class="helper-text">For checkbox, use comma-separated option values.</p>
 
-            <label for="attachmentsInput">4) Notes Attachments (one per line)</label>
-            <textarea id="attachmentsInput" rows="3" placeholder="https://example.com/file.pdf"></textarea>
+            <label for="attachmentsInput">4) Notes Attachments (other links, one per line)</label>
+            <textarea id="attachmentsInput" rows="3" placeholder="https://example.com/reference-link"></textarea>
+            <label for="notesYoutubeInput">YouTube URL (1 max)</label>
+            <input type="text" id="notesYoutubeInput" placeholder="https://www.youtube.com/watch?v=..." />
+            <div class="image-tools">
+              <button class="btn secondary small" id="attachNotesPdfBtn" type="button">Attach Notes PDF</button>
+              <input type="file" id="notesPdfInput" accept="application/pdf" class="hidden" />
+              <span class="helper-text" id="notesPdfHint">Attach one PDF for notes (embedded in quiz JSON).</span>
+            </div>
             <button class="btn secondary" id="notesBtn" type="button">Notes: N/A</button>
             <div id="notesPreview" class="helper-text">n/a</div>
 

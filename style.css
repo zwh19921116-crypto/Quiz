@@ -37,7 +37,24 @@ body {
 }
 
 .page-header {
-  display: none;
+  margin-bottom: 18px;
+}
+
+.shortcut-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.shortcut-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #d7e3f2;
+  background: #f6fbff;
   color: #334155;
   font-size: 0.82rem;
   font-weight: 600;
