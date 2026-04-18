@@ -236,6 +236,78 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
+// ── Interactive App renderer ───────────────────────────────────────────────
+function buildNumberLineSvgString(config) {
+  const min = Number(config.min ?? -10);
+  const max = Number(config.max ?? 10);
+  if (isNaN(min) || isNaN(max) || min >= max) return "";
+  const points = Array.isArray(config.points) ? config.points : [];
+  const arrows = Array.isArray(config.arrows) ? config.arrows : [];
+  const svgW = 600;
+  const svgH = 130;
+  const padX = 50;
+  const lineY = 75;
+  const tickH = 10;
+  const usable = svgW - padX * 2;
+
+  function xPos(val) { return padX + ((val - min) / (max - min)) * usable; }
+  function safeColor(c) { return /^#[0-9a-fA-F]{3,6}$/.test(c) ? c : "#2563eb"; }
+
+  const p = [];
+  p.push(`<defs><marker id="nl-arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#f59e0b"/></marker></defs>`);
+  p.push(`<line x1="${padX - 12}" y1="${lineY}" x2="${svgW - padX + 12}" y2="${lineY}" stroke="#334155" stroke-width="2"/>`);
+  p.push(`<polygon points="${padX - 22},${lineY} ${padX - 12},${lineY - 5} ${padX - 12},${lineY + 5}" fill="#334155"/>`);
+  p.push(`<polygon points="${svgW - padX + 22},${lineY} ${svgW - padX + 12},${lineY - 5} ${svgW - padX + 12},${lineY + 5}" fill="#334155"/>`);
+
+  const range = max - min;
+  let step = 1;
+  if (range > 40) step = 5;
+  else if (range > 20) step = 2;
+
+  for (let i = min; i <= max; i += step) {
+    const x = xPos(i);
+    const isZero = i === 0;
+    p.push(`<line x1="${x}" y1="${lineY - tickH}" x2="${x}" y2="${lineY + tickH}" stroke="#334155" stroke-width="${isZero ? 2 : 1}"/>`);
+    p.push(`<text x="${x}" y="${lineY + 26}" text-anchor="middle" font-size="12" fill="${isZero ? "#1e293b" : "#64748b"}" font-weight="${isZero ? "bold" : "normal"}">${i}</text>`);
+  }
+
+  arrows.forEach((arrow) => {
+    const fx = xPos(Number(arrow.from));
+    const tx = xPos(Number(arrow.to));
+    const mx = (fx + tx) / 2;
+    const peak = lineY - 38;
+    const label = escapeHtml(String(arrow.label || ""));
+    p.push(`<path d="M ${fx} ${lineY - 10} Q ${mx} ${peak} ${tx} ${lineY - 10}" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#nl-arr)"/>`);
+    if (label) p.push(`<text x="${mx}" y="${peak - 6}" text-anchor="middle" font-size="12" fill="#b45309" font-weight="bold">${label}</text>`);
+  });
+
+  points.forEach((pt) => {
+    const val = Number(pt.value);
+    if (isNaN(val)) return;
+    const x = xPos(val);
+    const color = safeColor(pt.color || "#2563eb");
+    const label = escapeHtml(String(pt.label || ""));
+    p.push(`<circle cx="${x}" cy="${lineY}" r="8" fill="${color}" stroke="white" stroke-width="2"><title>${val}</title></circle>`);
+    if (label) p.push(`<text x="${x}" y="${lineY - 16}" text-anchor="middle" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
+  });
+
+  return `<div class="nl-container"><svg viewBox="0 0 ${svgW} ${svgH}" width="100%" preserveAspectRatio="xMidYMid meet">${p.join("")}</svg></div>`;
+}
+
+function buildInteractiveAppMarkup(app) {
+  if (!app || !app.type) return "";
+  if (app.type === "number-line") {
+    const svg = buildNumberLineSvgString(app.config || {});
+    if (!svg) return "";
+    return `<div class="solution-modal-section">
+      <p class="solution-modal-label">Interactive: Number Line</p>
+      <div class="interactive-app-preview">${svg}</div>
+    </div>`;
+  }
+  return "";
+}
+// ── End Interactive App renderer ──────────────────────────────────────────
+
 function extractYoutubeVideoId(value) {
   const raw = String(value || "").trim();
   if (!raw) return "";
@@ -536,6 +608,7 @@ function prepareSolutionModal(question, expectedAnswers) {
   const solutionAttachments = normalizeSolutionAttachments(question.solutionAttachments);
   const modalBody = document.getElementById("solutionModalBody");
   const pdfPreviewsMarkup = renderPdfAttachmentPreviews(solutionAttachments);
+  const interactiveAppMarkup = buildInteractiveAppMarkup(question.interactiveApp || null);
 
   modalBody.innerHTML = `
     <div class="solution-modal-section">
@@ -548,6 +621,7 @@ function prepareSolutionModal(question, expectedAnswers) {
         <div class="solution-modal-copy">${escapeHtml(rawSolution).replace(/\n/g, "<br>")}</div>
       </div>
     ` : ""}
+    ${interactiveAppMarkup}
     ${solutionAttachments.length > 0 ? `
       <div class="solution-modal-section">
         <p class="solution-modal-label">Attachments</p>

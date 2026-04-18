@@ -1850,6 +1850,146 @@ function ensureDefaultCorrectAnswer(question) {
   }
 }
 
+// ── Interactive App helpers ────────────────────────────────────────────────
+
+function parseNlPoints(text) {
+  return String(text || "").split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line !== "")
+    .map((line) => {
+      const parts = line.split(",").map((p) => p.trim());
+      const value = parseFloat(parts[0]);
+      if (isNaN(value)) return null;
+      return { value, label: parts[1] || "", color: parts[2] || "#2563eb" };
+    })
+    .filter((p) => p !== null);
+}
+
+function parseNlArrows(text) {
+  return String(text || "").split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line !== "")
+    .map((line) => {
+      const match = line.match(/^(-?\d+(?:\.\d+)?)\s*(?:→|->|to)\s*(-?\d+(?:\.\d+)?)\s*(?:,\s*(.+))?$/);
+      if (!match) return null;
+      return { from: parseFloat(match[1]), to: parseFloat(match[2]), label: match[3] ? match[3].trim() : "" };
+    })
+    .filter((a) => a !== null);
+}
+
+function serializeNlPoints(points) {
+  if (!Array.isArray(points)) return "";
+  return points.map((p) => `${p.value}, ${p.label || ""}, ${p.color || "#2563eb"}`).join("\n");
+}
+
+function serializeNlArrows(arrows) {
+  if (!Array.isArray(arrows)) return "";
+  return arrows.map((a) => `${a.from} → ${a.to}${a.label ? ", " + a.label : ""}`).join("\n");
+}
+
+function renderNumberLine(config, container) {
+  const min = Number(config.min ?? -10);
+  const max = Number(config.max ?? 10);
+  if (isNaN(min) || isNaN(max) || min >= max) {
+    container.innerHTML = "<p class='helper-text'>Invalid range: min must be less than max.</p>";
+    return;
+  }
+  const points = Array.isArray(config.points) ? config.points : [];
+  const arrows = Array.isArray(config.arrows) ? config.arrows : [];
+  const svgW = 600;
+  const svgH = 130;
+  const padX = 50;
+  const lineY = 75;
+  const tickH = 10;
+  const usable = svgW - padX * 2;
+
+  function xPos(val) {
+    return padX + ((val - min) / (max - min)) * usable;
+  }
+  function safeColor(c) {
+    return /^#[0-9a-fA-F]{3,6}$/.test(c) ? c : "#2563eb";
+  }
+
+  const p = [];
+  p.push(`<defs><marker id="nl-arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#f59e0b"/></marker></defs>`);
+  p.push(`<line x1="${padX - 12}" y1="${lineY}" x2="${svgW - padX + 12}" y2="${lineY}" stroke="#334155" stroke-width="2"/>`);
+  p.push(`<polygon points="${padX - 22},${lineY} ${padX - 12},${lineY - 5} ${padX - 12},${lineY + 5}" fill="#334155"/>`);
+  p.push(`<polygon points="${svgW - padX + 22},${lineY} ${svgW - padX + 12},${lineY - 5} ${svgW - padX + 12},${lineY + 5}" fill="#334155"/>`);
+
+  const range = max - min;
+  let step = 1;
+  if (range > 40) step = 5;
+  else if (range > 20) step = 2;
+
+  for (let i = min; i <= max; i += step) {
+    const x = xPos(i);
+    const isZero = i === 0;
+    p.push(`<line x1="${x}" y1="${lineY - tickH}" x2="${x}" y2="${lineY + tickH}" stroke="#334155" stroke-width="${isZero ? 2 : 1}"/>`);
+    p.push(`<text x="${x}" y="${lineY + 26}" text-anchor="middle" font-size="12" fill="${isZero ? "#1e293b" : "#64748b"}" font-weight="${isZero ? "bold" : "normal"}">${i}</text>`);
+  }
+
+  arrows.forEach((arrow) => {
+    const fx = xPos(Number(arrow.from));
+    const tx = xPos(Number(arrow.to));
+    const mx = (fx + tx) / 2;
+    const peak = lineY - 38;
+    const label = escapeHtml(String(arrow.label || ""));
+    p.push(`<path d="M ${fx} ${lineY - 10} Q ${mx} ${peak} ${tx} ${lineY - 10}" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#nl-arr)"/>`);
+    if (label) p.push(`<text x="${mx}" y="${peak - 6}" text-anchor="middle" font-size="12" fill="#b45309" font-weight="bold">${label}</text>`);
+  });
+
+  points.forEach((pt) => {
+    const val = Number(pt.value);
+    if (isNaN(val)) return;
+    const x = xPos(val);
+    const color = safeColor(pt.color || "#2563eb");
+    const label = escapeHtml(String(pt.label || ""));
+    p.push(`<circle cx="${x}" cy="${lineY}" r="8" fill="${color}" stroke="white" stroke-width="2"><title>${val}</title></circle>`);
+    if (label) p.push(`<text x="${x}" y="${lineY - 16}" text-anchor="middle" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
+  });
+
+  container.innerHTML = `<div class="nl-container"><svg viewBox="0 0 ${svgW} ${svgH}" width="100%" preserveAspectRatio="xMidYMid meet">${p.join("")}</svg></div>`;
+}
+
+function readInteractiveAppFromForm() {
+  const type = (document.getElementById("interactiveAppType").value || "").trim();
+  if (!type) return null;
+  if (type === "number-line") {
+    const min = parseFloat(document.getElementById("nlMin").value);
+    const max = parseFloat(document.getElementById("nlMax").value);
+    return {
+      type: "number-line",
+      config: {
+        min: isNaN(min) ? -10 : min,
+        max: isNaN(max) ? 10 : max,
+        points: parseNlPoints(document.getElementById("nlPoints").value),
+        arrows: parseNlArrows(document.getElementById("nlArrows").value)
+      }
+    };
+  }
+  return null;
+}
+
+function populateInteractiveAppForm(app) {
+  const typeSelect = document.getElementById("interactiveAppType");
+  const nlConfig = document.getElementById("numberLineConfig");
+  const preview = document.getElementById("interactiveAppPreview");
+  const type = app ? (app.type || "") : "";
+  typeSelect.value = type;
+  nlConfig.classList.toggle("hidden", type !== "number-line");
+  preview.innerHTML = "";
+  if (type === "number-line") {
+    const config = app.config || {};
+    document.getElementById("nlMin").value = config.min ?? -10;
+    document.getElementById("nlMax").value = config.max ?? 10;
+    document.getElementById("nlPoints").value = serializeNlPoints(config.points || []);
+    document.getElementById("nlArrows").value = serializeNlArrows(config.arrows || []);
+    renderNumberLine(config, preview);
+  }
+}
+
+// ── End Interactive App helpers ────────────────────────────────────────────
+
 function refreshCorrectAnswerSelect(question) {
   const select = document.getElementById("correctAnswerSelect");
   const textInput = document.getElementById("correctAnswer");
@@ -2027,6 +2167,7 @@ function renderEditor() {
     toggleOptionsBlock({ resultType: "multiple-choice" });
     refreshCorrectAnswerSelect({ resultType: "multiple-choice", options: ["", "", "", ""], correctAnswer: "" });
     renderValidationBox(null);
+    populateInteractiveAppForm(null);
     return;
   }
 
@@ -2062,22 +2203,27 @@ function renderEditor() {
   toggleOptionsBlock(question);
   refreshCorrectAnswerSelect(question);
   renderValidationBox(question);
+  populateInteractiveAppForm(question.interactiveApp || null);
 }
 
 function getQuizData() {
   const selectedQuiz = activeQuiz();
   const category = activeCategory();
   const selectedQuestions = selectedQuiz
-    ? selectedQuiz.questions.map((item) => ({
-      question: item.question || "",
-      resultType: item.resultType || "multiple-choice",
-      options: Array.isArray(item.options) ? item.options : ["", "", "", ""],
-      correctAnswer: item.correctAnswer || "",
-      notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
-      image: item.image || "",
-      solution: item.solution || "",
-      solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)
-    }))
+    ? selectedQuiz.questions.map((item) => {
+      const q = {
+        question: item.question || "",
+        resultType: item.resultType || "multiple-choice",
+        options: Array.isArray(item.options) ? item.options : ["", "", "", ""],
+        correctAnswer: item.correctAnswer || "",
+        notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
+        image: item.image || "",
+        solution: item.solution || "",
+        solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)
+      };
+      if (item.interactiveApp) q.interactiveApp = item.interactiveApp;
+      return q;
+    })
     : [];
 
   return {
@@ -2311,6 +2457,7 @@ function updateQuestionFromForm() {
     ...parseSolutionAttachmentLines(document.getElementById("solutionAttachmentsInput").value),
     ...normalizeSolutionAttachments(question.solutionAttachments).filter((item) => item.embedded)
   ];
+  question.interactiveApp = readInteractiveAppFromForm();
 
   toggleOptionsBlock(question);
   updateNotesPreview(question.notesAttachments);
@@ -2894,6 +3041,29 @@ document.getElementById("rootSourceMode").addEventListener("change", () => {
   saveDraft();
 });
 
+document.getElementById("interactiveAppType").addEventListener("change", () => {
+  const type = document.getElementById("interactiveAppType").value;
+  document.getElementById("numberLineConfig").classList.toggle("hidden", type !== "number-line");
+  document.getElementById("interactiveAppPreview").innerHTML = "";
+  if (activeQuestion()) updateQuestionFromForm();
+});
+
+document.getElementById("previewInteractiveAppBtn").addEventListener("click", () => {
+  const app = readInteractiveAppFromForm();
+  if (app && app.type === "number-line") {
+    renderNumberLine(app.config, document.getElementById("interactiveAppPreview"));
+  }
+});
+
+document.getElementById("toggleInteractiveAppPanelBtn").addEventListener("click", () => {
+  const body = document.getElementById("interactiveAppPanelBody");
+  const btn = document.getElementById("toggleInteractiveAppPanelBtn");
+  const collapsed = !body.classList.contains("hidden");
+  body.classList.toggle("hidden", collapsed);
+  btn.textContent = collapsed ? "Expand" : "Collapse";
+  btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+});
+
 function normalizeQuestion(item) {
   const options = Array.isArray(item.options) ? item.options.slice(0, 4) : ["", "", "", ""];
   while (options.length < 4) {
@@ -2913,7 +3083,7 @@ function normalizeQuestion(item) {
     options[3] = "";
   }
 
-  return {
+  const normalized = {
     question: item.question || "",
     resultType,
     options,
@@ -2923,6 +3093,8 @@ function normalizeQuestion(item) {
     solution: item.solution || "",
     solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)
   };
+  if (item.interactiveApp) normalized.interactiveApp = item.interactiveApp;
+  return normalized;
 }
 
 function loadImportedData(data) {
