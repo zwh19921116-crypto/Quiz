@@ -546,6 +546,15 @@ textarea {
   overflow: visible;
 }
 
+.interactive-draggable-point {
+  cursor: grab;
+  touch-action: none;
+}
+
+.interactive-draggable-point:active {
+  cursor: grabbing;
+}
+
 .cartesian-container {
   width: 100%;
   max-width: 420px;

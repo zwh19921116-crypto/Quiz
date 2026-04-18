@@ -294,7 +294,7 @@ function buildNumberLineSvgString(config) {
     if (!Number.isFinite(x)) return;
     const color = safeInteractiveColor(point.color, "#2563eb");
     const label = escapeHtml(String(point.label || ""));
-    parts.push(`<circle cx="${x}" cy="${lineY}" r="8" fill="${color}" stroke="white" stroke-width="2"/>`);
+    parts.push(`<circle cx="${x}" cy="${lineY}" r="10" fill="${color}" stroke="white" stroke-width="2" class="interactive-draggable-point" data-point-index="${points.indexOf(point)}" data-point-type="number-line"/>`);
     if (label) parts.push(`<text x="${x}" y="${lineY - 16}" text-anchor="middle" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
   });
 
@@ -355,7 +355,7 @@ function buildCartesianPlaneSvgString(config) {
     if (![x, y].every(Number.isFinite)) return;
     const color = safeInteractiveColor(point.color, "#2563eb");
     const label = escapeHtml(String(point.label || ""));
-    parts.push(`<circle cx="${x}" cy="${y}" r="6" fill="${color}" stroke="white" stroke-width="2"/>`);
+    parts.push(`<circle cx="${x}" cy="${y}" r="8" fill="${color}" stroke="white" stroke-width="2" class="interactive-draggable-point" data-point-index="${points.indexOf(point)}" data-point-type="cartesian-plane"/>`);
     if (label) parts.push(`<text x="${x + 10}" y="${y - 10}" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
   });
 
@@ -482,6 +482,113 @@ function updateInteractivePreview(preview, app) {
   preview.innerHTML = content || "<p class='helper-text'>No interactive preview available.</p>";
 }
 
+function getSvgPointerPosition(svg, event) {
+  if (!(svg instanceof SVGElement)) return null;
+  const viewBox = svg.viewBox && svg.viewBox.baseVal
+    ? svg.viewBox.baseVal
+    : { x: 0, y: 0, width: svg.clientWidth || 1, height: svg.clientHeight || 1 };
+  const rect = svg.getBoundingClientRect();
+  if (!rect.width || !rect.height) return null;
+  return {
+    x: viewBox.x + ((event.clientX - rect.left) / rect.width) * viewBox.width,
+    y: viewBox.y + ((event.clientY - rect.top) / rect.height) * viewBox.height
+  };
+}
+
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function syncNumberLineControls(host, app) {
+  const points = Array.isArray(app.config && app.config.points) ? app.config.points : [];
+  points.forEach((point, index) => {
+    host.querySelectorAll(`[data-index="${index}"]`).forEach((input) => {
+      input.value = String(point.value);
+    });
+  });
+}
+
+function syncCartesianControls(host, app) {
+  const points = Array.isArray(app.config && app.config.points) ? app.config.points : [];
+  points.forEach((point, index) => {
+    const xInput = host.querySelector(`[data-role='cartesian-x'][data-index='${index}']`);
+    const yInput = host.querySelector(`[data-role='cartesian-y'][data-index='${index}']`);
+    if (xInput) xInput.value = String(point.x);
+    if (yInput) yInput.value = String(point.y);
+  });
+}
+
+function attachNumberLineDragging(host, app, render) {
+  const svg = host.querySelector(".interactive-app-preview svg");
+  const points = Array.isArray(app.config && app.config.points) ? app.config.points : [];
+  const min = Number.isFinite(Number(app.config && app.config.min)) ? Number(app.config.min) : -10;
+  const max = Number.isFinite(Number(app.config && app.config.max)) ? Number(app.config.max) : 10;
+  if (!(svg instanceof SVGElement) || points.length === 0) return;
+
+  svg.querySelectorAll(".interactive-draggable-point[data-point-type='number-line']").forEach((node) => {
+    node.addEventListener("pointerdown", (event) => {
+      const index = Number.parseInt(node.dataset.pointIndex || "", 10);
+      if (!Number.isInteger(index) || !points[index]) return;
+      event.preventDefault();
+
+      const move = (moveEvent) => {
+        const pos = getSvgPointerPosition(svg, moveEvent);
+        if (!pos) return;
+        const usable = 600 - 50 * 2;
+        const rawValue = min + ((pos.x - 50) / usable) * (max - min);
+        points[index].value = Math.round(clamp(rawValue, min, max));
+        render();
+      };
+
+      const stop = () => {
+        window.removeEventListener("pointermove", move);
+        window.removeEventListener("pointerup", stop);
+      };
+
+      window.addEventListener("pointermove", move);
+      window.addEventListener("pointerup", stop);
+    });
+  });
+}
+
+function attachCartesianDragging(host, app, render) {
+  const svg = host.querySelector(".interactive-app-preview svg");
+  const points = Array.isArray(app.config && app.config.points) ? app.config.points : [];
+  const xMin = Number.isFinite(Number(app.config && app.config.xMin)) ? Number(app.config.xMin) : -10;
+  const xMax = Number.isFinite(Number(app.config && app.config.xMax)) ? Number(app.config.xMax) : 10;
+  const yMin = Number.isFinite(Number(app.config && app.config.yMin)) ? Number(app.config.yMin) : -10;
+  const yMax = Number.isFinite(Number(app.config && app.config.yMax)) ? Number(app.config.yMax) : 10;
+  if (!(svg instanceof SVGElement) || points.length === 0) return;
+
+  svg.querySelectorAll(".interactive-draggable-point[data-point-type='cartesian-plane']").forEach((node) => {
+    node.addEventListener("pointerdown", (event) => {
+      const index = Number.parseInt(node.dataset.pointIndex || "", 10);
+      if (!Number.isInteger(index) || !points[index]) return;
+      event.preventDefault();
+
+      const move = (moveEvent) => {
+        const pos = getSvgPointerPosition(svg, moveEvent);
+        if (!pos) return;
+        const pad = 36;
+        const usable = 320 - pad * 2;
+        const xValue = xMin + ((pos.x - pad) / usable) * (xMax - xMin);
+        const yValue = yMin + ((320 - pad - pos.y) / usable) * (yMax - yMin);
+        points[index].x = Math.round(clamp(xValue, xMin, xMax));
+        points[index].y = Math.round(clamp(yValue, yMin, yMax));
+        render();
+      };
+
+      const stop = () => {
+        window.removeEventListener("pointermove", move);
+        window.removeEventListener("pointerup", stop);
+      };
+
+      window.addEventListener("pointermove", move);
+      window.addEventListener("pointerup", stop);
+    });
+  });
+}
+
 function renderInteractiveDetails(host, lines) {
   const detailHost = host.querySelector(".interactive-app-details");
   if (!detailHost) return;
@@ -587,15 +694,17 @@ function mountNumberLineInteractive(host, app) {
   `;
 
   const preview = host.querySelector(".interactive-app-preview");
+  const render = () => {
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+    syncNumberLineControls(host, app);
+    attachNumberLineDragging(host, app, render);
+  };
   const sync = (index, value) => {
     if (!points[index]) return;
     const next = Math.max(min, Math.min(max, Number(value)));
     points[index].value = next;
-    host.querySelectorAll(`[data-index="${index}"]`).forEach((input) => {
-      input.value = String(next);
-    });
-    updateInteractivePreview(preview, app);
-    updateInteractiveDetails(host, app);
+    render();
   };
 
   host.querySelectorAll("[data-role='point-range']").forEach((input) => {
@@ -605,8 +714,7 @@ function mountNumberLineInteractive(host, app) {
     input.addEventListener("input", () => sync(Number(input.dataset.index), input.value));
   });
 
-  updateInteractivePreview(preview, app);
-  updateInteractiveDetails(host, app);
+  render();
 }
 
 function mountCartesianInteractive(host, app) {
@@ -640,17 +748,19 @@ function mountCartesianInteractive(host, app) {
   `;
 
   const preview = host.querySelector(".interactive-app-preview");
+  const render = () => {
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+    syncCartesianControls(host, app);
+    attachCartesianDragging(host, app, render);
+  };
   const sync = (index, axis, value) => {
     if (!points[index]) return;
     const min = axis === "x" ? xMin : yMin;
     const max = axis === "x" ? xMax : yMax;
     const next = Math.max(min, Math.min(max, Number(value)));
     points[index][axis] = next;
-    const selector = axis === "x" ? "cartesian-x" : "cartesian-y";
-    const control = host.querySelector(`[data-role='${selector}'][data-index='${index}']`);
-    if (control) control.value = String(next);
-    updateInteractivePreview(preview, app);
-    updateInteractiveDetails(host, app);
+    render();
   };
 
   host.querySelectorAll("[data-role='cartesian-x']").forEach((input) => {
@@ -660,8 +770,7 @@ function mountCartesianInteractive(host, app) {
     input.addEventListener("input", () => sync(Number(input.dataset.index), "y", input.value));
   });
 
-  updateInteractivePreview(preview, app);
-  updateInteractiveDetails(host, app);
+  render();
 }
 
 function mountStemLeafInteractive(host, app) {
