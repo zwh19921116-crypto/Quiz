@@ -1,6 +1,9 @@
 let categorySeed = 1;
 let quizSeed = 1;
 const DRAFT_STORAGE_KEY = "quiz-maker-draft-v1";
+const ROOT_HANDLE_DB_NAME = "quiz-maker-root-handle-db";
+const ROOT_HANDLE_STORE_NAME = "handles";
+const ROOT_HANDLE_KEY = "root-directory";
 const DEFAULT_QUIZ_ROOT = "quizzes";
 const ROOT_SOURCE_MODES = {
   AUTO: "auto",
@@ -8,6 +11,119 @@ const ROOT_SOURCE_MODES = {
   GITHUB: "github"
 };
 let rootDirectoryHandle = null;
+
+function openRootHandleDb() {
+  return new Promise((resolve, reject) => {
+    if (typeof indexedDB === "undefined") {
+      resolve(null);
+      return;
+    }
+
+    const request = indexedDB.open(ROOT_HANDLE_DB_NAME, 1);
+    request.onupgradeneeded = () => {
+      const db = request.result;
+      if (!db.objectStoreNames.contains(ROOT_HANDLE_STORE_NAME)) {
+        db.createObjectStore(ROOT_HANDLE_STORE_NAME);
+      }
+    };
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error || new Error("Could not open handle database."));
+  });
+}
+
+async function loadSavedRootDirectoryHandle() {
+  try {
+    const db = await openRootHandleDb();
+    if (!db) return null;
+
+    return await new Promise((resolve, reject) => {
+      const tx = db.transaction(ROOT_HANDLE_STORE_NAME, "readonly");
+      const store = tx.objectStore(ROOT_HANDLE_STORE_NAME);
+      const request = store.get(ROOT_HANDLE_KEY);
+      request.onsuccess = () => resolve(request.result || null);
+      request.onerror = () => reject(request.error || new Error("Could not load saved root handle."));
+      tx.oncomplete = () => db.close();
+      tx.onerror = () => reject(tx.error || new Error("Could not load saved root handle."));
+    });
+  } catch (error) {
+    return null;
+  }
+}
+
+async function saveRootDirectoryHandle(handle) {
+  try {
+    const db = await openRootHandleDb();
+    if (!db) return false;
+
+    await new Promise((resolve, reject) => {
+      const tx = db.transaction(ROOT_HANDLE_STORE_NAME, "readwrite");
+      const store = tx.objectStore(ROOT_HANDLE_STORE_NAME);
+      store.put(handle, ROOT_HANDLE_KEY);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error || new Error("Could not save root handle."));
+    });
+    db.close();
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+async function clearSavedRootDirectoryHandle() {
+  try {
+    const db = await openRootHandleDb();
+    if (!db) return;
+
+    await new Promise((resolve, reject) => {
+      const tx = db.transaction(ROOT_HANDLE_STORE_NAME, "readwrite");
+      const store = tx.objectStore(ROOT_HANDLE_STORE_NAME);
+      store.delete(ROOT_HANDLE_KEY);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error || new Error("Could not clear root handle."));
+    });
+    db.close();
+  } catch (error) {
+    // Ignore persistence cleanup failures.
+  }
+}
+
+async function ensureRootHandlePermission(handle, mode = "readwrite") {
+  if (!handle) return false;
+  if (typeof handle.queryPermission !== "function") return true;
+
+  try {
+    const current = await handle.queryPermission({ mode });
+    if (current === "granted") return true;
+    if (typeof handle.requestPermission !== "function") return false;
+    const next = await handle.requestPermission({ mode });
+    return next === "granted";
+  } catch (error) {
+    return false;
+  }
+}
+
+async function restoreRootDirectoryHandle({ promptForPermission = false } = {}) {
+  if (rootDirectoryHandle) {
+    const ok = await ensureRootHandlePermission(rootDirectoryHandle, "readwrite");
+    if (ok) return rootDirectoryHandle;
+  }
+
+  const savedHandle = await loadSavedRootDirectoryHandle();
+  if (!savedHandle) return null;
+
+  const ok = promptForPermission
+    ? await ensureRootHandlePermission(savedHandle, "readwrite")
+    : (typeof savedHandle.queryPermission === "function"
+      ? (await savedHandle.queryPermission({ mode: "readwrite" })) === "granted"
+      : true);
+
+  if (!ok) {
+    return null;
+  }
+
+  rootDirectoryHandle = savedHandle;
+  return rootDirectoryHandle;
+}
 
 function splitPath(value) {
   return String(value || "")
@@ -180,6 +296,13 @@ function activeQuestion() {
   const quiz = activeQuiz();
   if (!quiz || state.selectedQuestionIndex < 0) return null;
   return quiz.questions[state.selectedQuestionIndex] || null;
+}
+
+function ensureQuizHasDefaultQuestion(quiz) {
+  if (!quiz) return false;
+  if (Array.isArray(quiz.questions) && quiz.questions.length > 0) return false;
+  quiz.questions = [createEmptyQuestion()];
+  return true;
 }
 
 function normalizeText(value) {
@@ -841,19 +964,34 @@ function supportsFolderDeletion() {
   return typeof window.showDirectoryPicker === "function";
 }
 
-async function getRootDirectoryHandle() {
+async function getRootDirectoryHandle(options = {}) {
+  const { allowPrompt = true, promptForPermission = true } = options;
+
   if (rootDirectoryHandle) {
     return rootDirectoryHandle;
   }
 
+  const restoredHandle = await restoreRootDirectoryHandle({ promptForPermission });
+  if (restoredHandle) {
+    return restoredHandle;
+  }
+
+  if (!allowPrompt) {
+    return null;
+  }
+
   const handle = await window.showDirectoryPicker({ mode: "readwrite" });
   rootDirectoryHandle = handle;
+  await saveRootDirectoryHandle(handle);
   return handle;
 }
 
 async function getConfiguredRootHandle(options = {}) {
-  const { create = false } = options;
-  const rootHandle = await getRootDirectoryHandle();
+  const { create = false, allowPrompt = true, promptForPermission = true } = options;
+  const rootHandle = await getRootDirectoryHandle({ allowPrompt, promptForPermission });
+  if (!rootHandle) {
+    return null;
+  }
   const rootSegments = splitPath(normalizeRootFolder(state.rootFolder));
   if (rootSegments.length === 0) {
     return rootHandle;
@@ -882,6 +1020,7 @@ async function connectRootDirectoryHandle() {
   rootDirectoryHandle = null;
   try {
     const selected = await getRootDirectoryHandle();
+    await saveRootDirectoryHandle(selected);
     const target = await getConfiguredRootHandle({ create: false });
     const modeText = selected.name === target.name
       ? `using ${selected.name}`
@@ -894,6 +1033,7 @@ async function connectRootDirectoryHandle() {
       return false;
     }
 
+    await clearSavedRootDirectoryHandle();
     showToast("Could not connect root folder.", "warning");
     return false;
   }
@@ -1612,6 +1752,11 @@ function ensureSelection() {
   if (!quiz) {
     state.selectedQuestionIndex = -1;
     return;
+  }
+
+  const createdDefaultQuestion = ensureQuizHasDefaultQuestion(quiz);
+  if (createdDefaultQuestion && state.selectedQuestionIndex < 0) {
+    state.selectedQuestionIndex = 0;
   }
 
   if (state.selectedQuestionIndex >= quiz.questions.length) {
@@ -2527,7 +2672,10 @@ function updateSolutionAttachmentsPreview(attachments) {
 
 function renderEditor() {
   const hint = document.getElementById("editorHint");
+  const editorContent = document.getElementById("questionEditorContent");
+  const editorEmptyState = document.getElementById("questionEditorEmptyState");
   const question = activeQuestion();
+  const quiz = activeQuiz();
   const attachImageBtn = document.getElementById("attachImageBtn");
   const imageAttachHint = document.getElementById("imageAttachHint");
   const attachSolutionFileBtn = document.getElementById("attachSolutionFileBtn");
@@ -2535,8 +2683,18 @@ function renderEditor() {
   const attachNotesPdfBtn = document.getElementById("attachNotesPdfBtn");
   const notesPdfHint = document.getElementById("notesPdfHint");
 
+  if (editorContent) {
+    editorContent.classList.toggle("hidden", !quiz);
+  }
+  if (editorEmptyState) {
+    editorEmptyState.classList.toggle("hidden", Boolean(quiz));
+    editorEmptyState.textContent = quiz
+      ? ""
+      : "Select or create a category and quiz to edit questions.";
+  }
+
   if (!question) {
-    hint.textContent = "Select a question to edit details.";
+    hint.textContent = quiz ? "Preparing question editor..." : "Select a question to edit details.";
     document.getElementById("questionText").value = "";
     document.getElementById("resultType").value = "multiple-choice";
     document.getElementById("option1").value = "";
@@ -2689,7 +2847,7 @@ function addQuiz() {
   if (!title || !title.trim()) return;
 
   const quiz = createQuiz(title.trim());
-  quiz.questions.push(createEmptyQuestion());
+  ensureQuizHasDefaultQuestion(quiz);
   category.quizzes.push(quiz);
   state.selectedQuizId = quiz.id;
   state.selectedQuestionIndex = 0;
@@ -2922,7 +3080,8 @@ function resolveQuizRelativePath(quiz, category) {
   return `${slugify(category.name || "category")}/${normalizeQuizFileName(quiz.fileName || quiz.title || "quiz")}`;
 }
 
-async function writeSelectedQuizToDisk() {
+async function writeSelectedQuizToDisk(options = {}) {
+  const { allowPrompt = true } = options;
   const quiz = activeQuiz();
   const category = activeCategory();
   const payload = buildPersistedQuizPayload();
@@ -2936,7 +3095,14 @@ async function writeSelectedQuizToDisk() {
   }
 
   try {
-    const configuredRoot = await getConfiguredRootHandle({ create: true });
+    const configuredRoot = await getConfiguredRootHandle({
+      create: true,
+      allowPrompt,
+      promptForPermission: allowPrompt
+    });
+    if (!configuredRoot) {
+      return false;
+    }
     const relativePath = await resolveWritableQuizRelativePath(configuredRoot, quiz, category);
     const parts = relativePath.split("/").filter((item) => item !== "");
     if (parts.length === 0) {
@@ -2997,10 +3163,16 @@ function downloadSelectedQuizJson() {
   URL.revokeObjectURL(url);
 }
 
-async function saveSelectedQuiz() {
-  const saved = await writeSelectedQuizToDisk();
+async function saveSelectedQuiz(options = {}) {
+  const { allowPrompt = true } = options;
+  const saved = await writeSelectedQuizToDisk({ allowPrompt });
   if (!saved) {
-    showToast("Save failed. Use Connect Root Folder and try again.", "warning");
+    showToast(
+      allowPrompt
+        ? "Save failed. Use Connect Root Folder and try again."
+        : "Save failed. Connect Root Folder first, then try again.",
+      "warning"
+    );
   }
 
   return saved;
@@ -3251,6 +3423,10 @@ document.getElementById("quizList").addEventListener("click", (event) => {
 
   state.selectedQuizId = id;
   state.selectedQuestionIndex = -1;
+  const quiz = activeQuiz();
+  if (ensureQuizHasDefaultQuestion(quiz)) {
+    state.selectedQuestionIndex = 0;
+  }
   renderAll();
 });
 
@@ -3343,13 +3519,13 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   }
 
   updateQuestionFromForm();
-  const saved = await saveSelectedQuiz();
+  const saved = await saveSelectedQuiz({ allowPrompt: false });
   if (saved) {
     showToast("Question changes saved.", "success");
     return;
   }
 
-  showToast("Question updated in Maker, but file save failed.", "warning");
+  showToast("Question updated in Maker, but file save did not run. Connect Root Folder if needed.", "warning");
 });
 
 ["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpPoints", "cpSegments", "slValues", "slStemUnit", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
@@ -3558,6 +3734,8 @@ function loadImportedData(data) {
 }
 
 async function initialize() {
+  await restoreRootDirectoryHandle({ promptForPermission: false });
+
   const loadedFromRoot = await refreshLibraryFromRoot(false);
   if (loadedFromRoot) {
     showToast("Detected quizzes from root folder.", "success");

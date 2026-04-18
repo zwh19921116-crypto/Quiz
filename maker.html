@@ -81,6 +81,9 @@
           <section class="panel-column question-editor-column">
             <h2>Question Config</h2>
             <p class="helper-text" id="editorHint">Select a question to edit details.</p>
+            <p id="questionEditorEmptyState" class="helper-text">Select or create a category and quiz to edit questions.</p>
+
+            <div id="questionEditorContent" class="hidden">
             <div id="questionValidationBox" class="validation-box"></div>
 
             <section class="editor-subpanel" aria-label="Question configuration">
@@ -290,6 +293,7 @@
 
             <button class="btn" id="saveQuestionBtn" type="button">Save Question Changes</button>
             <p class="helper-text">This confirms question edits in Maker. Use Save Selected Quiz to write JSON to file.</p>
+            </div>
           </section>
         </div>
       </section>
