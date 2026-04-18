@@ -177,6 +177,10 @@
                 <select id="interactiveAppType">
                   <option value="">None</option>
                   <option value="number-line">Number Line</option>
+                  <option value="cartesian-plane">Cartesian Plane</option>
+                  <option value="stem-and-leaf">Stem-and-Leaf Plot</option>
+                  <option value="pythagoras">Pythagoras Triangle</option>
+                  <option value="trigonometry">Trigonometry Triangle</option>
                 </select>
 
                 <div id="numberLineConfig" class="hidden">
@@ -194,8 +198,91 @@
                   <textarea id="nlPoints" rows="3" placeholder="-3, Start, #2563eb&#10;5, End, #dc2626"></textarea>
                   <label for="nlArrows">Arrows (one per line: from → to, label)</label>
                   <textarea id="nlArrows" rows="3" placeholder="-3 → 5, +8"></textarea>
-                  <button class="btn secondary small" id="previewInteractiveAppBtn" type="button">Update Preview</button>
                 </div>
+
+                <div id="cartesianPlaneConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="cpXMin">X Min</label>
+                      <input type="number" id="cpXMin" value="-10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="cpXMax">X Max</label>
+                      <input type="number" id="cpXMax" value="10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="cpYMin">Y Min</label>
+                      <input type="number" id="cpYMin" value="-10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="cpYMax">Y Max</label>
+                      <input type="number" id="cpYMax" value="10" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <label for="cpPoints">Points (one per line: x, y, label, color)</label>
+                  <textarea id="cpPoints" rows="3" placeholder="3, -2, A, #2563eb&#10;-4, 5, B, #dc2626"></textarea>
+                  <label for="cpSegments">Segments (one per line: x1, y1 -> x2, y2, label, color)</label>
+                  <textarea id="cpSegments" rows="3" placeholder="0, 0 -> 4, 3, hypotenuse, #f59e0b"></textarea>
+                </div>
+
+                <div id="stemLeafConfig" class="hidden">
+                  <label for="slValues">Values (comma, space, or new line separated)</label>
+                  <textarea id="slValues" rows="4" placeholder="12, 13, 17, 21, 25, 29, 32"></textarea>
+                  <label for="slStemUnit">Stem Unit</label>
+                  <input type="number" id="slStemUnit" value="10" min="1" step="1" class="nl-range-input" />
+                </div>
+
+                <div id="pythagorasConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="pySideA">Side a</label>
+                      <input type="text" id="pySideA" placeholder="3" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="pySideB">Side b</label>
+                      <input type="text" id="pySideB" placeholder="4" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="pySideC">Side c</label>
+                      <input type="text" id="pySideC" placeholder="5 or ?" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <label for="pyCaption">Caption</label>
+                  <input type="text" id="pyCaption" placeholder="Use a² + b² = c²" class="nl-range-input" />
+                </div>
+
+                <div id="trigonometryConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="trigAngleDeg">Angle (degrees)</label>
+                      <input type="number" id="trigAngleDeg" value="35" step="1" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="trigFunction">Focus Function</label>
+                      <select id="trigFunction" class="nl-range-input">
+                        <option value="sin">sin</option>
+                        <option value="cos">cos</option>
+                        <option value="tan">tan</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="trigOpposite">Opposite</label>
+                      <input type="text" id="trigOpposite" placeholder="7" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="trigAdjacent">Adjacent</label>
+                      <input type="text" id="trigAdjacent" placeholder="10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="trigHypotenuse">Hypotenuse</label>
+                      <input type="text" id="trigHypotenuse" placeholder="12.2" class="nl-range-input" />
+                    </div>
+                  </div>
+                </div>
+
+                <button class="btn secondary small" id="previewInteractiveAppBtn" type="button">Update Preview</button>
 
                 <div id="interactiveAppPreview" class="interactive-app-preview"></div>
               </div>

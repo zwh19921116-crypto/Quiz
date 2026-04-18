@@ -1852,48 +1852,171 @@ function ensureDefaultCorrectAnswer(question) {
 
 // ── Interactive App helpers ────────────────────────────────────────────────
 
+function escapeInteractiveHtml(text) {
+  return String(text || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function safeInteractiveColor(value, fallback = "#2563eb") {
+  return /^#[0-9a-fA-F]{3,6}$/.test(String(value || "").trim()) ? String(value).trim() : fallback;
+}
+
+function parseLineList(text) {
+  return String(text || "").split("\n").map((line) => line.trim()).filter((line) => line !== "");
+}
+
+function splitCsvLine(line) {
+  return String(line || "").split(",").map((part) => part.trim());
+}
+
 function parseNlPoints(text) {
-  return String(text || "").split("\n")
-    .map((line) => line.trim())
-    .filter((line) => line !== "")
+  return parseLineList(text)
     .map((line) => {
-      const parts = line.split(",").map((p) => p.trim());
-      const value = parseFloat(parts[0]);
-      if (isNaN(value)) return null;
+      const parts = splitCsvLine(line);
+      const value = Number.parseFloat(parts[0]);
+      if (!Number.isFinite(value)) return null;
       return { value, label: parts[1] || "", color: parts[2] || "#2563eb" };
     })
-    .filter((p) => p !== null);
+    .filter(Boolean);
 }
 
 function parseNlArrows(text) {
-  return String(text || "").split("\n")
-    .map((line) => line.trim())
-    .filter((line) => line !== "")
+  return parseLineList(text)
     .map((line) => {
-      const match = line.match(/^(-?\d+(?:\.\d+)?)\s*(?:→|->|to)\s*(-?\d+(?:\.\d+)?)\s*(?:,\s*(.+))?$/);
+      const match = line.match(/^(-?\d+(?:\.\d+)?)\s*(?:→|->|to)\s*(-?\d+(?:\.\d+)?)\s*(?:,\s*(.+))?$/i);
       if (!match) return null;
-      return { from: parseFloat(match[1]), to: parseFloat(match[2]), label: match[3] ? match[3].trim() : "" };
+      return { from: Number.parseFloat(match[1]), to: Number.parseFloat(match[2]), label: match[3] ? match[3].trim() : "" };
     })
-    .filter((a) => a !== null);
+    .filter(Boolean);
+}
+
+function parseCartesianPoints(text) {
+  return parseLineList(text)
+    .map((line) => {
+      const parts = splitCsvLine(line);
+      const x = Number.parseFloat(parts[0]);
+      const y = Number.parseFloat(parts[1]);
+      if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
+      return { x, y, label: parts[2] || "", color: parts[3] || "#2563eb" };
+    })
+    .filter(Boolean);
+}
+
+function parseCartesianSegments(text) {
+  return parseLineList(text)
+    .map((line) => {
+      const parts = line.split(/(?:→|->)/);
+      if (parts.length !== 2) return null;
+      const left = splitCsvLine(parts[0]);
+      const right = splitCsvLine(parts[1]);
+      const x1 = Number.parseFloat(left[0]);
+      const y1 = Number.parseFloat(left[1]);
+      const x2 = Number.parseFloat(right[0]);
+      const y2 = Number.parseFloat(right[1]);
+      if (![x1, y1, x2, y2].every(Number.isFinite)) return null;
+      return { x1, y1, x2, y2, label: right[2] || "", color: right[3] || "#f59e0b" };
+    })
+    .filter(Boolean);
+}
+
+function parseNumericList(text) {
+  return String(text || "")
+    .split(/[\s,]+/)
+    .map((item) => item.trim())
+    .filter((item) => item !== "")
+    .map((item) => Number.parseFloat(item))
+    .filter((value) => Number.isFinite(value));
 }
 
 function serializeNlPoints(points) {
   if (!Array.isArray(points)) return "";
-  return points.map((p) => `${p.value}, ${p.label || ""}, ${p.color || "#2563eb"}`).join("\n");
+  return points.map((point) => `${point.value}, ${point.label || ""}, ${point.color || "#2563eb"}`).join("\n");
 }
 
 function serializeNlArrows(arrows) {
   if (!Array.isArray(arrows)) return "";
-  return arrows.map((a) => `${a.from} → ${a.to}${a.label ? ", " + a.label : ""}`).join("\n");
+  return arrows.map((arrow) => `${arrow.from} → ${arrow.to}${arrow.label ? `, ${arrow.label}` : ""}`).join("\n");
 }
 
-function renderNumberLine(config, container) {
+function serializeCartesianPoints(points) {
+  if (!Array.isArray(points)) return "";
+  return points.map((point) => `${point.x}, ${point.y}, ${point.label || ""}, ${point.color || "#2563eb"}`).join("\n");
+}
+
+function serializeCartesianSegments(segments) {
+  if (!Array.isArray(segments)) return "";
+  return segments.map((segment) => `${segment.x1}, ${segment.y1} → ${segment.x2}, ${segment.y2}${segment.label ? `, ${segment.label}` : ""}${segment.color ? `, ${segment.color}` : ""}`).join("\n");
+}
+
+function buildDefaultInteractiveApp(type) {
+  switch (type) {
+    case "number-line":
+      return {
+        type,
+        config: {
+          min: -10,
+          max: 10,
+          points: [{ value: -3, label: "A", color: "#dc2626" }, { value: 5, label: "B", color: "#2563eb" }],
+          arrows: [{ from: -3, to: 5, label: "+8" }]
+        }
+      };
+    case "cartesian-plane":
+      return {
+        type,
+        config: {
+          xMin: -10,
+          xMax: 10,
+          yMin: -10,
+          yMax: 10,
+          points: [{ x: 3, y: -2, label: "P", color: "#2563eb" }],
+          segments: [{ x1: 0, y1: 0, x2: 4, y2: 3, label: "segment", color: "#f59e0b" }]
+        }
+      };
+    case "stem-and-leaf":
+      return {
+        type,
+        config: {
+          values: [12, 13, 17, 21, 25, 29, 32],
+          stemUnit: 10
+        }
+      };
+    case "pythagoras":
+      return {
+        type,
+        config: {
+          sideA: "3",
+          sideB: "4",
+          sideC: "5",
+          caption: "Use a² + b² = c²"
+        }
+      };
+    case "trigonometry":
+      return {
+        type,
+        config: {
+          angleDeg: 35,
+          focusFunction: "sin",
+          opposite: "7",
+          adjacent: "10",
+          hypotenuse: "12.2"
+        }
+      };
+    default:
+      return null;
+  }
+}
+
+function buildNumberLineMarkup(config) {
   const min = Number(config.min ?? -10);
   const max = Number(config.max ?? 10);
-  if (isNaN(min) || isNaN(max) || min >= max) {
-    container.innerHTML = "<p class='helper-text'>Invalid range: min must be less than max.</p>";
-    return;
+  if (!Number.isFinite(min) || !Number.isFinite(max) || min >= max) {
+    return "<p class='helper-text'>Invalid range: min must be less than max.</p>";
   }
+
   const points = Array.isArray(config.points) ? config.points : [];
   const arrows = Array.isArray(config.arrows) ? config.arrows : [];
   const svgW = 600;
@@ -1902,19 +2025,12 @@ function renderNumberLine(config, container) {
   const lineY = 75;
   const tickH = 10;
   const usable = svgW - padX * 2;
-
-  function xPos(val) {
-    return padX + ((val - min) / (max - min)) * usable;
-  }
-  function safeColor(c) {
-    return /^#[0-9a-fA-F]{3,6}$/.test(c) ? c : "#2563eb";
-  }
-
-  const p = [];
-  p.push(`<defs><marker id="nl-arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#f59e0b"/></marker></defs>`);
-  p.push(`<line x1="${padX - 12}" y1="${lineY}" x2="${svgW - padX + 12}" y2="${lineY}" stroke="#334155" stroke-width="2"/>`);
-  p.push(`<polygon points="${padX - 22},${lineY} ${padX - 12},${lineY - 5} ${padX - 12},${lineY + 5}" fill="#334155"/>`);
-  p.push(`<polygon points="${svgW - padX + 22},${lineY} ${svgW - padX + 12},${lineY - 5} ${svgW - padX + 12},${lineY + 5}" fill="#334155"/>`);
+  const xPos = (val) => padX + ((val - min) / (max - min)) * usable;
+  const parts = [];
+  parts.push('<defs><marker id="nl-arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#f59e0b"/></marker></defs>');
+  parts.push(`<line x1="${padX - 12}" y1="${lineY}" x2="${svgW - padX + 12}" y2="${lineY}" stroke="#334155" stroke-width="2"/>`);
+  parts.push(`<polygon points="${padX - 22},${lineY} ${padX - 12},${lineY - 5} ${padX - 12},${lineY + 5}" fill="#334155"/>`);
+  parts.push(`<polygon points="${svgW - padX + 22},${lineY} ${svgW - padX + 12},${lineY - 5} ${svgW - padX + 12},${lineY + 5}" fill="#334155"/>`);
 
   const range = max - min;
   let step = 1;
@@ -1924,68 +2040,349 @@ function renderNumberLine(config, container) {
   for (let i = min; i <= max; i += step) {
     const x = xPos(i);
     const isZero = i === 0;
-    p.push(`<line x1="${x}" y1="${lineY - tickH}" x2="${x}" y2="${lineY + tickH}" stroke="#334155" stroke-width="${isZero ? 2 : 1}"/>`);
-    p.push(`<text x="${x}" y="${lineY + 26}" text-anchor="middle" font-size="12" fill="${isZero ? "#1e293b" : "#64748b"}" font-weight="${isZero ? "bold" : "normal"}">${i}</text>`);
+    parts.push(`<line x1="${x}" y1="${lineY - tickH}" x2="${x}" y2="${lineY + tickH}" stroke="#334155" stroke-width="${isZero ? 2 : 1}"/>`);
+    parts.push(`<text x="${x}" y="${lineY + 26}" text-anchor="middle" font-size="12" fill="${isZero ? "#1e293b" : "#64748b"}" font-weight="${isZero ? "bold" : "normal"}">${i}</text>`);
   }
 
   arrows.forEach((arrow) => {
     const fx = xPos(Number(arrow.from));
     const tx = xPos(Number(arrow.to));
+    if (![fx, tx].every(Number.isFinite)) return;
     const mx = (fx + tx) / 2;
     const peak = lineY - 38;
-    const label = escapeHtml(String(arrow.label || ""));
-    p.push(`<path d="M ${fx} ${lineY - 10} Q ${mx} ${peak} ${tx} ${lineY - 10}" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#nl-arr)"/>`);
-    if (label) p.push(`<text x="${mx}" y="${peak - 6}" text-anchor="middle" font-size="12" fill="#b45309" font-weight="bold">${label}</text>`);
+    const label = escapeInteractiveHtml(String(arrow.label || ""));
+    parts.push(`<path d="M ${fx} ${lineY - 10} Q ${mx} ${peak} ${tx} ${lineY - 10}" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#nl-arr)"/>`);
+    if (label) parts.push(`<text x="${mx}" y="${peak - 6}" text-anchor="middle" font-size="12" fill="#b45309" font-weight="bold">${label}</text>`);
   });
 
-  points.forEach((pt) => {
-    const val = Number(pt.value);
-    if (isNaN(val)) return;
-    const x = xPos(val);
-    const color = safeColor(pt.color || "#2563eb");
-    const label = escapeHtml(String(pt.label || ""));
-    p.push(`<circle cx="${x}" cy="${lineY}" r="8" fill="${color}" stroke="white" stroke-width="2"><title>${val}</title></circle>`);
-    if (label) p.push(`<text x="${x}" y="${lineY - 16}" text-anchor="middle" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
+  points.forEach((point) => {
+    const x = xPos(Number(point.value));
+    if (!Number.isFinite(x)) return;
+    const color = safeInteractiveColor(point.color, "#2563eb");
+    const label = escapeInteractiveHtml(String(point.label || ""));
+    parts.push(`<circle cx="${x}" cy="${lineY}" r="8" fill="${color}" stroke="white" stroke-width="2"/>`);
+    if (label) parts.push(`<text x="${x}" y="${lineY - 16}" text-anchor="middle" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
   });
 
-  container.innerHTML = `<div class="nl-container"><svg viewBox="0 0 ${svgW} ${svgH}" width="100%" preserveAspectRatio="xMidYMid meet">${p.join("")}</svg></div>`;
+  return `<div class="nl-container"><svg viewBox="0 0 ${svgW} ${svgH}" width="100%" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div>`;
+}
+
+function buildCartesianPlaneMarkup(config) {
+  const xMin = Number(config.xMin ?? -10);
+  const xMax = Number(config.xMax ?? 10);
+  const yMin = Number(config.yMin ?? -10);
+  const yMax = Number(config.yMax ?? 10);
+  if (![xMin, xMax, yMin, yMax].every(Number.isFinite) || xMin >= xMax || yMin >= yMax) {
+    return "<p class='helper-text'>Invalid plane range.</p>";
+  }
+
+  const points = Array.isArray(config.points) ? config.points : [];
+  const segments = Array.isArray(config.segments) ? config.segments : [];
+  const size = 320;
+  const pad = 36;
+  const usable = size - pad * 2;
+  const xPos = (x) => pad + ((x - xMin) / (xMax - xMin)) * usable;
+  const yPos = (y) => size - pad - ((y - yMin) / (yMax - yMin)) * usable;
+  const axisX = xMin <= 0 && xMax >= 0 ? xPos(0) : null;
+  const axisY = yMin <= 0 && yMax >= 0 ? yPos(0) : null;
+  const parts = [];
+  const xRange = xMax - xMin;
+  const yRange = yMax - yMin;
+  let xStep = 1;
+  let yStep = 1;
+  if (xRange > 20) xStep = xRange > 40 ? 5 : 2;
+  if (yRange > 20) yStep = yRange > 40 ? 5 : 2;
+
+  for (let x = xMin; x <= xMax; x += xStep) {
+    const xCoord = xPos(x);
+    parts.push(`<line x1="${xCoord}" y1="${pad}" x2="${xCoord}" y2="${size - pad}" stroke="#dbe6f3" stroke-width="1"/>`);
+    parts.push(`<text x="${xCoord}" y="${size - pad + 18}" text-anchor="middle" font-size="11" fill="#64748b">${x}</text>`);
+  }
+  for (let y = yMin; y <= yMax; y += yStep) {
+    const yCoord = yPos(y);
+    parts.push(`<line x1="${pad}" y1="${yCoord}" x2="${size - pad}" y2="${yCoord}" stroke="#dbe6f3" stroke-width="1"/>`);
+    parts.push(`<text x="${pad - 10}" y="${yCoord + 4}" text-anchor="end" font-size="11" fill="#64748b">${y}</text>`);
+  }
+
+  if (axisX !== null) {
+    parts.push(`<line x1="${axisX}" y1="${pad - 6}" x2="${axisX}" y2="${size - pad + 6}" stroke="#334155" stroke-width="2"/>`);
+  }
+  if (axisY !== null) {
+    parts.push(`<line x1="${pad - 6}" y1="${axisY}" x2="${size - pad + 6}" y2="${axisY}" stroke="#334155" stroke-width="2"/>`);
+  }
+
+  segments.forEach((segment) => {
+    const x1 = xPos(Number(segment.x1));
+    const y1 = yPos(Number(segment.y1));
+    const x2 = xPos(Number(segment.x2));
+    const y2 = yPos(Number(segment.y2));
+    if (![x1, y1, x2, y2].every(Number.isFinite)) return;
+    const color = safeInteractiveColor(segment.color, "#f59e0b");
+    const label = escapeInteractiveHtml(String(segment.label || ""));
+    parts.push(`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="3" stroke-linecap="round"/>`);
+    if (label) {
+      parts.push(`<text x="${(x1 + x2) / 2}" y="${(y1 + y2) / 2 - 8}" text-anchor="middle" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
+    }
+  });
+
+  points.forEach((point) => {
+    const x = xPos(Number(point.x));
+    const y = yPos(Number(point.y));
+    if (![x, y].every(Number.isFinite)) return;
+    const color = safeInteractiveColor(point.color, "#2563eb");
+    const label = escapeInteractiveHtml(String(point.label || ""));
+    parts.push(`<circle cx="${x}" cy="${y}" r="6" fill="${color}" stroke="white" stroke-width="2"/>`);
+    if (label) {
+      parts.push(`<text x="${x + 10}" y="${y - 10}" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
+    }
+  });
+
+  return `<div class="cartesian-container"><svg viewBox="0 0 ${size} ${size}" width="100%" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div>`;
+}
+
+function buildStemLeafMarkup(config) {
+  const values = Array.isArray(config.values) ? config.values.slice() : [];
+  const stemUnit = Math.max(1, Number.parseInt(config.stemUnit, 10) || 10);
+  if (values.length === 0) {
+    return "<p class='helper-text'>Add values to build the stem-and-leaf plot.</p>";
+  }
+
+  const grouped = new Map();
+  values.sort((a, b) => a - b).forEach((value) => {
+    const stem = Math.trunc(value / stemUnit);
+    const leaf = Math.abs(value - stem * stemUnit);
+    if (!grouped.has(stem)) grouped.set(stem, []);
+    grouped.get(stem).push(leaf);
+  });
+
+  const rows = Array.from(grouped.entries())
+    .sort((a, b) => a[0] - b[0])
+    .map(([stem, leaves]) => `<tr><th>${stem}</th><td>${leaves.join(" ")}</td></tr>`)
+    .join("");
+
+  return `
+    <div class="stem-leaf-container">
+      <div class="stem-leaf-key">Key: ${stemUnit === 10 ? "2 | 5 = 25" : `stem × ${stemUnit} + leaf`}</div>
+      <table class="stem-leaf-table">
+        <thead><tr><th>Stem</th><th>Leaves</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+function buildPythagorasMarkup(config) {
+  const sideA = escapeInteractiveHtml(config.sideA || "?");
+  const sideB = escapeInteractiveHtml(config.sideB || "?");
+  const sideC = escapeInteractiveHtml(config.sideC || "?");
+  const caption = escapeInteractiveHtml(config.caption || "Use a² + b² = c²");
+  return `
+    <div class="triangle-demo-card">
+      <svg viewBox="0 0 320 240" width="100%" preserveAspectRatio="xMidYMid meet">
+        <polygon points="60,200 60,70 250,200" fill="#eff6ff" stroke="#1d4ed8" stroke-width="3"/>
+        <polyline points="60,200 84,200 84,176 60,176" fill="none" stroke="#334155" stroke-width="2"/>
+        <text x="42" y="142" font-size="14" fill="#1e3a8a" font-weight="bold">a = ${sideA}</text>
+        <text x="140" y="220" font-size="14" fill="#1e3a8a" font-weight="bold">b = ${sideB}</text>
+        <text x="168" y="124" font-size="14" fill="#b45309" font-weight="bold">c = ${sideC}</text>
+      </svg>
+      <p class="triangle-demo-caption">${caption}</p>
+    </div>
+  `;
+}
+
+function buildTrigSummary(config) {
+  const focusFunction = ["sin", "cos", "tan"].includes(config.focusFunction) ? config.focusFunction : "sin";
+  const opposite = String(config.opposite || "?").trim() || "?";
+  const adjacent = String(config.adjacent || "?").trim() || "?";
+  const hypotenuse = String(config.hypotenuse || "?").trim() || "?";
+  const numMap = { sin: opposite, cos: adjacent, tan: opposite };
+  const denMap = { sin: hypotenuse, cos: hypotenuse, tan: adjacent };
+  const numericNum = Number.parseFloat(numMap[focusFunction]);
+  const numericDen = Number.parseFloat(denMap[focusFunction]);
+  const approx = Number.isFinite(numericNum) && Number.isFinite(numericDen) && numericDen !== 0
+    ? ` ≈ ${(numericNum / numericDen).toFixed(3)}`
+    : "";
+  return `${focusFunction} θ = ${numMap[focusFunction]} / ${denMap[focusFunction]}${approx}`;
+}
+
+function buildTrigonometryMarkup(config) {
+  const angleDeg = Number.parseFloat(config.angleDeg);
+  const angleLabel = Number.isFinite(angleDeg) ? `${angleDeg}°` : "θ";
+  const opposite = escapeInteractiveHtml(config.opposite || "?");
+  const adjacent = escapeInteractiveHtml(config.adjacent || "?");
+  const hypotenuse = escapeInteractiveHtml(config.hypotenuse || "?");
+  const summary = escapeInteractiveHtml(buildTrigSummary(config));
+  return `
+    <div class="triangle-demo-card">
+      <svg viewBox="0 0 320 240" width="100%" preserveAspectRatio="xMidYMid meet">
+        <polygon points="60,200 220,200 220,80" fill="#f0fdf4" stroke="#15803d" stroke-width="3"/>
+        <polyline points="220,200 196,200 196,176 220,176" fill="none" stroke="#334155" stroke-width="2"/>
+        <path d="M 90 200 A 30 30 0 0 0 84 183" fill="none" stroke="#dc2626" stroke-width="2"/>
+        <text x="86" y="186" font-size="13" fill="#dc2626" font-weight="bold">${escapeInteractiveHtml(angleLabel)}</text>
+        <text x="124" y="220" font-size="14" fill="#166534" font-weight="bold">adj = ${adjacent}</text>
+        <text x="234" y="146" font-size="14" fill="#166534" font-weight="bold">opp = ${opposite}</text>
+        <text x="146" y="128" font-size="14" fill="#b45309" font-weight="bold">hyp = ${hypotenuse}</text>
+      </svg>
+      <p class="triangle-demo-caption">${summary}</p>
+    </div>
+  `;
+}
+
+function buildInteractiveAppMarkup(app) {
+  if (!app || !app.type) return "<p class='helper-text'>Choose a template to add an optional interactive math visual.</p>";
+  switch (app.type) {
+    case "number-line":
+      return buildNumberLineMarkup(app.config || {});
+    case "cartesian-plane":
+      return buildCartesianPlaneMarkup(app.config || {});
+    case "stem-and-leaf":
+      return buildStemLeafMarkup(app.config || {});
+    case "pythagoras":
+      return buildPythagorasMarkup(app.config || {});
+    case "trigonometry":
+      return buildTrigonometryMarkup(app.config || {});
+    default:
+      return "<p class='helper-text'>This interactive template is not supported.</p>";
+  }
+}
+
+function renderInteractiveAppPreview(app) {
+  const preview = document.getElementById("interactiveAppPreview");
+  if (!preview) return;
+  preview.innerHTML = buildInteractiveAppMarkup(app);
+}
+
+function setInteractiveAppConfigVisibility(type) {
+  ["numberLineConfig", "cartesianPlaneConfig", "stemLeafConfig", "pythagorasConfig", "trigonometryConfig"]
+    .forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) {
+        const matches = id === "numberLineConfig"
+          ? type === "number-line"
+          : id === "cartesianPlaneConfig"
+            ? type === "cartesian-plane"
+            : id === "stemLeafConfig"
+              ? type === "stem-and-leaf"
+              : id === "pythagorasConfig"
+                ? type === "pythagoras"
+                : type === "trigonometry";
+        element.classList.toggle("hidden", !matches);
+      }
+    });
 }
 
 function readInteractiveAppFromForm() {
-  const type = (document.getElementById("interactiveAppType").value || "").trim();
+  const type = String(document.getElementById("interactiveAppType").value || "").trim();
   if (!type) return null;
-  if (type === "number-line") {
-    const min = parseFloat(document.getElementById("nlMin").value);
-    const max = parseFloat(document.getElementById("nlMax").value);
-    return {
-      type: "number-line",
-      config: {
-        min: isNaN(min) ? -10 : min,
-        max: isNaN(max) ? 10 : max,
-        points: parseNlPoints(document.getElementById("nlPoints").value),
-        arrows: parseNlArrows(document.getElementById("nlArrows").value)
-      }
-    };
+
+  switch (type) {
+    case "number-line": {
+      const min = Number.parseFloat(document.getElementById("nlMin").value);
+      const max = Number.parseFloat(document.getElementById("nlMax").value);
+      return {
+        type,
+        config: {
+          min: Number.isFinite(min) ? min : -10,
+          max: Number.isFinite(max) ? max : 10,
+          points: parseNlPoints(document.getElementById("nlPoints").value),
+          arrows: parseNlArrows(document.getElementById("nlArrows").value)
+        }
+      };
+    }
+    case "cartesian-plane": {
+      const xMin = Number.parseFloat(document.getElementById("cpXMin").value);
+      const xMax = Number.parseFloat(document.getElementById("cpXMax").value);
+      const yMin = Number.parseFloat(document.getElementById("cpYMin").value);
+      const yMax = Number.parseFloat(document.getElementById("cpYMax").value);
+      return {
+        type,
+        config: {
+          xMin: Number.isFinite(xMin) ? xMin : -10,
+          xMax: Number.isFinite(xMax) ? xMax : 10,
+          yMin: Number.isFinite(yMin) ? yMin : -10,
+          yMax: Number.isFinite(yMax) ? yMax : 10,
+          points: parseCartesianPoints(document.getElementById("cpPoints").value),
+          segments: parseCartesianSegments(document.getElementById("cpSegments").value)
+        }
+      };
+    }
+    case "stem-and-leaf": {
+      const stemUnit = Number.parseInt(document.getElementById("slStemUnit").value, 10);
+      return {
+        type,
+        config: {
+          values: parseNumericList(document.getElementById("slValues").value),
+          stemUnit: Number.isInteger(stemUnit) && stemUnit > 0 ? stemUnit : 10
+        }
+      };
+    }
+    case "pythagoras":
+      return {
+        type,
+        config: {
+          sideA: document.getElementById("pySideA").value.trim(),
+          sideB: document.getElementById("pySideB").value.trim(),
+          sideC: document.getElementById("pySideC").value.trim(),
+          caption: document.getElementById("pyCaption").value.trim()
+        }
+      };
+    case "trigonometry": {
+      const angleDeg = Number.parseFloat(document.getElementById("trigAngleDeg").value);
+      return {
+        type,
+        config: {
+          angleDeg: Number.isFinite(angleDeg) ? angleDeg : 35,
+          focusFunction: document.getElementById("trigFunction").value || "sin",
+          opposite: document.getElementById("trigOpposite").value.trim(),
+          adjacent: document.getElementById("trigAdjacent").value.trim(),
+          hypotenuse: document.getElementById("trigHypotenuse").value.trim()
+        }
+      };
+    }
+    default:
+      return null;
   }
-  return null;
 }
 
 function populateInteractiveAppForm(app) {
   const typeSelect = document.getElementById("interactiveAppType");
-  const nlConfig = document.getElementById("numberLineConfig");
-  const preview = document.getElementById("interactiveAppPreview");
-  const type = app ? (app.type || "") : "";
+  const nextApp = app || null;
+  const type = nextApp ? (nextApp.type || "") : "";
   typeSelect.value = type;
-  nlConfig.classList.toggle("hidden", type !== "number-line");
-  preview.innerHTML = "";
-  if (type === "number-line") {
-    const config = app.config || {};
-    document.getElementById("nlMin").value = config.min ?? -10;
-    document.getElementById("nlMax").value = config.max ?? 10;
-    document.getElementById("nlPoints").value = serializeNlPoints(config.points || []);
-    document.getElementById("nlArrows").value = serializeNlArrows(config.arrows || []);
-    renderNumberLine(config, preview);
-  }
+  setInteractiveAppConfigVisibility(type);
+
+  const numberLineConfig = (type === "number-line" ? nextApp : buildDefaultInteractiveApp("number-line")).config;
+  document.getElementById("nlMin").value = numberLineConfig.min ?? -10;
+  document.getElementById("nlMax").value = numberLineConfig.max ?? 10;
+  document.getElementById("nlPoints").value = serializeNlPoints(numberLineConfig.points || []);
+  document.getElementById("nlArrows").value = serializeNlArrows(numberLineConfig.arrows || []);
+
+  const cartesianConfig = (type === "cartesian-plane" ? nextApp : buildDefaultInteractiveApp("cartesian-plane")).config;
+  document.getElementById("cpXMin").value = cartesianConfig.xMin ?? -10;
+  document.getElementById("cpXMax").value = cartesianConfig.xMax ?? 10;
+  document.getElementById("cpYMin").value = cartesianConfig.yMin ?? -10;
+  document.getElementById("cpYMax").value = cartesianConfig.yMax ?? 10;
+  document.getElementById("cpPoints").value = serializeCartesianPoints(cartesianConfig.points || []);
+  document.getElementById("cpSegments").value = serializeCartesianSegments(cartesianConfig.segments || []);
+
+  const stemLeafConfig = (type === "stem-and-leaf" ? nextApp : buildDefaultInteractiveApp("stem-and-leaf")).config;
+  document.getElementById("slValues").value = Array.isArray(stemLeafConfig.values) ? stemLeafConfig.values.join(", ") : "";
+  document.getElementById("slStemUnit").value = stemLeafConfig.stemUnit ?? 10;
+
+  const pythagorasConfig = (type === "pythagoras" ? nextApp : buildDefaultInteractiveApp("pythagoras")).config;
+  document.getElementById("pySideA").value = pythagorasConfig.sideA ?? "";
+  document.getElementById("pySideB").value = pythagorasConfig.sideB ?? "";
+  document.getElementById("pySideC").value = pythagorasConfig.sideC ?? "";
+  document.getElementById("pyCaption").value = pythagorasConfig.caption ?? "";
+
+  const trigonometryConfig = (type === "trigonometry" ? nextApp : buildDefaultInteractiveApp("trigonometry")).config;
+  document.getElementById("trigAngleDeg").value = trigonometryConfig.angleDeg ?? 35;
+  document.getElementById("trigFunction").value = trigonometryConfig.focusFunction || "sin";
+  document.getElementById("trigOpposite").value = trigonometryConfig.opposite ?? "";
+  document.getElementById("trigAdjacent").value = trigonometryConfig.adjacent ?? "";
+  document.getElementById("trigHypotenuse").value = trigonometryConfig.hypotenuse ?? "";
+
+  renderInteractiveAppPreview(nextApp);
 }
 
 // ── End Interactive App helpers ────────────────────────────────────────────
@@ -2463,6 +2860,7 @@ function updateQuestionFromForm() {
   updateNotesPreview(question.notesAttachments);
   updateSolutionAttachmentsPreview(question.solutionAttachments);
   updateImagePreview(question.image);
+  renderInteractiveAppPreview(question.interactiveApp);
   renderQuestionsList();
   renderValidationBox(question);
   updateGeneratedJson();
@@ -2954,7 +3352,7 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   showToast("Question updated in Maker, but file save failed.", "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput"]
+["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpPoints", "cpSegments", "slValues", "slStemUnit", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);
@@ -3043,16 +3441,23 @@ document.getElementById("rootSourceMode").addEventListener("change", () => {
 
 document.getElementById("interactiveAppType").addEventListener("change", () => {
   const type = document.getElementById("interactiveAppType").value;
-  document.getElementById("numberLineConfig").classList.toggle("hidden", type !== "number-line");
-  document.getElementById("interactiveAppPreview").innerHTML = "";
-  if (activeQuestion()) updateQuestionFromForm();
+  if (!type) {
+    setInteractiveAppConfigVisibility("");
+    renderInteractiveAppPreview(null);
+    if (activeQuestion()) updateQuestionFromForm();
+    return;
+  }
+
+  const nextApp = buildDefaultInteractiveApp(type);
+  populateInteractiveAppForm(nextApp);
+  if (activeQuestion()) {
+    updateQuestionFromForm();
+  }
 });
 
 document.getElementById("previewInteractiveAppBtn").addEventListener("click", () => {
   const app = readInteractiveAppFromForm();
-  if (app && app.type === "number-line") {
-    renderNumberLine(app.config, document.getElementById("interactiveAppPreview"));
-  }
+  renderInteractiveAppPreview(app);
 });
 
 document.getElementById("toggleInteractiveAppPanelBtn").addEventListener("click", () => {

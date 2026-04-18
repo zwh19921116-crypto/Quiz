@@ -80,7 +80,7 @@ function normalizeQuestion(item) {
   const options = Array.isArray(item.options) ? item.options.filter((opt) => String(opt).trim() !== "") : [];
   const resultType = normalizeResultType(item.resultType);
 
-  return {
+  const normalized = {
     question: item.question || "Untitled Question",
     resultType,
     options,
@@ -90,6 +90,12 @@ function normalizeQuestion(item) {
     image: item.image || "",
     solution: item.solution || ""
   };
+
+  if (item.interactiveApp) {
+    normalized.interactiveApp = item.interactiveApp;
+  }
+
+  return normalized;
 }
 
 function normalizeResultType(value) {
@@ -237,10 +243,14 @@ function escapeHtml(text) {
 }
 
 // ── Interactive App renderer ───────────────────────────────────────────────
+function safeInteractiveColor(value, fallback = "#2563eb") {
+  return /^#[0-9a-fA-F]{3,6}$/.test(String(value || "").trim()) ? String(value).trim() : fallback;
+}
+
 function buildNumberLineSvgString(config) {
   const min = Number(config.min ?? -10);
   const max = Number(config.max ?? 10);
-  if (isNaN(min) || isNaN(max) || min >= max) return "";
+  if (!Number.isFinite(min) || !Number.isFinite(max) || min >= max) return "";
   const points = Array.isArray(config.points) ? config.points : [];
   const arrows = Array.isArray(config.arrows) ? config.arrows : [];
   const svgW = 600;
@@ -249,15 +259,12 @@ function buildNumberLineSvgString(config) {
   const lineY = 75;
   const tickH = 10;
   const usable = svgW - padX * 2;
-
-  function xPos(val) { return padX + ((val - min) / (max - min)) * usable; }
-  function safeColor(c) { return /^#[0-9a-fA-F]{3,6}$/.test(c) ? c : "#2563eb"; }
-
-  const p = [];
-  p.push(`<defs><marker id="nl-arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#f59e0b"/></marker></defs>`);
-  p.push(`<line x1="${padX - 12}" y1="${lineY}" x2="${svgW - padX + 12}" y2="${lineY}" stroke="#334155" stroke-width="2"/>`);
-  p.push(`<polygon points="${padX - 22},${lineY} ${padX - 12},${lineY - 5} ${padX - 12},${lineY + 5}" fill="#334155"/>`);
-  p.push(`<polygon points="${svgW - padX + 22},${lineY} ${svgW - padX + 12},${lineY - 5} ${svgW - padX + 12},${lineY + 5}" fill="#334155"/>`);
+  const xPos = (val) => padX + ((val - min) / (max - min)) * usable;
+  const parts = [];
+  parts.push('<defs><marker id="nl-arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#f59e0b"/></marker></defs>');
+  parts.push(`<line x1="${padX - 12}" y1="${lineY}" x2="${svgW - padX + 12}" y2="${lineY}" stroke="#334155" stroke-width="2"/>`);
+  parts.push(`<polygon points="${padX - 22},${lineY} ${padX - 12},${lineY - 5} ${padX - 12},${lineY + 5}" fill="#334155"/>`);
+  parts.push(`<polygon points="${svgW - padX + 22},${lineY} ${svgW - padX + 12},${lineY - 5} ${svgW - padX + 12},${lineY + 5}" fill="#334155"/>`);
 
   const range = max - min;
   let step = 1;
@@ -267,44 +274,205 @@ function buildNumberLineSvgString(config) {
   for (let i = min; i <= max; i += step) {
     const x = xPos(i);
     const isZero = i === 0;
-    p.push(`<line x1="${x}" y1="${lineY - tickH}" x2="${x}" y2="${lineY + tickH}" stroke="#334155" stroke-width="${isZero ? 2 : 1}"/>`);
-    p.push(`<text x="${x}" y="${lineY + 26}" text-anchor="middle" font-size="12" fill="${isZero ? "#1e293b" : "#64748b"}" font-weight="${isZero ? "bold" : "normal"}">${i}</text>`);
+    parts.push(`<line x1="${x}" y1="${lineY - tickH}" x2="${x}" y2="${lineY + tickH}" stroke="#334155" stroke-width="${isZero ? 2 : 1}"/>`);
+    parts.push(`<text x="${x}" y="${lineY + 26}" text-anchor="middle" font-size="12" fill="${isZero ? "#1e293b" : "#64748b"}" font-weight="${isZero ? "bold" : "normal"}">${i}</text>`);
   }
 
   arrows.forEach((arrow) => {
     const fx = xPos(Number(arrow.from));
     const tx = xPos(Number(arrow.to));
+    if (![fx, tx].every(Number.isFinite)) return;
     const mx = (fx + tx) / 2;
     const peak = lineY - 38;
     const label = escapeHtml(String(arrow.label || ""));
-    p.push(`<path d="M ${fx} ${lineY - 10} Q ${mx} ${peak} ${tx} ${lineY - 10}" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#nl-arr)"/>`);
-    if (label) p.push(`<text x="${mx}" y="${peak - 6}" text-anchor="middle" font-size="12" fill="#b45309" font-weight="bold">${label}</text>`);
+    parts.push(`<path d="M ${fx} ${lineY - 10} Q ${mx} ${peak} ${tx} ${lineY - 10}" stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#nl-arr)"/>`);
+    if (label) parts.push(`<text x="${mx}" y="${peak - 6}" text-anchor="middle" font-size="12" fill="#b45309" font-weight="bold">${label}</text>`);
   });
 
-  points.forEach((pt) => {
-    const val = Number(pt.value);
-    if (isNaN(val)) return;
-    const x = xPos(val);
-    const color = safeColor(pt.color || "#2563eb");
-    const label = escapeHtml(String(pt.label || ""));
-    p.push(`<circle cx="${x}" cy="${lineY}" r="8" fill="${color}" stroke="white" stroke-width="2"><title>${val}</title></circle>`);
-    if (label) p.push(`<text x="${x}" y="${lineY - 16}" text-anchor="middle" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
+  points.forEach((point) => {
+    const x = xPos(Number(point.value));
+    if (!Number.isFinite(x)) return;
+    const color = safeInteractiveColor(point.color, "#2563eb");
+    const label = escapeHtml(String(point.label || ""));
+    parts.push(`<circle cx="${x}" cy="${lineY}" r="8" fill="${color}" stroke="white" stroke-width="2"/>`);
+    if (label) parts.push(`<text x="${x}" y="${lineY - 16}" text-anchor="middle" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
   });
 
-  return `<div class="nl-container"><svg viewBox="0 0 ${svgW} ${svgH}" width="100%" preserveAspectRatio="xMidYMid meet">${p.join("")}</svg></div>`;
+  return `<div class="nl-container"><svg viewBox="0 0 ${svgW} ${svgH}" width="100%" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div>`;
+}
+
+function buildCartesianPlaneSvgString(config) {
+  const xMin = Number(config.xMin ?? -10);
+  const xMax = Number(config.xMax ?? 10);
+  const yMin = Number(config.yMin ?? -10);
+  const yMax = Number(config.yMax ?? 10);
+  if (![xMin, xMax, yMin, yMax].every(Number.isFinite) || xMin >= xMax || yMin >= yMax) return "";
+  const points = Array.isArray(config.points) ? config.points : [];
+  const segments = Array.isArray(config.segments) ? config.segments : [];
+  const size = 320;
+  const pad = 36;
+  const usable = size - pad * 2;
+  const xPos = (x) => pad + ((x - xMin) / (xMax - xMin)) * usable;
+  const yPos = (y) => size - pad - ((y - yMin) / (yMax - yMin)) * usable;
+  const axisX = xMin <= 0 && xMax >= 0 ? xPos(0) : null;
+  const axisY = yMin <= 0 && yMax >= 0 ? yPos(0) : null;
+  const parts = [];
+  const xRange = xMax - xMin;
+  const yRange = yMax - yMin;
+  let xStep = 1;
+  let yStep = 1;
+  if (xRange > 20) xStep = xRange > 40 ? 5 : 2;
+  if (yRange > 20) yStep = yRange > 40 ? 5 : 2;
+
+  for (let x = xMin; x <= xMax; x += xStep) {
+    const xCoord = xPos(x);
+    parts.push(`<line x1="${xCoord}" y1="${pad}" x2="${xCoord}" y2="${size - pad}" stroke="#dbe6f3" stroke-width="1"/>`);
+    parts.push(`<text x="${xCoord}" y="${size - pad + 18}" text-anchor="middle" font-size="11" fill="#64748b">${x}</text>`);
+  }
+  for (let y = yMin; y <= yMax; y += yStep) {
+    const yCoord = yPos(y);
+    parts.push(`<line x1="${pad}" y1="${yCoord}" x2="${size - pad}" y2="${yCoord}" stroke="#dbe6f3" stroke-width="1"/>`);
+    parts.push(`<text x="${pad - 10}" y="${yCoord + 4}" text-anchor="end" font-size="11" fill="#64748b">${y}</text>`);
+  }
+  if (axisX !== null) parts.push(`<line x1="${axisX}" y1="${pad - 6}" x2="${axisX}" y2="${size - pad + 6}" stroke="#334155" stroke-width="2"/>`);
+  if (axisY !== null) parts.push(`<line x1="${pad - 6}" y1="${axisY}" x2="${size - pad + 6}" y2="${axisY}" stroke="#334155" stroke-width="2"/>`);
+
+  segments.forEach((segment) => {
+    const x1 = xPos(Number(segment.x1));
+    const y1 = yPos(Number(segment.y1));
+    const x2 = xPos(Number(segment.x2));
+    const y2 = yPos(Number(segment.y2));
+    if (![x1, y1, x2, y2].every(Number.isFinite)) return;
+    const color = safeInteractiveColor(segment.color, "#f59e0b");
+    const label = escapeHtml(String(segment.label || ""));
+    parts.push(`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="3" stroke-linecap="round"/>`);
+    if (label) parts.push(`<text x="${(x1 + x2) / 2}" y="${(y1 + y2) / 2 - 8}" text-anchor="middle" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
+  });
+
+  points.forEach((point) => {
+    const x = xPos(Number(point.x));
+    const y = yPos(Number(point.y));
+    if (![x, y].every(Number.isFinite)) return;
+    const color = safeInteractiveColor(point.color, "#2563eb");
+    const label = escapeHtml(String(point.label || ""));
+    parts.push(`<circle cx="${x}" cy="${y}" r="6" fill="${color}" stroke="white" stroke-width="2"/>`);
+    if (label) parts.push(`<text x="${x + 10}" y="${y - 10}" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
+  });
+
+  return `<div class="cartesian-container"><svg viewBox="0 0 ${size} ${size}" width="100%" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div>`;
+}
+
+function buildStemLeafMarkup(config) {
+  const values = Array.isArray(config.values) ? config.values.slice() : [];
+  const stemUnit = Math.max(1, Number.parseInt(config.stemUnit, 10) || 10);
+  if (values.length === 0) return "";
+  const grouped = new Map();
+  values.sort((a, b) => a - b).forEach((value) => {
+    const stem = Math.trunc(value / stemUnit);
+    const leaf = Math.abs(value - stem * stemUnit);
+    if (!grouped.has(stem)) grouped.set(stem, []);
+    grouped.get(stem).push(leaf);
+  });
+  const rows = Array.from(grouped.entries())
+    .sort((a, b) => a[0] - b[0])
+    .map(([stem, leaves]) => `<tr><th>${stem}</th><td>${leaves.join(" ")}</td></tr>`)
+    .join("");
+  return `
+    <div class="stem-leaf-container">
+      <div class="stem-leaf-key">Key: ${stemUnit === 10 ? "2 | 5 = 25" : `stem × ${stemUnit} + leaf`}</div>
+      <table class="stem-leaf-table">
+        <thead><tr><th>Stem</th><th>Leaves</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+function buildPythagorasMarkup(config) {
+  const sideA = escapeHtml(config.sideA || "?");
+  const sideB = escapeHtml(config.sideB || "?");
+  const sideC = escapeHtml(config.sideC || "?");
+  const caption = escapeHtml(config.caption || "Use a² + b² = c²");
+  return `
+    <div class="triangle-demo-card">
+      <svg viewBox="0 0 320 240" width="100%" preserveAspectRatio="xMidYMid meet">
+        <polygon points="60,200 60,70 250,200" fill="#eff6ff" stroke="#1d4ed8" stroke-width="3"/>
+        <polyline points="60,200 84,200 84,176 60,176" fill="none" stroke="#334155" stroke-width="2"/>
+        <text x="42" y="142" font-size="14" fill="#1e3a8a" font-weight="bold">a = ${sideA}</text>
+        <text x="140" y="220" font-size="14" fill="#1e3a8a" font-weight="bold">b = ${sideB}</text>
+        <text x="168" y="124" font-size="14" fill="#b45309" font-weight="bold">c = ${sideC}</text>
+      </svg>
+      <p class="triangle-demo-caption">${caption}</p>
+    </div>
+  `;
+}
+
+function buildTrigSummary(config) {
+  const focusFunction = ["sin", "cos", "tan"].includes(config.focusFunction) ? config.focusFunction : "sin";
+  const opposite = String(config.opposite || "?").trim() || "?";
+  const adjacent = String(config.adjacent || "?").trim() || "?";
+  const hypotenuse = String(config.hypotenuse || "?").trim() || "?";
+  const numMap = { sin: opposite, cos: adjacent, tan: opposite };
+  const denMap = { sin: hypotenuse, cos: hypotenuse, tan: adjacent };
+  const numericNum = Number.parseFloat(numMap[focusFunction]);
+  const numericDen = Number.parseFloat(denMap[focusFunction]);
+  const approx = Number.isFinite(numericNum) && Number.isFinite(numericDen) && numericDen !== 0
+    ? ` ≈ ${(numericNum / numericDen).toFixed(3)}`
+    : "";
+  return `${focusFunction} θ = ${numMap[focusFunction]} / ${denMap[focusFunction]}${approx}`;
+}
+
+function buildTrigonometryMarkup(config) {
+  const angleDeg = Number.parseFloat(config.angleDeg);
+  const angleLabel = Number.isFinite(angleDeg) ? `${angleDeg}°` : "θ";
+  const opposite = escapeHtml(config.opposite || "?");
+  const adjacent = escapeHtml(config.adjacent || "?");
+  const hypotenuse = escapeHtml(config.hypotenuse || "?");
+  const summary = escapeHtml(buildTrigSummary(config));
+  return `
+    <div class="triangle-demo-card">
+      <svg viewBox="0 0 320 240" width="100%" preserveAspectRatio="xMidYMid meet">
+        <polygon points="60,200 220,200 220,80" fill="#f0fdf4" stroke="#15803d" stroke-width="3"/>
+        <polyline points="220,200 196,200 196,176 220,176" fill="none" stroke="#334155" stroke-width="2"/>
+        <path d="M 90 200 A 30 30 0 0 0 84 183" fill="none" stroke="#dc2626" stroke-width="2"/>
+        <text x="86" y="186" font-size="13" fill="#dc2626" font-weight="bold">${escapeHtml(angleLabel)}</text>
+        <text x="124" y="220" font-size="14" fill="#166534" font-weight="bold">adj = ${adjacent}</text>
+        <text x="234" y="146" font-size="14" fill="#166534" font-weight="bold">opp = ${opposite}</text>
+        <text x="146" y="128" font-size="14" fill="#b45309" font-weight="bold">hyp = ${hypotenuse}</text>
+      </svg>
+      <p class="triangle-demo-caption">${summary}</p>
+    </div>
+  `;
 }
 
 function buildInteractiveAppMarkup(app) {
   if (!app || !app.type) return "";
+
+  let content = "";
+  let title = "Interactive Math";
   if (app.type === "number-line") {
-    const svg = buildNumberLineSvgString(app.config || {});
-    if (!svg) return "";
-    return `<div class="solution-modal-section">
-      <p class="solution-modal-label">Interactive: Number Line</p>
-      <div class="interactive-app-preview">${svg}</div>
-    </div>`;
+    title = "Interactive: Number Line";
+    content = buildNumberLineSvgString(app.config || {});
+  } else if (app.type === "cartesian-plane") {
+    title = "Interactive: Cartesian Plane";
+    content = buildCartesianPlaneSvgString(app.config || {});
+  } else if (app.type === "stem-and-leaf") {
+    title = "Interactive: Stem-and-Leaf Plot";
+    content = buildStemLeafMarkup(app.config || {});
+  } else if (app.type === "pythagoras") {
+    title = "Interactive: Pythagoras Triangle";
+    content = buildPythagorasMarkup(app.config || {});
+  } else if (app.type === "trigonometry") {
+    title = "Interactive: Trigonometry Triangle";
+    content = buildTrigonometryMarkup(app.config || {});
   }
-  return "";
+
+  if (!content) return "";
+
+  return `<div class="solution-modal-section">
+    <p class="solution-modal-label">${title}</p>
+    <div class="interactive-app-preview">${content}</div>
+  </div>`;
 }
 // ── End Interactive App renderer ──────────────────────────────────────────
 

@@ -467,24 +467,87 @@ textarea {
   width: 100%;
 }
 
-.nl-container svg {
+.nl-container svg,
+.cartesian-container svg {
   display: block;
   overflow: visible;
 }
 
+.cartesian-container {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
 .nl-range-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
 }
 
 .nl-range-row > div {
   flex: 1;
+  min-width: 120px;
   display: flex;
   flex-direction: column;
 }
 
 .nl-range-input {
   width: 100%;
+}
+
+.stem-leaf-container {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.stem-leaf-key {
+  margin-bottom: 10px;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.stem-leaf-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #dbe6f3;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.stem-leaf-table th,
+.stem-leaf-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.stem-leaf-table thead th {
+  background: #eff6ff;
+  color: #1e3a8a;
+}
+
+.stem-leaf-table tbody tr:last-child th,
+.stem-leaf-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.triangle-demo-card {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.triangle-demo-card svg {
+  display: block;
+  overflow: visible;
+}
+
+.triangle-demo-caption {
+  margin: 10px 0 0;
+  color: #334155;
+  font-weight: 600;
+  text-align: center;
 }
 /* ── End Interactive App ────────────────────────────────────── */
 
