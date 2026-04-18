@@ -2077,6 +2077,43 @@ function parseNumericList(text) {
     .filter((value) => Number.isFinite(value));
 }
 
+function normalizeGeometryShapeType(value) {
+  const kind = String(value || "").trim().toLowerCase();
+  if (["rectangle", "square", "circle", "triangle", "cube", "cuboid", "sphere", "cylinder"].includes(kind)) return kind;
+  return "rectangle";
+}
+
+function parseGeometryShapes(text) {
+  return parseLineList(text)
+    .map((line) => {
+      const parts = splitCsvLine(line);
+      if (parts.length < 5) return null;
+      const type = normalizeGeometryShapeType(parts[0]);
+      const x = Number.parseFloat(parts[1]);
+      const y = Number.parseFloat(parts[2]);
+      const w = Number.parseFloat(parts[3]);
+      const h = Number.parseFloat(parts[4]);
+      const usesExtendedFormat = parts.length >= 9;
+      const d = usesExtendedFormat ? Number.parseFloat(parts[5]) : Number.NaN;
+      const labelIndex = usesExtendedFormat ? 6 : 5;
+      const colorIndex = usesExtendedFormat ? 7 : 6;
+      const fillIndex = usesExtendedFormat ? 8 : 7;
+      if (![x, y, w].every(Number.isFinite)) return null;
+      return {
+        type,
+        x,
+        y,
+        w,
+        h: Number.isFinite(h) ? h : w,
+        d: Number.isFinite(d) ? d : 0,
+        label: parts[labelIndex] || "",
+        color: parts[colorIndex] || "#2563eb",
+        fill: parts[fillIndex] || "#dbeafe"
+      };
+    })
+    .filter(Boolean);
+}
+
 function serializeNlPoints(points) {
   if (!Array.isArray(points)) return "";
   return points.map((point) => `${point.value}, ${point.label || ""}, ${point.color || "#2563eb"}`).join("\n");
@@ -2095,6 +2132,13 @@ function serializeCartesianPoints(points) {
 function serializeCartesianSegments(segments) {
   if (!Array.isArray(segments)) return "";
   return segments.map((segment) => `${segment.x1}, ${segment.y1} → ${segment.x2}, ${segment.y2}${segment.label ? `, ${segment.label}` : ""}${segment.color ? `, ${segment.color}` : ""}`).join("\n");
+}
+
+function serializeGeometryShapes(shapes) {
+  if (!Array.isArray(shapes)) return "";
+  return shapes
+    .map((shape) => `${shape.type || "rectangle"}, ${shape.x}, ${shape.y}, ${shape.w}, ${shape.h}, ${shape.d || 0}, ${shape.label || ""}, ${shape.color || "#2563eb"}, ${shape.fill || "#dbeafe"}`)
+    .join("\n");
 }
 
 function buildDefaultInteractiveApp(type) {
@@ -2127,6 +2171,21 @@ function buildDefaultInteractiveApp(type) {
         config: {
           values: [12, 13, 17, 21, 25, 29, 32],
           stemUnit: 10
+        }
+      };
+    case "geometry-shapes":
+      return {
+        type,
+        config: {
+          canvasWidth: 360,
+          canvasHeight: 260,
+          unit: "unit",
+          formulaNotation: "plain",
+          shapes: [
+            { type: "rectangle", x: 90, y: 80, w: 90, h: 60, d: 0, label: "Rect A", color: "#2563eb", fill: "#dbeafe" },
+            { type: "circle", x: 240, y: 80, w: 35, h: 35, d: 0, label: "Circle B", color: "#16a34a", fill: "#dcfce7" },
+            { type: "cube", x: 170, y: 190, w: 70, h: 70, d: 70, label: "Cube C", color: "#dc2626", fill: "#fee2e2" }
+          ]
         }
       };
     case "pythagoras":
@@ -2316,6 +2375,62 @@ function buildStemLeafMarkup(config) {
   `;
 }
 
+function buildGeometryShapesMarkup(config) {
+  const canvasWidth = Math.max(220, Math.min(760, Number.parseInt(config.canvasWidth, 10) || 360));
+  const canvasHeight = Math.max(180, Math.min(520, Number.parseInt(config.canvasHeight, 10) || 260));
+  const shapes = Array.isArray(config.shapes) ? config.shapes : [];
+  if (shapes.length === 0) {
+    return "<p class='helper-text'>Add shapes to preview geometry.</p>";
+  }
+
+  const parts = [];
+  parts.push(`<rect x="0" y="0" width="${canvasWidth}" height="${canvasHeight}" fill="#f8fbff" stroke="#dbe6f3"/>`);
+
+  shapes.forEach((shape) => {
+    const type = normalizeGeometryShapeType(shape.type);
+    const x = Number(shape.x);
+    const y = Number(shape.y);
+    const w = Math.max(6, Number(shape.w) || 40);
+    const h = Math.max(6, Number(shape.h) || w);
+    if (![x, y].every(Number.isFinite)) return;
+    const stroke = safeInteractiveColor(shape.color, "#2563eb");
+    const fill = safeInteractiveColor(shape.fill, "#dbeafe");
+    const label = escapeInteractiveHtml(String(shape.label || ""));
+
+    if (type === "rectangle") {
+      parts.push(`<rect x="${x - w / 2}" y="${y - h / 2}" width="${w}" height="${h}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+    } else if (type === "square") {
+      parts.push(`<rect x="${x - w / 2}" y="${y - w / 2}" width="${w}" height="${w}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+    } else if (type === "circle") {
+      parts.push(`<circle cx="${x}" cy="${y}" r="${w}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+    } else if (type === "triangle") {
+      parts.push(`<polygon points="${x},${y - h / 2} ${x - w / 2},${y + h / 2} ${x + w / 2},${y + h / 2}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+    } else if (type === "cube" || type === "cuboid") {
+      const depth = Math.max(8, Number(shape.d) || Math.min(w, h) / 2);
+      const left = x - w / 2;
+      const top = y - h / 2;
+      parts.push(`<rect x="${left}" y="${top}" width="${w}" height="${h}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+      parts.push(`<polygon points="${left},${top} ${left + depth},${top - depth} ${left + w + depth},${top - depth} ${left + w},${top}" fill="${fill}" fill-opacity="0.75" stroke="${stroke}" stroke-width="2"/>`);
+      parts.push(`<polygon points="${left + w},${top} ${left + w + depth},${top - depth} ${left + w + depth},${top + h - depth} ${left + w},${top + h}" fill="${fill}" fill-opacity="0.6" stroke="${stroke}" stroke-width="2"/>`);
+    } else if (type === "sphere") {
+      parts.push(`<circle cx="${x}" cy="${y}" r="${w}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+      parts.push(`<ellipse cx="${x}" cy="${y}" rx="${w}" ry="${Math.max(6, w * 0.32)}" fill="none" stroke="${stroke}" stroke-opacity="0.45" stroke-width="1.5"/>`);
+    } else if (type === "cylinder") {
+      const radius = w;
+      const bodyH = h;
+      parts.push(`<ellipse cx="${x}" cy="${y - bodyH / 2}" rx="${radius}" ry="${Math.max(6, radius * 0.35)}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+      parts.push(`<rect x="${x - radius}" y="${y - bodyH / 2}" width="${radius * 2}" height="${bodyH}" fill="${fill}" fill-opacity="0.7" stroke="${stroke}" stroke-width="2"/>`);
+      parts.push(`<ellipse cx="${x}" cy="${y + bodyH / 2}" rx="${radius}" ry="${Math.max(6, radius * 0.35)}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+    }
+
+    if (label) {
+      parts.push(`<text x="${x}" y="${y - Math.max(h, w) / 2 - 8}" text-anchor="middle" font-size="11" fill="${stroke}" font-weight="bold">${label}</text>`);
+    }
+  });
+
+  return `<div class="geometry-shapes-container"><svg viewBox="0 0 ${canvasWidth} ${canvasHeight}" width="100%" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div>`;
+}
+
 function buildPythagorasMarkup(config) {
   const sideA = escapeInteractiveHtml(config.sideA || "?");
   const sideB = escapeInteractiveHtml(config.sideB || "?");
@@ -2382,6 +2497,8 @@ function buildInteractiveAppMarkup(app) {
       return buildCartesianPlaneMarkup(app.config || {});
     case "stem-and-leaf":
       return buildStemLeafMarkup(app.config || {});
+    case "geometry-shapes":
+      return buildGeometryShapesMarkup(app.config || {});
     case "pythagoras":
       return buildPythagorasMarkup(app.config || {});
     case "trigonometry":
@@ -2398,7 +2515,7 @@ function renderInteractiveAppPreview(app) {
 }
 
 function setInteractiveAppConfigVisibility(type) {
-  ["numberLineConfig", "cartesianPlaneConfig", "stemLeafConfig", "pythagorasConfig", "trigonometryConfig"]
+  ["numberLineConfig", "cartesianPlaneConfig", "stemLeafConfig", "geometryShapesConfig", "pythagorasConfig", "trigonometryConfig"]
     .forEach((id) => {
       const element = document.getElementById(id);
       if (element) {
@@ -2408,6 +2525,8 @@ function setInteractiveAppConfigVisibility(type) {
             ? type === "cartesian-plane"
             : id === "stemLeafConfig"
               ? type === "stem-and-leaf"
+              : id === "geometryShapesConfig"
+                ? type === "geometry-shapes"
               : id === "pythagorasConfig"
                 ? type === "pythagoras"
                 : type === "trigonometry";
@@ -2458,6 +2577,22 @@ function readInteractiveAppFromForm() {
         config: {
           values: parseNumericList(document.getElementById("slValues").value),
           stemUnit: Number.isInteger(stemUnit) && stemUnit > 0 ? stemUnit : 10
+        }
+      };
+    }
+    case "geometry-shapes": {
+      const canvasWidth = Number.parseInt(document.getElementById("geoCanvasWidth").value, 10);
+      const canvasHeight = Number.parseInt(document.getElementById("geoCanvasHeight").value, 10);
+      const unit = String(document.getElementById("geoUnit").value || "unit").trim() || "unit";
+      const formulaNotation = String(document.getElementById("geoFormulaNotation").value || "plain").trim() || "plain";
+      return {
+        type,
+        config: {
+          canvasWidth: Number.isInteger(canvasWidth) ? canvasWidth : 360,
+          canvasHeight: Number.isInteger(canvasHeight) ? canvasHeight : 260,
+          unit,
+          formulaNotation,
+          shapes: parseGeometryShapes(document.getElementById("geoShapesInput").value)
         }
       };
     }
@@ -2513,6 +2648,13 @@ function populateInteractiveAppForm(app) {
   const stemLeafConfig = (type === "stem-and-leaf" ? nextApp : buildDefaultInteractiveApp("stem-and-leaf")).config;
   document.getElementById("slValues").value = Array.isArray(stemLeafConfig.values) ? stemLeafConfig.values.join(", ") : "";
   document.getElementById("slStemUnit").value = stemLeafConfig.stemUnit ?? 10;
+
+  const geometryConfig = (type === "geometry-shapes" ? nextApp : buildDefaultInteractiveApp("geometry-shapes")).config;
+  document.getElementById("geoCanvasWidth").value = geometryConfig.canvasWidth ?? 360;
+  document.getElementById("geoCanvasHeight").value = geometryConfig.canvasHeight ?? 260;
+  document.getElementById("geoUnit").value = geometryConfig.unit || "unit";
+  document.getElementById("geoFormulaNotation").value = geometryConfig.formulaNotation || "plain";
+  document.getElementById("geoShapesInput").value = serializeGeometryShapes(geometryConfig.shapes || []);
 
   const pythagorasConfig = (type === "pythagoras" ? nextApp : buildDefaultInteractiveApp("pythagoras")).config;
   document.getElementById("pySideA").value = pythagorasConfig.sideA ?? "";
@@ -3536,7 +3678,7 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   showToast("Question updated in Maker, but file save did not run. Connect Root Folder if needed.", "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpPoints", "cpSegments", "slValues", "slStemUnit", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
+["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpPoints", "cpSegments", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);

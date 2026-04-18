@@ -526,6 +526,26 @@ textarea {
   color: #1e293b;
 }
 
+.geometry-shape-control {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.interactive-formula-list {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 4px;
+  padding: 8px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.interactive-formula-list p {
+  margin: 0;
+  color: #334155;
+  font-size: 0.86rem;
+}
+
 .interactive-app-controls input,
 .interactive-app-controls select,
 .interactive-app-controls textarea {
@@ -542,6 +562,15 @@ textarea {
 
 .nl-container svg,
 .cartesian-container svg {
+  display: block;
+  overflow: visible;
+}
+
+.geometry-shapes-container {
+  width: 100%;
+}
+
+.geometry-shapes-container svg {
   display: block;
   overflow: visible;
 }

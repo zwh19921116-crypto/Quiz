@@ -247,6 +247,217 @@ function safeInteractiveColor(value, fallback = "#2563eb") {
   return /^#[0-9a-fA-F]{3,6}$/.test(String(value || "").trim()) ? String(value).trim() : fallback;
 }
 
+function normalizeGeometryShapeType(value) {
+  const kind = String(value || "").trim().toLowerCase();
+  if (["rectangle", "square", "circle", "triangle", "cube", "cuboid", "sphere", "cylinder"].includes(kind)) {
+    return kind;
+  }
+  return "rectangle";
+}
+
+function roundInteractive(value, digits = 2) {
+  const factor = 10 ** digits;
+  return Math.round((Number(value) + Number.EPSILON) * factor) / factor;
+}
+
+function normalizeGeometryUnit(value) {
+  const unit = String(value || "unit").trim().toLowerCase();
+  if (["unit", "cm", "m", "in", "ft"].includes(unit)) return unit;
+  return "unit";
+}
+
+function normalizeGeometryFormulaNotation(value) {
+  const mode = String(value || "plain").trim().toLowerCase();
+  return mode === "math" ? "math" : "plain";
+}
+
+function formatMeasure(value) {
+  const num = Number(value);
+  if (!Number.isFinite(num)) return "?";
+  const rounded = roundInteractive(num, 2);
+  return Number.isInteger(rounded) ? String(rounded) : String(rounded);
+}
+
+function formatGeometryUnit(unit, power = 1, notation = "plain") {
+  const normalized = normalizeGeometryUnit(unit);
+  if (normalized === "unit") return "";
+  if (power <= 1) return ` ${normalized}`;
+  if (notation === "math") {
+    return power === 2 ? ` ${normalized}²` : ` ${normalized}³`;
+  }
+  return ` ${normalized}^${power}`;
+}
+
+function formatGeometryResult(value, unit, power = 1, notation = "plain") {
+  return `${formatMeasure(value)}${formatGeometryUnit(unit, power, notation)}`;
+}
+
+function buildGeometryFormulaLine(label, plainFormula, mathFormula, value, unit, power, notation) {
+  const renderedFormula = notation === "math" ? mathFormula : plainFormula;
+  return `${label}: ${renderedFormula} = ${formatGeometryResult(value, unit, power, notation)}`;
+}
+
+function computeGeometryMetrics(shape, options = {}) {
+  const type = normalizeGeometryShapeType(shape.type);
+  const w = Math.max(1, Number(shape.w) || 1);
+  const h = Math.max(1, Number(shape.h) || w);
+  const d = Math.max(1, Number(shape.d) || w);
+  const unit = normalizeGeometryUnit(options.unit);
+  const notation = normalizeGeometryFormulaNotation(options.formulaNotation);
+
+  if (type === "rectangle") {
+    const area = w * h;
+    const perimeter = 2 * (w + h);
+    return {
+      type,
+      lines: [
+        buildGeometryFormulaLine("Area", `A = l x w = ${formatMeasure(w)} x ${formatMeasure(h)}`, `A = l × w = ${formatMeasure(w)} × ${formatMeasure(h)}`, area, unit, 2, notation),
+        buildGeometryFormulaLine("Perimeter", `P = 2(l + w) = 2(${formatMeasure(w)} + ${formatMeasure(h)})`, `P = 2(l + w) = 2(${formatMeasure(w)} + ${formatMeasure(h)})`, perimeter, unit, 1, notation)
+      ]
+    };
+  }
+
+  if (type === "square") {
+    const area = w * w;
+    const perimeter = 4 * w;
+    return {
+      type,
+      lines: [
+        buildGeometryFormulaLine("Area", `A = s^2 = ${formatMeasure(w)}^2`, `A = s² = ${formatMeasure(w)}²`, area, unit, 2, notation),
+        buildGeometryFormulaLine("Perimeter", `P = 4s = 4 x ${formatMeasure(w)}`, `P = 4s = 4 × ${formatMeasure(w)}`, perimeter, unit, 1, notation)
+      ]
+    };
+  }
+
+  if (type === "circle") {
+    const area = Math.PI * w * w;
+    const circumference = 2 * Math.PI * w;
+    return {
+      type,
+      lines: [
+        buildGeometryFormulaLine("Area", `A = pi r^2 = pi x ${formatMeasure(w)}^2`, `A = πr² = π × ${formatMeasure(w)}²`, area, unit, 2, notation),
+        buildGeometryFormulaLine("Perimeter", `C = 2pi r = 2pi x ${formatMeasure(w)}`, `C = 2πr = 2π × ${formatMeasure(w)}`, circumference, unit, 1, notation)
+      ]
+    };
+  }
+
+  if (type === "triangle") {
+    const area = 0.5 * w * h;
+    const side = Math.sqrt((w / 2) ** 2 + h ** 2);
+    const perimeter = w + 2 * side;
+    return {
+      type,
+      lines: [
+        buildGeometryFormulaLine("Area", `A = 1/2 b x h = 1/2 x ${formatMeasure(w)} x ${formatMeasure(h)}`, `A = 1/2 bh = 1/2 × ${formatMeasure(w)} × ${formatMeasure(h)}`, area, unit, 2, notation),
+        buildGeometryFormulaLine("Perimeter", "P ≈ b + 2sqrt((b/2)^2 + h^2)", "P ≈ b + 2√((b/2)² + h²)", perimeter, unit, 1, notation)
+      ]
+    };
+  }
+
+  if (type === "cube") {
+    const surfaceArea = 6 * w * w;
+    const volume = w ** 3;
+    return {
+      type,
+      lines: [
+        buildGeometryFormulaLine("Surface area", `SA = 6s^2 = 6 x ${formatMeasure(w)}^2`, `SA = 6s² = 6 × ${formatMeasure(w)}²`, surfaceArea, unit, 2, notation),
+        buildGeometryFormulaLine("Volume", `V = s^3 = ${formatMeasure(w)}^3`, `V = s³ = ${formatMeasure(w)}³`, volume, unit, 3, notation)
+      ]
+    };
+  }
+
+  if (type === "cuboid") {
+    const surfaceArea = 2 * (w * h + w * d + h * d);
+    const volume = w * h * d;
+    return {
+      type,
+      lines: [
+        buildGeometryFormulaLine("Surface area", "SA = 2(lw + lh + wh)", "SA = 2(lw + lh + wh)", surfaceArea, unit, 2, notation),
+        buildGeometryFormulaLine("Volume", `V = l x w x h = ${formatMeasure(w)} x ${formatMeasure(h)} x ${formatMeasure(d)}`, `V = l × w × h = ${formatMeasure(w)} × ${formatMeasure(h)} × ${formatMeasure(d)}`, volume, unit, 3, notation)
+      ]
+    };
+  }
+
+  if (type === "sphere") {
+    const surfaceArea = 4 * Math.PI * w * w;
+    const volume = (4 / 3) * Math.PI * w ** 3;
+    return {
+      type,
+      lines: [
+        buildGeometryFormulaLine("Surface area", `SA = 4pi r^2 = 4pi x ${formatMeasure(w)}^2`, `SA = 4πr² = 4π × ${formatMeasure(w)}²`, surfaceArea, unit, 2, notation),
+        buildGeometryFormulaLine("Volume", `V = 4/3 pi r^3 = 4/3 pi x ${formatMeasure(w)}^3`, `V = 4/3πr³ = 4/3π × ${formatMeasure(w)}³`, volume, unit, 3, notation)
+      ]
+    };
+  }
+
+  const surfaceArea = 2 * Math.PI * w * (w + h);
+  const volume = Math.PI * w * w * h;
+  return {
+    type: "cylinder",
+    lines: [
+      buildGeometryFormulaLine("Surface area", `SA = 2pi r(r + h) = 2pi x ${formatMeasure(w)}(${formatMeasure(w)} + ${formatMeasure(h)})`, `SA = 2πr(r + h) = 2π × ${formatMeasure(w)}(${formatMeasure(w)} + ${formatMeasure(h)})`, surfaceArea, unit, 2, notation),
+      buildGeometryFormulaLine("Volume", `V = pi r^2 h = pi x ${formatMeasure(w)}^2 x ${formatMeasure(h)}`, `V = πr²h = π × ${formatMeasure(w)}² × ${formatMeasure(h)}`, volume, unit, 3, notation)
+    ]
+  };
+}
+
+function buildGeometryShapesSvgString(config) {
+  const canvasWidth = Math.max(220, Math.min(760, Number.parseInt(config.canvasWidth, 10) || 360));
+  const canvasHeight = Math.max(180, Math.min(520, Number.parseInt(config.canvasHeight, 10) || 260));
+  const shapes = Array.isArray(config.shapes) ? config.shapes : [];
+  if (shapes.length === 0) return "";
+
+  const parts = [];
+  parts.push(`<rect x="0" y="0" width="${canvasWidth}" height="${canvasHeight}" fill="#f8fbff" stroke="#dbe6f3"/>`);
+
+  shapes.forEach((shape, index) => {
+    const type = normalizeGeometryShapeType(shape.type);
+    const x = Number(shape.x);
+    const y = Number(shape.y);
+    const w = Math.max(6, Number(shape.w) || 40);
+    const h = Math.max(6, Number(shape.h) || w);
+    const d = Math.max(6, Number(shape.d) || w);
+    if (![x, y].every(Number.isFinite)) return;
+    const stroke = safeInteractiveColor(shape.color, "#2563eb");
+    const fill = safeInteractiveColor(shape.fill, "#dbeafe");
+    const label = escapeHtml(String(shape.label || `${type} ${index + 1}`));
+    const metrics = computeGeometryMetrics({ type, w, h, d }, config || {});
+    const formula = escapeHtml((metrics.lines[0] || "").replace(/^Area:\s*|^Surface area:\s*/, ""));
+
+    if (type === "rectangle") {
+      parts.push(`<rect x="${x - w / 2}" y="${y - h / 2}" width="${w}" height="${h}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+    } else if (type === "square") {
+      parts.push(`<rect x="${x - w / 2}" y="${y - w / 2}" width="${w}" height="${w}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+    } else if (type === "circle") {
+      parts.push(`<circle cx="${x}" cy="${y}" r="${w}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+    } else if (type === "triangle") {
+      parts.push(`<polygon points="${x},${y - h / 2} ${x - w / 2},${y + h / 2} ${x + w / 2},${y + h / 2}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+    } else if (type === "cube" || type === "cuboid") {
+      const depth = Math.max(8, d);
+      const left = x - w / 2;
+      const top = y - h / 2;
+      parts.push(`<rect x="${left}" y="${top}" width="${w}" height="${h}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+      parts.push(`<polygon points="${left},${top} ${left + depth},${top - depth} ${left + w + depth},${top - depth} ${left + w},${top}" fill="${fill}" fill-opacity="0.75" stroke="${stroke}" stroke-width="2"/>`);
+      parts.push(`<polygon points="${left + w},${top} ${left + w + depth},${top - depth} ${left + w + depth},${top + h - depth} ${left + w},${top + h}" fill="${fill}" fill-opacity="0.6" stroke="${stroke}" stroke-width="2"/>`);
+    } else if (type === "sphere") {
+      parts.push(`<circle cx="${x}" cy="${y}" r="${w}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+      parts.push(`<ellipse cx="${x}" cy="${y}" rx="${w}" ry="${Math.max(6, w * 0.32)}" fill="none" stroke="${stroke}" stroke-opacity="0.45" stroke-width="1.5"/>`);
+    } else if (type === "cylinder") {
+      const radius = w;
+      const bodyH = h;
+      parts.push(`<ellipse cx="${x}" cy="${y - bodyH / 2}" rx="${radius}" ry="${Math.max(6, radius * 0.35)}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+      parts.push(`<rect x="${x - radius}" y="${y - bodyH / 2}" width="${radius * 2}" height="${bodyH}" fill="${fill}" fill-opacity="0.7" stroke="${stroke}" stroke-width="2"/>`);
+      parts.push(`<ellipse cx="${x}" cy="${y + bodyH / 2}" rx="${radius}" ry="${Math.max(6, radius * 0.35)}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>`);
+    }
+
+    parts.push(`<circle cx="${x}" cy="${y}" r="7" fill="${stroke}" stroke="white" stroke-width="2" class="interactive-draggable-point" data-point-index="${index}" data-point-type="geometry-shapes"/>`);
+    parts.push(`<text x="${x}" y="${y - Math.max(h, w) / 2 - 10}" text-anchor="middle" font-size="11" fill="${stroke}" font-weight="bold">${label}</text>`);
+    parts.push(`<text x="${x + Math.max(w, h) / 2 + 8}" y="${y + 4}" text-anchor="start" font-size="10" fill="#334155">${formula}</text>`);
+  });
+
+  return `<div class="geometry-shapes-container"><svg viewBox="0 0 ${canvasWidth} ${canvasHeight}" width="100%" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div>`;
+}
+
 function buildNumberLineSvgString(config) {
   const min = Number(config.min ?? -10);
   const max = Number(config.max ?? 10);
@@ -458,6 +669,7 @@ function getInteractiveAppTitle(type) {
   if (type === "number-line") return "Interactive: Number Line";
   if (type === "cartesian-plane") return "Interactive: Cartesian Plane";
   if (type === "stem-and-leaf") return "Interactive: Stem-and-Leaf Plot";
+  if (type === "geometry-shapes") return "Interactive: Geometry Shapes";
   if (type === "pythagoras") return "Interactive: Pythagoras Triangle";
   if (type === "trigonometry") return "Interactive: Trigonometry Triangle";
   return "Interactive Math";
@@ -473,6 +685,8 @@ function updateInteractivePreview(preview, app) {
     content = buildCartesianPlaneSvgString(app.config || {});
   } else if (app.type === "stem-and-leaf") {
     content = buildStemLeafMarkup(app.config || {});
+  } else if (app.type === "geometry-shapes") {
+    content = buildGeometryShapesSvgString(app.config || {});
   } else if (app.type === "pythagoras") {
     content = buildPythagorasMarkup(app.config || {});
   } else if (app.type === "trigonometry") {
@@ -589,6 +803,39 @@ function attachCartesianDragging(host, app, render) {
   });
 }
 
+function attachGeometryDragging(host, app, render) {
+  const svg = host.querySelector(".interactive-app-preview svg");
+  const config = app.config || {};
+  const shapes = Array.isArray(config.shapes) ? config.shapes : [];
+  const width = Math.max(220, Math.min(760, Number.parseInt(config.canvasWidth, 10) || 360));
+  const height = Math.max(180, Math.min(520, Number.parseInt(config.canvasHeight, 10) || 260));
+  if (!(svg instanceof SVGElement) || shapes.length === 0) return;
+
+  svg.querySelectorAll(".interactive-draggable-point[data-point-type='geometry-shapes']").forEach((node) => {
+    node.addEventListener("pointerdown", (event) => {
+      const index = Number.parseInt(node.dataset.pointIndex || "", 10);
+      if (!Number.isInteger(index) || !shapes[index]) return;
+      event.preventDefault();
+
+      const move = (moveEvent) => {
+        const pos = getSvgPointerPosition(svg, moveEvent);
+        if (!pos) return;
+        shapes[index].x = roundInteractive(clamp(pos.x, 8, width - 8), 1);
+        shapes[index].y = roundInteractive(clamp(pos.y, 8, height - 8), 1);
+        render();
+      };
+
+      const stop = () => {
+        window.removeEventListener("pointermove", move);
+        window.removeEventListener("pointerup", stop);
+      };
+
+      window.addEventListener("pointermove", move);
+      window.addEventListener("pointerup", stop);
+    });
+  });
+}
+
 function renderInteractiveDetails(host, lines) {
   const detailHost = host.querySelector(".interactive-app-details");
   if (!detailHost) return;
@@ -636,6 +883,27 @@ function buildStemLeafDetailLines(app) {
   ];
 }
 
+function buildGeometryDetailLines(app) {
+  const config = app.config || {};
+  const shapes = Array.isArray(config.shapes) ? config.shapes : [];
+  if (shapes.length === 0) return ["No shapes configured."];
+
+  const notation = normalizeGeometryFormulaNotation(config.formulaNotation || "plain");
+  const unit = normalizeGeometryUnit(config.unit || "unit");
+  const lines = [
+    `Canvas: ${config.canvasWidth || 360} x ${config.canvasHeight || 260}`,
+    `Formula style: ${notation === "math" ? "Math style" : "Plain"}`,
+    `Unit: ${unit === "unit" ? "No unit" : unit}`
+  ];
+  shapes.forEach((shape, index) => {
+    const type = normalizeGeometryShapeType(shape.type);
+    const label = String(shape.label || `${type} ${index + 1}`).trim();
+    const metrics = computeGeometryMetrics(shape, config || {});
+    lines.push(`${label} (${type}): ${metrics.lines.join(" | ")}`);
+  });
+  return lines;
+}
+
 function buildPythagorasDetailLines(app) {
   const config = app.config || {};
   return [
@@ -663,6 +931,8 @@ function updateInteractiveDetails(host, app) {
     lines = buildCartesianDetailLines(app);
   } else if (app.type === "stem-and-leaf") {
     lines = buildStemLeafDetailLines(app);
+  } else if (app.type === "geometry-shapes") {
+    lines = buildGeometryDetailLines(app);
   } else if (app.type === "pythagoras") {
     lines = buildPythagorasDetailLines(app);
   } else if (app.type === "trigonometry") {
@@ -813,6 +1083,133 @@ function mountStemLeafInteractive(host, app) {
   updateInteractiveDetails(host, app);
 }
 
+function buildGeometryControlTypeOptions(selectedType) {
+  return ["rectangle", "square", "circle", "triangle", "cube", "cuboid", "sphere", "cylinder"]
+    .map((type) => `<option value="${type}" ${type === selectedType ? "selected" : ""}>${type}</option>`)
+    .join("");
+}
+
+function mountGeometryInteractive(host, app) {
+  const config = app.config || {};
+  if (!Array.isArray(config.shapes)) config.shapes = [];
+  config.unit = normalizeGeometryUnit(config.unit || "unit");
+  config.formulaNotation = normalizeGeometryFormulaNotation(config.formulaNotation || "plain");
+  const shapes = config.shapes;
+
+  const controls = shapes.length > 0
+    ? shapes.map((shape, index) => {
+      const type = normalizeGeometryShapeType(shape.type);
+      return `
+      <div class="interactive-control-grid geometry-shape-control" data-index="${index}">
+        <div class="interactive-control-label">${escapeHtml(shape.label || `Shape ${index + 1}`)}</div>
+        <label class="interactive-control-row compact"><span>Type</span><select data-role="geo-type" data-index="${index}">${buildGeometryControlTypeOptions(type)}</select></label>
+        <label class="interactive-control-row compact"><span>X</span><input type="number" step="1" value="${Number(shape.x) || 0}" data-role="geo-x" data-index="${index}" /></label>
+        <label class="interactive-control-row compact"><span>Y</span><input type="number" step="1" value="${Number(shape.y) || 0}" data-role="geo-y" data-index="${index}" /></label>
+        <label class="interactive-control-row compact"><span>W/r</span><input type="number" min="1" step="1" value="${Number(shape.w) || 1}" data-role="geo-w" data-index="${index}" /></label>
+        <label class="interactive-control-row compact"><span>H</span><input type="number" min="1" step="1" value="${Number(shape.h) || Number(shape.w) || 1}" data-role="geo-h" data-index="${index}" /></label>
+        <label class="interactive-control-row compact"><span>D</span><input type="number" min="1" step="1" value="${Number(shape.d) || Number(shape.w) || 1}" data-role="geo-d" data-index="${index}" /></label>
+        <div class="interactive-formula-list" data-role="geo-formulas" data-index="${index}"></div>
+      </div>
+    `;
+    }).join("")
+    : "<p class='helper-text'>No shapes configured for this geometry activity.</p>";
+
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls">
+      <div class="interactive-control-grid">
+        <label class="interactive-control-row compact">
+          <span>Unit</span>
+          <select data-role="geo-unit">
+            <option value="unit" ${config.unit === "unit" ? "selected" : ""}>No unit</option>
+            <option value="cm" ${config.unit === "cm" ? "selected" : ""}>cm</option>
+            <option value="m" ${config.unit === "m" ? "selected" : ""}>m</option>
+            <option value="in" ${config.unit === "in" ? "selected" : ""}>in</option>
+            <option value="ft" ${config.unit === "ft" ? "selected" : ""}>ft</option>
+          </select>
+        </label>
+        <label class="interactive-control-row compact">
+          <span>Formula</span>
+          <select data-role="geo-notation">
+            <option value="plain" ${config.formulaNotation === "plain" ? "selected" : ""}>Plain</option>
+            <option value="math" ${config.formulaNotation === "math" ? "selected" : ""}>Math style</option>
+          </select>
+        </label>
+      </div>
+      ${controls}
+    </div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const updateFormulaPanels = () => {
+    host.querySelectorAll("[data-role='geo-formulas']").forEach((panel) => {
+      const index = Number.parseInt(panel.dataset.index || "", 10);
+      if (!Number.isInteger(index) || !shapes[index]) return;
+      const metrics = computeGeometryMetrics(shapes[index], config || {});
+      panel.innerHTML = metrics.lines.map((line) => `<p>${escapeHtml(line)}</p>`).join("");
+    });
+  };
+
+  const render = () => {
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+    updateFormulaPanels();
+    attachGeometryDragging(host, app, render);
+  };
+
+  const sync = (index, key, value) => {
+    if (!Number.isInteger(index) || !shapes[index]) return;
+    if (key === "type") {
+      shapes[index].type = normalizeGeometryShapeType(value);
+    } else if (key === "x" || key === "y") {
+      shapes[index][key] = roundInteractive(Number(value) || 0, 1);
+    } else {
+      shapes[index][key] = Math.max(1, Number(value) || 1);
+    }
+    render();
+  };
+
+  const syncSettings = (key, value) => {
+    if (key === "unit") {
+      config.unit = normalizeGeometryUnit(value);
+    } else if (key === "formulaNotation") {
+      config.formulaNotation = normalizeGeometryFormulaNotation(value);
+    }
+    render();
+  };
+
+  const unitInput = host.querySelector("[data-role='geo-unit']");
+  if (unitInput) {
+    unitInput.addEventListener("input", () => syncSettings("unit", unitInput.value));
+  }
+  const notationInput = host.querySelector("[data-role='geo-notation']");
+  if (notationInput) {
+    notationInput.addEventListener("input", () => syncSettings("formulaNotation", notationInput.value));
+  }
+
+  host.querySelectorAll("[data-role='geo-type']").forEach((input) => {
+    input.addEventListener("input", () => sync(Number(input.dataset.index), "type", input.value));
+  });
+  host.querySelectorAll("[data-role='geo-x']").forEach((input) => {
+    input.addEventListener("input", () => sync(Number(input.dataset.index), "x", input.value));
+  });
+  host.querySelectorAll("[data-role='geo-y']").forEach((input) => {
+    input.addEventListener("input", () => sync(Number(input.dataset.index), "y", input.value));
+  });
+  host.querySelectorAll("[data-role='geo-w']").forEach((input) => {
+    input.addEventListener("input", () => sync(Number(input.dataset.index), "w", input.value));
+  });
+  host.querySelectorAll("[data-role='geo-h']").forEach((input) => {
+    input.addEventListener("input", () => sync(Number(input.dataset.index), "h", input.value));
+  });
+  host.querySelectorAll("[data-role='geo-d']").forEach((input) => {
+    input.addEventListener("input", () => sync(Number(input.dataset.index), "d", input.value));
+  });
+
+  render();
+}
+
 function mountPythagorasInteractive(host, app) {
   const config = app.config || {};
   host.innerHTML = `
@@ -889,6 +1286,10 @@ function mountInteractiveApp(host, app) {
   }
   if (app.type === "stem-and-leaf") {
     mountStemLeafInteractive(host, app);
+    return;
+  }
+  if (app.type === "geometry-shapes") {
+    mountGeometryInteractive(host, app);
     return;
   }
   if (app.type === "pythagoras") {

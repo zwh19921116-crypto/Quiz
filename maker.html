@@ -182,6 +182,7 @@
                   <option value="number-line">Number Line</option>
                   <option value="cartesian-plane">Cartesian Plane</option>
                   <option value="stem-and-leaf">Stem-and-Leaf Plot</option>
+                  <option value="geometry-shapes">Geometry Shapes</option>
                   <option value="pythagoras">Pythagoras Triangle</option>
                   <option value="trigonometry">Trigonometry Triangle</option>
                 </select>
@@ -233,6 +234,39 @@
                   <textarea id="slValues" rows="4" placeholder="12, 13, 17, 21, 25, 29, 32"></textarea>
                   <label for="slStemUnit">Stem Unit</label>
                   <input type="number" id="slStemUnit" value="10" min="1" step="1" class="nl-range-input" />
+                </div>
+
+                <div id="geometryShapesConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="geoCanvasWidth">Canvas Width</label>
+                      <input type="number" id="geoCanvasWidth" value="360" min="220" max="760" step="10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="geoCanvasHeight">Canvas Height</label>
+                      <input type="number" id="geoCanvasHeight" value="260" min="180" max="520" step="10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="geoUnit">Unit</label>
+                      <select id="geoUnit" class="nl-range-input">
+                        <option value="unit">No unit</option>
+                        <option value="cm">cm</option>
+                        <option value="m">m</option>
+                        <option value="in">in</option>
+                        <option value="ft">ft</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="geoFormulaNotation">Formula Display</label>
+                      <select id="geoFormulaNotation" class="nl-range-input">
+                        <option value="plain">Plain</option>
+                        <option value="math">Math style</option>
+                      </select>
+                    </div>
+                  </div>
+                  <label for="geoShapesInput">Shapes (type, x, y, w, h, d, label, color, fill)</label>
+                  <textarea id="geoShapesInput" rows="5" placeholder="rectangle, 90, 80, 90, 60, 0, Rect A, #2563eb, #dbeafe&#10;circle, 240, 80, 35, 35, 0, Circle B, #16a34a, #dcfce7&#10;cube, 170, 190, 70, 70, 70, Cube C, #dc2626, #fee2e2"></textarea>
+                  <p class="helper-text">Types: rectangle, square, circle, triangle, cube, cuboid, sphere, cylinder. Use d for depth/height in 3D formulas (set 0 for 2D).</p>
                 </div>
 
                 <div id="pythagorasConfig" class="hidden">
