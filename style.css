@@ -618,6 +618,94 @@ textarea {
   font-size: 0.9rem;
 }
 
+.bar-chart-container {
+  display: grid;
+  gap: 8px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.bar-chart-title {
+  margin: 0 0 4px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.bar-chart-row {
+  display: grid;
+  grid-template-columns: minmax(90px, 120px) minmax(0, 1fr) 44px;
+  gap: 10px;
+  align-items: center;
+}
+
+.bar-chart-label,
+.bar-chart-value {
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.bar-chart-track {
+  height: 14px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.bar-chart-fill {
+  height: 100%;
+  border-radius: 999px;
+  min-width: 2px;
+}
+
+.histogram-container {
+  display: grid;
+  gap: 10px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.histogram-bars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+  gap: 10px;
+  align-items: end;
+  min-height: 170px;
+}
+
+.histogram-bin {
+  display: grid;
+  gap: 6px;
+  align-items: end;
+  justify-items: center;
+}
+
+.histogram-bar {
+  width: 100%;
+  min-height: 4px;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+}
+
+.histogram-label,
+.histogram-value {
+  font-size: 0.78rem;
+  color: #334155;
+  text-align: center;
+}
+
+.simple-card {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 12px 14px;
+  border: 1px solid #dbe6f3;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.simple-card p {
+  margin: 6px 0;
+}
+
 .stem-leaf-table {
   width: 100%;
   border-collapse: collapse;

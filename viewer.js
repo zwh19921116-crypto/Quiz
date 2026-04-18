@@ -247,6 +247,44 @@ function safeInteractiveColor(value, fallback = "#2563eb") {
   return /^#[0-9a-fA-F]{3,6}$/.test(String(value || "").trim()) ? String(value).trim() : fallback;
 }
 
+function buildCartesianExpressionEvaluator(rawExpression) {
+  let expression = String(rawExpression || "").trim();
+  if (!expression) return null;
+  expression = expression.replace(/^y\s*=\s*/i, "");
+  if (!expression) return null;
+
+  if (!/^[0-9a-zA-Z_+\-*/().,\s^%]+$/.test(expression)) {
+    return null;
+  }
+
+  const lowered = expression.toLowerCase();
+  const tokens = lowered.match(/[a-z_]+/g) || [];
+  const allowed = new Set(["x", "sin", "cos", "tan", "asin", "acos", "atan", "sqrt", "abs", "log", "ln", "exp", "pow", "pi", "e", "floor", "ceil", "round", "min", "max"]);
+  if (!tokens.every((token) => allowed.has(token))) {
+    return null;
+  }
+
+  let normalized = lowered
+    .replace(/\^/g, "**")
+    .replace(/(\d)\s*x\b/g, "$1*x")
+    .replace(/\)\s*\(/g, ")*(")
+    .replace(/\bx\s*\(/g, "x*(")
+    .replace(/\)\s*x\b/g, ")*x")
+    .replace(/\bpi\b/g, "PI")
+    .replace(/\be\b/g, "E")
+    .replace(/\bln\b/g, "log");
+
+  try {
+    const fn = new Function("x", "const {sin,cos,tan,asin,acos,atan,sqrt,abs,log,exp,pow,PI,E,floor,ceil,round,min,max}=Math; return (" + normalized + ");");
+    return (x) => {
+      const result = Number(fn(x));
+      return Number.isFinite(result) ? result : Number.NaN;
+    };
+  } catch (error) {
+    return null;
+  }
+}
+
 function normalizeGeometryShapeType(value) {
   const kind = String(value || "").trim().toLowerCase();
   if (["rectangle", "square", "circle", "triangle", "cube", "cuboid", "sphere", "cylinder"].includes(kind)) {
@@ -520,6 +558,8 @@ function buildCartesianPlaneSvgString(config) {
   if (![xMin, xMax, yMin, yMax].every(Number.isFinite) || xMin >= xMax || yMin >= yMax) return "";
   const points = Array.isArray(config.points) ? config.points : [];
   const segments = Array.isArray(config.segments) ? config.segments : [];
+  const parabolas = Array.isArray(config.parabolas) ? config.parabolas : [];
+  const functionsList = Array.isArray(config.functions) ? config.functions : [];
   const size = 320;
   const pad = 36;
   const usable = size - pad * 2;
@@ -560,6 +600,66 @@ function buildCartesianPlaneSvgString(config) {
     if (label) parts.push(`<text x="${(x1 + x2) / 2}" y="${(y1 + y2) / 2 - 8}" text-anchor="middle" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
   });
 
+  parabolas.forEach((curve) => {
+    const a = Number(curve.a);
+    const b = Number(curve.b);
+    const c = Number(curve.c);
+    if (![a, b, c].every(Number.isFinite)) return;
+    const color = safeInteractiveColor(curve.color, "#7c3aed");
+    const label = escapeHtml(String(curve.label || ""));
+    const samples = 100;
+    const pathParts = [];
+    for (let i = 0; i <= samples; i += 1) {
+      const xValue = xMin + (i / samples) * (xMax - xMin);
+      const yValue = a * xValue * xValue + b * xValue + c;
+      const sx = xPos(xValue);
+      const sy = yPos(yValue);
+      if (!Number.isFinite(sx) || !Number.isFinite(sy)) continue;
+      pathParts.push(`${i === 0 ? "M" : "L"} ${sx} ${sy}`);
+    }
+    if (pathParts.length > 1) {
+      parts.push(`<path d="${pathParts.join(" ")}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linecap="round"/>`);
+      if (label) {
+        const xAtLabel = (xMin + xMax) / 2;
+        const yAtLabel = a * xAtLabel * xAtLabel + b * xAtLabel + c;
+        const lx = xPos(xAtLabel);
+        const ly = yPos(yAtLabel);
+        if (Number.isFinite(lx) && Number.isFinite(ly)) {
+          parts.push(`<text x="${lx + 8}" y="${ly - 8}" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
+        }
+      }
+    }
+  });
+
+  functionsList.forEach((curve) => {
+    const expression = String(curve.expression || "").trim();
+    if (!expression) return;
+    const evaluate = buildCartesianExpressionEvaluator(expression);
+    if (!evaluate) return;
+    const color = safeInteractiveColor(curve.color, "#0f766e");
+    const label = escapeHtml(String(curve.label || `y = ${expression}`));
+    const samples = 140;
+    const pathParts = [];
+    for (let i = 0; i <= samples; i += 1) {
+      const xValue = xMin + (i / samples) * (xMax - xMin);
+      const yValue = evaluate(xValue);
+      const sx = xPos(xValue);
+      const sy = yPos(yValue);
+      if (!Number.isFinite(sx) || !Number.isFinite(sy)) continue;
+      pathParts.push(`${i === 0 ? "M" : "L"} ${sx} ${sy}`);
+    }
+    if (pathParts.length > 1) {
+      parts.push(`<path d="${pathParts.join(" ")}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 3"/>`);
+      const xAtLabel = xMin + 0.72 * (xMax - xMin);
+      const yAtLabel = evaluate(xAtLabel);
+      const lx = xPos(xAtLabel);
+      const ly = yPos(yAtLabel);
+      if (Number.isFinite(lx) && Number.isFinite(ly)) {
+        parts.push(`<text x="${lx + 8}" y="${ly - 8}" font-size="11" fill="${color}" font-weight="bold">${label}</text>`);
+      }
+    }
+  });
+
   points.forEach((point) => {
     const x = xPos(Number(point.x));
     const y = yPos(Number(point.y));
@@ -597,6 +697,317 @@ function buildStemLeafMarkup(config) {
       </table>
     </div>
   `;
+}
+
+function buildBarChartMarkup(config) {
+  const title = escapeHtml(String(config.title || "Category Frequencies"));
+  const items = Array.isArray(config.items) ? config.items : [];
+  if (items.length === 0) return "";
+
+  const maxItem = Math.max(...items.map((item) => Number(item.frequency) || 0), 1);
+  const yMax = Number.isFinite(Number(config.yMax)) && Number(config.yMax) > 0
+    ? Number(config.yMax)
+    : Math.ceil(maxItem / 5) * 5;
+
+  const rows = items.map((item) => {
+    const value = Math.max(0, Number(item.frequency) || 0);
+    const widthPct = Math.max(2, Math.min(100, (value / yMax) * 100));
+    const color = safeInteractiveColor(item.color, "#2563eb");
+    return `<div class="bar-chart-row"><span class="bar-chart-label">${escapeHtml(item.category || "Item")}</span><div class="bar-chart-track"><div class="bar-chart-fill" style="width:${widthPct}%; background:${color}"></div></div><span class="bar-chart-value">${value}</span></div>`;
+  }).join("");
+
+  return `<div class="bar-chart-container"><p class="bar-chart-title">${title}</p>${rows}</div>`;
+}
+
+function quantile(sortedValues, q) {
+  if (!Array.isArray(sortedValues) || sortedValues.length === 0) return Number.NaN;
+  const position = (sortedValues.length - 1) * q;
+  const low = Math.floor(position);
+  const high = Math.ceil(position);
+  if (low === high) return sortedValues[low];
+  const weight = position - low;
+  return sortedValues[low] * (1 - weight) + sortedValues[high] * weight;
+}
+
+function computeFiveNumber(values) {
+  const sorted = (Array.isArray(values) ? values : [])
+    .map((value) => Number(value))
+    .filter((value) => Number.isFinite(value))
+    .sort((a, b) => a - b);
+  if (sorted.length === 0) return null;
+  return {
+    min: sorted[0],
+    q1: quantile(sorted, 0.25),
+    median: quantile(sorted, 0.5),
+    q3: quantile(sorted, 0.75),
+    max: sorted[sorted.length - 1]
+  };
+}
+
+function computeLinearRegression(points) {
+  const valid = (Array.isArray(points) ? points : [])
+    .map((point) => ({ x: Number(point.x), y: Number(point.y) }))
+    .filter((point) => Number.isFinite(point.x) && Number.isFinite(point.y));
+  if (valid.length < 2) return null;
+
+  const n = valid.length;
+  const sumX = valid.reduce((sum, item) => sum + item.x, 0);
+  const sumY = valid.reduce((sum, item) => sum + item.y, 0);
+  const sumXY = valid.reduce((sum, item) => sum + item.x * item.y, 0);
+  const sumXX = valid.reduce((sum, item) => sum + item.x * item.x, 0);
+  const sumYY = valid.reduce((sum, item) => sum + item.y * item.y, 0);
+  const denominator = n * sumXX - sumX * sumX;
+  if (Math.abs(denominator) < 1e-12) return null;
+  const slope = (n * sumXY - sumX * sumY) / denominator;
+  const intercept = (sumY - slope * sumX) / n;
+  const corrDen = Math.sqrt((n * sumXX - sumX * sumX) * (n * sumYY - sumY * sumY));
+  const correlation = corrDen > 0 ? (n * sumXY - sumX * sumY) / corrDen : 0;
+  return { slope, intercept, correlation };
+}
+
+function normalCdf(z) {
+  const t = 1 / (1 + 0.2316419 * Math.abs(z));
+  const d = Math.exp(-z * z / 2) / Math.sqrt(2 * Math.PI);
+  const prob = 1 - d * (0.319381530 * t - 0.356563782 * t ** 2 + 1.781477937 * t ** 3 - 1.821255978 * t ** 4 + 1.330274429 * t ** 5);
+  return z >= 0 ? prob : 1 - prob;
+}
+
+function computeHistogramBins(values, binCount) {
+  const nums = (Array.isArray(values) ? values : []).map((v) => Number(v)).filter((v) => Number.isFinite(v));
+  if (nums.length === 0) return null;
+  const binsN = Math.max(2, Math.min(30, Number.parseInt(binCount, 10) || 8));
+  const min = Math.min(...nums);
+  const max = Math.max(...nums);
+  const width = (max - min || 1) / binsN;
+  const bins = new Array(binsN).fill(0);
+  nums.forEach((value) => {
+    const idx = Math.min(binsN - 1, Math.max(0, Math.floor((value - min) / width)));
+    bins[idx] += 1;
+  });
+  return { min, max, width, bins };
+}
+
+function buildHistogramMarkup(config) {
+  const title = escapeHtml(String(config.title || "Continuous Data Distribution"));
+  const hist = computeHistogramBins(config.values || [], config.binCount);
+  if (!hist) return "";
+  const maxFreq = Math.max(...hist.bins, 1);
+  const bars = hist.bins.map((freq, index) => {
+    const barHeight = Math.max(4, (freq / maxFreq) * 120);
+    const start = hist.min + index * hist.width;
+    const end = start + hist.width;
+    return `<div class="histogram-bin"><div class="histogram-bar" style="height:${barHeight}px"></div><span class="histogram-label">${escapeHtml(start.toFixed(1))}-${escapeHtml(end.toFixed(1))}</span><span class="histogram-value">${freq}</span></div>`;
+  }).join("");
+  return `<div class="histogram-container"><p class="bar-chart-title">${title}</p><div class="histogram-bars">${bars}</div></div>`;
+}
+
+function buildBoxPlotMarkup(config) {
+  const title = escapeHtml(String(config.title || "Compare Datasets"));
+  const a = computeFiveNumber(config.valuesA || []);
+  const b = computeFiveNumber(config.valuesB || []);
+  if (!a && !b) return "";
+  const line = (label, stats) => stats
+    ? `<p>${escapeHtml(label)}: min=${stats.min.toFixed(2)}, Q1=${stats.q1.toFixed(2)}, median=${stats.median.toFixed(2)}, Q3=${stats.q3.toFixed(2)}, max=${stats.max.toFixed(2)}</p>`
+    : `<p>${escapeHtml(label)}: no data</p>`;
+  return `<div class="simple-card"><p class="bar-chart-title">${title}</p>${line(config.labelA || "A", a)}${line(config.labelB || "B", b)}</div>`;
+}
+
+function buildScatterPlotMarkup(config) {
+  const title = escapeHtml(String(config.title || "Correlation and Best Fit"));
+  const points = Array.isArray(config.points) ? config.points : [];
+  if (points.length === 0) return "";
+  const regression = computeLinearRegression(points);
+  const detail = regression
+    ? `r = ${regression.correlation.toFixed(3)}, best fit: y = ${regression.slope.toFixed(3)}x + ${regression.intercept.toFixed(3)}`
+    : "Not enough variation for line of best fit.";
+  return `<div class="simple-card"><p class="bar-chart-title">${title}</p><p>Point count: ${points.length}</p><p>${escapeHtml(detail)}</p></div>`;
+}
+
+function computeConditionalProbability(paths, query) {
+  const raw = String(query || "").trim();
+  if (!raw || !raw.includes("|")) return null;
+  const [leftRaw, rightRaw] = raw.split("|");
+  const left = leftRaw.trim();
+  const right = rightRaw.trim();
+  if (!left || !right) return null;
+
+  const totalRight = paths
+    .filter((item) => Array.isArray(item.path) && item.path.some((segment) => segment === right))
+    .reduce((sum, item) => sum + (Number(item.probability) || 0), 0);
+  if (totalRight <= 0) return null;
+
+  const both = paths
+    .filter((item) => Array.isArray(item.path)
+      && item.path.some((segment) => segment === left)
+      && item.path.some((segment) => segment === right))
+    .reduce((sum, item) => sum + (Number(item.probability) || 0), 0);
+  return both / totalRight;
+}
+
+function buildProbabilityTreeMarkup(config) {
+  const title = escapeHtml(String(config.title || "Sequential Probabilities"));
+  const paths = Array.isArray(config.paths) ? config.paths : [];
+  if (paths.length === 0) return "";
+  const total = paths.reduce((sum, item) => sum + (Number(item.probability) || 0), 0);
+  const conditional = computeConditionalProbability(paths, config.conditionalQuery || "");
+  const condLine = conditional === null ? "Conditional probability: n/a" : `Conditional probability: ${conditional.toFixed(4)}`;
+  return `<div class="simple-card"><p class="bar-chart-title">${title}</p><p>Path count: ${paths.length}</p><p>Total probability: ${total.toFixed(3)}</p><p>${escapeHtml(condLine)}</p></div>`;
+}
+
+function buildDistributionCurveMarkup(config) {
+  const title = escapeHtml(String(config.title || "Normal Distribution"));
+  const mean = Number(config.mean);
+  const stdDev = Math.max(0.0001, Number(config.stdDev) || 1);
+  const from = Number(config.from);
+  const to = Number(config.to);
+  if (![mean, stdDev, from, to].every(Number.isFinite)) return "";
+  const area = Math.max(0, normalCdf((to - mean) / stdDev) - normalCdf((from - mean) / stdDev));
+  return `<div class="simple-card"><p class="bar-chart-title">${title}</p><p>Mean = ${mean.toFixed(3)}, SD = ${stdDev.toFixed(3)}</p><p>Area from ${from.toFixed(3)} to ${to.toFixed(3)} ≈ ${area.toFixed(4)}</p></div>`;
+}
+
+function dijkstra(nodes, edges, source, target) {
+  const dist = {};
+  const prev = {};
+  const unvisited = new Set(nodes);
+  nodes.forEach((node) => { dist[node] = Number.POSITIVE_INFINITY; });
+  dist[source] = 0;
+
+  while (unvisited.size > 0) {
+    let current = null;
+    let best = Number.POSITIVE_INFINITY;
+    unvisited.forEach((node) => {
+      if (dist[node] < best) {
+        best = dist[node];
+        current = node;
+      }
+    });
+    if (!current || best === Number.POSITIVE_INFINITY) break;
+    unvisited.delete(current);
+    if (current === target) break;
+
+    edges.forEach((edge) => {
+      if (edge.from !== current && edge.to !== current) return;
+      const neighbor = edge.from === current ? edge.to : edge.from;
+      if (!unvisited.has(neighbor)) return;
+      const alt = dist[current] + Math.max(0, Number(edge.weight) || 0);
+      if (alt < dist[neighbor]) {
+        dist[neighbor] = alt;
+        prev[neighbor] = current;
+      }
+    });
+  }
+
+  if (!Number.isFinite(dist[target])) return null;
+  const path = [];
+  let cursor = target;
+  while (cursor) {
+    path.unshift(cursor);
+    cursor = prev[cursor];
+  }
+  return { distance: dist[target], path };
+}
+
+function computeMstWeight(nodes, edges) {
+  const parent = {};
+  const find = (x) => {
+    if (parent[x] !== x) parent[x] = find(parent[x]);
+    return parent[x];
+  };
+  const union = (a, b) => {
+    const ra = find(a);
+    const rb = find(b);
+    if (ra === rb) return false;
+    parent[rb] = ra;
+    return true;
+  };
+
+  nodes.forEach((node) => { parent[node] = node; });
+  let weight = 0;
+  let count = 0;
+  edges
+    .slice()
+    .sort((a, b) => (Number(a.weight) || 0) - (Number(b.weight) || 0))
+    .forEach((edge) => {
+      if (union(edge.from, edge.to)) {
+        weight += Math.max(0, Number(edge.weight) || 0);
+        count += 1;
+      }
+    });
+  return count === Math.max(0, nodes.length - 1) ? weight : null;
+}
+
+function computeMaxFlow(nodes, edges, source, sink) {
+  const nodeSet = new Set(nodes);
+  if (!nodeSet.has(source) || !nodeSet.has(sink)) return null;
+
+  const capacity = {};
+  const neighbors = {};
+  nodes.forEach((node) => {
+    capacity[node] = {};
+    neighbors[node] = new Set();
+  });
+
+  edges.forEach((edge) => {
+    const c = Math.max(0, Number(edge.capacity) || 0);
+    if (!capacity[edge.from][edge.to]) capacity[edge.from][edge.to] = 0;
+    if (!capacity[edge.to][edge.from]) capacity[edge.to][edge.from] = 0;
+    capacity[edge.from][edge.to] += c;
+    neighbors[edge.from].add(edge.to);
+    neighbors[edge.to].add(edge.from);
+  });
+
+  let flow = 0;
+  while (true) {
+    const parent = {};
+    const queue = [source];
+    parent[source] = null;
+    let found = false;
+    while (queue.length > 0 && !found) {
+      const u = queue.shift();
+      neighbors[u].forEach((v) => {
+        if (found || Object.prototype.hasOwnProperty.call(parent, v)) return;
+        if ((capacity[u][v] || 0) <= 0) return;
+        parent[v] = u;
+        if (v === sink) {
+          found = true;
+          return;
+        }
+        queue.push(v);
+      });
+    }
+    if (!found) break;
+
+    let pathFlow = Number.POSITIVE_INFINITY;
+    let v = sink;
+    while (v !== source) {
+      const u = parent[v];
+      pathFlow = Math.min(pathFlow, capacity[u][v] || 0);
+      v = u;
+    }
+
+    v = sink;
+    while (v !== source) {
+      const u = parent[v];
+      capacity[u][v] -= pathFlow;
+      capacity[v][u] += pathFlow;
+      neighbors[v].add(u);
+      v = u;
+    }
+    flow += pathFlow;
+  }
+  return flow;
+}
+
+function buildNetworkGraphMarkup(config) {
+  const title = escapeHtml(String(config.title || "Network Graph"));
+  const nodes = Array.isArray(config.nodes) ? config.nodes : [];
+  const edges = Array.isArray(config.edges) ? config.edges : [];
+  if (nodes.length === 0 || edges.length === 0) return "";
+  const shortest = dijkstra(nodes, edges, config.source, config.target);
+  const mst = computeMstWeight(nodes, edges);
+  const maxFlow = computeMaxFlow(nodes, edges, config.flowSource, config.flowSink);
+  const shortestLine = shortest ? `${shortest.path.join(" -> ")} (cost ${shortest.distance.toFixed(2)})` : "unavailable";
+  return `<div class="simple-card"><p class="bar-chart-title">${title}</p><p>Nodes: ${nodes.length}, Edges: ${edges.length}</p><p>Shortest path: ${escapeHtml(shortestLine)}</p><p>MST total weight: ${mst === null ? "unavailable" : mst.toFixed(2)}</p><p>Max flow: ${maxFlow === null ? "unavailable" : maxFlow.toFixed(2)}</p></div>`;
 }
 
 function buildPythagorasMarkup(config) {
@@ -668,6 +1079,13 @@ function cloneInteractiveApp(app) {
 function getInteractiveAppTitle(type) {
   if (type === "number-line") return "Interactive: Number Line";
   if (type === "cartesian-plane") return "Interactive: Cartesian Plane";
+  if (type === "bar-chart") return "Interactive: Bar Chart";
+  if (type === "histogram") return "Interactive: Histogram";
+  if (type === "box-plot") return "Interactive: Box Plot";
+  if (type === "scatter-plot") return "Interactive: Scatter Plot";
+  if (type === "probability-tree") return "Interactive: Probability Tree";
+  if (type === "distribution-curve") return "Interactive: Distribution Curve";
+  if (type === "network-graph") return "Interactive: Network Graph";
   if (type === "stem-and-leaf") return "Interactive: Stem-and-Leaf Plot";
   if (type === "geometry-shapes") return "Interactive: Geometry Shapes";
   if (type === "pythagoras") return "Interactive: Pythagoras Triangle";
@@ -683,6 +1101,20 @@ function updateInteractivePreview(preview, app) {
     content = buildNumberLineSvgString(app.config || {});
   } else if (app.type === "cartesian-plane") {
     content = buildCartesianPlaneSvgString(app.config || {});
+  } else if (app.type === "bar-chart") {
+    content = buildBarChartMarkup(app.config || {});
+  } else if (app.type === "histogram") {
+    content = buildHistogramMarkup(app.config || {});
+  } else if (app.type === "box-plot") {
+    content = buildBoxPlotMarkup(app.config || {});
+  } else if (app.type === "scatter-plot") {
+    content = buildScatterPlotMarkup(app.config || {});
+  } else if (app.type === "probability-tree") {
+    content = buildProbabilityTreeMarkup(app.config || {});
+  } else if (app.type === "distribution-curve") {
+    content = buildDistributionCurveMarkup(app.config || {});
+  } else if (app.type === "network-graph") {
+    content = buildNetworkGraphMarkup(app.config || {});
   } else if (app.type === "stem-and-leaf") {
     content = buildStemLeafMarkup(app.config || {});
   } else if (app.type === "geometry-shapes") {
@@ -860,17 +1292,416 @@ function buildNumberLineDetailLines(app) {
   return [pointSummary, arrowSummary, `Visible range: ${config.min} to ${config.max}`];
 }
 
+function formatGraphValue(value) {
+  return String(roundInteractive(value, 3));
+}
+
+function evaluateSimpleMathExpression(raw, xValue = null) {
+  const source = String(raw || "").trim();
+  if (!source) return Number.NaN;
+  if (!/^[0-9x+\-*/().\s^pie]+$/i.test(source)) {
+    return Number.NaN;
+  }
+
+  const normalized = source
+    .toLowerCase()
+    .replace(/\^/g, "**")
+    .replace(/(\d)\s*x\b/g, "$1*x")
+    .replace(/\)\s*x\b/g, ")*x")
+    .replace(/\bx\s*\(/g, "x*(")
+    .replace(/(\d)\s*\(/g, "$1*(")
+    .replace(/\bpi\b/g, "PI")
+    .replace(/\be\b/g, "E");
+
+  try {
+    const fn = new Function("x", "const {PI,E}=Math; return (" + normalized + ");");
+    const value = Number(fn(xValue));
+    return Number.isFinite(value) ? value : Number.NaN;
+  } catch (error) {
+    return Number.NaN;
+  }
+}
+
+function parseTrigFunctionParameters(expression) {
+  const raw = String(expression || "").trim();
+  if (!raw) return null;
+  const normalized = raw.toLowerCase().replace(/^y\s*=\s*/, "").replace(/\s+/g, "");
+  const trigMatch = normalized.match(/(sin|cos|tan)\(/);
+  if (!trigMatch) return null;
+
+  const trigType = trigMatch[1];
+  const fnStart = trigMatch.index;
+  const openIndex = fnStart + trigType.length;
+  let depth = 0;
+  let closeIndex = -1;
+  for (let i = openIndex; i < normalized.length; i += 1) {
+    const ch = normalized[i];
+    if (ch === "(") depth += 1;
+    if (ch === ")") {
+      depth -= 1;
+      if (depth === 0) {
+        closeIndex = i;
+        break;
+      }
+    }
+  }
+  if (closeIndex < 0) return null;
+
+  const prefixRaw = normalized.slice(0, fnStart);
+  const insideRaw = normalized.slice(openIndex + 1, closeIndex);
+  const suffixRaw = normalized.slice(closeIndex + 1);
+
+  const prefix = prefixRaw.endsWith("*") ? prefixRaw.slice(0, -1) : prefixRaw;
+  const aValue = prefix === "" || prefix === "+" ? 1 : prefix === "-" ? -1 : evaluateSimpleMathExpression(prefix);
+  if (!Number.isFinite(aValue)) return null;
+
+  const dValue = suffixRaw === "" ? 0 : evaluateSimpleMathExpression(suffixRaw);
+  if (!Number.isFinite(dValue)) return null;
+
+  const k0 = evaluateSimpleMathExpression(insideRaw, 0);
+  const k1 = evaluateSimpleMathExpression(insideRaw, 1);
+  const k2 = evaluateSimpleMathExpression(insideRaw, 2);
+  if (![k0, k1, k2].every(Number.isFinite)) return null;
+  const bValue = k1 - k0;
+  if (!Number.isFinite(bValue) || Math.abs(bValue) < 1e-9) return null;
+  const linearAt2 = 2 * bValue + k0;
+  if (Math.abs(linearAt2 - k2) > 1e-4) return null;
+
+  const cValue = -k0 / bValue;
+  const period = (trigType === "tan" ? Math.PI : 2 * Math.PI) / Math.abs(bValue);
+  return {
+    trigType,
+    a: aValue,
+    b: bValue,
+    c: cValue,
+    d: dValue,
+    period
+  };
+}
+
+function normalizeAngleMode(value) {
+  return String(value || "radians").trim().toLowerCase() === "degrees" ? "degrees" : "radians";
+}
+
+function gcd(a, b) {
+  let x = Math.abs(Math.trunc(a));
+  let y = Math.abs(Math.trunc(b));
+  while (y !== 0) {
+    const t = x % y;
+    x = y;
+    y = t;
+  }
+  return x || 1;
+}
+
+function formatRadiansAsPi(value) {
+  const radians = Number(value);
+  if (!Number.isFinite(radians)) return `${formatGraphValue(value)} rad`;
+  if (Math.abs(radians) < 1e-10) return "0";
+
+  const sign = radians < 0 ? "-" : "";
+  const ratio = Math.abs(radians) / Math.PI;
+  const maxDen = 24;
+  let bestNum = 0;
+  let bestDen = 1;
+  let bestErr = Number.POSITIVE_INFINITY;
+
+  for (let den = 1; den <= maxDen; den += 1) {
+    const num = Math.round(ratio * den);
+    const err = Math.abs(ratio - num / den);
+    if (err < bestErr) {
+      bestErr = err;
+      bestNum = num;
+      bestDen = den;
+    }
+  }
+
+  if (bestErr > 0.003) {
+    return `${formatGraphValue(radians)} rad`;
+  }
+
+  const divisor = gcd(bestNum, bestDen);
+  const num = bestNum / divisor;
+  const den = bestDen / divisor;
+  if (den === 1) {
+    if (num === 1) return `${sign}π`;
+    return `${sign}${num}π`;
+  }
+  if (num === 1) return `${sign}π/${den}`;
+  return `${sign}${num}π/${den}`;
+}
+
+function formatAngleDual(value, preferredMode) {
+  const radiansText = formatRadiansAsPi(value);
+  const degreesText = `${formatGraphValue((Number(value) * 180) / Math.PI)}°`;
+  if (normalizeAngleMode(preferredMode) === "degrees") {
+    return `${degreesText} (${radiansText})`;
+  }
+  return `${radiansText} (${degreesText})`;
+}
+
+function describeTrigFunctionInsights(item, index, angleMode = "radians") {
+  const label = String(item.label || `f${index + 1}`).trim();
+  const parsed = parseTrigFunctionParameters(item.expression || "");
+  if (!parsed) {
+    return `${label}: trig parameters unavailable (use standard form like A*sin(B*(x-C))+D).`;
+  }
+
+  const mode = normalizeAngleMode(angleMode);
+  const periodText = formatAngleDual(parsed.period, mode);
+  const phaseText = formatAngleDual(parsed.c, mode);
+
+  if (parsed.trigType === "tan") {
+    return `${label}: tan graph, stretch |A|=${formatGraphValue(Math.abs(parsed.a))}, period=${periodText}, phase shift=${phaseText}, vertical shift=${formatGraphValue(parsed.d)}.`;
+  }
+
+  return `${label}: ${parsed.trigType} graph, amplitude=${formatGraphValue(Math.abs(parsed.a))}, period=${periodText}, phase shift=${phaseText}, vertical shift=${formatGraphValue(parsed.d)}.`;
+}
+
+function describeParabolaInsights(curve, index) {
+  const a = Number(curve.a);
+  const b = Number(curve.b);
+  const c = Number(curve.c);
+  if (![a, b, c].every(Number.isFinite)) return "";
+
+  const name = String(curve.label || `p${index + 1}`).trim();
+  if (a === 0) {
+    return `${name}: not quadratic (a = 0).`;
+  }
+
+  const vx = -b / (2 * a);
+  const vy = a * vx * vx + b * vx + c;
+  const discriminant = b * b - 4 * a * c;
+  let rootsText = "no real roots";
+
+  if (discriminant > 0) {
+    const root1 = (-b - Math.sqrt(discriminant)) / (2 * a);
+    const root2 = (-b + Math.sqrt(discriminant)) / (2 * a);
+    rootsText = `roots x = ${formatGraphValue(root1)}, ${formatGraphValue(root2)}`;
+  } else if (discriminant === 0) {
+    const root = -b / (2 * a);
+    rootsText = `double root x = ${formatGraphValue(root)}`;
+  }
+
+  const turningType = a > 0 ? "minimum" : "maximum";
+  return `${name}: turning point (${formatGraphValue(vx)}, ${formatGraphValue(vy)}) [${turningType}], ${rootsText}`;
+}
+
+function approximateFunctionRoots(evaluate, xMin, xMax, samples = 160) {
+  if (typeof evaluate !== "function") return [];
+  const roots = [];
+  let prevX = xMin;
+  let prevY = evaluate(prevX);
+  const step = (xMax - xMin) / samples;
+
+  for (let i = 1; i <= samples; i += 1) {
+    const x = xMin + i * step;
+    const y = evaluate(x);
+    if (!Number.isFinite(y) || !Number.isFinite(prevY)) {
+      prevX = x;
+      prevY = y;
+      continue;
+    }
+
+    if (Math.abs(y) < 1e-6) {
+      roots.push(x);
+    } else if (Math.abs(prevY) < 1e-6) {
+      roots.push(prevX);
+    } else if ((prevY < 0 && y > 0) || (prevY > 0 && y < 0)) {
+      let leftX = prevX;
+      let rightX = x;
+      let leftY = prevY;
+      for (let j = 0; j < 16; j += 1) {
+        const midX = (leftX + rightX) / 2;
+        const midY = evaluate(midX);
+        if (!Number.isFinite(midY)) break;
+        if ((leftY < 0 && midY > 0) || (leftY > 0 && midY < 0)) {
+          rightX = midX;
+        } else {
+          leftX = midX;
+          leftY = midY;
+        }
+      }
+      roots.push((leftX + rightX) / 2);
+    }
+
+    prevX = x;
+    prevY = y;
+  }
+
+  const unique = [];
+  roots
+    .filter((value) => Number.isFinite(value))
+    .sort((a, b) => a - b)
+    .forEach((value) => {
+      if (unique.length === 0 || Math.abs(unique[unique.length - 1] - value) > 0.12) {
+        unique.push(value);
+      }
+    });
+  return unique;
+}
+
 function buildCartesianDetailLines(app) {
   const config = app.config || {};
+  const angleMode = normalizeAngleMode(config.angleMode || "radians");
   const points = Array.isArray(config.points) ? config.points : [];
   const segments = Array.isArray(config.segments) ? config.segments : [];
+  const parabolas = Array.isArray(config.parabolas) ? config.parabolas : [];
+  const functionsList = Array.isArray(config.functions) ? config.functions : [];
   const pointSummary = points.length > 0
     ? `Current coordinates: ${points.map((point, index) => `${point.label || `Point ${index + 1}`} (${point.x}, ${point.y})`).join(", ")}`
     : "Current coordinates: none";
   const segmentSummary = segments.length > 0
     ? `Reference segments: ${segments.map((segment) => `${segment.label || "segment"} [(${segment.x1}, ${segment.y1}) to (${segment.x2}, ${segment.y2})]`).join(" | ")}`
     : "Reference segments: none";
-  return [pointSummary, segmentSummary, `Axes range: x ${config.xMin} to ${config.xMax}, y ${config.yMin} to ${config.yMax}`];
+  const parabolaSummary = parabolas.length > 0
+    ? `Parabolas: ${parabolas.map((curve, index) => `${curve.label || `p${index + 1}`}: y = ${curve.a}x^2 + ${curve.b}x + ${curve.c}`).join(" | ")}`
+    : "Parabolas: none";
+  const parabolaInsights = parabolas.length > 0
+    ? `Parabola analysis: ${parabolas.map((curve, index) => describeParabolaInsights(curve, index)).filter((line) => line !== "").join(" | ") || "not available"}`
+    : "Parabola analysis: none";
+  const functionSummary = functionsList.length > 0
+    ? `Functions: ${functionsList.map((item, index) => `${item.label || `f${index + 1}`}: y = ${item.expression}`).join(" | ")}`
+    : "Functions: none";
+  const trigSummary = functionsList.length > 0
+    ? `Trig analysis (${angleMode}): ${functionsList.map((item, index) => describeTrigFunctionInsights(item, index, angleMode)).join(" | ")}`
+    : "Trig analysis: none";
+  const xMin = Number.isFinite(Number(config.xMin)) ? Number(config.xMin) : -10;
+  const xMax = Number.isFinite(Number(config.xMax)) ? Number(config.xMax) : 10;
+  const functionRootSummary = functionsList.length > 0
+    ? `Function roots (approx): ${functionsList.map((item, index) => {
+      const evaluator = buildCartesianExpressionEvaluator(item.expression || "");
+      const roots = evaluator ? approximateFunctionRoots(evaluator, xMin, xMax) : [];
+      return `${item.label || `f${index + 1}`}: ${roots.length > 0 ? roots.map((root) => formatGraphValue(root)).join(", ") : "none in range"}`;
+    }).join(" | ")}`
+    : "Function roots (approx): none";
+  return [pointSummary, segmentSummary, parabolaSummary, parabolaInsights, functionSummary, trigSummary, functionRootSummary, `Angle mode: ${angleMode}`, `Axes range: x ${config.xMin} to ${config.xMax}, y ${config.yMin} to ${config.yMax}`];
+}
+
+function buildBarChartDetailLines(app) {
+  const config = app.config || {};
+  const items = Array.isArray(config.items) ? config.items : [];
+  if (items.length === 0) {
+    return ["Categories: none", "Frequencies: none"];
+  }
+
+  const maxItem = Math.max(...items.map((item) => Number(item.frequency) || 0), 1);
+  const yMax = Number.isFinite(Number(config.yMax)) && Number(config.yMax) > 0
+    ? Number(config.yMax)
+    : Math.ceil(maxItem / 5) * 5;
+  const total = items.reduce((sum, item) => sum + Math.max(0, Number(item.frequency) || 0), 0);
+  const rows = items.map((item) => `${item.category || "Item"} = ${Math.max(0, Number(item.frequency) || 0)}`);
+  return [
+    `Chart title: ${config.title || "Category Frequencies"}`,
+    `Categories: ${items.length}`,
+    `Frequencies: ${rows.join(", ")}`,
+    `Total frequency: ${roundInteractive(total, 2)}`,
+    `Y max: ${yMax}`
+  ];
+}
+
+function buildHistogramDetailLines(app) {
+  const config = app.config || {};
+  const hist = computeHistogramBins(config.values || [], config.binCount);
+  if (!hist) return ["Histogram values: none"];
+  const binsText = hist.bins.map((freq, index) => {
+    const start = hist.min + index * hist.width;
+    const end = start + hist.width;
+    return `[${roundInteractive(start, 2)}, ${roundInteractive(end, 2)}): ${freq}`;
+  }).join(" | ");
+  return [
+    `Chart title: ${config.title || "Continuous Data Distribution"}`,
+    `Value count: ${(Array.isArray(config.values) ? config.values : []).length}`,
+    `Bin count: ${hist.bins.length}`,
+    `Bins: ${binsText}`
+  ];
+}
+
+function buildBoxPlotDetailLines(app) {
+  const config = app.config || {};
+  const a = computeFiveNumber(config.valuesA || []);
+  const b = computeFiveNumber(config.valuesB || []);
+  const fmt = (label, stats) => {
+    if (!stats) return `${label}: no data`;
+    return `${label}: min=${roundInteractive(stats.min, 2)}, Q1=${roundInteractive(stats.q1, 2)}, median=${roundInteractive(stats.median, 2)}, Q3=${roundInteractive(stats.q3, 2)}, max=${roundInteractive(stats.max, 2)}`;
+  };
+  return [
+    `Chart title: ${config.title || "Compare Datasets"}`,
+    fmt(config.labelA || "A", a),
+    fmt(config.labelB || "B", b)
+  ];
+}
+
+function buildScatterPlotDetailLines(app) {
+  const config = app.config || {};
+  const points = Array.isArray(config.points) ? config.points : [];
+  const regression = computeLinearRegression(points);
+  const base = [
+    `Chart title: ${config.title || "Correlation and Best Fit"}`,
+    `Point count: ${points.length}`
+  ];
+  if (!regression) {
+    base.push("Line of best fit: unavailable");
+    return base;
+  }
+  base.push(`Correlation coefficient r: ${roundInteractive(regression.correlation, 4)}`);
+  base.push(`Best fit equation: y = ${roundInteractive(regression.slope, 4)}x + ${roundInteractive(regression.intercept, 4)}`);
+  return base;
+}
+
+function buildProbabilityTreeDetailLines(app) {
+  const config = app.config || {};
+  const paths = Array.isArray(config.paths) ? config.paths : [];
+  const total = paths.reduce((sum, item) => sum + (Number(item.probability) || 0), 0);
+  const conditional = computeConditionalProbability(paths, config.conditionalQuery || "");
+  const pathSummary = paths.length > 0
+    ? paths.map((item) => `${(Array.isArray(item.path) ? item.path.join(" -> ") : "path")} = ${roundInteractive(Number(item.probability) || 0, 4)}`).join(" | ")
+    : "none";
+  return [
+    `Chart title: ${config.title || "Sequential Probabilities"}`,
+    `Path summary: ${pathSummary}`,
+    `Total probability: ${roundInteractive(total, 4)}`,
+    `Conditional query: ${config.conditionalQuery || "none"}`,
+    `Conditional result: ${conditional === null ? "unavailable" : roundInteractive(conditional, 4)}`
+  ];
+}
+
+function buildDistributionCurveDetailLines(app) {
+  const config = app.config || {};
+  const mean = Number(config.mean);
+  const stdDev = Math.max(0.0001, Number(config.stdDev) || 1);
+  const from = Number(config.from);
+  const to = Number(config.to);
+  if (![mean, stdDev, from, to].every(Number.isFinite)) {
+    return ["Distribution parameters are incomplete."];
+  }
+  const zFrom = (from - mean) / stdDev;
+  const zTo = (to - mean) / stdDev;
+  const area = Math.max(0, normalCdf(zTo) - normalCdf(zFrom));
+  return [
+    `Chart title: ${config.title || "Normal Distribution"}`,
+    `Mean: ${roundInteractive(mean, 4)}, SD: ${roundInteractive(stdDev, 4)}`,
+    `Bounds: from ${roundInteractive(from, 4)} to ${roundInteractive(to, 4)}`,
+    `Z-range: ${roundInteractive(zFrom, 4)} to ${roundInteractive(zTo, 4)}`,
+    `Area under curve: ${roundInteractive(area, 5)}`
+  ];
+}
+
+function buildNetworkGraphDetailLines(app) {
+  const config = app.config || {};
+  const nodes = Array.isArray(config.nodes) ? config.nodes : [];
+  const edges = Array.isArray(config.edges) ? config.edges : [];
+  const shortest = dijkstra(nodes, edges, config.source, config.target);
+  const mst = computeMstWeight(nodes, edges);
+  const maxFlow = computeMaxFlow(nodes, edges, config.flowSource, config.flowSink);
+  return [
+    `Chart title: ${config.title || "Network Graph"}`,
+    `Nodes: ${nodes.join(", ") || "none"}`,
+    `Edges: ${edges.map((edge) => `${edge.from}-${edge.to}(w=${edge.weight}, c=${edge.capacity})`).join(" | ") || "none"}`,
+    `Shortest path ${config.source || "?"} -> ${config.target || "?"}: ${shortest ? `${shortest.path.join(" -> ")} (cost ${roundInteractive(shortest.distance, 3)})` : "unavailable"}`,
+    `MST total weight: ${mst === null ? "unavailable" : roundInteractive(mst, 3)}`,
+    `Max flow ${config.flowSource || "?"} -> ${config.flowSink || "?"}: ${maxFlow === null ? "unavailable" : roundInteractive(maxFlow, 3)}`
+  ];
 }
 
 function buildStemLeafDetailLines(app) {
@@ -929,6 +1760,20 @@ function updateInteractiveDetails(host, app) {
     lines = buildNumberLineDetailLines(app);
   } else if (app.type === "cartesian-plane") {
     lines = buildCartesianDetailLines(app);
+  } else if (app.type === "bar-chart") {
+    lines = buildBarChartDetailLines(app);
+  } else if (app.type === "histogram") {
+    lines = buildHistogramDetailLines(app);
+  } else if (app.type === "box-plot") {
+    lines = buildBoxPlotDetailLines(app);
+  } else if (app.type === "scatter-plot") {
+    lines = buildScatterPlotDetailLines(app);
+  } else if (app.type === "probability-tree") {
+    lines = buildProbabilityTreeDetailLines(app);
+  } else if (app.type === "distribution-curve") {
+    lines = buildDistributionCurveDetailLines(app);
+  } else if (app.type === "network-graph") {
+    lines = buildNetworkGraphDetailLines(app);
   } else if (app.type === "stem-and-leaf") {
     lines = buildStemLeafDetailLines(app);
   } else if (app.type === "geometry-shapes") {
@@ -989,13 +1834,16 @@ function mountNumberLineInteractive(host, app) {
 
 function mountCartesianInteractive(host, app) {
   const config = app.config || {};
+  config.angleMode = normalizeAngleMode(config.angleMode || "radians");
   const points = Array.isArray(config.points) ? config.points : [];
+  const parabolas = Array.isArray(config.parabolas) ? config.parabolas : [];
+  const functionsList = Array.isArray(config.functions) ? config.functions : [];
   const xMin = Number.isFinite(Number(config.xMin)) ? Number(config.xMin) : -10;
   const xMax = Number.isFinite(Number(config.xMax)) ? Number(config.xMax) : 10;
   const yMin = Number.isFinite(Number(config.yMin)) ? Number(config.yMin) : -10;
   const yMax = Number.isFinite(Number(config.yMax)) ? Number(config.yMax) : 10;
 
-  const controls = points.length > 0
+  const pointControls = points.length > 0
     ? points.map((point, index) => `
       <div class="interactive-control-grid">
         <div class="interactive-control-label">${escapeHtml(point.label || `Point ${index + 1}`)}</div>
@@ -1011,9 +1859,54 @@ function mountCartesianInteractive(host, app) {
     `).join("")
     : "<p class='helper-text'>No points configured for this plane.</p>";
 
+  const parabolaControls = parabolas.length > 0
+    ? parabolas.map((curve, index) => `
+      <div class="interactive-control-grid">
+        <div class="interactive-control-label">${escapeHtml(curve.label || `Parabola ${index + 1}`)}</div>
+        <label class="interactive-control-row compact">
+          <span>a</span>
+          <input type="number" step="0.1" value="${Number(curve.a) || 0}" data-role="parabola-a" data-index="${index}" />
+        </label>
+        <label class="interactive-control-row compact">
+          <span>b</span>
+          <input type="number" step="0.1" value="${Number(curve.b) || 0}" data-role="parabola-b" data-index="${index}" />
+        </label>
+        <label class="interactive-control-row compact">
+          <span>c</span>
+          <input type="number" step="0.1" value="${Number(curve.c) || 0}" data-role="parabola-c" data-index="${index}" />
+        </label>
+      </div>
+    `).join("")
+    : "<p class='helper-text'>No parabolas configured for this plane.</p>";
+
+  const functionControls = functionsList.length > 0
+    ? functionsList.map((curve, index) => `
+      <div class="interactive-control-grid">
+        <div class="interactive-control-label">${escapeHtml(curve.label || `Function ${index + 1}`)}</div>
+        <label class="interactive-control-stack full-width">
+          <span>Expression y = f(x)</span>
+          <input type="text" value="${escapeHtml(curve.expression || "")}" data-role="function-expression" data-index="${index}" />
+        </label>
+      </div>
+    `).join("")
+    : "<p class='helper-text'>No functions configured for this plane.</p>";
+
+  const controls = `${pointControls}${parabolaControls}${functionControls}`;
+
   host.innerHTML = `
     <div class="interactive-app-preview"></div>
-    <div class="interactive-app-controls">${controls}</div>
+    <div class="interactive-app-controls">
+      <div class="interactive-control-grid">
+        <label class="interactive-control-row compact">
+          <span>Angles</span>
+          <select data-role="cartesian-angle-mode">
+            <option value="radians" ${config.angleMode === "radians" ? "selected" : ""}>Radians</option>
+            <option value="degrees" ${config.angleMode === "degrees" ? "selected" : ""}>Degrees</option>
+          </select>
+        </label>
+      </div>
+      ${controls}
+    </div>
     <div class="interactive-app-details"></div>
   `;
 
@@ -1039,6 +1932,42 @@ function mountCartesianInteractive(host, app) {
   host.querySelectorAll("[data-role='cartesian-y']").forEach((input) => {
     input.addEventListener("input", () => sync(Number(input.dataset.index), "y", input.value));
   });
+
+  const syncParabola = (index, key, value) => {
+    if (!parabolas[index]) return;
+    const parsed = Number(value);
+    if (!Number.isFinite(parsed)) return;
+    parabolas[index][key] = roundInteractive(parsed, 2);
+    render();
+  };
+
+  host.querySelectorAll("[data-role='parabola-a']").forEach((input) => {
+    input.addEventListener("input", () => syncParabola(Number(input.dataset.index), "a", input.value));
+  });
+  host.querySelectorAll("[data-role='parabola-b']").forEach((input) => {
+    input.addEventListener("input", () => syncParabola(Number(input.dataset.index), "b", input.value));
+  });
+  host.querySelectorAll("[data-role='parabola-c']").forEach((input) => {
+    input.addEventListener("input", () => syncParabola(Number(input.dataset.index), "c", input.value));
+  });
+
+  const syncFunction = (index, value) => {
+    if (!functionsList[index]) return;
+    functionsList[index].expression = String(value || "").trim();
+    render();
+  };
+
+  host.querySelectorAll("[data-role='function-expression']").forEach((input) => {
+    input.addEventListener("input", () => syncFunction(Number(input.dataset.index), input.value));
+  });
+
+  const angleModeInput = host.querySelector("[data-role='cartesian-angle-mode']");
+  if (angleModeInput) {
+    angleModeInput.addEventListener("input", () => {
+      config.angleMode = normalizeAngleMode(angleModeInput.value);
+      render();
+    });
+  }
 
   render();
 }
@@ -1081,6 +2010,350 @@ function mountStemLeafInteractive(host, app) {
   unitInput.addEventListener("input", rerender);
   updateInteractivePreview(preview, app);
   updateInteractiveDetails(host, app);
+}
+
+function mountBarChartInteractive(host, app) {
+  const config = app.config || {};
+  if (!Array.isArray(config.items)) config.items = [];
+  const items = config.items;
+
+  const itemControls = items.length > 0
+    ? items.map((item, index) => {
+      const safeLabel = escapeHtml(item.category || `Category ${index + 1}`);
+      const value = Math.max(0, Number(item.frequency) || 0);
+      return `
+      <div class="interactive-control-grid">
+        <div class="interactive-control-label">${safeLabel}</div>
+        <label class="interactive-control-row compact">
+          <span>Freq</span>
+          <input type="range" min="0" max="100" step="1" value="${value}" data-role="bar-range" data-index="${index}" />
+        </label>
+        <label class="interactive-control-row compact">
+          <span>Freq</span>
+          <input type="number" min="0" step="1" value="${value}" data-role="bar-number" data-index="${index}" />
+        </label>
+      </div>
+    `;
+    }).join("")
+    : "<p class='helper-text'>No bars configured for this chart.</p>";
+
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls">
+      <label class="interactive-control-stack">
+        <span>Chart Title</span>
+        <input type="text" value="${escapeHtml(config.title || "Category Frequencies")}" data-role="bar-title" />
+      </label>
+      <label class="interactive-control-row compact">
+        <span>Y Max</span>
+        <input type="number" min="1" step="1" value="${Number.isFinite(Number(config.yMax)) && Number(config.yMax) > 0 ? Number(config.yMax) : ""}" data-role="bar-ymax" placeholder="Auto" />
+      </label>
+      ${itemControls}
+    </div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const render = () => {
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  const syncFrequency = (index, value) => {
+    if (!items[index]) return;
+    const next = Math.max(0, Number(value) || 0);
+    items[index].frequency = next;
+    const numberInput = host.querySelector(`[data-role='bar-number'][data-index='${index}']`);
+    const rangeInput = host.querySelector(`[data-role='bar-range'][data-index='${index}']`);
+    if (numberInput) numberInput.value = String(Math.round(next));
+    if (rangeInput) rangeInput.value = String(Math.max(0, Math.min(100, Math.round(next))));
+    render();
+  };
+
+  host.querySelectorAll("[data-role='bar-range']").forEach((input) => {
+    input.addEventListener("input", () => syncFrequency(Number(input.dataset.index), input.value));
+  });
+  host.querySelectorAll("[data-role='bar-number']").forEach((input) => {
+    input.addEventListener("input", () => syncFrequency(Number(input.dataset.index), input.value));
+  });
+
+  const titleInput = host.querySelector("[data-role='bar-title']");
+  if (titleInput) {
+    titleInput.addEventListener("input", () => {
+      config.title = String(titleInput.value || "").trim();
+      render();
+    });
+  }
+
+  const yMaxInput = host.querySelector("[data-role='bar-ymax']");
+  if (yMaxInput) {
+    yMaxInput.addEventListener("input", () => {
+      const value = Number(yMaxInput.value);
+      config.yMax = Number.isFinite(value) && value > 0 ? value : null;
+      render();
+    });
+  }
+
+  render();
+}
+
+function mountHistogramInteractive(host, app) {
+  const config = app.config || {};
+  if (!Array.isArray(config.values)) config.values = [];
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls">
+      <label class="interactive-control-stack">
+        <span>Chart Title</span>
+        <input type="text" value="${escapeHtml(config.title || "Continuous Data Distribution")}" data-role="hist-title" />
+      </label>
+      <label class="interactive-control-stack">
+        <span>Values (comma separated)</span>
+        <textarea rows="3" data-role="hist-values">${escapeHtml(config.values.join(", "))}</textarea>
+      </label>
+      <label class="interactive-control-row compact">
+        <span>Bin Count</span>
+        <input type="number" min="2" max="30" step="1" value="${Math.max(2, Math.min(30, Number.parseInt(config.binCount, 10) || 8))}" data-role="hist-bins" />
+      </label>
+    </div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const rerender = () => {
+    const titleInput = host.querySelector("[data-role='hist-title']");
+    const valuesInput = host.querySelector("[data-role='hist-values']");
+    const binsInput = host.querySelector("[data-role='hist-bins']");
+    config.title = String(titleInput.value || "").trim();
+    config.values = String(valuesInput.value || "")
+      .split(/[\s,]+/)
+      .map((item) => item.trim())
+      .filter((item) => item !== "")
+      .map((item) => Number.parseFloat(item))
+      .filter((item) => Number.isFinite(item));
+    config.binCount = Math.max(2, Math.min(30, Number.parseInt(binsInput.value, 10) || 8));
+    binsInput.value = String(config.binCount);
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  host.querySelectorAll("input, textarea").forEach((input) => input.addEventListener("input", rerender));
+  rerender();
+}
+
+function mountBoxPlotInteractive(host, app) {
+  const config = app.config || {};
+  if (!Array.isArray(config.valuesA)) config.valuesA = [];
+  if (!Array.isArray(config.valuesB)) config.valuesB = [];
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls">
+      <label class="interactive-control-stack"><span>Chart Title</span><input type="text" value="${escapeHtml(config.title || "Compare Datasets")}" data-role="box-title" /></label>
+      <div class="interactive-control-grid">
+        <label class="interactive-control-row compact"><span>Label A</span><input type="text" value="${escapeHtml(config.labelA || "A")}" data-role="box-label-a" /></label>
+        <label class="interactive-control-row compact"><span>Label B</span><input type="text" value="${escapeHtml(config.labelB || "B")}" data-role="box-label-b" /></label>
+      </div>
+      <label class="interactive-control-stack"><span>Values A</span><textarea rows="2" data-role="box-values-a">${escapeHtml(config.valuesA.join(", "))}</textarea></label>
+      <label class="interactive-control-stack"><span>Values B</span><textarea rows="2" data-role="box-values-b">${escapeHtml(config.valuesB.join(", "))}</textarea></label>
+    </div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const parseList = (raw) => String(raw || "")
+    .split(/[\s,]+/)
+    .map((item) => item.trim())
+    .filter((item) => item !== "")
+    .map((item) => Number.parseFloat(item))
+    .filter((item) => Number.isFinite(item));
+  const rerender = () => {
+    config.title = String(host.querySelector("[data-role='box-title']").value || "").trim();
+    config.labelA = String(host.querySelector("[data-role='box-label-a']").value || "").trim();
+    config.labelB = String(host.querySelector("[data-role='box-label-b']").value || "").trim();
+    config.valuesA = parseList(host.querySelector("[data-role='box-values-a']").value);
+    config.valuesB = parseList(host.querySelector("[data-role='box-values-b']").value);
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  host.querySelectorAll("input, textarea").forEach((input) => input.addEventListener("input", rerender));
+  rerender();
+}
+
+function mountScatterPlotInteractive(host, app) {
+  const config = app.config || {};
+  if (!Array.isArray(config.points)) config.points = [];
+  const stringifyPoints = () => config.points
+    .map((point) => `${Number(point.x) || 0}:${Number(point.y) || 0}:${point.label || ""}:${point.color || "#2563eb"}`)
+    .join("\n");
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls">
+      <label class="interactive-control-stack"><span>Chart Title</span><input type="text" value="${escapeHtml(config.title || "Correlation and Best Fit")}" data-role="sc-title" /></label>
+      <label class="interactive-control-stack">
+        <span>Points (x:y:label:color, one per line)</span>
+        <textarea rows="5" data-role="sc-points">${escapeHtml(stringifyPoints())}</textarea>
+      </label>
+    </div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const rerender = () => {
+    config.title = String(host.querySelector("[data-role='sc-title']").value || "").trim();
+    const lines = String(host.querySelector("[data-role='sc-points']").value || "").split(/\r?\n/);
+    config.points = lines.map((line, index) => {
+      const [xRaw, yRaw, labelRaw, colorRaw] = line.split(":");
+      const x = Number.parseFloat(xRaw);
+      const y = Number.parseFloat(yRaw);
+      if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
+      return {
+        x,
+        y,
+        label: String(labelRaw || `P${index + 1}`).trim() || `P${index + 1}`,
+        color: safeInteractiveColor(String(colorRaw || "").trim() || "#2563eb", "#2563eb")
+      };
+    }).filter((item) => item);
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  host.querySelectorAll("input, textarea").forEach((input) => input.addEventListener("input", rerender));
+  rerender();
+}
+
+function mountProbabilityTreeInteractive(host, app) {
+  const config = app.config || {};
+  if (!Array.isArray(config.paths)) config.paths = [];
+  const stringifyPaths = () => config.paths
+    .map((item) => `${(Array.isArray(item.path) ? item.path.join(">"): "")}:${Number(item.probability) || 0}`)
+    .join("\n");
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls">
+      <label class="interactive-control-stack"><span>Chart Title</span><input type="text" value="${escapeHtml(config.title || "Sequential Probabilities")}" data-role="pt-title" /></label>
+      <label class="interactive-control-stack"><span>Paths (A>B:0.3 one per line)</span><textarea rows="5" data-role="pt-paths">${escapeHtml(stringifyPaths())}</textarea></label>
+      <label class="interactive-control-row"><span>Conditional Query</span><input type="text" value="${escapeHtml(config.conditionalQuery || "")}" placeholder="A|B" data-role="pt-query" /></label>
+    </div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const rerender = () => {
+    config.title = String(host.querySelector("[data-role='pt-title']").value || "").trim();
+    config.conditionalQuery = String(host.querySelector("[data-role='pt-query']").value || "").trim();
+    config.paths = String(host.querySelector("[data-role='pt-paths']").value || "")
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter((line) => line !== "")
+      .map((line) => {
+        const [pathRaw, probRaw] = line.split(":");
+        const probability = Number.parseFloat(probRaw);
+        if (!Number.isFinite(probability)) return null;
+        const path = String(pathRaw || "").split(">" ).map((segment) => segment.trim()).filter((segment) => segment !== "");
+        if (path.length === 0) return null;
+        return { path, probability };
+      })
+      .filter((item) => item);
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  host.querySelectorAll("input, textarea").forEach((input) => input.addEventListener("input", rerender));
+  rerender();
+}
+
+function mountDistributionCurveInteractive(host, app) {
+  const config = app.config || {};
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls">
+      <label class="interactive-control-stack"><span>Chart Title</span><input type="text" value="${escapeHtml(config.title || "Normal Distribution")}" data-role="dc-title" /></label>
+      <div class="interactive-control-grid">
+        <label class="interactive-control-row compact"><span>Mean</span><input type="number" step="0.1" value="${Number.isFinite(Number(config.mean)) ? Number(config.mean) : 0}" data-role="dc-mean" /></label>
+        <label class="interactive-control-row compact"><span>SD</span><input type="number" min="0.0001" step="0.1" value="${Number.isFinite(Number(config.stdDev)) && Number(config.stdDev) > 0 ? Number(config.stdDev) : 1}" data-role="dc-std" /></label>
+        <label class="interactive-control-row compact"><span>From</span><input type="number" step="0.1" value="${Number.isFinite(Number(config.from)) ? Number(config.from) : -1}" data-role="dc-from" /></label>
+        <label class="interactive-control-row compact"><span>To</span><input type="number" step="0.1" value="${Number.isFinite(Number(config.to)) ? Number(config.to) : 1}" data-role="dc-to" /></label>
+      </div>
+    </div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const rerender = () => {
+    config.title = String(host.querySelector("[data-role='dc-title']").value || "").trim();
+    config.mean = Number(host.querySelector("[data-role='dc-mean']").value) || 0;
+    config.stdDev = Math.max(0.0001, Number(host.querySelector("[data-role='dc-std']").value) || 1);
+    config.from = Number(host.querySelector("[data-role='dc-from']").value) || 0;
+    config.to = Number(host.querySelector("[data-role='dc-to']").value) || 0;
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  host.querySelectorAll("input").forEach((input) => input.addEventListener("input", rerender));
+  rerender();
+}
+
+function mountNetworkGraphInteractive(host, app) {
+  const config = app.config || {};
+  if (!Array.isArray(config.nodes)) config.nodes = [];
+  if (!Array.isArray(config.edges)) config.edges = [];
+  const stringifyEdges = () => config.edges
+    .map((edge) => `${edge.from}-${edge.to}:${Number(edge.weight) || 0}:${Number(edge.capacity) || 0}`)
+    .join("\n");
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls">
+      <label class="interactive-control-stack"><span>Chart Title</span><input type="text" value="${escapeHtml(config.title || "Shortest Path, MST, Flow")}" data-role="ng-title" /></label>
+      <label class="interactive-control-stack"><span>Nodes (comma separated)</span><input type="text" value="${escapeHtml(config.nodes.join(", "))}" data-role="ng-nodes" /></label>
+      <label class="interactive-control-stack"><span>Edges (A-B:weight:capacity one per line)</span><textarea rows="5" data-role="ng-edges">${escapeHtml(stringifyEdges())}</textarea></label>
+      <div class="interactive-control-grid">
+        <label class="interactive-control-row compact"><span>Shortest source</span><input type="text" value="${escapeHtml(config.source || "")}" data-role="ng-source" /></label>
+        <label class="interactive-control-row compact"><span>Shortest target</span><input type="text" value="${escapeHtml(config.target || "")}" data-role="ng-target" /></label>
+        <label class="interactive-control-row compact"><span>Flow source</span><input type="text" value="${escapeHtml(config.flowSource || "")}" data-role="ng-flow-source" /></label>
+        <label class="interactive-control-row compact"><span>Flow sink</span><input type="text" value="${escapeHtml(config.flowSink || "")}" data-role="ng-flow-sink" /></label>
+      </div>
+    </div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const rerender = () => {
+    config.title = String(host.querySelector("[data-role='ng-title']").value || "").trim();
+    config.nodes = String(host.querySelector("[data-role='ng-nodes']").value || "")
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item !== "");
+    config.edges = String(host.querySelector("[data-role='ng-edges']").value || "")
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter((line) => line !== "")
+      .map((line) => {
+        const [pairRaw, weightRaw, capacityRaw] = line.split(":");
+        const [fromRaw, toRaw] = String(pairRaw || "").split("-");
+        const from = String(fromRaw || "").trim();
+        const to = String(toRaw || "").trim();
+        if (!from || !to) return null;
+        const weight = Number.parseFloat(weightRaw);
+        const capacity = Number.parseFloat(capacityRaw);
+        return {
+          from,
+          to,
+          weight: Number.isFinite(weight) ? weight : 1,
+          capacity: Number.isFinite(capacity) ? capacity : Math.max(1, Number.isFinite(weight) ? weight : 1)
+        };
+      })
+      .filter((item) => item);
+    config.source = String(host.querySelector("[data-role='ng-source']").value || "").trim();
+    config.target = String(host.querySelector("[data-role='ng-target']").value || "").trim();
+    config.flowSource = String(host.querySelector("[data-role='ng-flow-source']").value || "").trim();
+    config.flowSink = String(host.querySelector("[data-role='ng-flow-sink']").value || "").trim();
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  host.querySelectorAll("input, textarea").forEach((input) => input.addEventListener("input", rerender));
+  rerender();
 }
 
 function buildGeometryControlTypeOptions(selectedType) {
@@ -1282,6 +2555,34 @@ function mountInteractiveApp(host, app) {
   }
   if (app.type === "cartesian-plane") {
     mountCartesianInteractive(host, app);
+    return;
+  }
+  if (app.type === "bar-chart") {
+    mountBarChartInteractive(host, app);
+    return;
+  }
+  if (app.type === "histogram") {
+    mountHistogramInteractive(host, app);
+    return;
+  }
+  if (app.type === "box-plot") {
+    mountBoxPlotInteractive(host, app);
+    return;
+  }
+  if (app.type === "scatter-plot") {
+    mountScatterPlotInteractive(host, app);
+    return;
+  }
+  if (app.type === "probability-tree") {
+    mountProbabilityTreeInteractive(host, app);
+    return;
+  }
+  if (app.type === "distribution-curve") {
+    mountDistributionCurveInteractive(host, app);
+    return;
+  }
+  if (app.type === "network-graph") {
+    mountNetworkGraphInteractive(host, app);
     return;
   }
   if (app.type === "stem-and-leaf") {

@@ -181,6 +181,13 @@
                   <option value="">None</option>
                   <option value="number-line">Number Line</option>
                   <option value="cartesian-plane">Cartesian Plane</option>
+                  <option value="bar-chart">Bar Chart</option>
+                  <option value="histogram">Histogram</option>
+                  <option value="box-plot">Box Plot</option>
+                  <option value="scatter-plot">Scatter Plot</option>
+                  <option value="probability-tree">Probability Tree</option>
+                  <option value="distribution-curve">Distribution Curve</option>
+                  <option value="network-graph">Network Graph</option>
                   <option value="stem-and-leaf">Stem-and-Leaf Plot</option>
                   <option value="geometry-shapes">Geometry Shapes</option>
                   <option value="pythagoras">Pythagoras Triangle</option>
@@ -222,11 +229,23 @@
                       <label for="cpYMax">Y Max</label>
                       <input type="number" id="cpYMax" value="10" class="nl-range-input" />
                     </div>
+                    <div>
+                      <label for="cpAngleMode">Trig Angle Mode</label>
+                      <select id="cpAngleMode" class="nl-range-input">
+                        <option value="radians">Radians</option>
+                        <option value="degrees">Degrees</option>
+                      </select>
+                    </div>
                   </div>
                   <label for="cpPoints">Points (one per line: x, y, label, color)</label>
                   <textarea id="cpPoints" rows="3" placeholder="3, -2, A, #2563eb&#10;-4, 5, B, #dc2626"></textarea>
                   <label for="cpSegments">Segments (one per line: x1, y1 -> x2, y2, label, color)</label>
                   <textarea id="cpSegments" rows="3" placeholder="0, 0 -> 4, 3, hypotenuse, #f59e0b"></textarea>
+                  <label for="cpParabolas">Parabolas (one per line: a, b, c, label, color)</label>
+                  <textarea id="cpParabolas" rows="3" placeholder="1, 0, 0, y = x^2, #7c3aed&#10;-0.5, 2, 1, y = -0.5x^2 + 2x + 1, #0f766e"></textarea>
+                  <label for="cpFunctions">Functions (one per line: expression, label, color)</label>
+                  <textarea id="cpFunctions" rows="3" placeholder="sin(x), y = sin(x), #0f766e&#10;x^3 - 2*x, y = x^3 - 2x, #0891b2"></textarea>
+                  <p class="helper-text">Supports x, + - * / ^, parentheses, and functions: sin, cos, tan, sqrt, abs, log, exp, min, max.</p>
                 </div>
 
                 <div id="stemLeafConfig" class="hidden">
@@ -234,6 +253,118 @@
                   <textarea id="slValues" rows="4" placeholder="12, 13, 17, 21, 25, 29, 32"></textarea>
                   <label for="slStemUnit">Stem Unit</label>
                   <input type="number" id="slStemUnit" value="10" min="1" step="1" class="nl-range-input" />
+                </div>
+
+                <div id="barChartConfig" class="hidden">
+                  <label for="bcTitle">Chart Title</label>
+                  <input type="text" id="bcTitle" placeholder="Category Frequencies" class="nl-range-input" />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="bcYMax">Y Max (optional)</label>
+                      <input type="number" id="bcYMax" min="1" step="1" placeholder="Auto" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <label for="bcItems">Bars (one per line: category, frequency, color)</label>
+                  <textarea id="bcItems" rows="4" placeholder="Cats, 8, #2563eb&#10;Dogs, 12, #16a34a&#10;Birds, 5, #f59e0b"></textarea>
+                  <p class="helper-text">Frequency should be a non-negative number.</p>
+                </div>
+
+                <div id="histogramConfig" class="hidden">
+                  <label for="histTitle">Histogram Title</label>
+                  <input type="text" id="histTitle" placeholder="Continuous Data Distribution" class="nl-range-input" />
+                  <label for="histValues">Values (comma, space, or new line separated)</label>
+                  <textarea id="histValues" rows="4" placeholder="12, 13, 14, 16, 18, 22, 25, 27, 29, 33"></textarea>
+                  <label for="histBinCount">Bin Count</label>
+                  <input type="number" id="histBinCount" min="2" max="30" step="1" value="8" class="nl-range-input" />
+                </div>
+
+                <div id="boxPlotConfig" class="hidden">
+                  <label for="boxTitle">Box Plot Title</label>
+                  <input type="text" id="boxTitle" placeholder="Compare Datasets" class="nl-range-input" />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="boxLabelA">Dataset A Label</label>
+                      <input type="text" id="boxLabelA" value="A" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="boxLabelB">Dataset B Label</label>
+                      <input type="text" id="boxLabelB" value="B" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <label for="boxValuesA">Dataset A Values</label>
+                  <textarea id="boxValuesA" rows="3" placeholder="8, 9, 10, 12, 14, 17, 20"></textarea>
+                  <label for="boxValuesB">Dataset B Values</label>
+                  <textarea id="boxValuesB" rows="3" placeholder="6, 8, 11, 12, 13, 14, 18"></textarea>
+                </div>
+
+                <div id="scatterPlotConfig" class="hidden">
+                  <label for="scTitle">Scatter Plot Title</label>
+                  <input type="text" id="scTitle" placeholder="Correlation and Best Fit" class="nl-range-input" />
+                  <label for="scPoints">Points (one per line: x, y, label, color)</label>
+                  <textarea id="scPoints" rows="5" placeholder="1, 2, P1, #2563eb&#10;2, 3, P2, #2563eb&#10;3, 5, P3, #2563eb"></textarea>
+                </div>
+
+                <div id="probabilityTreeConfig" class="hidden">
+                  <label for="ptTitle">Probability Tree Title</label>
+                  <input type="text" id="ptTitle" placeholder="Sequential Probabilities" class="nl-range-input" />
+                  <label for="ptPaths">Paths (one per line: A&gt;B&gt;C, probability)</label>
+                  <textarea id="ptPaths" rows="5" placeholder="Rain&gt;Traffic, 0.3&#10;Rain&gt;NoTraffic, 0.1&#10;NoRain&gt;Traffic, 0.2&#10;NoRain&gt;NoTraffic, 0.4"></textarea>
+                  <label for="ptConditional">Conditional Query (optional: eventA|eventB)</label>
+                  <input type="text" id="ptConditional" placeholder="Traffic|Rain" class="nl-range-input" />
+                </div>
+
+                <div id="distributionCurveConfig" class="hidden">
+                  <label for="dcTitle">Distribution Curve Title</label>
+                  <input type="text" id="dcTitle" placeholder="Normal Distribution" class="nl-range-input" />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="dcMean">Mean</label>
+                      <input type="number" id="dcMean" value="0" step="0.1" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="dcStdDev">Std Dev</label>
+                      <input type="number" id="dcStdDev" value="1" min="0.01" step="0.1" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="dcFrom">Area From</label>
+                      <input type="number" id="dcFrom" value="-1" step="0.1" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="dcTo">Area To</label>
+                      <input type="number" id="dcTo" value="1" step="0.1" class="nl-range-input" />
+                    </div>
+                  </div>
+                </div>
+
+                <div id="networkGraphConfig" class="hidden">
+                  <label for="ngTitle">Network Graph Title</label>
+                  <input type="text" id="ngTitle" placeholder="Shortest Path, MST, Flow" class="nl-range-input" />
+                  <label for="ngNodes">Nodes (comma separated)</label>
+                  <input type="text" id="ngNodes" placeholder="A, B, C, D, E" class="nl-range-input" />
+                  <label for="ngEdges">Edges (one per line: from, to, weight, capacity)</label>
+                  <textarea id="ngEdges" rows="5" placeholder="A, B, 4, 8&#10;A, C, 2, 5&#10;B, D, 3, 6&#10;C, D, 1, 4&#10;D, E, 2, 7"></textarea>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="ngSource">Shortest Path Source</label>
+                      <input type="text" id="ngSource" value="A" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="ngTarget">Shortest Path Target</label>
+                      <input type="text" id="ngTarget" value="E" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="ngFlowSource">Flow Source</label>
+                      <input type="text" id="ngFlowSource" value="A" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="ngFlowSink">Flow Sink</label>
+                      <input type="text" id="ngFlowSink" value="E" class="nl-range-input" />
+                    </div>
+                  </div>
                 </div>
 
                 <div id="geometryShapesConfig" class="hidden">
