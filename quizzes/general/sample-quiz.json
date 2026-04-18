@@ -1,25 +1,63 @@
 {
-  "id": "sample-quiz",
-  "title": "Sample Quiz",
+  "id": "quiz-1",
+  "title": "sample-quiz",
   "category": "General",
   "questions": [
     {
       "question": "What is 2 + 2?",
       "resultType": "multiple-choice",
-      "options": ["1", "2", "3", "4"],
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
       "correctAnswer": "4",
       "notesAttachments": [],
       "image": "",
-      "solution": "2 + 2 equals 4, so the last option is correct."
+      "solution": "2 + 2 equals 4, so the last option is correct.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-line",
+        "config": {
+          "min": -10,
+          "max": 10,
+          "points": [
+            {
+              "value": -3,
+              "label": "A",
+              "color": "#dc2626"
+            },
+            {
+              "value": 5,
+              "label": "B",
+              "color": "#2563eb"
+            }
+          ],
+          "arrows": [
+            {
+              "from": -3,
+              "to": 5,
+              "label": "+8"
+            }
+          ]
+        }
+      }
     },
     {
       "question": "Which planet is known as the Red Planet?",
       "resultType": "multiple-choice",
-      "options": ["Earth", "Mars", "Venus", "Jupiter"],
+      "options": [
+        "Earth",
+        "Mars",
+        "Venus",
+        "Jupiter"
+      ],
       "correctAnswer": "Mars",
       "notesAttachments": [],
       "image": "",
-      "solution": "Mars is called the Red Planet because of iron oxide on its surface."
+      "solution": "Mars is called the Red Planet because of iron oxide on its surface.",
+      "solutionAttachments": []
     }
   ]
 }
