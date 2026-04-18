@@ -264,10 +264,39 @@ function extractYoutubeVideoId(value) {
   }
 }
 
+function extractGoogleDriveFileId(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+
+  try {
+    const parsed = new URL(raw);
+    const host = parsed.hostname.toLowerCase();
+    if (!host.includes("drive.google.com")) {
+      return "";
+    }
+
+    const byQuery = parsed.searchParams.get("id") || "";
+    if (byQuery) {
+      return byQuery;
+    }
+
+    const pathParts = parsed.pathname.split("/").filter((item) => item !== "");
+    const fileMarkerIndex = pathParts.indexOf("d");
+    if (fileMarkerIndex >= 0 && pathParts[fileMarkerIndex + 1]) {
+      return pathParts[fileMarkerIndex + 1];
+    }
+
+    return "";
+  } catch (error) {
+    return "";
+  }
+}
+
 function isPdfAttachment(value) {
   const raw = String(value || "").trim();
   if (!raw) return false;
   if (/^data:application\/pdf/i.test(raw)) return true;
+  if (extractGoogleDriveFileId(raw)) return true;
 
   try {
     const parsed = new URL(raw, window.location.href);
@@ -291,6 +320,37 @@ function getNotesAttachmentLabel(item) {
   }
 
   return deriveAttachmentName(value);
+}
+
+function isPdfSolutionAttachment(item) {
+  if (!item || typeof item !== "object") return false;
+  return isPdfAttachment(item.url);
+}
+
+function renderPdfAttachmentPreviews(attachments) {
+  const pdfAttachments = (attachments || []).filter(isPdfSolutionAttachment);
+  if (pdfAttachments.length === 0) {
+    return "";
+  }
+
+  return `
+    <div class="solution-modal-section">
+      <p class="solution-modal-label">PDF Preview</p>
+      <div class="solution-pdf-list">
+        ${pdfAttachments.map((item, index) => `
+          <div class="solution-pdf-item">
+            <p class="solution-pdf-title">${escapeHtml(item.name || `PDF ${index + 1}`)}</p>
+            <iframe
+              class="solution-pdf-frame"
+              src="${escapeHtml(item.url)}"
+              title="${escapeHtml(item.name || `PDF ${index + 1}`)}"
+              loading="lazy"
+            ></iframe>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
 }
 
 function renderAnswerInput(question) {
@@ -475,6 +535,7 @@ function prepareSolutionModal(question, expectedAnswers) {
   const hasDistinctSolution = rawSolution !== "" && norm(rawSolution) !== norm(defaultSolution);
   const solutionAttachments = normalizeSolutionAttachments(question.solutionAttachments);
   const modalBody = document.getElementById("solutionModalBody");
+  const pdfPreviewsMarkup = renderPdfAttachmentPreviews(solutionAttachments);
 
   modalBody.innerHTML = `
     <div class="solution-modal-section">
@@ -495,6 +556,7 @@ function prepareSolutionModal(question, expectedAnswers) {
         </ul>
       </div>
     ` : ""}
+    ${pdfPreviewsMarkup}
   `;
 }
 

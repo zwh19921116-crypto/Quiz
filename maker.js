@@ -389,10 +389,52 @@ function normalizeYoutubeUrl(value) {
   return id ? `https://www.youtube.com/watch?v=${id}` : "";
 }
 
+function extractGoogleDriveFileId(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+
+  try {
+    const parsed = new URL(raw);
+    const host = parsed.hostname.toLowerCase();
+    if (!host.includes("drive.google.com")) {
+      return "";
+    }
+
+    const byQuery = parsed.searchParams.get("id") || "";
+    if (byQuery) {
+      return byQuery;
+    }
+
+    const pathParts = parsed.pathname.split("/").filter((item) => item !== "");
+    const fileMarkerIndex = pathParts.indexOf("d");
+    if (fileMarkerIndex >= 0 && pathParts[fileMarkerIndex + 1]) {
+      return pathParts[fileMarkerIndex + 1];
+    }
+
+    return "";
+  } catch (error) {
+    return "";
+  }
+}
+
+function normalizePdfUrl(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+  if (/^data:application\/pdf/i.test(raw)) return raw;
+
+  const driveId = extractGoogleDriveFileId(raw);
+  if (driveId) {
+    return `https://drive.google.com/uc?export=download&id=${encodeURIComponent(driveId)}`;
+  }
+
+  return raw;
+}
+
 function isPdfAttachment(value) {
   const raw = String(value || "").trim();
   if (!raw) return false;
   if (/^data:application\/pdf/i.test(raw)) return true;
+  if (extractGoogleDriveFileId(raw)) return true;
 
   try {
     const parsed = new URL(raw, window.location.href);
@@ -1905,6 +1947,7 @@ function renderEditor() {
     document.getElementById("correctAnswerCheckboxWrap").innerHTML = "";
     document.getElementById("attachmentsInput").value = "";
     document.getElementById("notesYoutubeInput").value = "";
+    document.getElementById("notesPdfUrlInput").value = "";
     document.getElementById("questionImage").value = "";
     document.getElementById("solutionText").value = "";
     document.getElementById("solutionAttachmentsInput").value = "";
@@ -1937,6 +1980,7 @@ function renderEditor() {
   const notesParts = splitNotesAttachments(question.notesAttachments || []);
   document.getElementById("attachmentsInput").value = serializeManualNotesAttachments(question.notesAttachments || []);
   document.getElementById("notesYoutubeInput").value = notesParts.youtube;
+  document.getElementById("notesPdfUrlInput").value = notesParts.pdf && !notesParts.pdf.startsWith("data:") ? notesParts.pdf : "";
   document.getElementById("questionImage").value = question.image || "";
   document.getElementById("solutionText").value = question.solution || "";
   document.getElementById("solutionAttachmentsInput").value = serializeManualSolutionAttachments(question.solutionAttachments || []);
@@ -1948,7 +1992,7 @@ function renderEditor() {
   solutionAttachHint.textContent = "Add links above, or attach local files to embed them in the quiz JSON.";
   notesPdfHint.textContent = notesParts.pdf
     ? (notesParts.pdf.startsWith("data:") ? "A PDF is embedded for this question." : "A PDF link is set for this question.")
-    : "Attach one PDF for notes (embedded in quiz JSON).";
+    : "Paste a PDF URL or attach one PDF file to embed it in quiz JSON.";
   updateNotesPreview(question.notesAttachments || []);
   updateSolutionAttachmentsPreview(question.solutionAttachments || []);
   toggleOptionsBlock(question);
@@ -2186,14 +2230,16 @@ function updateQuestionFromForm() {
     .filter((item) => item !== "");
   const manualParts = splitNotesAttachments(manualNoteLinks);
   const youtubeFromField = normalizeYoutubeUrl(document.getElementById("notesYoutubeInput").value);
+  const pdfFromField = normalizePdfUrl(document.getElementById("notesPdfUrlInput").value);
   const nextNotesParts = {
     youtube: youtubeFromField || manualParts.youtube,
-    pdf: manualParts.pdf || previousNotesParts.pdf,
+    pdf: pdfFromField || manualParts.pdf || previousNotesParts.pdf,
     other: manualParts.other
   };
   question.notesAttachments = buildNotesAttachments(nextNotesParts);
   document.getElementById("attachmentsInput").value = nextNotesParts.other.join("\n");
   document.getElementById("notesYoutubeInput").value = nextNotesParts.youtube;
+  document.getElementById("notesPdfUrlInput").value = nextNotesParts.pdf && !nextNotesParts.pdf.startsWith("data:") ? nextNotesParts.pdf : "";
   question.image = document.getElementById("questionImage").value.trim();
   question.solution = document.getElementById("solutionText").value.trim();
   question.solutionAttachments = [
@@ -2679,7 +2725,7 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   showToast("Question updated in Maker, but file save failed.", "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "questionImage", "solutionText", "solutionAttachmentsInput"]
+["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlInput", "questionImage", "solutionText", "solutionAttachmentsInput"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);

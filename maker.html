@@ -118,10 +118,12 @@
             <textarea id="attachmentsInput" rows="3" placeholder="https://example.com/reference-link"></textarea>
             <label for="notesYoutubeInput">YouTube URL (1 max)</label>
             <input type="text" id="notesYoutubeInput" placeholder="https://www.youtube.com/watch?v=..." />
+            <label for="notesPdfUrlInput">PDF URL (optional)</label>
+            <input type="text" id="notesPdfUrlInput" placeholder="https://drive.google.com/file/d/... or https://example.com/file.pdf" />
             <div class="image-tools">
-              <button class="btn secondary small" id="attachNotesPdfBtn" type="button">Attach Notes PDF</button>
+              <button class="btn secondary small" id="attachNotesPdfBtn" type="button">Attach Notes PDF File</button>
               <input type="file" id="notesPdfInput" accept="application/pdf" class="hidden" />
-              <span class="helper-text" id="notesPdfHint">Attach one PDF for notes (embedded in quiz JSON).</span>
+              <span class="helper-text" id="notesPdfHint">Paste a PDF URL above or attach one PDF file to embed it in quiz JSON.</span>
             </div>
             <button class="btn secondary" id="notesBtn" type="button">Notes: N/A</button>
             <div id="notesPreview" class="helper-text">n/a</div>
