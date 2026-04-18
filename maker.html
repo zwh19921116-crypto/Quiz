@@ -83,72 +83,87 @@
             <p class="helper-text" id="editorHint">Select a question to edit details.</p>
             <div id="questionValidationBox" class="validation-box"></div>
 
-            <label for="questionText">1) Question</label>
-            <textarea id="questionText" rows="2" placeholder="Enter question"></textarea>
+            <section class="editor-subpanel" aria-label="Question configuration">
+              <h3>Question Configuration</h3>
 
-            <label for="resultType">2) Result Type</label>
-            <select id="resultType">
-              <option value="multiple-choice">Multiple Choice</option>
-              <option value="short-answer">Short Answer</option>
-              <option value="true-false">True / False</option>
-              <option value="checkbox">Checkbox</option>
-            </select>
+              <label for="questionText">1) Question</label>
+              <textarea id="questionText" rows="2" placeholder="Enter question"></textarea>
 
-            <div id="optionsBlock">
-              <label for="option1">Choice 1</label>
-              <input type="text" id="option1" placeholder="Option 1" />
+              <label for="resultType">2) Result Type</label>
+              <select id="resultType">
+                <option value="multiple-choice">Multiple Choice</option>
+                <option value="short-answer">Short Answer</option>
+                <option value="true-false">True / False</option>
+                <option value="checkbox">Checkbox</option>
+              </select>
 
-              <label for="option2">Choice 2</label>
-              <input type="text" id="option2" placeholder="Option 2" />
+              <div id="optionsBlock">
+                <label for="option1">Choice 1</label>
+                <input type="text" id="option1" placeholder="Option 1" />
 
-              <label for="option3">Choice 3</label>
-              <input type="text" id="option3" placeholder="Option 3" />
+                <label for="option2">Choice 2</label>
+                <input type="text" id="option2" placeholder="Option 2" />
 
-              <label for="option4">Choice 4</label>
-              <input type="text" id="option4" placeholder="Option 4" />
-            </div>
+                <label for="option3">Choice 3</label>
+                <input type="text" id="option3" placeholder="Option 3" />
 
-            <label for="correctAnswer">3) Correct Answer</label>
-            <select id="correctAnswerSelect"></select>
-            <input type="text" id="correctAnswer" placeholder="Correct answer text" />
-            <div id="correctAnswerCheckboxWrap" class="correct-answer-checkbox-wrap"></div>
-            <p id="correctAnswerHint" class="helper-text">For checkbox, use comma-separated option values.</p>
+                <label for="option4">Choice 4</label>
+                <input type="text" id="option4" placeholder="Option 4" />
+              </div>
 
-            <label for="attachmentsInput">4) Notes Attachments (other links, one per line)</label>
-            <textarea id="attachmentsInput" rows="3" placeholder="https://example.com/reference-link"></textarea>
-            <label for="notesYoutubeInput">YouTube URL (1 max)</label>
-            <input type="text" id="notesYoutubeInput" placeholder="https://www.youtube.com/watch?v=..." />
-            <label for="notesPdfUrlInput">PDF URL (optional)</label>
-            <input type="text" id="notesPdfUrlInput" placeholder="https://drive.google.com/file/d/... or https://example.com/file.pdf" />
-            <div class="image-tools">
-              <button class="btn secondary small" id="attachNotesPdfBtn" type="button">Attach Notes PDF File</button>
-              <input type="file" id="notesPdfInput" accept="application/pdf" class="hidden" />
-              <span class="helper-text" id="notesPdfHint">Paste a PDF URL above or attach one PDF file to embed it in quiz JSON.</span>
-            </div>
-            <button class="btn secondary" id="notesBtn" type="button">Notes: N/A</button>
-            <div id="notesPreview" class="helper-text">n/a</div>
+              <label for="correctAnswer">3) Correct Answer</label>
+              <select id="correctAnswerSelect"></select>
+              <input type="text" id="correctAnswer" placeholder="Correct answer text" />
+              <div id="correctAnswerCheckboxWrap" class="correct-answer-checkbox-wrap"></div>
+              <p id="correctAnswerHint" class="helper-text">For checkbox, use comma-separated option values.</p>
 
-            <label for="questionImage">5) Image URL</label>
-            <input type="text" id="questionImage" placeholder="https://example.com/image.png" />
-            <div class="image-tools">
-              <button class="btn secondary small" id="attachImageBtn" type="button">Attach Question Image</button>
-              <input type="file" id="imageFileInput" accept="image/*" class="hidden" />
-              <span class="helper-text" id="imageAttachHint">Attach image for the selected question, or paste a URL above.</span>
-            </div>
-            <img id="questionImagePreview" class="question-image-preview hidden" alt="Question image preview" />
+              <label for="attachmentsInput">4) Notes Attachments (other links, one per line)</label>
+              <textarea id="attachmentsInput" rows="3" placeholder="https://example.com/reference-link"></textarea>
+              <label for="notesYoutubeInput">YouTube URL (1 max)</label>
+              <input type="text" id="notesYoutubeInput" placeholder="https://www.youtube.com/watch?v=..." />
+              <label for="notesPdfUrlsInput">PDF URLs (optional, one per line)</label>
+              <textarea id="notesPdfUrlsInput" rows="3" placeholder="https://drive.google.com/file/d/...\nhttps://example.com/file.pdf"></textarea>
+              <div class="image-tools">
+                <button class="btn secondary small" id="attachNotesPdfBtn" type="button">Attach Notes PDF Files</button>
+                <input type="file" id="notesPdfInput" accept="application/pdf" class="hidden" multiple />
+                <span class="helper-text" id="notesPdfHint">Paste PDF URLs above or attach PDF files to embed them in quiz JSON.</span>
+              </div>
+              <button class="btn secondary" id="notesBtn" type="button">Notes: N/A</button>
+              <div id="notesPreview" class="helper-text">n/a</div>
 
-            <label for="solutionText">6) Solution</label>
-            <textarea id="solutionText" rows="3" placeholder="Explain the solution"></textarea>
+              <label for="questionImage">5) Image URL</label>
+              <input type="text" id="questionImage" placeholder="https://example.com/image.png" />
+              <div class="image-tools">
+                <button class="btn secondary small" id="attachImageBtn" type="button">Attach Question Image</button>
+                <input type="file" id="imageFileInput" accept="image/*" class="hidden" />
+                <span class="helper-text" id="imageAttachHint">Attach image for the selected question, or paste a URL above.</span>
+              </div>
+              <img id="questionImagePreview" class="question-image-preview hidden" alt="Question image preview" />
+            </section>
 
-            <label for="solutionAttachmentsInput">7) Solution Attachments (one per line)</label>
-            <textarea id="solutionAttachmentsInput" rows="3" placeholder="https://example.com/solution.pdf"></textarea>
-            <div class="image-tools">
-              <button class="btn secondary small" id="attachSolutionFileBtn" type="button">Attach Solution File</button>
-              <input type="file" id="solutionFileInput" class="hidden" multiple />
-              <span class="helper-text" id="solutionAttachHint">Add links above, or attach local files to embed them in the quiz JSON.</span>
-            </div>
-            <button class="btn secondary" id="solutionAssetsBtn" type="button">Solution Files: N/A</button>
-            <div id="solutionAttachmentsPreview" class="helper-text">n/a</div>
+            <div class="editor-divider" role="separator" aria-hidden="true"></div>
+
+            <section class="editor-subpanel" aria-label="Solution configuration">
+              <div class="solution-panel-head">
+                <h3>Solutions</h3>
+                <button class="btn secondary small" id="toggleSolutionPanelBtn" type="button" aria-expanded="true">Collapse</button>
+              </div>
+
+              <div id="solutionPanelBody">
+                <label for="solutionText">6) Solution</label>
+                <textarea id="solutionText" rows="3" placeholder="Explain the solution"></textarea>
+
+                <label for="solutionAttachmentsInput">7) Solution Attachments (one per line)</label>
+                <textarea id="solutionAttachmentsInput" rows="3" placeholder="https://example.com/solution.pdf"></textarea>
+                <div class="image-tools">
+                  <button class="btn secondary small" id="attachSolutionFileBtn" type="button">Attach Solution File</button>
+                  <input type="file" id="solutionFileInput" class="hidden" multiple />
+                  <span class="helper-text" id="solutionAttachHint">Add links above, or attach local files to embed them in the quiz JSON.</span>
+                </div>
+                <button class="btn secondary" id="solutionAssetsBtn" type="button">Solution Files: N/A</button>
+                <div id="solutionAttachmentsPreview" class="helper-text">n/a</div>
+              </div>
+            </section>
 
             <button class="btn" id="saveQuestionBtn" type="button">Save Question Changes</button>
             <p class="helper-text">This confirms question edits in Maker. Use Save Selected Quiz to write JSON to file.</p>

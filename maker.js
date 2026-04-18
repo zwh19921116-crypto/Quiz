@@ -447,7 +447,7 @@ function isPdfAttachment(value) {
 function splitNotesAttachments(items) {
   const result = {
     youtube: "",
-    pdf: "",
+    pdf: [],
     other: []
   };
 
@@ -465,9 +465,7 @@ function splitNotesAttachments(items) {
     }
 
     if (isPdfAttachment(value)) {
-      if (!result.pdf) {
-        result.pdf = value;
-      }
+      result.pdf.push(value);
       return;
     }
 
@@ -482,13 +480,36 @@ function buildNotesAttachments(parts) {
   if (parts.youtube) {
     list.push(parts.youtube);
   }
-  if (parts.pdf) {
-    list.push(parts.pdf);
+  if (Array.isArray(parts.pdf) && parts.pdf.length > 0) {
+    list.push(...parts.pdf);
   }
   if (Array.isArray(parts.other) && parts.other.length > 0) {
     list.push(...parts.other);
   }
   return list;
+}
+
+function mergeUniqueNotesAttachments(items) {
+  const seen = new Set();
+  const result = [];
+  (Array.isArray(items) ? items : []).forEach((item) => {
+    const value = String(item || "").trim();
+    if (!value) return;
+    const key = value.toLowerCase();
+    if (seen.has(key)) return;
+    seen.add(key);
+    result.push(value);
+  });
+  return result;
+}
+
+function parsePdfUrlLines(text) {
+  return mergeUniqueNotesAttachments(
+    String(text || "")
+      .split("\n")
+      .map((line) => normalizePdfUrl(line))
+      .filter((line) => line !== "")
+  );
 }
 
 function serializeManualNotesAttachments(items) {
@@ -1899,8 +1920,15 @@ function updateNotesPreview(attachments) {
   if (parts.youtube) {
     chunks.push("YouTube: attached");
   }
-  if (parts.pdf) {
-    chunks.push(parts.pdf.startsWith("data:") ? "PDF: embedded" : "PDF: linked");
+  if (parts.pdf.length > 0) {
+    const embeddedCount = parts.pdf.filter((item) => item.startsWith("data:")).length;
+    const linkedCount = parts.pdf.length - embeddedCount;
+    if (embeddedCount > 0) {
+      chunks.push(`PDF embedded: ${embeddedCount}`);
+    }
+    if (linkedCount > 0) {
+      chunks.push(`PDF linked: ${linkedCount}`);
+    }
   }
   if (parts.other.length > 0) {
     chunks.push(`Other links: ${parts.other.length}`);
@@ -1947,7 +1975,7 @@ function renderEditor() {
     document.getElementById("correctAnswerCheckboxWrap").innerHTML = "";
     document.getElementById("attachmentsInput").value = "";
     document.getElementById("notesYoutubeInput").value = "";
-    document.getElementById("notesPdfUrlInput").value = "";
+    document.getElementById("notesPdfUrlsInput").value = "";
     document.getElementById("questionImage").value = "";
     document.getElementById("solutionText").value = "";
     document.getElementById("solutionAttachmentsInput").value = "";
@@ -1980,7 +2008,7 @@ function renderEditor() {
   const notesParts = splitNotesAttachments(question.notesAttachments || []);
   document.getElementById("attachmentsInput").value = serializeManualNotesAttachments(question.notesAttachments || []);
   document.getElementById("notesYoutubeInput").value = notesParts.youtube;
-  document.getElementById("notesPdfUrlInput").value = notesParts.pdf && !notesParts.pdf.startsWith("data:") ? notesParts.pdf : "";
+  document.getElementById("notesPdfUrlsInput").value = notesParts.pdf.filter((item) => !item.startsWith("data:")).join("\n");
   document.getElementById("questionImage").value = question.image || "";
   document.getElementById("solutionText").value = question.solution || "";
   document.getElementById("solutionAttachmentsInput").value = serializeManualSolutionAttachments(question.solutionAttachments || []);
@@ -1990,9 +2018,9 @@ function renderEditor() {
   attachNotesPdfBtn.disabled = false;
   imageAttachHint.textContent = "Attach image for the selected question, or paste a URL above.";
   solutionAttachHint.textContent = "Add links above, or attach local files to embed them in the quiz JSON.";
-  notesPdfHint.textContent = notesParts.pdf
-    ? (notesParts.pdf.startsWith("data:") ? "A PDF is embedded for this question." : "A PDF link is set for this question.")
-    : "Paste a PDF URL or attach one PDF file to embed it in quiz JSON.";
+  notesPdfHint.textContent = notesParts.pdf.length > 0
+    ? `${notesParts.pdf.length} PDF attachment(s) for this question.`
+    : "Paste PDF URLs above or attach PDF files to embed them in quiz JSON.";
   updateNotesPreview(question.notesAttachments || []);
   updateSolutionAttachmentsPreview(question.solutionAttachments || []);
   toggleOptionsBlock(question);
@@ -2230,16 +2258,17 @@ function updateQuestionFromForm() {
     .filter((item) => item !== "");
   const manualParts = splitNotesAttachments(manualNoteLinks);
   const youtubeFromField = normalizeYoutubeUrl(document.getElementById("notesYoutubeInput").value);
-  const pdfFromField = normalizePdfUrl(document.getElementById("notesPdfUrlInput").value);
+  const pdfFromField = parsePdfUrlLines(document.getElementById("notesPdfUrlsInput").value);
+  const previousEmbeddedPdf = previousNotesParts.pdf.filter((item) => item.startsWith("data:"));
   const nextNotesParts = {
     youtube: youtubeFromField || manualParts.youtube,
-    pdf: pdfFromField || manualParts.pdf || previousNotesParts.pdf,
+    pdf: mergeUniqueNotesAttachments([...pdfFromField, ...manualParts.pdf, ...previousEmbeddedPdf]),
     other: manualParts.other
   };
   question.notesAttachments = buildNotesAttachments(nextNotesParts);
   document.getElementById("attachmentsInput").value = nextNotesParts.other.join("\n");
   document.getElementById("notesYoutubeInput").value = nextNotesParts.youtube;
-  document.getElementById("notesPdfUrlInput").value = nextNotesParts.pdf && !nextNotesParts.pdf.startsWith("data:") ? nextNotesParts.pdf : "";
+  document.getElementById("notesPdfUrlsInput").value = nextNotesParts.pdf.filter((item) => !item.startsWith("data:")).join("\n");
   question.image = document.getElementById("questionImage").value.trim();
   question.solution = document.getElementById("solutionText").value.trim();
   question.solutionAttachments = [
@@ -2494,36 +2523,50 @@ async function attachSolutionFilesToQuestion(fileList) {
   }
 }
 
-async function attachNotesPdfToQuestion(file) {
+async function attachNotesPdfToQuestion(fileList) {
   const question = activeQuestion();
   if (!question) {
     showToast("Select a question first.", "warning");
     return;
   }
 
-  if (!file) {
+  const files = Array.from(fileList || []);
+  if (files.length === 0) {
     return;
   }
 
-  if (!/application\/pdf/i.test(file.type) && !/\.pdf$/i.test(file.name || "")) {
-    showToast("Please select a PDF file.", "warning");
+  const hasInvalidFile = files.some((file) => !/application\/pdf/i.test(file.type) && !/\.pdf$/i.test(file.name || ""));
+  if (hasInvalidFile) {
+    showToast("Please select PDF files only.", "warning");
     return;
   }
 
   updateQuestionFromForm();
 
   try {
-    const pdfDataUrl = await readFileAsDataUrl(file);
+    const pdfDataUrls = await Promise.all(files.map((file) => readFileAsDataUrl(file)));
     const parts = splitNotesAttachments(question.notesAttachments || []);
-    parts.pdf = pdfDataUrl;
+    parts.pdf = mergeUniqueNotesAttachments([...parts.pdf, ...pdfDataUrls]);
     question.notesAttachments = buildNotesAttachments(parts);
     renderEditor();
     updateGeneratedJson();
     saveDraft();
-    showToast("Notes PDF attached.", "success");
+    showToast(`Attached ${pdfDataUrls.length} notes PDF file(s).`, "success");
   } catch (error) {
-    showToast("Could not read PDF file.", "error");
+    showToast("Could not read one or more PDF files.", "error");
   }
+}
+
+function setSolutionPanelCollapsed(collapsed) {
+  const body = document.getElementById("solutionPanelBody");
+  const button = document.getElementById("toggleSolutionPanelBtn");
+  if (!(body instanceof HTMLElement) || !(button instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  body.classList.toggle("hidden", collapsed);
+  button.textContent = collapsed ? "Expand" : "Collapse";
+  button.setAttribute("aria-expanded", collapsed ? "false" : "true");
 }
 
 document.getElementById("addCategoryBtn").addEventListener("click", addCategory);
@@ -2577,8 +2620,7 @@ document.getElementById("solutionFileInput").addEventListener("change", async (e
 document.getElementById("notesPdfInput").addEventListener("change", async (event) => {
   const target = event.target;
   if (!(target instanceof HTMLInputElement)) return;
-  const file = target.files && target.files[0];
-  await attachNotesPdfToQuestion(file || null);
+  await attachNotesPdfToQuestion(target.files);
   target.value = "";
 });
 
@@ -2725,11 +2767,17 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   showToast("Question updated in Maker, but file save failed.", "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlInput", "questionImage", "solutionText", "solutionAttachmentsInput"]
+["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);
   });
+
+document.getElementById("toggleSolutionPanelBtn").addEventListener("click", () => {
+  const body = document.getElementById("solutionPanelBody");
+  if (!(body instanceof HTMLElement)) return;
+  setSolutionPanelCollapsed(!body.classList.contains("hidden"));
+});
 
 document.getElementById("correctAnswerSelect").addEventListener("change", updateQuestionFromForm);
 

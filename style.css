@@ -211,6 +211,37 @@ textarea {
   background: #ffffff;
 }
 
+.editor-subpanel {
+  border: 1px solid #dce5f2;
+  border-radius: 12px;
+  background: #f8fbff;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.editor-subpanel h3 {
+  margin: 0 0 8px;
+  font-size: 0.98rem;
+  color: #0f3f76;
+}
+
+.solution-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+#solutionPanelBody.hidden {
+  display: none;
+}
+
+.editor-divider {
+  height: 1px;
+  margin: 14px 0 2px;
+  border-top: 1px dashed #b8c7dc;
+}
+
 .panel-head {
   display: flex;
   align-items: center;
@@ -638,6 +669,32 @@ body.modal-open {
   word-break: break-all;
 }
 
+.solution-pdf-list {
+  display: grid;
+  gap: 12px;
+}
+
+.solution-pdf-item {
+  border: 1px solid #dbe3ee;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 10px;
+}
+
+.solution-pdf-title {
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.solution-pdf-frame {
+  width: 100%;
+  min-height: 440px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
 .viewer-meta-row {
   margin: 10px 0 6px;
 }
@@ -771,6 +828,10 @@ body.modal-open {
   .viewer-modal-dialog {
     max-height: calc(100vh - 24px);
     padding: 16px;
+  }
+
+  .solution-pdf-frame {
+    min-height: 320px;
   }
 
   .maker-grid {
