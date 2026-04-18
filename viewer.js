@@ -445,34 +445,365 @@ function buildTrigonometryMarkup(config) {
   `;
 }
 
-function buildInteractiveAppMarkup(app) {
-  if (!app || !app.type) return "";
+function cloneInteractiveApp(app) {
+  if (!app) return null;
+  try {
+    return JSON.parse(JSON.stringify(app));
+  } catch (error) {
+    return null;
+  }
+}
+
+function getInteractiveAppTitle(type) {
+  if (type === "number-line") return "Interactive: Number Line";
+  if (type === "cartesian-plane") return "Interactive: Cartesian Plane";
+  if (type === "stem-and-leaf") return "Interactive: Stem-and-Leaf Plot";
+  if (type === "pythagoras") return "Interactive: Pythagoras Triangle";
+  if (type === "trigonometry") return "Interactive: Trigonometry Triangle";
+  return "Interactive Math";
+}
+
+function updateInteractivePreview(preview, app) {
+  if (!preview || !app || !app.type) return;
 
   let content = "";
-  let title = "Interactive Math";
   if (app.type === "number-line") {
-    title = "Interactive: Number Line";
     content = buildNumberLineSvgString(app.config || {});
   } else if (app.type === "cartesian-plane") {
-    title = "Interactive: Cartesian Plane";
     content = buildCartesianPlaneSvgString(app.config || {});
   } else if (app.type === "stem-and-leaf") {
-    title = "Interactive: Stem-and-Leaf Plot";
     content = buildStemLeafMarkup(app.config || {});
   } else if (app.type === "pythagoras") {
-    title = "Interactive: Pythagoras Triangle";
     content = buildPythagorasMarkup(app.config || {});
   } else if (app.type === "trigonometry") {
-    title = "Interactive: Trigonometry Triangle";
     content = buildTrigonometryMarkup(app.config || {});
   }
 
-  if (!content) return "";
+  preview.innerHTML = content || "<p class='helper-text'>No interactive preview available.</p>";
+}
 
+function renderInteractiveDetails(host, lines) {
+  const detailHost = host.querySelector(".interactive-app-details");
+  if (!detailHost) return;
+  const items = Array.isArray(lines) ? lines.filter((line) => String(line || "").trim() !== "") : [];
+  if (items.length === 0) {
+    detailHost.innerHTML = "<p class='helper-text'>No current interaction details.</p>";
+    return;
+  }
+  detailHost.innerHTML = items.map((line) => `<p>${escapeHtml(line)}</p>`).join("");
+}
+
+function buildNumberLineDetailLines(app) {
+  const config = app.config || {};
+  const points = Array.isArray(config.points) ? config.points : [];
+  const arrows = Array.isArray(config.arrows) ? config.arrows : [];
+  const pointSummary = points.length > 0
+    ? `Selected points: ${points.map((point, index) => `${point.label || `Point ${index + 1}`} = ${point.value}`).join(", ")}`
+    : "Selected points: none";
+  const arrowSummary = arrows.length > 0
+    ? `Configured jumps: ${arrows.map((arrow) => `${arrow.from} to ${arrow.to}${arrow.label ? ` (${arrow.label})` : ""}`).join(" | ")}`
+    : "Configured jumps: none";
+  return [pointSummary, arrowSummary, `Visible range: ${config.min} to ${config.max}`];
+}
+
+function buildCartesianDetailLines(app) {
+  const config = app.config || {};
+  const points = Array.isArray(config.points) ? config.points : [];
+  const segments = Array.isArray(config.segments) ? config.segments : [];
+  const pointSummary = points.length > 0
+    ? `Current coordinates: ${points.map((point, index) => `${point.label || `Point ${index + 1}`} (${point.x}, ${point.y})`).join(", ")}`
+    : "Current coordinates: none";
+  const segmentSummary = segments.length > 0
+    ? `Reference segments: ${segments.map((segment) => `${segment.label || "segment"} [(${segment.x1}, ${segment.y1}) to (${segment.x2}, ${segment.y2})]`).join(" | ")}`
+    : "Reference segments: none";
+  return [pointSummary, segmentSummary, `Axes range: x ${config.xMin} to ${config.xMax}, y ${config.yMin} to ${config.yMax}`];
+}
+
+function buildStemLeafDetailLines(app) {
+  const config = app.config || {};
+  const values = Array.isArray(config.values) ? config.values.slice().sort((a, b) => a - b) : [];
+  return [
+    `Current values: ${values.length > 0 ? values.join(", ") : "none"}`,
+    `Stem unit: ${config.stemUnit || 10}`,
+    `Value count: ${values.length}`
+  ];
+}
+
+function buildPythagorasDetailLines(app) {
+  const config = app.config || {};
+  return [
+    `Current triangle: a = ${config.sideA || "?"}, b = ${config.sideB || "?"}, c = ${config.sideC || "?"}`,
+    `Equation shown: (${config.sideA || "a"})^2 + (${config.sideB || "b"})^2 = (${config.sideC || "c"})^2`,
+    `Caption: ${config.caption || "Use a² + b² = c²"}`
+  ];
+}
+
+function buildTrigonometryDetailLines(app) {
+  const config = app.config || {};
+  return [
+    `Selected angle: ${config.angleDeg || 35}°`,
+    `Selected sides: opposite = ${config.opposite || "?"}, adjacent = ${config.adjacent || "?"}, hypotenuse = ${config.hypotenuse || "?"}`,
+    `Focus ratio: ${buildTrigSummary(config)}`
+  ];
+}
+
+function updateInteractiveDetails(host, app) {
+  if (!host || !app || !app.type) return;
+  let lines = [];
+  if (app.type === "number-line") {
+    lines = buildNumberLineDetailLines(app);
+  } else if (app.type === "cartesian-plane") {
+    lines = buildCartesianDetailLines(app);
+  } else if (app.type === "stem-and-leaf") {
+    lines = buildStemLeafDetailLines(app);
+  } else if (app.type === "pythagoras") {
+    lines = buildPythagorasDetailLines(app);
+  } else if (app.type === "trigonometry") {
+    lines = buildTrigonometryDetailLines(app);
+  }
+  renderInteractiveDetails(host, lines);
+}
+
+function mountNumberLineInteractive(host, app) {
+  const config = app.config || {};
+  const points = Array.isArray(config.points) ? config.points : [];
+  const min = Number.isFinite(Number(config.min)) ? Number(config.min) : -10;
+  const max = Number.isFinite(Number(config.max)) ? Number(config.max) : 10;
+
+  const controls = points.length > 0
+    ? points.map((point, index) => `
+      <label class="interactive-control-row">
+        <span>${escapeHtml(point.label || `Point ${index + 1}`)}</span>
+        <input type="range" min="${min}" max="${max}" step="1" value="${Number(point.value) || 0}" data-role="point-range" data-index="${index}" />
+        <input type="number" min="${min}" max="${max}" step="1" value="${Number(point.value) || 0}" data-role="point-number" data-index="${index}" />
+      </label>
+    `).join("")
+    : "<p class='helper-text'>No points configured for this number line.</p>";
+
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls">${controls}</div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const sync = (index, value) => {
+    if (!points[index]) return;
+    const next = Math.max(min, Math.min(max, Number(value)));
+    points[index].value = next;
+    host.querySelectorAll(`[data-index="${index}"]`).forEach((input) => {
+      input.value = String(next);
+    });
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  host.querySelectorAll("[data-role='point-range']").forEach((input) => {
+    input.addEventListener("input", () => sync(Number(input.dataset.index), input.value));
+  });
+  host.querySelectorAll("[data-role='point-number']").forEach((input) => {
+    input.addEventListener("input", () => sync(Number(input.dataset.index), input.value));
+  });
+
+  updateInteractivePreview(preview, app);
+  updateInteractiveDetails(host, app);
+}
+
+function mountCartesianInteractive(host, app) {
+  const config = app.config || {};
+  const points = Array.isArray(config.points) ? config.points : [];
+  const xMin = Number.isFinite(Number(config.xMin)) ? Number(config.xMin) : -10;
+  const xMax = Number.isFinite(Number(config.xMax)) ? Number(config.xMax) : 10;
+  const yMin = Number.isFinite(Number(config.yMin)) ? Number(config.yMin) : -10;
+  const yMax = Number.isFinite(Number(config.yMax)) ? Number(config.yMax) : 10;
+
+  const controls = points.length > 0
+    ? points.map((point, index) => `
+      <div class="interactive-control-grid">
+        <div class="interactive-control-label">${escapeHtml(point.label || `Point ${index + 1}`)}</div>
+        <label class="interactive-control-row compact">
+          <span>X</span>
+          <input type="number" min="${xMin}" max="${xMax}" step="1" value="${Number(point.x) || 0}" data-role="cartesian-x" data-index="${index}" />
+        </label>
+        <label class="interactive-control-row compact">
+          <span>Y</span>
+          <input type="number" min="${yMin}" max="${yMax}" step="1" value="${Number(point.y) || 0}" data-role="cartesian-y" data-index="${index}" />
+        </label>
+      </div>
+    `).join("")
+    : "<p class='helper-text'>No points configured for this plane.</p>";
+
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls">${controls}</div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const sync = (index, axis, value) => {
+    if (!points[index]) return;
+    const min = axis === "x" ? xMin : yMin;
+    const max = axis === "x" ? xMax : yMax;
+    const next = Math.max(min, Math.min(max, Number(value)));
+    points[index][axis] = next;
+    const selector = axis === "x" ? "cartesian-x" : "cartesian-y";
+    const control = host.querySelector(`[data-role='${selector}'][data-index='${index}']`);
+    if (control) control.value = String(next);
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  host.querySelectorAll("[data-role='cartesian-x']").forEach((input) => {
+    input.addEventListener("input", () => sync(Number(input.dataset.index), "x", input.value));
+  });
+  host.querySelectorAll("[data-role='cartesian-y']").forEach((input) => {
+    input.addEventListener("input", () => sync(Number(input.dataset.index), "y", input.value));
+  });
+
+  updateInteractivePreview(preview, app);
+  updateInteractiveDetails(host, app);
+}
+
+function mountStemLeafInteractive(host, app) {
+  const config = app.config || {};
+  const values = Array.isArray(config.values) ? config.values : [];
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls">
+      <label class="interactive-control-stack">
+        <span>Values</span>
+        <textarea rows="3" data-role="stem-values">${escapeHtml(values.join(", "))}</textarea>
+      </label>
+      <label class="interactive-control-row">
+        <span>Stem Unit</span>
+        <input type="number" min="1" step="1" value="${Number(config.stemUnit) || 10}" data-role="stem-unit" />
+      </label>
+    </div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const valuesInput = host.querySelector("[data-role='stem-values']");
+  const unitInput = host.querySelector("[data-role='stem-unit']");
+  const rerender = () => {
+    config.values = String(valuesInput.value || "")
+      .split(/[\s,]+/)
+      .map((item) => item.trim())
+      .filter((item) => item !== "")
+      .map((item) => Number.parseFloat(item))
+      .filter((item) => Number.isFinite(item));
+    config.stemUnit = Math.max(1, Number.parseInt(unitInput.value, 10) || 10);
+    unitInput.value = String(config.stemUnit);
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  valuesInput.addEventListener("input", rerender);
+  unitInput.addEventListener("input", rerender);
+  updateInteractivePreview(preview, app);
+  updateInteractiveDetails(host, app);
+}
+
+function mountPythagorasInteractive(host, app) {
+  const config = app.config || {};
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls interactive-three-col">
+      <label class="interactive-control-row compact"><span>a</span><input type="text" value="${escapeHtml(config.sideA || "")}" data-role="py-a" /></label>
+      <label class="interactive-control-row compact"><span>b</span><input type="text" value="${escapeHtml(config.sideB || "")}" data-role="py-b" /></label>
+      <label class="interactive-control-row compact"><span>c</span><input type="text" value="${escapeHtml(config.sideC || "")}" data-role="py-c" /></label>
+      <label class="interactive-control-stack full-width"><span>Caption</span><input type="text" value="${escapeHtml(config.caption || "")}" data-role="py-caption" /></label>
+    </div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const rerender = () => {
+    config.sideA = host.querySelector("[data-role='py-a']").value.trim();
+    config.sideB = host.querySelector("[data-role='py-b']").value.trim();
+    config.sideC = host.querySelector("[data-role='py-c']").value.trim();
+    config.caption = host.querySelector("[data-role='py-caption']").value.trim();
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  host.querySelectorAll("input").forEach((input) => input.addEventListener("input", rerender));
+  updateInteractivePreview(preview, app);
+  updateInteractiveDetails(host, app);
+}
+
+function mountTrigonometryInteractive(host, app) {
+  const config = app.config || {};
+  const angle = Number.isFinite(Number(config.angleDeg)) ? Number(config.angleDeg) : 35;
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls interactive-three-col">
+      <label class="interactive-control-row compact"><span>Angle</span><input type="range" min="1" max="89" step="1" value="${angle}" data-role="trig-angle-range" /></label>
+      <label class="interactive-control-row compact"><span>Angle</span><input type="number" min="1" max="89" step="1" value="${angle}" data-role="trig-angle-number" /></label>
+      <label class="interactive-control-row compact"><span>Focus</span><select data-role="trig-focus"><option value="sin" ${config.focusFunction === "sin" ? "selected" : ""}>sin</option><option value="cos" ${config.focusFunction === "cos" ? "selected" : ""}>cos</option><option value="tan" ${config.focusFunction === "tan" ? "selected" : ""}>tan</option></select></label>
+      <label class="interactive-control-row compact"><span>Opp</span><input type="text" value="${escapeHtml(config.opposite || "")}" data-role="trig-opp" /></label>
+      <label class="interactive-control-row compact"><span>Adj</span><input type="text" value="${escapeHtml(config.adjacent || "")}" data-role="trig-adj" /></label>
+      <label class="interactive-control-row compact"><span>Hyp</span><input type="text" value="${escapeHtml(config.hypotenuse || "")}" data-role="trig-hyp" /></label>
+    </div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const rerender = () => {
+    const nextAngle = Math.max(1, Math.min(89, Number(host.querySelector("[data-role='trig-angle-number']").value) || 35));
+    config.angleDeg = nextAngle;
+    host.querySelector("[data-role='trig-angle-range']").value = String(nextAngle);
+    host.querySelector("[data-role='trig-angle-number']").value = String(nextAngle);
+    config.focusFunction = host.querySelector("[data-role='trig-focus']").value;
+    config.opposite = host.querySelector("[data-role='trig-opp']").value.trim();
+    config.adjacent = host.querySelector("[data-role='trig-adj']").value.trim();
+    config.hypotenuse = host.querySelector("[data-role='trig-hyp']").value.trim();
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  host.querySelectorAll("input, select").forEach((input) => input.addEventListener("input", rerender));
+  updateInteractivePreview(preview, app);
+  updateInteractiveDetails(host, app);
+}
+
+function mountInteractiveApp(host, app) {
+  if (!host || !app || !app.type) return;
+
+  if (app.type === "number-line") {
+    mountNumberLineInteractive(host, app);
+    return;
+  }
+  if (app.type === "cartesian-plane") {
+    mountCartesianInteractive(host, app);
+    return;
+  }
+  if (app.type === "stem-and-leaf") {
+    mountStemLeafInteractive(host, app);
+    return;
+  }
+  if (app.type === "pythagoras") {
+    mountPythagorasInteractive(host, app);
+    return;
+  }
+  if (app.type === "trigonometry") {
+    mountTrigonometryInteractive(host, app);
+  }
+}
+
+function buildInteractiveAppMarkup(app) {
+  if (!app || !app.type) return "";
   return `<div class="solution-modal-section">
-    <p class="solution-modal-label">${title}</p>
-    <div class="interactive-app-preview">${content}</div>
+    <p class="solution-modal-label">${getInteractiveAppTitle(app.type)}</p>
+    <div class="interactive-app-host"></div>
   </div>`;
+}
+
+function wireInteractiveAppModal(modalBody, app) {
+  if (!modalBody || !app || !app.type) return;
+  const host = modalBody.querySelector(".interactive-app-host");
+  if (!host) return;
+  mountInteractiveApp(host, cloneInteractiveApp(app));
 }
 // ── End Interactive App renderer ──────────────────────────────────────────
 
@@ -800,6 +1131,8 @@ function prepareSolutionModal(question, expectedAnswers) {
     ` : ""}
     ${pdfPreviewsMarkup}
   `;
+
+  wireInteractiveAppModal(modalBody, question.interactiveApp || null);
 }
 
 function openSolutionModal() {

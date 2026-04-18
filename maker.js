@@ -3048,16 +3048,24 @@ function buildPersistedQuizPayload() {
     id: selectedQuiz.id || slugify(selectedQuiz.title || "quiz"),
     title: selectedQuiz.title || "Untitled Quiz",
     category: category.name || "General",
-    questions: (selectedQuiz.questions || []).map((item) => ({
-      question: item.question || "",
-      resultType: item.resultType || "multiple-choice",
-      options: Array.isArray(item.options) ? item.options : ["", "", "", ""],
-      correctAnswer: item.correctAnswer || "",
-      notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
-      image: item.image || "",
-      solution: item.solution || "",
-      solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)
-    }))
+    questions: (selectedQuiz.questions || []).map((item) => {
+      const question = {
+        question: item.question || "",
+        resultType: item.resultType || "multiple-choice",
+        options: Array.isArray(item.options) ? item.options : ["", "", "", ""],
+        correctAnswer: item.correctAnswer || "",
+        notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
+        image: item.image || "",
+        solution: item.solution || "",
+        solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)
+      };
+
+      if (item.interactiveApp) {
+        question.interactiveApp = item.interactiveApp;
+      }
+
+      return question;
+    })
   };
 }
 
