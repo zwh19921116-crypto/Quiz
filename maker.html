@@ -34,9 +34,6 @@
 
           <button class="btn secondary" id="refreshRootBtn" type="button">Refresh from Root</button>
 
-          <label for="importQuizFile">Import JSON (optional)</label>
-          <input type="file" id="importQuizFile" accept="application/json" />
-
           <label for="quizFileName">Selected Quiz Filename</label>
           <input type="text" id="quizFileName" placeholder="sample-quiz.json" />
         </div>
@@ -58,6 +55,7 @@
               <h2>Type of Quiz (Category)</h2>
               <button class="btn small" id="addCategoryBtn">Add</button>
             </div>
+            <input type="search" id="categorySearch" class="panel-search" placeholder="Search categories..." autocomplete="off" />
             <div id="categoryList" class="item-list"></div>
           </aside>
 
@@ -66,6 +64,7 @@
               <h2>Select Quiz</h2>
               <button class="btn small" id="addQuizBtn">Add</button>
             </div>
+            <input type="search" id="quizSearch" class="panel-search" placeholder="Search quizzes..." autocomplete="off" />
             <div id="quizList" class="item-list"></div>
           </aside>
 
@@ -74,6 +73,7 @@
               <h2>Questions</h2>
               <button class="btn small" id="addQuestionBtn">Add</button>
             </div>
+            <input type="search" id="questionSearch" class="panel-search" placeholder="Search questions..." autocomplete="off" />
             <p class="helper-text">Drag questions to reorder.</p>
             <div id="questionsList" class="item-list"></div>
           </aside>
