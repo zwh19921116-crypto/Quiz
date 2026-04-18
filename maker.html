@@ -263,6 +263,23 @@
                       <label for="bcYMax">Y Max (optional)</label>
                       <input type="number" id="bcYMax" min="1" step="1" placeholder="Auto" class="nl-range-input" />
                     </div>
+                    <div>
+                      <label for="bcOrientation">Orientation</label>
+                      <select id="bcOrientation" class="nl-range-input">
+                        <option value="vertical">Vertical</option>
+                        <option value="horizontal">Horizontal</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="bcCategoryAxisLabel">Category Axis Label</label>
+                      <input type="text" id="bcCategoryAxisLabel" value="Category" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="bcValueAxisLabel">Value Axis Label</label>
+                      <input type="text" id="bcValueAxisLabel" value="Value" class="nl-range-input" />
+                    </div>
                   </div>
                   <label for="bcItems">Bars (one per line: category, frequency, color)</label>
                   <textarea id="bcItems" rows="4" placeholder="Cats, 8, #2563eb&#10;Dogs, 12, #16a34a&#10;Birds, 5, #f59e0b"></textarea>

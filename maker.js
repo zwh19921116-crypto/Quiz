@@ -2338,6 +2338,9 @@ function buildDefaultInteractiveApp(type) {
         config: {
           title: "Category Frequencies",
           yMax: null,
+          orientation: "vertical",
+          categoryAxisLabel: "Category",
+          valueAxisLabel: "Value",
           items: [
             { category: "Cats", frequency: 8, color: "#2563eb" },
             { category: "Dogs", frequency: 12, color: "#16a34a" },
@@ -2696,24 +2699,105 @@ function buildStemLeafMarkup(config) {
 
 function buildBarChartMarkup(config) {
   const title = escapeInteractiveHtml(String(config.title || "Category Frequencies"));
-  const items = Array.isArray(config.items) ? config.items : [];
+  const categoryAxisLabel = escapeInteractiveHtml(String(config.categoryAxisLabel || "Category"));
+  const valueAxisLabel = escapeInteractiveHtml(String(config.valueAxisLabel || "Value"));
+  const items = (Array.isArray(config.items) ? config.items : [])
+    .map((item, index) => ({
+      category: String(item.category || `Item ${index + 1}`).trim() || `Item ${index + 1}`,
+      value: Math.max(0, Number(item.frequency) || 0),
+      color: safeInteractiveColor(item.color, "#2563eb")
+    }));
+  const orientation = String(config.orientation || "vertical").trim().toLowerCase() === "horizontal" ? "horizontal" : "vertical";
   if (items.length === 0) {
     return "<p class='helper-text'>Add category-frequency items to preview the bar chart.</p>";
   }
 
-  const maxItem = Math.max(...items.map((item) => Number(item.frequency) || 0), 1);
+  const maxItem = Math.max(...items.map((item) => item.value), 1);
   const yMax = Number.isFinite(Number(config.yMax)) && Number(config.yMax) > 0
     ? Number(config.yMax)
     : Math.ceil(maxItem / 5) * 5;
+  const tickCount = 5;
 
-  const bars = items.map((item) => {
-    const value = Math.max(0, Number(item.frequency) || 0);
-    const widthPct = Math.max(2, Math.min(100, (value / yMax) * 100));
-    const color = safeInteractiveColor(item.color, "#2563eb");
-    return `<div class="bar-chart-row"><span class="bar-chart-label">${escapeInteractiveHtml(item.category || "Item")}</span><div class="bar-chart-track"><div class="bar-chart-fill" style="width:${widthPct}%; background:${color}"></div></div><span class="bar-chart-value">${value}</span></div>`;
+  if (orientation === "horizontal") {
+    const width = 560;
+    const height = 300;
+    const margin = { top: 26, right: 24, bottom: 54, left: 130 };
+    const plotW = width - margin.left - margin.right;
+    const plotH = height - margin.top - margin.bottom;
+    const step = plotH / items.length;
+    const barH = Math.max(12, step * 0.62);
+
+    const bars = items.map((item, index) => {
+      const y = margin.top + index * step + (step - barH) / 2;
+      const w = Math.max(2, (item.value / yMax) * plotW);
+      return `
+        <text x="${margin.left - 8}" y="${y + barH / 2 + 4}" text-anchor="end" font-size="11" fill="#334155">${escapeInteractiveHtml(item.category)}</text>
+        <rect x="${margin.left}" y="${y}" width="${w}" height="${barH}" fill="${item.color}" stroke="#1e293b" stroke-width="0.6"/>
+        <text x="${Math.min(width - 4, margin.left + w + 6)}" y="${y + barH / 2 + 4}" font-size="11" fill="#0f172a">${item.value}</text>
+      `;
+    }).join("");
+
+    const ticks = Array.from({ length: tickCount + 1 }, (_, index) => {
+      const value = (yMax * index) / tickCount;
+      const x = margin.left + (plotW * index) / tickCount;
+      return `<line x1="${x}" y1="${height - margin.bottom}" x2="${x}" y2="${height - margin.bottom + 6}" stroke="#64748b"/><text x="${x}" y="${height - margin.bottom + 20}" text-anchor="middle" font-size="10" fill="#475569">${escapeInteractiveHtml(value.toFixed(0))}</text>`;
+    }).join("");
+
+    return `
+      <div class="bar-chart-container">
+        <p class="bar-chart-title">${title}</p>
+        <svg class="bar-chart-svg" viewBox="0 0 ${width} ${height}" width="100%" preserveAspectRatio="xMidYMid meet">
+          <rect x="1" y="1" width="${width - 2}" height="${height - 2}" fill="#ffffff" stroke="#cbd5e1"/>
+          <line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${height - margin.bottom}" stroke="#334155" stroke-width="1.4"/>
+          <line x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}" stroke="#334155" stroke-width="1.4"/>
+          ${bars}
+          ${ticks}
+          <text x="${margin.left + plotW / 2}" y="${height - 12}" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">${valueAxisLabel}</text>
+          <text x="22" y="${margin.top + plotH / 2}" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b" transform="rotate(-90 22 ${margin.top + plotH / 2})">${categoryAxisLabel}</text>
+        </svg>
+      </div>
+    `;
+  }
+
+  const width = 560;
+  const height = 320;
+  const margin = { top: 26, right: 22, bottom: 84, left: 62 };
+  const plotW = width - margin.left - margin.right;
+  const plotH = height - margin.top - margin.bottom;
+  const step = plotW / items.length;
+  const barW = Math.max(14, step * 0.62);
+
+  const bars = items.map((item, index) => {
+    const x = margin.left + index * step + (step - barW) / 2;
+    const h = Math.max(2, (item.value / yMax) * plotH);
+    const y = margin.top + plotH - h;
+    return `
+      <rect x="${x}" y="${y}" width="${barW}" height="${h}" fill="${item.color}" stroke="#1e293b" stroke-width="0.6"/>
+      <text x="${x + barW / 2}" y="${Math.max(14, y - 6)}" text-anchor="middle" font-size="10" fill="#0f172a">${item.value}</text>
+      <text x="${x + barW / 2}" y="${height - margin.bottom + 16}" text-anchor="middle" font-size="10" fill="#334155">${escapeInteractiveHtml(item.category)}</text>
+    `;
   }).join("");
 
-  return `<div class="bar-chart-container"><p class="bar-chart-title">${title}</p>${bars}</div>`;
+  const ticks = Array.from({ length: tickCount + 1 }, (_, index) => {
+    const value = (yMax * index) / tickCount;
+    const y = margin.top + plotH - (plotH * index) / tickCount;
+    return `<line x1="${margin.left - 6}" y1="${y}" x2="${margin.left}" y2="${y}" stroke="#64748b"/><text x="${margin.left - 10}" y="${y + 4}" text-anchor="end" font-size="10" fill="#475569">${escapeInteractiveHtml(value.toFixed(0))}</text>`;
+  }).join("");
+
+  return `
+    <div class="bar-chart-container">
+      <p class="bar-chart-title">${title}</p>
+      <svg class="bar-chart-svg" viewBox="0 0 ${width} ${height}" width="100%" preserveAspectRatio="xMidYMid meet">
+        <rect x="1" y="1" width="${width - 2}" height="${height - 2}" fill="#ffffff" stroke="#cbd5e1"/>
+        <line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${margin.top + plotH}" stroke="#334155" stroke-width="1.4"/>
+        <line x1="${margin.left}" y1="${margin.top + plotH}" x2="${width - margin.right}" y2="${margin.top + plotH}" stroke="#334155" stroke-width="1.4"/>
+        ${bars}
+        ${ticks}
+        <text x="${margin.left + plotW / 2}" y="${height - 12}" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">${categoryAxisLabel}</text>
+        <text x="18" y="${margin.top + plotH / 2}" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b" transform="rotate(-90 18 ${margin.top + plotH / 2})">${valueAxisLabel}</text>
+      </svg>
+    </div>
+  `;
 }
 
 function quantile(sortedValues, q) {
@@ -2801,22 +2885,131 @@ function buildBoxPlotMarkup(config) {
   const a = computeFiveNumber(config.valuesA || []);
   const b = computeFiveNumber(config.valuesB || []);
   if (!a && !b) return "<p class='helper-text'>Add dataset values to preview box plot summaries.</p>";
-  const row = (label, stats) => {
+
+  const statsList = [a, b].filter((item) => item);
+  const minValue = Math.min(...statsList.map((item) => item.min));
+  const maxValue = Math.max(...statsList.map((item) => item.max));
+  const range = maxValue - minValue || 1;
+  const left = 56;
+  const right = 360;
+  const mapX = (value) => left + ((value - minValue) / range) * (right - left);
+
+  const renderRow = (label, stats, y, color) => {
+    if (!stats) {
+      return `<text x="14" y="${y + 4}" font-size="12" fill="#64748b">${escapeInteractiveHtml(label)}</text><text x="${left}" y="${y + 4}" font-size="12" fill="#94a3b8">no data</text>`;
+    }
+    const xMin = mapX(stats.min);
+    const xQ1 = mapX(stats.q1);
+    const xMedian = mapX(stats.median);
+    const xQ3 = mapX(stats.q3);
+    const xMax = mapX(stats.max);
+    return `
+      <text x="14" y="${y + 4}" font-size="12" fill="#0f172a" font-weight="700">${escapeInteractiveHtml(label)}</text>
+      <line x1="${xMin}" y1="${y}" x2="${xQ1}" y2="${y}" stroke="#64748b" stroke-width="2"/>
+      <line x1="${xQ3}" y1="${y}" x2="${xMax}" y2="${y}" stroke="#64748b" stroke-width="2"/>
+      <line x1="${xMin}" y1="${y - 10}" x2="${xMin}" y2="${y + 10}" stroke="#64748b" stroke-width="2"/>
+      <line x1="${xMax}" y1="${y - 10}" x2="${xMax}" y2="${y + 10}" stroke="#64748b" stroke-width="2"/>
+      <rect x="${Math.min(xQ1, xQ3)}" y="${y - 12}" width="${Math.max(2, Math.abs(xQ3 - xQ1))}" height="24" fill="${color}" fill-opacity="0.25" stroke="${color}" stroke-width="2"/>
+      <line x1="${xMedian}" y1="${y - 12}" x2="${xMedian}" y2="${y + 12}" stroke="${color}" stroke-width="2"/>
+    `;
+  };
+
+  const axisTicks = Array.from({ length: 6 }, (_, index) => {
+    const v = minValue + (range * index) / 5;
+    const x = mapX(v);
+    return `<line x1="${x}" y1="146" x2="${x}" y2="152" stroke="#94a3b8"/><text x="${x}" y="165" text-anchor="middle" font-size="10" fill="#64748b">${escapeInteractiveHtml(v.toFixed(2))}</text>`;
+  }).join("");
+
+  const summaryLine = (label, stats) => {
     if (!stats) return `<p>${escapeInteractiveHtml(label)}: no data</p>`;
     return `<p>${escapeInteractiveHtml(label)}: min=${stats.min.toFixed(2)}, Q1=${stats.q1.toFixed(2)}, median=${stats.median.toFixed(2)}, Q3=${stats.q3.toFixed(2)}, max=${stats.max.toFixed(2)}</p>`;
   };
-  return `<div class="simple-card"><p class="bar-chart-title">${title}</p>${row(config.labelA || "A", a)}${row(config.labelB || "B", b)}</div>`;
+
+  return `
+    <div class="simple-card">
+      <p class="bar-chart-title">${title}</p>
+      <svg viewBox="0 0 380 172" width="100%" preserveAspectRatio="xMidYMid meet">
+        <rect x="0" y="0" width="380" height="172" fill="#f8fafc" stroke="#dbe6f3"/>
+        ${renderRow(config.labelA || "A", a, 58, "#2563eb")}
+        ${renderRow(config.labelB || "B", b, 106, "#16a34a")}
+        <line x1="${left}" y1="150" x2="${right}" y2="150" stroke="#64748b" stroke-width="1.5"/>
+        ${axisTicks}
+      </svg>
+      ${summaryLine(config.labelA || "A", a)}
+      ${summaryLine(config.labelB || "B", b)}
+    </div>
+  `;
 }
 
 function buildScatterPlotMarkup(config) {
   const title = escapeInteractiveHtml(String(config.title || "Correlation and Best Fit"));
-  const points = Array.isArray(config.points) ? config.points : [];
+  const points = (Array.isArray(config.points) ? config.points : [])
+    .map((point) => ({
+      x: Number(point.x),
+      y: Number(point.y),
+      label: point.label,
+      color: point.color
+    }))
+    .filter((point) => Number.isFinite(point.x) && Number.isFinite(point.y));
   const regression = computeLinearRegression(points);
   if (points.length === 0) return "<p class='helper-text'>Add points to preview scatter plot analytics.</p>";
+
+  const xMin = Math.min(...points.map((point) => point.x));
+  const xMax = Math.max(...points.map((point) => point.x));
+  const yMin = Math.min(...points.map((point) => point.y));
+  const yMax = Math.max(...points.map((point) => point.y));
+  const xPad = (xMax - xMin || 1) * 0.12;
+  const yPad = (yMax - yMin || 1) * 0.12;
+  const domainXMin = xMin - xPad;
+  const domainXMax = xMax + xPad;
+  const domainYMin = yMin - yPad;
+  const domainYMax = yMax + yPad;
+  const left = 50;
+  const right = 362;
+  const top = 18;
+  const bottom = 198;
+  const mapX = (value) => left + ((value - domainXMin) / (domainXMax - domainXMin || 1)) * (right - left);
+  const mapY = (value) => bottom - ((value - domainYMin) / (domainYMax - domainYMin || 1)) * (bottom - top);
+
+  const pointsSvg = points.map((point, index) => {
+    const px = mapX(point.x);
+    const py = mapY(point.y);
+    const color = safeInteractiveColor(point.color, "#2563eb");
+    const label = escapeInteractiveHtml(String(point.label || `P${index + 1}`));
+    return `<circle cx="${px}" cy="${py}" r="4" fill="${color}" stroke="#0f172a" stroke-width="0.8"/><text x="${px + 6}" y="${py - 6}" font-size="10" fill="#334155">${label}</text>`;
+  }).join("");
+
+  const fitLine = regression
+    ? (() => {
+      const x1 = domainXMin;
+      const y1 = regression.slope * x1 + regression.intercept;
+      const x2 = domainXMax;
+      const y2 = regression.slope * x2 + regression.intercept;
+      return `<line x1="${mapX(x1)}" y1="${mapY(y1)}" x2="${mapX(x2)}" y2="${mapY(y2)}" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4"/>`;
+    })()
+    : "";
+
   const detail = regression
     ? `r = ${regression.correlation.toFixed(3)}, best fit: y = ${regression.slope.toFixed(3)}x + ${regression.intercept.toFixed(3)}`
     : "Not enough variation for line of best fit.";
-  return `<div class="simple-card"><p class="bar-chart-title">${title}</p><p>Point count: ${points.length}</p><p>${escapeInteractiveHtml(detail)}</p></div>`;
+  return `
+    <div class="simple-card">
+      <p class="bar-chart-title">${title}</p>
+      <svg viewBox="0 0 380 210" width="100%" preserveAspectRatio="xMidYMid meet">
+        <rect x="0" y="0" width="380" height="210" fill="#f8fafc" stroke="#dbe6f3"/>
+        <line x1="${left}" y1="${bottom}" x2="${right}" y2="${bottom}" stroke="#64748b" stroke-width="1.5"/>
+        <line x1="${left}" y1="${top}" x2="${left}" y2="${bottom}" stroke="#64748b" stroke-width="1.5"/>
+        ${fitLine}
+        ${pointsSvg}
+        <text x="${left}" y="206" font-size="10" fill="#64748b">x: ${escapeInteractiveHtml(domainXMin.toFixed(2))}</text>
+        <text x="${right}" y="206" text-anchor="end" font-size="10" fill="#64748b">${escapeInteractiveHtml(domainXMax.toFixed(2))}</text>
+        <text x="6" y="${bottom}" font-size="10" fill="#64748b">y: ${escapeInteractiveHtml(domainYMin.toFixed(2))}</text>
+        <text x="6" y="${top + 10}" font-size="10" fill="#64748b">${escapeInteractiveHtml(domainYMax.toFixed(2))}</text>
+      </svg>
+      <p>Point count: ${points.length}</p>
+      <p>${escapeInteractiveHtml(detail)}</p>
+    </div>
+  `;
 }
 
 function buildProbabilityTreeMarkup(config) {
@@ -3077,10 +3270,14 @@ function readInteractiveAppFromForm() {
     }
     case "bar-chart": {
       const yMaxRaw = Number.parseFloat(document.getElementById("bcYMax").value);
+      const orientation = String(document.getElementById("bcOrientation").value || "vertical").trim().toLowerCase() === "horizontal" ? "horizontal" : "vertical";
       return {
         type,
         config: {
           title: document.getElementById("bcTitle").value.trim() || "Category Frequencies",
+          orientation,
+          categoryAxisLabel: document.getElementById("bcCategoryAxisLabel").value.trim() || "Category",
+          valueAxisLabel: document.getElementById("bcValueAxisLabel").value.trim() || "Value",
           yMax: Number.isFinite(yMaxRaw) && yMaxRaw > 0 ? yMaxRaw : null,
           items: parseBarChartItems(document.getElementById("bcItems").value)
         }
@@ -3235,6 +3432,9 @@ function populateInteractiveAppForm(app) {
   const barChartConfig = (type === "bar-chart" ? nextApp : buildDefaultInteractiveApp("bar-chart")).config;
   document.getElementById("bcTitle").value = barChartConfig.title || "Category Frequencies";
   document.getElementById("bcYMax").value = Number.isFinite(Number(barChartConfig.yMax)) && Number(barChartConfig.yMax) > 0 ? String(barChartConfig.yMax) : "";
+  document.getElementById("bcOrientation").value = String(barChartConfig.orientation || "vertical").trim().toLowerCase() === "horizontal" ? "horizontal" : "vertical";
+  document.getElementById("bcCategoryAxisLabel").value = barChartConfig.categoryAxisLabel || "Category";
+  document.getElementById("bcValueAxisLabel").value = barChartConfig.valueAxisLabel || "Value";
   document.getElementById("bcItems").value = serializeBarChartItems(barChartConfig.items || []);
 
   const histogramConfig = (type === "histogram" ? nextApp : buildDefaultInteractiveApp("histogram")).config;
@@ -4307,7 +4507,7 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   showToast("Question updated in Maker, but file save did not run. Connect Root Folder if needed.", "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "bcTitle", "bcYMax", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxLabelA", "boxLabelB", "boxValuesA", "boxValuesB", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
+["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxLabelA", "boxLabelB", "boxValuesA", "boxValuesB", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);

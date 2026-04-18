@@ -701,22 +701,103 @@ function buildStemLeafMarkup(config) {
 
 function buildBarChartMarkup(config) {
   const title = escapeHtml(String(config.title || "Category Frequencies"));
-  const items = Array.isArray(config.items) ? config.items : [];
+  const categoryAxisLabel = escapeHtml(String(config.categoryAxisLabel || "Category"));
+  const valueAxisLabel = escapeHtml(String(config.valueAxisLabel || "Value"));
+  const items = (Array.isArray(config.items) ? config.items : [])
+    .map((item, index) => ({
+      category: String(item.category || `Item ${index + 1}`).trim() || `Item ${index + 1}`,
+      value: Math.max(0, Number(item.frequency) || 0),
+      color: safeInteractiveColor(item.color, "#2563eb")
+    }));
+  const orientation = String(config.orientation || "vertical").trim().toLowerCase() === "horizontal" ? "horizontal" : "vertical";
   if (items.length === 0) return "";
 
-  const maxItem = Math.max(...items.map((item) => Number(item.frequency) || 0), 1);
+  const maxItem = Math.max(...items.map((item) => item.value), 1);
   const yMax = Number.isFinite(Number(config.yMax)) && Number(config.yMax) > 0
     ? Number(config.yMax)
     : Math.ceil(maxItem / 5) * 5;
+  const tickCount = 5;
 
-  const rows = items.map((item) => {
-    const value = Math.max(0, Number(item.frequency) || 0);
-    const widthPct = Math.max(2, Math.min(100, (value / yMax) * 100));
-    const color = safeInteractiveColor(item.color, "#2563eb");
-    return `<div class="bar-chart-row"><span class="bar-chart-label">${escapeHtml(item.category || "Item")}</span><div class="bar-chart-track"><div class="bar-chart-fill" style="width:${widthPct}%; background:${color}"></div></div><span class="bar-chart-value">${value}</span></div>`;
+  if (orientation === "horizontal") {
+    const width = 560;
+    const height = 300;
+    const margin = { top: 26, right: 24, bottom: 54, left: 130 };
+    const plotW = width - margin.left - margin.right;
+    const plotH = height - margin.top - margin.bottom;
+    const step = plotH / items.length;
+    const barH = Math.max(12, step * 0.62);
+
+    const bars = items.map((item, index) => {
+      const y = margin.top + index * step + (step - barH) / 2;
+      const w = Math.max(2, (item.value / yMax) * plotW);
+      return `
+        <text x="${margin.left - 8}" y="${y + barH / 2 + 4}" text-anchor="end" font-size="11" fill="#334155">${escapeHtml(item.category)}</text>
+        <rect x="${margin.left}" y="${y}" width="${w}" height="${barH}" fill="${item.color}" stroke="#1e293b" stroke-width="0.6"/>
+        <text x="${Math.min(width - 4, margin.left + w + 6)}" y="${y + barH / 2 + 4}" font-size="11" fill="#0f172a">${item.value}</text>
+      `;
+    }).join("");
+
+    const ticks = Array.from({ length: tickCount + 1 }, (_, index) => {
+      const value = (yMax * index) / tickCount;
+      const x = margin.left + (plotW * index) / tickCount;
+      return `<line x1="${x}" y1="${height - margin.bottom}" x2="${x}" y2="${height - margin.bottom + 6}" stroke="#64748b"/><text x="${x}" y="${height - margin.bottom + 20}" text-anchor="middle" font-size="10" fill="#475569">${escapeHtml(value.toFixed(0))}</text>`;
+    }).join("");
+
+    return `
+      <div class="bar-chart-container">
+        <p class="bar-chart-title">${title}</p>
+        <svg class="bar-chart-svg" viewBox="0 0 ${width} ${height}" width="100%" preserveAspectRatio="xMidYMid meet">
+          <rect x="1" y="1" width="${width - 2}" height="${height - 2}" fill="#ffffff" stroke="#cbd5e1"/>
+          <line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${height - margin.bottom}" stroke="#334155" stroke-width="1.4"/>
+          <line x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}" stroke="#334155" stroke-width="1.4"/>
+          ${bars}
+          ${ticks}
+          <text x="${margin.left + plotW / 2}" y="${height - 12}" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">${valueAxisLabel}</text>
+          <text x="22" y="${margin.top + plotH / 2}" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b" transform="rotate(-90 22 ${margin.top + plotH / 2})">${categoryAxisLabel}</text>
+        </svg>
+      </div>
+    `;
+  }
+
+  const width = 560;
+  const height = 320;
+  const margin = { top: 26, right: 22, bottom: 84, left: 62 };
+  const plotW = width - margin.left - margin.right;
+  const plotH = height - margin.top - margin.bottom;
+  const step = plotW / items.length;
+  const barW = Math.max(14, step * 0.62);
+
+  const bars = items.map((item, index) => {
+    const x = margin.left + index * step + (step - barW) / 2;
+    const h = Math.max(2, (item.value / yMax) * plotH);
+    const y = margin.top + plotH - h;
+    return `
+      <rect x="${x}" y="${y}" width="${barW}" height="${h}" fill="${item.color}" stroke="#1e293b" stroke-width="0.6"/>
+      <text x="${x + barW / 2}" y="${Math.max(14, y - 6)}" text-anchor="middle" font-size="10" fill="#0f172a">${item.value}</text>
+      <text x="${x + barW / 2}" y="${height - margin.bottom + 16}" text-anchor="middle" font-size="10" fill="#334155">${escapeHtml(item.category)}</text>
+    `;
   }).join("");
 
-  return `<div class="bar-chart-container"><p class="bar-chart-title">${title}</p>${rows}</div>`;
+  const ticks = Array.from({ length: tickCount + 1 }, (_, index) => {
+    const value = (yMax * index) / tickCount;
+    const y = margin.top + plotH - (plotH * index) / tickCount;
+    return `<line x1="${margin.left - 6}" y1="${y}" x2="${margin.left}" y2="${y}" stroke="#64748b"/><text x="${margin.left - 10}" y="${y + 4}" text-anchor="end" font-size="10" fill="#475569">${escapeHtml(value.toFixed(0))}</text>`;
+  }).join("");
+
+  return `
+    <div class="bar-chart-container">
+      <p class="bar-chart-title">${title}</p>
+      <svg class="bar-chart-svg" viewBox="0 0 ${width} ${height}" width="100%" preserveAspectRatio="xMidYMid meet">
+        <rect x="1" y="1" width="${width - 2}" height="${height - 2}" fill="#ffffff" stroke="#cbd5e1"/>
+        <line x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${margin.top + plotH}" stroke="#334155" stroke-width="1.4"/>
+        <line x1="${margin.left}" y1="${margin.top + plotH}" x2="${width - margin.right}" y2="${margin.top + plotH}" stroke="#334155" stroke-width="1.4"/>
+        ${bars}
+        ${ticks}
+        <text x="${margin.left + plotW / 2}" y="${height - 12}" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">${categoryAxisLabel}</text>
+        <text x="18" y="${margin.top + plotH / 2}" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b" transform="rotate(-90 18 ${margin.top + plotH / 2})">${valueAxisLabel}</text>
+      </svg>
+    </div>
+  `;
 }
 
 function quantile(sortedValues, q) {
@@ -1593,6 +1674,9 @@ function buildBarChartDetailLines(app) {
   const rows = items.map((item) => `${item.category || "Item"} = ${Math.max(0, Number(item.frequency) || 0)}`);
   return [
     `Chart title: ${config.title || "Category Frequencies"}`,
+    `Orientation: ${String(config.orientation || "vertical").trim().toLowerCase() === "horizontal" ? "horizontal" : "vertical"}`,
+    `Category axis label: ${config.categoryAxisLabel || "Category"}`,
+    `Value axis label: ${config.valueAxisLabel || "Value"}`,
     `Categories: ${items.length}`,
     `Frequencies: ${rows.join(", ")}`,
     `Total frequency: ${roundInteractive(total, 2)}`,
@@ -2014,8 +2098,18 @@ function mountStemLeafInteractive(host, app) {
 
 function mountBarChartInteractive(host, app) {
   const config = app.config || {};
+  config.orientation = String(config.orientation || "vertical").trim().toLowerCase() === "horizontal" ? "horizontal" : "vertical";
+  config.categoryAxisLabel = String(config.categoryAxisLabel || "Category").trim() || "Category";
+  config.valueAxisLabel = String(config.valueAxisLabel || "Value").trim() || "Value";
   if (!Array.isArray(config.items)) config.items = [];
   const items = config.items;
+  const computeRangeMax = () => {
+    const currentMax = Math.max(0, ...items.map((item) => Math.max(0, Number(item.frequency) || 0)));
+    const explicitYMax = Number(config.yMax);
+    const base = Number.isFinite(explicitYMax) && explicitYMax > 0 ? explicitYMax : Math.ceil(Math.max(10, currentMax) / 5) * 5;
+    return Math.max(10, Math.ceil(base));
+  };
+  let sliderMax = computeRangeMax();
 
   const itemControls = items.length > 0
     ? items.map((item, index) => {
@@ -2026,7 +2120,7 @@ function mountBarChartInteractive(host, app) {
         <div class="interactive-control-label">${safeLabel}</div>
         <label class="interactive-control-row compact">
           <span>Freq</span>
-          <input type="range" min="0" max="100" step="1" value="${value}" data-role="bar-range" data-index="${index}" />
+          <input type="range" min="0" max="${sliderMax}" step="1" value="${Math.min(sliderMax, value)}" data-role="bar-range" data-index="${index}" />
         </label>
         <label class="interactive-control-row compact">
           <span>Freq</span>
@@ -2048,6 +2142,21 @@ function mountBarChartInteractive(host, app) {
         <span>Y Max</span>
         <input type="number" min="1" step="1" value="${Number.isFinite(Number(config.yMax)) && Number(config.yMax) > 0 ? Number(config.yMax) : ""}" data-role="bar-ymax" placeholder="Auto" />
       </label>
+      <label class="interactive-control-row compact">
+        <span>Orientation</span>
+        <select data-role="bar-orientation">
+          <option value="vertical" ${config.orientation === "vertical" ? "selected" : ""}>Vertical</option>
+          <option value="horizontal" ${config.orientation === "horizontal" ? "selected" : ""}>Horizontal</option>
+        </select>
+      </label>
+      <label class="interactive-control-stack">
+        <span>Category Axis Label</span>
+        <input type="text" value="${escapeHtml(config.categoryAxisLabel)}" data-role="bar-axis-category" />
+      </label>
+      <label class="interactive-control-stack">
+        <span>Value Axis Label</span>
+        <input type="text" value="${escapeHtml(config.valueAxisLabel)}" data-role="bar-axis-value" />
+      </label>
       ${itemControls}
     </div>
     <div class="interactive-app-details"></div>
@@ -2055,6 +2164,13 @@ function mountBarChartInteractive(host, app) {
 
   const preview = host.querySelector(".interactive-app-preview");
   const render = () => {
+    sliderMax = computeRangeMax();
+    host.querySelectorAll("[data-role='bar-range']").forEach((input) => {
+      input.max = String(sliderMax);
+      const index = Number(input.dataset.index);
+      const current = items[index] ? Math.max(0, Number(items[index].frequency) || 0) : 0;
+      input.value = String(Math.min(sliderMax, Math.round(current)));
+    });
     updateInteractivePreview(preview, app);
     updateInteractiveDetails(host, app);
   };
@@ -2066,7 +2182,10 @@ function mountBarChartInteractive(host, app) {
     const numberInput = host.querySelector(`[data-role='bar-number'][data-index='${index}']`);
     const rangeInput = host.querySelector(`[data-role='bar-range'][data-index='${index}']`);
     if (numberInput) numberInput.value = String(Math.round(next));
-    if (rangeInput) rangeInput.value = String(Math.max(0, Math.min(100, Math.round(next))));
+    if (rangeInput) {
+      const cap = Number(rangeInput.max) || sliderMax;
+      rangeInput.value = String(Math.max(0, Math.min(cap, Math.round(next))));
+    }
     render();
   };
 
@@ -2090,6 +2209,30 @@ function mountBarChartInteractive(host, app) {
     yMaxInput.addEventListener("input", () => {
       const value = Number(yMaxInput.value);
       config.yMax = Number.isFinite(value) && value > 0 ? value : null;
+      render();
+    });
+  }
+
+  const orientationInput = host.querySelector("[data-role='bar-orientation']");
+  if (orientationInput) {
+    orientationInput.addEventListener("input", () => {
+      config.orientation = String(orientationInput.value || "vertical").trim().toLowerCase() === "horizontal" ? "horizontal" : "vertical";
+      render();
+    });
+  }
+
+  const categoryAxisInput = host.querySelector("[data-role='bar-axis-category']");
+  if (categoryAxisInput) {
+    categoryAxisInput.addEventListener("input", () => {
+      config.categoryAxisLabel = String(categoryAxisInput.value || "").trim() || "Category";
+      render();
+    });
+  }
+
+  const valueAxisInput = host.querySelector("[data-role='bar-axis-value']");
+  if (valueAxisInput) {
+    valueAxisInput.addEventListener("input", () => {
+      config.valueAxisLabel = String(valueAxisInput.value || "").trim() || "Value";
       render();
     });
   }
