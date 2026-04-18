@@ -1,25 +1,37 @@
 {
-  "id": "planets-quiz",
-  "title": "Planets Quiz",
+  "id": "quiz-6",
+  "title": "planets-quiz",
   "category": "Science",
   "questions": [
     {
       "question": "Which planet has the most visible rings?",
       "resultType": "multiple-choice",
-      "options": ["Mars", "Saturn", "Mercury", "Venus"],
+      "options": [
+        "Mars",
+        "Saturn",
+        "Mercury",
+        "Venus"
+      ],
       "correctAnswer": "Saturn",
       "notesAttachments": [],
       "image": "",
-      "solution": "Saturn is best known for its prominent ring system."
+      "solution": "Saturn is best known for its prominent ring system.",
+      "solutionAttachments": []
     },
     {
       "question": "The Sun is a star.",
       "resultType": "true-false",
-      "options": ["True", "False"],
+      "options": [
+        "True",
+        "False",
+        "",
+        ""
+      ],
       "correctAnswer": "True",
       "notesAttachments": [],
       "image": "",
-      "solution": "The Sun is the star at the center of the Solar System."
+      "solution": "The Sun is the star at the center of the Solar System.",
+      "solutionAttachments": []
     }
   ]
 }
