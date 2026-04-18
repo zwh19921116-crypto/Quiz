@@ -1632,7 +1632,18 @@ function renderCategoryList() {
     return;
   }
 
-  state.categories.forEach((category) => {
+  const searchInput = document.getElementById("categorySearch");
+  const term = searchInput ? searchInput.value.trim().toLowerCase() : "";
+  const filtered = term
+    ? state.categories.filter((category) => category.name.toLowerCase().includes(term))
+    : state.categories;
+
+  if (filtered.length === 0) {
+    host.innerHTML = "<p class='helper-text'>No categories match.</p>";
+    return;
+  }
+
+  filtered.forEach((category) => {
     const row = document.createElement("div");
     row.className = `list-item ${category.id === state.selectedCategoryId ? "active" : ""}`;
     row.innerHTML = `
@@ -1658,7 +1669,18 @@ function renderQuizList() {
     return;
   }
 
-  category.quizzes.forEach((quiz) => {
+  const searchInput = document.getElementById("quizSearch");
+  const term = searchInput ? searchInput.value.trim().toLowerCase() : "";
+  const filtered = term
+    ? category.quizzes.filter((quiz) => quiz.title.toLowerCase().includes(term))
+    : category.quizzes;
+
+  if (filtered.length === 0) {
+    host.innerHTML = "<p class='helper-text'>No quizzes match.</p>";
+    return;
+  }
+
+  filtered.forEach((quiz) => {
     const row = document.createElement("div");
     row.className = `list-item ${quiz.id === state.selectedQuizId ? "active" : ""}`;
     row.innerHTML = `
@@ -1758,8 +1780,15 @@ function renderQuestionsList() {
     return;
   }
 
+  const searchInput = document.getElementById("questionSearch");
+  const term = searchInput ? searchInput.value.trim().toLowerCase() : "";
+
   quiz.questions.forEach((item, index) => {
     const title = item.question || `Untitled Question ${index + 1}`;
+    if (term && !title.toLowerCase().includes(term)) {
+      return;
+    }
+
     const issues = getQuestionValidationIssues(item);
     const badgeClass = issues.length === 0 ? "status-chip ok" : "status-chip warn";
     const badgeText = issues.length === 0 ? "Ready" : `${issues.length} issue${issues.length === 1 ? "" : "s"}`;
@@ -1774,6 +1803,10 @@ function renderQuestionsList() {
     `;
     host.appendChild(row);
   });
+
+  if (host.children.length === 0) {
+    host.innerHTML = "<p class='helper-text'>No questions match.</p>";
+  }
 }
 
 function toggleOptionsBlock(question) {
@@ -1857,19 +1890,22 @@ function refreshCorrectAnswerSelect(question) {
     list.className = "checkbox-answer-list";
 
     choiceOptions.forEach((optionText, index) => {
-      const label = document.createElement("label");
-      label.className = "checkbox-answer-item";
-      label.innerHTML = `
-        <input type="checkbox" data-role="correct-answer-check" data-index="${index}" value="${optionText}" />
-        <span>${optionText}</span>
-      `;
-
-      const input = label.querySelector("input");
-      if (input) {
-        input.checked = existingAnswers.includes(normalizeText(optionText));
-      }
-
-      list.appendChild(label);
+      const isSelected = existingAnswers.includes(normalizeText(optionText));
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `checkbox-answer-item${isSelected ? " selected" : ""}`;
+      btn.dataset.role = "correct-answer-check";
+      btn.dataset.index = String(index);
+      btn.dataset.value = optionText;
+      btn.setAttribute("aria-pressed", isSelected ? "true" : "false");
+      btn.textContent = optionText;
+      btn.addEventListener("click", () => {
+        const pressed = btn.getAttribute("aria-pressed") === "true";
+        btn.setAttribute("aria-pressed", pressed ? "false" : "true");
+        btn.classList.toggle("selected", !pressed);
+        updateQuestionFromForm();
+      });
+      list.appendChild(btn);
     });
 
     checkboxWrap.appendChild(list);
@@ -2236,8 +2272,8 @@ function updateQuestionFromForm() {
       : "";
   } else if (question.resultType === "checkbox") {
     const choiceOptions = getChoiceOptions(question);
-    const currentChecked = Array.from(document.querySelectorAll("input[data-role='correct-answer-check']:checked"))
-      .map((item) => item.value.trim())
+    const currentChecked = Array.from(document.querySelectorAll("button[data-role='correct-answer-check'][aria-pressed='true']"))
+      .map((item) => String(item.dataset.value || "").trim())
       .filter((item) => item !== "");
     const fallbackChecked = String(question.correctAnswer || "")
       .split(",")
@@ -2572,6 +2608,10 @@ function setSolutionPanelCollapsed(collapsed) {
 document.getElementById("addCategoryBtn").addEventListener("click", addCategory);
 document.getElementById("addQuizBtn").addEventListener("click", addQuiz);
 document.getElementById("addQuestionBtn").addEventListener("click", addQuestion);
+
+document.getElementById("categorySearch").addEventListener("input", renderCategoryList);
+document.getElementById("quizSearch").addEventListener("input", renderQuizList);
+document.getElementById("questionSearch").addEventListener("input", renderQuestionsList);
 document.getElementById("attachImageBtn").addEventListener("click", () => {
   const question = activeQuestion();
   if (!question) {
@@ -2781,12 +2821,7 @@ document.getElementById("toggleSolutionPanelBtn").addEventListener("click", () =
 
 document.getElementById("correctAnswerSelect").addEventListener("change", updateQuestionFromForm);
 
-document.getElementById("correctAnswerCheckboxWrap").addEventListener("change", (event) => {
-  const target = event.target;
-  if (!(target instanceof HTMLInputElement)) return;
-  if (target.dataset.role !== "correct-answer-check") return;
-  updateQuestionFromForm();
-});
+// Checkbox answer selection is handled via click listeners on each button in refreshCorrectAnswerSelect.
 
 document.getElementById("embedFormatSelect").addEventListener("change", () => {
   updateEmbedOutputForActiveQuiz();
@@ -2944,29 +2979,6 @@ function loadImportedData(data) {
 
   throw new Error("Invalid quiz file");
 }
-
-document.getElementById("importQuizFile").addEventListener("change", async (event) => {
-  const file = event.target.files && event.target.files[0];
-  if (!file) return;
-
-  try {
-    const text = await file.text();
-    const data = JSON.parse(text);
-    if (data && typeof data === "object" && !Array.isArray(data) && !data.fileName) {
-      data.fileName = file.name;
-    }
-    if (data && typeof data === "object" && !Array.isArray(data) && !data.sourcePath) {
-      data.sourcePath = file.name;
-    }
-    loadImportedData(data);
-    setRootStatus(`Source: imported ${file.name}`);
-    showToast("Quiz imported.", "success");
-  } catch (error) {
-    showToast("Invalid JSON file.", "error");
-  }
-
-  event.target.value = "";
-});
 
 async function initialize() {
   const loadedFromRoot = await refreshLibraryFromRoot(false);
