@@ -18,30 +18,18 @@
       "solution": "Saturn is best known for its prominent ring system.",
       "solutionAttachments": [],
       "interactiveApp": {
-        "type": "cartesian-plane",
+        "type": "stem-and-leaf",
         "config": {
-          "xMin": -10,
-          "xMax": 10,
-          "yMin": -10,
-          "yMax": 10,
-          "points": [
-            {
-              "x": 3,
-              "y": -2,
-              "label": "P",
-              "color": "#2563eb"
-            }
+          "values": [
+            12,
+            13,
+            17,
+            21,
+            25,
+            29,
+            32
           ],
-          "segments": [
-            {
-              "x1": 0,
-              "y1": 0,
-              "x2": 4,
-              "y2": 3,
-              "label": "segment",
-              "color": "#f59e0b"
-            }
-          ]
+          "stemUnit": 10
         }
       }
     },

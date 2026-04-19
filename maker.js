@@ -2206,6 +2206,24 @@ function parseNetworkEdges(text) {
     .filter(Boolean);
 }
 
+function parseMatrixRows(text) {
+  return String(text || "")
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line !== "")
+    .map((line) => {
+      const values = line
+        .replace(/,/g, " ")
+        .split(/\s+/)
+        .map((item) => Number.parseFloat(item));
+      if (values.length === 0 || values.some((value) => !Number.isFinite(value))) {
+        return null;
+      }
+      return values;
+    })
+    .filter(Boolean);
+}
+
 function normalizeGeometryShapeType(value) {
   const kind = String(value || "").trim().toLowerCase();
   if (["rectangle", "square", "circle", "triangle", "cube", "cuboid", "sphere", "cylinder"].includes(kind)) return kind;
@@ -2302,6 +2320,14 @@ function serializeNetworkEdges(edges) {
   if (!Array.isArray(edges)) return "";
   return edges
     .map((edge) => `${edge.from || ""}, ${edge.to || ""}, ${edge.weight ?? ""}, ${edge.capacity ?? ""}`)
+    .join("\n");
+}
+
+function serializeMatrixRows(rows) {
+  if (!Array.isArray(rows)) return "";
+  return rows
+    .filter((row) => Array.isArray(row) && row.length > 0)
+    .map((row) => row.map((value) => Number(value)).filter((value) => Number.isFinite(value)).join(", "))
     .join("\n");
 }
 
@@ -2406,6 +2432,16 @@ function buildDefaultInteractiveApp(type) {
           to: 1
         }
       };
+    case "fractions":
+      return {
+        type,
+        config: {
+          title: "Fraction Operations",
+          operation: "add",
+          fractionA: { numerator: 1, denominator: 2 },
+          fractionB: { numerator: 1, denominator: 3 }
+        }
+      };
     case "network-graph":
       return {
         type,
@@ -2423,6 +2459,16 @@ function buildDefaultInteractiveApp(type) {
           target: "E",
           flowSource: "A",
           flowSink: "E"
+        }
+      };
+    case "matrix":
+      return {
+        type,
+        config: {
+          title: "Matrix Operations",
+          operation: "multiply",
+          matrixA: [[1, 2, 3], [4, 5, 6]],
+          matrixB: [[7, 8], [9, 10], [11, 12]]
         }
       };
     case "stem-and-leaf":
@@ -3041,6 +3087,244 @@ function buildNetworkGraphMarkup(config) {
   return `<div class="simple-card"><p class="bar-chart-title">${title}</p><p>Nodes: ${nodes.length}</p><p>Edges: ${edges.length}</p><p class="helper-text">Shortest path: ${escapeInteractiveHtml(String(config.source || ""))} to ${escapeInteractiveHtml(String(config.target || ""))}</p><p class="helper-text">Flow: ${escapeInteractiveHtml(String(config.flowSource || ""))} to ${escapeInteractiveHtml(String(config.flowSink || ""))}</p></div>`;
 }
 
+function normalizeFractionOperation(value) {
+  const operation = String(value || "add").trim().toLowerCase();
+  return ["add", "subtract", "multiply", "divide"].includes(operation) ? operation : "add";
+}
+
+function gcdFraction(a, b) {
+  let x = Math.abs(Math.trunc(a));
+  let y = Math.abs(Math.trunc(b));
+  while (y !== 0) {
+    const t = x % y;
+    x = y;
+    y = t;
+  }
+  return x || 1;
+}
+
+function simplifyFraction(numerator, denominator) {
+  const n = Math.trunc(Number(numerator));
+  const d = Math.trunc(Number(denominator));
+  if (!Number.isFinite(n) || !Number.isFinite(d) || d === 0) return null;
+  let nextN = n;
+  let nextD = d;
+  if (nextD < 0) {
+    nextN *= -1;
+    nextD *= -1;
+  }
+  const divisor = gcdFraction(nextN, nextD);
+  return {
+    numerator: nextN / divisor,
+    denominator: nextD / divisor
+  };
+}
+
+function formatFractionDisplay(fraction) {
+  if (!fraction) return "invalid";
+  if (fraction.denominator === 1) return `${fraction.numerator}`;
+  return `${fraction.numerator}/${fraction.denominator}`;
+}
+
+function buildFractionsMarkup(config) {
+  const title = escapeInteractiveHtml(String(config.title || "Fraction Operations"));
+  const operation = normalizeFractionOperation(config.operation);
+  const labels = {
+    add: "+",
+    subtract: "-",
+    multiply: "x",
+    divide: "÷"
+  };
+
+  const fractionA = simplifyFraction(config.fractionA && config.fractionA.numerator, config.fractionA && config.fractionA.denominator);
+  const fractionB = simplifyFraction(config.fractionB && config.fractionB.numerator, config.fractionB && config.fractionB.denominator);
+
+  if (!fractionA || !fractionB) {
+    return "<p class='helper-text'>Enter two valid fractions with non-zero denominators.</p>";
+  }
+
+  if (operation === "divide" && fractionB.numerator === 0) {
+    return "<p class='helper-text'>Division by zero is undefined. Fraction B numerator must not be 0.</p>";
+  }
+
+  let rawResult = null;
+  if (operation === "add") {
+    rawResult = {
+      numerator: fractionA.numerator * fractionB.denominator + fractionB.numerator * fractionA.denominator,
+      denominator: fractionA.denominator * fractionB.denominator
+    };
+  } else if (operation === "subtract") {
+    rawResult = {
+      numerator: fractionA.numerator * fractionB.denominator - fractionB.numerator * fractionA.denominator,
+      denominator: fractionA.denominator * fractionB.denominator
+    };
+  } else if (operation === "multiply") {
+    rawResult = {
+      numerator: fractionA.numerator * fractionB.numerator,
+      denominator: fractionA.denominator * fractionB.denominator
+    };
+  } else {
+    rawResult = {
+      numerator: fractionA.numerator * fractionB.denominator,
+      denominator: fractionA.denominator * fractionB.numerator
+    };
+  }
+
+  const result = simplifyFraction(rawResult.numerator, rawResult.denominator);
+  if (!result) {
+    return "<p class='helper-text'>Could not compute this fraction operation.</p>";
+  }
+
+  return `
+    <div class="simple-card">
+      <p class="bar-chart-title">${title}</p>
+      <p>${escapeInteractiveHtml(formatFractionDisplay(fractionA))} ${labels[operation]} ${escapeInteractiveHtml(formatFractionDisplay(fractionB))} = ${escapeInteractiveHtml(formatFractionDisplay(result))}</p>
+      <p class="helper-text">Result (simplified): ${escapeInteractiveHtml(formatFractionDisplay(result))}</p>
+    </div>
+  `;
+}
+
+function normalizeMatrixOperation(value) {
+  const operation = String(value || "multiply").trim().toLowerCase();
+  return ["add", "subtract", "multiply", "determinant", "transpose"].includes(operation) ? operation : "multiply";
+}
+
+function sanitizeMatrix(matrix) {
+  if (!Array.isArray(matrix)) return [];
+  return matrix
+    .map((row) => (Array.isArray(row) ? row : []))
+    .map((row) => row.map((value) => Number(value)).filter((value) => Number.isFinite(value)))
+    .filter((row) => row.length > 0);
+}
+
+function matrixIsRectangular(matrix) {
+  if (!Array.isArray(matrix) || matrix.length === 0) return false;
+  const width = matrix[0].length;
+  return width > 0 && matrix.every((row) => Array.isArray(row) && row.length === width && row.every((value) => Number.isFinite(value)));
+}
+
+function matrixDimensions(matrix) {
+  if (!matrixIsRectangular(matrix)) return "invalid";
+  return `${matrix.length}x${matrix[0].length}`;
+}
+
+function matrixAdd(a, b) {
+  if (!matrixIsRectangular(a) || !matrixIsRectangular(b)) return null;
+  if (a.length !== b.length || a[0].length !== b[0].length) return null;
+  return a.map((row, rowIndex) => row.map((value, colIndex) => value + b[rowIndex][colIndex]));
+}
+
+function matrixSubtract(a, b) {
+  if (!matrixIsRectangular(a) || !matrixIsRectangular(b)) return null;
+  if (a.length !== b.length || a[0].length !== b[0].length) return null;
+  return a.map((row, rowIndex) => row.map((value, colIndex) => value - b[rowIndex][colIndex]));
+}
+
+function matrixMultiply(a, b) {
+  if (!matrixIsRectangular(a) || !matrixIsRectangular(b)) return null;
+  if (a[0].length !== b.length) return null;
+  return a.map((row) => b[0].map((_, colIndex) => row.reduce((sum, value, k) => sum + value * b[k][colIndex], 0)));
+}
+
+function matrixTranspose(a) {
+  if (!matrixIsRectangular(a)) return null;
+  return a[0].map((_, colIndex) => a.map((row) => row[colIndex]));
+}
+
+function matrixDeterminant(matrix) {
+  if (!matrixIsRectangular(matrix)) return Number.NaN;
+  const size = matrix.length;
+  if (size !== matrix[0].length) return Number.NaN;
+  if (size === 1) return matrix[0][0];
+  if (size === 2) return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+  let total = 0;
+  for (let col = 0; col < size; col += 1) {
+    const minor = matrix.slice(1).map((row) => row.filter((_, index) => index !== col));
+    total += (col % 2 === 0 ? 1 : -1) * matrix[0][col] * matrixDeterminant(minor);
+  }
+  return total;
+}
+
+function formatMatrixNumber(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) return "?";
+  const rounded = Math.round(numeric * 1000) / 1000;
+  return String(rounded);
+}
+
+function buildMatrixTableMarkup(matrix, caption) {
+  if (!matrixIsRectangular(matrix)) {
+    return `<div class="simple-card"><p>${escapeInteractiveHtml(caption)}: invalid matrix</p></div>`;
+  }
+  const rows = matrix
+    .map((row) => `<tr>${row.map((value) => `<td style="border:1px solid #cbd5e1;padding:4px 8px;text-align:right;">${escapeInteractiveHtml(formatMatrixNumber(value))}</td>`).join("")}</tr>`)
+    .join("");
+  return `
+    <div class="simple-card">
+      <p><strong>${escapeInteractiveHtml(caption)}</strong> (${matrix.length}x${matrix[0].length})</p>
+      <table style="border-collapse:collapse; margin-top:6px;">
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+function buildMatrixMarkup(config) {
+  const title = escapeInteractiveHtml(String(config.title || "Matrix Operations"));
+  const operation = normalizeMatrixOperation(config.operation);
+  const matrixA = sanitizeMatrix(config.matrixA);
+  const matrixB = sanitizeMatrix(config.matrixB);
+
+  if (!matrixIsRectangular(matrixA)) {
+    return "<p class='helper-text'>Enter a valid rectangular matrix A to preview matrix operations.</p>";
+  }
+
+  const labels = {
+    add: "A + B",
+    subtract: "A - B",
+    multiply: "A x B",
+    determinant: "det(A)",
+    transpose: "A^T"
+  };
+
+  let resultMarkup = "";
+  if (operation === "add") {
+    const result = matrixAdd(matrixA, matrixB);
+    resultMarkup = result
+      ? buildMatrixTableMarkup(result, "Result")
+      : "<p class='helper-text'>For addition, A and B must have the same dimensions.</p>";
+  } else if (operation === "subtract") {
+    const result = matrixSubtract(matrixA, matrixB);
+    resultMarkup = result
+      ? buildMatrixTableMarkup(result, "Result")
+      : "<p class='helper-text'>For subtraction, A and B must have the same dimensions.</p>";
+  } else if (operation === "multiply") {
+    const result = matrixMultiply(matrixA, matrixB);
+    resultMarkup = result
+      ? buildMatrixTableMarkup(result, "Result")
+      : "<p class='helper-text'>For multiplication, columns in A must equal rows in B.</p>";
+  } else if (operation === "determinant") {
+    const determinant = matrixDeterminant(matrixA);
+    resultMarkup = Number.isFinite(determinant)
+      ? `<div class="simple-card"><p><strong>det(A)</strong> = ${escapeInteractiveHtml(formatMatrixNumber(determinant))}</p></div>`
+      : "<p class='helper-text'>Determinant requires A to be a square matrix.</p>";
+  } else {
+    const result = matrixTranspose(matrixA);
+    resultMarkup = result ? buildMatrixTableMarkup(result, "A^T") : "<p class='helper-text'>Transpose requires a valid matrix A.</p>";
+  }
+
+  return `
+    <div class="simple-card">
+      <p class="bar-chart-title">${title}</p>
+      <p>Operation: ${escapeInteractiveHtml(labels[operation])}</p>
+      <p class="helper-text">A dimensions: ${escapeInteractiveHtml(matrixDimensions(matrixA))}${operation === "add" || operation === "subtract" || operation === "multiply" ? ` | B dimensions: ${escapeInteractiveHtml(matrixDimensions(matrixB))}` : ""}</p>
+    </div>
+    ${buildMatrixTableMarkup(matrixA, "Matrix A")}
+    ${(operation === "add" || operation === "subtract" || operation === "multiply") && matrixB.length > 0 ? buildMatrixTableMarkup(matrixB, "Matrix B") : ""}
+    ${resultMarkup}
+  `;
+}
+
 function buildGeometryShapesMarkup(config) {
   const canvasWidth = Math.max(220, Math.min(760, Number.parseInt(config.canvasWidth, 10) || 360));
   const canvasHeight = Math.max(180, Math.min(520, Number.parseInt(config.canvasHeight, 10) || 260));
@@ -3173,8 +3457,12 @@ function buildInteractiveAppMarkup(app) {
       return buildProbabilityTreeMarkup(app.config || {});
     case "distribution-curve":
       return buildDistributionCurveMarkup(app.config || {});
+    case "fractions":
+      return buildFractionsMarkup(app.config || {});
     case "network-graph":
       return buildNetworkGraphMarkup(app.config || {});
+    case "matrix":
+      return buildMatrixMarkup(app.config || {});
     case "stem-and-leaf":
       return buildStemLeafMarkup(app.config || {});
     case "geometry-shapes":
@@ -3188,6 +3476,60 @@ function buildInteractiveAppMarkup(app) {
   }
 }
 
+let interactiveAppTypeOptionsCache = null;
+
+function getInteractiveAppTypeOptions() {
+  if (Array.isArray(interactiveAppTypeOptionsCache)) {
+    return interactiveAppTypeOptionsCache;
+  }
+
+  const typeSelect = document.getElementById("interactiveAppType");
+  if (!typeSelect) {
+    interactiveAppTypeOptionsCache = [];
+    return interactiveAppTypeOptionsCache;
+  }
+
+  interactiveAppTypeOptionsCache = Array.from(typeSelect.options)
+    .map((option) => ({
+      value: String(option.value || "").trim(),
+      label: String(option.textContent || "").trim()
+    }))
+    .filter((item) => item.value !== "")
+    .sort((a, b) => a.label.localeCompare(b.label));
+
+  return interactiveAppTypeOptionsCache;
+}
+
+function renderInteractiveAppTypeOptions(forcedValue = "") {
+  const typeSelect = document.getElementById("interactiveAppType");
+  if (!typeSelect) return;
+
+  const activeValue = String(forcedValue || typeSelect.value || "").trim();
+  const options = getInteractiveAppTypeOptions();
+
+  typeSelect.innerHTML = "";
+  const noneOption = document.createElement("option");
+  noneOption.value = "";
+  noneOption.textContent = "None";
+  typeSelect.appendChild(noneOption);
+
+  options.forEach((item) => {
+    const option = document.createElement("option");
+    option.value = item.value;
+    option.textContent = item.label;
+    typeSelect.appendChild(option);
+  });
+
+  typeSelect.value = options.some((item) => item.value === activeValue) ? activeValue : "";
+}
+
+function initializeInteractiveAppTypePicker() {
+  const typeSelect = document.getElementById("interactiveAppType");
+  if (!typeSelect) return;
+
+  interactiveAppTypeOptionsCache = null;
+  renderInteractiveAppTypeOptions(typeSelect.value);
+}
 function renderInteractiveAppPreview(app) {
   const preview = document.getElementById("interactiveAppPreview");
   if (!preview) return;
@@ -3195,7 +3537,7 @@ function renderInteractiveAppPreview(app) {
 }
 
 function setInteractiveAppConfigVisibility(type) {
-  ["numberLineConfig", "cartesianPlaneConfig", "barChartConfig", "histogramConfig", "boxPlotConfig", "scatterPlotConfig", "probabilityTreeConfig", "distributionCurveConfig", "networkGraphConfig", "stemLeafConfig", "geometryShapesConfig", "pythagorasConfig", "trigonometryConfig"]
+  ["numberLineConfig", "cartesianPlaneConfig", "barChartConfig", "histogramConfig", "boxPlotConfig", "scatterPlotConfig", "probabilityTreeConfig", "distributionCurveConfig", "fractionsConfig", "networkGraphConfig", "matrixConfig", "stemLeafConfig", "geometryShapesConfig", "pythagorasConfig", "trigonometryConfig"]
     .forEach((id) => {
       const element = document.getElementById(id);
       if (element) {
@@ -3215,8 +3557,12 @@ function setInteractiveAppConfigVisibility(type) {
                       ? type === "probability-tree"
                       : id === "distributionCurveConfig"
                         ? type === "distribution-curve"
+                        : id === "fractionsConfig"
+                          ? type === "fractions"
                         : id === "networkGraphConfig"
-                          ? type === "network-graph"
+                            ? type === "network-graph"
+            : id === "matrixConfig"
+              ? type === "matrix"
             : id === "stemLeafConfig"
               ? type === "stem-and-leaf"
               : id === "geometryShapesConfig"
@@ -3338,6 +3684,27 @@ function readInteractiveAppFromForm() {
         }
       };
     }
+    case "fractions": {
+      const numeratorA = Number.parseInt(document.getElementById("fxNumeratorA").value, 10);
+      const denominatorA = Number.parseInt(document.getElementById("fxDenominatorA").value, 10);
+      const numeratorB = Number.parseInt(document.getElementById("fxNumeratorB").value, 10);
+      const denominatorB = Number.parseInt(document.getElementById("fxDenominatorB").value, 10);
+      return {
+        type,
+        config: {
+          title: document.getElementById("fxTitle").value.trim() || "Fraction Operations",
+          operation: normalizeFractionOperation(document.getElementById("fxOperation").value),
+          fractionA: {
+            numerator: Number.isInteger(numeratorA) ? numeratorA : 1,
+            denominator: Number.isInteger(denominatorA) && denominatorA !== 0 ? denominatorA : 2
+          },
+          fractionB: {
+            numerator: Number.isInteger(numeratorB) ? numeratorB : 1,
+            denominator: Number.isInteger(denominatorB) && denominatorB !== 0 ? denominatorB : 3
+          }
+        }
+      };
+    }
     case "network-graph":
       return {
         type,
@@ -3349,6 +3716,16 @@ function readInteractiveAppFromForm() {
           target: document.getElementById("ngTarget").value.trim(),
           flowSource: document.getElementById("ngFlowSource").value.trim(),
           flowSink: document.getElementById("ngFlowSink").value.trim()
+        }
+      };
+    case "matrix":
+      return {
+        type,
+        config: {
+          title: document.getElementById("mxTitle").value.trim() || "Matrix Operations",
+          operation: normalizeMatrixOperation(document.getElementById("mxOperation").value),
+          matrixA: parseMatrixRows(document.getElementById("mxMatrixA").value),
+          matrixB: parseMatrixRows(document.getElementById("mxMatrixB").value)
         }
       };
     case "stem-and-leaf": {
@@ -3409,6 +3786,7 @@ function populateInteractiveAppForm(app) {
   const typeSelect = document.getElementById("interactiveAppType");
   const nextApp = app || null;
   const type = nextApp ? (nextApp.type || "") : "";
+  renderInteractiveAppTypeOptions(type);
   typeSelect.value = type;
   setInteractiveAppConfigVisibility(type);
 
@@ -3465,6 +3843,14 @@ function populateInteractiveAppForm(app) {
   document.getElementById("dcFrom").value = distributionConfig.from ?? -1;
   document.getElementById("dcTo").value = distributionConfig.to ?? 1;
 
+  const fractionsConfig = (type === "fractions" ? nextApp : buildDefaultInteractiveApp("fractions")).config;
+  document.getElementById("fxTitle").value = fractionsConfig.title || "Fraction Operations";
+  document.getElementById("fxOperation").value = normalizeFractionOperation(fractionsConfig.operation);
+  document.getElementById("fxNumeratorA").value = Number.isFinite(Number(fractionsConfig.fractionA && fractionsConfig.fractionA.numerator)) ? String(fractionsConfig.fractionA.numerator) : "1";
+  document.getElementById("fxDenominatorA").value = Number.isFinite(Number(fractionsConfig.fractionA && fractionsConfig.fractionA.denominator)) && Number(fractionsConfig.fractionA.denominator) !== 0 ? String(fractionsConfig.fractionA.denominator) : "2";
+  document.getElementById("fxNumeratorB").value = Number.isFinite(Number(fractionsConfig.fractionB && fractionsConfig.fractionB.numerator)) ? String(fractionsConfig.fractionB.numerator) : "1";
+  document.getElementById("fxDenominatorB").value = Number.isFinite(Number(fractionsConfig.fractionB && fractionsConfig.fractionB.denominator)) && Number(fractionsConfig.fractionB.denominator) !== 0 ? String(fractionsConfig.fractionB.denominator) : "3";
+
   const networkConfig = (type === "network-graph" ? nextApp : buildDefaultInteractiveApp("network-graph")).config;
   document.getElementById("ngTitle").value = networkConfig.title || "Shortest Path, MST, Flow";
   document.getElementById("ngNodes").value = Array.isArray(networkConfig.nodes) ? networkConfig.nodes.join(", ") : "";
@@ -3473,6 +3859,12 @@ function populateInteractiveAppForm(app) {
   document.getElementById("ngTarget").value = networkConfig.target || "";
   document.getElementById("ngFlowSource").value = networkConfig.flowSource || "";
   document.getElementById("ngFlowSink").value = networkConfig.flowSink || "";
+
+  const matrixConfig = (type === "matrix" ? nextApp : buildDefaultInteractiveApp("matrix")).config;
+  document.getElementById("mxTitle").value = matrixConfig.title || "Matrix Operations";
+  document.getElementById("mxOperation").value = normalizeMatrixOperation(matrixConfig.operation);
+  document.getElementById("mxMatrixA").value = serializeMatrixRows(matrixConfig.matrixA || []);
+  document.getElementById("mxMatrixB").value = serializeMatrixRows(matrixConfig.matrixB || []);
 
   const stemLeafConfig = (type === "stem-and-leaf" ? nextApp : buildDefaultInteractiveApp("stem-and-leaf")).config;
   document.getElementById("slValues").value = Array.isArray(stemLeafConfig.values) ? stemLeafConfig.values.join(", ") : "";
@@ -4507,7 +4899,7 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   showToast("Question updated in Maker, but file save did not run. Connect Root Folder if needed.", "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxLabelA", "boxLabelB", "boxValuesA", "boxValuesB", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
+["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxLabelA", "boxLabelB", "boxValuesA", "boxValuesB", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxTitle", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);
@@ -4772,5 +5164,11 @@ window.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("load", () => {
+  initializeInteractiveAppTypePicker();
   initialize();
 });
+
+
+
+
+

@@ -1090,7 +1090,243 @@ function buildNetworkGraphMarkup(config) {
   const shortestLine = shortest ? `${shortest.path.join(" -> ")} (cost ${shortest.distance.toFixed(2)})` : "unavailable";
   return `<div class="simple-card"><p class="bar-chart-title">${title}</p><p>Nodes: ${nodes.length}, Edges: ${edges.length}</p><p>Shortest path: ${escapeHtml(shortestLine)}</p><p>MST total weight: ${mst === null ? "unavailable" : mst.toFixed(2)}</p><p>Max flow: ${maxFlow === null ? "unavailable" : maxFlow.toFixed(2)}</p></div>`;
 }
+function normalizeFractionOperation(value) {
+  const operation = String(value || "add").trim().toLowerCase();
+  return ["add", "subtract", "multiply", "divide"].includes(operation) ? operation : "add";
+}
 
+function gcdFraction(a, b) {
+  let x = Math.abs(Math.trunc(a));
+  let y = Math.abs(Math.trunc(b));
+  while (y !== 0) {
+    const t = x % y;
+    x = y;
+    y = t;
+  }
+  return x || 1;
+}
+
+function simplifyFraction(numerator, denominator) {
+  const n = Math.trunc(Number(numerator));
+  const d = Math.trunc(Number(denominator));
+  if (!Number.isFinite(n) || !Number.isFinite(d) || d === 0) return null;
+  let nextN = n;
+  let nextD = d;
+  if (nextD < 0) {
+    nextN *= -1;
+    nextD *= -1;
+  }
+  const divisor = gcdFraction(nextN, nextD);
+  return {
+    numerator: nextN / divisor,
+    denominator: nextD / divisor
+  };
+}
+
+function formatFractionDisplay(fraction) {
+  if (!fraction) return "invalid";
+  if (fraction.denominator === 1) return `${fraction.numerator}`;
+  return `${fraction.numerator}/${fraction.denominator}`;
+}
+
+function buildFractionsMarkup(config) {
+  const title = escapeHtml(String(config.title || "Fraction Operations"));
+  const operation = normalizeFractionOperation(config.operation);
+  const labels = {
+    add: "+",
+    subtract: "-",
+    multiply: "x",
+    divide: "÷"
+  };
+
+  const fractionA = simplifyFraction(config.fractionA && config.fractionA.numerator, config.fractionA && config.fractionA.denominator);
+  const fractionB = simplifyFraction(config.fractionB && config.fractionB.numerator, config.fractionB && config.fractionB.denominator);
+
+  if (!fractionA || !fractionB) {
+    return "<p class='helper-text'>Enter two valid fractions with non-zero denominators.</p>";
+  }
+
+  if (operation === "divide" && fractionB.numerator === 0) {
+    return "<p class='helper-text'>Division by zero is undefined. Fraction B numerator must not be 0.</p>";
+  }
+
+  let rawResult = null;
+  if (operation === "add") {
+    rawResult = {
+      numerator: fractionA.numerator * fractionB.denominator + fractionB.numerator * fractionA.denominator,
+      denominator: fractionA.denominator * fractionB.denominator
+    };
+  } else if (operation === "subtract") {
+    rawResult = {
+      numerator: fractionA.numerator * fractionB.denominator - fractionB.numerator * fractionA.denominator,
+      denominator: fractionA.denominator * fractionB.denominator
+    };
+  } else if (operation === "multiply") {
+    rawResult = {
+      numerator: fractionA.numerator * fractionB.numerator,
+      denominator: fractionA.denominator * fractionB.denominator
+    };
+  } else {
+    rawResult = {
+      numerator: fractionA.numerator * fractionB.denominator,
+      denominator: fractionA.denominator * fractionB.numerator
+    };
+  }
+
+  const result = simplifyFraction(rawResult.numerator, rawResult.denominator);
+  if (!result) {
+    return "<p class='helper-text'>Could not compute this fraction operation.</p>";
+  }
+
+  return `
+    <div class="simple-card">
+      <p class="bar-chart-title">${title}</p>
+      <p>${escapeHtml(formatFractionDisplay(fractionA))} ${labels[operation]} ${escapeHtml(formatFractionDisplay(fractionB))} = ${escapeHtml(formatFractionDisplay(result))}</p>
+      <p class="helper-text">Result (simplified): ${escapeHtml(formatFractionDisplay(result))}</p>
+    </div>
+  `;
+}
+
+function normalizeMatrixOperation(value) {
+  const operation = String(value || "multiply").trim().toLowerCase();
+  return ["add", "subtract", "multiply", "determinant", "transpose"].includes(operation) ? operation : "multiply";
+}
+
+function sanitizeMatrix(matrix) {
+  if (!Array.isArray(matrix)) return [];
+  return matrix
+    .map((row) => (Array.isArray(row) ? row : []))
+    .map((row) => row.map((value) => Number(value)).filter((value) => Number.isFinite(value)))
+    .filter((row) => row.length > 0);
+}
+
+function matrixIsRectangular(matrix) {
+  if (!Array.isArray(matrix) || matrix.length === 0) return false;
+  const width = matrix[0].length;
+  return width > 0 && matrix.every((row) => Array.isArray(row) && row.length === width && row.every((value) => Number.isFinite(value)));
+}
+
+function matrixDimensions(matrix) {
+  if (!matrixIsRectangular(matrix)) return "invalid";
+  return `${matrix.length}x${matrix[0].length}`;
+}
+
+function matrixAdd(a, b) {
+  if (!matrixIsRectangular(a) || !matrixIsRectangular(b)) return null;
+  if (a.length !== b.length || a[0].length !== b[0].length) return null;
+  return a.map((row, rowIndex) => row.map((value, colIndex) => value + b[rowIndex][colIndex]));
+}
+
+function matrixSubtract(a, b) {
+  if (!matrixIsRectangular(a) || !matrixIsRectangular(b)) return null;
+  if (a.length !== b.length || a[0].length !== b[0].length) return null;
+  return a.map((row, rowIndex) => row.map((value, colIndex) => value - b[rowIndex][colIndex]));
+}
+
+function matrixMultiply(a, b) {
+  if (!matrixIsRectangular(a) || !matrixIsRectangular(b)) return null;
+  if (a[0].length !== b.length) return null;
+  return a.map((row) => b[0].map((_, colIndex) => row.reduce((sum, value, k) => sum + value * b[k][colIndex], 0)));
+}
+
+function matrixTranspose(a) {
+  if (!matrixIsRectangular(a)) return null;
+  return a[0].map((_, colIndex) => a.map((row) => row[colIndex]));
+}
+
+function matrixDeterminant(matrix) {
+  if (!matrixIsRectangular(matrix)) return Number.NaN;
+  const size = matrix.length;
+  if (size !== matrix[0].length) return Number.NaN;
+  if (size === 1) return matrix[0][0];
+  if (size === 2) return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+  let total = 0;
+  for (let col = 0; col < size; col += 1) {
+    const minor = matrix.slice(1).map((row) => row.filter((_, index) => index !== col));
+    total += (col % 2 === 0 ? 1 : -1) * matrix[0][col] * matrixDeterminant(minor);
+  }
+  return total;
+}
+
+function formatMatrixNumber(value) {
+  const numeric = Number(value);
+  if (!Number.isFinite(numeric)) return "?";
+  const rounded = Math.round(numeric * 1000) / 1000;
+  return String(rounded);
+}
+
+function buildMatrixTableMarkup(matrix, caption) {
+  if (!matrixIsRectangular(matrix)) {
+    return `<div class="simple-card"><p>${escapeHtml(caption)}: invalid matrix</p></div>`;
+  }
+  const rows = matrix
+    .map((row) => `<tr>${row.map((value) => `<td style="border:1px solid #cbd5e1;padding:4px 8px;text-align:right;">${escapeHtml(formatMatrixNumber(value))}</td>`).join("")}</tr>`)
+    .join("");
+  return `
+    <div class="simple-card">
+      <p><strong>${escapeHtml(caption)}</strong> (${matrix.length}x${matrix[0].length})</p>
+      <table style="border-collapse:collapse; margin-top:6px;">
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+function buildMatrixMarkup(config) {
+  const title = escapeHtml(String(config.title || "Matrix Operations"));
+  const operation = normalizeMatrixOperation(config.operation);
+  const matrixA = sanitizeMatrix(config.matrixA);
+  const matrixB = sanitizeMatrix(config.matrixB);
+
+  if (!matrixIsRectangular(matrixA)) {
+    return "<p class='helper-text'>Enter a valid rectangular matrix A to preview matrix operations.</p>";
+  }
+
+  const labels = {
+    add: "A + B",
+    subtract: "A - B",
+    multiply: "A x B",
+    determinant: "det(A)",
+    transpose: "A^T"
+  };
+
+  let resultMarkup = "";
+  if (operation === "add") {
+    const result = matrixAdd(matrixA, matrixB);
+    resultMarkup = result
+      ? buildMatrixTableMarkup(result, "Result")
+      : "<p class='helper-text'>For addition, A and B must have the same dimensions.</p>";
+  } else if (operation === "subtract") {
+    const result = matrixSubtract(matrixA, matrixB);
+    resultMarkup = result
+      ? buildMatrixTableMarkup(result, "Result")
+      : "<p class='helper-text'>For subtraction, A and B must have the same dimensions.</p>";
+  } else if (operation === "multiply") {
+    const result = matrixMultiply(matrixA, matrixB);
+    resultMarkup = result
+      ? buildMatrixTableMarkup(result, "Result")
+      : "<p class='helper-text'>For multiplication, columns in A must equal rows in B.</p>";
+  } else if (operation === "determinant") {
+    const determinant = matrixDeterminant(matrixA);
+    resultMarkup = Number.isFinite(determinant)
+      ? `<div class="simple-card"><p><strong>det(A)</strong> = ${escapeHtml(formatMatrixNumber(determinant))}</p></div>`
+      : "<p class='helper-text'>Determinant requires A to be a square matrix.</p>";
+  } else {
+    const result = matrixTranspose(matrixA);
+    resultMarkup = result ? buildMatrixTableMarkup(result, "A^T") : "<p class='helper-text'>Transpose requires a valid matrix A.</p>";
+  }
+
+  return `
+    <div class="simple-card">
+      <p class="bar-chart-title">${title}</p>
+      <p>Operation: ${escapeHtml(labels[operation])}</p>
+      <p class="helper-text">A dimensions: ${escapeHtml(matrixDimensions(matrixA))}${operation === "add" || operation === "subtract" || operation === "multiply" ? ` | B dimensions: ${escapeHtml(matrixDimensions(matrixB))}` : ""}</p>
+    </div>
+    ${buildMatrixTableMarkup(matrixA, "Matrix A")}
+    ${(operation === "add" || operation === "subtract" || operation === "multiply") && matrixB.length > 0 ? buildMatrixTableMarkup(matrixB, "Matrix B") : ""}
+    ${resultMarkup}
+  `;
+}
 function buildPythagorasMarkup(config) {
   const sideA = escapeHtml(config.sideA || "?");
   const sideB = escapeHtml(config.sideB || "?");
@@ -1166,7 +1402,9 @@ function getInteractiveAppTitle(type) {
   if (type === "scatter-plot") return "Interactive: Scatter Plot";
   if (type === "probability-tree") return "Interactive: Probability Tree";
   if (type === "distribution-curve") return "Interactive: Distribution Curve";
+  if (type === "fractions") return "Interactive: Fractions";
   if (type === "network-graph") return "Interactive: Network Graph";
+  if (type === "matrix") return "Interactive: Matrices";
   if (type === "stem-and-leaf") return "Interactive: Stem-and-Leaf Plot";
   if (type === "geometry-shapes") return "Interactive: Geometry Shapes";
   if (type === "pythagoras") return "Interactive: Pythagoras Triangle";
@@ -1194,8 +1432,12 @@ function updateInteractivePreview(preview, app) {
     content = buildProbabilityTreeMarkup(app.config || {});
   } else if (app.type === "distribution-curve") {
     content = buildDistributionCurveMarkup(app.config || {});
+  } else if (app.type === "fractions") {
+    content = buildFractionsMarkup(app.config || {});
   } else if (app.type === "network-graph") {
     content = buildNetworkGraphMarkup(app.config || {});
+  } else if (app.type === "matrix") {
+    content = buildMatrixMarkup(app.config || {});
   } else if (app.type === "stem-and-leaf") {
     content = buildStemLeafMarkup(app.config || {});
   } else if (app.type === "geometry-shapes") {
@@ -1837,6 +2079,32 @@ function buildTrigonometryDetailLines(app) {
   ];
 }
 
+function buildFractionsDetailLines(app) {
+  const config = app.config || {};
+  const operation = normalizeFractionOperation(config.operation);
+  const fractionA = simplifyFraction(config.fractionA && config.fractionA.numerator, config.fractionA && config.fractionA.denominator);
+  const fractionB = simplifyFraction(config.fractionB && config.fractionB.numerator, config.fractionB && config.fractionB.denominator);
+  const labels = { add: "Addition", subtract: "Subtraction", multiply: "Multiplication", divide: "Division" };
+  return [
+    `Operation: ${labels[operation]}`,
+    `Fraction A: ${formatFractionDisplay(fractionA)}`,
+    `Fraction B: ${formatFractionDisplay(fractionB)}`
+  ];
+}
+
+function buildMatrixDetailLines(app) {
+  const config = app.config || {};
+  const operation = normalizeMatrixOperation(config.operation);
+  const matrixA = sanitizeMatrix(config.matrixA);
+  const matrixB = sanitizeMatrix(config.matrixB);
+  const labels = { add: "A + B", subtract: "A - B", multiply: "A x B", determinant: "det(A)", transpose: "A^T" };
+  return [
+    `Operation: ${labels[operation]}`,
+    `A dimensions: ${matrixDimensions(matrixA)}`,
+    operation === "add" || operation === "subtract" || operation === "multiply" ? `B dimensions: ${matrixDimensions(matrixB)}` : ""
+  ].filter((line) => line);
+}
+
 function updateInteractiveDetails(host, app) {
   if (!host || !app || !app.type) return;
   let lines = [];
@@ -1856,8 +2124,12 @@ function updateInteractiveDetails(host, app) {
     lines = buildProbabilityTreeDetailLines(app);
   } else if (app.type === "distribution-curve") {
     lines = buildDistributionCurveDetailLines(app);
+  } else if (app.type === "fractions") {
+    lines = buildFractionsDetailLines(app);
   } else if (app.type === "network-graph") {
     lines = buildNetworkGraphDetailLines(app);
+  } else if (app.type === "matrix") {
+    lines = buildMatrixDetailLines(app);
   } else if (app.type === "stem-and-leaf") {
     lines = buildStemLeafDetailLines(app);
   } else if (app.type === "geometry-shapes") {
@@ -2689,6 +2961,138 @@ function mountTrigonometryInteractive(host, app) {
   updateInteractiveDetails(host, app);
 }
 
+function mountFractionsInteractive(host, app) {
+  const config = app.config || {};
+  config.operation = normalizeFractionOperation(config.operation);
+  if (!config.fractionA) config.fractionA = { numerator: 1, denominator: 2 };
+  if (!config.fractionB) config.fractionB = { numerator: 1, denominator: 3 };
+
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls">
+      <label class="interactive-control-stack">
+        <span>Title</span>
+        <input type="text" data-role="fraction-title" value="${escapeHtml(config.title || "Fraction Operations")}" />
+      </label>
+      <label class="interactive-control-row compact">
+        <span>Operation</span>
+        <select data-role="fraction-operation">
+          <option value="add" ${config.operation === "add" ? "selected" : ""}>Addition (+)</option>
+          <option value="subtract" ${config.operation === "subtract" ? "selected" : ""}>Subtraction (-)</option>
+          <option value="multiply" ${config.operation === "multiply" ? "selected" : ""}>Multiplication (x)</option>
+          <option value="divide" ${config.operation === "divide" ? "selected" : ""}>Division (÷)</option>
+        </select>
+      </label>
+      <label class="interactive-control-row compact">
+        <span>A numerator</span>
+        <input type="number" step="1" data-role="fraction-a-num" value="${Number(config.fractionA.numerator) || 1}" />
+      </label>
+      <label class="interactive-control-row compact">
+        <span>A denominator</span>
+        <input type="number" step="1" data-role="fraction-a-den" value="${Number(config.fractionA.denominator) || 2}" />
+      </label>
+      <label class="interactive-control-row compact">
+        <span>B numerator</span>
+        <input type="number" step="1" data-role="fraction-b-num" value="${Number(config.fractionB.numerator) || 1}" />
+      </label>
+      <label class="interactive-control-row compact">
+        <span>B denominator</span>
+        <input type="number" step="1" data-role="fraction-b-den" value="${Number(config.fractionB.denominator) || 3}" />
+      </label>
+    </div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const titleInput = host.querySelector("[data-role='fraction-title']");
+  const operationInput = host.querySelector("[data-role='fraction-operation']");
+  const aNumInput = host.querySelector("[data-role='fraction-a-num']");
+  const aDenInput = host.querySelector("[data-role='fraction-a-den']");
+  const bNumInput = host.querySelector("[data-role='fraction-b-num']");
+  const bDenInput = host.querySelector("[data-role='fraction-b-den']");
+
+  const rerender = () => {
+    config.title = String(titleInput.value || "").trim() || "Fraction Operations";
+    config.operation = normalizeFractionOperation(operationInput.value);
+    config.fractionA = {
+      numerator: Number.parseInt(aNumInput.value, 10) || 1,
+      denominator: Number.parseInt(aDenInput.value, 10) || 2
+    };
+    config.fractionB = {
+      numerator: Number.parseInt(bNumInput.value, 10) || 1,
+      denominator: Number.parseInt(bDenInput.value, 10) || 3
+    };
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  host.querySelectorAll("input, select").forEach((input) => input.addEventListener("input", rerender));
+  updateInteractivePreview(preview, app);
+  updateInteractiveDetails(host, app);
+}
+
+function mountMatrixInteractive(host, app) {
+  const config = app.config || {};
+  config.operation = normalizeMatrixOperation(config.operation);
+  config.matrixA = sanitizeMatrix(config.matrixA);
+  config.matrixB = sanitizeMatrix(config.matrixB);
+
+  host.innerHTML = `
+    <div class="interactive-app-preview"></div>
+    <div class="interactive-app-controls">
+      <label class="interactive-control-stack">
+        <span>Title</span>
+        <input type="text" data-role="matrix-title" value="${escapeHtml(config.title || "Matrix Operations")}" />
+      </label>
+      <label class="interactive-control-row compact">
+        <span>Operation</span>
+        <select data-role="matrix-operation">
+          <option value="add" ${config.operation === "add" ? "selected" : ""}>A + B</option>
+          <option value="subtract" ${config.operation === "subtract" ? "selected" : ""}>A - B</option>
+          <option value="multiply" ${config.operation === "multiply" ? "selected" : ""}>A x B</option>
+          <option value="determinant" ${config.operation === "determinant" ? "selected" : ""}>det(A)</option>
+          <option value="transpose" ${config.operation === "transpose" ? "selected" : ""}>A^T</option>
+        </select>
+      </label>
+      <label class="interactive-control-stack">
+        <span>Matrix A</span>
+        <textarea rows="4" data-role="matrix-a">${escapeHtml((config.matrixA || []).map((row) => row.join(", ")).join("\n"))}</textarea>
+      </label>
+      <label class="interactive-control-stack">
+        <span>Matrix B</span>
+        <textarea rows="4" data-role="matrix-b">${escapeHtml((config.matrixB || []).map((row) => row.join(", ")).join("\n"))}</textarea>
+      </label>
+    </div>
+    <div class="interactive-app-details"></div>
+  `;
+
+  const preview = host.querySelector(".interactive-app-preview");
+  const titleInput = host.querySelector("[data-role='matrix-title']");
+  const operationInput = host.querySelector("[data-role='matrix-operation']");
+  const matrixAInput = host.querySelector("[data-role='matrix-a']");
+  const matrixBInput = host.querySelector("[data-role='matrix-b']");
+
+  const parseRows = (text) => String(text || "")
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line !== "")
+    .map((line) => line.replace(/,/g, " ").split(/\s+/).map((item) => Number.parseFloat(item)))
+    .filter((row) => row.length > 0 && row.every((value) => Number.isFinite(value)));
+
+  const rerender = () => {
+    config.title = String(titleInput.value || "").trim() || "Matrix Operations";
+    config.operation = normalizeMatrixOperation(operationInput.value);
+    config.matrixA = parseRows(matrixAInput.value);
+    config.matrixB = parseRows(matrixBInput.value);
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+  };
+
+  host.querySelectorAll("input, select, textarea").forEach((input) => input.addEventListener("input", rerender));
+  updateInteractivePreview(preview, app);
+  updateInteractiveDetails(host, app);
+}
+
 function mountInteractiveApp(host, app) {
   if (!host || !app || !app.type) return;
 
@@ -2724,8 +3128,16 @@ function mountInteractiveApp(host, app) {
     mountDistributionCurveInteractive(host, app);
     return;
   }
+  if (app.type === "fractions") {
+    mountFractionsInteractive(host, app);
+    return;
+  }
   if (app.type === "network-graph") {
     mountNetworkGraphInteractive(host, app);
+    return;
+  }
+  if (app.type === "matrix") {
+    mountMatrixInteractive(host, app);
     return;
   }
   if (app.type === "stem-and-leaf") {
@@ -3241,3 +3653,7 @@ window.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("load", loadQuiz);
+
+
+
+

@@ -759,6 +759,10 @@ textarea {
   text-align: left;
 }
 
+.stem-leaf-table th {
+  border-right: 1px solid #d1dbe8;
+}
+
 .stem-leaf-table thead th {
   background: #eff6ff;
   color: #1e3a8a;

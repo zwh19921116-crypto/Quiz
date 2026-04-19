@@ -187,7 +187,9 @@
                   <option value="scatter-plot">Scatter Plot</option>
                   <option value="probability-tree">Probability Tree</option>
                   <option value="distribution-curve">Distribution Curve</option>
+                  <option value="fractions">Fractions</option>
                   <option value="network-graph">Network Graph</option>
+                  <option value="matrix">Matrices</option>
                   <option value="stem-and-leaf">Stem-and-Leaf Plot</option>
                   <option value="geometry-shapes">Geometry Shapes</option>
                   <option value="pythagoras">Pythagoras Triangle</option>
@@ -382,6 +384,65 @@
                       <input type="text" id="ngFlowSink" value="E" class="nl-range-input" />
                     </div>
                   </div>
+                </div>
+
+                <div id="fractionsConfig" class="hidden">
+                  <label for="fxTitle">Fractions Title</label>
+                  <input type="text" id="fxTitle" placeholder="Fraction Operations" class="nl-range-input" />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="fxOperation">Operation</label>
+                      <select id="fxOperation" class="nl-range-input">
+                        <option value="add">Addition (+)</option>
+                        <option value="subtract">Subtraction (-)</option>
+                        <option value="multiply">Multiplication (×)</option>
+                        <option value="divide">Division (÷)</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="fxNumeratorA">Fraction A Numerator</label>
+                      <input type="number" id="fxNumeratorA" value="1" step="1" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="fxDenominatorA">Fraction A Denominator</label>
+                      <input type="number" id="fxDenominatorA" value="2" step="1" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="fxNumeratorB">Fraction B Numerator</label>
+                      <input type="number" id="fxNumeratorB" value="1" step="1" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="fxDenominatorB">Fraction B Denominator</label>
+                      <input type="number" id="fxDenominatorB" value="3" step="1" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <p class="helper-text">Denominators must be non-zero. Division also requires Fraction B numerator to be non-zero.</p>
+                </div>
+
+                <div id="matrixConfig" class="hidden">
+                  <label for="mxTitle">Matrix Title</label>
+                  <input type="text" id="mxTitle" placeholder="Matrix Operations" class="nl-range-input" />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="mxOperation">Operation</label>
+                      <select id="mxOperation" class="nl-range-input">
+                        <option value="add">A + B</option>
+                        <option value="subtract">A - B</option>
+                        <option value="multiply">A × B</option>
+                        <option value="determinant">det(A)</option>
+                        <option value="transpose">Aᵀ</option>
+                      </select>
+                    </div>
+                  </div>
+                  <label for="mxMatrixA">Matrix A (rows on new lines, values comma/space separated)</label>
+                  <textarea id="mxMatrixA" rows="4" placeholder="1, 2, 3&#10;4, 5, 6"></textarea>
+                  <label for="mxMatrixB">Matrix B (used for add/subtract/multiply)</label>
+                  <textarea id="mxMatrixB" rows="4" placeholder="7, 8&#10;9, 10&#10;11, 12"></textarea>
+                  <p class="helper-text">Use consistent row lengths. For add/subtract, A and B must match dimensions. For multiply, columns in A must equal rows in B.</p>
                 </div>
 
                 <div id="geometryShapesConfig" class="hidden">
