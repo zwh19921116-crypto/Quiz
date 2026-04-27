@@ -143,6 +143,11 @@ const state = {
   draggingQuestionIndex: -1
 };
 
+const QUIZ_ORDER_MODES = {
+  ORDERED: "ordered",
+  RANDOM: "random"
+};
+
 function normalizeRootSourceMode(value) {
   const mode = String(value || "").trim().toLowerCase();
   if (mode === ROOT_SOURCE_MODES.LOCAL) return ROOT_SOURCE_MODES.LOCAL;
@@ -228,6 +233,8 @@ function loadDraft() {
         ? category.quizzes.map((quiz) => ({
           id: quiz.id || `quiz-${quizSeed++}`,
           title: quiz.title || "Untitled Quiz",
+          description: normalizeQuizDescription(quiz.description),
+          settings: normalizeQuizSettings(quiz.settings),
           fileName: quiz.fileName || "",
           sourcePath: quiz.sourcePath || "",
           questions: Array.isArray(quiz.questions) ? quiz.questions.map(normalizeQuestion) : []
@@ -277,6 +284,8 @@ function createQuiz(title) {
   return {
     id,
     title,
+    description: "",
+    settings: normalizeQuizSettings(null),
     fileName: buildUniqueQuizFileName(title, id),
     sourcePath: "",
     questions: []
@@ -320,6 +329,39 @@ function normalizeResultType(value) {
   if (["true-false", "truefalse", "boolean"].includes(normalized)) return "true-false";
   if (["checkbox", "multi-select", "multiselect"].includes(normalized)) return "checkbox";
   return "multiple-choice";
+}
+
+function normalizeQuizDescription(value) {
+  return String(value || "").trim();
+}
+
+function normalizeQuizQuestionOrder(value) {
+  return String(value || "").trim().toLowerCase() === QUIZ_ORDER_MODES.RANDOM
+    ? QUIZ_ORDER_MODES.RANDOM
+    : QUIZ_ORDER_MODES.ORDERED;
+}
+
+function normalizeQuizQuestionLimit(value) {
+  const parsed = Number.parseInt(value, 10);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : null;
+}
+
+function normalizeQuizSettings(value) {
+  const settings = value && typeof value === "object" ? value : {};
+  return {
+    questionOrder: normalizeQuizQuestionOrder(settings.questionOrder),
+    questionLimit: normalizeQuizQuestionLimit(settings.questionLimit)
+  };
+}
+
+function applyLoadedQuizJsonToQuiz(quiz, quizJson) {
+  if (!quiz || !quizJson || typeof quizJson !== "object") return;
+  const nextTitle = String(quizJson.title || "").trim();
+  if (nextTitle) {
+    quiz.title = nextTitle;
+  }
+  quiz.description = normalizeQuizDescription(quizJson.description);
+  quiz.settings = normalizeQuizSettings(quizJson.settings);
 }
 
 function slugify(value) {
@@ -858,6 +900,7 @@ async function loadLibraryFromGithubFlatIndex(context) {
       const quiz = createQuiz(quizTitleFromFilePath(relativePath));
       quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
       quiz.sourcePath = quizPath;
+      applyLoadedQuizJsonToQuiz(quiz, quizJson);
       quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
       category.quizzes.push(quiz);
     }
@@ -922,6 +965,7 @@ async function loadLibraryFromGithubFolders(context) {
       const quiz = createQuiz(quizTitleFromFilePath(relativePath));
       quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
       quiz.sourcePath = quizPath;
+      applyLoadedQuizJsonToQuiz(quiz, quizJson);
       quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
       category.quizzes.push(quiz);
     }
@@ -1165,6 +1209,8 @@ async function createStarterQuizFileOnDisk(category, quiz) {
     const starterPayload = {
       id: slugify(quiz.title || "new-quiz"),
       title: quiz.title || "New Quiz",
+      description: normalizeQuizDescription(quiz.description),
+      settings: normalizeQuizSettings(quiz.settings),
       category: category.name || "Category",
       questions: Array.isArray(quiz.questions) && quiz.questions.length > 0
         ? quiz.questions.map((item) => ({
@@ -1340,6 +1386,7 @@ async function loadLibraryFromHandleCategoryFolders(rootHandle, rootFolder) {
       const quiz = createQuiz(quizTitleFromFilePath(relativePath));
       quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
       quiz.sourcePath = `${rootFolder}/${relativePath}`;
+      applyLoadedQuizJsonToQuiz(quiz, quizJson);
       quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
       category.quizzes.push(quiz);
     }
@@ -1386,6 +1433,7 @@ async function loadLibraryFromHandleManifest(rootHandle, rootFolder) {
       const quiz = createQuiz(quizTitleFromFilePath(relativePath));
       quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
       quiz.sourcePath = `${rootFolder}/${relativePath}`;
+      applyLoadedQuizJsonToQuiz(quiz, quizJson);
       quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
       category.quizzes.push(quiz);
     }
@@ -1420,6 +1468,7 @@ async function loadLibraryFromCategoryFolders(rootFolder) {
       const quiz = createQuiz(quizTitleFromFilePath(relativeFilePath));
       quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativeFilePath));
       quiz.sourcePath = `${rootFolder}/${relativeFilePath}`;
+      applyLoadedQuizJsonToQuiz(quiz, quizJson);
       quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
       category.quizzes.push(quiz);
     }
@@ -1487,6 +1536,7 @@ async function loadLibraryFromManifest(context) {
       const quiz = createQuiz(quizTitleFromFilePath(relativePath));
       quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
       quiz.sourcePath = quizPath;
+      applyLoadedQuizJsonToQuiz(quiz, quizJson);
       quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
       category.quizzes.push(quiz);
     }
@@ -1851,6 +1901,7 @@ function renderQuizList() {
     row.className = `list-item ${quiz.id === state.selectedQuizId ? "active" : ""}`;
     row.innerHTML = `
       <button class="list-main" data-id="${quiz.id}" type="button">${quiz.title}</button>
+      <button class="icon-btn secondary" data-action="settings" data-id="${quiz.id}" type="button">Settings</button>
       <button class="icon-btn secondary" data-action="rename" data-id="${quiz.id}" type="button">Rename</button>
       <button class="icon-btn secondary" data-action="embed" data-id="${quiz.id}" type="button">Link</button>
       <button class="icon-btn danger" data-action="delete" data-id="${quiz.id}" type="button">x</button>
@@ -4305,6 +4356,8 @@ function getQuizData() {
   return {
     id: selectedQuiz ? selectedQuiz.id : "",
     title: selectedQuiz ? selectedQuiz.title : "Untitled Quiz",
+    description: selectedQuiz ? normalizeQuizDescription(selectedQuiz.description) : "",
+    settings: selectedQuiz ? normalizeQuizSettings(selectedQuiz.settings) : normalizeQuizSettings(null),
     fileName: selectedQuiz ? getSelectedQuizFileName() : "quiz.json",
     sourcePath: selectedQuiz ? (selectedQuiz.sourcePath || "") : "",
     category: category ? category.name : "General",
@@ -4402,6 +4455,75 @@ function renameQuiz(id) {
   }
 
   showToast("Filename updated. Click Save Selected Quiz to write the new file.", "success");
+}
+
+function openQuizSettingsModal(quizId = state.selectedQuizId) {
+  const category = activeCategory();
+  if (!category) {
+    showToast("Select a category first.", "warning");
+    return;
+  }
+
+  const quiz = category.quizzes.find((item) => item.id === quizId);
+  if (!quiz) {
+    showToast("Select a quiz first.", "warning");
+    return;
+  }
+
+  const modal = document.getElementById("quizSettingsModal");
+  if (!(modal instanceof HTMLElement)) return;
+
+  modal.dataset.quizId = quiz.id;
+  document.getElementById("quizSettingsTitle").value = quiz.title || "";
+  document.getElementById("quizSettingsDescription").value = normalizeQuizDescription(quiz.description);
+
+  const normalizedSettings = normalizeQuizSettings(quiz.settings);
+  document.getElementById("quizSettingsOrder").value = normalizedSettings.questionOrder;
+  document.getElementById("quizSettingsLimit").value = normalizedSettings.questionLimit ? String(normalizedSettings.questionLimit) : "";
+
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeQuizSettingsModal() {
+  const modal = document.getElementById("quizSettingsModal");
+  if (!(modal instanceof HTMLElement)) return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+  modal.dataset.quizId = "";
+  document.body.classList.remove("modal-open");
+}
+
+function saveQuizSettingsFromModal() {
+  const modal = document.getElementById("quizSettingsModal");
+  if (!(modal instanceof HTMLElement)) return;
+
+  const quizId = String(modal.dataset.quizId || "");
+  if (!quizId) return;
+
+  const category = activeCategory();
+  if (!category) return;
+
+  const quiz = category.quizzes.find((item) => item.id === quizId);
+  if (!quiz) return;
+
+  const nextTitleRaw = document.getElementById("quizSettingsTitle").value.trim();
+  if (!nextTitleRaw) {
+    showToast("Quiz name is required.", "warning");
+    return;
+  }
+
+  quiz.title = nextTitleRaw;
+  quiz.description = normalizeQuizDescription(document.getElementById("quizSettingsDescription").value);
+  quiz.settings = normalizeQuizSettings({
+    questionOrder: document.getElementById("quizSettingsOrder").value,
+    questionLimit: document.getElementById("quizSettingsLimit").value
+  });
+
+  renderAll();
+  closeQuizSettingsModal();
+  showToast("Quiz settings saved.", "success");
 }
 
 function addQuestion() {
@@ -4570,6 +4692,8 @@ function buildPersistedQuizPayload() {
   return {
     id: selectedQuiz.id || slugify(selectedQuiz.title || "quiz"),
     title: selectedQuiz.title || "Untitled Quiz",
+    description: normalizeQuizDescription(selectedQuiz.description),
+    settings: normalizeQuizSettings(selectedQuiz.settings),
     category: category.name || "General",
     questions: (selectedQuiz.questions || []).map((item) => {
       const question = {
@@ -4861,6 +4985,9 @@ function setSolutionPanelCollapsed(collapsed) {
 
 document.getElementById("addCategoryBtn").addEventListener("click", addCategory);
 document.getElementById("addQuizBtn").addEventListener("click", addQuiz);
+document.getElementById("openQuizSettingsBtn").addEventListener("click", () => {
+  openQuizSettingsModal();
+});
 document.getElementById("addQuestionBtn").addEventListener("click", addQuestion);
 
 document.getElementById("categorySearch").addEventListener("input", renderCategoryList);
@@ -4950,6 +5077,11 @@ document.getElementById("quizList").addEventListener("click", (event) => {
 
   if (target.dataset.action === "rename") {
     renameQuiz(id);
+    return;
+  }
+
+  if (target.dataset.action === "settings") {
+    openQuizSettingsModal(id);
     return;
   }
 
@@ -5146,6 +5278,22 @@ document.getElementById("clearQuizBtn").addEventListener("click", () => {
   renderAll();
 });
 
+document.getElementById("closeQuizSettingsBtn").addEventListener("click", () => {
+  closeQuizSettingsModal();
+});
+
+document.getElementById("cancelQuizSettingsBtn").addEventListener("click", () => {
+  closeQuizSettingsModal();
+});
+
+document.getElementById("saveQuizSettingsBtn").addEventListener("click", () => {
+  saveQuizSettingsFromModal();
+});
+
+document.querySelector("[data-close-quiz-settings='true']").addEventListener("click", () => {
+  closeQuizSettingsModal();
+});
+
 document.getElementById("refreshRootBtn").addEventListener("click", async () => {
   await refreshLibraryFromRoot(true);
 });
@@ -5231,6 +5379,7 @@ function loadImportedData(data) {
   if (Array.isArray(data.questions) && !Array.isArray(data.categories)) {
     const category = createCategory(data.category || "General");
     const quiz = createQuiz(data.title || "Imported Quiz");
+    applyLoadedQuizJsonToQuiz(quiz, data);
     quiz.fileName = buildUniqueQuizFileName(data.fileName || data.title || "Imported Quiz", quiz.id);
     quiz.sourcePath = data.sourcePath || data.fileName || "";
     quiz.questions = data.questions.map(normalizeQuestion);
@@ -5252,6 +5401,8 @@ function loadImportedData(data) {
         ? category.quizzes.map((quiz) => ({
           id: quiz.id || `quiz-${quizSeed++}`,
           title: quiz.title || "Untitled Quiz",
+          description: normalizeQuizDescription(quiz.description),
+          settings: normalizeQuizSettings(quiz.settings),
           fileName: quiz.fileName || "",
           sourcePath: quiz.sourcePath || "",
           questions: Array.isArray(quiz.questions) ? quiz.questions.map(normalizeQuestion) : []
@@ -5266,6 +5417,7 @@ function loadImportedData(data) {
   if (Array.isArray(data.questions)) {
     const category = createCategory("General");
     const quiz = createQuiz(data.title || "Imported Quiz");
+    applyLoadedQuizJsonToQuiz(quiz, data);
     quiz.fileName = buildUniqueQuizFileName(data.fileName || data.title || "Imported Quiz", quiz.id);
     quiz.sourcePath = data.sourcePath || data.fileName || "";
     quiz.questions = data.questions.map(normalizeQuestion);

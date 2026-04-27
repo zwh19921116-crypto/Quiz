@@ -62,7 +62,10 @@
           <aside class="panel-column">
             <div class="panel-head">
               <h2>Select Quiz</h2>
-              <button class="btn small" id="addQuizBtn">Add</button>
+              <div class="panel-head-actions">
+                <button class="btn secondary small" id="openQuizSettingsBtn" type="button">Settings</button>
+                <button class="btn small" id="addQuizBtn">Add</button>
+              </div>
             </div>
             <input type="search" id="quizSearch" class="panel-search" placeholder="Search quizzes..." autocomplete="off" />
             <div id="quizList" class="item-list"></div>
@@ -549,6 +552,39 @@
         </select>
         <textarea id="iframeCodeOutput" rows="4" readonly placeholder="Use the Link button beside a quiz to generate either a direct link or iframe code."></textarea>
       </section>
+    </div>
+  </div>
+
+  <div id="quizSettingsModal" class="viewer-modal hidden" aria-hidden="true">
+    <div class="viewer-modal-backdrop" data-close-quiz-settings="true"></div>
+    <div class="viewer-modal-dialog quiz-settings-dialog" role="dialog" aria-modal="true" aria-labelledby="quizSettingsModalTitle">
+      <div class="viewer-modal-header">
+        <h2 id="quizSettingsModalTitle">Quiz Settings</h2>
+        <button class="icon-btn" id="closeQuizSettingsBtn" type="button" aria-label="Close quiz settings">x</button>
+      </div>
+      <div class="viewer-modal-body">
+        <div class="quiz-settings-form">
+          <label for="quizSettingsTitle">Quiz Name</label>
+          <input id="quizSettingsTitle" type="text" placeholder="Quiz title" />
+
+          <label for="quizSettingsDescription">Description</label>
+          <textarea id="quizSettingsDescription" rows="3" placeholder="Optional description shown in viewer"></textarea>
+
+          <label for="quizSettingsOrder">Question Order</label>
+          <select id="quizSettingsOrder">
+            <option value="ordered">Ordered</option>
+            <option value="random">Random</option>
+          </select>
+
+          <label for="quizSettingsLimit">Question Limit (max shown)</label>
+          <input id="quizSettingsLimit" type="number" min="1" step="1" placeholder="No limit" />
+          <p class="helper-text">Example: limit 10 means show at most 10 questions from this quiz.</p>
+        </div>
+      </div>
+      <div class="quiz-settings-actions">
+        <button class="btn secondary" id="cancelQuizSettingsBtn" type="button">Cancel</button>
+        <button class="btn" id="saveQuizSettingsBtn" type="button">Save Settings</button>
+      </div>
     </div>
   </div>
 

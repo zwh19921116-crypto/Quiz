@@ -287,6 +287,12 @@ textarea {
   margin-bottom: 10px;
 }
 
+.panel-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .panel-head h2 {
   font-size: 1rem;
   margin: 0;
@@ -1046,6 +1052,27 @@ body.modal-open {
 .viewer-modal-body {
   display: grid;
   gap: 14px;
+}
+
+.quiz-settings-dialog {
+  width: min(620px, 100%);
+}
+
+.quiz-settings-form {
+  display: grid;
+  gap: 8px;
+}
+
+.quiz-settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.quiz-description {
+  margin: 6px 0 0;
+  color: #475569;
 }
 
 .solution-modal-section {

@@ -2,6 +2,10 @@ let quizData = null;
 let currentIndex = 0;
 let score = 0;
 let answerChecked = false;
+const QUIZ_ORDER_MODES = {
+  ORDERED: "ordered",
+  RANDOM: "random"
+};
 const ENCOURAGING_INCORRECT_MESSAGES = [
   "Nice effort. You are making progress.",
   "Great work staying focused.",
@@ -39,6 +43,53 @@ function buildShortAnswerIncorrectFeedback(expectedAnswers) {
     correctAnswerText: `Correct answer: ${fallback}`,
     encouragementText: `${getRandomEncouragingMessage()} Press "Show Solution" to see where you went wrong.`
   };
+}
+
+function normalizeQuizDescription(value) {
+  return String(value || "").trim();
+}
+
+function normalizeQuizQuestionOrder(value) {
+  return String(value || "").trim().toLowerCase() === QUIZ_ORDER_MODES.RANDOM
+    ? QUIZ_ORDER_MODES.RANDOM
+    : QUIZ_ORDER_MODES.ORDERED;
+}
+
+function normalizeQuizQuestionLimit(value) {
+  const parsed = Number.parseInt(value, 10);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : null;
+}
+
+function normalizeQuizSettings(value) {
+  const settings = value && typeof value === "object" ? value : {};
+  return {
+    questionOrder: normalizeQuizQuestionOrder(settings.questionOrder),
+    questionLimit: normalizeQuizQuestionLimit(settings.questionLimit)
+  };
+}
+
+function shuffleQuestions(items) {
+  const list = Array.isArray(items) ? items.slice() : [];
+  for (let i = list.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [list[i], list[j]] = [list[j], list[i]];
+  }
+  return list;
+}
+
+function applyQuizSettingsToQuestions(questions, settings) {
+  const normalizedSettings = normalizeQuizSettings(settings);
+  let next = Array.isArray(questions) ? questions.slice() : [];
+
+  if (normalizedSettings.questionOrder === QUIZ_ORDER_MODES.RANDOM) {
+    next = shuffleQuestions(next);
+  }
+
+  if (normalizedSettings.questionLimit) {
+    next = next.slice(0, normalizedSettings.questionLimit);
+  }
+
+  return next;
 }
 
 function isDataUrl(value) {
@@ -165,12 +216,30 @@ function resetRuntimeForLoadedQuiz() {
 }
 
 function applySingleQuiz(quiz) {
-  quizData = quiz;
+  const normalizedSettings = normalizeQuizSettings(quiz.settings);
+  const preparedQuestions = applyQuizSettingsToQuestions(quiz.questions || [], normalizedSettings);
+  quizData = {
+    ...quiz,
+    description: normalizeQuizDescription(quiz.description),
+    settings: normalizedSettings,
+    questions: preparedQuestions
+  };
 
   resetRuntimeForLoadedQuiz();
-  document.getElementById("quizTitle").textContent = quiz.title || "Quiz Viewer";
+  document.getElementById("quizTitle").textContent = quizData.title || "Quiz Viewer";
 
-  if (!Array.isArray(quiz.questions) || quiz.questions.length === 0) {
+  const quizDescription = document.getElementById("quizDescription");
+  if (quizDescription) {
+    if (quizData.description) {
+      quizDescription.textContent = quizData.description;
+      quizDescription.classList.remove("hidden");
+    } else {
+      quizDescription.textContent = "";
+      quizDescription.classList.add("hidden");
+    }
+  }
+
+  if (!Array.isArray(quizData.questions) || quizData.questions.length === 0) {
     document.getElementById("quizContainer").innerHTML = "<p>This quiz has no questions yet.</p>";
     document.getElementById("checkAnswerBtn").style.display = "none";
     document.getElementById("nextQuestionBtn").style.display = "none";
@@ -208,6 +277,8 @@ function splitPath(value) {
 function parseQuizPayload(rawData) {
   return {
     title: rawData.title || "Quiz Viewer",
+    description: normalizeQuizDescription(rawData.description),
+    settings: normalizeQuizSettings(rawData.settings),
     questions: Array.isArray(rawData.questions) ? rawData.questions.map(normalizeQuestion) : []
   };
 }
