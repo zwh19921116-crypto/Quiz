@@ -3647,7 +3647,7 @@ function checkAnswer() {
 
   const resultBox = document.getElementById("resultBox");
   if (resultBox) {
-    resultBox.textContent = isCorrect ? "Correct" : "Incorrect";
+    resultBox.textContent = isCorrect ? "Correct" : "Not quite, keep going!";
     resultBox.className = isCorrect ? "result-correct" : "result-incorrect";
   }
 
