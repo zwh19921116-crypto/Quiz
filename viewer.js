@@ -31,6 +31,13 @@ function buildIncorrectFeedbackMessage() {
   return `${getRandomEncouragingMessage()} Press "Show Solution" to see where you went wrong.`;
 }
 
+function buildShortAnswerIncorrectFeedback(expectedAnswers) {
+  const fallback = Array.isArray(expectedAnswers) && expectedAnswers.length > 0
+    ? expectedAnswers.join(", ")
+    : "N/A";
+  return `${getRandomEncouragingMessage()} Correct answer: ${fallback}. Press "Show Solution" to see where you went wrong.`;
+}
+
 function isDataUrl(value) {
   return /^data:/i.test(String(value || "").trim());
 }
@@ -3673,13 +3680,19 @@ function checkAnswer() {
     score += 1;
   }
 
+  const expectedAnswers = getExpectedAnswers(question);
+
   const resultBox = document.getElementById("resultBox");
   if (resultBox) {
-    resultBox.textContent = isCorrect ? "Correct" : buildIncorrectFeedbackMessage();
+    if (isCorrect) {
+      resultBox.textContent = "Correct";
+    } else if (question.resultType === "short-answer") {
+      resultBox.textContent = buildShortAnswerIncorrectFeedback(expectedAnswers);
+    } else {
+      resultBox.textContent = buildIncorrectFeedbackMessage();
+    }
     resultBox.className = isCorrect ? "result-correct" : "result-incorrect";
   }
-
-  const expectedAnswers = getExpectedAnswers(question);
 
   // Visual feedback for selected options
   highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswers);
