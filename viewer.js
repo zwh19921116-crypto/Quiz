@@ -3479,12 +3479,9 @@ function renderPdfAttachmentPreviews(attachments) {
 }
 
 function renderAnswerInput(question) {
-  if (question.interactiveApp && question.interactiveApp.type) {
-    return `
-      <div class="interactive-app-host" id="mainInteractiveAppHost"></div>
-    `;
-  }
-
+  // Interactive apps should only appear in the solution modal, not in the main question
+  // So we skip them here and show the regular answer input instead
+  
   if (question.resultType === "short-answer") {
     return `
       <div class="short-answer-box">
@@ -3589,24 +3586,11 @@ function renderQuestion() {
 
   wireOptionSelectionUI(question);
   
-  // Wire up interactive app if present
-  if (question.interactiveApp && question.interactiveApp.type) {
-    const host = quizContainer.querySelector("#mainInteractiveAppHost");
-    if (host) {
-      mountInteractiveApp(host, cloneInteractiveApp(question.interactiveApp));
-    }
-  }
-  
   renderNotesPanel(question);
   updateHeader();
 }
 
 function collectUserAnswer(question) {
-  // For interactive apps, we don't collect a traditional answer
-  if (question.interactiveApp && question.interactiveApp.type) {
-    return "interactive-app";
-  }
-
   if (question.resultType === "short-answer") {
     const input = document.getElementById("shortAnswerInput");
     return input ? input.value.trim() : "";
@@ -3622,11 +3606,6 @@ function collectUserAnswer(question) {
 }
 
 function answersMatch(question, userAnswer) {
-  // Interactive apps are always correct
-  if (question.interactiveApp && question.interactiveApp.type) {
-    return true;
-  }
-
   const expected = getExpectedAnswers(question).map(norm);
 
   if (question.resultType === "checkbox") {
@@ -3644,11 +3623,6 @@ function answersMatch(question, userAnswer) {
 }
 
 function validateAnswer(question, userAnswer) {
-  // Interactive apps are always valid
-  if (question.interactiveApp && question.interactiveApp.type) {
-    return true;
-  }
-
   if (question.resultType === "checkbox") {
     return Array.isArray(userAnswer) && userAnswer.length > 0;
   }
@@ -3687,18 +3661,6 @@ function checkAnswer() {
 }
 
 function prepareSolutionModal(question, expectedAnswers) {
-  // For interactive apps, don't populate solution modal with redundant content
-  if (question.interactiveApp && question.interactiveApp.type) {
-    const modalBody = document.getElementById("solutionModalBody");
-    modalBody.innerHTML = `
-      <div class="solution-modal-section">
-        <p class="solution-modal-label">Interactive App</p>
-        <p class="solution-modal-answer">See the app above for visualization</p>
-      </div>
-    `;
-    return;
-  }
-
   const fallback = expectedAnswers.length > 0 ? expectedAnswers.join(question.resultType === "checkbox" ? ", " : "") : "N/A";
   const rawSolution = String(question.solution || "").trim();
   const defaultSolution = `Correct answer: ${fallback}`;
@@ -3757,14 +3719,6 @@ function closeSolutionModal() {
 }
 
 function highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswers) {
-  // For interactive apps, show a result message
-  if (question.interactiveApp && question.interactiveApp.type) {
-    const resultBox = document.getElementById("resultBox");
-    resultBox.textContent = "✓ Correct!";
-    resultBox.className = "result-correct";
-    return;
-  }
-
   if (question.resultType === "multiple-choice" || question.resultType === "true-false") {
     const options = document.querySelectorAll(".option-item");
     options.forEach((option) => {
