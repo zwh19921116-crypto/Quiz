@@ -1565,17 +1565,37 @@ async function loadLibraryFromRoot() {
       loadedCategories = await loadLibraryFromCategoryFolders(rootFolder);
       sourceMode = "folder-scan";
     } catch (folderScanError) {
+      // Fallback 1: Try File System Access API if available
       try {
         const shouldTryHandleFallback = supportsFolderDeletion();
         if (!shouldTryHandleFallback) {
           throw folderScanError;
         }
 
-        const configuredRoot = await getConfiguredRootHandle({ create: false });
+        const configuredRoot = await getConfiguredRootHandle({ create: false, allowPrompt: true });
+        if (!configuredRoot) {
+          throw folderScanError;
+        }
+
         loadedCategories = await loadLibraryFromHandleCategoryFolders(configuredRoot, rootFolder);
         sourceMode = "handle-folder-scan";
-      } catch (localFolderError) {
-        throw new Error(`Could not read category folders from local root: ${state.rootFolder}`);
+      } catch (handleError) {
+        // Fallback 2: Try manifest (index.json)
+        try {
+          const indexPath = `${rootFolder}/index.json`;
+          const response = await fetch(indexPath, { cache: "no-store" });
+          if (!response.ok) {
+            throw folderScanError; // Re-throw original error if manifest not found
+          }
+          const manifest = await response.json();
+          if (!manifest || !Array.isArray(manifest.categories)) {
+            throw folderScanError;
+          }
+          loadedCategories = await loadLibraryFromManifest({ fetchBase: rootFolder });
+          sourceMode = "manifest";
+        } catch (manifestError) {
+          throw new Error(`Could not read category folders from local root: ${state.rootFolder}`);
+        }
       }
     }
   } else if (context.githubRepo) {
@@ -3133,7 +3153,7 @@ function buildFractionsMarkup(config) {
     add: "+",
     subtract: "-",
     multiply: "x",
-    divide: "÷"
+    divide: "ï¿½"
   };
 
   const fractionA = simplifyFraction(config.fractionA && config.fractionA.numerator, config.fractionA && config.fractionA.denominator);
