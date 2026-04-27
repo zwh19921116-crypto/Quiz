@@ -908,12 +908,13 @@ textarea {
 
 .viewer-actions {
   margin-top: 14px;
-  justify-content: space-between;
-  gap: 18px;
+  justify-content: flex-start;
+  gap: 8px;
 }
 
 .viewer-actions .btn {
-  min-width: 180px;
+  min-width: auto;
+  padding: 8px 16px;
 }
 
 #resultBox {
@@ -1198,11 +1199,12 @@ body.modal-open {
   }
 
   .viewer-actions {
-    gap: 10px;
+    gap: 8px;
+    justify-content: flex-start;
   }
 
   .viewer-actions .btn {
-    min-width: 0;
+    min-width: auto;
   }
 
   .progress-row {
