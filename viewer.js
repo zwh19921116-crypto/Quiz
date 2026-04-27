@@ -881,6 +881,50 @@ function normalizeBoxPlotDatasets(config) {
   ];
 }
 
+function clampBoxPlotDatasetCount(value) {
+  const count = Number.parseInt(value, 10);
+  if (!Number.isInteger(count)) return 2;
+  return Math.max(1, Math.min(8, count));
+}
+
+function parseBoxPlotDatasetsFromText(text, datasetCount) {
+  const count = clampBoxPlotDatasetCount(datasetCount);
+  const lines = String(text || "").split(/\r?\n/).map((line) => line.trim());
+  const datasets = [];
+
+  for (let index = 0; index < count; index += 1) {
+    const line = lines[index] || "";
+    const delimiterIndex = line.indexOf(":");
+    const hasDelimiter = delimiterIndex >= 0;
+    const rawLabel = hasDelimiter ? line.slice(0, delimiterIndex).trim() : "";
+    const rawValues = hasDelimiter ? line.slice(delimiterIndex + 1) : line;
+    const values = String(rawValues || "")
+      .split(/[\s,]+/)
+      .map((item) => item.trim())
+      .filter((item) => item !== "")
+      .map((item) => Number.parseFloat(item))
+      .filter((item) => Number.isFinite(item));
+
+    datasets.push({
+      label: rawLabel || defaultBoxPlotDatasetLabel(index),
+      values
+    });
+  }
+
+  return datasets;
+}
+
+function serializeBoxPlotDatasets(datasets) {
+  if (!Array.isArray(datasets)) return "";
+  return datasets
+    .map((item, index) => {
+      const label = String(item && item.label ? item.label : "").trim() || defaultBoxPlotDatasetLabel(index);
+      const values = Array.isArray(item && item.values) ? item.values : [];
+      return `${label}: ${values.join(", ")}`;
+    })
+    .join("\n");
+}
+
 function computeLinearRegression(points) {
   const valid = (Array.isArray(points) ? points : [])
     .map((point) => ({ x: Number(point.x), y: Number(point.y) }))
@@ -942,14 +986,75 @@ function buildBoxPlotMarkup(config) {
   const title = escapeHtml(String(config.title || "Compare Datasets"));
   const rows = normalizeBoxPlotDatasets(config).map((dataset, index) => ({
     label: dataset.label || defaultBoxPlotDatasetLabel(index),
-    stats: computeFiveNumber(dataset.values || [])
+    stats: computeFiveNumber(dataset.values || []),
+    color: ["#2563eb", "#16a34a", "#f59e0b", "#7c3aed", "#0f766e", "#dc2626", "#0891b2", "#9333ea"][index % 8]
   }));
-  if (!rows.some((item) => item.stats)) return "";
+  const statsList = rows.map((item) => item.stats).filter((item) => item);
+  if (statsList.length === 0) return "";
+
+  const minValue = Math.min(...statsList.map((item) => item.min));
+  const maxValue = Math.max(...statsList.map((item) => item.max));
+  const axisMin = Math.floor(minValue);
+  const axisMax = Math.ceil(maxValue);
+  const axisRange = axisMax - axisMin || 1;
+  const left = 92;
+  const right = 360;
+  const rowStart = 52;
+  const rowGap = 40;
+  const axisY = rowStart + Math.max(0, rows.length - 1) * rowGap + 30;
+  const svgHeight = Math.max(172, axisY + 22);
+  const mapX = (value) => left + ((value - axisMin) / axisRange) * (right - left);
+
+  const renderRow = (label, stats, index, color) => {
+    const y = rowStart + index * rowGap;
+    if (!stats) {
+      return `<text x="14" y="${y + 4}" font-size="12" fill="#64748b">${escapeHtml(label)}</text><text x="${left}" y="${y + 4}" font-size="12" fill="#94a3b8">no data</text>`;
+    }
+    const xMin = mapX(stats.min);
+    const xQ1 = mapX(stats.q1);
+    const xMedian = mapX(stats.median);
+    const xQ3 = mapX(stats.q3);
+    const xMax = mapX(stats.max);
+    return `
+      <text x="14" y="${y + 4}" font-size="12" fill="#0f172a" font-weight="700">${escapeHtml(label)}</text>
+      <line x1="${xMin}" y1="${y}" x2="${xQ1}" y2="${y}" stroke="#64748b" stroke-width="2"/>
+      <line x1="${xQ3}" y1="${y}" x2="${xMax}" y2="${y}" stroke="#64748b" stroke-width="2"/>
+      <line x1="${xMin}" y1="${y - 10}" x2="${xMin}" y2="${y + 10}" stroke="#64748b" stroke-width="2"/>
+      <line x1="${xMax}" y1="${y - 10}" x2="${xMax}" y2="${y + 10}" stroke="#64748b" stroke-width="2"/>
+      <rect x="${Math.min(xQ1, xQ3)}" y="${y - 12}" width="${Math.max(2, Math.abs(xQ3 - xQ1))}" height="24" fill="${color}" fill-opacity="0.25" stroke="${color}" stroke-width="2"/>
+      <line x1="${xMedian}" y1="${y - 12}" x2="${xMedian}" y2="${y + 12}" stroke="${color}" stroke-width="2"/>
+    `;
+  };
+
+  const axisTickValues = [];
+  for (let value = axisMin; value <= axisMax; value += 1) {
+    axisTickValues.push(value);
+  }
+  const labelSkip = axisTickValues.length > 24 ? Math.ceil(axisTickValues.length / 24) : 1;
+  const axisTicks = axisTickValues.map((value, index) => {
+    const x = mapX(value);
+    const label = index % labelSkip === 0
+      ? `<text x="${x}" y="${axisY + 15}" text-anchor="middle" font-size="10" fill="#64748b">${value}</text>`
+      : "";
+    return `<line x1="${x}" y1="${axisY - 4}" x2="${x}" y2="${axisY + 2}" stroke="#94a3b8"/>${label}`;
+  }).join("");
 
   const line = (label, stats) => stats
     ? `<p>${escapeHtml(label)}: min=${stats.min.toFixed(2)}, Q1=${stats.q1.toFixed(2)}, median=${stats.median.toFixed(2)}, Q3=${stats.q3.toFixed(2)}, max=${stats.max.toFixed(2)}</p>`
     : `<p>${escapeHtml(label)}: no data</p>`;
-  return `<div class="simple-card"><p class="bar-chart-title">${title}</p>${rows.map((row) => line(row.label, row.stats)).join("")}</div>`;
+
+  return `
+    <div class="simple-card">
+      <p class="bar-chart-title">${title}</p>
+      <svg viewBox="0 0 380 ${svgHeight}" width="100%" preserveAspectRatio="xMidYMid meet">
+        <rect x="0" y="0" width="380" height="${svgHeight}" fill="#f8fafc" stroke="#dbe6f3"/>
+        ${rows.map((row, index) => renderRow(row.label, row.stats, index, row.color)).join("")}
+        <line x1="${left}" y1="${axisY}" x2="${right}" y2="${axisY}" stroke="#64748b" stroke-width="1.5"/>
+        ${axisTicks}
+      </svg>
+      ${rows.map((row) => line(row.label, row.stats)).join("")}
+    </div>
+  `;
 }
 
 function buildScatterPlotMarkup(config) {
@@ -2618,40 +2723,40 @@ function mountHistogramInteractive(host, app) {
 
 function mountBoxPlotInteractive(host, app) {
   const config = app.config || {};
-  if (!Array.isArray(config.valuesA)) config.valuesA = [];
-  if (!Array.isArray(config.valuesB)) config.valuesB = [];
+  const normalizedDatasets = normalizeBoxPlotDatasets(config);
+  config.datasets = normalizedDatasets;
   host.innerHTML = `
     <div class="interactive-app-preview"></div>
     <div class="interactive-app-controls">
       <label class="interactive-control-stack"><span>Chart Title</span><input type="text" value="${escapeHtml(config.title || "Compare Datasets")}" data-role="box-title" /></label>
-      <div class="interactive-control-grid">
-        <label class="interactive-control-row compact"><span>Label A</span><input type="text" value="${escapeHtml(config.labelA || "A")}" data-role="box-label-a" /></label>
-        <label class="interactive-control-row compact"><span>Label B</span><input type="text" value="${escapeHtml(config.labelB || "B")}" data-role="box-label-b" /></label>
-      </div>
-      <label class="interactive-control-stack"><span>Values A</span><textarea rows="2" data-role="box-values-a">${escapeHtml(config.valuesA.join(", "))}</textarea></label>
-      <label class="interactive-control-stack"><span>Values B</span><textarea rows="2" data-role="box-values-b">${escapeHtml(config.valuesB.join(", "))}</textarea></label>
+      <label class="interactive-control-row compact"><span>Dataset Count</span><input type="number" min="1" max="8" step="1" value="${clampBoxPlotDatasetCount(normalizedDatasets.length)}" data-role="box-count" /></label>
+      <label class="interactive-control-stack"><span>Datasets (one per line: label: values)</span><textarea rows="5" data-role="box-datasets">${escapeHtml(serializeBoxPlotDatasets(normalizedDatasets))}</textarea></label>
     </div>
     <div class="interactive-app-details"></div>
   `;
 
   const preview = host.querySelector(".interactive-app-preview");
-  const parseList = (raw) => String(raw || "")
-    .split(/[\s,]+/)
-    .map((item) => item.trim())
-    .filter((item) => item !== "")
-    .map((item) => Number.parseFloat(item))
-    .filter((item) => Number.isFinite(item));
   const rerender = () => {
     config.title = String(host.querySelector("[data-role='box-title']").value || "").trim();
-    config.labelA = String(host.querySelector("[data-role='box-label-a']").value || "").trim();
-    config.labelB = String(host.querySelector("[data-role='box-label-b']").value || "").trim();
-    config.valuesA = parseList(host.querySelector("[data-role='box-values-a']").value);
-    config.valuesB = parseList(host.querySelector("[data-role='box-values-b']").value);
+    const countInput = host.querySelector("[data-role='box-count']");
+    const datasetsInput = host.querySelector("[data-role='box-datasets']");
+    const count = clampBoxPlotDatasetCount(countInput.value);
+    countInput.value = String(count);
+    config.datasets = parseBoxPlotDatasetsFromText(datasetsInput.value, count);
+    datasetsInput.value = serializeBoxPlotDatasets(config.datasets);
+
+    // Keep legacy fields synced for older consumers.
+    config.labelA = config.datasets[0] ? config.datasets[0].label : "A";
+    config.valuesA = config.datasets[0] ? config.datasets[0].values : [];
+    config.labelB = config.datasets[1] ? config.datasets[1].label : "B";
+    config.valuesB = config.datasets[1] ? config.datasets[1].values : [];
+
     updateInteractivePreview(preview, app);
     updateInteractiveDetails(host, app);
   };
 
   host.querySelectorAll("input, textarea").forEach((input) => input.addEventListener("input", rerender));
+  host.querySelectorAll("input, textarea").forEach((input) => input.addEventListener("change", rerender));
   rerender();
 }
 

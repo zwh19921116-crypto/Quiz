@@ -4656,6 +4656,9 @@ async function writeSelectedQuizToDisk(options = {}) {
 }
 
 function downloadSelectedQuizJson() {
+  if (activeQuestion()) {
+    updateQuestionFromForm();
+  }
   const json = JSON.stringify(getQuizData(), null, 2);
   const blob = new Blob([json], { type: "application/json" });
   const url = URL.createObjectURL(blob);
@@ -4670,6 +4673,9 @@ function downloadSelectedQuizJson() {
 }
 
 async function saveSelectedQuiz(options = {}) {
+  if (activeQuestion()) {
+    updateQuestionFromForm();
+  }
   const { allowPrompt = true } = options;
   const saved = await writeSelectedQuizToDisk({ allowPrompt });
   if (!saved) {
@@ -5094,6 +5100,9 @@ document.getElementById("downloadQuizBtn").addEventListener("click", () => {
 });
 
 document.getElementById("copyJsonBtn").addEventListener("click", async () => {
+  if (activeQuestion()) {
+    updateQuestionFromForm();
+  }
   const json = JSON.stringify(getQuizData(), null, 2);
   try {
     await navigator.clipboard.writeText(json);
