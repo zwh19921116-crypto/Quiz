@@ -524,7 +524,14 @@ textarea {
 }
 
 .interactive-control-row.compact {
-  grid-template-columns: 44px minmax(0, 1fr);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.interactive-control-row.compact span {
+  white-space: nowrap;
 }
 
 .interactive-control-stack {
@@ -820,7 +827,10 @@ textarea {
   }
 
   .interactive-control-row.compact {
-    grid-template-columns: 1fr;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
   }
 }
 /* ── End Interactive App ────────────────────────────────────── */

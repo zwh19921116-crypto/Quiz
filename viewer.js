@@ -2753,7 +2753,7 @@ function mountBoxPlotInteractive(host, app) {
   host.innerHTML = `
     <div class="interactive-app-preview"></div>
     <div class="interactive-app-controls">
-      <label class="interactive-control-row compact"><span>Dataset Count</span><input type="number" min="1" max="8" step="1" value="${clampBoxPlotDatasetCount(normalizedDatasets.length)}" data-role="box-count" style="width:50px" /></label>
+      <label class="interactive-control-row compact"><span>Dataset Count</span><input type="number" min="1" max="8" step="1" value="${clampBoxPlotDatasetCount(normalizedDatasets.length)}" data-role="box-count" style="width:64px" /></label>
       <label class="interactive-control-stack"><span>Datasets (one per line: label: values)</span><textarea rows="5" data-role="box-datasets">${escapeHtml(serializeBoxPlotDatasets(normalizedDatasets))}</textarea></label>
     </div>
     <div class="interactive-app-details"></div>
