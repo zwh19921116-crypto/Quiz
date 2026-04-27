@@ -2748,7 +2748,6 @@ function mountBoxPlotInteractive(host, app) {
   host.innerHTML = `
     <div class="interactive-app-preview"></div>
     <div class="interactive-app-controls">
-      <label class="interactive-control-stack"><span>Chart Title</span><input type="text" value="${escapeHtml(config.title || "Compare Datasets")}" data-role="box-title" /></label>
       <label class="interactive-control-row compact"><span>Dataset Count</span><input type="number" min="1" max="8" step="1" value="${clampBoxPlotDatasetCount(normalizedDatasets.length)}" data-role="box-count" /></label>
       <label class="interactive-control-stack"><span>Datasets (one per line: label: values)</span><textarea rows="5" data-role="box-datasets">${escapeHtml(serializeBoxPlotDatasets(normalizedDatasets))}</textarea></label>
     </div>
@@ -2757,7 +2756,6 @@ function mountBoxPlotInteractive(host, app) {
 
   const preview = host.querySelector(".interactive-app-preview");
   const rerender = () => {
-    config.title = String(host.querySelector("[data-role='box-title']").value || "").trim();
     const countInput = host.querySelector("[data-role='box-count']");
     const datasetsInput = host.querySelector("[data-role='box-datasets']");
     const count = clampBoxPlotDatasetCount(countInput.value);
