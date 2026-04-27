@@ -3496,8 +3496,9 @@ function renderAnswerInput(question) {
 
   const type = question.resultType === "checkbox" ? "checkbox" : "radio";
   const inputName = question.resultType === "checkbox" ? "activeQuestionCheck" : "activeQuestion";
-  const safeOptions = question.options.length > 0
-    ? question.options
+  const options = question.options || [];
+  const safeOptions = options.length > 0
+    ? options
     : (question.resultType === "true-false" ? ["True", "False"] : []);
 
   return `
