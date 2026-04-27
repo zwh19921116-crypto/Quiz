@@ -195,17 +195,20 @@ textarea {
 .box-dataset-count-group {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
+  margin: 12px 0 6px;
 }
 
 .box-dataset-count-group label {
   margin: 0;
   flex: 0 0 auto;
   white-space: nowrap;
+  font-weight: 600;
 }
 
 .box-dataset-count-group input {
-  width: auto;
+  width: 80px;
+  padding: 11px 12px;
   margin: 0;
 }
 
