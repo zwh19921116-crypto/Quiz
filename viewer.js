@@ -810,19 +810,75 @@ function quantile(sortedValues, q) {
   return sortedValues[low] * (1 - weight) + sortedValues[high] * weight;
 }
 
+function medianOfSorted(sortedValues) {
+  if (!Array.isArray(sortedValues) || sortedValues.length === 0) return Number.NaN;
+  const mid = Math.floor(sortedValues.length / 2);
+  if (sortedValues.length % 2 === 0) {
+    return (sortedValues[mid - 1] + sortedValues[mid]) / 2;
+  }
+  return sortedValues[mid];
+}
+
 function computeFiveNumber(values) {
   const sorted = (Array.isArray(values) ? values : [])
     .map((value) => Number(value))
     .filter((value) => Number.isFinite(value))
     .sort((a, b) => a - b);
   if (sorted.length === 0) return null;
+
+  const median = medianOfSorted(sorted);
+  if (!Number.isFinite(median)) return null;
+
+  const mid = Math.floor(sorted.length / 2);
+  const lowerHalf = sorted.length % 2 === 0 ? sorted.slice(0, mid) : sorted.slice(0, mid);
+  const upperHalf = sorted.length % 2 === 0 ? sorted.slice(mid) : sorted.slice(mid + 1);
+  const q1 = lowerHalf.length > 0 ? medianOfSorted(lowerHalf) : median;
+  const q3 = upperHalf.length > 0 ? medianOfSorted(upperHalf) : median;
+
   return {
     min: sorted[0],
-    q1: quantile(sorted, 0.25),
-    median: quantile(sorted, 0.5),
-    q3: quantile(sorted, 0.75),
+    q1,
+    median,
+    q3,
     max: sorted[sorted.length - 1]
   };
+}
+
+function defaultBoxPlotDatasetLabel(index) {
+  const offset = Number(index);
+  if (Number.isInteger(offset) && offset >= 0 && offset < 26) {
+    return String.fromCharCode(65 + offset);
+  }
+  return `Dataset ${Number.isInteger(offset) ? offset + 1 : 1}`;
+}
+
+function normalizeBoxPlotDatasets(config) {
+  const fromArray = Array.isArray(config && config.datasets) ? config.datasets : [];
+  const normalizedFromArray = fromArray.map((item, index) => ({
+    label: String(item && item.label ? item.label : "").trim() || defaultBoxPlotDatasetLabel(index),
+    values: (Array.isArray(item && item.values) ? item.values : [])
+      .map((value) => Number(value))
+      .filter((value) => Number.isFinite(value))
+  }));
+
+  if (normalizedFromArray.length > 0) {
+    return normalizedFromArray;
+  }
+
+  return [
+    {
+      label: String((config && config.labelA) || "").trim() || "A",
+      values: (Array.isArray(config && config.valuesA) ? config.valuesA : [])
+        .map((value) => Number(value))
+        .filter((value) => Number.isFinite(value))
+    },
+    {
+      label: String((config && config.labelB) || "").trim() || "B",
+      values: (Array.isArray(config && config.valuesB) ? config.valuesB : [])
+        .map((value) => Number(value))
+        .filter((value) => Number.isFinite(value))
+    }
+  ];
 }
 
 function computeLinearRegression(points) {
@@ -884,13 +940,16 @@ function buildHistogramMarkup(config) {
 
 function buildBoxPlotMarkup(config) {
   const title = escapeHtml(String(config.title || "Compare Datasets"));
-  const a = computeFiveNumber(config.valuesA || []);
-  const b = computeFiveNumber(config.valuesB || []);
-  if (!a && !b) return "";
+  const rows = normalizeBoxPlotDatasets(config).map((dataset, index) => ({
+    label: dataset.label || defaultBoxPlotDatasetLabel(index),
+    stats: computeFiveNumber(dataset.values || [])
+  }));
+  if (!rows.some((item) => item.stats)) return "";
+
   const line = (label, stats) => stats
     ? `<p>${escapeHtml(label)}: min=${stats.min.toFixed(2)}, Q1=${stats.q1.toFixed(2)}, median=${stats.median.toFixed(2)}, Q3=${stats.q3.toFixed(2)}, max=${stats.max.toFixed(2)}</p>`
     : `<p>${escapeHtml(label)}: no data</p>`;
-  return `<div class="simple-card"><p class="bar-chart-title">${title}</p>${line(config.labelA || "A", a)}${line(config.labelB || "B", b)}</div>`;
+  return `<div class="simple-card"><p class="bar-chart-title">${title}</p>${rows.map((row) => line(row.label, row.stats)).join("")}</div>`;
 }
 
 function buildScatterPlotMarkup(config) {
@@ -1136,7 +1195,7 @@ function buildFractionsMarkup(config) {
     add: "+",
     subtract: "-",
     multiply: "x",
-    divide: "÷"
+    divide: "ï¿½"
   };
 
   const fractionA = simplifyFraction(config.fractionA && config.fractionA.numerator, config.fractionA && config.fractionA.denominator);
@@ -1945,16 +2004,17 @@ function buildHistogramDetailLines(app) {
 
 function buildBoxPlotDetailLines(app) {
   const config = app.config || {};
-  const a = computeFiveNumber(config.valuesA || []);
-  const b = computeFiveNumber(config.valuesB || []);
+  const rows = normalizeBoxPlotDatasets(config).map((dataset, index) => ({
+    label: dataset.label || defaultBoxPlotDatasetLabel(index),
+    stats: computeFiveNumber(dataset.values || [])
+  }));
   const fmt = (label, stats) => {
     if (!stats) return `${label}: no data`;
     return `${label}: min=${roundInteractive(stats.min, 2)}, Q1=${roundInteractive(stats.q1, 2)}, median=${roundInteractive(stats.median, 2)}, Q3=${roundInteractive(stats.q3, 2)}, max=${roundInteractive(stats.max, 2)}`;
   };
   return [
     `Chart title: ${config.title || "Compare Datasets"}`,
-    fmt(config.labelA || "A", a),
-    fmt(config.labelB || "B", b)
+    ...rows.map((row) => fmt(row.label, row.stats))
   ];
 }
 
@@ -2980,7 +3040,7 @@ function mountFractionsInteractive(host, app) {
           <option value="add" ${config.operation === "add" ? "selected" : ""}>Addition (+)</option>
           <option value="subtract" ${config.operation === "subtract" ? "selected" : ""}>Subtraction (-)</option>
           <option value="multiply" ${config.operation === "multiply" ? "selected" : ""}>Multiplication (x)</option>
-          <option value="divide" ${config.operation === "divide" ? "selected" : ""}>Division (÷)</option>
+          <option value="divide" ${config.operation === "divide" ? "selected" : ""}>Division (ï¿½)</option>
         </select>
       </label>
       <label class="interactive-control-row compact">

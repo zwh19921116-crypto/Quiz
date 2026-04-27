@@ -300,20 +300,11 @@
                 <div id="boxPlotConfig" class="hidden">
                   <label for="boxTitle">Box Plot Title</label>
                   <input type="text" id="boxTitle" placeholder="Compare Datasets" class="nl-range-input" />
-                  <div class="nl-range-row">
-                    <div>
-                      <label for="boxLabelA">Dataset A Label</label>
-                      <input type="text" id="boxLabelA" value="A" class="nl-range-input" />
-                    </div>
-                    <div>
-                      <label for="boxLabelB">Dataset B Label</label>
-                      <input type="text" id="boxLabelB" value="B" class="nl-range-input" />
-                    </div>
-                  </div>
-                  <label for="boxValuesA">Dataset A Values</label>
-                  <textarea id="boxValuesA" rows="3" placeholder="8, 9, 10, 12, 14, 17, 20"></textarea>
-                  <label for="boxValuesB">Dataset B Values</label>
-                  <textarea id="boxValuesB" rows="3" placeholder="6, 8, 11, 12, 13, 14, 18"></textarea>
+                  <label for="boxDatasetCount">How Many Datasets</label>
+                  <input type="number" id="boxDatasetCount" min="1" max="8" step="1" value="2" class="nl-range-input" />
+                  <label for="boxDatasets">Datasets (one per line: label: values)</label>
+                  <textarea id="boxDatasets" rows="5" placeholder="A: 8, 9, 10, 12, 14, 17, 20&#10;B: 6, 8, 11, 12, 13, 14, 18"></textarea>
+                  <p class="helper-text">Example: C: 5, 7, 8, 9, 12</p>
                 </div>
 
                 <div id="scatterPlotConfig" class="hidden">

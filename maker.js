@@ -2171,6 +2171,80 @@ function parseNumericList(text) {
     .filter((value) => Number.isFinite(value));
 }
 
+function defaultBoxPlotDatasetLabel(index) {
+  const offset = Number(index);
+  if (Number.isInteger(offset) && offset >= 0 && offset < 26) {
+    return String.fromCharCode(65 + offset);
+  }
+  return `Dataset ${Number.isInteger(offset) ? offset + 1 : 1}`;
+}
+
+function clampBoxPlotDatasetCount(value) {
+  const count = Number.parseInt(value, 10);
+  if (!Number.isInteger(count)) return 2;
+  return Math.max(1, Math.min(8, count));
+}
+
+function normalizeBoxPlotDatasets(config) {
+  const fromArray = Array.isArray(config && config.datasets) ? config.datasets : [];
+  const normalizedFromArray = fromArray.map((item, index) => ({
+    label: String(item && item.label ? item.label : "").trim() || defaultBoxPlotDatasetLabel(index),
+    values: (Array.isArray(item && item.values) ? item.values : [])
+      .map((value) => Number(value))
+      .filter((value) => Number.isFinite(value))
+  }));
+
+  if (normalizedFromArray.length > 0) {
+    return normalizedFromArray;
+  }
+
+  return [
+    {
+      label: String((config && config.labelA) || "").trim() || "A",
+      values: (Array.isArray(config && config.valuesA) ? config.valuesA : [])
+        .map((value) => Number(value))
+        .filter((value) => Number.isFinite(value))
+    },
+    {
+      label: String((config && config.labelB) || "").trim() || "B",
+      values: (Array.isArray(config && config.valuesB) ? config.valuesB : [])
+        .map((value) => Number(value))
+        .filter((value) => Number.isFinite(value))
+    }
+  ];
+}
+
+function parseBoxPlotDatasetsFromText(text, datasetCount) {
+  const count = clampBoxPlotDatasetCount(datasetCount);
+  const lines = String(text || "").split(/\r?\n/).map((line) => line.trim());
+  const datasets = [];
+
+  for (let index = 0; index < count; index += 1) {
+    const line = lines[index] || "";
+    const delimiterIndex = line.indexOf(":");
+    const hasDelimiter = delimiterIndex >= 0;
+    const rawLabel = hasDelimiter ? line.slice(0, delimiterIndex).trim() : "";
+    const rawValues = hasDelimiter ? line.slice(delimiterIndex + 1) : line;
+    datasets.push({
+      label: rawLabel || defaultBoxPlotDatasetLabel(index),
+      values: parseNumericList(rawValues)
+    });
+  }
+
+  return datasets;
+}
+
+function serializeBoxPlotDatasets(datasets) {
+  if (!Array.isArray(datasets)) return "";
+  return datasets
+    .map((item, index) => {
+      const label = String(item && item.label ? item.label : "").trim() || defaultBoxPlotDatasetLabel(index);
+      const values = Array.isArray(item && item.values) ? item.values : [];
+      return `${label}: ${values.join(", ")}`;
+    })
+    .join("\n");
+}
+
 function parseBarChartItems(text) {
   return parseLineList(text)
     .map((line) => {
@@ -2409,10 +2483,10 @@ function buildDefaultInteractiveApp(type) {
         type,
         config: {
           title: "Compare Datasets",
-          labelA: "A",
-          labelB: "B",
-          valuesA: [8, 9, 10, 12, 14, 17, 20],
-          valuesB: [6, 8, 11, 12, 13, 14, 18]
+          datasets: [
+            { label: "A", values: [8, 9, 10, 12, 14, 17, 20] },
+            { label: "B", values: [6, 8, 11, 12, 13, 14, 18] }
+          ]
         }
       };
     case "scatter-plot":
@@ -2877,17 +2951,36 @@ function quantile(sortedValues, q) {
   return sortedValues[low] * (1 - weight) + sortedValues[high] * weight;
 }
 
+function medianOfSorted(sortedValues) {
+  if (!Array.isArray(sortedValues) || sortedValues.length === 0) return Number.NaN;
+  const mid = Math.floor(sortedValues.length / 2);
+  if (sortedValues.length % 2 === 0) {
+    return (sortedValues[mid - 1] + sortedValues[mid]) / 2;
+  }
+  return sortedValues[mid];
+}
+
 function computeFiveNumber(values) {
   const sorted = (Array.isArray(values) ? values : [])
     .map((value) => Number(value))
     .filter((value) => Number.isFinite(value))
     .sort((a, b) => a - b);
   if (sorted.length === 0) return null;
+
+  const median = medianOfSorted(sorted);
+  if (!Number.isFinite(median)) return null;
+
+  const mid = Math.floor(sorted.length / 2);
+  const lowerHalf = sorted.length % 2 === 0 ? sorted.slice(0, mid) : sorted.slice(0, mid);
+  const upperHalf = sorted.length % 2 === 0 ? sorted.slice(mid) : sorted.slice(mid + 1);
+  const q1 = lowerHalf.length > 0 ? medianOfSorted(lowerHalf) : median;
+  const q3 = upperHalf.length > 0 ? medianOfSorted(upperHalf) : median;
+
   return {
     min: sorted[0],
-    q1: quantile(sorted, 0.25),
-    median: quantile(sorted, 0.5),
-    q3: quantile(sorted, 0.75),
+    q1,
+    median,
+    q3,
     max: sorted[sorted.length - 1]
   };
 }
@@ -2949,19 +3042,30 @@ function buildHistogramMarkup(config) {
 
 function buildBoxPlotMarkup(config) {
   const title = escapeInteractiveHtml(String(config.title || "Compare Datasets"));
-  const a = computeFiveNumber(config.valuesA || []);
-  const b = computeFiveNumber(config.valuesB || []);
-  if (!a && !b) return "<p class='helper-text'>Add dataset values to preview box plot summaries.</p>";
+  const palette = ["#2563eb", "#16a34a", "#f59e0b", "#7c3aed", "#0f766e", "#dc2626", "#0891b2", "#9333ea"];
+  const rows = normalizeBoxPlotDatasets(config).map((dataset, index) => ({
+    label: dataset.label || defaultBoxPlotDatasetLabel(index),
+    stats: computeFiveNumber(dataset.values || []),
+    color: palette[index % palette.length]
+  }));
+  const statsList = rows.map((item) => item.stats).filter((item) => item);
+  if (statsList.length === 0) return "<p class='helper-text'>Add dataset values to preview box plot summaries.</p>";
 
-  const statsList = [a, b].filter((item) => item);
   const minValue = Math.min(...statsList.map((item) => item.min));
   const maxValue = Math.max(...statsList.map((item) => item.max));
-  const range = maxValue - minValue || 1;
-  const left = 56;
+  const axisMin = Math.floor(minValue);
+  const axisMax = Math.ceil(maxValue);
+  const axisRange = axisMax - axisMin || 1;
+  const left = 92;
   const right = 360;
-  const mapX = (value) => left + ((value - minValue) / range) * (right - left);
+  const rowStart = 52;
+  const rowGap = 40;
+  const axisY = rowStart + Math.max(0, rows.length - 1) * rowGap + 30;
+  const svgHeight = Math.max(172, axisY + 22);
+  const mapX = (value) => left + ((value - axisMin) / axisRange) * (right - left);
 
-  const renderRow = (label, stats, y, color) => {
+  const renderRow = (label, stats, index, color) => {
+    const y = rowStart + index * rowGap;
     if (!stats) {
       return `<text x="14" y="${y + 4}" font-size="12" fill="#64748b">${escapeInteractiveHtml(label)}</text><text x="${left}" y="${y + 4}" font-size="12" fill="#94a3b8">no data</text>`;
     }
@@ -2981,10 +3085,17 @@ function buildBoxPlotMarkup(config) {
     `;
   };
 
-  const axisTicks = Array.from({ length: 6 }, (_, index) => {
-    const v = minValue + (range * index) / 5;
-    const x = mapX(v);
-    return `<line x1="${x}" y1="146" x2="${x}" y2="152" stroke="#94a3b8"/><text x="${x}" y="165" text-anchor="middle" font-size="10" fill="#64748b">${escapeInteractiveHtml(v.toFixed(2))}</text>`;
+  const axisTickValues = [];
+  for (let value = axisMin; value <= axisMax; value += 1) {
+    axisTickValues.push(value);
+  }
+  const labelSkip = axisTickValues.length > 24 ? Math.ceil(axisTickValues.length / 24) : 1;
+  const axisTicks = axisTickValues.map((value, index) => {
+    const x = mapX(value);
+    const label = index % labelSkip === 0
+      ? `<text x="${x}" y="${axisY + 15}" text-anchor="middle" font-size="10" fill="#64748b">${value}</text>`
+      : "";
+    return `<line x1="${x}" y1="${axisY - 4}" x2="${x}" y2="${axisY + 2}" stroke="#94a3b8"/>${label}`;
   }).join("");
 
   const summaryLine = (label, stats) => {
@@ -2992,18 +3103,19 @@ function buildBoxPlotMarkup(config) {
     return `<p>${escapeInteractiveHtml(label)}: min=${stats.min.toFixed(2)}, Q1=${stats.q1.toFixed(2)}, median=${stats.median.toFixed(2)}, Q3=${stats.q3.toFixed(2)}, max=${stats.max.toFixed(2)}</p>`;
   };
 
+  const renderedRows = rows.map((row, index) => renderRow(row.label, row.stats, index, row.color)).join("");
+  const renderedSummary = rows.map((row) => summaryLine(row.label, row.stats)).join("");
+
   return `
     <div class="simple-card">
       <p class="bar-chart-title">${title}</p>
-      <svg viewBox="0 0 380 172" width="100%" preserveAspectRatio="xMidYMid meet">
-        <rect x="0" y="0" width="380" height="172" fill="#f8fafc" stroke="#dbe6f3"/>
-        ${renderRow(config.labelA || "A", a, 58, "#2563eb")}
-        ${renderRow(config.labelB || "B", b, 106, "#16a34a")}
-        <line x1="${left}" y1="150" x2="${right}" y2="150" stroke="#64748b" stroke-width="1.5"/>
+      <svg viewBox="0 0 380 ${svgHeight}" width="100%" preserveAspectRatio="xMidYMid meet">
+        <rect x="0" y="0" width="380" height="${svgHeight}" fill="#f8fafc" stroke="#dbe6f3"/>
+        ${renderedRows}
+        <line x1="${left}" y1="${axisY}" x2="${right}" y2="${axisY}" stroke="#64748b" stroke-width="1.5"/>
         ${axisTicks}
       </svg>
-      ${summaryLine(config.labelA || "A", a)}
-      ${summaryLine(config.labelB || "B", b)}
+      ${renderedSummary}
     </div>
   `;
 }
@@ -3662,16 +3774,17 @@ function readInteractiveAppFromForm() {
       };
     }
     case "box-plot":
-      return {
-        type,
-        config: {
-          title: document.getElementById("boxTitle").value.trim() || "Compare Datasets",
-          labelA: document.getElementById("boxLabelA").value.trim() || "A",
-          labelB: document.getElementById("boxLabelB").value.trim() || "B",
-          valuesA: parseNumericList(document.getElementById("boxValuesA").value),
-          valuesB: parseNumericList(document.getElementById("boxValuesB").value)
-        }
-      };
+      {
+        const datasetCount = clampBoxPlotDatasetCount(document.getElementById("boxDatasetCount").value);
+        const datasets = parseBoxPlotDatasetsFromText(document.getElementById("boxDatasets").value, datasetCount);
+        return {
+          type,
+          config: {
+            title: document.getElementById("boxTitle").value.trim() || "Compare Datasets",
+            datasets
+          }
+        };
+      }
     case "scatter-plot":
       return {
         type,
@@ -3842,11 +3955,10 @@ function populateInteractiveAppForm(app) {
   document.getElementById("histBinCount").value = histogramConfig.binCount ?? 8;
 
   const boxPlotConfig = (type === "box-plot" ? nextApp : buildDefaultInteractiveApp("box-plot")).config;
+  const boxDatasets = normalizeBoxPlotDatasets(boxPlotConfig);
   document.getElementById("boxTitle").value = boxPlotConfig.title || "Compare Datasets";
-  document.getElementById("boxLabelA").value = boxPlotConfig.labelA || "A";
-  document.getElementById("boxLabelB").value = boxPlotConfig.labelB || "B";
-  document.getElementById("boxValuesA").value = Array.isArray(boxPlotConfig.valuesA) ? boxPlotConfig.valuesA.join(", ") : "";
-  document.getElementById("boxValuesB").value = Array.isArray(boxPlotConfig.valuesB) ? boxPlotConfig.valuesB.join(", ") : "";
+  document.getElementById("boxDatasetCount").value = String(clampBoxPlotDatasetCount(boxDatasets.length));
+  document.getElementById("boxDatasets").value = serializeBoxPlotDatasets(boxDatasets);
 
   const scatterPlotConfig = (type === "scatter-plot" ? nextApp : buildDefaultInteractiveApp("scatter-plot")).config;
   document.getElementById("scTitle").value = scatterPlotConfig.title || "Correlation and Best Fit";
@@ -4346,15 +4458,17 @@ function updateQuestionFromForm() {
   }
 
   if (["multiple-choice", "true-false"].includes(question.resultType)) {
-    ensureDefaultCorrectAnswer(question);
-    refreshCorrectAnswerSelect(question);
-
     const select = document.getElementById("correctAnswerSelect");
-    const index = Number.parseInt(select.value, 10);
+    const selectedIndexFromUi = Number.parseInt(select.value, 10);
+
+    ensureDefaultCorrectAnswer(question);
     const choiceOptions = getChoiceOptions(question);
-    question.correctAnswer = Number.isInteger(index) && index >= 0 && index < choiceOptions.length
-      ? choiceOptions[index]
-      : "";
+    if (Number.isInteger(selectedIndexFromUi) && selectedIndexFromUi >= 0 && selectedIndexFromUi < choiceOptions.length) {
+      question.correctAnswer = choiceOptions[selectedIndexFromUi];
+    } else {
+      const existingIndex = choiceOptions.findIndex((item) => normalizeText(item) === normalizeText(question.correctAnswer));
+      question.correctAnswer = existingIndex >= 0 ? choiceOptions[existingIndex] : "";
+    }
   } else if (question.resultType === "checkbox") {
     const choiceOptions = getChoiceOptions(question);
     const currentChecked = Array.from(document.querySelectorAll("button[data-role='correct-answer-check'][aria-pressed='true']"))
@@ -4920,11 +5034,20 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   showToast("Question updated in Maker, but file save did not run. Connect Root Folder if needed.", "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxLabelA", "boxLabelB", "boxValuesA", "boxValuesB", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxTitle", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
+["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxDatasetCount", "boxDatasets", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxTitle", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);
   });
+
+document.getElementById("boxDatasetCount").addEventListener("change", () => {
+  const countInput = document.getElementById("boxDatasetCount");
+  const datasetsInput = document.getElementById("boxDatasets");
+  const nextCount = clampBoxPlotDatasetCount(countInput.value);
+  countInput.value = String(nextCount);
+  datasetsInput.value = serializeBoxPlotDatasets(parseBoxPlotDatasetsFromText(datasetsInput.value, nextCount));
+  updateQuestionFromForm();
+});
 
 document.getElementById("toggleSolutionPanelBtn").addEventListener("click", () => {
   const body = document.getElementById("solutionPanelBody");
