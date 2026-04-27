@@ -10,6 +10,7 @@ const ROOT_SOURCE_MODES = {
   LOCAL: "local",
   GITHUB: "github"
 };
+const APP_VERSION = "2.3.1";
 let rootDirectoryHandle = null;
 
 function openRootHandleDb() {
@@ -5184,6 +5185,7 @@ window.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("load", () => {
+  console.log(`Quiz Maker v${APP_VERSION} loaded`);
   initializeInteractiveAppTypePicker();
   initialize();
 });
