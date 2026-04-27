@@ -5186,6 +5186,10 @@ window.addEventListener("keydown", (event) => {
 
 window.addEventListener("load", () => {
   console.log(`Quiz Maker v${APP_VERSION} loaded`);
+  const versionBadge = document.getElementById("versionBadge");
+  if (versionBadge) {
+    versionBadge.textContent = `v${APP_VERSION}`;
+  }
   initializeInteractiveAppTypePicker();
   initialize();
 });
