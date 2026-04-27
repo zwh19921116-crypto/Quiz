@@ -27,6 +27,10 @@ function getRandomEncouragingMessage() {
   return ENCOURAGING_INCORRECT_MESSAGES[index];
 }
 
+function buildIncorrectFeedbackMessage() {
+  return `${getRandomEncouragingMessage()} Press "Show Solution" to see where you went wrong.`;
+}
+
 function isDataUrl(value) {
   return /^data:/i.test(String(value || "").trim());
 }
@@ -3671,7 +3675,7 @@ function checkAnswer() {
 
   const resultBox = document.getElementById("resultBox");
   if (resultBox) {
-    resultBox.textContent = isCorrect ? "Correct" : getRandomEncouragingMessage();
+    resultBox.textContent = isCorrect ? "Correct" : buildIncorrectFeedbackMessage();
     resultBox.className = isCorrect ? "result-correct" : "result-incorrect";
   }
 
