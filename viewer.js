@@ -3645,6 +3645,12 @@ function checkAnswer() {
     score += 1;
   }
 
+  const resultBox = document.getElementById("resultBox");
+  if (resultBox) {
+    resultBox.textContent = isCorrect ? "Correct" : "Incorrect";
+    resultBox.className = isCorrect ? "result-correct" : "result-incorrect";
+  }
+
   const expectedAnswers = getExpectedAnswers(question);
 
   // Visual feedback for selected options
