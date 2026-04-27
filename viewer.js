@@ -35,7 +35,10 @@ function buildShortAnswerIncorrectFeedback(expectedAnswers) {
   const fallback = Array.isArray(expectedAnswers) && expectedAnswers.length > 0
     ? expectedAnswers.join(", ")
     : "N/A";
-  return `${getRandomEncouragingMessage()} Correct answer: ${fallback}. Press "Show Solution" to see where you went wrong.`;
+  return {
+    correctAnswerText: `Correct answer: ${fallback}`,
+    encouragementText: `${getRandomEncouragingMessage()} Press "Show Solution" to see where you went wrong.`
+  };
 }
 
 function isDataUrl(value) {
@@ -3687,7 +3690,8 @@ function checkAnswer() {
     if (isCorrect) {
       resultBox.textContent = "Correct";
     } else if (question.resultType === "short-answer") {
-      resultBox.textContent = buildShortAnswerIncorrectFeedback(expectedAnswers);
+      const shortAnswerFeedback = buildShortAnswerIncorrectFeedback(expectedAnswers);
+      resultBox.innerHTML = `${escapeHtml(shortAnswerFeedback.correctAnswerText)}<br>${escapeHtml(shortAnswerFeedback.encouragementText)}`;
     } else {
       resultBox.textContent = buildIncorrectFeedbackMessage();
     }
