@@ -3684,6 +3684,18 @@ function checkAnswer() {
 }
 
 function prepareSolutionModal(question, expectedAnswers) {
+  // For interactive apps, don't populate solution modal with redundant content
+  if (question.interactiveApp && question.interactiveApp.type) {
+    const modalBody = document.getElementById("solutionModalBody");
+    modalBody.innerHTML = `
+      <div class="solution-modal-section">
+        <p class="solution-modal-label">Interactive App</p>
+        <p class="solution-modal-answer">See the app above for visualization</p>
+      </div>
+    `;
+    return;
+  }
+
   const fallback = expectedAnswers.length > 0 ? expectedAnswers.join(question.resultType === "checkbox" ? ", " : "") : "N/A";
   const rawSolution = String(question.solution || "").trim();
   const defaultSolution = `Correct answer: ${fallback}`;
