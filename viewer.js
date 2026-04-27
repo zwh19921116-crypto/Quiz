@@ -3675,7 +3675,9 @@ function checkAnswer() {
   // Visual feedback for selected options
   highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswers);
 
-  prepareSolutionModal(question, expectedAnswers);
+  // Store expected answers for later use in solution modal
+  window.currentExpectedAnswers = expectedAnswers;
+
   document.getElementById("showSolutionBtn").classList.remove("hidden");
   document.getElementById("nextQuestionBtn").disabled = false;
   answerChecked = true;
@@ -3732,6 +3734,12 @@ function prepareSolutionModal(question, expectedAnswers) {
 }
 
 function openSolutionModal() {
+  const question = quizData.questions[currentIndex];
+  const expectedAnswers = window.currentExpectedAnswers || getExpectedAnswers(question);
+  
+  // Prepare modal content when user clicks Show Solution
+  prepareSolutionModal(question, expectedAnswers);
+  
   const modal = document.getElementById("solutionModal");
   if (!modal) return;
   modal.classList.remove("hidden");
