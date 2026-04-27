@@ -192,6 +192,23 @@ textarea {
   color: var(--muted);
 }
 
+.box-dataset-count-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.box-dataset-count-group label {
+  margin: 0;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.box-dataset-count-group input {
+  width: auto;
+  margin: 0;
+}
+
 .maker-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1.45fr;

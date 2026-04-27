@@ -300,8 +300,10 @@
                 <div id="boxPlotConfig" class="hidden">
                   <label for="boxTitle">Box Plot Title</label>
                   <input type="text" id="boxTitle" placeholder="Compare Datasets" class="nl-range-input" />
-                  <label for="boxDatasetCount">How Many Datasets</label>
-                  <input type="number" id="boxDatasetCount" min="1" max="8" step="1" value="2" class="nl-range-input" style="width:50px" />
+                  <div class="box-dataset-count-group">
+                    <label for="boxDatasetCount">How Many Datasets</label>
+                    <input type="number" id="boxDatasetCount" min="1" max="8" step="1" value="2" class="nl-range-input" style="width:60px" />
+                  </div>
                   <label for="boxDatasets">Datasets (one per line: label: values)</label>
                   <textarea id="boxDatasets" rows="5" placeholder="A: 8, 9, 10, 12, 14, 17, 20&#10;B: 6, 8, 11, 12, 13, 14, 18"></textarea>
                   <p class="helper-text">Example: C: 5, 7, 8, 9, 12</p>
