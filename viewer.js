@@ -2,6 +2,30 @@ let quizData = null;
 let currentIndex = 0;
 let score = 0;
 let answerChecked = false;
+const ENCOURAGING_INCORRECT_MESSAGES = [
+  "Not quite, keep going!",
+  "Good try. You are getting closer.",
+  "Nice effort. Give it another shot.",
+  "Almost there. Try once more.",
+  "Keep it up. You can do this.",
+  "Solid attempt. Review and try again.",
+  "You are learning. Try one more time.",
+  "Great effort. Take another pass."
+];
+let lastEncouragingMessageIndex = -1;
+
+function getRandomEncouragingMessage() {
+  const count = ENCOURAGING_INCORRECT_MESSAGES.length;
+  if (count === 0) return "Not quite, keep going!";
+  if (count === 1) return ENCOURAGING_INCORRECT_MESSAGES[0];
+
+  let index = Math.floor(Math.random() * count);
+  if (index === lastEncouragingMessageIndex) {
+    index = (index + 1 + Math.floor(Math.random() * (count - 1))) % count;
+  }
+  lastEncouragingMessageIndex = index;
+  return ENCOURAGING_INCORRECT_MESSAGES[index];
+}
 
 function isDataUrl(value) {
   return /^data:/i.test(String(value || "").trim());
@@ -3647,7 +3671,7 @@ function checkAnswer() {
 
   const resultBox = document.getElementById("resultBox");
   if (resultBox) {
-    resultBox.textContent = isCorrect ? "Correct" : "Not quite, keep going!";
+    resultBox.textContent = isCorrect ? "Correct" : getRandomEncouragingMessage();
     resultBox.className = isCorrect ? "result-correct" : "result-incorrect";
   }
 
