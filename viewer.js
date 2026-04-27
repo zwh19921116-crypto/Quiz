@@ -1017,12 +1017,27 @@ function buildBoxPlotMarkup(config) {
     const xMax = mapX(stats.max);
     return `
       <text x="14" y="${y + 4}" font-size="12" fill="#0f172a" font-weight="700">${escapeHtml(label)}</text>
+      <g style="cursor:pointer">
+        <title>Min: ${stats.min.toFixed(2)}</title>
+        <line x1="${xMin}" y1="${y - 10}" x2="${xMin}" y2="${y + 10}" stroke="#64748b" stroke-width="2"/>
+      </g>
       <line x1="${xMin}" y1="${y}" x2="${xQ1}" y2="${y}" stroke="#64748b" stroke-width="2"/>
+      <g style="cursor:pointer">
+        <title>Q1: ${stats.q1.toFixed(2)}</title>
+        <rect x="${Math.min(xQ1, xQ3)}" y="${y - 12}" width="${Math.max(2, Math.abs(xQ3 - xQ1))}" height="24" fill="${color}" fill-opacity="0.25" stroke="${color}" stroke-width="2"/>
+      </g>
+      <g style="cursor:pointer">
+        <title>Median: ${stats.median.toFixed(2)}</title>
+        <line x1="${xMedian}" y1="${y - 12}" x2="${xMedian}" y2="${y + 12}" stroke="${color}" stroke-width="2"/>
+      </g>
+      <g style="cursor:pointer">
+        <title>Q3: ${stats.q3.toFixed(2)}</title>
+      </g>
       <line x1="${xQ3}" y1="${y}" x2="${xMax}" y2="${y}" stroke="#64748b" stroke-width="2"/>
-      <line x1="${xMin}" y1="${y - 10}" x2="${xMin}" y2="${y + 10}" stroke="#64748b" stroke-width="2"/>
-      <line x1="${xMax}" y1="${y - 10}" x2="${xMax}" y2="${y + 10}" stroke="#64748b" stroke-width="2"/>
-      <rect x="${Math.min(xQ1, xQ3)}" y="${y - 12}" width="${Math.max(2, Math.abs(xQ3 - xQ1))}" height="24" fill="${color}" fill-opacity="0.25" stroke="${color}" stroke-width="2"/>
-      <line x1="${xMedian}" y1="${y - 12}" x2="${xMedian}" y2="${y + 12}" stroke="${color}" stroke-width="2"/>
+      <g style="cursor:pointer">
+        <title>Max: ${stats.max.toFixed(2)}</title>
+        <line x1="${xMax}" y1="${y - 10}" x2="${xMax}" y2="${y + 10}" stroke="#64748b" stroke-width="2"/>
+      </g>
       <text x="${xMin}" y="${y - 15}" text-anchor="middle" font-size="9" fill="#64748b" font-weight="600">min</text>
       <text x="${xQ1}" y="${y - 15}" text-anchor="middle" font-size="9" fill="#64748b" font-weight="600">Q1</text>
       <text x="${xMedian}" y="${y - 20}" text-anchor="middle" font-size="9" fill="${color}" font-weight="700">median</text>
