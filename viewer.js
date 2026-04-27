@@ -3,14 +3,14 @@ let currentIndex = 0;
 let score = 0;
 let answerChecked = false;
 const ENCOURAGING_INCORRECT_MESSAGES = [
-  "Not quite, keep going!",
-  "Good try. You are getting closer.",
-  "Nice effort. Give it another shot.",
-  "Almost there. Try once more.",
-  "Keep it up. You can do this.",
-  "Solid attempt. Review and try again.",
-  "You are learning. Try one more time.",
-  "Great effort. Take another pass."
+  "Nice effort. You are making progress.",
+  "Great work staying focused.",
+  "Good effort. You are learning well.",
+  "You are building strong understanding.",
+  "Solid work. Keep your confidence up.",
+  "Thoughtful attempt. Your progress matters.",
+  "Great mindset. You are improving steadily.",
+  "Well done for staying engaged."
 ];
 let lastEncouragingMessageIndex = -1;
 
