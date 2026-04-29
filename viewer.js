@@ -2869,13 +2869,14 @@ function mountBoxPlotInteractive(host, app) {
   `;
 
   const preview = host.querySelector(".interactive-app-preview");
-  const rerender = () => {
+  const rerender = (normalize) => {
     const countInput = host.querySelector("[data-role='box-count']");
     const datasetsInput = host.querySelector("[data-role='box-datasets']");
     const count = clampBoxPlotDatasetCount(countInput.value);
     countInput.value = String(count);
     config.datasets = parseBoxPlotDatasetsFromText(datasetsInput.value, count);
-    datasetsInput.value = serializeBoxPlotDatasets(config.datasets);
+    // Only rewrite the textarea on blur/change so typing commas and spaces isn't interrupted.
+    if (normalize) datasetsInput.value = serializeBoxPlotDatasets(config.datasets);
 
     // Keep legacy fields synced for older consumers.
     config.labelA = config.datasets[0] ? config.datasets[0].label : "A";
@@ -2887,9 +2888,9 @@ function mountBoxPlotInteractive(host, app) {
     updateInteractiveDetails(host, app);
   };
 
-  host.querySelectorAll("input, textarea").forEach((input) => input.addEventListener("input", rerender));
-  host.querySelectorAll("input, textarea").forEach((input) => input.addEventListener("change", rerender));
-  rerender();
+  host.querySelectorAll("input, textarea").forEach((input) => input.addEventListener("input", () => rerender(false)));
+  host.querySelectorAll("input, textarea").forEach((input) => input.addEventListener("change", () => rerender(true)));
+  rerender(true);
 }
 
 function mountScatterPlotInteractive(host, app) {
