@@ -2,6 +2,7 @@ let quizData = null;
 let currentIndex = 0;
 let score = 0;
 let answerChecked = false;
+let cartesianPlotUserPoints = [];
 const QUIZ_ORDER_MODES = {
   ORDERED: "ordered",
   RANDOM: "random"
@@ -780,6 +781,106 @@ function buildCartesianPlaneSvgString(config) {
   });
 
   return `<div class="cartesian-container"><svg viewBox="0 0 ${size} ${size}" width="100%" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div>`;
+}
+
+function buildCartesianPlotSvgString(config, userPoints, revealAnswers) {
+  const xMin = Number(config.xMin ?? -10);
+  const xMax = Number(config.xMax ?? 10);
+  const yMin = Number(config.yMin ?? -10);
+  const yMax = Number(config.yMax ?? 10);
+  if (![xMin, xMax, yMin, yMax].every(Number.isFinite) || xMin >= xMax || yMin >= yMax) return "";
+  const size = 320;
+  const pad = 36;
+  const usable = size - pad * 2;
+  const xPos = (x) => pad + ((x - xMin) / (xMax - xMin)) * usable;
+  const yPos = (y) => size - pad - ((y - yMin) / (yMax - yMin)) * usable;
+  const axisX = xMin <= 0 && xMax >= 0 ? xPos(0) : null;
+  const axisY = yMin <= 0 && yMax >= 0 ? yPos(0) : null;
+  const parts = [];
+  const xRange = xMax - xMin;
+  const yRange = yMax - yMin;
+  let xStep = 1;
+  let yStep = 1;
+  if (xRange > 20) xStep = xRange > 40 ? 5 : 2;
+  if (yRange > 20) yStep = yRange > 40 ? 5 : 2;
+  for (let x = xMin; x <= xMax; x += xStep) {
+    const xc = xPos(x);
+    parts.push(`<line x1="${xc}" y1="${pad}" x2="${xc}" y2="${size - pad}" stroke="#dbe6f3" stroke-width="1"/>`);
+    parts.push(`<text x="${xc}" y="${size - pad + 18}" text-anchor="middle" font-size="11" fill="#64748b">${x}</text>`);
+  }
+  for (let y = yMin; y <= yMax; y += yStep) {
+    const yc = yPos(y);
+    parts.push(`<line x1="${pad}" y1="${yc}" x2="${size - pad}" y2="${yc}" stroke="#dbe6f3" stroke-width="1"/>`);
+    parts.push(`<text x="${pad - 10}" y="${yc + 4}" text-anchor="end" font-size="11" fill="#64748b">${y}</text>`);
+  }
+  if (axisX !== null) parts.push(`<line x1="${axisX}" y1="${pad - 6}" x2="${axisX}" y2="${size - pad + 6}" stroke="#334155" stroke-width="2"/>`);
+  if (axisY !== null) parts.push(`<line x1="${pad - 6}" y1="${axisY}" x2="${size - pad + 6}" y2="${axisY}" stroke="#334155" stroke-width="2"/>`);
+  const placed = Array.isArray(userPoints) ? userPoints : [];
+  placed.forEach((point) => {
+    const x = xPos(Number(point.x));
+    const y = yPos(Number(point.y));
+    if (![x, y].every(Number.isFinite)) return;
+    parts.push(`<circle cx="${x}" cy="${y}" r="7" fill="#f59e0b" stroke="white" stroke-width="2"/>`);
+    parts.push(`<text x="${x + 10}" y="${y - 8}" font-size="10" fill="#b45309" font-weight="bold">(${escapeHtml(String(point.x))},${escapeHtml(String(point.y))})</text>`);
+  });
+  if (revealAnswers) {
+    const answerPts = Array.isArray(config.points) ? config.points : [];
+    answerPts.forEach((point) => {
+      const x = xPos(Number(point.x));
+      const y = yPos(Number(point.y));
+      if (![x, y].every(Number.isFinite)) return;
+      const label = escapeHtml(String(point.label || `(${point.x},${point.y})`));
+      parts.push(`<circle cx="${x}" cy="${y}" r="9" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-dasharray="4 2"/>`);
+      parts.push(`<text x="${x + 12}" y="${y - 12}" font-size="10" fill="#16a34a" font-weight="bold">${label}</text>`);
+    });
+  }
+  return `<div class="cartesian-container"><svg id="cartesianPlotSvg" viewBox="0 0 ${size} ${size}" width="100%" preserveAspectRatio="xMidYMid meet" style="cursor:crosshair">${parts.join("")}</svg></div>`;
+}
+
+function mountCartesianPlotAnswer(container, question) {
+  const config = (question.interactiveApp && question.interactiveApp.config) || {};
+  const xMin = Number(config.xMin ?? -10);
+  const xMax = Number(config.xMax ?? 10);
+  const yMin = Number(config.yMin ?? -10);
+  const yMax = Number(config.yMax ?? 10);
+  const size = 320;
+  const pad = 36;
+  const usable = size - pad * 2;
+  const answerCount = Array.isArray(config.points) ? config.points.length : 0;
+
+  const redraw = () => {
+    const wrapper = container.querySelector(".cartesian-plot-answer");
+    if (!wrapper) return;
+    wrapper.innerHTML = buildCartesianPlotSvgString(config, cartesianPlotUserPoints, false);
+    const helpEl = container.querySelector(".cartesian-plot-help");
+    if (helpEl) {
+      helpEl.textContent = cartesianPlotUserPoints.length === 0
+        ? `Click the grid to place ${answerCount} point${answerCount !== 1 ? "s" : ""}. Click a placed point to remove it.`
+        : `${cartesianPlotUserPoints.length} point${cartesianPlotUserPoints.length !== 1 ? "s" : ""} placed. Click to add more or click a point to remove it.`;
+    }
+    attachSvgClickHandler();
+  };
+
+  const attachSvgClickHandler = () => {
+    const svg = container.querySelector("#cartesianPlotSvg");
+    if (!svg) return;
+    svg.addEventListener("click", (event) => {
+      const pos = getSvgPointerPosition(svg, event);
+      if (!pos) return;
+      const gx = Math.round(((pos.x - pad) / usable) * (xMax - xMin) + xMin);
+      const gy = Math.round((1 - (pos.y - pad) / usable) * (yMax - yMin) + yMin);
+      if (!Number.isFinite(gx) || !Number.isFinite(gy) || gx < xMin || gx > xMax || gy < yMin || gy > yMax) return;
+      const existingIdx = cartesianPlotUserPoints.findIndex((p) => p.x === gx && p.y === gy);
+      if (existingIdx >= 0) {
+        cartesianPlotUserPoints.splice(existingIdx, 1);
+      } else {
+        cartesianPlotUserPoints.push({ x: gx, y: gy });
+      }
+      redraw();
+    });
+  };
+
+  redraw();
 }
 
 function buildStemLeafMarkup(config) {
@@ -1694,6 +1795,7 @@ function cloneInteractiveApp(app) {
 function getInteractiveAppTitle(type) {
   if (type === "number-line") return "Interactive: Number Line";
   if (type === "cartesian-plane") return "Interactive: Cartesian Plane";
+    if (type === "cartesian-plane-plot") return "Interactive: Cartesian Plane - Plot";
   if (type === "bar-chart") return "Interactive: Bar Chart";
   if (type === "histogram") return "Interactive: Histogram";
   if (type === "box-plot") return "Interactive: Box Plot";
@@ -1718,6 +1820,8 @@ function updateInteractivePreview(preview, app) {
     content = buildNumberLineSvgString(app.config || {});
   } else if (app.type === "cartesian-plane") {
     content = buildCartesianPlaneSvgString(app.config || {});
+    } else if (app.type === "cartesian-plane-plot") {
+      content = buildCartesianPlotSvgString(app.config || {}, [], true);
   } else if (app.type === "bar-chart") {
     content = buildBarChartMarkup(app.config || {});
   } else if (app.type === "histogram") {
@@ -2411,6 +2515,14 @@ function updateInteractiveDetails(host, app) {
     lines = buildNumberLineDetailLines(app);
   } else if (app.type === "cartesian-plane") {
     lines = buildCartesianDetailLines(app);
+    } else if (app.type === "cartesian-plane-plot") {
+      const cfg = app.config || {};
+      const pts = Array.isArray(cfg.points) ? cfg.points : [];
+      lines = [
+        `Answer points: ${pts.length > 0 ? pts.map((p) => `${p.label ? p.label + " " : ""}(${p.x}, ${p.y})`).join(", ") : "none"}`,
+        `Tolerance: ±${cfg.tolerance ?? 0.5} units`,
+        `Axes: x ${cfg.xMin ?? -10} to ${cfg.xMax ?? 10}, y ${cfg.yMin ?? -10} to ${cfg.yMax ?? 10}`
+      ];
   } else if (app.type === "bar-chart") {
     lines = buildBarChartDetailLines(app);
   } else if (app.type === "histogram") {
@@ -3400,6 +3512,17 @@ function mountInteractiveApp(host, app) {
   }
   if (app.type === "cartesian-plane") {
     mountCartesianInteractive(host, app);
+      if (app.type === "cartesian-plane-plot") {
+        const config = app.config || {};
+        host.innerHTML = `
+          <div class="interactive-app-preview"></div>
+          <div class="interactive-app-details"></div>
+        `;
+        const preview = host.querySelector(".interactive-app-preview");
+        preview.innerHTML = buildCartesianPlotSvgString(config, cartesianPlotUserPoints, true);
+        updateInteractiveDetails(host, app);
+        return;
+      }
     return;
   }
   if (app.type === "bar-chart") {
@@ -3589,6 +3712,16 @@ function renderPdfAttachmentPreviews(attachments) {
 }
 
 function renderAnswerInput(question) {
+  // Cartesian Plane - Plot: the interactive IS the answer input
+  if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
+    const config = question.interactiveApp.config || {};
+    const answerCount = Array.isArray(config.points) ? config.points.length : 0;
+    return `
+      <div class="cartesian-plot-answer"></div>
+      <p class="cartesian-plot-help helper-text">Click the grid to place ${answerCount} point${answerCount !== 1 ? "s" : ""}. Click a placed point to remove it.</p>
+    `;
+  }
+
   // Interactive apps should only appear in the solution modal, not in the main question
   // So we skip them here and show the regular answer input instead
   
@@ -3695,12 +3828,20 @@ function renderQuestion() {
   `;
 
   wireOptionSelectionUI(question);
-  
+
+  if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
+    cartesianPlotUserPoints = [];
+    mountCartesianPlotAnswer(quizContainer, question);
+  }
+
   renderNotesPanel(question);
   updateHeader();
 }
 
 function collectUserAnswer(question) {
+  if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
+    return cartesianPlotUserPoints.slice();
+  }
   if (question.resultType === "short-answer") {
     const input = document.getElementById("shortAnswerInput");
     return input ? input.value.trim() : "";
@@ -3716,6 +3857,16 @@ function collectUserAnswer(question) {
 }
 
 function answersMatch(question, userAnswer) {
+  if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
+    const config = question.interactiveApp.config || {};
+    const answerPoints = Array.isArray(config.points) ? config.points : [];
+    const tolerance = Number.isFinite(Number(config.tolerance)) ? Number(config.tolerance) : 0.5;
+    const placed = Array.isArray(userAnswer) ? userAnswer : [];
+    if (placed.length !== answerPoints.length) return false;
+    return answerPoints.every((ap) =>
+      placed.some((up) => Math.abs(up.x - Number(ap.x)) <= tolerance && Math.abs(up.y - Number(ap.y)) <= tolerance)
+    );
+  }
   const expected = getExpectedAnswers(question).map(norm);
 
   if (question.resultType === "checkbox") {
@@ -3733,6 +3884,9 @@ function answersMatch(question, userAnswer) {
 }
 
 function validateAnswer(question, userAnswer) {
+  if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
+    return Array.isArray(userAnswer) && userAnswer.length > 0;
+  }
   if (question.resultType === "checkbox") {
     return Array.isArray(userAnswer) && userAnswer.length > 0;
   }
@@ -3779,6 +3933,14 @@ function checkAnswer() {
   document.getElementById("showSolutionBtn").classList.remove("hidden");
   document.getElementById("nextQuestionBtn").disabled = false;
   answerChecked = true;
+
+  if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
+    const config = question.interactiveApp.config || {};
+    const wrapper = document.querySelector(".cartesian-plot-answer");
+    if (wrapper) {
+      wrapper.innerHTML = buildCartesianPlotSvgString(config, cartesianPlotUserPoints, true);
+    }
+  }
 
   updateHeader();
 }

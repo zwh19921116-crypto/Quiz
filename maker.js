@@ -1902,7 +1902,7 @@ function renderQuizList() {
     row.innerHTML = `
       <button class="list-main" data-id="${quiz.id}" type="button">${quiz.title}</button>
       <button class="icon-btn secondary" data-action="settings" data-id="${quiz.id}" type="button">Settings</button>
-      <button class="icon-btn secondary" data-action="rename" data-id="${quiz.id}" type="button">Rename</button>
+      <button class="icon-btn secondary" data-action="replicate" data-id="${quiz.id}" type="button">Replicate</button>
       <button class="icon-btn secondary" data-action="embed" data-id="${quiz.id}" type="button">Link</button>
       <button class="icon-btn danger" data-action="delete" data-id="${quiz.id}" type="button">x</button>
     `;
@@ -2504,6 +2504,18 @@ function buildDefaultInteractiveApp(type) {
           functions: [{ expression: "sin(x)", label: "y = sin(x)", color: "#0f766e" }]
         }
       };
+    case "cartesian-plane-plot":
+      return {
+        type,
+        config: {
+          xMin: -10,
+          xMax: 10,
+          yMin: -10,
+          yMax: 10,
+          tolerance: 0.5,
+          points: [{ x: 3, y: 4, label: "A" }, { x: -2, y: -3, label: "B" }]
+        }
+      };
     case "bar-chart":
       return {
         type,
@@ -2856,6 +2868,54 @@ function buildCartesianPlaneMarkup(config) {
   });
 
   return `<div class="cartesian-container"><svg viewBox="0 0 ${size} ${size}" width="100%" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div>`;
+}
+
+function buildCartesianPlotMarkup(config) {
+  // Preview in the maker: show the grid with the answer points marked.
+  const xMin = Number(config.xMin ?? -10);
+  const xMax = Number(config.xMax ?? 10);
+  const yMin = Number(config.yMin ?? -10);
+  const yMax = Number(config.yMax ?? 10);
+  if (![xMin, xMax, yMin, yMax].every(Number.isFinite) || xMin >= xMax || yMin >= yMax) return "";
+  const points = Array.isArray(config.points) ? config.points : [];
+  const size = 320;
+  const pad = 36;
+  const usable = size - pad * 2;
+  const xPos = (x) => pad + ((x - xMin) / (xMax - xMin)) * usable;
+  const yPos = (y) => size - pad - ((y - yMin) / (yMax - yMin)) * usable;
+  const axisX = xMin <= 0 && xMax >= 0 ? xPos(0) : null;
+  const axisY = yMin <= 0 && yMax >= 0 ? yPos(0) : null;
+  const parts = [];
+  const xRange = xMax - xMin;
+  const yRange = yMax - yMin;
+  let xStep = 1;
+  let yStep = 1;
+  if (xRange > 20) xStep = xRange > 40 ? 5 : 2;
+  if (yRange > 20) yStep = yRange > 40 ? 5 : 2;
+  for (let x = xMin; x <= xMax; x += xStep) {
+    const xc = xPos(x);
+    parts.push(`<line x1="${xc}" y1="${pad}" x2="${xc}" y2="${size - pad}" stroke="#dbe6f3" stroke-width="1"/>`);
+    parts.push(`<text x="${xc}" y="${size - pad + 18}" text-anchor="middle" font-size="11" fill="#64748b">${x}</text>`);
+  }
+  for (let y = yMin; y <= yMax; y += yStep) {
+    const yc = yPos(y);
+    parts.push(`<line x1="${pad}" y1="${yc}" x2="${size - pad}" y2="${yc}" stroke="#dbe6f3" stroke-width="1"/>`);
+    parts.push(`<text x="${pad - 10}" y="${yc + 4}" text-anchor="end" font-size="11" fill="#64748b">${y}</text>`);
+  }
+  if (axisX !== null) parts.push(`<line x1="${axisX}" y1="${pad - 6}" x2="${axisX}" y2="${size - pad + 6}" stroke="#334155" stroke-width="2"/>`);
+  if (axisY !== null) parts.push(`<line x1="${pad - 6}" y1="${axisY}" x2="${size - pad + 6}" y2="${axisY}" stroke="#334155" stroke-width="2"/>`);
+  points.forEach((point) => {
+    const x = xPos(Number(point.x));
+    const y = yPos(Number(point.y));
+    if (![x, y].every(Number.isFinite)) return;
+    const label = escapeInteractiveHtml(String(point.label || `(${point.x},${point.y})`));
+    parts.push(`<circle cx="${x}" cy="${y}" r="7" fill="#16a34a" stroke="white" stroke-width="2"/>`);
+    parts.push(`<text x="${x + 10}" y="${y - 10}" font-size="11" fill="#16a34a" font-weight="bold">${label}</text>`);
+  });
+  const pointSummary = points.length > 0
+    ? points.map((p) => `(${p.x}, ${p.y})${p.label ? " " + p.label : ""}`).join(" · ")
+    : "No answer points configured";
+  return `<div class="cartesian-container"><svg viewBox="0 0 ${size} ${size}" width="100%" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div><p class="helper-text">Answer points: ${escapeInteractiveHtml(pointSummary)}</p>`;
 }
 
 function buildStemLeafMarkup(config) {
@@ -3654,6 +3714,8 @@ function buildInteractiveAppMarkup(app) {
       return buildNumberLineMarkup(app.config || {});
     case "cartesian-plane":
       return buildCartesianPlaneMarkup(app.config || {});
+    case "cartesian-plane-plot":
+      return buildCartesianPlotMarkup(app.config || {});
     case "bar-chart":
       return buildBarChartMarkup(app.config || {});
     case "histogram":
@@ -3746,7 +3808,7 @@ function renderInteractiveAppPreview(app) {
 }
 
 function setInteractiveAppConfigVisibility(type) {
-  ["numberLineConfig", "cartesianPlaneConfig", "barChartConfig", "histogramConfig", "boxPlotConfig", "scatterPlotConfig", "probabilityTreeConfig", "distributionCurveConfig", "fractionsConfig", "networkGraphConfig", "matrixConfig", "stemLeafConfig", "geometryShapesConfig", "pythagorasConfig", "trigonometryConfig"]
+  ["numberLineConfig", "cartesianPlaneConfig", "cartesianPlotConfig", "barChartConfig", "histogramConfig", "boxPlotConfig", "scatterPlotConfig", "probabilityTreeConfig", "distributionCurveConfig", "fractionsConfig", "networkGraphConfig", "matrixConfig", "stemLeafConfig", "geometryShapesConfig", "pythagorasConfig", "trigonometryConfig"]
     .forEach((id) => {
       const element = document.getElementById(id);
       if (element) {
@@ -3754,6 +3816,8 @@ function setInteractiveAppConfigVisibility(type) {
           ? type === "number-line"
           : id === "cartesianPlaneConfig"
             ? type === "cartesian-plane"
+          : id === "cartesianPlotConfig"
+            ? type === "cartesian-plane-plot"
             : id === "barChartConfig"
               ? type === "bar-chart"
               : id === "histogramConfig"
@@ -3820,6 +3884,24 @@ function readInteractiveAppFromForm() {
           segments: parseCartesianSegments(document.getElementById("cpSegments").value),
           parabolas: parseCartesianParabolas(document.getElementById("cpParabolas").value),
           functions: parseCartesianFunctions(document.getElementById("cpFunctions").value)
+        }
+      };
+    }
+    case "cartesian-plane-plot": {
+      const cppXMin = Number.parseFloat(document.getElementById("cppXMin").value);
+      const cppXMax = Number.parseFloat(document.getElementById("cppXMax").value);
+      const cppYMin = Number.parseFloat(document.getElementById("cppYMin").value);
+      const cppYMax = Number.parseFloat(document.getElementById("cppYMax").value);
+      const cppTolerance = Number.parseFloat(document.getElementById("cppTolerance").value);
+      return {
+        type,
+        config: {
+          xMin: Number.isFinite(cppXMin) ? cppXMin : -10,
+          xMax: Number.isFinite(cppXMax) ? cppXMax : 10,
+          yMin: Number.isFinite(cppYMin) ? cppYMin : -10,
+          yMax: Number.isFinite(cppYMax) ? cppYMax : 10,
+          tolerance: Number.isFinite(cppTolerance) && cppTolerance >= 0 ? cppTolerance : 0.5,
+          points: parseCartesianPoints(document.getElementById("cppPoints").value)
         }
       };
     }
@@ -4016,6 +4098,14 @@ function populateInteractiveAppForm(app) {
   document.getElementById("cpSegments").value = serializeCartesianSegments(cartesianConfig.segments || []);
   document.getElementById("cpParabolas").value = serializeCartesianParabolas(cartesianConfig.parabolas || []);
   document.getElementById("cpFunctions").value = serializeCartesianFunctions(cartesianConfig.functions || []);
+
+  const cartesianPlotConfig = (type === "cartesian-plane-plot" ? nextApp : buildDefaultInteractiveApp("cartesian-plane-plot")).config;
+  document.getElementById("cppXMin").value = cartesianPlotConfig.xMin ?? -10;
+  document.getElementById("cppXMax").value = cartesianPlotConfig.xMax ?? 10;
+  document.getElementById("cppYMin").value = cartesianPlotConfig.yMin ?? -10;
+  document.getElementById("cppYMax").value = cartesianPlotConfig.yMax ?? 10;
+  document.getElementById("cppTolerance").value = cartesianPlotConfig.tolerance ?? 0.5;
+  document.getElementById("cppPoints").value = serializeCartesianPoints(cartesianPlotConfig.points || []);
 
   const barChartConfig = (type === "bar-chart" ? nextApp : buildDefaultInteractiveApp("bar-chart")).config;
   document.getElementById("bcTitle").value = barChartConfig.title || "Category Frequencies";
@@ -4428,33 +4518,33 @@ function addQuiz() {
   renderAll();
 }
 
-function renameQuiz(id) {
+function replicateQuiz(id) {
   const category = activeCategory();
   if (!category) return;
 
-  const quiz = category.quizzes.find((item) => item.id === id);
-  if (!quiz) return;
+  const sourceIndex = category.quizzes.findIndex((item) => item.id === id);
+  if (sourceIndex === -1) return;
+  const source = category.quizzes[sourceIndex];
 
-  const currentStem = String(quiz.fileName || quiz.title || "quiz").replace(/\.json$/i, "");
-  const nextStem = prompt("Rename quiz file (without .json):", currentStem);
-  if (!nextStem || !nextStem.trim()) return;
+  const newId = `quiz-${quizSeed++}`;
+  const newTitle = source.title + " (Copy)";
+  const newFileName = buildUniqueQuizFileName(newTitle, newId);
 
-  const nextFileName = buildUniqueQuizFileName(nextStem.trim(), quiz.id);
-  if (nextFileName === quiz.fileName) return;
+  const copy = {
+    id: newId,
+    title: newTitle,
+    description: source.description || "",
+    settings: JSON.parse(JSON.stringify(source.settings || normalizeQuizSettings(null))),
+    fileName: newFileName,
+    sourcePath: "",
+    questions: JSON.parse(JSON.stringify(source.questions || []))
+  };
 
-  quiz.fileName = nextFileName;
-  quiz.title = nextFileName.replace(/\.json$/i, "");
-  // Force save path resolution to use the renamed filename on next save.
-  quiz.sourcePath = "";
+  category.quizzes.splice(sourceIndex + 1, 0, copy);
+  state.selectedQuizId = newId;
 
   renderAll();
-
-  if (normalizeRootSourceMode(state.rootSourceMode) === ROOT_SOURCE_MODES.GITHUB || isHttpUrl(state.rootFolder)) {
-    showToast("Filename updated in Maker. For GitHub, rename file in repo and refresh.", "info");
-    return;
-  }
-
-  showToast("Filename updated. Click Save Selected Quiz to write the new file.", "success");
+  showToast(`Quiz replicated as "${newTitle}".`, "success");
 }
 
 function openQuizSettingsModal(quizId = state.selectedQuizId) {
@@ -5075,8 +5165,8 @@ document.getElementById("quizList").addEventListener("click", (event) => {
     return;
   }
 
-  if (target.dataset.action === "rename") {
-    renameQuiz(id);
+  if (target.dataset.action === "replicate") {
+    replicateQuiz(id);
     return;
   }
 
@@ -5197,7 +5287,7 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   showToast("Question updated in Maker, but file save did not run. Connect Root Folder if needed.", "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxDatasetCount", "boxDatasets", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxTitle", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
+["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "cppXMin", "cppXMax", "cppYMin", "cppYMax", "cppTolerance", "cppPoints", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxDatasetCount", "boxDatasets", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxTitle", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);
