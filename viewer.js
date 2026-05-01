@@ -2037,10 +2037,13 @@ function buildArithmeticLongDivisionWorkRow(columnCount, { readOnly = false, row
   return `<div class="arithmetic-long-work-row">${sideCell}<span class="arithmetic-work-cells">${cells}</span>${removeBtn}</div>`;
 }
 
-function buildArithmeticLongDivisionDividerRow() {
+function buildArithmeticLongDivisionDividerRow({ operation = "" } = {}) {
+  const sideCell = operation
+    ? `<span class="arithmetic-long-operation-marker">${escapeHtml(operation)}</span>`
+    : `<span class="arithmetic-long-side-spacer"></span>`;
   return `
     <div class="arithmetic-long-work-divider-row">
-      <span class="arithmetic-long-side-spacer"></span>
+      ${sideCell}
       <span class="arithmetic-long-step-divider" aria-hidden="true"></span>
       <span class="arithmetic-long-row-end-spacer" aria-hidden="true"></span>
     </div>
@@ -2053,7 +2056,7 @@ function buildArithmeticLongDivisionWorkContainer(columnCount, { readOnly = fals
     ? solutionRows
       .map((row) => {
         if (row && row.kind === "divider") {
-          return buildArithmeticLongDivisionDividerRow();
+          return buildArithmeticLongDivisionDividerRow({ operation: row.operation || "" });
         }
         return buildArithmeticLongDivisionWorkRow(columnCount, { readOnly, rowData: row });
       })
@@ -2131,9 +2134,8 @@ function buildLongDivisionSolutionRows(dividendText, divisorText, columnCount) {
       subtractRow.work[col] = productDigits[offset] === "0" && offset < span - 1 ? "" : productDigits[offset];
       subtractRow.carry[col] = borrowMarkers[offset] || "";
     }
-    subtractRow.operation = "-";
     rows.push(subtractRow);
-    rows.push({ kind: "divider" });
+    rows.push({ kind: "divider", operation: "-" });
 
     remainder = current - product;
     const remainderRow = createLongDivisionRow(columns);
