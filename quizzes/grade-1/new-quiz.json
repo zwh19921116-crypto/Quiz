@@ -1,119 +1,15 @@
 {
   "id": "quiz-1",
   "title": "New Quiz",
-  "description": "Auto-generated quiz aligned to VCAA style for Prep (Prep).",
+  "description": "Auto-generated quiz aligned to VCAA style for Year 4 (Year 4).",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 6
+    "questionLimit": 9
   },
   "fileName": "new-quiz.json",
   "sourcePath": "quizzes/grade-1/new-quiz.json",
   "category": "Grade 1",
   "questions": [
-    {
-      "question": "Calculate 7 + 3.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "10",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Add the numbers: 7 + 3 = 10.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "vertical",
-          "operator": "+",
-          "operandA": 7,
-          "operandB": 3,
-          "answer": "10",
-          "answerDigits": 2
-        }
-      }
-    },
-    {
-      "question": "Calculate 8 - 1.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "7",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Subtract 1 from 8: 8 - 1 = 7.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "vertical",
-          "operator": "-",
-          "operandA": 8,
-          "operandB": 1,
-          "answer": "7",
-          "answerDigits": 1
-        }
-      }
-    },
-    {
-      "question": "Calculate 4 - 0.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "4",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Subtract 0 from 4: 4 - 0 = 4.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "vertical",
-          "operator": "-",
-          "operandA": 4,
-          "operandB": 0,
-          "answer": "4",
-          "answerDigits": 1
-        }
-      }
-    },
-    {
-      "question": "Calculate 4 x 4.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "16",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Multiply: 4 x 4 = 16.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "x",
-          "operandA": 4,
-          "operandB": 4,
-          "answer": "16",
-          "answerDigits": 2
-        }
-      }
-    },
     {
       "question": "Calculate 2 x 4.",
       "resultType": "short-answer",
@@ -139,6 +35,192 @@
           "answerDigits": 1
         }
       }
+    },
+    {
+      "question": "Calculate 16 + 66.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "82",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Add the numbers: 16 + 66 = 82.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 16,
+          "operandB": 66,
+          "answer": "82",
+          "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate 10 + 13.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "23",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Add the numbers: 10 + 13 = 23.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "+",
+          "operandA": 10,
+          "operandB": 13,
+          "answer": "23",
+          "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate 75 - 11.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "64",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Subtract 11 from 75: 75 - 11 = 64.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 75,
+          "operandB": 11,
+          "answer": "64",
+          "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate 108 - 20.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "88",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Subtract 20 from 108: 108 - 20 = 88.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "-",
+          "operandA": 108,
+          "operandB": 20,
+          "answer": "88",
+          "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate 5 x 4.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Multiply: 5 x 4 = 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 5,
+          "operandB": 4,
+          "answer": "20",
+          "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate 12 x 6.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "72",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Multiply: 12 x 6 = 72.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "x",
+          "operandA": 12,
+          "operandB": 6,
+          "answer": "72",
+          "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate use short division to calculate 112 / 8.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "14",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Since 8 x 14 = 112, the quotient is 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Calculate use long division to divide 36 by 6.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Long division gives quotient 6 because 6 x 6 = 36 with remainder 0.",
+      "solutionAttachments": []
     }
   ]
 }
