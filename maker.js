@@ -2547,8 +2547,10 @@ const AUTO_CREATE_SUBCATEGORY_OPTIONS = {
   arithmetic: [
     { value: "basic-addition-h", label: "Basic Addition - Horizontal" },
     { value: "basic-addition-v", label: "Basic Addition - Vertical" },
-    { value: "basic-subtraction", label: "Basic Subtraction" },
-    { value: "basic-multiplication", label: "Basic Multiplication" },
+    { value: "basic-subtraction-h", label: "Basic Subtraction - Horizontal" },
+    { value: "basic-subtraction-v", label: "Basic Subtraction - Vertical" },
+    { value: "basic-multiplication-h", label: "Basic Multiplication - Horizontal" },
+    { value: "basic-multiplication-v", label: "Basic Multiplication - Vertical" },
     { value: "division-short", label: "Division (Short)" },
     { value: "division-long", label: "Division (Long)" }
   ],
@@ -3474,29 +3476,51 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
     };
   }
 
-  if (normalizedSubcategory === "basic-subtraction") {
+  if (["basic-subtraction", "basic-subtraction-h", "basic-subtraction-v"].includes(normalizedSubcategory)) {
     const a = randomIntBetween(ranges.sub[0], ranges.sub[1]);
     const b = randomIntBetween(ranges.sub[0], Math.max(ranges.sub[0], Math.floor(a * 0.9)));
     const top = Math.max(a, b);
     const bottom = Math.min(a, b);
     const answer = top - bottom;
+    const layout = normalizedSubcategory === "basic-subtraction-v" ? "vertical" : "horizontal";
     return {
       question: `Calculate ${top} - ${bottom}.`,
       solution: `Subtract ${bottom} from ${top}: ${top} - ${bottom} = ${answer}.`,
       correctAnswer: String(answer),
-      interactiveApp: null
+      interactiveApp: {
+        type: "arithmetic",
+        config: {
+          layout,
+          operator: "-",
+          operandA: top,
+          operandB: bottom,
+          answer: String(answer),
+          answerDigits: String(answer).length
+        }
+      }
     };
   }
 
-  if (normalizedSubcategory === "basic-multiplication") {
+  if (["basic-multiplication", "basic-multiplication-h", "basic-multiplication-v"].includes(normalizedSubcategory)) {
     const a = randomIntBetween(ranges.mul[0], ranges.mul[1]);
     const b = randomIntBetween(ranges.mul[0], ranges.mul[1]);
     const answer = a * b;
+    const layout = normalizedSubcategory === "basic-multiplication-v" ? "vertical" : "horizontal";
     return {
       question: `Calculate ${a} x ${b}.`,
       solution: `Multiply: ${a} x ${b} = ${answer}.`,
       correctAnswer: String(answer),
-      interactiveApp: null
+      interactiveApp: {
+        type: "arithmetic",
+        config: {
+          layout,
+          operator: "x",
+          operandA: a,
+          operandB: b,
+          answer: String(answer),
+          answerDigits: String(answer).length
+        }
+      }
     };
   }
 

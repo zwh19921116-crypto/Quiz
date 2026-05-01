@@ -1831,6 +1831,26 @@ function buildArithmeticCarryBoxes(columns, { readOnly = false } = {}) {
   return boxes.join("");
 }
 
+function buildArithmeticWorkBoxes(columns, { readOnly = false, rowIndex = 0 } = {}) {
+  const count = Math.max(1, Number.parseInt(columns, 10) || 1);
+  const attrs = readOnly ? "readonly disabled" : "value=\"\"";
+  const boxes = [];
+  for (let index = 0; index < count; index += 1) {
+    boxes.push(`<input class="arithmetic-work-input" type="text" inputmode="numeric" maxlength="1" ${attrs} data-work-row="${rowIndex}" data-work-index="${index}" autocomplete="off" />`);
+  }
+  return boxes.join("");
+}
+
+function buildArithmeticWorkRows(columns, rowCount, { readOnly = false } = {}) {
+  const count = Math.max(0, Number.parseInt(rowCount, 10) || 0);
+  if (count === 0) return "";
+  const rows = [];
+  for (let rowIndex = 0; rowIndex < count; rowIndex += 1) {
+    rows.push(`<div class="arithmetic-work-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-work-cells">${buildArithmeticWorkBoxes(columns, { readOnly, rowIndex })}</span></div>`);
+  }
+  return rows.join("");
+}
+
 function splitArithmeticDigits(value, columns) {
   const count = Math.max(1, Number.parseInt(columns, 10) || 1);
   const text = String(value == null ? "" : value).trim().replace(/\s+/g, "");
@@ -1881,7 +1901,11 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
     : buildArithmeticSingleInput(answerText, { readOnly });
 
   if (layout === "vertical") {
-    const carryRow = operatorRaw === "+"
+    const showHelperRow = ["+", "-", "x", "*"].includes(operatorRaw);
+    const workRows = ["x", "*"].includes(operatorRaw)
+      ? buildArithmeticWorkRows(columnCount, Math.max(1, operandBLen), { readOnly })
+      : "";
+    const carryRow = showHelperRow
       ? `<div class="arithmetic-carry-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-carry-cells">${buildArithmeticCarryBoxes(columnCount, { readOnly })}</span></div>`
       : "";
     return `
@@ -1890,6 +1914,7 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
           ${carryRow}
           <div class="arithmetic-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-number-cells">${buildArithmeticOperandCells(operandAText, columnCount)}</span></div>
           <div class="arithmetic-row"><span class="arithmetic-operator">${operator}</span><span class="arithmetic-number-cells">${buildArithmeticOperandCells(operandBText, columnCount)}</span></div>
+          ${workRows}
           <div class="arithmetic-answer-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-answer-cells">${boxes}</span></div>
         </div>
       </div>
@@ -1947,6 +1972,8 @@ function wireArithmeticAnswerInputs() {
 
   const inputs = Array.from(document.querySelectorAll(".arithmetic-digit-input"))
     .filter((node) => node instanceof HTMLInputElement && !node.disabled);
+  const workInputs = Array.from(document.querySelectorAll(".arithmetic-work-input"))
+    .filter((node) => node instanceof HTMLInputElement && !node.disabled);
   const carryInputs = Array.from(document.querySelectorAll(".arithmetic-carry-input"))
     .filter((node) => node instanceof HTMLInputElement && !node.disabled);
   if (singleInputs.length > 0) {
@@ -1983,6 +2010,22 @@ function wireArithmeticAnswerInputs() {
     input.addEventListener("keydown", (event) => {
       if (event.key === "Backspace" && !input.value && index > 0) {
         carryInputs[index - 1].focus();
+      }
+    });
+  });
+
+  workInputs.forEach((input, index) => {
+    blockNonTypingInput(input);
+    input.addEventListener("input", () => {
+      input.value = String(input.value || "").slice(-1);
+      if (input.value && index < workInputs.length - 1) {
+        workInputs[index + 1].focus();
+      }
+    });
+
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Backspace" && !input.value && index > 0) {
+        workInputs[index - 1].focus();
       }
     });
   });

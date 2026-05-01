@@ -1227,7 +1227,8 @@ body.modal-open {
 
 .arithmetic-carry-cells,
 .arithmetic-number-cells,
-.arithmetic-answer-cells {
+.arithmetic-answer-cells,
+.arithmetic-work-cells {
   display: flex;
   gap: var(--arith-col-gap);
   align-items: center;
@@ -1270,6 +1271,30 @@ body.modal-open {
   color: #64748b;
 }
 
+.arithmetic-work-input {
+  width: var(--arith-col-width);
+  height: 30px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1e3a8a;
+  font-family: "Consolas", "Courier New", monospace;
+}
+
+.arithmetic-work-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.14);
+}
+
+.arithmetic-work-input[disabled] {
+  background: #f8fafc;
+  color: #64748b;
+}
+
 .arithmetic-answer-inline {
   justify-content: flex-start;
 }
@@ -1301,7 +1326,8 @@ body.modal-open {
 }
 
 .arithmetic-layout-vertical .arithmetic-answer-row,
-.arithmetic-layout-vertical .arithmetic-row {
+.arithmetic-layout-vertical .arithmetic-row,
+.arithmetic-layout-vertical .arithmetic-work-row {
   display: grid;
   grid-template-columns: var(--arith-op-width) minmax(70px, auto);
   align-items: center;
