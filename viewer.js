@@ -1873,7 +1873,8 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
   const operandBLen = Math.max(1, operandBText.replace(/[^0-9]/g, "").length || operandBText.length || 1);
   const answerLen = Math.max(1, answerDigits.replace(/[^0-9]/g, "").length || answerDigits.length || 1);
   const baseColumns = Math.max(operandALen, operandBLen, answerLen, 1);
-  const columnCount = operatorRaw === "+" ? Math.max(baseColumns + 1, answerLen) : Math.max(baseColumns, answerLen);
+  const hasLeadingCarrySpace = ["+", "-", "x", "*"].includes(operatorRaw);
+  const columnCount = hasLeadingCarrySpace ? Math.max(baseColumns + 1, answerLen) : Math.max(baseColumns, answerLen);
 
   const boxes = layout === "vertical"
     ? buildArithmeticAnswerBoxes(answerText, { readOnly, minDigits: columnCount })
