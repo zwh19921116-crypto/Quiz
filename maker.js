@@ -4384,6 +4384,18 @@ function serializeMatrixRows(rows) {
 
 function buildDefaultInteractiveApp(type) {
   switch (type) {
+    case "arithmetic":
+      return {
+        type,
+        config: {
+          layout: "horizontal",
+          operator: "+",
+          operandA: 7,
+          operandB: 5,
+          answer: "12",
+          answerDigits: 2
+        }
+      };
     case "number-line":
       return {
         type,
@@ -5616,9 +5628,36 @@ function buildTrigonometryMarkup(config) {
   `;
 }
 
+function computeArithmeticPreviewAnswer(config) {
+  const a = Number.parseFloat(config && config.operandA);
+  const b = Number.parseFloat(config && config.operandB);
+  const operator = String(config && config.operator ? config.operator : "+").trim();
+  if (!Number.isFinite(a) || !Number.isFinite(b)) {
+    return String(config && config.answer ? config.answer : "").trim();
+  }
+  if (operator === "-") return String(a - b);
+  if (operator === "x" || operator === "*") return String(a * b);
+  if (operator === "/" && b !== 0) return String(a / b);
+  return String(a + b);
+}
+
+function buildArithmeticPreviewMarkup(config) {
+  const layout = String(config && config.layout ? config.layout : "horizontal").trim().toLowerCase() === "vertical" ? "vertical" : "horizontal";
+  const operator = escapeInteractiveHtml(String(config && config.operator ? config.operator : "+"));
+  const a = escapeInteractiveHtml(String(config && config.operandA != null ? config.operandA : ""));
+  const b = escapeInteractiveHtml(String(config && config.operandB != null ? config.operandB : ""));
+  const answer = escapeInteractiveHtml(String(config && config.answer ? config.answer : computeArithmeticPreviewAnswer(config)));
+  if (layout === "vertical") {
+    return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (${layout})</p><p style="font-family:Consolas,monospace;line-height:1.6">&nbsp;&nbsp;${a}<br>${operator} ${b}<br>-----<br>&nbsp;&nbsp;${answer}</p></div>`;
+  }
+  return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (${layout})</p><p style="font-family:Consolas,monospace">${a} ${operator} ${b} = ${answer}</p></div>`;
+}
+
 function buildInteractiveAppMarkup(app) {
   if (!app || !app.type) return "<p class='helper-text'>Choose a template to add an optional interactive math visual.</p>";
   switch (app.type) {
+    case "arithmetic":
+      return buildArithmeticPreviewMarkup(app.config || {});
     case "number-line":
       return buildNumberLineMarkup(app.config || {});
     case "cartesian-plane":
@@ -5717,12 +5756,14 @@ function renderInteractiveAppPreview(app) {
 }
 
 function setInteractiveAppConfigVisibility(type) {
-  ["numberLineConfig", "cartesianPlaneConfig", "cartesianPlotConfig", "barChartConfig", "histogramConfig", "boxPlotConfig", "scatterPlotConfig", "probabilityTreeConfig", "distributionCurveConfig", "fractionsConfig", "networkGraphConfig", "matrixConfig", "stemLeafConfig", "geometryShapesConfig", "pythagorasConfig", "trigonometryConfig"]
+  ["arithmeticConfig", "numberLineConfig", "cartesianPlaneConfig", "cartesianPlotConfig", "barChartConfig", "histogramConfig", "boxPlotConfig", "scatterPlotConfig", "probabilityTreeConfig", "distributionCurveConfig", "fractionsConfig", "networkGraphConfig", "matrixConfig", "stemLeafConfig", "geometryShapesConfig", "pythagorasConfig", "trigonometryConfig"]
     .forEach((id) => {
       const element = document.getElementById(id);
       if (element) {
-        const matches = id === "numberLineConfig"
-          ? type === "number-line"
+        const matches = id === "arithmeticConfig"
+          ? type === "arithmetic"
+          : id === "numberLineConfig"
+            ? type === "number-line"
           : id === "cartesianPlaneConfig"
             ? type === "cartesian-plane"
           : id === "cartesianPlotConfig"
@@ -5762,6 +5803,26 @@ function readInteractiveAppFromForm() {
   if (!type) return null;
 
   switch (type) {
+    case "arithmetic": {
+      const layout = String(document.getElementById("arithLayout").value || "horizontal").trim().toLowerCase() === "vertical" ? "vertical" : "horizontal";
+      const operator = String(document.getElementById("arithOperator").value || "+").trim() || "+";
+      const operandA = Number.parseFloat(document.getElementById("arithOperandA").value);
+      const operandB = Number.parseFloat(document.getElementById("arithOperandB").value);
+      const answerText = String(document.getElementById("arithAnswer").value || "").trim();
+      const previewAnswer = computeArithmeticPreviewAnswer({ operandA, operandB, operator });
+      const resolvedAnswer = answerText || previewAnswer;
+      return {
+        type,
+        config: {
+          layout,
+          operator,
+          operandA: Number.isFinite(operandA) ? operandA : 0,
+          operandB: Number.isFinite(operandB) ? operandB : 0,
+          answer: resolvedAnswer,
+          answerDigits: String(resolvedAnswer || "").length || 1
+        }
+      };
+    }
     case "number-line": {
       const min = Number.parseFloat(document.getElementById("nlMin").value);
       const max = Number.parseFloat(document.getElementById("nlMax").value);
@@ -6000,6 +6061,13 @@ function populateInteractiveAppForm(app) {
   setInteractiveAppConfigVisibility(type);
 
   const numberLineConfig = (type === "number-line" ? nextApp : buildDefaultInteractiveApp("number-line")).config;
+  const arithmeticConfig = (type === "arithmetic" ? nextApp : buildDefaultInteractiveApp("arithmetic")).config;
+  document.getElementById("arithLayout").value = String(arithmeticConfig.layout || "horizontal").trim().toLowerCase() === "vertical" ? "vertical" : "horizontal";
+  document.getElementById("arithOperator").value = String(arithmeticConfig.operator || "+").trim() || "+";
+  document.getElementById("arithOperandA").value = Number.isFinite(Number(arithmeticConfig.operandA)) ? String(arithmeticConfig.operandA) : "0";
+  document.getElementById("arithOperandB").value = Number.isFinite(Number(arithmeticConfig.operandB)) ? String(arithmeticConfig.operandB) : "0";
+  document.getElementById("arithAnswer").value = arithmeticConfig.answer || "";
+
   document.getElementById("nlMin").value = numberLineConfig.min ?? -10;
   document.getElementById("nlMax").value = numberLineConfig.max ?? 10;
   document.getElementById("nlPoints").value = serializeNlPoints(numberLineConfig.points || []);
@@ -7394,7 +7462,7 @@ document.getElementById("validateGeneratedQuestionBtn").addEventListener("click"
   showToast(`Validation found ${issues.length} issue(s).`, "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "cppXMin", "cppXMax", "cppYMin", "cppYMax", "cppTolerance", "cppPoints", "cppVceTemplate", "cppPresetType", "cppPresetExpression", "cppPresetXValues", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxDatasetCount", "boxDatasets", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxTitle", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
+["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "arithLayout", "arithOperator", "arithOperandA", "arithOperandB", "arithAnswer", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "cppXMin", "cppXMax", "cppYMin", "cppYMax", "cppTolerance", "cppPoints", "cppVceTemplate", "cppPresetType", "cppPresetExpression", "cppPresetXValues", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxDatasetCount", "boxDatasets", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxTitle", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);

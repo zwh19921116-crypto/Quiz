@@ -345,6 +345,7 @@
                 <label for="interactiveAppType">8) App Template</label>
                 <select id="interactiveAppType">
                   <option value="">None</option>
+                  <option value="arithmetic">Arithmetic</option>
                   <option value="number-line">Number Line</option>
                   <option value="cartesian-plane">Cartesian Plane</option>
                   <option value="cartesian-plane-plot">Cartesian Plane - Plot</option>
@@ -378,6 +379,39 @@
                   <textarea id="nlPoints" rows="3" placeholder="-3, Start, #2563eb&#10;5, End, #dc2626"></textarea>
                   <label for="nlArrows">Arrows (one per line: from → to, label)</label>
                   <textarea id="nlArrows" rows="3" placeholder="-3 → 5, +8"></textarea>
+                </div>
+
+                <div id="arithmeticConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="arithLayout">Layout</label>
+                      <select id="arithLayout" class="nl-range-input">
+                        <option value="horizontal">Horizontal</option>
+                        <option value="vertical">Vertical</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="arithOperator">Operator</label>
+                      <select id="arithOperator" class="nl-range-input">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="x">x</option>
+                        <option value="/">/</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="arithOperandA">Operand A</label>
+                      <input type="number" id="arithOperandA" class="nl-range-input" value="7" />
+                    </div>
+                    <div>
+                      <label for="arithOperandB">Operand B</label>
+                      <input type="number" id="arithOperandB" class="nl-range-input" value="5" />
+                    </div>
+                  </div>
+                  <label for="arithAnswer">Answer (optional override)</label>
+                  <input type="text" id="arithAnswer" class="nl-range-input" placeholder="Auto-computed if blank" />
                 </div>
 
                 <div id="cartesianPlaneConfig" class="hidden">

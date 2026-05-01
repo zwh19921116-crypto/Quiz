@@ -1818,6 +1818,15 @@ function buildArithmeticAnswerBoxes(answerText, { readOnly = false } = {}) {
   return boxes.join("");
 }
 
+function buildArithmeticSingleInput(answerText, { readOnly = false } = {}) {
+  const value = String(answerText || "").trim();
+  const minLength = Math.max(2, value.length, 2);
+  const attrs = readOnly
+    ? `value="${escapeHtml(value)}" readonly disabled`
+    : "value=\"\"";
+  return `<input class="arithmetic-single-input" type="text" inputmode="numeric" ${attrs} autocomplete="off" style="min-width:${minLength}ch" />`;
+}
+
 function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer = false } = {}) {
   const layout = normalizeArithmeticLayout(config && config.layout);
   const operator = escapeHtml(String(config && config.operator ? config.operator : "+"));
@@ -1826,7 +1835,9 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
   const answerText = revealAnswer
     ? computeArithmeticAnswerFromConfig(config || {})
     : "";
-  const boxes = buildArithmeticAnswerBoxes(answerText, { readOnly });
+  const boxes = layout === "vertical"
+    ? buildArithmeticAnswerBoxes(answerText, { readOnly })
+    : buildArithmeticSingleInput(answerText, { readOnly });
 
   if (layout === "vertical") {
     return `
@@ -1854,11 +1865,51 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
 }
 
 function wireArithmeticAnswerInputs() {
+  const blockNonTypingInput = (input) => {
+    input.addEventListener("beforeinput", (event) => {
+      if (event.inputType === "insertFromPaste" || event.inputType === "insertFromDrop") {
+        event.preventDefault();
+      }
+    });
+
+    input.addEventListener("paste", (event) => {
+      event.preventDefault();
+    });
+
+    input.addEventListener("drop", (event) => {
+      event.preventDefault();
+    });
+
+    input.addEventListener("keydown", (event) => {
+      const key = String(event.key || "").toLowerCase();
+      if ((event.ctrlKey || event.metaKey) && key === "v") {
+        event.preventDefault();
+      }
+      if (event.shiftKey && key === "insert") {
+        event.preventDefault();
+      }
+    });
+  };
+
+  const singleInputs = Array.from(document.querySelectorAll(".arithmetic-single-input"))
+    .filter((node) => node instanceof HTMLInputElement && !node.disabled);
+  singleInputs.forEach((input) => {
+    blockNonTypingInput(input);
+    input.addEventListener("input", () => {
+      input.value = String(input.value || "").replace(/\s+/g, "");
+    });
+  });
+
   const inputs = Array.from(document.querySelectorAll(".arithmetic-digit-input"))
     .filter((node) => node instanceof HTMLInputElement && !node.disabled);
+  if (singleInputs.length > 0) {
+    singleInputs[0].focus();
+    return;
+  }
   if (inputs.length === 0) return;
 
   inputs.forEach((input, index) => {
+    blockNonTypingInput(input);
     input.addEventListener("input", () => {
       input.value = String(input.value || "").slice(-1);
       if (input.value && index < inputs.length - 1) {
@@ -1878,6 +1929,10 @@ function wireArithmeticAnswerInputs() {
 
 function collectArithmeticWorkspaceAnswer(root) {
   const scope = root || document;
+  const singleInput = scope.querySelector(".arithmetic-single-input");
+  if (singleInput instanceof HTMLInputElement) {
+    return String(singleInput.value || "").trim();
+  }
   const inputs = Array.from(scope.querySelectorAll(".arithmetic-digit-input"))
     .filter((node) => node instanceof HTMLInputElement);
   if (inputs.length === 0) return "";
