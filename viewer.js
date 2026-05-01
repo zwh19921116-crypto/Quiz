@@ -1911,7 +1911,7 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
   const hasLeadingCarrySpace = ["+", "-", "x", "*"].includes(operatorRaw);
   const isMultiplication = ["x", "*"].includes(operatorRaw);
   const columnCount = isMultiplication
-    ? Math.max(answerLen + 2, baseColumns)
+    ? 10
     : hasLeadingCarrySpace
       ? Math.max(baseColumns + 1, answerLen)
       : Math.max(baseColumns, answerLen);
