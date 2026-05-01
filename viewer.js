@@ -1901,23 +1901,26 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
   const operandBText = String(config && config.operandB != null ? config.operandB : "").trim();
   const operandA = escapeHtml(operandAText);
   const operandB = escapeHtml(operandBText);
-  const answerText = revealAnswer
-    ? computeArithmeticAnswerFromConfig(config || {})
-    : "";
-  const answerDigits = String(answerText || "").trim();
+  const computedAnswerText = computeArithmeticAnswerFromConfig(config || {});
+  const answerText = revealAnswer ? computedAnswerText : "";
+  const sizingAnswerDigits = String(computedAnswerText || "").trim();
   const operandALen = Math.max(1, operandAText.replace(/[^0-9]/g, "").length || operandAText.length || 1);
   const operandBLen = Math.max(1, operandBText.replace(/[^0-9]/g, "").length || operandBText.length || 1);
-  const answerLen = Math.max(1, answerDigits.replace(/[^0-9]/g, "").length || answerDigits.length || 1);
+  const answerLen = Math.max(1, sizingAnswerDigits.replace(/[^0-9]/g, "").length || sizingAnswerDigits.length || 1);
   const baseColumns = Math.max(operandALen, operandBLen, answerLen, 1);
   const hasLeadingCarrySpace = ["+", "-", "x", "*"].includes(operatorRaw);
-  const columnCount = hasLeadingCarrySpace ? Math.max(baseColumns + 1, answerLen) : Math.max(baseColumns, answerLen);
+  const isMultiplication = ["x", "*"].includes(operatorRaw);
+  const columnCount = isMultiplication
+    ? Math.max(answerLen + 2, baseColumns)
+    : hasLeadingCarrySpace
+      ? Math.max(baseColumns + 1, answerLen)
+      : Math.max(baseColumns, answerLen);
 
   const boxes = layout === "vertical"
     ? buildArithmeticAnswerBoxes(answerText, { readOnly, minDigits: columnCount })
     : buildArithmeticSingleInput(answerText, { readOnly });
 
   if (layout === "vertical") {
-    const isMultiplication = ["x", "*"].includes(operatorRaw);
     const workContainer = isMultiplication
       ? buildArithmeticMulWorkContainer(columnCount, { readOnly })
       : "";
