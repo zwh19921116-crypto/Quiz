@@ -1540,10 +1540,18 @@ body.modal-open {
   color: #64748b;
 }
 
-.arithmetic-long-step-divider {
-  width: 100%;
-  border-top: 2px solid #334155;
-  min-height: 2px;
+.arithmetic-work-cells--divider {
+  align-items: center;
+}
+
+.arithmetic-long-divider-cell {
+  width: var(--arith-col-width);
+  height: 0;
+  border-top: 2px solid transparent;
+}
+
+.arithmetic-long-divider-cell.is-active {
+  border-top-color: #334155;
 }
 
 .arithmetic-answer-inline {

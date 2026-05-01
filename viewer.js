@@ -2033,11 +2033,19 @@ function buildArithmeticLongDivisionWorkRow(columnCount, { readOnly = false, row
   return `<div class="arithmetic-long-work-row"><span class="arithmetic-long-side-spacer"></span><span class="arithmetic-work-cells">${cells}</span>${removeBtn}</div>`;
 }
 
-function buildArithmeticLongDivisionDividerRow() {
+function buildArithmeticLongDivisionDividerRow(columnCount, { start = 0, span = null } = {}) {
+  const count = Math.max(1, Number.parseInt(columnCount, 10) || 1);
+  const safeSpan = Math.max(1, Number.parseInt(span, 10) || count);
+  const safeStart = Math.max(0, Math.min(count - 1, Number.parseInt(start, 10) || 0));
+  const activeEnd = Math.min(count, safeStart + safeSpan);
+  const dividerCells = Array.from({ length: count }, (_, index) => {
+    const active = index >= safeStart && index < activeEnd;
+    return `<span class="arithmetic-long-divider-cell${active ? " is-active" : ""}" aria-hidden="true"></span>`;
+  }).join("");
   return `
     <div class="arithmetic-long-work-divider-row">
       <span class="arithmetic-long-side-spacer"></span>
-      <span class="arithmetic-long-step-divider" aria-hidden="true"></span>
+      <span class="arithmetic-work-cells arithmetic-work-cells--divider">${dividerCells}</span>
       <span class="arithmetic-long-row-end-spacer" aria-hidden="true"></span>
     </div>
   `;
@@ -2049,7 +2057,10 @@ function buildArithmeticLongDivisionWorkContainer(columnCount, { readOnly = fals
     ? solutionRows
       .map((row) => {
         if (row && row.kind === "divider") {
-          return buildArithmeticLongDivisionDividerRow();
+          return buildArithmeticLongDivisionDividerRow(columnCount, {
+            start: row.start,
+            span: row.span
+          });
         }
         return buildArithmeticLongDivisionWorkRow(columnCount, { readOnly, rowData: row });
       })
@@ -2128,7 +2139,7 @@ function buildLongDivisionSolutionRows(dividendText, divisorText, columnCount) {
       subtractRow.carry[col] = borrowMarkers[offset] || "";
     }
     rows.push(subtractRow);
-    rows.push({ kind: "divider" });
+    rows.push({ kind: "divider", start: startCol, span });
 
     remainder = current - product;
     const remainderRow = createLongDivisionRow(columns);
@@ -2520,7 +2531,7 @@ function wireArithmeticAnswerInputs() {
         if (existingRows.length >= 15) return;
         const columns = Number.parseInt(longDivisionContainer.dataset.columns, 10) || 6;
         const dividerTemplate = document.createElement("template");
-        dividerTemplate.innerHTML = buildArithmeticLongDivisionDividerRow().trim();
+        dividerTemplate.innerHTML = buildArithmeticLongDivisionDividerRow(columns).trim();
         const newDivider = dividerTemplate.content.firstChild;
         const rowTemplate = document.createElement("template");
         rowTemplate.innerHTML = buildArithmeticLongDivisionWorkRow(columns, { readOnly: false }).trim();
