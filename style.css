@@ -1300,6 +1300,12 @@ body.modal-open {
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.14);
 }
 
+.arithmetic-carry-row--small .arithmetic-carry-input {
+  height: 18px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
 .arithmetic-carry-input[disabled] {
   background: #f8fafc;
   color: #64748b;
