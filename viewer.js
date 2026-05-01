@@ -1862,8 +1862,8 @@ function buildArithmeticLongDivisionWorkRow(columnCount, { readOnly = false } = 
   const count = Math.max(1, Number.parseInt(columnCount, 10) || 1);
   const inputAttr = readOnly ? "readonly disabled" : "";
   const digitBoxes = Array.from({ length: count }, () =>
-    `<span class="arithmetic-long-work-cell">` +
-    `<input class="arithmetic-long-carry-input" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" />` +
+    `<span class="arithmetic-work-cell-wrap arithmetic-long-work-cell">` +
+    `<input class="arithmetic-work-cell-carry arithmetic-long-work-carry" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" />` +
     `<input class="arithmetic-long-work-input" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" />` +
     `</span>`
   ).join("");
@@ -2202,7 +2202,7 @@ function wireArithmeticAnswerInputs() {
   }
 
   function wireLongDivisionWorkRow(row) {
-    const rowInputs = Array.from(row.querySelectorAll(".arithmetic-long-work-input, .arithmetic-long-carry-input"))
+    const rowInputs = Array.from(row.querySelectorAll(".arithmetic-long-work-input, .arithmetic-long-work-carry"))
       .filter((n) => n instanceof HTMLInputElement && !n.disabled);
     rowInputs.forEach((input) => {
       blockNonTypingInput(input);
