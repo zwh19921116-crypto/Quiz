@@ -1917,11 +1917,7 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
     const workRows = isMultiplication
       ? buildArithmeticWorkRows(columnCount, Math.max(1, operandBLen), { readOnly })
       : "";
-    // Multiplication: small corner carry boxes on operand A cells; addition/subtraction: separate carry row above
-    const operandACells = isMultiplication
-      ? buildArithmeticOperandCellsWithCornerCarry(operandAText, columnCount, { readOnly })
-      : buildArithmeticOperandCells(operandAText, columnCount);
-    const showCarryRow = ["+", "-"].includes(operatorRaw);
+    const showCarryRow = ["+", "-", "x", "*"].includes(operatorRaw);
     const carryRow = showCarryRow
       ? `<div class="arithmetic-carry-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-carry-cells">${buildArithmeticCarryBoxes(columnCount, { readOnly })}</span></div>`
       : "";
@@ -1929,7 +1925,7 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
       <div class="arithmetic-workspace arithmetic-layout-vertical">
         <div class="arithmetic-vertical-stack">
           ${carryRow}
-          <div class="arithmetic-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-number-cells">${operandACells}</span></div>
+          <div class="arithmetic-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-number-cells">${buildArithmeticOperandCells(operandAText, columnCount)}</span></div>
           <div class="arithmetic-row"><span class="arithmetic-operator">${operator}</span><span class="arithmetic-number-cells">${buildArithmeticOperandCells(operandBText, columnCount)}</span></div>
           ${workRows}
           <div class="arithmetic-answer-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-answer-cells">${boxes}</span></div>
