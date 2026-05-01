@@ -2499,6 +2499,10 @@ function wireArithmeticAnswerInputs() {
     const removeBtn = row.querySelector(".arithmetic-remove-row");
     if (removeBtn) {
       removeBtn.addEventListener("click", () => {
+        const previous = row.previousElementSibling;
+        if (previous && previous.classList.contains("arithmetic-long-work-divider-row")) {
+          previous.remove();
+        }
         row.remove();
       });
     }
@@ -2515,10 +2519,14 @@ function wireArithmeticAnswerInputs() {
         const existingRows = rowsHost ? rowsHost.querySelectorAll(".arithmetic-long-work-row") : [];
         if (existingRows.length >= 15) return;
         const columns = Number.parseInt(longDivisionContainer.dataset.columns, 10) || 6;
-        const template = document.createElement("template");
-        template.innerHTML = buildArithmeticLongDivisionWorkRow(columns, { readOnly: false }).trim();
-        const newRow = template.content.firstChild;
+        const dividerTemplate = document.createElement("template");
+        dividerTemplate.innerHTML = buildArithmeticLongDivisionDividerRow().trim();
+        const newDivider = dividerTemplate.content.firstChild;
+        const rowTemplate = document.createElement("template");
+        rowTemplate.innerHTML = buildArithmeticLongDivisionWorkRow(columns, { readOnly: false }).trim();
+        const newRow = rowTemplate.content.firstChild;
         if (rowsHost) {
+          rowsHost.appendChild(newDivider);
           rowsHost.appendChild(newRow);
         }
         wireLongDivisionWorkRow(newRow);
