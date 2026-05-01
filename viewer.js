@@ -2518,9 +2518,8 @@ function wireArithmeticAnswerInputs() {
     Array.from(rowsHost.querySelectorAll(".arithmetic-long-work-divider-row")).forEach((node) => node.remove());
     const rows = Array.from(rowsHost.querySelectorAll(".arithmetic-long-work-row"));
     rows.forEach((row, index) => {
-      const isSecondInPair = (index + 1) % 2 === 0;
-      const isLastRow = index === rows.length - 1;
-      if (isSecondInPair && !isLastRow) {
+      const shouldShowDividerAfterRow = index % 2 === 0;
+      if (shouldShowDividerAfterRow) {
         const template = document.createElement("template");
         template.innerHTML = buildArithmeticLongDivisionDividerRow().trim();
         const divider = template.content.firstChild;
