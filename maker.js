@@ -12,6 +12,7 @@ const ROOT_SOURCE_MODES = {
 };
 const APP_VERSION = "2.3.1";
 let rootDirectoryHandle = null;
+let silentSaveTimer = null;
 
 function openRootHandleDb() {
   return new Promise((resolve, reject) => {
@@ -2580,6 +2581,33 @@ function populateAutoCreateSubcategoryOptions() {
   subcategorySelect.value = hasCurrent ? current : options[0].value;
 }
 
+function updateAutoCreateCommandWordControl() {
+  const categorySelect = document.getElementById("autoCreateCategory");
+  const commandWordSelect = document.getElementById("autoCreateCommandWord");
+  if (!(categorySelect instanceof HTMLSelectElement) || !(commandWordSelect instanceof HTMLSelectElement)) {
+    return;
+  }
+
+  const category = String(categorySelect.value || "").trim().toLowerCase();
+  const isArithmetic = category === "arithmetic";
+
+  if (isArithmetic) {
+    const current = normalizeCommandWordChoice(commandWordSelect.value || "");
+    if (current !== "calculate") {
+      commandWordSelect.dataset.previousChoice = current;
+    }
+    commandWordSelect.value = "calculate";
+    commandWordSelect.disabled = true;
+    commandWordSelect.title = "Arithmetic questions always use Calculate.";
+    return;
+  }
+
+  commandWordSelect.disabled = false;
+  const previous = normalizeCommandWordChoice(commandWordSelect.dataset.previousChoice || "random");
+  commandWordSelect.value = previous === "calculate" ? "random" : previous;
+  commandWordSelect.title = "";
+}
+
 function capitalizeWord(value) {
   const text = String(value || "").trim();
   if (!text) return "Determine";
@@ -2588,13 +2616,18 @@ function capitalizeWord(value) {
 
 function normalizeCommandWordChoice(value) {
   const normalized = String(value || "").trim().toLowerCase();
-  if (["determine", "sketch", "interpret", "justify", "random"].includes(normalized)) {
+  if (["determine", "sketch", "interpret", "justify", "calculate", "random"].includes(normalized)) {
     return normalized;
   }
   return "determine";
 }
 
-function pickCommandWordFromChoice(choice, { resultType = "", index = 0 } = {}) {
+function pickCommandWordFromChoice(choice, { resultType = "", index = 0, category = "" } = {}) {
+  const normalizedCategory = String(category || "").trim().toLowerCase();
+  if (normalizedCategory === "arithmetic") {
+    return "calculate";
+  }
+
   const normalizedChoice = normalizeCommandWordChoice(choice);
   if (normalizedChoice !== "random") {
     return normalizedChoice;
@@ -2617,6 +2650,11 @@ function applyCommandWordToQuestion(questionText, commandWord) {
   const text = String(questionText || "").trim();
   const word = capitalizeWord(commandWord);
   if (!text) return `${word}.`;
+
+  if (new RegExp(`^${word}\\b`, "i").test(text)) {
+    return `${word}${text.slice(word.length)}`;
+  }
+
   const normalized = text.charAt(0).toLowerCase() + text.slice(1);
   return `${word} ${normalized}`;
 }
@@ -2689,7 +2727,8 @@ function postProcessAutoPayload(payload, generationOptions = {}) {
   const commandWordChoice = normalizeCommandWordChoice(generationOptions.commandWord || "determine");
   const commandWord = pickCommandWordFromChoice(commandWordChoice, {
     resultType: payload.resultType,
-    index: Number.isInteger(generationOptions.questionIndex) ? generationOptions.questionIndex : null
+    index: Number.isInteger(generationOptions.questionIndex) ? generationOptions.questionIndex : null,
+    category: generationOptions.category || ""
   });
   const answerPolicy = String(generationOptions.answerPolicy || "auto").trim();
   const decimalPlaces = Number.isInteger(Number(generationOptions.decimalPlaces))
@@ -3890,6 +3929,7 @@ function buildAutoQuizQuestion(questionTemplate, index, generationOptions) {
   const options = {
     ...generationOptions,
     commandWord: nextCommandWord,
+    category: questionTemplate && questionTemplate.category ? questionTemplate.category : "",
     questionIndex: index
   };
   return buildAutoPayloadForCategory(
@@ -3901,7 +3941,7 @@ function buildAutoQuizQuestion(questionTemplate, index, generationOptions) {
   );
 }
 
-function autoCreateEntireQuiz(quizId = state.selectedQuizId) {
+async function autoCreateEntireQuiz(quizId = state.selectedQuizId) {
   const category = activeCategory();
   if (!category) {
     showToast("Select a category first.", "warning");
@@ -4023,6 +4063,7 @@ function autoCreateEntireQuiz(quizId = state.selectedQuizId) {
 
   state.selectedQuestionIndex = existingCount;
   renderAll();
+  await persistSelectedQuizAfterMutation("Auto-generated questions");
 
   if (generatedQuestions.length < questionCount) {
     showToast(`Added ${generatedQuestions.length}/${questionCount} questions. Some templates failed verification.`, "warning");
@@ -6517,7 +6558,7 @@ function saveQuizSettingsFromModal() {
   showToast("Quiz settings saved.", "success");
 }
 
-function addQuestion() {
+async function addQuestion() {
   const quiz = activeQuiz();
   if (!quiz) {
     showToast("Create a quiz first.", "warning");
@@ -6527,6 +6568,7 @@ function addQuestion() {
   quiz.questions.push(createEmptyQuestion());
   state.selectedQuestionIndex = quiz.questions.length - 1;
   renderAll();
+  await persistSelectedQuizAfterMutation("Question list");
 }
 
 function requireDeletePhrase(scopeLabel) {
@@ -6623,11 +6665,30 @@ async function deleteQuiz(id) {
   await deleteQuizFileFromDisk(quiz, category);
 }
 
-function deleteQuestion(index) {
+async function deleteQuestion(index) {
   const quiz = activeQuiz();
   if (!quiz || index < 0 || index >= quiz.questions.length) return;
   quiz.questions.splice(index, 1);
   renderAll();
+  await persistSelectedQuizAfterMutation("Question list");
+}
+
+function scheduleSilentDiskSave(delayMs = 700) {
+  if (normalizeRootSourceMode(state.rootSourceMode) !== ROOT_SOURCE_MODES.LOCAL) {
+    return;
+  }
+  if (!supportsFolderDeletion()) {
+    return;
+  }
+
+  if (silentSaveTimer) {
+    window.clearTimeout(silentSaveTimer);
+  }
+
+  silentSaveTimer = window.setTimeout(async () => {
+    silentSaveTimer = null;
+    await writeSelectedQuizToDisk({ allowPrompt: false, notify: false });
+  }, Math.max(100, Number(delayMs) || 700));
 }
 
 function updateQuestionFromForm() {
@@ -6713,6 +6774,7 @@ function updateQuestionFromForm() {
   renderValidationBox(question);
   updateGeneratedJson();
   saveDraft();
+  scheduleSilentDiskSave();
 }
 
 function updateImagePreview(src) {
@@ -6781,12 +6843,14 @@ function resolveQuizRelativePath(quiz, category) {
 }
 
 async function writeSelectedQuizToDisk(options = {}) {
-  const { allowPrompt = true } = options;
+  const { allowPrompt = true, notify = true } = options;
   const quiz = activeQuiz();
   const category = activeCategory();
   const payload = buildPersistedQuizPayload();
   if (!quiz || !category || !payload) {
-    showToast("Select a quiz first.", "warning");
+    if (notify) {
+      showToast("Select a quiz first.", "warning");
+    }
     return false;
   }
 
@@ -6806,13 +6870,17 @@ async function writeSelectedQuizToDisk(options = {}) {
     const relativePath = await resolveWritableQuizRelativePath(configuredRoot, quiz, category);
     const parts = relativePath.split("/").filter((item) => item !== "");
     if (parts.length === 0) {
-      showToast("Could not resolve save path.", "error");
+      if (notify) {
+        showToast("Could not resolve save path.", "error");
+      }
       return false;
     }
 
     const fileName = parts.pop();
     if (!fileName || !fileName.toLowerCase().endsWith(".json")) {
-      showToast("Quiz file name must end with .json", "warning");
+      if (notify) {
+        showToast("Quiz file name must end with .json", "warning");
+      }
       return false;
     }
 
@@ -6836,17 +6904,31 @@ async function writeSelectedQuizToDisk(options = {}) {
 
     updateGeneratedJson();
     saveDraft();
-    showToast(`Saved ${[...parts, fileName].join("/")}`, "success");
+    if (notify) {
+      showToast(`Saved ${[...parts, fileName].join("/")}`, "success");
+    }
     return true;
   } catch (error) {
     if (error && error.name === "AbortError") {
-      showToast("Save canceled.", "info");
+      if (notify) {
+        showToast("Save canceled.", "info");
+      }
       return false;
     }
 
-    showToast("Could not save to local folder.", "warning");
+    if (notify) {
+      showToast("Could not save to local folder.", "warning");
+    }
     return false;
   }
+}
+
+async function persistSelectedQuizAfterMutation(scopeLabel = "Quiz") {
+  const saved = await writeSelectedQuizToDisk({ allowPrompt: false, notify: false });
+  if (!saved) {
+    showToast(`${scopeLabel} updated in Maker but not saved to file. Click Save Quiz or Connect Root Folder.`, "warning");
+  }
+  return saved;
 }
 
 function downloadSelectedQuizJson() {
@@ -6871,7 +6953,7 @@ async function saveSelectedQuiz(options = {}) {
     updateQuestionFromForm();
   }
   const { allowPrompt = true } = options;
-  const saved = await writeSelectedQuizToDisk({ allowPrompt });
+  const saved = await writeSelectedQuizToDisk({ allowPrompt, notify: true });
   if (!saved) {
     showToast(
       allowPrompt
@@ -7154,7 +7236,7 @@ document.getElementById("questionsList").addEventListener("click", (event) => {
   if (Number.isNaN(index)) return;
 
   if (target.dataset.action === "delete") {
-    deleteQuestion(index);
+    void deleteQuestion(index);
     return;
   }
 
@@ -7242,7 +7324,7 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   showToast("Question updated in Maker, but file save did not run. Connect Root Folder if needed.", "warning");
 });
 
-document.getElementById("autoCreateQuestionBtn").addEventListener("click", () => {
+document.getElementById("autoCreateQuestionBtn").addEventListener("click", async () => {
   const question = activeQuestion();
   if (!question) {
     showToast("Select a question first.", "warning");
@@ -7284,15 +7366,17 @@ document.getElementById("autoCreateQuestionBtn").addEventListener("click", () =>
 
   applyAutoCreatedQuestionToEditor(payload);
   updateQuestionFromForm();
+  await persistSelectedQuizAfterMutation("Auto-created question");
   showToast("Question auto-created and semantically verified.", "success");
 });
 
 document.getElementById("autoCreateQuizBtn").addEventListener("click", () => {
-  autoCreateEntireQuiz();
+  void autoCreateEntireQuiz();
 });
 
 document.getElementById("autoCreateCategory").addEventListener("change", () => {
   populateAutoCreateSubcategoryOptions();
+  updateAutoCreateCommandWordControl();
 });
 
 document.getElementById("validateGeneratedQuestionBtn").addEventListener("click", () => {
@@ -7330,6 +7414,7 @@ document.getElementById("cppPresetType").addEventListener("change", () => {
 });
 
 populateAutoCreateSubcategoryOptions();
+updateAutoCreateCommandWordControl();
 
 document.getElementById("cppGeneratePointsBtn").addEventListener("click", () => {
   const presetType = String(document.getElementById("cppPresetType").value || "linear").trim() || "linear";
@@ -7662,7 +7747,7 @@ window.addEventListener("keydown", (event) => {
 
   if (!event.repeat && event.key.toLowerCase() === "n") {
     event.preventDefault();
-    addQuestion();
+    void addQuestion();
     return;
   }
 
@@ -7673,7 +7758,7 @@ window.addEventListener("keydown", (event) => {
       return;
     }
 
-    deleteQuestion(state.selectedQuestionIndex);
+    void deleteQuestion(state.selectedQuestionIndex);
     showToast("Question deleted.", "info");
   }
 });

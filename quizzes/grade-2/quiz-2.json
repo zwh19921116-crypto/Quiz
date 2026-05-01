@@ -1,0 +1,27 @@
+{
+  "id": "quiz-2",
+  "title": "Quiz 2",
+  "description": "",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": null
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "",
+      "resultType": "multiple-choice",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "",
+      "solutionAttachments": []
+    }
+  ]
+}
