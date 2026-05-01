@@ -1190,7 +1190,7 @@ body.modal-open {
   margin-top: 10px;
   display: grid;
   justify-content: center;
-  --arith-col-width: 36px;
+  --arith-col-width: 40px;
   --arith-col-gap: 6px;
   --arith-op-width: 20px;
 }
@@ -1444,7 +1444,7 @@ body.modal-open {
 }
 
 .arithmetic-digit-input {
-  width: 36px;
+  width: var(--arith-col-width);
   height: 40px;
   text-align: center;
   font-size: 1.15rem;
