@@ -1831,24 +1831,21 @@ function buildArithmeticCarryBoxes(columns, { readOnly = false } = {}) {
   return boxes.join("");
 }
 
-function buildArithmeticWorkBoxes(columns, { readOnly = false, rowIndex = 0 } = {}) {
-  const count = Math.max(1, Number.parseInt(columns, 10) || 1);
-  const attrs = readOnly ? "readonly disabled" : "value=\"\"";
-  const boxes = [];
-  for (let index = 0; index < count; index += 1) {
-    boxes.push(`<input class="arithmetic-work-input" type="text" inputmode="numeric" maxlength="1" ${attrs} data-work-row="${rowIndex}" data-work-index="${index}" autocomplete="off" />`);
-  }
-  return boxes.join("");
+function buildArithmeticMulWorkRow(columnCount, { readOnly = false } = {}) {
+  const count = Math.max(1, Number.parseInt(columnCount, 10) || 1);
+  const inputAttr = readOnly ? "readonly disabled" : "";
+  const digitBoxes = Array.from({ length: count }, () =>
+    `<input class="arithmetic-work-input" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" />`
+  ).join("");
+  const carryInput = `<input class="arithmetic-mul-row-carry" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" title="Carry" />`;
+  const removeBtn = readOnly ? "" : `<button class="arithmetic-remove-row" type="button" title="Remove row" aria-label="Remove row">×</button>`;
+  return `<div class="arithmetic-mul-work-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-work-cells">${digitBoxes}</span>${carryInput}${removeBtn}</div>`;
 }
 
-function buildArithmeticWorkRows(columns, rowCount, { readOnly = false } = {}) {
-  const count = Math.max(0, Number.parseInt(rowCount, 10) || 0);
-  if (count === 0) return "";
-  const rows = [];
-  for (let rowIndex = 0; rowIndex < count; rowIndex += 1) {
-    rows.push(`<div class="arithmetic-work-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-work-cells">${buildArithmeticWorkBoxes(columns, { readOnly, rowIndex })}</span></div>`);
-  }
-  return rows.join("");
+function buildArithmeticMulWorkContainer(columnCount, { readOnly = false } = {}) {
+  const addBtn = readOnly ? "" : `<button class="arithmetic-add-row-btn" type="button">＋ Add row</button>`;
+  const initialRow = buildArithmeticMulWorkRow(columnCount, { readOnly });
+  return `<div class="arithmetic-mul-work-container" data-columns="${columnCount}">${initialRow}${addBtn}</div>`;
 }
 
 function splitArithmeticDigits(value, columns) {
@@ -1914,25 +1911,26 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
 
   if (layout === "vertical") {
     const isMultiplication = ["x", "*"].includes(operatorRaw);
-    const workRows = isMultiplication
-      ? buildArithmeticWorkRows(columnCount, Math.max(1, operandBLen), { readOnly })
+    const workContainer = isMultiplication
+      ? buildArithmeticMulWorkContainer(columnCount, { readOnly })
       : "";
-    // Addition/subtraction: carry row at the top above operand A
+    // Addition/subtraction: carry row at the top above operand A (full column width)
     const topCarryRow = ["+", "-"].includes(operatorRaw)
       ? `<div class="arithmetic-carry-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-carry-cells">${buildArithmeticCarryBoxes(columnCount, { readOnly })}</span></div>`
       : "";
-    // Multiplication: small carry row just above the answer line
-    const bottomCarryRow = isMultiplication
-      ? `<div class="arithmetic-carry-row arithmetic-carry-row--small"><span class="arithmetic-op-spacer"></span><span class="arithmetic-carry-cells">${buildArithmeticCarryBoxes(columnCount, { readOnly })}</span></div>`
+    // Multiplication: small carry row directly above operand A, only operandALen+1 boxes
+    const mulCarryCount = operandALen + 1;
+    const mulCarryRow = isMultiplication
+      ? `<div class="arithmetic-carry-row arithmetic-carry-row--small"><span class="arithmetic-op-spacer"></span><span class="arithmetic-carry-cells">${buildArithmeticCarryBoxes(mulCarryCount, { readOnly })}</span></div>`
       : "";
     return `
       <div class="arithmetic-workspace arithmetic-layout-vertical">
         <div class="arithmetic-vertical-stack">
           ${topCarryRow}
+          ${mulCarryRow}
           <div class="arithmetic-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-number-cells">${buildArithmeticOperandCells(operandAText, columnCount)}</span></div>
           <div class="arithmetic-row"><span class="arithmetic-operator">${operator}</span><span class="arithmetic-number-cells">${buildArithmeticOperandCells(operandBText, columnCount)}</span></div>
-          ${workRows}
-          ${bottomCarryRow}
+          ${workContainer}
           <div class="arithmetic-answer-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-answer-cells">${boxes}</span></div>
         </div>
       </div>
@@ -2056,6 +2054,44 @@ function wireArithmeticAnswerInputs() {
       input.value = String(input.value || "").slice(-1);
     });
   });
+
+  function wireMulWorkRow(row) {
+    const rowInputs = Array.from(row.querySelectorAll(".arithmetic-work-input, .arithmetic-mul-row-carry"))
+      .filter((n) => n instanceof HTMLInputElement && !n.disabled);
+    rowInputs.forEach((input) => {
+      blockNonTypingInput(input);
+      input.addEventListener("input", () => {
+        input.value = String(input.value || "").slice(-1);
+      });
+    });
+    const removeBtn = row.querySelector(".arithmetic-remove-row");
+    if (removeBtn) {
+      removeBtn.addEventListener("click", () => {
+        row.remove();
+      });
+    }
+  }
+
+  const mulContainer = document.querySelector(".arithmetic-mul-work-container");
+  if (mulContainer) {
+    Array.from(mulContainer.querySelectorAll(".arithmetic-mul-work-row")).forEach(wireMulWorkRow);
+
+    const addBtn = mulContainer.querySelector(".arithmetic-add-row-btn");
+    if (addBtn) {
+      addBtn.addEventListener("click", () => {
+        const existingRows = mulContainer.querySelectorAll(".arithmetic-mul-work-row");
+        if (existingRows.length >= 15) return;
+        const columns = Number.parseInt(mulContainer.dataset.columns, 10) || 4;
+        const template = document.createElement("template");
+        template.innerHTML = buildArithmeticMulWorkRow(columns, { readOnly: false }).trim();
+        const newRow = template.content.firstChild;
+        mulContainer.insertBefore(newRow, addBtn);
+        wireMulWorkRow(newRow);
+        const firstInput = newRow.querySelector(".arithmetic-work-input");
+        if (firstInput) firstInput.focus();
+      });
+    }
+  }
 
   inputs[0].focus();
 }

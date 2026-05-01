@@ -1335,6 +1335,81 @@ body.modal-open {
   color: #64748b;
 }
 
+.arithmetic-mul-work-container {
+  display: grid;
+  gap: 4px;
+}
+
+.arithmetic-mul-work-row {
+  display: grid;
+  grid-template-columns: var(--arith-op-width) minmax(70px, auto) auto auto;
+  align-items: center;
+  justify-items: end;
+  gap: 4px;
+}
+
+.arithmetic-mul-row-carry {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: 1px solid #bfdbfe;
+  border-radius: 4px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-family: "Consolas", "Courier New", monospace;
+  padding: 0;
+  line-height: 20px;
+}
+
+.arithmetic-mul-row-carry:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.14);
+}
+
+.arithmetic-mul-row-carry[disabled] {
+  background: #f1f5f9;
+  color: #94a3b8;
+}
+
+.arithmetic-remove-row {
+  width: 20px;
+  height: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid #fca5a5;
+  border-radius: 4px;
+  background: #fff1f1;
+  color: #dc2626;
+  cursor: pointer;
+  padding: 0;
+  line-height: 18px;
+  text-align: center;
+}
+
+.arithmetic-remove-row:hover {
+  background: #fee2e2;
+}
+
+.arithmetic-add-row-btn {
+  justify-self: end;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  cursor: pointer;
+}
+
+.arithmetic-add-row-btn:hover {
+  background: #dbeafe;
+}
+
 .arithmetic-answer-inline {
   justify-content: flex-start;
 }
