@@ -1423,6 +1423,7 @@ body.modal-open {
 }
 
 .arithmetic-add-row-btn {
+  grid-column: 1 / -1;
   justify-self: end;
   margin-top: 2px;
   font-size: 0.75rem;
@@ -1450,18 +1451,18 @@ body.modal-open {
   border-radius: 10px;
   background: #f8fbff;
   display: grid;
-  gap: 6px;
+  grid-template-columns: max-content auto max-content;
+  column-gap: 4px;
+  row-gap: 6px;
+  align-items: center;
+  justify-items: end;
   font-family: "Consolas", "Courier New", monospace;
 }
 
 .arithmetic-long-quotient-row,
 .arithmetic-long-problem-row,
 .arithmetic-long-work-row {
-  display: grid;
-  grid-template-columns: auto minmax(70px, auto) auto;
-  align-items: center;
-  justify-items: end;
-  gap: 4px;
+  display: contents;
 }
 
 .arithmetic-long-side-spacer {
@@ -1487,13 +1488,11 @@ body.modal-open {
 }
 
 .arithmetic-long-work-container {
-  display: grid;
-  gap: 4px;
+  display: contents;
 }
 
 .arithmetic-long-work-rows {
-  display: grid;
-  gap: 4px;
+  display: contents;
 }
 
 .arithmetic-long-work-cell {
