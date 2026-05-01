@@ -1824,6 +1824,28 @@ function buildArithmeticAnswerBoxes(answerText, { readOnly = false, minDigits = 
   return boxes.join("");
 }
 
+function buildArithmeticAnswerBoxesWithCornerCarry(answerText, { readOnly = false, minDigits = 1 } = {}) {
+  const cleaned = String(answerText || "").trim();
+  const requiredDigits = Math.max(1, Number.parseInt(minDigits, 10) || 1);
+  const inferredDigits = Math.max(1, cleaned.replace(/[^0-9-]/g, "").length || cleaned.length || 1);
+  const digits = Math.max(requiredDigits, inferredDigits, 1);
+  const chars = splitArithmeticDigits(cleaned, digits);
+  const boxes = [];
+  for (let index = 0; index < digits; index += 1) {
+    const value = chars[index] || "";
+    const answerAttrs = readOnly
+      ? `value="${escapeHtml(value)}" readonly disabled`
+      : "value=\"\"";
+    boxes.push(`
+      <span class="arithmetic-answer-cell-wrap">
+        <input class="arithmetic-corner-carry arithmetic-corner-carry--decor" type="text" inputmode="numeric" maxlength="1" value="" readonly disabled tabindex="-1" aria-hidden="true" autocomplete="off" />
+        <input class="arithmetic-digit-input" type="text" inputmode="numeric" maxlength="1" ${answerAttrs} data-index="${index}" autocomplete="off" />
+      </span>
+    `);
+  }
+  return boxes.join("");
+}
+
 function buildArithmeticCarryBoxes(columns, { readOnly = false, values = [] } = {}) {
   const count = Math.max(1, Number.parseInt(columns, 10) || 1);
   const boxes = [];
@@ -2173,7 +2195,9 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
       : Math.max(baseColumns, answerLen);
 
   const boxes = layout === "vertical"
-    ? buildArithmeticAnswerBoxes(answerText, { readOnly, minDigits: columnCount })
+    ? isMultiplication
+      ? buildArithmeticAnswerBoxesWithCornerCarry(answerText, { readOnly, minDigits: columnCount })
+      : buildArithmeticAnswerBoxes(answerText, { readOnly, minDigits: columnCount })
     : buildArithmeticSingleInput(answerText, { readOnly });
 
   if (isLongDivision) {

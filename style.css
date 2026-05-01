@@ -1251,6 +1251,13 @@ body.modal-open {
   position: relative;
 }
 
+.arithmetic-answer-cell-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .arithmetic-corner-carry {
   position: absolute;
   bottom: 1px;
@@ -1279,6 +1286,11 @@ body.modal-open {
   background: #f1f5f9;
   color: #94a3b8;
   border-color: #e2e8f0;
+}
+
+.arithmetic-corner-carry--decor {
+  top: -6px;
+  left: -6px;
 }
 
 .arithmetic-carry-input {
