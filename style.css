@@ -1477,6 +1477,10 @@ body.modal-open {
   color: #1e293b;
 }
 
+.arithmetic-long-row-end-spacer {
+  min-width: 24px;
+}
+
 .arithmetic-long-dividend-shell {
   border-top: 2px solid #334155;
   border-left: 2px solid #334155;

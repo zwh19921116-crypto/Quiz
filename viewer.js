@@ -1867,7 +1867,9 @@ function buildArithmeticLongDivisionWorkRow(columnCount, { readOnly = false } = 
     `<input class="arithmetic-long-work-input" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" />` +
     `</span>`
   ).join("");
-  const removeBtn = readOnly ? "" : `<button class="arithmetic-remove-row" type="button" title="Remove row" aria-label="Remove row">×</button>`;
+  const removeBtn = readOnly
+    ? `<span class="arithmetic-long-row-end-spacer" aria-hidden="true"></span>`
+    : `<button class="arithmetic-remove-row" type="button" title="Remove row" aria-label="Remove row">×</button>`;
   return `<div class="arithmetic-long-work-row"><span class="arithmetic-long-side-spacer"></span><span class="arithmetic-work-cells">${digitBoxes}</span>${removeBtn}</div>`;
 }
 
@@ -1960,12 +1962,14 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
           <div class="arithmetic-long-quotient-row">
             <span class="arithmetic-long-side-spacer"></span>
             <span class="arithmetic-answer-cells">${quotientBoxes}</span>
+            <span class="arithmetic-long-row-end-spacer" aria-hidden="true"></span>
           </div>
           <div class="arithmetic-long-problem-row">
             <span class="arithmetic-long-divisor">${operandB}</span>
             <span class="arithmetic-long-dividend-shell">
               <span class="arithmetic-number-cells">${dividendCells}</span>
             </span>
+            <span class="arithmetic-long-row-end-spacer" aria-hidden="true"></span>
           </div>
           ${workContainer}
         </div>
