@@ -2015,8 +2015,8 @@ function buildArithmeticLongDivisionWorkRow(columnCount, { readOnly = false, row
   const workValues = rowData && Array.isArray(rowData.work) ? rowData.work : [];
   const operation = rowData && typeof rowData.operation === "string" ? rowData.operation.trim() : "";
   const sideCell = operation
-    ? `<span class="arithmetic-long-operation-marker">${escapeHtml(operation)}</span>`
-    : `<span class="arithmetic-long-side-spacer"></span>`;
+    ? `<span class="arithmetic-long-row-side arithmetic-long-operation-marker">${escapeHtml(operation)}</span>`
+    : `<span class="arithmetic-long-row-side arithmetic-long-side-spacer"></span>`;
   const cells = Array.from({ length: count }, (_, index) => {
     const carryValue = String(carryValues[index] || "").slice(-1);
     const workValue = String(workValues[index] || "").slice(-1);
@@ -2518,6 +2518,13 @@ function wireArithmeticAnswerInputs() {
     Array.from(rowsHost.querySelectorAll(".arithmetic-long-work-divider-row")).forEach((node) => node.remove());
     const rows = Array.from(rowsHost.querySelectorAll(".arithmetic-long-work-row"));
     rows.forEach((row, index) => {
+      const sideCell = row.querySelector(".arithmetic-long-row-side");
+      if (sideCell) {
+        const isSubtractionRow = index % 2 === 0;
+        sideCell.textContent = isSubtractionRow ? "-" : "";
+        sideCell.classList.toggle("arithmetic-long-operation-marker", isSubtractionRow);
+        sideCell.classList.toggle("arithmetic-long-side-spacer", !isSubtractionRow);
+      }
       const shouldShowDividerAfterRow = index % 2 === 0;
       if (shouldShowDividerAfterRow) {
         const template = document.createElement("template");
