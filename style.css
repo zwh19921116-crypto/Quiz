@@ -1473,6 +1473,7 @@ body.modal-open {
 
 .arithmetic-long-quotient-row,
 .arithmetic-long-problem-row,
+.arithmetic-long-work-divider-row,
 .arithmetic-long-work-row {
   display: contents;
 }
@@ -1537,6 +1538,12 @@ body.modal-open {
 .arithmetic-long-work-input[disabled] {
   background: #f8fafc;
   color: #64748b;
+}
+
+.arithmetic-long-step-divider {
+  width: 100%;
+  border-top: 2px solid #334155;
+  min-height: 2px;
 }
 
 .arithmetic-answer-inline {

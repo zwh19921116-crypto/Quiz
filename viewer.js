@@ -2033,10 +2033,27 @@ function buildArithmeticLongDivisionWorkRow(columnCount, { readOnly = false, row
   return `<div class="arithmetic-long-work-row"><span class="arithmetic-long-side-spacer"></span><span class="arithmetic-work-cells">${cells}</span>${removeBtn}</div>`;
 }
 
+function buildArithmeticLongDivisionDividerRow() {
+  return `
+    <div class="arithmetic-long-work-divider-row">
+      <span class="arithmetic-long-side-spacer"></span>
+      <span class="arithmetic-long-step-divider" aria-hidden="true"></span>
+      <span class="arithmetic-long-row-end-spacer" aria-hidden="true"></span>
+    </div>
+  `;
+}
+
 function buildArithmeticLongDivisionWorkContainer(columnCount, { readOnly = false, solutionRows = [] } = {}) {
   const addBtn = readOnly ? "" : `<button class="arithmetic-add-row-btn" type="button">＋ Add row</button>`;
   const rowsMarkup = Array.isArray(solutionRows)
-    ? solutionRows.map((row) => buildArithmeticLongDivisionWorkRow(columnCount, { readOnly, rowData: row })).join("")
+    ? solutionRows
+      .map((row) => {
+        if (row && row.kind === "divider") {
+          return buildArithmeticLongDivisionDividerRow();
+        }
+        return buildArithmeticLongDivisionWorkRow(columnCount, { readOnly, rowData: row });
+      })
+      .join("")
     : "";
   return `
     <div class="arithmetic-long-work-container" data-columns="${columnCount}">
@@ -2111,6 +2128,7 @@ function buildLongDivisionSolutionRows(dividendText, divisorText, columnCount) {
       subtractRow.carry[col] = borrowMarkers[offset] || "";
     }
     rows.push(subtractRow);
+    rows.push({ kind: "divider" });
 
     remainder = current - product;
     const remainderRow = createLongDivisionRow(columns);
