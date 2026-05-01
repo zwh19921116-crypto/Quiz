@@ -1855,6 +1855,26 @@ function buildArithmeticMulWorkContainer(columnCount, { readOnly = false } = {})
   `;
 }
 
+function buildArithmeticLongDivisionWorkRow(columnCount, { readOnly = false } = {}) {
+  const count = Math.max(1, Number.parseInt(columnCount, 10) || 1);
+  const inputAttr = readOnly ? "readonly disabled" : "";
+  const digitBoxes = Array.from({ length: count }, () =>
+    `<input class="arithmetic-long-work-input" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" />`
+  ).join("");
+  const removeBtn = readOnly ? "" : `<button class="arithmetic-remove-row" type="button" title="Remove row" aria-label="Remove row">×</button>`;
+  return `<div class="arithmetic-long-work-row"><span class="arithmetic-long-side-spacer"></span><span class="arithmetic-work-cells">${digitBoxes}</span>${removeBtn}</div>`;
+}
+
+function buildArithmeticLongDivisionWorkContainer(columnCount, { readOnly = false } = {}) {
+  const addBtn = readOnly ? "" : `<button class="arithmetic-add-row-btn" type="button">＋ Add row</button>`;
+  return `
+    <div class="arithmetic-long-work-container" data-columns="${columnCount}">
+      <div class="arithmetic-long-work-rows"></div>
+      ${addBtn}
+    </div>
+  `;
+}
+
 function splitArithmeticDigits(value, columns) {
   const count = Math.max(1, Number.parseInt(columns, 10) || 1);
   const text = String(value == null ? "" : value).trim().replace(/\s+/g, "");
@@ -1910,6 +1930,7 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
   const baseColumns = Math.max(operandALen, operandBLen, answerLen, 1);
   const hasLeadingCarrySpace = ["+", "-", "x", "*"].includes(operatorRaw);
   const isMultiplication = ["x", "*"].includes(operatorRaw);
+  const isLongDivision = operatorRaw === "/" && layout === "vertical";
   const columnCount = isMultiplication
     ? 10
     : hasLeadingCarrySpace
@@ -1919,6 +1940,32 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
   const boxes = layout === "vertical"
     ? buildArithmeticAnswerBoxes(answerText, { readOnly, minDigits: columnCount })
     : buildArithmeticSingleInput(answerText, { readOnly });
+
+  if (isLongDivision) {
+    const quotientBoxes = buildArithmeticAnswerBoxes(answerText, {
+      readOnly,
+      minDigits: Math.max(answerLen, operandALen, 1)
+    });
+    const dividendCells = buildArithmeticOperandCells(operandAText, Math.max(answerLen, operandALen, 1));
+    const workContainer = buildArithmeticLongDivisionWorkContainer(Math.max(answerLen, operandALen, 1), { readOnly });
+    return `
+      <div class="arithmetic-workspace arithmetic-long-division-layout">
+        <div class="arithmetic-long-division-stack">
+          <div class="arithmetic-long-quotient-row">
+            <span class="arithmetic-long-side-spacer"></span>
+            <span class="arithmetic-answer-cells">${quotientBoxes}</span>
+          </div>
+          <div class="arithmetic-long-problem-row">
+            <span class="arithmetic-long-divisor">${operandB}</span>
+            <span class="arithmetic-long-dividend-shell">
+              <span class="arithmetic-number-cells">${dividendCells}</span>
+            </span>
+          </div>
+          ${workContainer}
+        </div>
+      </div>
+    `;
+  }
 
   if (layout === "vertical") {
     const workContainer = isMultiplication
@@ -2004,6 +2051,8 @@ function wireArithmeticAnswerInputs() {
     .filter((node) => node instanceof HTMLInputElement && !node.disabled);
   const workInputs = Array.from(document.querySelectorAll(".arithmetic-work-input"))
     .filter((node) => node instanceof HTMLInputElement && !node.disabled);
+  const longWorkInputs = Array.from(document.querySelectorAll(".arithmetic-long-work-input"))
+    .filter((node) => node instanceof HTMLInputElement && !node.disabled);
   const carryInputs = Array.from(document.querySelectorAll(".arithmetic-carry-input"))
     .filter((node) => node instanceof HTMLInputElement && !node.disabled);
   if (singleInputs.length > 0) {
@@ -2056,6 +2105,22 @@ function wireArithmeticAnswerInputs() {
     input.addEventListener("keydown", (event) => {
       if (event.key === "Backspace" && !input.value && index > 0) {
         workInputs[index - 1].focus();
+      }
+    });
+  });
+
+  longWorkInputs.forEach((input, index) => {
+    blockNonTypingInput(input);
+    input.addEventListener("input", () => {
+      input.value = String(input.value || "").slice(-1);
+      if (input.value && index < longWorkInputs.length - 1) {
+        longWorkInputs[index + 1].focus();
+      }
+    });
+
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Backspace" && !input.value && index > 0) {
+        longWorkInputs[index - 1].focus();
       }
     });
   });
@@ -2124,6 +2189,47 @@ function wireArithmeticAnswerInputs() {
       });
     }
 
+  }
+
+  function wireLongDivisionWorkRow(row) {
+    const rowInputs = Array.from(row.querySelectorAll(".arithmetic-long-work-input"))
+      .filter((n) => n instanceof HTMLInputElement && !n.disabled);
+    rowInputs.forEach((input) => {
+      blockNonTypingInput(input);
+      input.addEventListener("input", () => {
+        input.value = String(input.value || "").slice(-1);
+      });
+    });
+    const removeBtn = row.querySelector(".arithmetic-remove-row");
+    if (removeBtn) {
+      removeBtn.addEventListener("click", () => {
+        row.remove();
+      });
+    }
+  }
+
+  const longDivisionContainer = document.querySelector(".arithmetic-long-work-container");
+  if (longDivisionContainer) {
+    const rowsHost = longDivisionContainer.querySelector(".arithmetic-long-work-rows");
+    Array.from(longDivisionContainer.querySelectorAll(".arithmetic-long-work-row")).forEach(wireLongDivisionWorkRow);
+
+    const addBtn = longDivisionContainer.querySelector(".arithmetic-add-row-btn");
+    if (addBtn) {
+      addBtn.addEventListener("click", () => {
+        const existingRows = rowsHost ? rowsHost.querySelectorAll(".arithmetic-long-work-row") : [];
+        if (existingRows.length >= 15) return;
+        const columns = Number.parseInt(longDivisionContainer.dataset.columns, 10) || 6;
+        const template = document.createElement("template");
+        template.innerHTML = buildArithmeticLongDivisionWorkRow(columns, { readOnly: false }).trim();
+        const newRow = template.content.firstChild;
+        if (rowsHost) {
+          rowsHost.appendChild(newRow);
+        }
+        wireLongDivisionWorkRow(newRow);
+        const firstInput = newRow.querySelector(".arithmetic-long-work-input");
+        if (firstInput) firstInput.focus();
+      });
+    }
   }
 
   inputs[0].focus();

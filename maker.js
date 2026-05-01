@@ -3544,7 +3544,17 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
       question: `Use long division to divide ${dividend} by ${divisor}.`,
       solution: `Long division gives quotient ${quotient} because ${divisor} x ${quotient} = ${dividend} with remainder 0.`,
       correctAnswer: String(quotient),
-      interactiveApp: null
+      interactiveApp: {
+        type: "arithmetic",
+        config: {
+          layout: "vertical",
+          operator: "/",
+          operandA: dividend,
+          operandB: divisor,
+          answer: String(quotient),
+          answerDigits: String(quotient).length
+        }
+      }
     };
   }
 
@@ -5671,6 +5681,9 @@ function buildArithmeticPreviewMarkup(config) {
   const a = escapeInteractiveHtml(String(config && config.operandA != null ? config.operandA : ""));
   const b = escapeInteractiveHtml(String(config && config.operandB != null ? config.operandB : ""));
   const answer = escapeInteractiveHtml(String(config && config.answer ? config.answer : computeArithmeticPreviewAnswer(config)));
+  if (layout === "vertical" && String(config && config.operator ? config.operator : "+").trim() === "/") {
+    return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (${layout})</p><p style="font-family:Consolas,monospace;line-height:1.6;text-align:right">&nbsp;&nbsp;${answer}<br>${b} ) ${a}</p></div>`;
+  }
   if (layout === "vertical") {
     return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (${layout})</p><p style="font-family:Consolas,monospace;line-height:1.6">&nbsp;&nbsp;${a}<br>${operator} ${b}<br>-----<br>&nbsp;&nbsp;${answer}</p></div>`;
   }
