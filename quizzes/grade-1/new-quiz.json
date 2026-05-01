@@ -4,244 +4,12 @@
   "description": "Auto-generated quiz aligned to VCAA style for Prep (Prep).",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 11
+    "questionLimit": 6
   },
+  "fileName": "new-quiz.json",
+  "sourcePath": "quizzes/grade-1/new-quiz.json",
   "category": "Grade 1",
   "questions": [
-    {
-      "question": "Calculate 4 + 7.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "11",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Add the numbers: 4 + 7 = 11.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "+",
-          "operandA": 4,
-          "operandB": 7,
-          "answer": "11",
-          "answerDigits": 2
-        }
-      }
-    },
-    {
-      "question": "Calculate 3 + 1.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "4",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Add the numbers: 3 + 1 = 4.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "+",
-          "operandA": 3,
-          "operandB": 1,
-          "answer": "4",
-          "answerDigits": 1
-        }
-      }
-    },
-    {
-      "question": "Calculate 8 + 7.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "15",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Add the numbers: 8 + 7 = 15.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "+",
-          "operandA": 8,
-          "operandB": 7,
-          "answer": "15",
-          "answerDigits": 2
-        }
-      }
-    },
-    {
-      "question": "Calculate 1 + 0.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "1",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Add the numbers: 1 + 0 = 1.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "+",
-          "operandA": 1,
-          "operandB": 0,
-          "answer": "1",
-          "answerDigits": 1
-        }
-      }
-    },
-    {
-      "question": "Calculate 10 + 3.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "13",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Add the numbers: 10 + 3 = 13.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "+",
-          "operandA": 10,
-          "operandB": 3,
-          "answer": "13",
-          "answerDigits": 2
-        }
-      }
-    },
-    {
-      "question": "Calculate 2 + 10.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "12",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Add the numbers: 2 + 10 = 12.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "vertical",
-          "operator": "+",
-          "operandA": 2,
-          "operandB": 10,
-          "answer": "12",
-          "answerDigits": 2
-        }
-      }
-    },
-    {
-      "question": "Calculate 4 + 5.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "9",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Add the numbers: 4 + 5 = 9.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "vertical",
-          "operator": "+",
-          "operandA": 4,
-          "operandB": 5,
-          "answer": "9",
-          "answerDigits": 1
-        }
-      }
-    },
-    {
-      "question": "Calculate 5 + 10.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "15",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Add the numbers: 5 + 10 = 15.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "vertical",
-          "operator": "+",
-          "operandA": 5,
-          "operandB": 10,
-          "answer": "15",
-          "answerDigits": 2
-        }
-      }
-    },
-    {
-      "question": "Calculate 3 + 1.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "4",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Add the numbers: 3 + 1 = 4.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "vertical",
-          "operator": "+",
-          "operandA": 3,
-          "operandB": 1,
-          "answer": "4",
-          "answerDigits": 1
-        }
-      }
-    },
     {
       "question": "Calculate 7 + 3.",
       "resultType": "short-answer",
@@ -265,6 +33,110 @@
           "operandB": 3,
           "answer": "10",
           "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate 8 - 1.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Subtract 1 from 8: 8 - 1 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "-",
+          "operandA": 8,
+          "operandB": 1,
+          "answer": "7",
+          "answerDigits": 1
+        }
+      }
+    },
+    {
+      "question": "Calculate 4 - 0.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Subtract 0 from 4: 4 - 0 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "-",
+          "operandA": 4,
+          "operandB": 0,
+          "answer": "4",
+          "answerDigits": 1
+        }
+      }
+    },
+    {
+      "question": "Calculate 4 x 4.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "16",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Multiply: 4 x 4 = 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 4,
+          "operandB": 4,
+          "answer": "16",
+          "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate 2 x 4.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Multiply: 2 x 4 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "x",
+          "operandA": 2,
+          "operandB": 4,
+          "answer": "8",
+          "answerDigits": 1
         }
       }
     }
