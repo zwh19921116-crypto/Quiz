@@ -1786,7 +1786,10 @@ function buildTrigonometryMarkup(config) {
 }
 
 function normalizeArithmeticLayout(value) {
-  return String(value || "horizontal").trim().toLowerCase() === "vertical" ? "vertical" : "horizontal";
+  const v = String(value || "horizontal").trim().toLowerCase();
+  if (v === "vertical") return "vertical";
+  if (v === "long") return "long";
+  return "horizontal";
 }
 
 function computeArithmeticAnswerFromConfig(config) {
@@ -1859,7 +1862,10 @@ function buildArithmeticLongDivisionWorkRow(columnCount, { readOnly = false } = 
   const count = Math.max(1, Number.parseInt(columnCount, 10) || 1);
   const inputAttr = readOnly ? "readonly disabled" : "";
   const digitBoxes = Array.from({ length: count }, () =>
-    `<input class="arithmetic-long-work-input" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" />`
+    `<span class="arithmetic-long-work-cell">` +
+    `<input class="arithmetic-long-carry-input" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" />` +
+    `<input class="arithmetic-long-work-input" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" />` +
+    `</span>`
   ).join("");
   const removeBtn = readOnly ? "" : `<button class="arithmetic-remove-row" type="button" title="Remove row" aria-label="Remove row">×</button>`;
   return `<div class="arithmetic-long-work-row"><span class="arithmetic-long-side-spacer"></span><span class="arithmetic-work-cells">${digitBoxes}</span>${removeBtn}</div>`;
@@ -1930,7 +1936,7 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
   const baseColumns = Math.max(operandALen, operandBLen, answerLen, 1);
   const hasLeadingCarrySpace = ["+", "-", "x", "*"].includes(operatorRaw);
   const isMultiplication = ["x", "*"].includes(operatorRaw);
-  const isLongDivision = operatorRaw === "/" && layout === "vertical";
+  const isLongDivision = layout === "long" || (operatorRaw === "/" && layout === "vertical");
   const columnCount = isMultiplication
     ? 10
     : hasLeadingCarrySpace
@@ -2192,7 +2198,7 @@ function wireArithmeticAnswerInputs() {
   }
 
   function wireLongDivisionWorkRow(row) {
-    const rowInputs = Array.from(row.querySelectorAll(".arithmetic-long-work-input"))
+    const rowInputs = Array.from(row.querySelectorAll(".arithmetic-long-work-input, .arithmetic-long-carry-input"))
       .filter((n) => n instanceof HTMLInputElement && !n.disabled);
     rowInputs.forEach((input) => {
       blockNonTypingInput(input);

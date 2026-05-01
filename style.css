@@ -1496,6 +1496,40 @@ body.modal-open {
   gap: 4px;
 }
 
+.arithmetic-long-work-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.arithmetic-long-carry-input {
+  width: var(--arith-col-width);
+  height: 18px;
+  text-align: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  border: 1px solid #bfdbfe;
+  border-radius: 4px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-family: "Consolas", "Courier New", monospace;
+  padding: 0;
+  line-height: 18px;
+}
+
+.arithmetic-long-carry-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.18);
+}
+
+.arithmetic-long-carry-input[disabled] {
+  background: #f1f5f9;
+  color: #94a3b8;
+  border-color: #e2e8f0;
+}
+
 .arithmetic-long-work-input {
   width: var(--arith-col-width);
   height: 30px;

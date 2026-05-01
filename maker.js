@@ -5676,13 +5676,14 @@ function computeArithmeticPreviewAnswer(config) {
 }
 
 function buildArithmeticPreviewMarkup(config) {
-  const layout = String(config && config.layout ? config.layout : "horizontal").trim().toLowerCase() === "vertical" ? "vertical" : "horizontal";
+  const rawLayout = String(config && config.layout ? config.layout : "horizontal").trim().toLowerCase();
+  const layout = rawLayout === "vertical" ? "vertical" : rawLayout === "long" ? "long" : "horizontal";
   const operator = escapeInteractiveHtml(String(config && config.operator ? config.operator : "+"));
   const a = escapeInteractiveHtml(String(config && config.operandA != null ? config.operandA : ""));
   const b = escapeInteractiveHtml(String(config && config.operandB != null ? config.operandB : ""));
   const answer = escapeInteractiveHtml(String(config && config.answer ? config.answer : computeArithmeticPreviewAnswer(config)));
-  if (layout === "vertical" && String(config && config.operator ? config.operator : "+").trim() === "/") {
-    return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (${layout})</p><p style="font-family:Consolas,monospace;line-height:1.6;text-align:right">&nbsp;&nbsp;${answer}<br>${b} ) ${a}</p></div>`;
+  if (layout === "long" || (layout === "vertical" && String(config && config.operator ? config.operator : "+").trim() === "/")) {
+    return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (long division)</p><p style="font-family:Consolas,monospace;line-height:1.6;text-align:right">&nbsp;&nbsp;${answer}<br>${b} ) ${a}<br>--------</p></div>`;
   }
   if (layout === "vertical") {
     return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (${layout})</p><p style="font-family:Consolas,monospace;line-height:1.6">&nbsp;&nbsp;${a}<br>${operator} ${b}<br>-----<br>&nbsp;&nbsp;${answer}</p></div>`;
@@ -5841,7 +5842,8 @@ function readInteractiveAppFromForm() {
 
   switch (type) {
     case "arithmetic": {
-      const layout = String(document.getElementById("arithLayout").value || "horizontal").trim().toLowerCase() === "vertical" ? "vertical" : "horizontal";
+      const rawLayout = String(document.getElementById("arithLayout").value || "horizontal").trim().toLowerCase();
+      const layout = rawLayout === "vertical" ? "vertical" : rawLayout === "long" ? "long" : "horizontal";
       const operator = String(document.getElementById("arithOperator").value || "+").trim() || "+";
       const operandA = Number.parseFloat(document.getElementById("arithOperandA").value);
       const operandB = Number.parseFloat(document.getElementById("arithOperandB").value);
@@ -6099,7 +6101,8 @@ function populateInteractiveAppForm(app) {
 
   const numberLineConfig = (type === "number-line" ? nextApp : buildDefaultInteractiveApp("number-line")).config;
   const arithmeticConfig = (type === "arithmetic" ? nextApp : buildDefaultInteractiveApp("arithmetic")).config;
-  document.getElementById("arithLayout").value = String(arithmeticConfig.layout || "horizontal").trim().toLowerCase() === "vertical" ? "vertical" : "horizontal";
+  const savedLayout = String(arithmeticConfig.layout || "horizontal").trim().toLowerCase();
+  document.getElementById("arithLayout").value = savedLayout === "vertical" ? "vertical" : savedLayout === "long" ? "long" : "horizontal";
   document.getElementById("arithOperator").value = String(arithmeticConfig.operator || "+").trim() || "+";
   document.getElementById("arithOperandA").value = Number.isFinite(Number(arithmeticConfig.operandA)) ? String(arithmeticConfig.operandA) : "0";
   document.getElementById("arithOperandB").value = Number.isFinite(Number(arithmeticConfig.operandB)) ? String(arithmeticConfig.operandB) : "0";
