@@ -9,21 +9,6 @@
   "category": "Grade 1",
   "questions": [
     {
-      "question": "",
-      "resultType": "multiple-choice",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "",
-      "solutionAttachments": []
-    },
-    {
       "question": "Calculate 4 + 7.",
       "resultType": "short-answer",
       "options": [
