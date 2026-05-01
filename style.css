@@ -1247,6 +1247,40 @@ body.modal-open {
   font-family: "Consolas", "Courier New", monospace;
 }
 
+.arithmetic-cell-with-carry {
+  position: relative;
+}
+
+.arithmetic-corner-carry {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 14px;
+  height: 14px;
+  text-align: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  border: 1px solid #bfdbfe;
+  border-radius: 3px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-family: "Consolas", "Courier New", monospace;
+  padding: 0;
+  line-height: 14px;
+}
+
+.arithmetic-corner-carry:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.18);
+}
+
+.arithmetic-corner-carry[disabled] {
+  background: #f1f5f9;
+  color: #94a3b8;
+  border-color: #e2e8f0;
+}
+
 .arithmetic-carry-input {
   width: var(--arith-col-width);
   height: 24px;

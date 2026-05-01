@@ -1868,6 +1868,18 @@ function buildArithmeticOperandCells(value, columns) {
     .join("");
 }
 
+function buildArithmeticOperandCellsWithCornerCarry(value, columns, { readOnly = false } = {}) {
+  const chars = splitArithmeticDigits(value, columns);
+  return chars
+    .map((char, index) => {
+      const carry = readOnly
+        ? `<input class="arithmetic-corner-carry" type="text" inputmode="numeric" maxlength="1" value="" readonly disabled data-corner-index="${index}" autocomplete="off" />`
+        : `<input class="arithmetic-corner-carry" type="text" inputmode="numeric" maxlength="1" value="" data-corner-index="${index}" autocomplete="off" />`;
+      return `<span class="arithmetic-cell arithmetic-cell-with-carry">${escapeHtml(char)}${carry}</span>`;
+    })
+    .join("");
+}
+
 function buildArithmeticSingleInput(answerText, { readOnly = false } = {}) {
   const value = String(answerText || "").trim();
   const minLength = Math.max(2, value.length, 2);
@@ -1901,18 +1913,23 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
     : buildArithmeticSingleInput(answerText, { readOnly });
 
   if (layout === "vertical") {
-    const showHelperRow = ["+", "-", "x", "*"].includes(operatorRaw);
-    const workRows = ["x", "*"].includes(operatorRaw)
+    const isMultiplication = ["x", "*"].includes(operatorRaw);
+    const workRows = isMultiplication
       ? buildArithmeticWorkRows(columnCount, Math.max(1, operandBLen), { readOnly })
       : "";
-    const carryRow = showHelperRow
+    // Multiplication: small corner carry boxes on operand A cells; addition/subtraction: separate carry row above
+    const operandACells = isMultiplication
+      ? buildArithmeticOperandCellsWithCornerCarry(operandAText, columnCount, { readOnly })
+      : buildArithmeticOperandCells(operandAText, columnCount);
+    const showCarryRow = ["+", "-"].includes(operatorRaw);
+    const carryRow = showCarryRow
       ? `<div class="arithmetic-carry-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-carry-cells">${buildArithmeticCarryBoxes(columnCount, { readOnly })}</span></div>`
       : "";
     return `
       <div class="arithmetic-workspace arithmetic-layout-vertical">
         <div class="arithmetic-vertical-stack">
           ${carryRow}
-          <div class="arithmetic-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-number-cells">${buildArithmeticOperandCells(operandAText, columnCount)}</span></div>
+          <div class="arithmetic-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-number-cells">${operandACells}</span></div>
           <div class="arithmetic-row"><span class="arithmetic-operator">${operator}</span><span class="arithmetic-number-cells">${buildArithmeticOperandCells(operandBText, columnCount)}</span></div>
           ${workRows}
           <div class="arithmetic-answer-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-answer-cells">${boxes}</span></div>
@@ -2027,6 +2044,15 @@ function wireArithmeticAnswerInputs() {
       if (event.key === "Backspace" && !input.value && index > 0) {
         workInputs[index - 1].focus();
       }
+    });
+  });
+
+  const cornerInputs = Array.from(document.querySelectorAll(".arithmetic-corner-carry"))
+    .filter((node) => node instanceof HTMLInputElement && !node.disabled);
+  cornerInputs.forEach((input) => {
+    blockNonTypingInput(input);
+    input.addEventListener("input", () => {
+      input.value = String(input.value || "").slice(-1);
     });
   });
 
