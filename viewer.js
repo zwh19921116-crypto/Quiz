@@ -1807,8 +1807,9 @@ function buildArithmeticAnswerBoxes(answerText, { readOnly = false, minDigits = 
   const cleaned = String(answerText || "").trim();
   const requiredDigits = Math.max(1, Number.parseInt(minDigits, 10) || 1);
   const inferredDigits = Math.max(1, cleaned.replace(/[^0-9-]/g, "").length || cleaned.length || 1);
-  const chars = cleaned ? cleaned.split("") : [];
-  const digits = Math.max(requiredDigits, inferredDigits, chars.length, 1);
+  const digits = Math.max(requiredDigits, inferredDigits, 1);
+  // Right-align answer digits so the last digit lands in the last box
+  const chars = splitArithmeticDigits(cleaned, digits);
   const boxes = [];
   for (let index = 0; index < digits; index += 1) {
     const value = chars[index] || "";
