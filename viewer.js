@@ -1988,17 +1988,26 @@ function wireArithmeticAnswerInputs() {
   inputs[0].focus();
 }
 
+function stripLeadingZeros(value) {
+  const str = String(value || "").trim();
+  if (!str) return str;
+  const negative = str.startsWith("-");
+  const digits = negative ? str.slice(1) : str;
+  const stripped = digits.replace(/^0+/, "") || "0";
+  return negative ? "-" + stripped : stripped;
+}
+
 function collectArithmeticWorkspaceAnswer(root) {
   const scope = root || document;
   const singleInput = scope.querySelector(".arithmetic-single-input");
   if (singleInput instanceof HTMLInputElement) {
-    return String(singleInput.value || "").trim();
+    return stripLeadingZeros(singleInput.value);
   }
   const inputs = Array.from(scope.querySelectorAll(".arithmetic-digit-input"))
     .filter((node) => node instanceof HTMLInputElement);
   if (inputs.length === 0) return "";
   const raw = inputs.map((input) => String(input.value || "").trim()).join("");
-  return raw.trim();
+  return stripLeadingZeros(raw);
 }
 
 function cloneInteractiveApp(app) {
@@ -4183,9 +4192,16 @@ function answersMatch(question, userAnswer) {
     return uniquePicked.length === uniqueExpected.length && uniquePicked.every((item, idx) => item === uniqueExpected[idx]);
   }
 
-  const value = norm(userAnswer);
+  const isArithmetic = Boolean(
+    question.interactiveApp && question.interactiveApp.type === "arithmetic"
+  );
+  const normalizeForMatch = (v) => {
+    const n = norm(v);
+    return isArithmetic ? stripLeadingZeros(n) : n;
+  };
+  const value = normalizeForMatch(userAnswer);
   if (!value || expected.length === 0) return false;
-  return expected.includes(value);
+  return expected.map(normalizeForMatch).includes(value);
 }
 
 function validateAnswer(question, userAnswer) {
