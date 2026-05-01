@@ -1340,6 +1340,11 @@ body.modal-open {
   gap: 4px;
 }
 
+.arithmetic-mul-work-container:not(.has-rows) .arithmetic-work-divider,
+.arithmetic-mul-work-container:not(.has-rows) .arithmetic-mul-work-rows {
+  display: none;
+}
+
 .arithmetic-work-divider {
   display: grid;
   grid-template-columns: var(--arith-op-width) minmax(70px, auto);

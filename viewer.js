@@ -1846,8 +1846,13 @@ function buildArithmeticMulWorkRow(columnCount, { readOnly = false } = {}) {
 
 function buildArithmeticMulWorkContainer(columnCount, { readOnly = false } = {}) {
   const addBtn = readOnly ? "" : `<button class="arithmetic-add-row-btn" type="button">＋ Add row</button>`;
-  const initialRow = buildArithmeticMulWorkRow(columnCount, { readOnly });
-  return `<div class="arithmetic-mul-work-container" data-columns="${columnCount}">${initialRow}${addBtn}</div>`;
+  return `
+    <div class="arithmetic-mul-work-container" data-columns="${columnCount}">
+      <div class="arithmetic-work-divider"><span class="arithmetic-op-spacer"></span><span class="arithmetic-divider-line"></span></div>
+      <div class="arithmetic-mul-work-rows"></div>
+      ${addBtn}
+    </div>
+  `;
 }
 
 function splitArithmeticDigits(value, columns) {
@@ -2074,29 +2079,48 @@ function wireArithmeticAnswerInputs() {
     if (removeBtn) {
       removeBtn.addEventListener("click", () => {
         row.remove();
+        queueMicrotask(() => {
+          const activeMulContainer = document.querySelector(".arithmetic-mul-work-container");
+          const activeRowsHost = activeMulContainer ? activeMulContainer.querySelector(".arithmetic-mul-work-rows") : null;
+          const rowCount = activeRowsHost ? activeRowsHost.querySelectorAll(".arithmetic-mul-work-row").length : 0;
+          if (activeMulContainer) {
+            activeMulContainer.classList.toggle("has-rows", rowCount > 0);
+          }
+        });
       });
     }
   }
 
   const mulContainer = document.querySelector(".arithmetic-mul-work-container");
   if (mulContainer) {
+    const rowsHost = mulContainer.querySelector(".arithmetic-mul-work-rows");
+    const syncMulWorkState = () => {
+      const rowCount = rowsHost ? rowsHost.querySelectorAll(".arithmetic-mul-work-row").length : 0;
+      mulContainer.classList.toggle("has-rows", rowCount > 0);
+    };
+
     Array.from(mulContainer.querySelectorAll(".arithmetic-mul-work-row")).forEach(wireMulWorkRow);
+    syncMulWorkState();
 
     const addBtn = mulContainer.querySelector(".arithmetic-add-row-btn");
     if (addBtn) {
       addBtn.addEventListener("click", () => {
-        const existingRows = mulContainer.querySelectorAll(".arithmetic-mul-work-row");
+        const existingRows = rowsHost ? rowsHost.querySelectorAll(".arithmetic-mul-work-row") : [];
         if (existingRows.length >= 15) return;
         const columns = Number.parseInt(mulContainer.dataset.columns, 10) || 4;
         const template = document.createElement("template");
         template.innerHTML = buildArithmeticMulWorkRow(columns, { readOnly: false }).trim();
         const newRow = template.content.firstChild;
-        mulContainer.insertBefore(newRow, addBtn);
+        if (rowsHost) {
+          rowsHost.appendChild(newRow);
+        }
         wireMulWorkRow(newRow);
+        syncMulWorkState();
         const firstInput = newRow.querySelector(".arithmetic-work-input");
         if (firstInput) firstInput.focus();
       });
     }
+
   }
 
   inputs[0].focus();
