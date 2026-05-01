@@ -1824,63 +1824,290 @@ function buildArithmeticAnswerBoxes(answerText, { readOnly = false, minDigits = 
   return boxes.join("");
 }
 
-function buildArithmeticCarryBoxes(columns, { readOnly = false } = {}) {
+function buildArithmeticCarryBoxes(columns, { readOnly = false, values = [] } = {}) {
   const count = Math.max(1, Number.parseInt(columns, 10) || 1);
-  const attrs = readOnly ? "readonly disabled" : "";
   const boxes = [];
   for (let index = 0; index < count; index += 1) {
-    boxes.push(`<input class="arithmetic-carry-input" type="text" inputmode="numeric" maxlength="1" value="" ${attrs} data-carry-index="${index}" autocomplete="off" />`);
+    const value = String(values[index] || "").slice(-1);
+    const attrs = readOnly
+      ? `value="${escapeHtml(value)}" readonly disabled`
+      : "value=\"\"";
+    boxes.push(`<input class="arithmetic-carry-input" type="text" inputmode="numeric" maxlength="1" ${attrs} data-carry-index="${index}" autocomplete="off" />`);
   }
   return boxes.join("");
 }
 
-function buildArithmeticMulWorkRow(columnCount, { readOnly = false } = {}) {
+function buildArithmeticMulWorkRow(columnCount, { readOnly = false, rowData = null } = {}) {
   const count = Math.max(1, Number.parseInt(columnCount, 10) || 1);
-  const inputAttr = readOnly ? "readonly disabled" : "";
-  const digitBoxes = Array.from({ length: count }, () => `
+  const carryValues = rowData && Array.isArray(rowData.carry) ? rowData.carry : [];
+  const workValues = rowData && Array.isArray(rowData.work) ? rowData.work : [];
+  const digitBoxes = Array.from({ length: count }, (_, index) => {
+    const carryValue = String(carryValues[index] || "").slice(-1);
+    const workValue = String(workValues[index] || "").slice(-1);
+    const carryAttr = readOnly
+      ? `value="${escapeHtml(carryValue)}" readonly disabled`
+      : "value=\"\"";
+    const workAttr = readOnly
+      ? `value="${escapeHtml(workValue)}" readonly disabled`
+      : "value=\"\"";
+    return `
     <span class="arithmetic-work-cell-wrap">
-      <input class="arithmetic-work-cell-carry" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" title="Carry" />
-      <input class="arithmetic-work-input" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" />
+      <input class="arithmetic-work-cell-carry" type="text" inputmode="numeric" maxlength="1" ${carryAttr} autocomplete="off" title="Carry" />
+      <input class="arithmetic-work-input" type="text" inputmode="numeric" maxlength="1" ${workAttr} autocomplete="off" />
     </span>
-  `).join("");
+  `;
+  }).join("");
   const removeBtn = readOnly ? "" : `<button class="arithmetic-remove-row" type="button" title="Remove row" aria-label="Remove row">×</button>`;
   return `<div class="arithmetic-mul-work-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-work-cells">${digitBoxes}</span>${removeBtn}</div>`;
 }
 
-function buildArithmeticMulWorkContainer(columnCount, { readOnly = false } = {}) {
+function buildArithmeticMulWorkContainer(columnCount, { readOnly = false, solutionRows = [] } = {}) {
   const addBtn = readOnly ? "" : `<button class="arithmetic-add-row-btn" type="button">＋ Add row</button>`;
+  const rowsMarkup = Array.isArray(solutionRows)
+    ? solutionRows.map((row) => buildArithmeticMulWorkRow(columnCount, { readOnly, rowData: row })).join("")
+    : "";
+  const hasRowsClass = rowsMarkup.trim() ? " has-rows" : "";
   return `
-    <div class="arithmetic-mul-work-container" data-columns="${columnCount}">
+    <div class="arithmetic-mul-work-container${hasRowsClass}" data-columns="${columnCount}">
       <div class="arithmetic-work-divider"><span class="arithmetic-op-spacer"></span><span class="arithmetic-divider-line"></span></div>
-      <div class="arithmetic-mul-work-rows"></div>
+      <div class="arithmetic-mul-work-rows">${rowsMarkup}</div>
       ${addBtn}
     </div>
   `;
 }
 
-function buildArithmeticLongDivisionWorkRow(columnCount, { readOnly = false } = {}) {
+function buildArithmeticDigitArray(value, count) {
+  const digits = String(value == null ? "" : value).replace(/[^0-9]/g, "") || "0";
+  const columns = Math.max(1, Number.parseInt(count, 10) || 1);
+  const padded = digits.padStart(columns, "0").slice(-columns);
+  return padded.split("").map((ch) => Number.parseInt(ch, 10) || 0);
+}
+
+function buildAdditionCarryValues(operandAText, operandBText, columnCount) {
+  const columns = Math.max(1, Number.parseInt(columnCount, 10) || 1);
+  const aDigits = buildArithmeticDigitArray(operandAText, columns);
+  const bDigits = buildArithmeticDigitArray(operandBText, columns);
+  const carryValues = new Array(columns).fill("");
+  let carry = 0;
+  for (let index = columns - 1; index >= 0; index -= 1) {
+    const sum = aDigits[index] + bDigits[index] + carry;
+    const nextCarry = Math.floor(sum / 10);
+    if (nextCarry > 0 && index - 1 >= 0) {
+      carryValues[index - 1] = String(nextCarry).slice(-1);
+    }
+    carry = nextCarry;
+  }
+  return carryValues;
+}
+
+function buildSubtractionBorrowValues(operandAText, operandBText, columnCount) {
+  const columns = Math.max(1, Number.parseInt(columnCount, 10) || 1);
+  const aDigits = buildArithmeticDigitArray(operandAText, columns);
+  const bDigits = buildArithmeticDigitArray(operandBText, columns);
+  const borrowValues = new Array(columns).fill("");
+  let borrow = 0;
+  for (let index = columns - 1; index >= 0; index -= 1) {
+    const top = aDigits[index] - borrow;
+    const bottom = bDigits[index];
+    if (top < bottom) {
+      if (index - 1 >= 0) {
+        borrowValues[index - 1] = "1";
+      }
+      borrow = 1;
+    } else {
+      borrow = 0;
+    }
+  }
+  return borrowValues;
+}
+
+function buildMultiplicationTopCarryValues(operandAText, operandBText, carryCount) {
+  const columns = Math.max(1, Number.parseInt(carryCount, 10) || 1);
+  const multiplicandDigits = String(operandAText == null ? "" : operandAText).replace(/[^0-9]/g, "") || "0";
+  const multiplierDigits = String(operandBText == null ? "" : operandBText).replace(/[^0-9]/g, "") || "0";
+  const multiplierDigit = Number.parseInt(multiplierDigits.slice(-1), 10);
+  if (!Number.isFinite(multiplierDigit)) return new Array(columns).fill("");
+
+  const values = new Array(columns).fill("");
+  let carry = 0;
+  for (let index = multiplicandDigits.length - 1; index >= 0; index -= 1) {
+    const digit = Number.parseInt(multiplicandDigits[index], 10) || 0;
+    const rowIndex = columns - 1 - (multiplicandDigits.length - 1 - index);
+    const nextCarry = Math.floor((digit * multiplierDigit + carry) / 10);
+    if (nextCarry > 0 && rowIndex - 1 >= 0) {
+      values[rowIndex - 1] = String(nextCarry).slice(-1);
+    }
+    carry = nextCarry;
+  }
+  return values;
+}
+
+function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount) {
+  const columns = Math.max(1, Number.parseInt(columnCount, 10) || 1);
+  const multiplicandDigits = String(operandAText == null ? "" : operandAText).replace(/[^0-9]/g, "") || "0";
+  const multiplierDigits = String(operandBText == null ? "" : operandBText).replace(/[^0-9]/g, "") || "0";
+  const rows = [];
+
+  for (let multiplierIndex = multiplierDigits.length - 1; multiplierIndex >= 0; multiplierIndex -= 1) {
+    const multiplierDigit = Number.parseInt(multiplierDigits[multiplierIndex], 10) || 0;
+    const shift = (multiplierDigits.length - 1) - multiplierIndex;
+    const row = createLongDivisionRow(columns);
+
+    if (multiplierDigit === 0) {
+      const zeroCol = columns - 1 - shift;
+      if (zeroCol >= 0) row.work[zeroCol] = "0";
+      rows.push(row);
+      continue;
+    }
+
+    let carry = 0;
+    for (let index = multiplicandDigits.length - 1; index >= 0; index -= 1) {
+      const digit = Number.parseInt(multiplicandDigits[index], 10) || 0;
+      const offset = (multiplicandDigits.length - 1) - index;
+      const targetCol = columns - 1 - shift - offset;
+      if (targetCol < 0) continue;
+      const product = (digit * multiplierDigit) + carry;
+      row.work[targetCol] = String(product % 10);
+      const nextCarry = Math.floor(product / 10);
+      if (nextCarry > 0 && targetCol - 1 >= 0) {
+        row.carry[targetCol - 1] = String(nextCarry).slice(-1);
+      }
+      carry = nextCarry;
+    }
+
+    const leadingCol = columns - 1 - shift - multiplicandDigits.length;
+    if (carry > 0 && leadingCol >= 0) {
+      row.work[leadingCol] = String(carry).split("").slice(-1)[0];
+    }
+
+    rows.push(row);
+  }
+
+  return rows;
+}
+
+function buildArithmeticLongDivisionWorkRow(columnCount, { readOnly = false, rowData = null } = {}) {
   const count = Math.max(1, Number.parseInt(columnCount, 10) || 1);
   const inputAttr = readOnly ? "readonly disabled" : "";
-  const digitBoxes = Array.from({ length: count }, () =>
-    `<span class="arithmetic-work-cell-wrap arithmetic-long-work-cell">` +
-    `<input class="arithmetic-work-cell-carry arithmetic-long-work-carry" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" />` +
-    `<input class="arithmetic-long-work-input" type="text" inputmode="numeric" maxlength="1" value="" ${inputAttr} autocomplete="off" />` +
-    `</span>`
-  ).join("");
+  const carryValues = rowData && Array.isArray(rowData.carry) ? rowData.carry : [];
+  const workValues = rowData && Array.isArray(rowData.work) ? rowData.work : [];
+  const cells = Array.from({ length: count }, (_, index) => {
+    const carryValue = String(carryValues[index] || "").slice(-1);
+    const workValue = String(workValues[index] || "").slice(-1);
+    const carryAttr = readOnly
+      ? `value="${escapeHtml(carryValue)}" readonly disabled`
+      : "value=\"\"";
+    const workAttr = readOnly
+      ? `value="${escapeHtml(workValue)}" readonly disabled`
+      : "value=\"\"";
+    return `<span class="arithmetic-work-cell-wrap arithmetic-long-work-cell">` +
+      `<input class="arithmetic-work-cell-carry arithmetic-long-work-carry" type="text" inputmode="numeric" maxlength="1" ${carryAttr} autocomplete="off" />` +
+      `<input class="arithmetic-long-work-input" type="text" inputmode="numeric" maxlength="1" ${workAttr} autocomplete="off" />` +
+      `</span>`;
+  }).join("");
   const removeBtn = readOnly
     ? `<span class="arithmetic-long-row-end-spacer" aria-hidden="true"></span>`
     : `<button class="arithmetic-remove-row" type="button" title="Remove row" aria-label="Remove row">×</button>`;
-  return `<div class="arithmetic-long-work-row"><span class="arithmetic-long-side-spacer"></span><span class="arithmetic-work-cells">${digitBoxes}</span>${removeBtn}</div>`;
+  return `<div class="arithmetic-long-work-row"><span class="arithmetic-long-side-spacer"></span><span class="arithmetic-work-cells">${cells}</span>${removeBtn}</div>`;
 }
 
-function buildArithmeticLongDivisionWorkContainer(columnCount, { readOnly = false } = {}) {
+function buildArithmeticLongDivisionWorkContainer(columnCount, { readOnly = false, solutionRows = [] } = {}) {
   const addBtn = readOnly ? "" : `<button class="arithmetic-add-row-btn" type="button">＋ Add row</button>`;
+  const rowsMarkup = Array.isArray(solutionRows)
+    ? solutionRows.map((row) => buildArithmeticLongDivisionWorkRow(columnCount, { readOnly, rowData: row })).join("")
+    : "";
   return `
     <div class="arithmetic-long-work-container" data-columns="${columnCount}">
-      <div class="arithmetic-long-work-rows"></div>
+      <div class="arithmetic-long-work-rows">${rowsMarkup}</div>
       ${addBtn}
     </div>
   `;
+}
+
+function createLongDivisionRow(columnCount) {
+  return {
+    carry: new Array(columnCount).fill(""),
+    work: new Array(columnCount).fill("")
+  };
+}
+
+function computeBorrowMarkers(minuendDigits, subtrahendDigits) {
+  const len = Math.max(minuendDigits.length, subtrahendDigits.length, 1);
+  const a = String(minuendDigits || "").padStart(len, "0").split("").map((ch) => Number.parseInt(ch, 10) || 0);
+  const b = String(subtrahendDigits || "").padStart(len, "0").split("").map((ch) => Number.parseInt(ch, 10) || 0);
+  const markers = new Array(len).fill("");
+  let borrow = 0;
+  for (let index = len - 1; index >= 0; index -= 1) {
+    const top = a[index] - borrow;
+    const bottom = b[index];
+    if (top < bottom) {
+      if (index - 1 >= 0) {
+        markers[index - 1] = "1";
+      }
+      borrow = 1;
+    } else {
+      borrow = 0;
+    }
+  }
+  return markers;
+}
+
+function buildLongDivisionSolutionRows(dividendText, divisorText, columnCount) {
+  const columns = Math.max(1, Number.parseInt(columnCount, 10) || 1);
+  const dividend = Number.parseInt(dividendText, 10);
+  const divisor = Number.parseInt(divisorText, 10);
+  if (!Number.isFinite(dividend) || !Number.isFinite(divisor) || divisor === 0 || dividend < 0 || divisor < 0) {
+    return [];
+  }
+
+  const dividendDigits = String(dividend).split("").map((ch) => Number.parseInt(ch, 10) || 0);
+  const rows = [];
+  let remainder = 0;
+  let started = false;
+
+  for (let index = 0; index < dividendDigits.length; index += 1) {
+    const digit = dividendDigits[index];
+    const current = (remainder * 10) + digit;
+    if (!started && current < divisor) {
+      remainder = current;
+      continue;
+    }
+    started = true;
+    const qDigit = Math.floor(current / divisor);
+    const product = qDigit * divisor;
+    const currentText = String(current);
+    const productText = String(product);
+    const span = Math.max(currentText.length, productText.length, 1);
+    const startCol = Math.max(0, Math.min(columns - span, index - span + 1));
+
+    const subtractRow = createLongDivisionRow(columns);
+    const borrowMarkers = computeBorrowMarkers(currentText, productText);
+    const productDigits = productText.padStart(span, "0").split("");
+    for (let offset = 0; offset < span; offset += 1) {
+      const col = startCol + offset;
+      subtractRow.work[col] = productDigits[offset] === "0" && offset < span - 1 ? "" : productDigits[offset];
+      subtractRow.carry[col] = borrowMarkers[offset] || "";
+    }
+    rows.push(subtractRow);
+
+    remainder = current - product;
+    const remainderRow = createLongDivisionRow(columns);
+    const remainderText = String(remainder);
+    const remainderSpan = Math.max(remainderText.length, 1);
+    const remainderStart = Math.max(0, Math.min(columns - remainderSpan, index - remainderSpan + 1));
+    const remainderDigits = remainderText.padStart(remainderSpan, "0").split("");
+    for (let offset = 0; offset < remainderSpan; offset += 1) {
+      const col = remainderStart + offset;
+      remainderRow.work[col] = remainderDigits[offset] === "0" && offset < remainderSpan - 1 ? "" : remainderDigits[offset];
+    }
+    if (index + 1 < dividendDigits.length) {
+      const bringDownCol = Math.min(columns - 1, index + 1);
+      remainderRow.carry[bringDownCol] = String(dividendDigits[index + 1]);
+    }
+    rows.push(remainderRow);
+  }
+
+  return rows;
 }
 
 function splitArithmeticDigits(value, columns) {
@@ -1950,12 +2177,16 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
     : buildArithmeticSingleInput(answerText, { readOnly });
 
   if (isLongDivision) {
+    const longColumns = Math.max(answerLen, operandALen, 1);
+    const solutionRows = revealAnswer
+      ? buildLongDivisionSolutionRows(operandAText, operandBText, longColumns)
+      : [];
     const quotientBoxes = buildArithmeticAnswerBoxes(answerText, {
       readOnly,
-      minDigits: Math.max(answerLen, operandALen, 1)
+      minDigits: longColumns
     });
-    const dividendCells = buildArithmeticOperandCells(operandAText, Math.max(answerLen, operandALen, 1));
-    const workContainer = buildArithmeticLongDivisionWorkContainer(Math.max(answerLen, operandALen, 1), { readOnly });
+    const dividendCells = buildArithmeticOperandCells(operandAText, longColumns);
+    const workContainer = buildArithmeticLongDivisionWorkContainer(longColumns, { readOnly, solutionRows });
     return `
       <div class="arithmetic-workspace arithmetic-long-division-layout">
         <div class="arithmetic-long-division-stack">
@@ -1978,17 +2209,30 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
   }
 
   if (layout === "vertical") {
+    const topCarryValues = revealAnswer
+      ? operatorRaw === "+"
+        ? buildAdditionCarryValues(operandAText, operandBText, columnCount)
+        : operatorRaw === "-"
+          ? buildSubtractionBorrowValues(operandAText, operandBText, columnCount)
+          : []
+      : [];
+    const mulCarryCount = operandALen + 1;
+    const mulCarryValues = revealAnswer && isMultiplication
+      ? buildMultiplicationTopCarryValues(operandAText, operandBText, mulCarryCount)
+      : [];
+    const mulSolutionRows = revealAnswer && isMultiplication
+      ? buildMultiplicationSolutionRows(operandAText, operandBText, columnCount)
+      : [];
     const workContainer = isMultiplication
-      ? buildArithmeticMulWorkContainer(columnCount, { readOnly })
+      ? buildArithmeticMulWorkContainer(columnCount, { readOnly, solutionRows: mulSolutionRows })
       : "";
     // Addition/subtraction: carry row at the top above operand A (full column width)
     const topCarryRow = ["+", "-"].includes(operatorRaw)
-      ? `<div class="arithmetic-carry-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-carry-cells">${buildArithmeticCarryBoxes(columnCount, { readOnly })}</span></div>`
+      ? `<div class="arithmetic-carry-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-carry-cells">${buildArithmeticCarryBoxes(columnCount, { readOnly, values: topCarryValues })}</span></div>`
       : "";
     // Multiplication: small carry row directly above operand A, only operandALen+1 boxes
-    const mulCarryCount = operandALen + 1;
     const mulCarryRow = isMultiplication
-      ? `<div class="arithmetic-carry-row arithmetic-carry-row--small"><span class="arithmetic-op-spacer"></span><span class="arithmetic-carry-cells">${buildArithmeticCarryBoxes(mulCarryCount, { readOnly })}</span></div>`
+      ? `<div class="arithmetic-carry-row arithmetic-carry-row--small"><span class="arithmetic-op-spacer"></span><span class="arithmetic-carry-cells">${buildArithmeticCarryBoxes(mulCarryCount, { readOnly, values: mulCarryValues })}</span></div>`
       : "";
     const workDivider = isMultiplication
       ? `<div class="arithmetic-work-divider"><span class="arithmetic-op-spacer"></span><span class="arithmetic-divider-line"></span></div>`
