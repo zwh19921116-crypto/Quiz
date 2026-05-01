@@ -197,6 +197,7 @@ function normalizeResultType(value) {
   if (!normalized) return "multiple-choice";
   if (["multiple-choice", "multiplechoice", "mcq"].includes(normalized)) return "multiple-choice";
   if (["short-answer", "shortanswer", "short"].includes(normalized)) return "short-answer";
+  if (["plot", "graph", "graph-plot", "plot-graph"].includes(normalized)) return "plot";
   if (["true-false", "truefalse", "boolean"].includes(normalized)) return "true-false";
   if (["checkbox", "multi-select", "multiselect"].includes(normalized)) return "checkbox";
 
@@ -1783,6 +1784,107 @@ function buildTrigonometryMarkup(config) {
   `;
 }
 
+function normalizeArithmeticLayout(value) {
+  return String(value || "horizontal").trim().toLowerCase() === "vertical" ? "vertical" : "horizontal";
+}
+
+function computeArithmeticAnswerFromConfig(config) {
+  const a = Number.parseInt(config && config.operandA, 10);
+  const b = Number.parseInt(config && config.operandB, 10);
+  const operator = String(config && config.operator ? config.operator : "+").trim();
+  if (!Number.isFinite(a) || !Number.isFinite(b)) {
+    return String(config && config.answer ? config.answer : "").trim();
+  }
+
+  if (operator === "-") return String(a - b);
+  if (operator === "x" || operator === "*") return String(a * b);
+  if (operator === "/" && b !== 0) return String(a / b);
+  return String(a + b);
+}
+
+function buildArithmeticAnswerBoxes(answerText, { readOnly = false } = {}) {
+  const cleaned = String(answerText || "").trim();
+  const minDigits = Math.max(1, cleaned.replace(/[^0-9-]/g, "").length || cleaned.length || 1);
+  const chars = cleaned ? cleaned.split("") : [];
+  const digits = Math.max(minDigits, chars.length, 1);
+  const boxes = [];
+  for (let index = 0; index < digits; index += 1) {
+    const value = chars[index] || "";
+    const attrs = readOnly
+      ? `value="${escapeHtml(value)}" readonly disabled`
+      : "value=\"\"";
+    boxes.push(`<input class="arithmetic-digit-input" type="text" inputmode="numeric" maxlength="1" ${attrs} data-index="${index}" autocomplete="off" />`);
+  }
+  return boxes.join("");
+}
+
+function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer = false } = {}) {
+  const layout = normalizeArithmeticLayout(config && config.layout);
+  const operator = escapeHtml(String(config && config.operator ? config.operator : "+"));
+  const operandA = escapeHtml(String(config && config.operandA != null ? config.operandA : ""));
+  const operandB = escapeHtml(String(config && config.operandB != null ? config.operandB : ""));
+  const answerText = revealAnswer
+    ? computeArithmeticAnswerFromConfig(config || {})
+    : "";
+  const boxes = buildArithmeticAnswerBoxes(answerText, { readOnly });
+
+  if (layout === "vertical") {
+    return `
+      <div class="arithmetic-workspace arithmetic-layout-vertical">
+        <div class="arithmetic-vertical-stack">
+          <div class="arithmetic-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-number">${operandA}</span></div>
+          <div class="arithmetic-row"><span class="arithmetic-operator">${operator}</span><span class="arithmetic-number">${operandB}</span></div>
+          <div class="arithmetic-answer-row">${boxes}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="arithmetic-workspace arithmetic-layout-horizontal">
+      <div class="arithmetic-horizontal-expression">
+        <span class="arithmetic-number">${operandA}</span>
+        <span class="arithmetic-operator">${operator}</span>
+        <span class="arithmetic-number">${operandB}</span>
+        <span class="arithmetic-equals">=</span>
+        <span class="arithmetic-answer-row arithmetic-answer-inline">${boxes}</span>
+      </div>
+    </div>
+  `;
+}
+
+function wireArithmeticAnswerInputs() {
+  const inputs = Array.from(document.querySelectorAll(".arithmetic-digit-input"))
+    .filter((node) => node instanceof HTMLInputElement && !node.disabled);
+  if (inputs.length === 0) return;
+
+  inputs.forEach((input, index) => {
+    input.addEventListener("input", () => {
+      input.value = String(input.value || "").slice(-1);
+      if (input.value && index < inputs.length - 1) {
+        inputs[index + 1].focus();
+      }
+    });
+
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Backspace" && !input.value && index > 0) {
+        inputs[index - 1].focus();
+      }
+    });
+  });
+
+  inputs[0].focus();
+}
+
+function collectArithmeticWorkspaceAnswer(root) {
+  const scope = root || document;
+  const inputs = Array.from(scope.querySelectorAll(".arithmetic-digit-input"))
+    .filter((node) => node instanceof HTMLInputElement);
+  if (inputs.length === 0) return "";
+  const raw = inputs.map((input) => String(input.value || "").trim()).join("");
+  return raw.trim();
+}
+
 function cloneInteractiveApp(app) {
   if (!app) return null;
   try {
@@ -1796,6 +1898,7 @@ function getInteractiveAppTitle(type) {
   if (type === "number-line") return "Interactive: Number Line";
   if (type === "cartesian-plane") return "Interactive: Cartesian Plane";
     if (type === "cartesian-plane-plot") return "Interactive: Cartesian Plane - Plot";
+  if (type === "arithmetic") return "Interactive: Arithmetic Workspace";
   if (type === "bar-chart") return "Interactive: Bar Chart";
   if (type === "histogram") return "Interactive: Histogram";
   if (type === "box-plot") return "Interactive: Box Plot";
@@ -1822,6 +1925,8 @@ function updateInteractivePreview(preview, app) {
     content = buildCartesianPlaneSvgString(app.config || {});
     } else if (app.type === "cartesian-plane-plot") {
       content = buildCartesianPlotSvgString(app.config || {}, [], true);
+  } else if (app.type === "arithmetic") {
+    content = buildArithmeticWorkspaceMarkup(app.config || {}, { readOnly: true, revealAnswer: true });
   } else if (app.type === "bar-chart") {
     content = buildBarChartMarkup(app.config || {});
   } else if (app.type === "histogram") {
@@ -2508,10 +2613,31 @@ function buildMatrixDetailLines(app) {
   ].filter((line) => line);
 }
 
+function buildArithmeticDetailLines(app) {
+  const config = app.config || {};
+  const a = Number.parseInt(config.operandA, 10);
+  const b = Number.parseInt(config.operandB, 10);
+  const operator = String(config.operator || "+").trim() || "+";
+  const layout = normalizeArithmeticLayout(config.layout);
+  const answer = computeArithmeticAnswerFromConfig(config);
+
+  if (!Number.isFinite(a) || !Number.isFinite(b)) {
+    return [`Layout: ${layout}`, `Operator: ${operator}`, "Expression data is incomplete."];
+  }
+
+  return [
+    `Layout: ${layout}`,
+    `Expression: ${a} ${operator} ${b}`,
+    `Expected answer: ${answer}`
+  ];
+}
+
 function updateInteractiveDetails(host, app) {
   if (!host || !app || !app.type) return;
   let lines = [];
-  if (app.type === "number-line") {
+  if (app.type === "arithmetic") {
+    lines = buildArithmeticDetailLines(app);
+  } else if (app.type === "number-line") {
     lines = buildNumberLineDetailLines(app);
   } else if (app.type === "cartesian-plane") {
     lines = buildCartesianDetailLines(app);
@@ -3506,6 +3632,17 @@ function mountMatrixInteractive(host, app) {
 function mountInteractiveApp(host, app) {
   if (!host || !app || !app.type) return;
 
+  if (app.type === "arithmetic") {
+    host.innerHTML = `
+      <div class="interactive-app-preview"></div>
+      <div class="interactive-app-details"></div>
+    `;
+    const preview = host.querySelector(".interactive-app-preview");
+    updateInteractivePreview(preview, app);
+    updateInteractiveDetails(host, app);
+    return;
+  }
+
   if (app.type === "number-line") {
     mountNumberLineInteractive(host, app);
     return;
@@ -3722,10 +3859,15 @@ function renderAnswerInput(question) {
     `;
   }
 
+  if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
+    const config = question.interactiveApp.config || {};
+    return buildArithmeticWorkspaceMarkup(config, { readOnly: false, revealAnswer: false });
+  }
+
   // Interactive apps should only appear in the solution modal, not in the main question
   // So we skip them here and show the regular answer input instead
   
-  if (question.resultType === "short-answer") {
+  if (question.resultType === "short-answer" || question.resultType === "plot") {
     return `
       <div class="short-answer-box">
         <label for="shortAnswerInput">Your answer</label>
@@ -3786,7 +3928,8 @@ function syncOptionSelectionState() {
 }
 
 function wireOptionSelectionUI(question) {
-  if (question.resultType === "short-answer") return;
+  if (question.interactiveApp && question.interactiveApp.type === "arithmetic") return;
+  if (question.resultType === "short-answer" || question.resultType === "plot") return;
 
   const selector = question.resultType === "checkbox"
     ? "input[name='activeQuestionCheck']"
@@ -3833,16 +3976,22 @@ function renderQuestion() {
     cartesianPlotUserPoints = [];
     mountCartesianPlotAnswer(quizContainer, question);
   }
+  if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
+    wireArithmeticAnswerInputs();
+  }
 
   renderNotesPanel(question);
   updateHeader();
 }
 
 function collectUserAnswer(question) {
+  if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
+    return collectArithmeticWorkspaceAnswer(document.getElementById("quizContainer"));
+  }
   if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
     return cartesianPlotUserPoints.slice();
   }
-  if (question.resultType === "short-answer") {
+  if (question.resultType === "short-answer" || question.resultType === "plot") {
     const input = document.getElementById("shortAnswerInput");
     return input ? input.value.trim() : "";
   }
@@ -3884,6 +4033,9 @@ function answersMatch(question, userAnswer) {
 }
 
 function validateAnswer(question, userAnswer) {
+  if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
+    return String(userAnswer || "").trim() !== "";
+  }
   if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
     return Array.isArray(userAnswer) && userAnswer.length > 0;
   }
@@ -3915,7 +4067,7 @@ function checkAnswer() {
   if (resultBox) {
     if (isCorrect) {
       resultBox.textContent = "Correct";
-    } else if (question.resultType === "short-answer") {
+    } else if (question.resultType === "short-answer" || question.resultType === "plot") {
       const shortAnswerFeedback = buildShortAnswerIncorrectFeedback(expectedAnswers);
       resultBox.innerHTML = `${escapeHtml(shortAnswerFeedback.correctAnswerText)}<br>${escapeHtml(shortAnswerFeedback.encouragementText)}`;
     } else {

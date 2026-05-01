@@ -136,7 +136,7 @@ function splitPath(value) {
 const state = {
   categories: [],
   rootFolder: DEFAULT_QUIZ_ROOT,
-  rootSourceMode: ROOT_SOURCE_MODES.AUTO,
+  rootSourceMode: ROOT_SOURCE_MODES.LOCAL,
   selectedCategoryId: null,
   selectedQuizId: null,
   selectedQuestionIndex: -1,
@@ -150,9 +150,8 @@ const QUIZ_ORDER_MODES = {
 
 function normalizeRootSourceMode(value) {
   const mode = String(value || "").trim().toLowerCase();
-  if (mode === ROOT_SOURCE_MODES.LOCAL) return ROOT_SOURCE_MODES.LOCAL;
   if (mode === ROOT_SOURCE_MODES.GITHUB) return ROOT_SOURCE_MODES.GITHUB;
-  return ROOT_SOURCE_MODES.AUTO;
+  return ROOT_SOURCE_MODES.LOCAL; // default to local (auto is no longer supported)
 }
 
 function ensureToastHost() {
@@ -326,6 +325,7 @@ function normalizeResultType(value) {
     .replace(/[_\s]+/g, "-");
 
   if (["short-answer", "shortanswer", "short"].includes(normalized)) return "short-answer";
+  if (["plot", "graph", "graph-plot", "plot-graph"].includes(normalized)) return "plot";
   if (["true-false", "truefalse", "boolean"].includes(normalized)) return "true-false";
   if (["checkbox", "multi-select", "multiselect"].includes(normalized)) return "checkbox";
   return "multiple-choice";
@@ -1013,7 +1013,11 @@ async function getRootDirectoryHandle(options = {}) {
   const { allowPrompt = true, promptForPermission = true } = options;
 
   if (rootDirectoryHandle) {
-    return rootDirectoryHandle;
+    const ok = await ensureRootHandlePermission(rootDirectoryHandle, "readwrite");
+    if (ok) {
+      return rootDirectoryHandle;
+    }
+    rootDirectoryHandle = null;
   }
 
   const restoredHandle = await restoreRootDirectoryHandle({ promptForPermission });
@@ -1039,6 +1043,14 @@ async function getConfiguredRootHandle(options = {}) {
   }
   const rootSegments = splitPath(normalizeRootFolder(state.rootFolder));
   if (rootSegments.length === 0) {
+    return rootHandle;
+  }
+
+  // If the user already selected the effective quiz root folder (for example picked
+  // "quizzes" while rootFolder is also "quizzes"), use it directly to avoid nesting.
+  const lastRootSegment = rootSegments[rootSegments.length - 1];
+  if (normalizeRootSourceMode(state.rootSourceMode) === ROOT_SOURCE_MODES.LOCAL
+    && String(rootHandle.name || "").trim().toLowerCase() === String(lastRootSegment || "").trim().toLowerCase()) {
     return rootHandle;
   }
 
@@ -1559,24 +1571,72 @@ function setRootStatus(message) {
   status.textContent = message;
 }
 
-async function loadLibraryFromRoot() {
+function updateLocalFolderRowVisibility() {
+  const row = document.getElementById("localFolderRow");
+  if (!row) return;
+  const isLocalMode = normalizeRootSourceMode(state.rootSourceMode) === ROOT_SOURCE_MODES.LOCAL;
+  row.style.display = isLocalMode ? "flex" : "none";
+
+  if (!isLocalMode) {
+    const field = document.getElementById("localFolderPath");
+    if (field) {
+      field.value = "";
+    }
+  }
+}
+
+function resolveLocalFolderDisplayPath(handleOrName) {
+  if (!handleOrName) return "";
+
+  if (typeof handleOrName === "string") {
+    return handleOrName;
+  }
+
+  // Some runtimes expose full path metadata (non-standard). Use it when available.
+  if (typeof handleOrName.path === "string" && handleOrName.path.trim() !== "") {
+    return handleOrName.path;
+  }
+
+  if (typeof handleOrName.fullPath === "string" && handleOrName.fullPath.trim() !== "") {
+    return handleOrName.fullPath;
+  }
+
+  if (typeof handleOrName.name === "string" && handleOrName.name.trim() !== "") {
+    return handleOrName.name;
+  }
+
+  return "";
+}
+
+function setLocalFolderPath(handleOrName) {
+  const field = document.getElementById("localFolderPath");
+  if (!field) return;
+
+  const displayPath = resolveLocalFolderDisplayPath(handleOrName);
+  const isDirectoryHandle = typeof handleOrName === "object" && handleOrName !== null;
+  const hasFullPathMetadata = Boolean(
+    isDirectoryHandle
+    && ((typeof handleOrName.path === "string" && handleOrName.path.trim() !== "")
+      || (typeof handleOrName.fullPath === "string" && handleOrName.fullPath.trim() !== ""))
+  );
+
+  if (isDirectoryHandle && !hasFullPathMetadata && displayPath) {
+    field.value = `${displayPath} (full path hidden by browser security)`;
+    field.title = "Full local paths are not exposed to regular web pages.";
+    return;
+  }
+
+  field.value = displayPath;
+  field.title = displayPath || "";
+}
+
+async function loadLibraryFromRoot({ allowPrompt = true } = {}) {
   const rootFolder = normalizeRootFolder(state.rootFolder);
   let context = resolveRootFetchContext(rootFolder);
   const rootSourceMode = normalizeRootSourceMode(state.rootSourceMode);
 
   console.log("[loadLibraryFromRoot] rootFolder:", rootFolder, "rootSourceMode:", rootSourceMode);
   console.log("[loadLibraryFromRoot] Initial context:", { githubRepo: context.githubRepo ? "present" : "null", supportsDirectoryScan: context.supportsDirectoryScan });
-
-  if (rootSourceMode === ROOT_SOURCE_MODES.AUTO && !context.githubRepo && !isHttpUrl(rootFolder)) {
-    console.log("[loadLibraryFromRoot] AUTO mode: attempting GitHub context inference");
-    const inferred = inferGithubContextFromPages(rootFolder);
-    if (inferred) {
-      console.log("[loadLibraryFromRoot] GitHub context inferred successfully");
-      context = inferred;
-    } else {
-      console.log("[loadLibraryFromRoot] GitHub context inference failed (not on github.io)");
-    }
-  }
 
   let loadedCategories = [];
   let sourceMode = "manifest";
@@ -1612,79 +1672,68 @@ async function loadLibraryFromRoot() {
       throw new Error("Local mode expects a local path like quizzes, not an http URL.");
     }
 
-    try {
-      loadedCategories = await loadLibraryFromCategoryFolders(rootFolder);
-      sourceMode = "folder-scan";
-    } catch (folderScanError) {
-      // Fallback 1: Try File System Access API if available
-      try {
-        const shouldTryHandleFallback = supportsFolderDeletion();
-        if (!shouldTryHandleFallback) {
-          throw folderScanError;
-        }
-
-        const configuredRoot = await getConfiguredRootHandle({ create: false, allowPrompt: true });
-        if (!configuredRoot) {
-          throw folderScanError;
-        }
-
-        loadedCategories = await loadLibraryFromHandleCategoryFolders(configuredRoot, rootFolder);
-        sourceMode = "handle-folder-scan";
-      } catch (handleError) {
-        // Fallback 2: Try manifest (index.json)
+    // Primary: File System Access API
+    if (supportsFolderDeletion()) {
+      // On explicit refresh, always show picker so user can re-select.
+      // On silent load (allowPrompt=false), try saved handle only.
+      if (!allowPrompt) {
         try {
-          const indexPath = `${rootFolder}/index.json`;
-          const response = await fetch(indexPath, { cache: "no-store" });
-          if (!response.ok) {
-            throw folderScanError; // Re-throw original error if manifest not found
+          const savedRoot = await getConfiguredRootHandle({ create: false, allowPrompt: false });
+          if (savedRoot) {
+            loadedCategories = await loadLibraryFromHandleCategoryFolders(savedRoot, rootFolder);
+            sourceMode = "handle-folder-scan";
+            setLocalFolderPath(savedRoot);
           }
-          const manifest = await response.json();
-          if (!manifest || !Array.isArray(manifest.categories)) {
-            throw folderScanError;
-          }
-          loadedCategories = await loadLibraryFromManifest({ fetchBase: rootFolder });
-          sourceMode = "manifest";
-        } catch (manifestError) {
-          throw new Error(`Could not read category folders from local root: ${state.rootFolder}`);
+        } catch (savedHandleError) {
+          console.warn("[LOCAL] Saved handle failed:", savedHandleError.message);
         }
       }
-    }
-  } else if (context.githubRepo) {
-    console.log("[loadLibraryFromRoot] AUTO mode with GitHub context detected");
-    try {
-      loadedCategories = await loadLibraryFromGithubFolders(context);
-      sourceMode = "github-folder-scan";
-    } catch (githubScanError) {
-      console.log("[loadLibraryFromRoot] GitHub API scan failed, trying CDN fallback: ", githubScanError.message);
-      try {
-        loadedCategories = await loadLibraryFromGithubFlatIndex(context);
-        sourceMode = "github-flat-scan";
-      } catch (cdnScanError) {
-        console.error("[loadLibraryFromRoot] Both GitHub API and CDN fallback failed");
-        throw new Error(`Could not read category folders from GitHub root: ${state.rootFolder}`);
-      }
-    }
-  } else if (context.supportsDirectoryScan) {
-    try {
-      loadedCategories = await loadLibraryFromCategoryFolders(rootFolder);
-      sourceMode = "folder-scan";
-    } catch (folderScanError) {
-      try {
-        const shouldTryHandleFallback = supportsFolderDeletion() && (window.location.protocol === "file:" || rootDirectoryHandle !== null);
-        if (!shouldTryHandleFallback) {
-          throw folderScanError;
-        }
 
-        const configuredRoot = await getConfiguredRootHandle({ create: false });
-        loadedCategories = await loadLibraryFromHandleCategoryFolders(configuredRoot, rootFolder);
-        sourceMode = "handle-folder-scan";
-      } catch (localFolderError) {
-        throw new Error(`Could not read category folders from local root: ${state.rootFolder}`);
+      // Show picker when user explicitly clicks Refresh, or if silent load found nothing
+      if (loadedCategories.length === 0 && allowPrompt) {
+        let pickerAborted = false;
+        try {
+          const freshHandle = await window.showDirectoryPicker({ mode: "readwrite" });
+          rootDirectoryHandle = freshHandle;
+          await saveRootDirectoryHandle(freshHandle);
+          // Scan the selected folder directly — user picked exactly what they want
+          loadedCategories = await loadLibraryFromHandleCategoryFolders(freshHandle, freshHandle.name);
+          sourceMode = "handle-folder-scan";
+          setLocalFolderPath(freshHandle);
+        } catch (pickerError) {
+          if (pickerError.name === "AbortError") {
+            pickerAborted = true;
+          } else {
+            console.error("[LOCAL] Folder scan after picker failed:", pickerError.message);
+            throw new Error(`Could not read category folders from selected folder: ${pickerError.message}`);
+          }
+        }
+        if (pickerAborted) {
+          throw new Error("No folder selected. Please click Refresh and select your quiz root folder.");
+        }
+      }
+    }
+
+    // Fallback: manifest (index.json)
+    if (loadedCategories.length === 0) {
+      try {
+        const indexPath = `${rootFolder}/index.json`;
+        const response = await fetch(indexPath, { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`Could not read ${indexPath}`);
+        }
+        const manifest = await response.json();
+        if (!manifest || !Array.isArray(manifest.categories)) {
+          throw new Error(`Invalid ${rootFolder}/index.json`);
+        }
+        loadedCategories = await loadLibraryFromManifest({ fetchBase: rootFolder });
+        sourceMode = "manifest";
+      } catch (manifestError) {
+        throw new Error(`Could not read category folders from local root: ${state.rootFolder}. Select a folder or ensure index.json exists.`);
       }
     }
   } else {
-    loadedCategories = await loadLibraryFromManifest(context);
-    sourceMode = "manifest";
+    throw new Error("Unknown root source mode. Please select Local or GitHub.");
   }
 
   state.categories = loadedCategories;
@@ -1697,7 +1746,7 @@ async function loadLibraryFromRoot() {
   return sourceMode;
 }
 
-async function refreshLibraryFromRoot(notify = true) {
+async function refreshLibraryFromRoot(notify = true, allowPrompt = true) {
   const rootInput = document.getElementById("quizRootFolder");
   const rootSourceModeInput = document.getElementById("rootSourceMode");
   if (rootInput) {
@@ -1710,7 +1759,7 @@ async function refreshLibraryFromRoot(notify = true) {
   }
 
   try {
-    const sourceMode = await loadLibraryFromRoot();
+    const sourceMode = await loadLibraryFromRoot({ allowPrompt });
     renderAll();
     const sourceText = sourceMode === "github-folder-scan"
       ? `Source: auto-detected from GitHub category folders in ${state.rootFolder}`
@@ -1749,6 +1798,11 @@ function getSelectedQuizFileName() {
 function getQuestionValidationIssues(question) {
   const issues = [];
   const resultType = question.resultType || "multiple-choice";
+  const isCartesianPlotQuestion = Boolean(
+    question
+    && question.interactiveApp
+    && question.interactiveApp.type === "cartesian-plane-plot"
+  );
   const optionValues = Array.isArray(question.options) ? question.options.map((item) => String(item || "").trim()) : [];
   const choiceOptions = optionValues.filter((item) => item !== "");
   const answerValue = String(question.correctAnswer || "").trim();
@@ -1757,11 +1811,18 @@ function getQuestionValidationIssues(question) {
     issues.push("Question text is required.");
   }
 
-  if (["multiple-choice", "checkbox", "true-false"].includes(resultType) && choiceOptions.length < 2) {
+  if (!isCartesianPlotQuestion && ["multiple-choice", "checkbox", "true-false"].includes(resultType) && choiceOptions.length < 2) {
     issues.push("At least two options are required for this result type.");
   }
 
-  if (!answerValue) {
+  if (isCartesianPlotQuestion) {
+    const answerPoints = Array.isArray(question.interactiveApp && question.interactiveApp.config && question.interactiveApp.config.points)
+      ? question.interactiveApp.config.points
+      : [];
+    if (answerPoints.length === 0) {
+      issues.push("Cartesian Plane - Plot requires at least one answer point.");
+    }
+  } else if (!answerValue) {
     issues.push("Correct answer is required.");
   } else if (["multiple-choice", "true-false"].includes(resultType)) {
     const matchesChoice = choiceOptions.some((item) => normalizeText(item) === normalizeText(answerValue));
@@ -1903,7 +1964,7 @@ function renderQuizList() {
       <button class="list-main" data-id="${quiz.id}" type="button">${quiz.title}</button>
       <button class="icon-btn secondary" data-action="settings" data-id="${quiz.id}" type="button">Settings</button>
       <button class="icon-btn secondary" data-action="replicate" data-id="${quiz.id}" type="button">Replicate</button>
-      <button class="icon-btn secondary" data-action="embed" data-id="${quiz.id}" type="button">Link</button>
+      <button class="icon-btn secondary" data-action="auto" data-id="${quiz.id}" type="button">Auto</button>
       <button class="icon-btn danger" data-action="delete" data-id="${quiz.id}" type="button">x</button>
     `;
     host.appendChild(row);
@@ -2222,6 +2283,1809 @@ function parseNumericList(text) {
     .filter((value) => Number.isFinite(value));
 }
 
+function defaultCartesianPlotPresetExpression(type) {
+  if (type === "quadratic") return "x^2 - 4*x + 3";
+  if (type === "cubic") return "x^3 - 2*x";
+  if (type === "exponential") return "2^x";
+  return "2*x + 1";
+}
+
+function defaultCartesianPlotPresetXValues(type) {
+  if (type === "exponential") return "-2, -1, 0, 1, 2, 3";
+  return "-2, -1, 0, 1, 2";
+}
+
+function roundTo(value, digits = 2) {
+  const factor = 10 ** digits;
+  return Math.round(Number(value) * factor) / factor;
+}
+
+function generateCartesianPlotPresetPoints(presetType, expression, xValuesText) {
+  const evaluate = buildCartesianExpressionEvaluator(expression);
+  if (!evaluate) {
+    return { points: [], message: "Invalid expression. Use x, numbers, operators, and supported functions." };
+  }
+
+  const xValues = parseNumericList(xValuesText);
+  if (xValues.length === 0) {
+    return { points: [], message: "Add at least one numeric x value." };
+  }
+
+  const points = xValues
+    .map((xValue, index) => {
+      const yValue = evaluate(xValue);
+      if (!Number.isFinite(yValue)) return null;
+      const x = roundTo(xValue, 2);
+      const y = roundTo(yValue, 2);
+      const shortType = presetType === "quadratic" ? "Q" : presetType === "cubic" ? "C" : presetType === "exponential" ? "E" : "L";
+      return { x, y, label: `${shortType}${index + 1}` };
+    })
+    .filter(Boolean);
+
+  if (points.length === 0) {
+    return { points: [], message: "No valid points were generated for those x values." };
+  }
+
+  return { points, message: "" };
+}
+
+function getCartesianPlotVceTemplate(templateId) {
+  const templates = {
+    "general-linear-intercepts": {
+      presetType: "linear",
+      expression: "2*x - 4",
+      xValues: "0, 2, 4",
+      xMin: -2,
+      xMax: 6,
+      yMin: -6,
+      yMax: 6,
+      tolerance: 0.5
+    },
+    "general-quadratic-turning-point": {
+      presetType: "quadratic",
+      expression: "x^2 - 4*x + 3",
+      xValues: "1, 2, 3",
+      xMin: -1,
+      xMax: 5,
+      yMin: -2,
+      yMax: 8,
+      tolerance: 0.5
+    },
+    "methods-transformed-parabola": {
+      presetType: "quadratic",
+      expression: "2*(x-1)^2 - 3",
+      xValues: "-1, 1, 3",
+      xMin: -3,
+      xMax: 5,
+      yMin: -5,
+      yMax: 10,
+      tolerance: 0.5
+    },
+    "methods-cubic-intercepts": {
+      presetType: "cubic",
+      expression: "x^3 - 4*x",
+      xValues: "-2, 0, 2, -1, 1",
+      xMin: -3,
+      xMax: 3,
+      yMin: -8,
+      yMax: 8,
+      tolerance: 0.5
+    },
+    "specialist-exponential-growth": {
+      presetType: "exponential",
+      expression: "2^x",
+      xValues: "-2, -1, 0, 1, 2, 3",
+      xMin: -3,
+      xMax: 4,
+      yMin: -1,
+      yMax: 10,
+      tolerance: 0.5
+    }
+  };
+  return templates[templateId] || null;
+}
+
+const AUTO_CREATE_CARTESIAN_TEMPLATES = {
+  linear: {
+    easy: [
+      { expression: "2*x - 4", xValues: "0, 2, 4", vceTemplate: "general-linear-intercepts" },
+      { expression: "-x + 3", xValues: "0, 1, 3", vceTemplate: "general-linear-intercepts" }
+    ],
+    medium: [
+      { expression: "3*x + 1", xValues: "-1, 0, 2", vceTemplate: "general-linear-intercepts" },
+      { expression: "-2*x - 1", xValues: "-2, -1, 1", vceTemplate: "general-linear-intercepts" }
+    ],
+    hard: [
+      { expression: "4*x - 7", xValues: "0, 1, 2", vceTemplate: "general-linear-intercepts" },
+      { expression: "-3*x + 5", xValues: "0, 1, 2", vceTemplate: "general-linear-intercepts" }
+    ]
+  },
+  quadratic: {
+    easy: [
+      { expression: "x^2 - 4*x + 3", xValues: "1, 2, 3", vceTemplate: "general-quadratic-turning-point" },
+      { expression: "x^2 - 2*x - 3", xValues: "-1, 1, 3", vceTemplate: "general-quadratic-turning-point" }
+    ],
+    medium: [
+      { expression: "2*(x-1)^2 - 3", xValues: "-1, 1, 3", vceTemplate: "methods-transformed-parabola" },
+      { expression: "-1*(x+2)^2 + 4", xValues: "-4, -2, 0", vceTemplate: "methods-transformed-parabola" }
+    ],
+    hard: [
+      { expression: "0.5*(x-3)^2 - 5", xValues: "1, 3, 5", vceTemplate: "methods-transformed-parabola" },
+      { expression: "-2*(x-1)^2 + 6", xValues: "-1, 1, 3", vceTemplate: "methods-transformed-parabola" }
+    ]
+  },
+  cubic: {
+    easy: [
+      { expression: "x^3 - 4*x", xValues: "-2, 0, 2, -1, 1", vceTemplate: "methods-cubic-intercepts" }
+    ],
+    medium: [
+      { expression: "x^3 - x", xValues: "-1, 0, 1, -2, 2", vceTemplate: "methods-cubic-intercepts" },
+      { expression: "x^3 - 3*x + 1", xValues: "-2, -1, 0, 1, 2", vceTemplate: "methods-cubic-intercepts" }
+    ],
+    hard: [
+      { expression: "x^3 - 6*x", xValues: "-2, -1, 0, 1, 2", vceTemplate: "methods-cubic-intercepts" },
+      { expression: "0.5*x^3 - 2*x", xValues: "-2, -1, 0, 1, 2", vceTemplate: "methods-cubic-intercepts" }
+    ]
+  },
+  exponential: {
+    easy: [
+      { expression: "2^x", xValues: "-2, -1, 0, 1, 2", vceTemplate: "specialist-exponential-growth" }
+    ],
+    medium: [
+      { expression: "3^x", xValues: "-2, -1, 0, 1, 2", vceTemplate: "specialist-exponential-growth" },
+      { expression: "2^(x-1)", xValues: "-1, 0, 1, 2, 3", vceTemplate: "specialist-exponential-growth" }
+    ],
+    hard: [
+      { expression: "1.5^x", xValues: "-2, -1, 0, 1, 2, 3", vceTemplate: "specialist-exponential-growth" },
+      { expression: "2^(x+1)", xValues: "-2, -1, 0, 1, 2", vceTemplate: "specialist-exponential-growth" }
+    ]
+  },
+  transformations: {
+    easy: [
+      { expression: "(x-2)^2", xValues: "1, 2, 3", vceTemplate: "methods-transformed-parabola" },
+      { expression: "(x+1)^2 - 2", xValues: "-2, -1, 0", vceTemplate: "methods-transformed-parabola" }
+    ],
+    medium: [
+      { expression: "2*(x-1)^2 - 3", xValues: "-1, 1, 3", vceTemplate: "methods-transformed-parabola" },
+      { expression: "-1*(x+2)^2 + 4", xValues: "-4, -2, 0", vceTemplate: "methods-transformed-parabola" }
+    ],
+    hard: [
+      { expression: "0.5*(x-3)^2 - 5", xValues: "1, 3, 5", vceTemplate: "methods-transformed-parabola" },
+      { expression: "-2*(x-1)^2 + 6", xValues: "-1, 1, 3", vceTemplate: "methods-transformed-parabola" }
+    ]
+  },
+  "domain-range": {
+    easy: [
+      { expression: "x^2", xValues: "-2, -1, 0, 1, 2", vceTemplate: "general-quadratic-turning-point" },
+      { expression: "(x-1)^2 + 2", xValues: "-1, 0, 1, 2, 3", vceTemplate: "methods-transformed-parabola" }
+    ],
+    medium: [
+      { expression: "-1*(x+2)^2 + 5", xValues: "-4, -3, -2, -1, 0", vceTemplate: "methods-transformed-parabola" },
+      { expression: "2*(x-1)^2 - 3", xValues: "-1, 0, 1, 2, 3", vceTemplate: "methods-transformed-parabola" }
+    ],
+    hard: [
+      { expression: "0.5*(x-3)^2 - 4", xValues: "1, 2, 3, 4, 5", vceTemplate: "methods-transformed-parabola" },
+      { expression: "-2*(x-1)^2 + 7", xValues: "-1, 0, 1, 2, 3", vceTemplate: "methods-transformed-parabola" }
+    ]
+  },
+  intercepts: {
+    easy: [
+      { expression: "x - 3", xValues: "0, 1, 3, 5", vceTemplate: "general-linear-graph" },
+      { expression: "2*x + 4", xValues: "-3, -2, -1, 0", vceTemplate: "general-linear-graph" }
+    ],
+    medium: [
+      { expression: "-3*x + 6", xValues: "0, 1, 2, 3", vceTemplate: "general-linear-graph" },
+      { expression: "x^2 - 4", xValues: "-3, -2, 0, 2, 3", vceTemplate: "general-quadratic-turning-point" }
+    ],
+    hard: [
+      { expression: "2*x - 5", xValues: "0, 1, 2, 3", vceTemplate: "general-linear-graph" },
+      { expression: "x^2 - 2*x - 3", xValues: "-2, -1, 0, 1, 3", vceTemplate: "general-quadratic-turning-point" }
+    ]
+  },
+  gradient: {
+    easy: [
+      { expression: "x + 1", xValues: "-1, 0, 1, 2", vceTemplate: "general-linear-graph" },
+      { expression: "2*x - 1", xValues: "-1, 0, 1, 2", vceTemplate: "general-linear-graph" }
+    ],
+    medium: [
+      { expression: "-3*x + 4", xValues: "-1, 0, 1", vceTemplate: "general-linear-graph" },
+      { expression: "0.5*x - 2", xValues: "-2, 0, 2, 4", vceTemplate: "general-linear-graph" }
+    ],
+    hard: [
+      { expression: "-2.5*x + 7", xValues: "0, 1, 2, 3", vceTemplate: "general-linear-graph" },
+      { expression: "1.5*x - 4", xValues: "0, 2, 4", vceTemplate: "general-linear-graph" }
+    ]
+  },
+  asymptotes: {
+    easy: [
+      { expression: "1/(x-2)", xValues: "-2, -1, 0, 1, 3, 4", vceTemplate: "specialist-rational-asymptote" },
+      { expression: "1/(x+3)", xValues: "-5, -4, -2, -1, 0, 1", vceTemplate: "specialist-rational-asymptote" }
+    ],
+    medium: [
+      { expression: "2/(x-1)", xValues: "-2, -1, 0, 2, 3, 4", vceTemplate: "specialist-rational-asymptote" },
+      { expression: "-1/(x+2)", xValues: "-5, -4, -3, -1, 0, 1", vceTemplate: "specialist-rational-asymptote" }
+    ],
+    hard: [
+      { expression: "1/(x-3) + 2", xValues: "0, 1, 2, 4, 5, 6", vceTemplate: "specialist-rational-asymptote" },
+      { expression: "-2/(x+1) - 1", xValues: "-4, -3, -2, 0, 1, 2", vceTemplate: "specialist-rational-asymptote" }
+    ]
+  }
+};
+
+const AUTO_CREATE_SUBCATEGORY_OPTIONS = {
+  "cartesian-plane": [
+    { value: "linear", label: "Linear" },
+    { value: "quadratic", label: "Quadratic" },
+    { value: "cubic", label: "Cubic" },
+    { value: "exponential", label: "Exponential" },
+    { value: "transformations", label: "Transformations" },
+    { value: "domain-range", label: "Domain and Range" },
+    { value: "intercepts", label: "Intercepts" },
+    { value: "gradient", label: "Gradient" },
+    { value: "asymptotes", label: "Asymptotes" },
+    { value: "point-on-axes", label: "Point On Axes" },
+    { value: "quadrant-identification", label: "Quadrant Identification" }
+  ],
+  "cartesian-plane-plot": [
+    { value: "linear", label: "Linear" },
+    { value: "quadratic", label: "Quadratic" },
+    { value: "cubic", label: "Cubic" },
+    { value: "exponential", label: "Exponential" },
+    { value: "transformations", label: "Transformations" },
+    { value: "intercepts", label: "Intercepts" },
+    { value: "gradient", label: "Gradient" },
+    { value: "asymptotes", label: "Asymptotes" }
+  ],
+  "number-line": [{ value: "distance", label: "Distance Between Points" }],
+  "bar-chart": [{ value: "highest-category", label: "Highest Category" }],
+  "histogram": [{ value: "count-values", label: "Count Values" }],
+  "box-plot": [{ value: "median", label: "Median Of Dataset" }],
+  "scatter-plot": [{ value: "correlation-sign", label: "Correlation Sign" }],
+  "probability-tree": [{ value: "path-sum", label: "Total Path Probability" }],
+  "distribution-curve": [{ value: "mean", label: "Mean" }],
+  arithmetic: [
+    { value: "basic-addition-h", label: "Basic Addition - Horizontal" },
+    { value: "basic-addition-v", label: "Basic Addition - Vertical" },
+    { value: "basic-subtraction", label: "Basic Subtraction" },
+    { value: "basic-multiplication", label: "Basic Multiplication" },
+    { value: "division-short", label: "Division (Short)" },
+    { value: "division-long", label: "Division (Long)" }
+  ],
+  "fractions": [{ value: "operation-result", label: "Operation Result" }],
+  "network-graph": [{ value: "node-count", label: "Node Count" }],
+  "matrix": [{ value: "matrix-a-dim", label: "Matrix A Dimensions" }],
+  "stem-and-leaf": [{ value: "value-count", label: "Value Count" }],
+  "geometry-shapes": [{ value: "shape-count", label: "Shape Count" }],
+  "pythagoras": [{ value: "hypotenuse", label: "Find Hypotenuse" }],
+  "trigonometry": [{ value: "focus-function", label: "Focus Function Ratio" }]
+};
+
+function populateAutoCreateSubcategoryOptions() {
+  const categorySelect = document.getElementById("autoCreateCategory");
+  const subcategorySelect = document.getElementById("autoCreateSubcategory");
+  if (!categorySelect || !subcategorySelect) return;
+  const category = String(categorySelect.value || "cartesian-plane").trim();
+  const options = AUTO_CREATE_SUBCATEGORY_OPTIONS[category] || [{ value: "core", label: "Core" }];
+  const current = String(subcategorySelect.value || "").trim();
+
+  subcategorySelect.innerHTML = "";
+  options.forEach((item) => {
+    const option = document.createElement("option");
+    option.value = item.value;
+    option.textContent = item.label;
+    subcategorySelect.appendChild(option);
+  });
+
+  const hasCurrent = options.some((item) => item.value === current);
+  subcategorySelect.value = hasCurrent ? current : options[0].value;
+}
+
+function capitalizeWord(value) {
+  const text = String(value || "").trim();
+  if (!text) return "Determine";
+  return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+}
+
+function normalizeCommandWordChoice(value) {
+  const normalized = String(value || "").trim().toLowerCase();
+  if (["determine", "sketch", "interpret", "justify", "random"].includes(normalized)) {
+    return normalized;
+  }
+  return "determine";
+}
+
+function pickCommandWordFromChoice(choice, { resultType = "", index = 0 } = {}) {
+  const normalizedChoice = normalizeCommandWordChoice(choice);
+  if (normalizedChoice !== "random") {
+    return normalizedChoice;
+  }
+
+  const normalizedResultType = String(resultType || "").trim().toLowerCase();
+  if (normalizedResultType === "plot") {
+    return "sketch";
+  }
+
+  const rotatingPool = ["determine", "interpret", "justify"];
+  if (Number.isInteger(index)) {
+    return rotatingPool[Math.abs(index) % rotatingPool.length];
+  }
+
+  return pickRandomItem(rotatingPool) || "determine";
+}
+
+function applyCommandWordToQuestion(questionText, commandWord) {
+  const text = String(questionText || "").trim();
+  const word = capitalizeWord(commandWord);
+  if (!text) return `${word}.`;
+  const normalized = text.charAt(0).toLowerCase() + text.slice(1);
+  return `${word} ${normalized}`;
+}
+
+function formatAnswerValueByPolicy(value, policy, decimalPlaces) {
+  const normalizedPolicy = String(policy || "auto").trim().toLowerCase();
+  const places = Number.isInteger(Number(decimalPlaces))
+    ? Math.max(0, Math.min(6, Number.parseInt(decimalPlaces, 10)))
+    : 2;
+  const raw = String(value || "").trim();
+  if (!raw) return raw;
+
+  if (normalizedPolicy === "exact" || normalizedPolicy === "auto") {
+    return raw;
+  }
+
+  const numeric = Number.parseFloat(raw);
+  if (Number.isFinite(numeric) && /^-?\d+(?:\.\d+)?$/.test(raw)) {
+    return Number(numeric.toFixed(places)).toString();
+  }
+
+  const fractionMatch = raw.match(/^\s*(-?\d+)\s*\/\s*(-?\d+)\s*$/);
+  if (fractionMatch && Number.parseInt(fractionMatch[2], 10) !== 0) {
+    const numerator = Number.parseInt(fractionMatch[1], 10);
+    const denominator = Number.parseInt(fractionMatch[2], 10);
+    return Number((numerator / denominator).toFixed(places)).toString();
+  }
+
+  return raw;
+}
+
+function applyDomainRestrictionToPayload(payload, domainMin, domainMax) {
+  if (!payload) return payload;
+  const min = Number(domainMin);
+  const max = Number(domainMax);
+  if (!Number.isFinite(min) || !Number.isFinite(max) || min >= max) return payload;
+
+  const next = { ...payload };
+  next.question = `${String(payload.question || "").trim()} Restrict the domain to ${min} <= x <= ${max}.`;
+
+  const app = payload.interactiveApp;
+  if (app && app.config && Number.isFinite(Number(app.config.xMin)) && Number.isFinite(Number(app.config.xMax))) {
+    next.interactiveApp = {
+      ...app,
+      config: {
+        ...app.config,
+        xMin: Math.max(Number(app.config.xMin), min),
+        xMax: Math.min(Number(app.config.xMax), max)
+      }
+    };
+  }
+
+  return next;
+}
+
+function applyAnswerFormatToPayload(payload, policy, decimalPlaces) {
+  if (!payload) return payload;
+  const next = { ...payload };
+  next.correctAnswer = formatAnswerValueByPolicy(next.correctAnswer, policy, decimalPlaces);
+
+  if (Array.isArray(next.options) && next.options.length > 0) {
+    next.options = next.options.map((item) => formatAnswerValueByPolicy(item, policy, decimalPlaces));
+  }
+
+  return next;
+}
+
+function postProcessAutoPayload(payload, generationOptions = {}) {
+  if (!payload) return payload;
+  const commandWordChoice = normalizeCommandWordChoice(generationOptions.commandWord || "determine");
+  const commandWord = pickCommandWordFromChoice(commandWordChoice, {
+    resultType: payload.resultType,
+    index: Number.isInteger(generationOptions.questionIndex) ? generationOptions.questionIndex : null
+  });
+  const answerPolicy = String(generationOptions.answerPolicy || "auto").trim();
+  const decimalPlaces = Number.isInteger(Number(generationOptions.decimalPlaces))
+    ? Number.parseInt(generationOptions.decimalPlaces, 10)
+    : 2;
+  const domainMin = generationOptions.domainMin;
+  const domainMax = generationOptions.domainMax;
+
+  let next = { ...payload };
+  next.question = applyCommandWordToQuestion(next.question, commandWord);
+  next = applyDomainRestrictionToPayload(next, domainMin, domainMax);
+  next = applyAnswerFormatToPayload(next, answerPolicy, decimalPlaces);
+  return next;
+}
+
+function pickRandomItem(list) {
+  if (!Array.isArray(list) || list.length === 0) return null;
+  const index = Math.floor(Math.random() * list.length);
+  return list[index] || null;
+}
+
+function computeAxisFromPoints(points) {
+  const values = Array.isArray(points) ? points : [];
+  if (values.length === 0) {
+    return { xMin: -10, xMax: 10, yMin: -10, yMax: 10 };
+  }
+  const xs = values.map((item) => Number(item.x)).filter((item) => Number.isFinite(item));
+  const ys = values.map((item) => Number(item.y)).filter((item) => Number.isFinite(item));
+  if (xs.length === 0 || ys.length === 0) {
+    return { xMin: -10, xMax: 10, yMin: -10, yMax: 10 };
+  }
+  const xMin = Math.floor(Math.min(...xs)) - 2;
+  const xMax = Math.ceil(Math.max(...xs)) + 2;
+  const yMin = Math.floor(Math.min(...ys)) - 2;
+  const yMax = Math.ceil(Math.max(...ys)) + 2;
+  return {
+    xMin: Math.max(-12, xMin),
+    xMax: Math.min(12, xMax),
+    yMin: Math.max(-12, yMin),
+    yMax: Math.min(12, yMax)
+  };
+}
+
+function shuffleList(list) {
+  const next = Array.isArray(list) ? list.slice() : [];
+  for (let i = next.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [next[i], next[j]] = [next[j], next[i]];
+  }
+  return next;
+}
+
+function formatCartesianPoint(point) {
+  return `(${point.x}, ${point.y})`;
+}
+
+function buildCartesianDisplayApp(points) {
+  const axis = computeAxisFromPoints(points);
+  return {
+    type: "cartesian-plane",
+    config: {
+      xMin: axis.xMin,
+      xMax: axis.xMax,
+      yMin: axis.yMin,
+      yMax: axis.yMax,
+      angleMode: "radians",
+      points: points.map((point, index) => ({
+        x: Number(point.x),
+        y: Number(point.y),
+        label: point.label || `P${index + 1}`,
+        color: point.color || "#2563eb"
+      })),
+      segments: [],
+      parabolas: [],
+      functions: []
+    }
+  };
+}
+
+function buildCartesianFunctionDisplayApp(expression, xMin, xMax, yMin, yMax) {
+  return {
+    type: "cartesian-plane",
+    config: {
+      xMin: Number(xMin),
+      xMax: Number(xMax),
+      yMin: Number(yMin),
+      yMax: Number(yMax),
+      angleMode: "radians",
+      points: [],
+      segments: [],
+      parabolas: [],
+      functions: [{ expression: String(expression || "x"), label: `y = ${expression}`, color: "#0f766e" }]
+    }
+  };
+}
+
+function buildAutoCartesianPlotPayload(subcategory, difficulty) {
+  const normalizedSubcategory = String(subcategory || "linear").trim().toLowerCase();
+  const normalizedDifficulty = String(difficulty || "easy").trim().toLowerCase();
+  const bySubcategory = AUTO_CREATE_CARTESIAN_TEMPLATES[normalizedSubcategory] || AUTO_CREATE_CARTESIAN_TEMPLATES.linear;
+  const options = bySubcategory[normalizedDifficulty] || bySubcategory.easy;
+  const chosen = pickRandomItem(options) || options[0];
+  if (!chosen) return null;
+
+  const presetType = normalizedSubcategory === "quadratic"
+    ? "quadratic"
+    : normalizedSubcategory === "cubic"
+      ? "cubic"
+      : normalizedSubcategory === "exponential"
+        ? "exponential"
+        : normalizedSubcategory === "transformations"
+          ? "quadratic"
+        : normalizedSubcategory === "domain-range"
+          ? "quadratic"
+        : "linear";
+
+  const generated = generateCartesianPlotPresetPoints(presetType, chosen.expression, chosen.xValues);
+  if (generated.message || !Array.isArray(generated.points) || generated.points.length === 0) {
+    return null;
+  }
+
+  const axis = computeAxisFromPoints(generated.points);
+  const pointsSummary = generated.points.map((point) => formatCartesianPoint(point)).join(", ");
+  const label = normalizedSubcategory.charAt(0).toUpperCase() + normalizedSubcategory.slice(1);
+
+  if (normalizedSubcategory === "domain-range") {
+    const yValues = generated.points.map((point) => Number(point.y)).filter((value) => Number.isFinite(value));
+    const minY = yValues.length > 0 ? Math.min(...yValues) : 0;
+    const maxY = yValues.length > 0 ? Math.max(...yValues) : 0;
+    const domainText = `${axis.xMin} <= x <= ${axis.xMax}`;
+    const rangeText = `${roundTo(minY, 2)} <= y <= ${roundTo(maxY, 2)}`;
+    return {
+      question: `Given the graph of y = ${chosen.expression} over ${domainText}, state the domain and range.`,
+      resultType: "short-answer",
+      options: ["", "", "", ""],
+      correctAnswer: `Domain: ${domainText}; Range: ${rangeText}`,
+      solution: `From the shown graph, x spans ${domainText}. The minimum y-value is ${roundTo(minY, 2)} and maximum y-value is ${roundTo(maxY, 2)}, so range is ${rangeText}.`,
+      interactiveApp: {
+        type: "cartesian-plane",
+        config: {
+          xMin: axis.xMin,
+          xMax: axis.xMax,
+          yMin: axis.yMin,
+          yMax: axis.yMax,
+          angleMode: "radians",
+          points: generated.points.map((point, index) => ({
+            x: point.x,
+            y: point.y,
+            label: index === 0 ? "sample" : "",
+            color: "#2563eb"
+          })),
+          segments: [],
+          parabolas: [],
+          functions: [{ expression: chosen.expression, label: `y = ${chosen.expression}`, color: "#0f766e" }]
+        }
+      }
+    };
+  }
+
+  return {
+    question: `On the Cartesian plane, plot the ${label.toLowerCase()} graph y = ${chosen.expression}. Use the key points and place them accurately.`,
+    resultType: "plot",
+    options: ["", "", "", ""],
+    correctAnswer: "",
+    solution: [
+      `Use y = ${chosen.expression}.`,
+      `Substitute the key x-values ${chosen.xValues} to calculate y-values.`,
+      `Key points: ${pointsSummary}.`,
+      "Plot these points and sketch the curve/line through the correct shape."
+    ].join(" "),
+    interactiveApp: {
+      type: "cartesian-plane-plot",
+      config: {
+        xMin: axis.xMin,
+        xMax: axis.xMax,
+        yMin: axis.yMin,
+        yMax: axis.yMax,
+        tolerance: 0.5,
+        points: generated.points,
+        vceTemplate: chosen.vceTemplate || "",
+        presetType,
+        presetExpression: chosen.expression,
+        presetXValues: chosen.xValues
+      }
+    }
+  };
+}
+
+function buildAutoCartesianMcqPayload(subcategory, difficulty) {
+  const normalizedSubcategory = String(subcategory || "point-on-axes").trim().toLowerCase();
+  const normalizedDifficulty = String(difficulty || "easy").trim().toLowerCase();
+
+  if (normalizedSubcategory === "gradient") {
+    const pools = normalizedDifficulty === "hard"
+      ? [{ m: -2.5, b: 7 }, { m: 1.5, b: -4 }, { m: -3.5, b: 5 }]
+      : normalizedDifficulty === "medium"
+        ? [{ m: -3, b: 4 }, { m: 0.5, b: -2 }, { m: 2.5, b: 1 }]
+        : [{ m: 1, b: 1 }, { m: 2, b: -1 }, { m: -1, b: 3 }];
+    const chosen = pickRandomItem(pools);
+    const gradient = roundTo(chosen.m, 2);
+    const expression = `${chosen.m}*x ${chosen.b >= 0 ? "+" : "-"} ${Math.abs(chosen.b)}`;
+    const distractors = shuffleList([
+      String(roundTo(-gradient, 2)),
+      String(roundTo(gradient + 1, 2)),
+      String(roundTo(gradient - 1, 2)),
+      String(roundTo(chosen.b, 2))
+    ].filter((item) => Number(item) !== Number(gradient))).slice(0, 3);
+    const correctOption = String(gradient);
+    const options = shuffleList([correctOption, ...distractors]).slice(0, 4);
+
+    return {
+      question: `What is the gradient of the line y = ${expression}?`,
+      resultType: "multiple-choice",
+      options: [options[0] || "", options[1] || "", options[2] || "", options[3] || ""],
+      correctAnswer: correctOption,
+      solution: `In y = mx + c form, the gradient is the coefficient of x. So the gradient is ${correctOption}.`,
+      interactiveApp: buildCartesianFunctionDisplayApp(expression, -6, 6, -10, 10)
+    };
+  }
+
+  if (normalizedSubcategory === "intercepts") {
+    const pools = normalizedDifficulty === "hard"
+      ? [{ m: 2, b: -5 }, { m: -3, b: 7 }, { m: 4, b: -9 }]
+      : normalizedDifficulty === "medium"
+        ? [{ m: 2, b: 4 }, { m: -3, b: 6 }, { m: 1, b: -4 }]
+        : [{ m: 1, b: -3 }, { m: 2, b: 4 }, { m: -1, b: 2 }];
+    const chosen = pickRandomItem(pools);
+    const expression = `${chosen.m}*x ${chosen.b >= 0 ? "+" : "-"} ${Math.abs(chosen.b)}`;
+    const xIntercept = roundTo((-chosen.b) / chosen.m, 2);
+    const correctOption = formatCartesianPoint({ x: xIntercept, y: 0 });
+    const distractorPool = [
+      formatCartesianPoint({ x: roundTo(chosen.b / chosen.m, 2), y: 0 }),
+      formatCartesianPoint({ x: 0, y: roundTo(chosen.b, 2) }),
+      formatCartesianPoint({ x: roundTo(xIntercept + 1, 2), y: 0 }),
+      formatCartesianPoint({ x: roundTo(xIntercept - 1, 2), y: 0 })
+    ].filter((item) => item !== correctOption);
+    const options = shuffleList([correctOption, ...distractorPool]).slice(0, 4);
+
+    return {
+      question: `What is the x-intercept of y = ${expression}?`,
+      resultType: "multiple-choice",
+      options: [options[0] || "", options[1] || "", options[2] || "", options[3] || ""],
+      correctAnswer: correctOption,
+      solution: `Set y = 0, so 0 = ${chosen.m}x ${chosen.b >= 0 ? "+" : "-"} ${Math.abs(chosen.b)}. Solving gives x = ${xIntercept}, so the intercept is ${correctOption}.`,
+      interactiveApp: buildCartesianFunctionDisplayApp(expression, -8, 8, -10, 10)
+    };
+  }
+
+  if (normalizedSubcategory === "asymptotes") {
+    const pools = normalizedDifficulty === "hard"
+      ? [{ a: 3, k: 2, p: 1 }, { a: -1, k: -1, p: -2 }]
+      : normalizedDifficulty === "medium"
+        ? [{ a: 1, k: 0, p: 2 }, { a: -2, k: 0, p: -1 }]
+        : [{ a: 2, k: 0, p: 1 }, { a: -3, k: 0, p: 1 }];
+    const chosen = pickRandomItem(pools);
+    const expression = chosen.k === 0
+      ? `${chosen.p}/(x${chosen.a >= 0 ? "-" : "+"}${Math.abs(chosen.a)})`
+      : `${chosen.p}/(x${chosen.a >= 0 ? "-" : "+"}${Math.abs(chosen.a)}) ${chosen.k >= 0 ? "+" : "-"} ${Math.abs(chosen.k)}`;
+    const correctOption = `x = ${chosen.a}`;
+    const distractors = shuffleList([
+      `x = ${-chosen.a}`,
+      `y = ${chosen.a}`,
+      `y = ${chosen.k}`,
+      `x = ${chosen.a + 1}`
+    ].filter((item) => item !== correctOption)).slice(0, 3);
+    const options = shuffleList([correctOption, ...distractors]).slice(0, 4);
+
+    return {
+      question: `What is the vertical asymptote of y = ${expression}?`,
+      resultType: "multiple-choice",
+      options: [options[0] || "", options[1] || "", options[2] || "", options[3] || ""],
+      correctAnswer: correctOption,
+      solution: `A vertical asymptote occurs where the denominator is zero. For y = ${expression}, x ${chosen.a >= 0 ? "-" : "+"} ${Math.abs(chosen.a)} = 0, so x = ${chosen.a}.`,
+      interactiveApp: buildCartesianFunctionDisplayApp(expression, -8, 8, -8, 8)
+    };
+  }
+
+  if (normalizedSubcategory === "quadrant-identification") {
+    const bases = normalizedDifficulty === "hard"
+      ? [{ x: 5, y: -7 }, { x: -8, y: 6 }, { x: -6, y: -5 }, { x: 7, y: 9 }]
+      : normalizedDifficulty === "medium"
+        ? [{ x: 4, y: -3 }, { x: -5, y: 4 }, { x: -3, y: -4 }, { x: 6, y: 5 }]
+        : [{ x: 2, y: 3 }, { x: -4, y: 2 }, { x: -3, y: -2 }, { x: 4, y: -1 }];
+    const chosen = pickRandomItem(bases);
+    const quadrant = chosen.x > 0 && chosen.y > 0
+      ? "Quadrant I"
+      : chosen.x < 0 && chosen.y > 0
+        ? "Quadrant II"
+        : chosen.x < 0 && chosen.y < 0
+          ? "Quadrant III"
+          : "Quadrant IV";
+    const distractors = shuffleList(["Quadrant I", "Quadrant II", "Quadrant III", "Quadrant IV"].filter((item) => item !== quadrant)).slice(0, 3);
+    const mcq = shuffleList([quadrant, ...distractors]);
+
+    return {
+      question: `In which quadrant is the point ${formatCartesianPoint(chosen)} located?`,
+      resultType: "multiple-choice",
+      options: [mcq[0] || "", mcq[1] || "", mcq[2] || "", mcq[3] || ""],
+      correctAnswer: quadrant,
+      solution: `${formatCartesianPoint(chosen)} has ${chosen.x > 0 ? "positive" : "negative"} x and ${chosen.y > 0 ? "positive" : "negative"} y, so it lies in ${quadrant}.`,
+      interactiveApp: buildCartesianDisplayApp([
+        { x: chosen.x, y: chosen.y, label: "P", color: "#2563eb" }
+      ])
+    };
+  }
+
+  const axisPoints = normalizedDifficulty === "hard"
+    ? [{ x: 0, y: 9 }, { x: -8, y: 0 }, { x: 0, y: -7 }, { x: 6, y: 0 }]
+    : normalizedDifficulty === "medium"
+      ? [{ x: 0, y: 6 }, { x: -5, y: 0 }, { x: 0, y: -4 }, { x: 3, y: 0 }]
+      : [{ x: 0, y: 3 }, { x: -2, y: 0 }, { x: 0, y: -2 }, { x: 4, y: 0 }];
+  const target = pickRandomItem(axisPoints);
+  const axisName = target.x === 0 ? "y-axis" : "x-axis";
+  const distractorPool = [
+    { x: target.x === 0 ? 1 : 0, y: target.y === 0 ? 1 : 0 },
+    { x: target.x === 0 ? -2 : 2, y: target.y === 0 ? 2 : -2 },
+    { x: target.x === 0 ? 3 : -3, y: target.y === 0 ? -1 : 4 }
+  ];
+  const distractors = shuffleList(distractorPool).slice(0, 3).map((point) => formatCartesianPoint(point));
+  const correctOption = formatCartesianPoint(target);
+  const options = shuffleList([correctOption, ...distractors]);
+  return {
+    question: `Which point lies on the ${axisName}?`,
+    resultType: "multiple-choice",
+    options: [options[0] || "", options[1] || "", options[2] || "", options[3] || ""],
+    correctAnswer: correctOption,
+    solution: `Points on the ${axisName} have ${axisName === "y-axis" ? "x = 0" : "y = 0"}. Therefore ${correctOption} is correct.`,
+    interactiveApp: buildCartesianDisplayApp([
+      { x: target.x, y: target.y, label: "A", color: "#16a34a" },
+      ...distractorPool.map((point, index) => ({ x: point.x, y: point.y, label: `D${index + 1}`, color: "#dc2626" }))
+    ])
+  };
+}
+
+function buildAutoCartesianTrueFalsePayload(subcategory, difficulty) {
+  const mcqPayload = buildAutoCartesianMcqPayload(subcategory, difficulty);
+  if (!mcqPayload) return null;
+  const correctPoint = String(mcqPayload.correctAnswer || "").trim();
+  const wrongPoint = (mcqPayload.options || []).find((item) => String(item).trim() && String(item).trim() !== correctPoint) || "(1, 1)";
+  const statementIsTrue = Math.random() < 0.5;
+  const isQuadrantQuestion = String(subcategory || "").trim().toLowerCase() === "quadrant-identification";
+
+  let statement = "";
+  let solution = "";
+  if (isQuadrantQuestion) {
+    const expected = correctPoint;
+    const shown = statementIsTrue ? expected : wrongPoint;
+    statement = `The point in this question lies in ${shown}.`;
+    solution = statementIsTrue
+      ? `True. The point is in ${expected}.`
+      : `False. The correct quadrant is ${expected}.`;
+  } else {
+    const axisName = mcqPayload.question.includes("y-axis") ? "y-axis" : "x-axis";
+    const shownPoint = statementIsTrue ? correctPoint : wrongPoint;
+    statement = `${shownPoint} lies on the ${axisName}.`;
+    solution = statementIsTrue
+      ? `True. ${shownPoint} satisfies the ${axisName === "y-axis" ? "x = 0" : "y = 0"} rule.`
+      : `False. The point that lies on the ${axisName} is ${correctPoint}.`;
+  }
+
+  return {
+    question: statement,
+    resultType: "true-false",
+    options: ["True", "False", "", ""],
+    correctAnswer: statementIsTrue ? "True" : "False",
+    solution,
+    interactiveApp: mcqPayload.interactiveApp
+  };
+}
+
+function buildMcqOptionsFromAnswer(correctAnswer) {
+  const raw = String(correctAnswer || "").trim();
+  if (!raw) return ["Option A", "Option B", "Option C", "Option D"];
+
+  const fractionMatch = raw.match(/^\s*(-?\d+)\s*\/\s*(-?\d+)\s*$/);
+  if (fractionMatch) {
+    const numerator = Number.parseInt(fractionMatch[1], 10);
+    const denominator = Number.parseInt(fractionMatch[2], 10);
+    if (denominator !== 0) {
+      const variants = [
+        `${numerator}/${denominator}`,
+        `${-numerator}/${denominator}`,
+        `${numerator}/${Math.max(1, denominator + 1)}`,
+        `${numerator + 1}/${denominator}`
+      ];
+      return shuffleList(Array.from(new Set(variants))).slice(0, 4);
+    }
+  }
+
+  const numeric = Number.parseFloat(raw);
+  if (Number.isFinite(numeric) && /^-?\d+(?:\.\d+)?$/.test(raw)) {
+    const variants = [numeric, -numeric, numeric + 1, numeric - 1, numeric + 2]
+      .map((value) => String(roundTo(value, 2)));
+    return shuffleList(Array.from(new Set(variants))).slice(0, 4);
+  }
+
+  if (/^quadrant\s+[ivx]+$/i.test(raw)) {
+    const variants = ["Quadrant I", "Quadrant II", "Quadrant III", "Quadrant IV"];
+    return shuffleList(Array.from(new Set([raw, ...variants]))).slice(0, 4);
+  }
+
+  if (/^\(.+,.+\)$/.test(raw)) {
+    const match = raw.match(/^\(\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)$/);
+    if (match) {
+      const x = Number.parseFloat(match[1]);
+      const y = Number.parseFloat(match[2]);
+      const points = [
+        `(${x}, ${y})`,
+        `(${y}, ${x})`,
+        `(${x + 1}, ${y})`,
+        `(${x}, ${y + 1})`,
+        `(${x - 1}, ${y - 1})`
+      ];
+      return shuffleList(points);
+    }
+  }
+  const textOptions = [raw, "None of the above", "Cannot be determined", "All of the above"];
+  return shuffleList(Array.from(new Set(textOptions))).slice(0, 4);
+}
+
+function asResultTypePayload(base, desiredResultType) {
+  const cleanBase = { ...base };
+  delete cleanBase._generation;
+  const resultType = normalizeResultType(desiredResultType || "short-answer");
+  const answerPolicy = base && base._generation ? base._generation.answerPolicy : "auto";
+  const decimalPlaces = base && base._generation ? base._generation.decimalPlaces : 2;
+  const answerText = formatAnswerValueByPolicy(String(base.correctAnswer || "").trim(), answerPolicy, decimalPlaces);
+
+  if (resultType === "multiple-choice") {
+    const options = buildMcqOptionsFromAnswer(answerText);
+    if (!options.some((item) => normalizeText(item) === normalizeText(answerText))) {
+      options[0] = answerText || options[0];
+    }
+    return {
+      ...cleanBase,
+      resultType: "multiple-choice",
+      options,
+      correctAnswer: options.find((item) => normalizeText(item) === normalizeText(answerText)) || answerText
+    };
+  }
+
+  if (resultType === "true-false") {
+    const statementIsTrue = Math.random() < 0.5;
+    const statement = statementIsTrue
+      ? `The correct answer is ${answerText}.`
+      : `The correct answer is not ${answerText}.`;
+    return {
+      ...cleanBase,
+      question: `${base.question} ${statement}`,
+      resultType: "true-false",
+      options: ["True", "False", "", ""],
+      correctAnswer: statementIsTrue ? "True" : "False",
+      solution: statementIsTrue
+        ? `${base.solution} Therefore the statement is True.`
+        : `${base.solution} Therefore the statement is False.`
+    };
+  }
+
+  return {
+    ...cleanBase,
+    resultType: resultType === "plot" ? "plot" : "short-answer",
+    options: ["", "", "", ""],
+    correctAnswer: answerText
+  };
+}
+
+function extractFirstFiniteNumber(text) {
+  const match = String(text || "").match(/-?\d+(?:\.\d+)?/);
+  if (!match) return Number.NaN;
+  return Number.parseFloat(match[0]);
+}
+
+function extractArithmeticExpectedAnswer(questionText) {
+  const text = String(questionText || "");
+  let match = text.match(/(-?\d+(?:\.\d+)?)\s*\+\s*(-?\d+(?:\.\d+)?)/);
+  if (match) {
+    return Number.parseFloat(match[1]) + Number.parseFloat(match[2]);
+  }
+
+  match = text.match(/(-?\d+(?:\.\d+)?)\s*-\s*(-?\d+(?:\.\d+)?)/);
+  if (match) {
+    return Number.parseFloat(match[1]) - Number.parseFloat(match[2]);
+  }
+
+  match = text.match(/(-?\d+(?:\.\d+)?)\s*[x*]\s*(-?\d+(?:\.\d+)?)/i);
+  if (match) {
+    return Number.parseFloat(match[1]) * Number.parseFloat(match[2]);
+  }
+
+  match = text.match(/(-?\d+(?:\.\d+)?)\s*\/\s*(-?\d+(?:\.\d+)?)/);
+  if (match) {
+    const denominator = Number.parseFloat(match[2]);
+    if (Math.abs(denominator) < 1e-9) return Number.NaN;
+    return Number.parseFloat(match[1]) / denominator;
+  }
+
+  match = text.match(/divide\s+(-?\d+(?:\.\d+)?)\s+by\s+(-?\d+(?:\.\d+)?)/i);
+  if (match) {
+    const denominator = Number.parseFloat(match[2]);
+    if (Math.abs(denominator) < 1e-9) return Number.NaN;
+    return Number.parseFloat(match[1]) / denominator;
+  }
+
+  return Number.NaN;
+}
+
+function parseCartesianPointText(value) {
+  const match = String(value || "").trim().match(/^\(\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\)$/);
+  if (!match) return null;
+  const x = Number.parseFloat(match[1]);
+  const y = Number.parseFloat(match[2]);
+  if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
+  return { x, y };
+}
+
+function verifyAutoPayload(category, subcategory, payload) {
+  const issues = [];
+  const appType = String(category || "").trim();
+  const normalizedSubcategory = String(subcategory || "").trim().toLowerCase();
+  const structural = getQuestionValidationIssues(payload || {});
+  if (structural.length > 0) {
+    issues.push(...structural);
+  }
+
+  const questionText = String(payload && payload.question || "").trim();
+  const solutionText = String(payload && payload.solution || "").trim();
+  if (!questionText) issues.push("Generated question text is empty.");
+  if (!solutionText) issues.push("Generated solution text is empty.");
+
+  const app = payload && payload.interactiveApp ? payload.interactiveApp : null;
+  if ((appType === "cartesian-plane" || appType === "cartesian-plane-plot") && !app) {
+    issues.push("Generated payload is missing interactive app configuration.");
+  }
+
+  // Verify plotted points satisfy their source expression when preset metadata exists.
+  if (app && app.type === "cartesian-plane-plot") {
+    const cfg = app.config || {};
+    const points = Array.isArray(cfg.points) ? cfg.points : [];
+    if (points.length === 0) {
+      issues.push("Cartesian plot payload has no answer points.");
+    }
+    if (cfg.presetExpression && cfg.presetXValues) {
+      const regenerated = generateCartesianPlotPresetPoints(
+        String(cfg.presetType || "linear").trim() || "linear",
+        String(cfg.presetExpression || "").trim(),
+        String(cfg.presetXValues || "").trim()
+      );
+      if (regenerated.message) {
+        issues.push(`Could not verify plot points: ${regenerated.message}`);
+      } else {
+        const expected = regenerated.points || [];
+        if (expected.length !== points.length) {
+          issues.push("Plot verification failed: generated points count does not match answer points.");
+        } else {
+          const tolerance = 0.01;
+          const mismatched = expected.some((ep) =>
+            !points.some((ap) => Math.abs(Number(ap.x) - Number(ep.x)) <= tolerance && Math.abs(Number(ap.y) - Number(ep.y)) <= tolerance)
+          );
+          if (mismatched) {
+            issues.push("Plot verification failed: answer points do not match computed expression points.");
+          }
+        }
+      }
+    }
+  }
+
+  // Subcategory-specific semantic checks for deterministic Cartesian MCQ generation.
+  if (appType === "cartesian-plane" && app && app.type === "cartesian-plane") {
+    const functionExpr = app.config && Array.isArray(app.config.functions) && app.config.functions[0]
+      ? String(app.config.functions[0].expression || "").trim()
+      : "";
+    const evaluator = functionExpr ? buildCartesianExpressionEvaluator(functionExpr) : null;
+
+    if (normalizedSubcategory === "gradient" && evaluator) {
+      const y0 = evaluator(0);
+      const y1 = evaluator(1);
+      if (Number.isFinite(y0) && Number.isFinite(y1)) {
+        const expectedGradient = roundTo(y1 - y0, 2);
+        const actualGradient = extractFirstFiniteNumber(payload.correctAnswer);
+        if (!Number.isFinite(actualGradient) || Math.abs(actualGradient - expectedGradient) > 0.01) {
+          issues.push(`Gradient verification failed: expected ${expectedGradient}, got ${payload.correctAnswer}.`);
+        }
+      }
+    }
+
+    if (normalizedSubcategory === "intercepts" && evaluator) {
+      const y0 = evaluator(0);
+      const y1 = evaluator(1);
+      const m = y1 - y0;
+      const b = y0;
+      if (Number.isFinite(m) && Math.abs(m) > 1e-9 && Number.isFinite(b)) {
+        const expectedX = roundTo((-b) / m, 2);
+        const actualPoint = parseCartesianPointText(payload.correctAnswer);
+        if (!actualPoint || Math.abs(actualPoint.x - expectedX) > 0.01 || Math.abs(actualPoint.y) > 0.01) {
+          issues.push(`Intercept verification failed: expected (${expectedX}, 0), got ${payload.correctAnswer}.`);
+        }
+      }
+    }
+
+    if (normalizedSubcategory === "asymptotes") {
+      const match = functionExpr.match(/\/\(\s*x\s*([+-])\s*(\d+(?:\.\d+)?)\s*\)/i);
+      const expectedA = match
+        ? (match[1] === "-" ? Number.parseFloat(match[2]) : -Number.parseFloat(match[2]))
+        : Number.NaN;
+      const answerNumber = extractFirstFiniteNumber(payload.correctAnswer);
+      if (Number.isFinite(expectedA) && (!Number.isFinite(answerNumber) || Math.abs(answerNumber - expectedA) > 0.01)) {
+        issues.push(`Asymptote verification failed: expected x = ${expectedA}, got ${payload.correctAnswer}.`);
+      }
+    }
+
+    if (normalizedSubcategory === "domain-range") {
+      const cfg = app.config || {};
+      const points = Array.isArray(cfg.points) ? cfg.points : [];
+      const yValues = points.map((point) => Number(point.y)).filter((value) => Number.isFinite(value));
+      const expectedDomain = `${cfg.xMin} <= x <= ${cfg.xMax}`;
+      const expectedRange = yValues.length > 0
+        ? `${roundTo(Math.min(...yValues), 2)} <= y <= ${roundTo(Math.max(...yValues), 2)}`
+        : "";
+      const answerText = String(payload.correctAnswer || "");
+      if (!answerText.includes(expectedDomain) || (expectedRange && !answerText.includes(expectedRange))) {
+        issues.push("Domain/range verification failed: correct answer text does not match computed domain/range.");
+      }
+    }
+  }
+
+  if (appType === "arithmetic") {
+    const expected = extractArithmeticExpectedAnswer(questionText);
+    if (!Number.isFinite(expected)) {
+      issues.push("Arithmetic verification failed: could not parse arithmetic expression from question text.");
+    } else {
+      const resultType = normalizeResultType(payload && payload.resultType);
+      const tolerance = 0.01;
+
+      if (resultType === "true-false") {
+        const statementMatch = questionText.match(/the\s+correct\s+answer\s+is\s+(not\s+)?(-?\d+(?:\.\d+)?)/i);
+        if (!statementMatch) {
+          issues.push("Arithmetic verification failed: true/false statement is missing a numeric claim.");
+        } else {
+          const isNegated = Boolean(statementMatch[1]);
+          const claimed = Number.parseFloat(statementMatch[2]);
+          const shouldBeTrue = isNegated
+            ? Math.abs(expected - claimed) > tolerance
+            : Math.abs(expected - claimed) <= tolerance;
+          const markedTrue = normalizeText(payload.correctAnswer) === "true";
+          if (shouldBeTrue !== markedTrue) {
+            issues.push(`Arithmetic true/false verification failed: expected ${shouldBeTrue ? "True" : "False"}, got ${payload.correctAnswer}.`);
+          }
+        }
+      } else {
+        const actual = extractFirstFiniteNumber(payload && payload.correctAnswer);
+        if (!Number.isFinite(actual) || Math.abs(actual - expected) > tolerance) {
+          issues.push(`Arithmetic verification failed: expected ${roundTo(expected, 2)}, got ${payload && payload.correctAnswer}.`);
+        }
+      }
+    }
+  }
+
+  return {
+    ok: issues.length === 0,
+    issues
+  };
+}
+
+function randomIntBetween(min, max) {
+  const lo = Math.ceil(Math.min(min, max));
+  const hi = Math.floor(Math.max(min, max));
+  return Math.floor(Math.random() * (hi - lo + 1)) + lo;
+}
+
+function deriveYearLevelFromGenerationOptions(generationOptions = {}) {
+  const explicitYear = String(generationOptions.yearValue || "").trim().toLowerCase();
+  if (explicitYear === "prep") return 0;
+  if (/^\d+$/.test(explicitYear)) {
+    return Number.parseInt(explicitYear, 10);
+  }
+
+  const grade = String(generationOptions.gradeValue || "").trim().toLowerCase();
+  if (grade === "prep") return 0;
+  const yearMatch = grade.match(/^year-(\d+)$/);
+  if (yearMatch) {
+    return Number.parseInt(yearMatch[1], 10);
+  }
+
+  return null;
+}
+
+function resolveArithmeticRanges(normalizedDifficulty, generationOptions = {}) {
+  const defaultRanges = normalizedDifficulty === "hard"
+    ? { add: [60, 500], sub: [80, 600], mul: [8, 24], div: [6, 24] }
+    : normalizedDifficulty === "medium"
+      ? { add: [20, 200], sub: [30, 250], mul: [4, 15], div: [3, 15] }
+      : { add: [1, 50], sub: [1, 80], mul: [2, 10], div: [2, 10] };
+
+  const yearLevel = deriveYearLevelFromGenerationOptions(generationOptions);
+  if (yearLevel === null) {
+    return defaultRanges;
+  }
+
+  if (yearLevel === 0) {
+    return { add: [0, 10], sub: [0, 10], mul: [1, 5], div: [1, 5] };
+  }
+
+  if (yearLevel === 1) {
+    return { add: [1, 10], sub: [1, 20], mul: [1, 5], div: [1, 5] };
+  }
+
+  if (yearLevel === 2) {
+    return { add: [1, 20], sub: [1, 50], mul: [2, 10], div: [2, 10] };
+  }
+
+  if (yearLevel <= 4) {
+    return { add: [5, 80], sub: [5, 120], mul: [2, 12], div: [2, 12] };
+  }
+
+  return defaultRanges;
+}
+
+function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions = {}) {
+  const normalizedSubcategory = String(subcategory || "basic-addition").trim().toLowerCase();
+  const normalizedDifficulty = String(difficulty || "easy").trim().toLowerCase();
+  const ranges = resolveArithmeticRanges(normalizedDifficulty, generationOptions);
+
+  if (["basic-addition", "basic-addition-h", "basic-addition-v"].includes(normalizedSubcategory)) {
+    const a = randomIntBetween(ranges.add[0], ranges.add[1]);
+    const b = randomIntBetween(ranges.add[0], ranges.add[1]);
+    const answer = a + b;
+    const layout = normalizedSubcategory === "basic-addition-v" ? "vertical" : "horizontal";
+    return {
+      question: `Calculate ${a} + ${b}.`,
+      solution: `Add the numbers: ${a} + ${b} = ${answer}.`,
+      correctAnswer: String(answer),
+      interactiveApp: {
+        type: "arithmetic",
+        config: {
+          layout,
+          operator: "+",
+          operandA: a,
+          operandB: b,
+          answer: String(answer),
+          answerDigits: String(answer).length
+        }
+      }
+    };
+  }
+
+  if (normalizedSubcategory === "basic-subtraction") {
+    const a = randomIntBetween(ranges.sub[0], ranges.sub[1]);
+    const b = randomIntBetween(ranges.sub[0], Math.max(ranges.sub[0], Math.floor(a * 0.9)));
+    const top = Math.max(a, b);
+    const bottom = Math.min(a, b);
+    const answer = top - bottom;
+    return {
+      question: `Calculate ${top} - ${bottom}.`,
+      solution: `Subtract ${bottom} from ${top}: ${top} - ${bottom} = ${answer}.`,
+      correctAnswer: String(answer),
+      interactiveApp: null
+    };
+  }
+
+  if (normalizedSubcategory === "basic-multiplication") {
+    const a = randomIntBetween(ranges.mul[0], ranges.mul[1]);
+    const b = randomIntBetween(ranges.mul[0], ranges.mul[1]);
+    const answer = a * b;
+    return {
+      question: `Calculate ${a} x ${b}.`,
+      solution: `Multiply: ${a} x ${b} = ${answer}.`,
+      correctAnswer: String(answer),
+      interactiveApp: null
+    };
+  }
+
+  if (normalizedSubcategory === "division-short") {
+    const divisor = randomIntBetween(ranges.div[0], ranges.div[1]);
+    const quotient = randomIntBetween(ranges.div[0], ranges.div[1] + 10);
+    const dividend = divisor * quotient;
+    return {
+      question: `Use short division to calculate ${dividend} / ${divisor}.`,
+      solution: `Since ${divisor} x ${quotient} = ${dividend}, the quotient is ${quotient}.`,
+      correctAnswer: String(quotient),
+      interactiveApp: null
+    };
+  }
+
+  if (normalizedSubcategory === "division-long") {
+    const divisor = randomIntBetween(ranges.div[0], ranges.div[1]);
+    const quotient = randomIntBetween(ranges.div[0] + 4, ranges.div[1] + 20);
+    const dividend = divisor * quotient;
+    return {
+      question: `Use long division to divide ${dividend} by ${divisor}.`,
+      solution: `Long division gives quotient ${quotient} because ${divisor} x ${quotient} = ${dividend} with remainder 0.`,
+      correctAnswer: String(quotient),
+      interactiveApp: null
+    };
+  }
+
+  return null;
+}
+
+function buildAutoPayloadForCategory(category, subcategory, difficulty, resultTypeChoice = "auto", generationOptions = {}) {
+  const appType = String(category || "cartesian-plane").trim();
+  const desired = String(resultTypeChoice || "auto").trim().toLowerCase();
+
+  if (appType === "cartesian-plane") {
+    return postProcessAutoPayload(
+      buildAutoCreatedQuestionPayload(subcategory, difficulty, resultTypeChoice),
+      generationOptions
+    );
+  }
+  if (appType === "cartesian-plane-plot") {
+    return postProcessAutoPayload(
+      buildAutoCartesianPlotPayload(subcategory, difficulty),
+      generationOptions
+    );
+  }
+  if (appType === "arithmetic") {
+    const base = buildAutoArithmeticPayload(subcategory, difficulty, generationOptions);
+    if (!base) return null;
+    const defaultResult = desired === "auto" ? "short-answer" : desired;
+    return postProcessAutoPayload(
+      asResultTypePayload(
+        {
+          ...base,
+          _generation: {
+            answerPolicy: generationOptions.answerPolicy || "auto",
+            decimalPlaces: generationOptions.decimalPlaces
+          }
+        },
+        defaultResult
+      ),
+      generationOptions
+    );
+  }
+
+  const app = buildDefaultInteractiveApp(appType);
+  if (!app) return null;
+
+  const cfg = app.config || {};
+  const defaultResult = desired === "auto" ? "short-answer" : desired;
+  let base = null;
+
+  if (appType === "number-line") {
+    const points = Array.isArray(cfg.points) ? cfg.points : [];
+    const first = points[0] || { value: -3, label: "A" };
+    const second = points[1] || { value: 5, label: "B" };
+    const distance = Math.abs(Number(second.value) - Number(first.value));
+    base = {
+      question: `On the number line, what is the distance between ${first.label || "A"} and ${second.label || "B"}?`,
+      solution: `Distance = |${second.value} - ${first.value}| = ${distance}.`,
+      correctAnswer: String(distance),
+      interactiveApp: app
+    };
+  } else if (appType === "bar-chart") {
+    const items = Array.isArray(cfg.items) ? cfg.items : [];
+    const top = items.slice().sort((a, b) => Number(b.frequency || 0) - Number(a.frequency || 0))[0] || { category: "Cats", frequency: 8 };
+    base = {
+      question: "Which category has the highest frequency in the bar chart?",
+      solution: `The largest bar is ${top.category} with frequency ${top.frequency}.`,
+      correctAnswer: String(top.category || ""),
+      interactiveApp: app
+    };
+  } else if (appType === "histogram") {
+    const values = Array.isArray(cfg.values) ? cfg.values : [];
+    base = {
+      question: "How many data values are represented in the histogram dataset?",
+      solution: `There are ${values.length} values in the dataset.`,
+      correctAnswer: String(values.length),
+      interactiveApp: app
+    };
+  } else if (appType === "box-plot") {
+    const datasets = normalizeBoxPlotDatasets(cfg);
+    const first = datasets[0] || { label: "A", values: [1, 2, 3] };
+    const stats = computeFiveNumber(first.values || []);
+    const median = stats ? roundTo(stats.median, 2) : 0;
+    base = {
+      question: `What is the median of dataset ${first.label || "A"} in the box plot?`,
+      solution: `For dataset ${first.label || "A"}, the median is ${median}.`,
+      correctAnswer: String(median),
+      interactiveApp: app
+    };
+  } else if (appType === "scatter-plot") {
+    const points = Array.isArray(cfg.points) ? cfg.points : [];
+    const regression = computeLinearRegression(points);
+    const trend = !regression ? "no clear" : regression.correlation > 0 ? "positive" : regression.correlation < 0 ? "negative" : "no";
+    base = {
+      question: "What type of correlation does the scatter plot show?",
+      solution: `The data trend is ${trend} correlation.`,
+      correctAnswer: trend === "no" ? "no correlation" : `${trend} correlation`,
+      interactiveApp: app
+    };
+  } else if (appType === "probability-tree") {
+    const paths = Array.isArray(cfg.paths) ? cfg.paths : [];
+    const total = roundTo(paths.reduce((sum, path) => sum + Number(path.probability || 0), 0), 3);
+    base = {
+      question: "What is the total probability of all listed paths?",
+      solution: `Sum of listed path probabilities = ${total}.`,
+      correctAnswer: String(total),
+      interactiveApp: app
+    };
+  } else if (appType === "distribution-curve") {
+    base = {
+      question: "What is the mean of the normal distribution shown?",
+      solution: `The mean parameter shown is ${cfg.mean}.`,
+      correctAnswer: String(cfg.mean),
+      interactiveApp: app
+    };
+  } else if (appType === "fractions") {
+    const operation = normalizeFractionOperation(cfg.operation);
+    const a = simplifyFraction(cfg.fractionA && cfg.fractionA.numerator, cfg.fractionA && cfg.fractionA.denominator);
+    const b = simplifyFraction(cfg.fractionB && cfg.fractionB.numerator, cfg.fractionB && cfg.fractionB.denominator);
+    let numerator = 0;
+    let denominator = 1;
+    if (operation === "add") {
+      numerator = a.numerator * b.denominator + b.numerator * a.denominator;
+      denominator = a.denominator * b.denominator;
+    } else if (operation === "subtract") {
+      numerator = a.numerator * b.denominator - b.numerator * a.denominator;
+      denominator = a.denominator * b.denominator;
+    } else if (operation === "multiply") {
+      numerator = a.numerator * b.numerator;
+      denominator = a.denominator * b.denominator;
+    } else {
+      numerator = a.numerator * b.denominator;
+      denominator = a.denominator * b.numerator;
+    }
+    const result = simplifyFraction(numerator, denominator);
+    const resultText = `${result.numerator}/${result.denominator}`;
+    base = {
+      question: "What is the simplified result of the fraction operation shown?",
+      solution: `Applying the ${operation} operation gives ${resultText}.`,
+      correctAnswer: resultText,
+      interactiveApp: app
+    };
+  } else if (appType === "network-graph") {
+    const nodes = Array.isArray(cfg.nodes) ? cfg.nodes : [];
+    base = {
+      question: "How many nodes are in the network graph?",
+      solution: `There are ${nodes.length} nodes shown.`,
+      correctAnswer: String(nodes.length),
+      interactiveApp: app
+    };
+  } else if (appType === "matrix") {
+    const matrixA = Array.isArray(cfg.matrixA) ? cfg.matrixA : [];
+    const rows = matrixA.length;
+    const cols = rows > 0 && Array.isArray(matrixA[0]) ? matrixA[0].length : 0;
+    base = {
+      question: "What are the dimensions of Matrix A?",
+      solution: `Matrix A has ${rows} row(s) and ${cols} column(s), so dimensions are ${rows} x ${cols}.`,
+      correctAnswer: `${rows} x ${cols}`,
+      interactiveApp: app
+    };
+  } else if (appType === "stem-and-leaf") {
+    const values = Array.isArray(cfg.values) ? cfg.values : [];
+    base = {
+      question: "How many values are represented in the stem-and-leaf plot?",
+      solution: `The dataset contains ${values.length} values.`,
+      correctAnswer: String(values.length),
+      interactiveApp: app
+    };
+  } else if (appType === "geometry-shapes") {
+    const shapes = Array.isArray(cfg.shapes) ? cfg.shapes : [];
+    base = {
+      question: "How many shapes are shown in the geometry diagram?",
+      solution: `There are ${shapes.length} shape(s) configured.`,
+      correctAnswer: String(shapes.length),
+      interactiveApp: app
+    };
+  } else if (appType === "pythagoras") {
+    const a = Number.parseFloat(cfg.sideA);
+    const b = Number.parseFloat(cfg.sideB);
+    const c = Number.parseFloat(cfg.sideC);
+    let answer = "";
+    let explanation = "";
+    if (Number.isFinite(a) && Number.isFinite(b) && !Number.isFinite(c)) {
+      const hyp = roundTo(Math.sqrt(a * a + b * b), 2);
+      answer = String(hyp);
+      explanation = `c = sqrt(${a}^2 + ${b}^2) = ${hyp}.`;
+    } else if (Number.isFinite(a) && Number.isFinite(c) && !Number.isFinite(b)) {
+      const side = roundTo(Math.sqrt(Math.max(0, c * c - a * a)), 2);
+      answer = String(side);
+      explanation = `b = sqrt(${c}^2 - ${a}^2) = ${side}.`;
+    } else {
+      answer = String(cfg.sideC || "5");
+      explanation = `Use the configured sides to identify the missing value ${answer}.`;
+    }
+    base = {
+      question: "Using Pythagoras' theorem, find the missing side length.",
+      solution: explanation,
+      correctAnswer: answer,
+      interactiveApp: app
+    };
+  } else if (appType === "trigonometry") {
+    const focus = String(cfg.focusFunction || "sin").trim().toLowerCase();
+    const opp = Number.parseFloat(cfg.opposite);
+    const adj = Number.parseFloat(cfg.adjacent);
+    const hyp = Number.parseFloat(cfg.hypotenuse);
+    let value = Number.NaN;
+    if (focus === "sin" && Number.isFinite(opp) && Number.isFinite(hyp) && hyp !== 0) value = opp / hyp;
+    if (focus === "cos" && Number.isFinite(adj) && Number.isFinite(hyp) && hyp !== 0) value = adj / hyp;
+    if (focus === "tan" && Number.isFinite(opp) && Number.isFinite(adj) && adj !== 0) value = opp / adj;
+    const answer = Number.isFinite(value) ? String(roundTo(value, 3)) : "not defined";
+    base = {
+      question: `What is the value of ${focus}(angle) for the triangle shown?`,
+      solution: `Using the side ratio for ${focus}, the value is ${answer}.`,
+      correctAnswer: answer,
+      interactiveApp: app
+    };
+  } else {
+    base = {
+      question: `Use the ${appType} interactive app and determine the key result shown.`,
+      solution: "Read the values from the interactive configuration and state the required result.",
+      correctAnswer: "See app",
+      interactiveApp: app
+    };
+  }
+
+  return postProcessAutoPayload(
+    asResultTypePayload(
+      {
+        ...base,
+        _generation: {
+          answerPolicy: generationOptions.answerPolicy || "auto",
+          decimalPlaces: generationOptions.decimalPlaces
+        }
+      },
+      defaultResult
+    ),
+    generationOptions
+  );
+}
+
+function getSelectOptionLabel(selectId) {
+  const select = document.getElementById(selectId);
+  if (!(select instanceof HTMLSelectElement)) return "";
+  const option = select.options[select.selectedIndex];
+  return option ? String(option.textContent || "").trim() : "";
+}
+
+function normalizeAutoQuizQuestionCount(value) {
+  const parsed = Number.parseInt(value, 10);
+  if (!Number.isInteger(parsed)) return 10;
+  return Math.max(1, Math.min(60, parsed));
+}
+
+function resolveAutoQuizYear(gradeValue, yearValue) {
+  const year = String(yearValue || "auto").trim().toLowerCase();
+  if (year !== "auto") {
+    return year === "prep" ? "Prep" : `Year ${year}`;
+  }
+
+  const grade = String(gradeValue || "").trim().toLowerCase();
+  if (grade === "prep") return "Prep";
+  const yearMatch = grade.match(/^year-(\d+)$/);
+  if (yearMatch) {
+    return `Year ${yearMatch[1]}`;
+  }
+  return "";
+}
+
+function buildAutoQuizTemplatePool(gradeValue, yearValue = "auto") {
+  const prepPool = [
+    { category: "arithmetic", subcategory: "basic-addition-h", difficulty: "easy", resultType: "short-answer" },
+    { category: "arithmetic", subcategory: "basic-subtraction", difficulty: "easy", resultType: "short-answer" },
+    { category: "number-line", subcategory: "distance", difficulty: "easy", resultType: "short-answer" }
+  ];
+
+  const yearOnePool = [
+    { category: "arithmetic", subcategory: "basic-addition-h", difficulty: "easy", resultType: "short-answer" },
+    { category: "arithmetic", subcategory: "basic-addition-v", difficulty: "easy", resultType: "short-answer" },
+    { category: "arithmetic", subcategory: "basic-subtraction", difficulty: "easy", resultType: "short-answer" },
+    { category: "number-line", subcategory: "distance", difficulty: "easy", resultType: "short-answer" },
+    { category: "bar-chart", subcategory: "highest-category", difficulty: "easy", resultType: "multiple-choice" }
+  ];
+
+  const lowerPrimaryPool = [
+    { category: "arithmetic", subcategory: "basic-addition-h", difficulty: "easy", resultType: "short-answer" },
+    { category: "arithmetic", subcategory: "basic-subtraction", difficulty: "easy", resultType: "short-answer" },
+    { category: "arithmetic", subcategory: "basic-multiplication", difficulty: "easy", resultType: "short-answer" },
+    { category: "number-line", subcategory: "distance", difficulty: "easy", resultType: "short-answer" },
+    { category: "bar-chart", subcategory: "highest-category", difficulty: "easy", resultType: "multiple-choice" }
+  ];
+
+  const primaryPool = [
+    { category: "arithmetic", subcategory: "basic-addition-h", difficulty: "easy", resultType: "short-answer" },
+    { category: "arithmetic", subcategory: "basic-subtraction", difficulty: "easy", resultType: "short-answer" },
+    { category: "arithmetic", subcategory: "basic-multiplication", difficulty: "easy", resultType: "short-answer" },
+    { category: "arithmetic", subcategory: "division-short", difficulty: "easy", resultType: "short-answer" },
+    { category: "fractions", subcategory: "operation-result", difficulty: "easy", resultType: "short-answer" },
+    { category: "number-line", subcategory: "distance", difficulty: "easy", resultType: "short-answer" }
+  ];
+
+  const middlePool = [
+    { category: "arithmetic", subcategory: "basic-multiplication", difficulty: "medium", resultType: "short-answer" },
+    { category: "arithmetic", subcategory: "division-long", difficulty: "medium", resultType: "short-answer" },
+    { category: "fractions", subcategory: "operation-result", difficulty: "medium", resultType: "short-answer" },
+    { category: "cartesian-plane", subcategory: "point-on-axes", difficulty: "easy", resultType: "multiple-choice" },
+    { category: "cartesian-plane", subcategory: "quadrant-identification", difficulty: "medium", resultType: "multiple-choice" },
+    { category: "bar-chart", subcategory: "highest-category", difficulty: "easy", resultType: "multiple-choice" },
+    { category: "histogram", subcategory: "count-values", difficulty: "easy", resultType: "short-answer" }
+  ];
+
+  const seniorPool = [
+    { category: "cartesian-plane", subcategory: "linear", difficulty: "medium", resultType: "multiple-choice" },
+    { category: "cartesian-plane", subcategory: "gradient", difficulty: "medium", resultType: "multiple-choice" },
+    { category: "cartesian-plane", subcategory: "intercepts", difficulty: "medium", resultType: "multiple-choice" },
+    { category: "cartesian-plane", subcategory: "domain-range", difficulty: "medium", resultType: "short-answer" },
+    { category: "cartesian-plane-plot", subcategory: "linear", difficulty: "medium", resultType: "plot" },
+    { category: "trigonometry", subcategory: "focus-function", difficulty: "medium", resultType: "short-answer" },
+    { category: "probability-tree", subcategory: "path-sum", difficulty: "medium", resultType: "short-answer" }
+  ];
+
+  const methodsPool = [
+    { category: "cartesian-plane", subcategory: "quadratic", difficulty: "medium", resultType: "multiple-choice" },
+    { category: "cartesian-plane", subcategory: "transformations", difficulty: "hard", resultType: "short-answer" },
+    { category: "cartesian-plane", subcategory: "gradient", difficulty: "hard", resultType: "multiple-choice" },
+    { category: "cartesian-plane", subcategory: "intercepts", difficulty: "hard", resultType: "multiple-choice" },
+    { category: "cartesian-plane-plot", subcategory: "quadratic", difficulty: "hard", resultType: "plot" },
+    { category: "cartesian-plane-plot", subcategory: "transformations", difficulty: "hard", resultType: "plot" },
+    { category: "trigonometry", subcategory: "focus-function", difficulty: "hard", resultType: "short-answer" }
+  ];
+
+  const generalPool = [
+    { category: "arithmetic", subcategory: "division-long", difficulty: "medium", resultType: "short-answer" },
+    { category: "fractions", subcategory: "operation-result", difficulty: "medium", resultType: "short-answer" },
+    { category: "bar-chart", subcategory: "highest-category", difficulty: "medium", resultType: "multiple-choice" },
+    { category: "histogram", subcategory: "count-values", difficulty: "medium", resultType: "short-answer" },
+    { category: "box-plot", subcategory: "median", difficulty: "medium", resultType: "short-answer" },
+    { category: "scatter-plot", subcategory: "correlation-sign", difficulty: "medium", resultType: "multiple-choice" },
+    { category: "probability-tree", subcategory: "path-sum", difficulty: "medium", resultType: "short-answer" }
+  ];
+
+  const specialistPool = [
+    { category: "cartesian-plane", subcategory: "cubic", difficulty: "hard", resultType: "multiple-choice" },
+    { category: "cartesian-plane", subcategory: "asymptotes", difficulty: "hard", resultType: "multiple-choice" },
+    { category: "cartesian-plane-plot", subcategory: "cubic", difficulty: "hard", resultType: "plot" },
+    { category: "cartesian-plane-plot", subcategory: "asymptotes", difficulty: "hard", resultType: "plot" },
+    { category: "matrix", subcategory: "matrix-a-dim", difficulty: "hard", resultType: "short-answer" },
+    { category: "network-graph", subcategory: "node-count", difficulty: "medium", resultType: "short-answer" },
+    { category: "trigonometry", subcategory: "focus-function", difficulty: "hard", resultType: "short-answer" }
+  ];
+
+  const yearLevel = deriveYearLevelFromGenerationOptions({ gradeValue, yearValue });
+  if (yearLevel === 0) {
+    return prepPool;
+  }
+  if (yearLevel === 1) {
+    return yearOnePool;
+  }
+  if (yearLevel === 2) {
+    return lowerPrimaryPool;
+  }
+  if (Number.isInteger(yearLevel) && yearLevel >= 3 && yearLevel <= 6) {
+    return primaryPool;
+  }
+  if (Number.isInteger(yearLevel) && yearLevel >= 7 && yearLevel <= 8) {
+    return middlePool;
+  }
+  if (Number.isInteger(yearLevel) && yearLevel >= 9 && yearLevel <= 10) {
+    return seniorPool;
+  }
+
+  const grade = String(gradeValue || "").trim().toLowerCase();
+  if (grade.startsWith("vce-methods-")) {
+    return methodsPool;
+  }
+  if (grade.startsWith("vce-general-")) {
+    return generalPool;
+  }
+  if (grade.startsWith("vce-specialist-")) {
+    return specialistPool;
+  }
+  return middlePool;
+}
+
+function resolveAutoQuizDifficultyFromYear(gradeValue, yearValue) {
+  const yearLevel = deriveYearLevelFromGenerationOptions({ gradeValue, yearValue });
+  if (yearLevel === null) {
+    const grade = String(gradeValue || "").trim().toLowerCase();
+    if (grade.startsWith("vce-")) {
+      return "hard";
+    }
+    return "medium";
+  }
+
+  if (yearLevel <= 2) return "easy";
+  if (yearLevel <= 8) return "medium";
+  return "hard";
+}
+
+function buildAutoQuizQuestion(questionTemplate, index, generationOptions) {
+  const commandWordChoice = normalizeCommandWordChoice(generationOptions && generationOptions.commandWord);
+  const nextCommandWord = pickCommandWordFromChoice(commandWordChoice, {
+    resultType: questionTemplate && questionTemplate.resultType,
+    index
+  });
+  const difficultyOverride = String(generationOptions && generationOptions.yearDifficulty || "").trim().toLowerCase();
+  const normalizedOverride = ["easy", "medium", "hard"].includes(difficultyOverride) ? difficultyOverride : "";
+  const nextDifficulty = normalizedOverride || (questionTemplate && questionTemplate.difficulty) || "medium";
+  const options = {
+    ...generationOptions,
+    commandWord: nextCommandWord,
+    questionIndex: index
+  };
+  return buildAutoPayloadForCategory(
+    questionTemplate.category,
+    questionTemplate.subcategory,
+    nextDifficulty,
+    questionTemplate.resultType,
+    options
+  );
+}
+
+function autoCreateEntireQuiz(quizId = state.selectedQuizId) {
+  const category = activeCategory();
+  if (!category) {
+    showToast("Select a category first.", "warning");
+    return;
+  }
+
+  if (quizId && state.selectedQuizId !== quizId) {
+    state.selectedQuizId = quizId;
+  }
+
+  const quiz = activeQuiz();
+  if (!quiz) {
+    showToast("Select a quiz first.", "warning");
+    return;
+  }
+
+  const existingQuestions = Array.isArray(quiz.questions) ? quiz.questions : [];
+  const existingCount = existingQuestions.length;
+
+  const gradeSelect = document.getElementById("autoQuizGrade");
+  const yearSelect = document.getElementById("autoQuizYear");
+  const countInput = document.getElementById("autoQuizQuestionCount");
+  const selectedCategory = String(document.getElementById("autoCreateCategory").value || "").trim();
+  const selectedSubcategory = String(document.getElementById("autoCreateSubcategory").value || "").trim();
+  const selectedResultType = String(document.getElementById("autoCreateResultType").value || "auto").trim();
+  const selectedCommandWord = String(document.getElementById("autoCreateCommandWord").value || "determine").trim();
+  const answerPolicy = String(document.getElementById("autoCreateAnswerFormat").value || "auto").trim();
+  const decimalPlaces = Number.parseInt(document.getElementById("autoCreateDecimalPlaces").value, 10);
+
+  const gradeValue = gradeSelect instanceof HTMLSelectElement ? String(gradeSelect.value || "year-7") : "year-7";
+  const gradeLabel = getSelectOptionLabel("autoQuizGrade") || "VCAA Mathematics";
+  const yearValue = yearSelect instanceof HTMLSelectElement ? String(yearSelect.value || "auto") : "auto";
+  const yearLabel = resolveAutoQuizYear(gradeValue, yearValue);
+  const yearDifficulty = resolveAutoQuizDifficultyFromYear(gradeValue, yearValue);
+  const questionCount = normalizeAutoQuizQuestionCount(countInput instanceof HTMLInputElement ? countInput.value : 10);
+  if (countInput instanceof HTMLInputElement) {
+    countInput.value = String(questionCount);
+  }
+
+  const generationOptions = {
+    commandWord: selectedCommandWord || "determine",
+    answerPolicy,
+    decimalPlaces: Number.isInteger(decimalPlaces) ? decimalPlaces : 2,
+    gradeValue,
+    yearValue,
+    yearDifficulty,
+    domainMin: null,
+    domainMax: null
+  };
+
+  const focusedTemplate = selectedCategory && selectedSubcategory
+    ? [{
+      category: selectedCategory,
+      subcategory: selectedSubcategory,
+      difficulty: yearDifficulty,
+      resultType: selectedResultType || "auto"
+    }]
+    : null;
+
+  const templatePool = Array.isArray(focusedTemplate) && focusedTemplate.length > 0
+    ? focusedTemplate
+    : buildAutoQuizTemplatePool(gradeValue, yearValue);
+  if (!Array.isArray(templatePool) || templatePool.length === 0) {
+    showToast("No templates available for that grade/course.", "warning");
+    return;
+  }
+
+  const generatedQuestions = [];
+  const failureMessages = [];
+  const maxAttempts = questionCount * 8;
+  let attempts = 0;
+  let cursor = 0;
+
+  while (generatedQuestions.length < questionCount && attempts < maxAttempts) {
+    const template = templatePool[cursor % templatePool.length];
+    const payload = buildAutoQuizQuestion(template, generatedQuestions.length, generationOptions);
+    attempts += 1;
+    cursor += 1;
+
+    if (!payload) {
+      failureMessages.push(`${template.category}/${template.subcategory}: no payload generated`);
+      continue;
+    }
+
+    const verification = verifyAutoPayload(template.category, template.subcategory, payload);
+    if (!verification.ok) {
+      failureMessages.push(`${template.category}/${template.subcategory}: ${verification.issues[0] || "verification failed"}`);
+      continue;
+    }
+
+    generatedQuestions.push(normalizeQuestion({
+      question: payload.question || "",
+      resultType: payload.resultType || "short-answer",
+      options: Array.isArray(payload.options) ? payload.options : ["", "", "", ""],
+      correctAnswer: payload.correctAnswer || "",
+      notesAttachments: [],
+      image: "",
+      solution: payload.solution || "",
+      solutionAttachments: [],
+      interactiveApp: payload.interactiveApp || null
+    }));
+  }
+
+  if (generatedQuestions.length === 0) {
+    const firstFailure = failureMessages[0] || "No valid questions generated.";
+    showToast(`Auto quiz generation failed: ${firstFailure}`, "error");
+    return;
+  }
+
+  quiz.questions = existingQuestions.concat(generatedQuestions);
+  if (!String(quiz.title || "").trim()) {
+    quiz.title = `${gradeLabel}${yearLabel ? ` ${yearLabel}` : ""} Auto Quiz`;
+  }
+  quiz.description = `Auto-generated quiz aligned to VCAA style for ${gradeLabel}${yearLabel ? ` (${yearLabel})` : ""}.`;
+  quiz.settings = normalizeQuizSettings({
+    questionOrder: "ordered",
+    questionLimit: quiz.questions.length
+  });
+
+  state.selectedQuestionIndex = existingCount;
+  renderAll();
+
+  if (generatedQuestions.length < questionCount) {
+    showToast(`Added ${generatedQuestions.length}/${questionCount} questions. Some templates failed verification.`, "warning");
+    return;
+  }
+
+  showToast(`Added ${generatedQuestions.length} VCAA-aligned questions.`, "success");
+}
+
+function buildAutoCreatedQuestionPayload(subcategory, difficulty, resultTypeChoice = "auto") {
+  const normalizedSubcategory = String(subcategory || "linear").trim().toLowerCase();
+  const normalizedDifficulty = String(difficulty || "easy").trim().toLowerCase();
+  const normalizedResultType = String(resultTypeChoice || "auto").trim().toLowerCase();
+  const isPlotSubcategory = ["linear", "quadratic", "cubic", "exponential", "transformations"].includes(normalizedSubcategory);
+  const desiredResultType = normalizedResultType === "auto"
+    ? (isPlotSubcategory ? "plot" : "multiple-choice")
+    : normalizedResultType;
+
+  if (desiredResultType === "plot" || desiredResultType === "short-answer") {
+    return buildAutoCartesianPlotPayload(normalizedSubcategory, normalizedDifficulty);
+  }
+  if (desiredResultType === "true-false") {
+    return buildAutoCartesianTrueFalsePayload(normalizedSubcategory, normalizedDifficulty);
+  }
+  return buildAutoCartesianMcqPayload(normalizedSubcategory, normalizedDifficulty);
+}
+
+function applyAutoCreatedQuestionToEditor(payload) {
+  if (!payload) return;
+  document.getElementById("questionText").value = payload.question || "";
+  document.getElementById("resultType").value = payload.resultType || "short-answer";
+  document.getElementById("option1").value = payload.options && payload.options[0] ? payload.options[0] : "";
+  document.getElementById("option2").value = payload.options && payload.options[1] ? payload.options[1] : "";
+  document.getElementById("option3").value = payload.options && payload.options[2] ? payload.options[2] : "";
+  document.getElementById("option4").value = payload.options && payload.options[3] ? payload.options[3] : "";
+  document.getElementById("correctAnswer").value = payload.correctAnswer || "";
+  document.getElementById("solutionText").value = payload.solution || "";
+
+  refreshCorrectAnswerSelect({
+    resultType: payload.resultType || "short-answer",
+    options: payload.options || ["", "", "", ""],
+    correctAnswer: payload.correctAnswer || "",
+    interactiveApp: payload.interactiveApp || null
+  });
+
+  const select = document.getElementById("correctAnswerSelect");
+  if ((payload.resultType === "multiple-choice" || payload.resultType === "true-false") && select) {
+    const choiceOptions = (payload.options || []).map((item) => String(item || "").trim()).filter((item) => item !== "");
+    const answerIndex = choiceOptions.findIndex((item) => normalizeText(item) === normalizeText(payload.correctAnswer || ""));
+    select.value = answerIndex >= 0 ? String(answerIndex) : "";
+  }
+
+  const app = payload.interactiveApp || null;
+  const typeSelect = document.getElementById("interactiveAppType");
+  typeSelect.value = app && app.type ? app.type : "";
+  if (app) {
+    populateInteractiveAppForm(app);
+  } else {
+    setInteractiveAppConfigVisibility("");
+    renderInteractiveAppPreview(null);
+  }
+}
+
 function defaultBoxPlotDatasetLabel(index) {
   const offset = Number(index);
   if (Number.isInteger(offset) && offset >= 0 && offset < 26) {
@@ -2513,7 +4377,11 @@ function buildDefaultInteractiveApp(type) {
           yMin: -10,
           yMax: 10,
           tolerance: 0.5,
-          points: [{ x: 3, y: 4, label: "A" }, { x: -2, y: -3, label: "B" }]
+          points: [{ x: 3, y: 4, label: "A" }, { x: -2, y: -3, label: "B" }],
+          vceTemplate: "",
+          presetType: "linear",
+          presetExpression: "2*x + 1",
+          presetXValues: "-2, -1, 0, 1, 2"
         }
       };
     case "bar-chart":
@@ -3893,6 +5761,10 @@ function readInteractiveAppFromForm() {
       const cppYMin = Number.parseFloat(document.getElementById("cppYMin").value);
       const cppYMax = Number.parseFloat(document.getElementById("cppYMax").value);
       const cppTolerance = Number.parseFloat(document.getElementById("cppTolerance").value);
+      const cppVceTemplate = String(document.getElementById("cppVceTemplate").value || "").trim();
+      const cppPresetType = String(document.getElementById("cppPresetType").value || "linear").trim() || "linear";
+      const cppPresetExpression = String(document.getElementById("cppPresetExpression").value || "").trim();
+      const cppPresetXValues = String(document.getElementById("cppPresetXValues").value || "").trim();
       return {
         type,
         config: {
@@ -3901,7 +5773,11 @@ function readInteractiveAppFromForm() {
           yMin: Number.isFinite(cppYMin) ? cppYMin : -10,
           yMax: Number.isFinite(cppYMax) ? cppYMax : 10,
           tolerance: Number.isFinite(cppTolerance) && cppTolerance >= 0 ? cppTolerance : 0.5,
-          points: parseCartesianPoints(document.getElementById("cppPoints").value)
+          points: parseCartesianPoints(document.getElementById("cppPoints").value),
+          vceTemplate: cppVceTemplate,
+          presetType: cppPresetType,
+          presetExpression: cppPresetExpression || defaultCartesianPlotPresetExpression(cppPresetType),
+          presetXValues: cppPresetXValues || defaultCartesianPlotPresetXValues(cppPresetType)
         }
       };
     }
@@ -4106,6 +5982,10 @@ function populateInteractiveAppForm(app) {
   document.getElementById("cppYMax").value = cartesianPlotConfig.yMax ?? 10;
   document.getElementById("cppTolerance").value = cartesianPlotConfig.tolerance ?? 0.5;
   document.getElementById("cppPoints").value = serializeCartesianPoints(cartesianPlotConfig.points || []);
+  document.getElementById("cppVceTemplate").value = cartesianPlotConfig.vceTemplate || "";
+  document.getElementById("cppPresetType").value = cartesianPlotConfig.presetType || "linear";
+  document.getElementById("cppPresetExpression").value = cartesianPlotConfig.presetExpression || defaultCartesianPlotPresetExpression(cartesianPlotConfig.presetType || "linear");
+  document.getElementById("cppPresetXValues").value = cartesianPlotConfig.presetXValues || defaultCartesianPlotPresetXValues(cartesianPlotConfig.presetType || "linear");
 
   const barChartConfig = (type === "bar-chart" ? nextApp : buildDefaultInteractiveApp("bar-chart")).config;
   document.getElementById("bcTitle").value = barChartConfig.title || "Category Frequencies";
@@ -4199,6 +6079,21 @@ function refreshCorrectAnswerSelect(question) {
   const textInput = document.getElementById("correctAnswer");
   const checkboxWrap = document.getElementById("correctAnswerCheckboxWrap");
   const hint = document.getElementById("correctAnswerHint");
+  const isCartesianPlotQuestion = Boolean(
+    question
+    && question.interactiveApp
+    && question.interactiveApp.type === "cartesian-plane-plot"
+  );
+
+  if (isCartesianPlotQuestion) {
+    select.style.display = "none";
+    textInput.style.display = "none";
+    checkboxWrap.style.display = "none";
+    checkboxWrap.innerHTML = "";
+    hint.textContent = "Not required for Cartesian Plane - Plot. Grading uses the Answer Points list.";
+    return;
+  }
+
   const resultType = question ? (question.resultType || "multiple-choice") : "multiple-choice";
   const choiceOptions = getChoiceOptions(question);
 
@@ -4210,6 +6105,8 @@ function refreshCorrectAnswerSelect(question) {
 
   if (resultType === "short-answer") {
     hint.textContent = "Enter the expected answer text.";
+  } else if (resultType === "plot") {
+    hint.textContent = "Use this for plotting tasks. For Cartesian Plane - Plot, grading uses answer points.";
   } else if (resultType === "checkbox") {
     hint.textContent = "Choose one or more correct options.";
   } else {
@@ -4500,7 +6397,7 @@ async function addCategory() {
   renderAll();
 }
 
-function addQuiz() {
+async function addQuiz() {
   const category = activeCategory();
   if (!category) {
     showToast("Create a category first.", "warning");
@@ -4515,6 +6412,10 @@ function addQuiz() {
   category.quizzes.push(quiz);
   state.selectedQuizId = quiz.id;
   state.selectedQuestionIndex = 0;
+  renderAll();
+
+  await createCategoryFolderOnDisk(category);
+  await createStarterQuizFileOnDisk(category, quiz);
   renderAll();
 }
 
@@ -4656,16 +6557,70 @@ async function deleteCategory(id) {
   await deleteCategoryFolderFromDisk(category);
 }
 
-function deleteQuiz(id) {
+async function deleteQuizFileFromDisk(quiz, category) {
+  if (normalizeRootSourceMode(state.rootSourceMode) !== ROOT_SOURCE_MODES.LOCAL) {
+    return;
+  }
+
+  if (!supportsFolderDeletion()) {
+    showToast("Quiz removed in app. Browser cannot auto-delete local files here.", "warning");
+    return;
+  }
+
+  if (!quiz || !category) {
+    return;
+  }
+
+  try {
+    const configuredRoot = await getConfiguredRootHandle({ create: false, allowPrompt: false });
+    if (!configuredRoot) {
+      showToast("Quiz removed. Connect root folder to delete file on disk.", "warning");
+      return;
+    }
+
+    const relativePath = await resolveWritableQuizRelativePath(configuredRoot, quiz, category);
+    const parts = String(relativePath || "").split("/").filter((item) => item !== "");
+    if (parts.length < 2) {
+      showToast("Quiz removed. Could not resolve quiz file path on disk.", "warning");
+      return;
+    }
+
+    const fileName = parts.pop();
+    let directoryHandle = configuredRoot;
+    for (const segment of parts) {
+      directoryHandle = await directoryHandle.getDirectoryHandle(segment, { create: false });
+    }
+
+    await directoryHandle.removeEntry(fileName);
+    showToast(`Quiz file deleted: ${relativePath}`, "success");
+  } catch (error) {
+    if (error && error.name === "NotFoundError") {
+      showToast("Quiz removed. File not found on disk.", "info");
+      return;
+    }
+
+    if (error && error.name === "AbortError") {
+      showToast("Quiz removed. File delete canceled.", "info");
+      return;
+    }
+
+    showToast("Quiz removed. Could not delete quiz file on disk.", "warning");
+  }
+}
+
+async function deleteQuiz(id) {
   if (!requireDeletePhrase("quiz")) return;
 
   const category = activeCategory();
   if (!category) return;
   const index = category.quizzes.findIndex((item) => item.id === id);
   if (index === -1) return;
+  const quiz = category.quizzes[index];
   category.quizzes.splice(index, 1);
   showToast("Quiz deleted.", "info");
   renderAll();
+
+  await deleteQuizFileFromDisk(quiz, category);
 }
 
 function deleteQuestion(index) {
@@ -5153,7 +7108,7 @@ document.getElementById("categoryList").addEventListener("click", (event) => {
   renderAll();
 });
 
-document.getElementById("quizList").addEventListener("click", (event) => {
+document.getElementById("quizList").addEventListener("click", async (event) => {
   const target = event.target;
   if (!(target instanceof HTMLElement)) return;
 
@@ -5161,7 +7116,7 @@ document.getElementById("quizList").addEventListener("click", (event) => {
   if (!id) return;
 
   if (target.dataset.action === "delete") {
-    deleteQuiz(id);
+    await deleteQuiz(id);
     return;
   }
 
@@ -5175,8 +7130,8 @@ document.getElementById("quizList").addEventListener("click", (event) => {
     return;
   }
 
-  if (target.dataset.action === "embed") {
-    generateAndCopyEmbedCode(id);
+  if (target.dataset.action === "auto") {
+    autoCreateEntireQuiz(id);
     return;
   }
 
@@ -5287,11 +7242,145 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   showToast("Question updated in Maker, but file save did not run. Connect Root Folder if needed.", "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "cppXMin", "cppXMax", "cppYMin", "cppYMax", "cppTolerance", "cppPoints", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxDatasetCount", "boxDatasets", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxTitle", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
+document.getElementById("autoCreateQuestionBtn").addEventListener("click", () => {
+  const question = activeQuestion();
+  if (!question) {
+    showToast("Select a question first.", "warning");
+    return;
+  }
+
+  const category = String(document.getElementById("autoCreateCategory").value || "cartesian-plane").trim();
+  const subcategory = String(document.getElementById("autoCreateSubcategory").value || "linear").trim();
+  const difficulty = String(document.getElementById("autoCreateDifficulty").value || "easy").trim();
+  const resultTypeChoice = String(document.getElementById("autoCreateResultType").value || "auto").trim();
+  const commandWord = String(document.getElementById("autoCreateCommandWord").value || "determine").trim();
+  const answerPolicy = String(document.getElementById("autoCreateAnswerFormat").value || "auto").trim();
+  const decimalPlaces = Number.parseInt(document.getElementById("autoCreateDecimalPlaces").value, 10);
+  const domainMinRaw = document.getElementById("autoCreateDomainMin").value;
+  const domainMaxRaw = document.getElementById("autoCreateDomainMax").value;
+  const domainMin = domainMinRaw === "" ? null : Number.parseFloat(domainMinRaw);
+  const domainMax = domainMaxRaw === "" ? null : Number.parseFloat(domainMaxRaw);
+
+  const generationOptions = {
+    commandWord,
+    answerPolicy,
+    decimalPlaces: Number.isInteger(decimalPlaces) ? decimalPlaces : 2,
+    domainMin,
+    domainMax
+  };
+
+  const payload = buildAutoPayloadForCategory(category, subcategory, difficulty, resultTypeChoice, generationOptions);
+  if (!payload) {
+    showToast("Could not generate this question for the selected category. Try a different subcategory or difficulty.", "warning");
+    return;
+  }
+
+  const verification = verifyAutoPayload(category, subcategory, payload);
+  if (!verification.ok) {
+    const summary = verification.issues.slice(0, 2).join(" | ");
+    showToast(`Auto Create verification failed: ${summary}`, "warning");
+    return;
+  }
+
+  applyAutoCreatedQuestionToEditor(payload);
+  updateQuestionFromForm();
+  showToast("Question auto-created and semantically verified.", "success");
+});
+
+document.getElementById("autoCreateQuizBtn").addEventListener("click", () => {
+  autoCreateEntireQuiz();
+});
+
+document.getElementById("autoCreateCategory").addEventListener("change", () => {
+  populateAutoCreateSubcategoryOptions();
+});
+
+document.getElementById("validateGeneratedQuestionBtn").addEventListener("click", () => {
+  const question = activeQuestion();
+  if (!question) {
+    showToast("Select a question first.", "warning");
+    return;
+  }
+  updateQuestionFromForm();
+  const issues = getQuestionValidationIssues(question);
+  if (issues.length === 0) {
+    showToast("Validation passed.", "success");
+    return;
+  }
+  showToast(`Validation found ${issues.length} issue(s).`, "warning");
+});
+
+["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "cppXMin", "cppXMax", "cppYMin", "cppYMax", "cppTolerance", "cppPoints", "cppVceTemplate", "cppPresetType", "cppPresetExpression", "cppPresetXValues", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxDatasetCount", "boxDatasets", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxTitle", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);
   });
+
+document.getElementById("cppPresetType").addEventListener("change", () => {
+  const presetType = String(document.getElementById("cppPresetType").value || "linear").trim() || "linear";
+  const expressionInput = document.getElementById("cppPresetExpression");
+  const xValuesInput = document.getElementById("cppPresetXValues");
+  if (!String(expressionInput.value || "").trim()) {
+    expressionInput.value = defaultCartesianPlotPresetExpression(presetType);
+  }
+  if (!String(xValuesInput.value || "").trim()) {
+    xValuesInput.value = defaultCartesianPlotPresetXValues(presetType);
+  }
+  updateQuestionFromForm();
+});
+
+populateAutoCreateSubcategoryOptions();
+
+document.getElementById("cppGeneratePointsBtn").addEventListener("click", () => {
+  const presetType = String(document.getElementById("cppPresetType").value || "linear").trim() || "linear";
+  const expression = String(document.getElementById("cppPresetExpression").value || "").trim();
+  const xValuesText = String(document.getElementById("cppPresetXValues").value || "").trim();
+  const generated = generateCartesianPlotPresetPoints(
+    presetType,
+    expression || defaultCartesianPlotPresetExpression(presetType),
+    xValuesText || defaultCartesianPlotPresetXValues(presetType)
+  );
+
+  if (generated.message) {
+    showToast(generated.message, "warning");
+    return;
+  }
+
+  document.getElementById("cppPoints").value = serializeCartesianPoints(generated.points);
+  updateQuestionFromForm();
+  showToast(`Generated ${generated.points.length} key points.`, "success");
+});
+
+document.getElementById("cppApplyTemplateBtn").addEventListener("click", () => {
+  const templateId = String(document.getElementById("cppVceTemplate").value || "").trim();
+  if (!templateId) {
+    showToast("Choose a VCE template first.", "info");
+    return;
+  }
+
+  const template = getCartesianPlotVceTemplate(templateId);
+  if (!template) {
+    showToast("Template not found.", "warning");
+    return;
+  }
+
+  document.getElementById("cppPresetType").value = template.presetType;
+  document.getElementById("cppPresetExpression").value = template.expression;
+  document.getElementById("cppPresetXValues").value = template.xValues;
+  document.getElementById("cppXMin").value = String(template.xMin);
+  document.getElementById("cppXMax").value = String(template.xMax);
+  document.getElementById("cppYMin").value = String(template.yMin);
+  document.getElementById("cppYMax").value = String(template.yMax);
+  document.getElementById("cppTolerance").value = String(template.tolerance);
+
+  const generated = generateCartesianPlotPresetPoints(template.presetType, template.expression, template.xValues);
+  if (!generated.message) {
+    document.getElementById("cppPoints").value = serializeCartesianPoints(generated.points);
+  }
+
+  updateQuestionFromForm();
+  showToast(`Applied template and generated ${generated.points.length || 0} key points.`, "success");
+});
 
 document.getElementById("boxDatasetCount").addEventListener("change", () => {
   const countInput = document.getElementById("boxDatasetCount");
@@ -5399,11 +7488,13 @@ document.getElementById("rootSourceMode").addEventListener("change", () => {
   const rootSourceModeInput = document.getElementById("rootSourceMode");
   state.rootSourceMode = normalizeRootSourceMode(rootSourceModeInput.value);
   rootSourceModeInput.value = state.rootSourceMode;
+  updateLocalFolderRowVisibility();
   saveDraft();
 });
 
 document.getElementById("interactiveAppType").addEventListener("change", () => {
   const type = document.getElementById("interactiveAppType").value;
+  const resultTypeSelect = document.getElementById("resultType");
   if (!type) {
     setInteractiveAppConfigVisibility("");
     renderInteractiveAppPreview(null);
@@ -5412,6 +7503,9 @@ document.getElementById("interactiveAppType").addEventListener("change", () => {
   }
 
   const nextApp = buildDefaultInteractiveApp(type);
+  if (type === "cartesian-plane-plot" && resultTypeSelect) {
+    resultTypeSelect.value = "short-answer";
+  }
   populateInteractiveAppForm(nextApp);
   if (activeQuestion()) {
     updateQuestionFromForm();
@@ -5526,8 +7620,9 @@ function loadImportedData(data) {
 
 async function initialize() {
   await restoreRootDirectoryHandle({ promptForPermission: false });
+  updateLocalFolderRowVisibility();
 
-  const loadedFromRoot = await refreshLibraryFromRoot(false);
+  const loadedFromRoot = await refreshLibraryFromRoot(false, false);
   if (loadedFromRoot) {
     showToast("Detected quizzes from root folder.", "success");
     return;

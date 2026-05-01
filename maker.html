@@ -27,12 +27,16 @@
 
           <label for="rootSourceMode">Root Source Mode</label>
           <select id="rootSourceMode">
-            <option value="auto" selected>Auto</option>
-            <option value="local">Local</option>
+            <option value="local" selected>Local</option>
             <option value="github">GitHub</option>
           </select>
 
           <button class="btn secondary" id="refreshRootBtn" type="button">Refresh from Root</button>
+
+          <div id="localFolderRow" style="display:none">
+            <label>Selected Folder Path</label>
+            <input type="text" id="localFolderPath" readonly placeholder="No folder selected — click Refresh to choose (some browsers hide full path)" style="flex:1;opacity:0.8;cursor:default" />
+          </div>
 
           <label for="quizFileName">Selected Quiz Filename</label>
           <input type="text" id="quizFileName" placeholder="sample-quiz.json" />
@@ -92,6 +96,163 @@
             <section class="editor-subpanel" aria-label="Question configuration">
               <h3>Question Configuration</h3>
 
+              <div class="nl-range-row">
+                <div>
+                  <label for="autoCreateCategory">Auto Create: Category</label>
+                  <select id="autoCreateCategory" class="nl-range-input">
+                    <option value="cartesian-plane">Cartesian Plane</option>
+                    <option value="cartesian-plane-plot">Cartesian Plane - Plot</option>
+                    <option value="number-line">Number Line</option>
+                    <option value="bar-chart">Bar Chart</option>
+                    <option value="histogram">Histogram</option>
+                    <option value="box-plot">Box Plot</option>
+                    <option value="scatter-plot">Scatter Plot</option>
+                    <option value="probability-tree">Probability Tree</option>
+                    <option value="distribution-curve">Distribution Curve</option>
+                    <option value="arithmetic">Arithmetic</option>
+                    <option value="fractions">Fractions</option>
+                    <option value="network-graph">Network Graph</option>
+                    <option value="matrix">Matrices</option>
+                    <option value="stem-and-leaf">Stem-and-Leaf Plot</option>
+                    <option value="geometry-shapes">Geometry Shapes</option>
+                    <option value="pythagoras">Pythagoras Triangle</option>
+                    <option value="trigonometry">Trigonometry Triangle</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="autoCreateSubcategory">Auto Create: Subcategory</label>
+                  <select id="autoCreateSubcategory" class="nl-range-input">
+                    <option value="linear">Linear</option>
+                    <option value="quadratic">Quadratic</option>
+                    <option value="cubic">Cubic</option>
+                    <option value="exponential">Exponential</option>
+                    <option value="transformations">Transformations</option>
+                    <option value="domain-range">Domain and Range</option>
+                    <option value="intercepts">Intercepts</option>
+                    <option value="gradient">Gradient</option>
+                    <option value="asymptotes">Asymptotes</option>
+                    <option value="point-on-axes">Point On Axes</option>
+                    <option value="quadrant-identification">Quadrant Identification</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="nl-range-row">
+                <div>
+                  <label for="autoCreateDifficulty">Auto Create: Difficulty</label>
+                  <select id="autoCreateDifficulty" class="nl-range-input">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="autoCreateResultType">Auto Create: Result Type</label>
+                  <select id="autoCreateResultType" class="nl-range-input">
+                    <option value="auto">Auto (Recommended)</option>
+                    <option value="short-answer">Short Answer</option>
+                    <option value="plot">Plot</option>
+                    <option value="multiple-choice">Multiple Choice</option>
+                    <option value="true-false">True / False</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="nl-range-row">
+                <div>
+                  <label for="autoCreateCommandWord">Auto Create: Command Word</label>
+                  <select id="autoCreateCommandWord" class="nl-range-input">
+                    <option value="random">Random</option>
+                    <option value="determine">Determine</option>
+                    <option value="sketch">Sketch</option>
+                    <option value="interpret">Interpret</option>
+                    <option value="justify">Justify</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="autoCreateAnswerFormat">Auto Create: Answer Format</label>
+                  <select id="autoCreateAnswerFormat" class="nl-range-input">
+                    <option value="auto">Auto</option>
+                    <option value="exact">Exact</option>
+                    <option value="decimal">Decimal</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="nl-range-row">
+                <div>
+                  <label for="autoCreateDecimalPlaces">Decimal Places</label>
+                  <input type="number" id="autoCreateDecimalPlaces" min="0" max="6" step="1" value="2" class="nl-range-input" />
+                </div>
+                <div>
+                  <label for="autoCreateDomainMin">Domain Restriction (x min, optional)</label>
+                  <input type="number" id="autoCreateDomainMin" step="0.1" class="nl-range-input" placeholder="e.g. -3" />
+                </div>
+                <div>
+                  <label for="autoCreateDomainMax">Domain Restriction (x max, optional)</label>
+                  <input type="number" id="autoCreateDomainMax" step="0.1" class="nl-range-input" placeholder="e.g. 3" />
+                </div>
+              </div>
+
+              <div class="nl-range-row">
+                <div>
+                  <label for="autoQuizGrade">Auto Quiz: VCAA Grade/Course</label>
+                  <select id="autoQuizGrade" class="nl-range-input">
+                    <option value="prep">Prep</option>
+                    <option value="year-1">Year 1</option>
+                    <option value="year-2">Year 2</option>
+                    <option value="year-3">Year 3</option>
+                    <option value="year-4">Year 4</option>
+                    <option value="year-5">Year 5</option>
+                    <option value="year-6">Year 6</option>
+                    <option value="year-7">Year 7</option>
+                    <option value="year-8">Year 8</option>
+                    <option value="year-9">Year 9</option>
+                    <option value="year-10">Year 10</option>
+                    <option value="vce-methods-unit-1">VCE Mathematical Methods Unit 1</option>
+                    <option value="vce-methods-unit-2">VCE Mathematical Methods Unit 2</option>
+                    <option value="vce-methods-unit-3">VCE Mathematical Methods Unit 3</option>
+                    <option value="vce-methods-unit-4">VCE Mathematical Methods Unit 4</option>
+                    <option value="vce-general-unit-1">VCE General Mathematics Unit 1</option>
+                    <option value="vce-general-unit-2">VCE General Mathematics Unit 2</option>
+                    <option value="vce-general-unit-3">VCE General Mathematics Unit 3</option>
+                    <option value="vce-general-unit-4">VCE General Mathematics Unit 4</option>
+                    <option value="vce-specialist-unit-1">VCE Specialist Mathematics Unit 1</option>
+                    <option value="vce-specialist-unit-2">VCE Specialist Mathematics Unit 2</option>
+                    <option value="vce-specialist-unit-3">VCE Specialist Mathematics Unit 3</option>
+                    <option value="vce-specialist-unit-4">VCE Specialist Mathematics Unit 4</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="autoQuizYear">Auto Quiz: Year Focus</label>
+                  <select id="autoQuizYear" class="nl-range-input">
+                    <option value="auto">Auto from Grade/Course</option>
+                    <option value="prep">Prep</option>
+                    <option value="1">Year 1</option>
+                    <option value="2">Year 2</option>
+                    <option value="3">Year 3</option>
+                    <option value="4">Year 4</option>
+                    <option value="5">Year 5</option>
+                    <option value="6">Year 6</option>
+                    <option value="7">Year 7</option>
+                    <option value="8">Year 8</option>
+                    <option value="9">Year 9</option>
+                    <option value="10">Year 10</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="autoQuizQuestionCount">Auto Quiz: Number of Questions</label>
+                  <input type="number" id="autoQuizQuestionCount" min="1" max="60" step="1" value="10" class="nl-range-input" />
+                </div>
+              </div>
+
+              <div class="panel-head-actions" style="margin-bottom:8px">
+                <button class="btn" id="autoCreateQuestionBtn" type="button">Auto Create Question</button>
+                <button class="btn" id="autoCreateQuizBtn" type="button">Auto Create Entire Quiz (VCAA)</button>
+                <button class="btn secondary" id="validateGeneratedQuestionBtn" type="button">Validate Question + Answer</button>
+              </div>
+              <p class="helper-text">Auto Create fills question text, solution, and interactive app config using deterministic templates (no AI). Entire Quiz mode builds VCAA-aligned quizzes for the selected grade/course and year focus.</p>
+
               <label for="questionText">1) Question</label>
               <textarea id="questionText" rows="2" placeholder="Enter question"></textarea>
 
@@ -99,6 +260,7 @@
               <select id="resultType">
                 <option value="multiple-choice">Multiple Choice</option>
                 <option value="short-answer">Short Answer</option>
+                <option value="plot">Plot</option>
                 <option value="true-false">True / False</option>
                 <option value="checkbox">Checkbox</option>
               </select>
@@ -280,6 +442,38 @@
                   </div>
                   <label for="cppPoints">Answer Points (one per line: x, y, label)</label>
                   <textarea id="cppPoints" rows="4" placeholder="3, 4, A&#10;-2, 1, B&#10;0, -3, C"></textarea>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="cppVceTemplate">VCE Template</label>
+                      <select id="cppVceTemplate" class="nl-range-input">
+                        <option value="">Custom</option>
+                        <option value="general-linear-intercepts">General Mathematics: Linear Intercepts</option>
+                        <option value="general-quadratic-turning-point">General Mathematics: Quadratic Turning Point</option>
+                        <option value="methods-transformed-parabola">Mathematical Methods: Transformed Parabola</option>
+                        <option value="methods-cubic-intercepts">Mathematical Methods: Cubic Intercepts/Shape</option>
+                        <option value="specialist-exponential-growth">Specialist Mathematics: Exponential Growth</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="cppPresetType">Preset Type</label>
+                      <select id="cppPresetType" class="nl-range-input">
+                        <option value="linear">Linear</option>
+                        <option value="quadratic">Quadratic (Parabola)</option>
+                        <option value="cubic">Cubic</option>
+                        <option value="exponential">Exponential</option>
+                      </select>
+                    </div>
+                    <div style="min-width:220px; flex:1">
+                      <label for="cppPresetExpression">Expression y = f(x)</label>
+                      <input type="text" id="cppPresetExpression" value="2*x + 1" class="nl-range-input" />
+                    </div>
+                    <div style="min-width:180px; flex:1">
+                      <label for="cppPresetXValues">Sample x values</label>
+                      <input type="text" id="cppPresetXValues" value="-2, -1, 0, 1, 2" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <button type="button" id="cppApplyTemplateBtn">Apply VCE Template</button>
+                  <button type="button" id="cppGeneratePointsBtn">Generate Key Points</button>
                   <p class="helper-text">The student clicks the grid to place these points. Use integer coordinates. Tolerance is the max distance (in grid units) allowed per point.</p>
                 </div>
 
@@ -580,7 +774,7 @@
           <option value="link" selected>Link</option>
           <option value="iframe">Iframe</option>
         </select>
-        <textarea id="iframeCodeOutput" rows="4" readonly placeholder="Use the Link button beside a quiz to generate either a direct link or iframe code."></textarea>
+        <textarea id="iframeCodeOutput" rows="4" readonly placeholder="Select a quiz to generate either a direct link or iframe code."></textarea>
       </section>
     </div>
   </div>

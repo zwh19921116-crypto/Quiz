@@ -1175,6 +1175,96 @@ body.modal-open {
   margin-top: 8px;
 }
 
+.arithmetic-workspace {
+  margin-top: 10px;
+  display: grid;
+  justify-content: center;
+}
+
+.arithmetic-horizontal-expression {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.arithmetic-number,
+.arithmetic-operator,
+.arithmetic-equals {
+  line-height: 1;
+}
+
+.arithmetic-answer-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.arithmetic-answer-inline {
+  justify-content: flex-start;
+}
+
+.arithmetic-digit-input {
+  width: 36px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0f172a;
+  font-family: "Consolas", "Courier New", monospace;
+}
+
+.arithmetic-digit-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+.arithmetic-digit-input[disabled] {
+  background: #f8fafc;
+  color: #334155;
+}
+
+.arithmetic-layout-vertical {
+  justify-items: end;
+}
+
+.arithmetic-vertical-stack {
+  min-width: 170px;
+  padding: 12px 14px 10px;
+  border: 1px solid #dbe3ee;
+  border-radius: 10px;
+  background: #f8fbff;
+  display: grid;
+  gap: 5px;
+  font-family: "Consolas", "Courier New", monospace;
+}
+
+.arithmetic-row {
+  display: grid;
+  grid-template-columns: 20px minmax(70px, auto);
+  align-items: center;
+  justify-items: end;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.arithmetic-op-spacer {
+  width: 20px;
+}
+
+.arithmetic-layout-vertical .arithmetic-answer-row {
+  border-top: 2px solid #334155;
+  padding-top: 8px;
+}
+
 .question-image {
   width: 100%;
   max-height: 280px;
