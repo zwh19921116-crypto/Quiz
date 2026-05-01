@@ -1,10 +1,10 @@
 {
   "id": "quiz-1",
   "title": "New Quiz",
-  "description": "Auto-generated quiz aligned to VCAA style for Year 4 (Year 4).",
+  "description": "Auto-generated quiz aligned to VCAA style for Prep (Prep).",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 9
+    "questionLimit": 11
   },
   "fileName": "new-quiz.json",
   "sourcePath": "quizzes/grade-1/new-quiz.json",
@@ -193,7 +193,7 @@
       }
     },
     {
-      "question": "Calculate use short division to calculate 112 / 8.",
+      "question": "Calculate use long division to divide 45 by 5.",
       "resultType": "short-answer",
       "options": [
         "",
@@ -201,14 +201,25 @@
         "",
         ""
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "9",
       "notesAttachments": [],
       "image": "",
-      "solution": "Since 8 x 14 = 112, the quotient is 14.",
-      "solutionAttachments": []
+      "solution": "Long division gives quotient 9 because 5 x 9 = 45 with remainder 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "/",
+          "operandA": 45,
+          "operandB": 5,
+          "answer": "9",
+          "answerDigits": 1
+        }
+      }
     },
     {
-      "question": "Calculate use long division to divide 36 by 6.",
+      "question": "Calculate use long division to divide 7 by 1.",
       "resultType": "short-answer",
       "options": [
         "",
@@ -216,11 +227,74 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "notesAttachments": [],
       "image": "",
-      "solution": "Long division gives quotient 6 because 6 x 6 = 36 with remainder 0.",
-      "solutionAttachments": []
+      "solution": "Long division gives quotient 7 because 1 x 7 = 7 with remainder 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "/",
+          "operandA": 7,
+          "operandB": 1,
+          "answer": "7",
+          "answerDigits": 1
+        }
+      }
+    },
+    {
+      "question": "Calculate use long division to divide 10 by 1.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Long division gives quotient 10 because 1 x 10 = 10 with remainder 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "/",
+          "operandA": 10,
+          "operandB": 1,
+          "answer": "10",
+          "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate use long division to divide 54 by 3.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "18",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Long division gives quotient 18 because 3 x 18 = 54 with remainder 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "/",
+          "operandA": 54,
+          "operandB": 3,
+          "answer": "18",
+          "answerDigits": 2
+        }
+      }
     }
   ]
 }

@@ -1,0 +1,53 @@
+{
+  "id": "quiz-4",
+  "title": "long division",
+  "description": "Auto-generated quiz aligned to VCAA style for Prep (Prep).",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 3
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "Calculate use short division to calculate 15 / 5.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Since 5 x 3 = 15, the quotient is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Calculate use long division to divide 36 by 3.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Long division gives quotient 12 because 3 x 12 = 36 with remainder 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "/",
+          "operandA": 36,
+          "operandB": 3,
+          "answer": "12",
+          "answerDigits": 2
+        }
+      }
+    }
+  ]
+}
