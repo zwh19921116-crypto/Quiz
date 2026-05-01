@@ -1190,6 +1190,9 @@ body.modal-open {
   margin-top: 10px;
   display: grid;
   justify-content: center;
+  --arith-col-width: 36px;
+  --arith-col-gap: 6px;
+  --arith-op-width: 20px;
 }
 
 .arithmetic-horizontal-expression {
@@ -1210,9 +1213,61 @@ body.modal-open {
 
 .arithmetic-answer-row {
   display: flex;
-  gap: 6px;
+  gap: var(--arith-col-gap);
   align-items: center;
   justify-content: flex-end;
+}
+
+.arithmetic-carry-row {
+  display: grid;
+  grid-template-columns: var(--arith-op-width) minmax(70px, auto);
+  align-items: end;
+  justify-items: end;
+}
+
+.arithmetic-carry-cells,
+.arithmetic-number-cells,
+.arithmetic-answer-cells {
+  display: flex;
+  gap: var(--arith-col-gap);
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.arithmetic-cell {
+  width: var(--arith-col-width);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e293b;
+  font-family: "Consolas", "Courier New", monospace;
+}
+
+.arithmetic-carry-input {
+  width: var(--arith-col-width);
+  height: 24px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1e3a8a;
+  font-family: "Consolas", "Courier New", monospace;
+}
+
+.arithmetic-carry-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.14);
+}
+
+.arithmetic-carry-input[disabled] {
+  background: #f8fafc;
+  color: #64748b;
 }
 
 .arithmetic-answer-inline {
@@ -1245,6 +1300,14 @@ body.modal-open {
   justify-items: end;
 }
 
+.arithmetic-layout-vertical .arithmetic-answer-row,
+.arithmetic-layout-vertical .arithmetic-row {
+  display: grid;
+  grid-template-columns: var(--arith-op-width) minmax(70px, auto);
+  align-items: center;
+  justify-items: end;
+}
+
 .arithmetic-vertical-stack {
   min-width: 170px;
   padding: 12px 14px 10px;
@@ -1258,7 +1321,7 @@ body.modal-open {
 
 .arithmetic-row {
   display: grid;
-  grid-template-columns: 20px minmax(70px, auto);
+  grid-template-columns: var(--arith-op-width) minmax(70px, auto);
   align-items: center;
   justify-items: end;
   font-size: 1.25rem;
@@ -1267,7 +1330,7 @@ body.modal-open {
 }
 
 .arithmetic-op-spacer {
-  width: 20px;
+  width: var(--arith-op-width);
 }
 
 .arithmetic-layout-vertical .arithmetic-answer-row {

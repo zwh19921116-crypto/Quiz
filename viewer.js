@@ -2,6 +2,7 @@ let quizData = null;
 let currentIndex = 0;
 let score = 0;
 let answerChecked = false;
+let solutionShownForCurrentQuestion = false;
 let cartesianPlotUserPoints = [];
 const QUIZ_ORDER_MODES = {
   ORDERED: "ordered",
@@ -1802,11 +1803,12 @@ function computeArithmeticAnswerFromConfig(config) {
   return String(a + b);
 }
 
-function buildArithmeticAnswerBoxes(answerText, { readOnly = false } = {}) {
+function buildArithmeticAnswerBoxes(answerText, { readOnly = false, minDigits = 1 } = {}) {
   const cleaned = String(answerText || "").trim();
-  const minDigits = Math.max(1, cleaned.replace(/[^0-9-]/g, "").length || cleaned.length || 1);
+  const requiredDigits = Math.max(1, Number.parseInt(minDigits, 10) || 1);
+  const inferredDigits = Math.max(1, cleaned.replace(/[^0-9-]/g, "").length || cleaned.length || 1);
   const chars = cleaned ? cleaned.split("") : [];
-  const digits = Math.max(minDigits, chars.length, 1);
+  const digits = Math.max(requiredDigits, inferredDigits, chars.length, 1);
   const boxes = [];
   for (let index = 0; index < digits; index += 1) {
     const value = chars[index] || "";
@@ -1816,6 +1818,33 @@ function buildArithmeticAnswerBoxes(answerText, { readOnly = false } = {}) {
     boxes.push(`<input class="arithmetic-digit-input" type="text" inputmode="numeric" maxlength="1" ${attrs} data-index="${index}" autocomplete="off" />`);
   }
   return boxes.join("");
+}
+
+function buildArithmeticCarryBoxes(columns, { readOnly = false } = {}) {
+  const count = Math.max(1, Number.parseInt(columns, 10) || 1);
+  const attrs = readOnly ? "readonly disabled" : "";
+  const boxes = [];
+  for (let index = 0; index < count; index += 1) {
+    boxes.push(`<input class="arithmetic-carry-input" type="text" inputmode="numeric" maxlength="1" value="" ${attrs} data-carry-index="${index}" autocomplete="off" />`);
+  }
+  return boxes.join("");
+}
+
+function splitArithmeticDigits(value, columns) {
+  const count = Math.max(1, Number.parseInt(columns, 10) || 1);
+  const text = String(value == null ? "" : value).trim().replace(/\s+/g, "");
+  if (!text) return new Array(count).fill("");
+  const chars = text.split("");
+  const clipped = chars.slice(-count);
+  const padding = new Array(Math.max(0, count - clipped.length)).fill("");
+  return padding.concat(clipped);
+}
+
+function buildArithmeticOperandCells(value, columns) {
+  const chars = splitArithmeticDigits(value, columns);
+  return chars
+    .map((char) => `<span class="arithmetic-cell">${escapeHtml(char)}</span>`)
+    .join("");
 }
 
 function buildArithmeticSingleInput(answerText, { readOnly = false } = {}) {
@@ -1829,23 +1858,37 @@ function buildArithmeticSingleInput(answerText, { readOnly = false } = {}) {
 
 function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer = false } = {}) {
   const layout = normalizeArithmeticLayout(config && config.layout);
-  const operator = escapeHtml(String(config && config.operator ? config.operator : "+"));
-  const operandA = escapeHtml(String(config && config.operandA != null ? config.operandA : ""));
-  const operandB = escapeHtml(String(config && config.operandB != null ? config.operandB : ""));
+  const operatorRaw = String(config && config.operator ? config.operator : "+").trim() || "+";
+  const operator = escapeHtml(operatorRaw);
+  const operandAText = String(config && config.operandA != null ? config.operandA : "").trim();
+  const operandBText = String(config && config.operandB != null ? config.operandB : "").trim();
+  const operandA = escapeHtml(operandAText);
+  const operandB = escapeHtml(operandBText);
   const answerText = revealAnswer
     ? computeArithmeticAnswerFromConfig(config || {})
     : "";
+  const answerDigits = String(answerText || "").trim();
+  const operandALen = Math.max(1, operandAText.replace(/[^0-9]/g, "").length || operandAText.length || 1);
+  const operandBLen = Math.max(1, operandBText.replace(/[^0-9]/g, "").length || operandBText.length || 1);
+  const answerLen = Math.max(1, answerDigits.replace(/[^0-9]/g, "").length || answerDigits.length || 1);
+  const baseColumns = Math.max(operandALen, operandBLen, answerLen, 1);
+  const columnCount = operatorRaw === "+" ? Math.max(baseColumns + 1, answerLen) : Math.max(baseColumns, answerLen);
+
   const boxes = layout === "vertical"
-    ? buildArithmeticAnswerBoxes(answerText, { readOnly })
+    ? buildArithmeticAnswerBoxes(answerText, { readOnly, minDigits: columnCount })
     : buildArithmeticSingleInput(answerText, { readOnly });
 
   if (layout === "vertical") {
+    const carryRow = operatorRaw === "+"
+      ? `<div class="arithmetic-carry-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-carry-cells">${buildArithmeticCarryBoxes(columnCount, { readOnly })}</span></div>`
+      : "";
     return `
       <div class="arithmetic-workspace arithmetic-layout-vertical">
         <div class="arithmetic-vertical-stack">
-          <div class="arithmetic-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-number">${operandA}</span></div>
-          <div class="arithmetic-row"><span class="arithmetic-operator">${operator}</span><span class="arithmetic-number">${operandB}</span></div>
-          <div class="arithmetic-answer-row">${boxes}</div>
+          ${carryRow}
+          <div class="arithmetic-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-number-cells">${buildArithmeticOperandCells(operandAText, columnCount)}</span></div>
+          <div class="arithmetic-row"><span class="arithmetic-operator">${operator}</span><span class="arithmetic-number-cells">${buildArithmeticOperandCells(operandBText, columnCount)}</span></div>
+          <div class="arithmetic-answer-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-answer-cells">${boxes}</span></div>
         </div>
       </div>
     `;
@@ -1902,6 +1945,8 @@ function wireArithmeticAnswerInputs() {
 
   const inputs = Array.from(document.querySelectorAll(".arithmetic-digit-input"))
     .filter((node) => node instanceof HTMLInputElement && !node.disabled);
+  const carryInputs = Array.from(document.querySelectorAll(".arithmetic-carry-input"))
+    .filter((node) => node instanceof HTMLInputElement && !node.disabled);
   if (singleInputs.length > 0) {
     singleInputs[0].focus();
     return;
@@ -1920,6 +1965,22 @@ function wireArithmeticAnswerInputs() {
     input.addEventListener("keydown", (event) => {
       if (event.key === "Backspace" && !input.value && index > 0) {
         inputs[index - 1].focus();
+      }
+    });
+  });
+
+  carryInputs.forEach((input, index) => {
+    blockNonTypingInput(input);
+    input.addEventListener("input", () => {
+      input.value = String(input.value || "").slice(-1);
+      if (input.value && index < carryInputs.length - 1) {
+        carryInputs[index + 1].focus();
+      }
+    });
+
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Backspace" && !input.value && index > 0) {
+        carryInputs[index - 1].focus();
       }
     });
   });
@@ -4042,6 +4103,7 @@ function renderQuestion() {
   const showSolutionBtn = document.getElementById("showSolutionBtn");
 
   answerChecked = false;
+  solutionShownForCurrentQuestion = false;
   resultBox.textContent = "";
   resultBox.className = "";
   nextBtn.disabled = true;
@@ -4192,16 +4254,38 @@ function checkAnswer() {
   updateHeader();
 }
 
-function shouldHandleEnterAsCheck(event) {
+function shouldHandleQuestionEnterHotkey(event) {
   if (!event || event.key !== "Enter" || event.isComposing) return false;
+  if (event.altKey || event.ctrlKey || event.metaKey) return false;
 
   const target = event.target;
-  if (!(target instanceof HTMLInputElement)) return false;
-  if (target.disabled || target.readOnly) return false;
+  if (!(target instanceof HTMLElement)) return true;
+  if (target instanceof HTMLTextAreaElement) return false;
+  if (target.isContentEditable) return false;
+  if (target instanceof HTMLInputElement && (target.disabled || target.readOnly)) return false;
+  return true;
+}
 
-  return target.id === "shortAnswerInput"
-    || target.classList.contains("arithmetic-single-input")
-    || target.classList.contains("arithmetic-digit-input");
+function handleQuestionEnterHotkey(event) {
+  if (!shouldHandleQuestionEnterHotkey(event)) return;
+  if (!quizData || !Array.isArray(quizData.questions) || quizData.questions.length === 0) return;
+
+  const checkBtn = document.getElementById("checkAnswerBtn");
+  if (!checkBtn || checkBtn.style.display === "none") return;
+
+  event.preventDefault();
+
+  if (!answerChecked) {
+    checkAnswer();
+    return;
+  }
+
+  if (!solutionShownForCurrentQuestion) {
+    openSolutionModal();
+    return;
+  }
+
+  goNext();
 }
 
 function prepareSolutionModal(question, expectedAnswers) {
@@ -4252,6 +4336,7 @@ function openSolutionModal() {
   modal.classList.remove("hidden");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
+  solutionShownForCurrentQuestion = true;
 }
 
 function closeSolutionModal() {
@@ -4391,14 +4476,11 @@ document.getElementById("solutionModal").addEventListener("click", (event) => {
     closeSolutionModal();
   }
 });
-document.getElementById("quizContainer").addEventListener("keydown", (event) => {
-  if (!shouldHandleEnterAsCheck(event)) return;
-  const modal = document.getElementById("solutionModal");
-  if (modal && !modal.classList.contains("hidden")) return;
-  event.preventDefault();
-  checkAnswer();
-});
 window.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    handleQuestionEnterHotkey(event);
+    return;
+  }
   if (event.key === "Escape") {
     closeSolutionModal();
   }
