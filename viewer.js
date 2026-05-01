@@ -2013,6 +2013,10 @@ function buildArithmeticLongDivisionWorkRow(columnCount, { readOnly = false, row
   const inputAttr = readOnly ? "readonly disabled" : "";
   const carryValues = rowData && Array.isArray(rowData.carry) ? rowData.carry : [];
   const workValues = rowData && Array.isArray(rowData.work) ? rowData.work : [];
+  const operation = rowData && typeof rowData.operation === "string" ? rowData.operation.trim() : "";
+  const sideCell = operation
+    ? `<span class="arithmetic-long-operation-marker">${escapeHtml(operation)}</span>`
+    : `<span class="arithmetic-long-side-spacer"></span>`;
   const cells = Array.from({ length: count }, (_, index) => {
     const carryValue = String(carryValues[index] || "").slice(-1);
     const workValue = String(workValues[index] || "").slice(-1);
@@ -2030,7 +2034,7 @@ function buildArithmeticLongDivisionWorkRow(columnCount, { readOnly = false, row
   const removeBtn = readOnly
     ? `<span class="arithmetic-long-row-end-spacer" aria-hidden="true"></span>`
     : `<button class="arithmetic-remove-row" type="button" title="Remove row" aria-label="Remove row">×</button>`;
-  return `<div class="arithmetic-long-work-row"><span class="arithmetic-long-side-spacer"></span><span class="arithmetic-work-cells">${cells}</span>${removeBtn}</div>`;
+  return `<div class="arithmetic-long-work-row">${sideCell}<span class="arithmetic-work-cells">${cells}</span>${removeBtn}</div>`;
 }
 
 function buildArithmeticLongDivisionDividerRow() {
@@ -2127,6 +2131,7 @@ function buildLongDivisionSolutionRows(dividendText, divisorText, columnCount) {
       subtractRow.work[col] = productDigits[offset] === "0" && offset < span - 1 ? "" : productDigits[offset];
       subtractRow.carry[col] = borrowMarkers[offset] || "";
     }
+    subtractRow.operation = "-";
     rows.push(subtractRow);
     rows.push({ kind: "divider" });
 
@@ -2499,13 +2504,29 @@ function wireArithmeticAnswerInputs() {
     const removeBtn = row.querySelector(".arithmetic-remove-row");
     if (removeBtn) {
       removeBtn.addEventListener("click", () => {
-        const previous = row.previousElementSibling;
-        if (previous && previous.classList.contains("arithmetic-long-work-divider-row")) {
-          previous.remove();
-        }
         row.remove();
+        const host = row.parentElement;
+        if (host) {
+          syncLongDivisionDividers(host);
+        }
       });
     }
+  }
+
+  function syncLongDivisionDividers(rowsHost) {
+    if (!rowsHost) return;
+    Array.from(rowsHost.querySelectorAll(".arithmetic-long-work-divider-row")).forEach((node) => node.remove());
+    const rows = Array.from(rowsHost.querySelectorAll(".arithmetic-long-work-row"));
+    rows.forEach((row, index) => {
+      const isSecondInPair = (index + 1) % 2 === 0;
+      const isLastRow = index === rows.length - 1;
+      if (isSecondInPair && !isLastRow) {
+        const template = document.createElement("template");
+        template.innerHTML = buildArithmeticLongDivisionDividerRow().trim();
+        const divider = template.content.firstChild;
+        row.insertAdjacentElement("afterend", divider);
+      }
+    });
   }
 
   const longDivisionContainer = document.querySelector(".arithmetic-long-work-container");
@@ -2519,15 +2540,12 @@ function wireArithmeticAnswerInputs() {
         const existingRows = rowsHost ? rowsHost.querySelectorAll(".arithmetic-long-work-row") : [];
         if (existingRows.length >= 15) return;
         const columns = Number.parseInt(longDivisionContainer.dataset.columns, 10) || 6;
-        const dividerTemplate = document.createElement("template");
-        dividerTemplate.innerHTML = buildArithmeticLongDivisionDividerRow().trim();
-        const newDivider = dividerTemplate.content.firstChild;
         const rowTemplate = document.createElement("template");
         rowTemplate.innerHTML = buildArithmeticLongDivisionWorkRow(columns, { readOnly: false }).trim();
         const newRow = rowTemplate.content.firstChild;
         if (rowsHost) {
-          rowsHost.appendChild(newDivider);
           rowsHost.appendChild(newRow);
+          syncLongDivisionDividers(rowsHost);
         }
         wireLongDivisionWorkRow(newRow);
         const firstInput = newRow.querySelector(".arithmetic-long-work-input");
