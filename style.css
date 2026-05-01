@@ -1175,6 +1175,17 @@ body.modal-open {
   margin-top: 8px;
 }
 
+#shortAnswerInput,
+.arithmetic-single-input {
+  min-height: 40px;
+  padding: 8px 10px;
+  font-size: 1rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0f172a;
+}
+
 .arithmetic-workspace {
   margin-top: 10px;
   display: grid;
@@ -1222,8 +1233,7 @@ body.modal-open {
 }
 
 .arithmetic-digit-input:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+  outline: none;
 }
 
 .arithmetic-digit-input[disabled] {
@@ -1263,6 +1273,27 @@ body.modal-open {
 .arithmetic-layout-vertical .arithmetic-answer-row {
   border-top: 2px solid #334155;
   padding-top: 8px;
+}
+
+#shortAnswerInput.answer-input-pending,
+.arithmetic-single-input.answer-input-pending,
+.arithmetic-digit-input.answer-input-pending {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+#shortAnswerInput.answer-input-correct,
+.arithmetic-single-input.answer-input-correct,
+.arithmetic-digit-input.answer-input-correct {
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.16);
+}
+
+#shortAnswerInput.answer-input-incorrect,
+.arithmetic-single-input.answer-input-incorrect,
+.arithmetic-digit-input.answer-input-incorrect {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.16);
 }
 
 .question-image {

@@ -3997,6 +3997,43 @@ function wireOptionSelectionUI(question) {
   syncOptionSelectionState();
 }
 
+function getAnswerTextInputs(scope = document) {
+  return Array.from(scope.querySelectorAll("#shortAnswerInput, .arithmetic-single-input, .arithmetic-digit-input"))
+    .filter((node) => node instanceof HTMLInputElement && !node.disabled);
+}
+
+function refreshAnswerInputPendingState(scope = document) {
+  const inputs = getAnswerTextInputs(scope);
+  inputs.forEach((input) => {
+    if (!(input instanceof HTMLInputElement)) return;
+    input.classList.remove("answer-input-correct", "answer-input-incorrect");
+    const hasValue = String(input.value || "").trim() !== "";
+    input.classList.toggle("answer-input-pending", !answerChecked && !hasValue);
+  });
+}
+
+function wireAnswerInputVisualState(scope = document) {
+  const inputs = getAnswerTextInputs(scope);
+  if (inputs.length === 0) return;
+
+  const sync = () => refreshAnswerInputPendingState(scope);
+  inputs.forEach((input) => {
+    input.addEventListener("input", sync);
+    input.addEventListener("change", sync);
+  });
+
+  refreshAnswerInputPendingState(scope);
+}
+
+function applyAnswerInputResultState(isCorrect, scope = document) {
+  const inputs = getAnswerTextInputs(scope);
+  inputs.forEach((input) => {
+    if (!(input instanceof HTMLInputElement)) return;
+    input.classList.remove("answer-input-pending", "answer-input-correct", "answer-input-incorrect");
+    input.classList.add(isCorrect ? "answer-input-correct" : "answer-input-incorrect");
+  });
+}
+
 function renderQuestion() {
   const question = quizData.questions[currentIndex];
   const quizContainer = document.getElementById("quizContainer");
@@ -4034,6 +4071,8 @@ function renderQuestion() {
   if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
     wireArithmeticAnswerInputs();
   }
+
+  wireAnswerInputVisualState(quizContainer);
 
   renderNotesPanel(question);
   updateHeader();
@@ -4133,6 +4172,7 @@ function checkAnswer() {
 
   // Visual feedback for selected options
   highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswers);
+  applyAnswerInputResultState(isCorrect, document.getElementById("quizContainer"));
 
   // Store expected answers for later use in solution modal
   window.currentExpectedAnswers = expectedAnswers;
@@ -4150,6 +4190,18 @@ function checkAnswer() {
   }
 
   updateHeader();
+}
+
+function shouldHandleEnterAsCheck(event) {
+  if (!event || event.key !== "Enter" || event.isComposing) return false;
+
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return false;
+  if (target.disabled || target.readOnly) return false;
+
+  return target.id === "shortAnswerInput"
+    || target.classList.contains("arithmetic-single-input")
+    || target.classList.contains("arithmetic-digit-input");
 }
 
 function prepareSolutionModal(question, expectedAnswers) {
@@ -4338,6 +4390,13 @@ document.getElementById("solutionModal").addEventListener("click", (event) => {
   if (target instanceof HTMLElement && target.dataset.closeSolution === "true") {
     closeSolutionModal();
   }
+});
+document.getElementById("quizContainer").addEventListener("keydown", (event) => {
+  if (!shouldHandleEnterAsCheck(event)) return;
+  const modal = document.getElementById("solutionModal");
+  if (modal && !modal.classList.contains("hidden")) return;
+  event.preventDefault();
+  checkAnswer();
 });
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
