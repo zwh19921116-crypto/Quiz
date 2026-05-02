@@ -4492,6 +4492,8 @@ function wireMulHighlighting(container) {
 
 function mountInteractiveApp(host, app) {
   if (!host || !app || !app.type) return;
+
+  if (app.type === "arithmetic") {
     host.innerHTML = `
       <div class="interactive-app-preview"></div>
       <div class="interactive-app-details"></div>
