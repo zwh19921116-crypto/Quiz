@@ -2590,15 +2590,6 @@ function wireArithmeticAnswerInputs() {
       });
     }
 
-    // Wrap the original wireMulWorkRow to also add highlighting to new rows
-    const originalWireMulWorkRow = wireMulWorkRow;
-    wireMulWorkRow = (row) => {
-      if (typeof originalWireMulWorkRow === 'function') {
-        originalWireMulWorkRow(row);
-      }
-      addMulHighlighting(row);
-    };
-
     Array.from(mulContainer.querySelectorAll(".arithmetic-mul-work-row")).forEach(wireMulWorkRow);
     syncMulWorkState();
 
