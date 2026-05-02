@@ -1,3 +1,4 @@
+const VIEWER_LAST_MODIFIED = "2026-05-03 23:02";
 let quizData = null;
 let currentIndex = 0;
 let score = 0;
@@ -5237,6 +5238,9 @@ window.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("load", loadQuiz);
+
+const versionEl = document.getElementById("viewerVersion");
+if (versionEl) versionEl.textContent = `v ${VIEWER_LAST_MODIFIED}`;
 
 
 
