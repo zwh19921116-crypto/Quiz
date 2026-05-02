@@ -1,28 +1,175 @@
+Authoring Studio
+
+Quiz Maker v2.3.1
+Build categories, quizzes, and questions from one workspace.
+
+N
+New question
+Delete
+Remove selected
+Ctrl
++
+S
+Download JSON
+Quiz Root Folder
+quizzes
+Root Source Mode
+
+Local
+Refresh from Root
+Selected Folder Path
+quizzes (full path hidden by browser security)
+Selected Quiz Filename
+long-division.json
+Source: auto-detected from local selected folder in quizzes/
+
+Connect Root Folder
+Save Selected Quiz
+Download Selected Quiz JSON
+Copy JSON
+Clear All
+Type of Quiz (Category)
+Add
+Search categories...
+Grade 1
+x
+Grade 2
+x
+Select Quiz
+Settings
+Add
+Search quizzes...
+New Quiz
+Settings
+Replicate
+Auto
+x
+long division
+Settings
+Replicate
+Auto
+x
+Questions
+Add
+Search questions...
+Drag questions to reorder.
+
+Question Config
+Editing question 2
+
+Ready to publish.
+
+Question Configuration
+Auto Create: Category
+
+Arithmetic
+Auto Create: Subcategory
+
+Division (Long)
+Auto Create: Difficulty
+
+Hard
+Auto Create: Result Type
+
+Auto (Recommended)
+Auto Create: Command Word
+
+Calculate
+Auto Create: Answer Format
+
+Auto
+Decimal Places
+2
+Domain Restriction (x min, optional)
+e.g. -3
+Domain Restriction (x max, optional)
+e.g. 3
+Auto Quiz: VCAA Grade/Course
+
+Year 5
+Auto Quiz: Year Focus
+
+Auto from Grade/Course
+Auto Quiz: Number of Questions
+1
+Auto Create Question
+Auto Create Entire Quiz (VCAA)
+Validate Question + Answer
+Auto Create fills question text, solution, and interactive app config using deterministic templates (no AI). Entire Quiz mode builds VCAA-aligned quizzes for the selected grade/course and year focus.
+
+1) Question
+Calculate use long division to divide 110 by 11.
+2) Result Type
+
+Short Answer
+3) Correct Answer
+10
+Enter the expected answer text.
+
+4) Notes Attachments (other links, one per line)
+https://example.com/reference-link
+YouTube URL (1 max)
+https://www.youtube.com/watch?v=...
+PDF URLs (optional, one per line)
+https://drive.google.com/file/d/...\nhttps://example.com/file.pdf
+Attach Notes PDF Files
+Paste PDF URLs above or attach PDF files to embed them in quiz JSON.
+Notes: N/A
+n/a
+5) Image URL
+https://example.com/image.png
+Attach Question Image
+Attach image for the selected question, or paste a URL above.
+Solutions
+Collapse
+6) Solution
+Long division gives quotient 10 because 11 x 10 = 110 with remainder 0.
+7) Solution Attachments (one per line)
+https://example.com/solution.pdf
+Attach Solution File
+Add links above, or attach local files to embed them in the quiz JSON.
+Solution Files: N/A
+n/a
+Interactive App
+Collapse
+8) App Template
+
+Arithmetic
+Layout
+
+Vertical
+Operator
+
+/
+Operand A
+110
+Operand B
+11
+Answer (optional override)
+10
+Update Preview
+Arithmetic (long division)
+
+  10
+11 ) 110
+--------
+
+Save Question Changes
+This confirms question edits in Maker. Use Save Selected Quiz to write JSON to file.
+
+Generated JSON
 {
-  "id": "quiz-4",
+  "id": "quiz-6",
   "title": "long division",
-  "description": "Auto-generated quiz aligned to VCAA style for Prep (Prep).",
+  "description": "Auto-generated quiz aligned to VCAA style for Year 5 (Year 5).",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 3
+    "questionLimit": 2
   },
+  "fileName": "long-division.json",
+  "sourcePath": "quizzes/grade-1/long-division.json",
   "category": "Grade 1",
   "questions": [
-    {
-      "question": "Calculate use short division to calculate 15 / 5.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "3",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Since 5 x 3 = 15, the quotient is 3.",
-      "solutionAttachments": []
-    },
     {
       "question": "Calculate use long division to divide 36 by 3.",
       "resultType": "short-answer",
@@ -48,6 +195,40 @@
           "answerDigits": 2
         }
       }
+    },
+    {
+      "question": "Calculate use long division to divide 110 by 11.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Long division gives quotient 10 because 11 x 10 = 110 with remainder 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "/",
+          "operandA": 110,
+          "operandB": 11,
+          "answer": "10",
+          "answerDigits": 2
+        }
+      }
     }
   ]
 }
+Output now contains only the selected quiz. Save each quiz as its own JSON file.
+
+Quiz Iframe Code
+Output Format
+
+Link
+ 
+file:///E:/Edgeducate/Software/Quiz/Quiz/viewer.html?file=quizzes%2Fgrade-1%2Flong-division.json
