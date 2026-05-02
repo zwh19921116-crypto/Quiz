@@ -1981,9 +1981,7 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
     const row = createLongDivisionRow(columns);
 
     if (multiplierDigit === 0) {
-      const zeroCol = columns - 1 - shift;
-      if (zeroCol >= 0) row.work[zeroCol] = "0";
-      rows.push(row);
+      // Skip rows where multiplier digit is 0 (for cleaner teaching display)
       continue;
     }
 
