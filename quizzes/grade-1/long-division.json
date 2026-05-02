@@ -1,10 +1,10 @@
 {
   "id": "quiz-6",
   "title": "long division",
-  "description": "Auto-generated quiz aligned to VCAA style for Year 5 (Year 5).",
+  "description": "Auto-generated quiz aligned to VCAA style for Year 9 (Year 9).",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 2
+    "questionLimit": 4
   },
   "category": "Grade 1",
   "questions": [
@@ -57,6 +57,58 @@
           "operandB": 11,
           "answer": "10",
           "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate 10 x 6.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "60",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Multiply: 10 x 6 = 60.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "x",
+          "operandA": 10,
+          "operandB": 6,
+          "answer": "60",
+          "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate 24 x 10.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "240",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Multiply: 24 x 10 = 240.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "x",
+          "operandA": 24,
+          "operandB": 10,
+          "answer": "240",
+          "answerDigits": 3
         }
       }
     }
