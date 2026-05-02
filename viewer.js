@@ -2023,6 +2023,41 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
   return rows;
 }
 
+function buildMultiplicationSumRow(solutionRows, columnCount) {
+  const count = Math.max(1, Number.parseInt(columnCount, 10) || 1);
+  if (!Array.isArray(solutionRows) || solutionRows.length === 0) {
+    return "";
+  }
+
+  // Add up all the partial products
+  const sums = new Array(count).fill(0);
+  let carry = 0;
+
+  for (let col = count - 1; col >= 0; col -= 1) {
+    let colSum = carry;
+    for (let rowIdx = 0; rowIdx < solutionRows.length; rowIdx += 1) {
+      const row = solutionRows[rowIdx];
+      const digit = Number.parseInt(row.work[col], 10) || 0;
+      colSum += digit;
+    }
+    sums[col] = colSum % 10;
+    carry = Math.floor(colSum / 10);
+  }
+
+  // Build the display cells
+  const digitBoxes = Array.from({ length: count }, (_, index) => {
+    const sumValue = String(sums[index] || "").slice(-1);
+    return `
+    <span class="arithmetic-work-cell-wrap">
+      <input class="arithmetic-work-cell-carry" type="text" inputmode="numeric" maxlength="1" value="" readonly disabled autocomplete="off" title="Carry" />
+      <input class="arithmetic-work-input" type="text" inputmode="numeric" maxlength="1" value="${escapeHtml(sumValue)}" readonly disabled autocomplete="off" />
+    </span>
+  `;
+  }).join("");
+
+  return digitBoxes;
+}
+
 function buildArithmeticLongDivisionWorkRow(columnCount, { readOnly = false, rowData = null } = {}) {
   const count = Math.max(1, Number.parseInt(columnCount, 10) || 1);
   const inputAttr = readOnly ? "readonly disabled" : "";
@@ -2285,8 +2320,15 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
     const mulSolutionRows = revealAnswer && isMultiplication
       ? buildMultiplicationSolutionRows(operandAText, operandBText, columnCount)
       : [];
+    const mulSumRow = revealAnswer && isMultiplication && Array.isArray(mulSolutionRows) && mulSolutionRows.length > 0
+      ? buildMultiplicationSumRow(mulSolutionRows, columnCount)
+      : null;
     const workContainer = isMultiplication
       ? buildArithmeticMulWorkContainer(columnCount, { readOnly, solutionRows: mulSolutionRows })
+      : "";
+    const sumRowMarkup = mulSumRow && !readOnly
+      ? `<div class="arithmetic-work-divider"><span class="arithmetic-op-spacer"></span><span class="arithmetic-divider-line"></span></div>` +
+        `<div class="arithmetic-mul-work-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-work-cells">${mulSumRow}</span></div>`
       : "";
     // Addition/subtraction: carry row at the top above operand A (full column width)
     const topCarryRow = ["+", "-"].includes(operatorRaw)
@@ -2308,6 +2350,7 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
           <div class="arithmetic-row"><span class="arithmetic-operator">${operator}</span><span class="arithmetic-number-cells">${buildArithmeticOperandCells(operandBText, columnCount)}</span></div>
           ${workDivider}
           ${workContainer}
+          ${sumRowMarkup}
           <div class="arithmetic-answer-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-answer-cells">${boxes}</span></div>
         </div>
       </div>
