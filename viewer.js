@@ -1889,9 +1889,14 @@ function buildArithmeticMulWorkContainer(columnCount, { readOnly = false, soluti
     ? solutionRows.map((row) => buildArithmeticMulWorkRow(columnCount, { readOnly, rowData: row })).join("")
     : "";
   const hasRowsClass = rowsMarkup.trim() ? " has-rows" : "";
+  const rowCount = Array.isArray(solutionRows) ? solutionRows.length : 0;
+  // Only show internal divider if there are multiple rows (to avoid duplicate dividers when there's just 1 row)
+  const internalDivider = rowCount > 1
+    ? `<div class="arithmetic-work-divider"><span class="arithmetic-op-spacer"></span><span class="arithmetic-divider-line"></span></div>`
+    : "";
   return `
     <div class="arithmetic-mul-work-container${hasRowsClass}" data-columns="${columnCount}">
-      <div class="arithmetic-work-divider"><span class="arithmetic-op-spacer"></span><span class="arithmetic-divider-line"></span></div>
+      ${internalDivider}
       <div class="arithmetic-mul-work-rows">${rowsMarkup}</div>
       ${addBtn}
     </div>
