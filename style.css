@@ -1454,6 +1454,18 @@ body.modal-open {
   box-shadow: 0 0 0 2px #fbbf24 !important;
 }
 
+.arithmetic-cell.arithmetic-mul-highlight {
+  background: #fef3c7 !important;
+  border-radius: 4px;
+  outline: 2px solid #fbbf24;
+}
+
+.arithmetic-work-cell-wrap[data-mul-cell="work"]:hover {
+  background: #fef9ec;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .arithmetic-add-row-btn:hover {
   background: #dbeafe;
 }

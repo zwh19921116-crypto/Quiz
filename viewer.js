@@ -4460,10 +4460,46 @@ function mountMatrixInteractive(host, app) {
   updateInteractiveDetails(host, app);
 }
 
+function wireMulHighlighting(container) {
+  if (!container) return;
+  const workCells = container.querySelectorAll("[data-mul-cell='work']");
+  workCells.forEach((cell) => {
+    cell.style.cursor = "pointer";
+    cell.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const mulIdx = cell.dataset.mulIdx;
+      const mulDigit = cell.dataset.mulDigit;
+      if (mulIdx === undefined || mulDigit === undefined) return;
+
+      // Clear previous highlights within this container
+      container.querySelectorAll(".arithmetic-mul-highlight").forEach(el => {
+        el.classList.remove("arithmetic-mul-highlight");
+      });
+
+      // Highlight multiplicand digit (operand A) - skip if trailing zero (mulIdx === "-1")
+      if (String(mulIdx) !== "-1") {
+        const operandAContainer = container.querySelector(".arithmetic-number-cells[data-operand='a']");
+        if (operandAContainer) {
+          const cells = Array.from(operandAContainer.querySelectorAll(".arithmetic-cell"));
+          if (cells[Number(mulIdx)]) cells[Number(mulIdx)].classList.add("arithmetic-mul-highlight");
+        }
+      }
+
+      // Highlight multiplier digit (operand B)
+      const operandBContainer = container.querySelector(".arithmetic-number-cells[data-operand='b']");
+      if (operandBContainer) {
+        const cells = Array.from(operandBContainer.querySelectorAll(".arithmetic-cell"));
+        if (cells[Number(mulDigit)]) cells[Number(mulDigit)].classList.add("arithmetic-mul-highlight");
+      }
+
+      // Highlight the clicked cell itself
+      cell.classList.add("arithmetic-mul-highlight");
+    });
+  });
+}
+
 function mountInteractiveApp(host, app) {
   if (!host || !app || !app.type) return;
-
-  if (app.type === "arithmetic") {
     host.innerHTML = `
       <div class="interactive-app-preview"></div>
       <div class="interactive-app-details"></div>
@@ -4471,6 +4507,7 @@ function mountInteractiveApp(host, app) {
     const preview = host.querySelector(".interactive-app-preview");
     updateInteractivePreview(preview, app);
     updateInteractiveDetails(host, app);
+    wireMulHighlighting(preview);
     return;
   }
 
