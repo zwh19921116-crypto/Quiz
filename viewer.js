@@ -1977,14 +1977,17 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
 
   for (let multiplierIndex = multiplierDigits.length - 1; multiplierIndex >= 0; multiplierIndex -= 1) {
     const multiplierDigit = Number.parseInt(multiplierDigits[multiplierIndex], 10) || 0;
-    
-    if (multiplierDigit === 0) {
-      // Skip rows where multiplier digit is 0 (for cleaner teaching display)
-      continue;
-    }
-    
     const shift = (multiplierDigits.length - 1) - multiplierIndex;
     const row = createLongDivisionRow(columns);
+
+    if (multiplierDigit === 0) {
+      // For rows with 0 multiplier, fill with all zeros shifted appropriately
+      for (let zeroIndex = 0; zeroIndex < columns; zeroIndex += 1) {
+        row.work[zeroIndex] = "0";
+      }
+      rows.push(row);
+      continue;
+    }
 
     let carry = 0;
     for (let index = multiplicandDigits.length - 1; index >= 0; index -= 1) {
@@ -2004,6 +2007,14 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
     const leadingCol = columns - 1 - shift - multiplicandDigits.length;
     if (carry > 0 && leadingCol >= 0) {
       row.work[leadingCol] = String(carry).split("").slice(-1)[0];
+    }
+
+    // Fill in trailing zeros for the shift (e.g., 24 × 10 should show 240, not 24)
+    for (let shiftIndex = 0; shiftIndex < shift; shiftIndex += 1) {
+      const zeroCol = columns - 1 - shiftIndex;
+      if (zeroCol >= 0 && row.work[zeroCol] === "") {
+        row.work[zeroCol] = "0";
+      }
     }
 
     rows.push(row);
