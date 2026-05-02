@@ -1977,13 +1977,14 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
 
   for (let multiplierIndex = multiplierDigits.length - 1; multiplierIndex >= 0; multiplierIndex -= 1) {
     const multiplierDigit = Number.parseInt(multiplierDigits[multiplierIndex], 10) || 0;
-    const shift = (multiplierDigits.length - 1) - multiplierIndex;
-    const row = createLongDivisionRow(columns);
-
+    
     if (multiplierDigit === 0) {
       // Skip rows where multiplier digit is 0 (for cleaner teaching display)
       continue;
     }
+    
+    const shift = (multiplierDigits.length - 1) - multiplierIndex;
+    const row = createLongDivisionRow(columns);
 
     let carry = 0;
     for (let index = multiplicandDigits.length - 1; index >= 0; index -= 1) {
