@@ -1,28 +1,13 @@
 {
-  "id": "quiz-4",
+  "id": "quiz-6",
   "title": "long division",
-  "description": "Auto-generated quiz aligned to VCAA style for Prep (Prep).",
+  "description": "Auto-generated quiz aligned to VCAA style for Year 9 (Year 9).",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 3
+    "questionLimit": 4
   },
   "category": "Grade 1",
   "questions": [
-    {
-      "question": "Calculate use short division to calculate 15 / 5.",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "3",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Since 5 x 3 = 15, the quotient is 3.",
-      "solutionAttachments": []
-    },
     {
       "question": "Calculate use long division to divide 36 by 3.",
       "resultType": "short-answer",
@@ -46,6 +31,84 @@
           "operandB": 3,
           "answer": "12",
           "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate use long division to divide 110 by 11.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Long division gives quotient 10 because 11 x 10 = 110 with remainder 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "/",
+          "operandA": 110,
+          "operandB": 11,
+          "answer": "10",
+          "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate 10 x 6.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "60",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Multiply: 10 x 6 = 60.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "x",
+          "operandA": 10,
+          "operandB": 6,
+          "answer": "60",
+          "answerDigits": 2
+        }
+      }
+    },
+    {
+      "question": "Calculate 24 x 10.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "240",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Multiply: 24 x 10 = 240.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "vertical",
+          "operator": "x",
+          "operandA": 24,
+          "operandB": 10,
+          "answer": "240",
+          "answerDigits": 3
         }
       }
     }
