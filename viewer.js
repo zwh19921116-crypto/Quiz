@@ -1863,6 +1863,7 @@ function buildArithmeticMulWorkRow(columnCount, { readOnly = false, rowData = nu
   const count = Math.max(1, Number.parseInt(columnCount, 10) || 1);
   const carryValues = rowData && Array.isArray(rowData.carry) ? rowData.carry : [];
   const workValues = rowData && Array.isArray(rowData.work) ? rowData.work : [];
+  const metadata = rowData && Array.isArray(rowData.metadata) ? rowData.metadata : [];
   const digitBoxes = Array.from({ length: count }, (_, index) => {
     const carryValue = String(carryValues[index] || "").slice(-1);
     const workValue = String(workValues[index] || "").slice(-1);
@@ -1872,8 +1873,12 @@ function buildArithmeticMulWorkRow(columnCount, { readOnly = false, rowData = nu
     const workAttr = readOnly
       ? `value="${escapeHtml(workValue)}" readonly disabled`
       : "value=\"\"";
+    const meta = metadata[index];
+    const dataAttrs = meta && readOnly
+      ? `data-mul-idx="${meta.multiplicandIdx}" data-mul-digit="${meta.multiplierIdx}" data-mul-cell="work"`
+      : "";
     return `
-    <span class="arithmetic-work-cell-wrap">
+    <span class="arithmetic-work-cell-wrap" ${dataAttrs}>
       <input class="arithmetic-work-cell-carry" type="text" inputmode="numeric" maxlength="1" ${carryAttr} autocomplete="off" title="Carry" />
       <input class="arithmetic-work-input" type="text" inputmode="numeric" maxlength="1" ${workAttr} autocomplete="off" />
     </span>
@@ -1979,6 +1984,7 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
     const multiplierDigit = Number.parseInt(multiplierDigits[multiplierIndex], 10) || 0;
     const shift = (multiplierDigits.length - 1) - multiplierIndex;
     const row = createLongDivisionRow(columns);
+    row.metadata = new Array(columns).fill(null); // Track operand indices for each result digit
 
     if (multiplierDigit === 0) {
       // For rows with 0 multiplier, show zeros matching the multiplicand width, shifted appropriately
@@ -1986,6 +1992,8 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
         const zeroCol = columns - 1 - shift - zeroIdx;
         if (zeroCol >= 0) {
           row.work[zeroCol] = "0";
+          // Track: multiplicandIdx, multiplierIdx for highlighting
+          row.metadata[zeroCol] = { multiplicandIdx: zeroIdx, multiplierIdx: multiplierIndex };
         }
       }
       rows.push(row);
@@ -2000,6 +2008,7 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
       if (targetCol < 0) continue;
       const product = (digit * multiplierDigit) + carry;
       row.work[targetCol] = String(product % 10);
+      row.metadata[targetCol] = { multiplicandIdx: index, multiplierIdx: multiplierIndex };
       const nextCarry = Math.floor(product / 10);
       if (nextCarry > 0 && targetCol - 1 >= 0) {
         row.carry[targetCol - 1] = String(nextCarry).slice(-1);
@@ -2349,8 +2358,8 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
         <div class="arithmetic-vertical-stack">
           ${topCarryRow}
           ${mulCarryRow}
-          <div class="arithmetic-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-number-cells">${buildArithmeticOperandCells(operandAText, columnCount)}</span></div>
-          <div class="arithmetic-row"><span class="arithmetic-operator">${operator}</span><span class="arithmetic-number-cells">${buildArithmeticOperandCells(operandBText, columnCount)}</span></div>
+          <div class="arithmetic-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-number-cells" data-operand="a">${buildArithmeticOperandCells(operandAText, columnCount)}</span></div>
+          <div class="arithmetic-row"><span class="arithmetic-operator">${operator}</span><span class="arithmetic-number-cells" data-operand="b">${buildArithmeticOperandCells(operandBText, columnCount)}</span></div>
           ${workDivider}
           ${workContainer}
           ${sumRowMarkup}
@@ -2528,6 +2537,61 @@ function wireArithmeticAnswerInputs() {
       const rowCount = rowsHost ? rowsHost.querySelectorAll(".arithmetic-mul-work-row").length : 0;
       mulContainer.classList.toggle("has-rows", rowCount > 0);
     };
+
+    // Add highlighting for multiplication cells
+    const addMulHighlighting = (workContainer) => {
+      const workCells = workContainer.querySelectorAll("[data-mul-cell='work']");
+      workCells.forEach((cell) => {
+        cell.style.cursor = "pointer";
+        cell.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const mulIdx = cell.dataset.mulIdx;
+          const mulDigit = cell.dataset.mulDigit;
+          if (mulIdx === undefined || mulDigit === undefined) return;
+
+          // Clear previous highlights
+          document.querySelectorAll(".arithmetic-mul-highlight").forEach(el => {
+            el.classList.remove("arithmetic-mul-highlight");
+          });
+
+          // Highlight the multiplicand digit (operand A) - use data attributes to find correct cell
+          const operandAContainer = document.querySelector(".arithmetic-number-cells[data-operand='a']");
+          if (operandAContainer) {
+            const cells = Array.from(operandAContainer.querySelectorAll(".arithmetic-cell"));
+            if (cells[mulIdx]) {
+              cells[mulIdx].classList.add("arithmetic-mul-highlight");
+            }
+          }
+
+          // Highlight the multiplier digit (operand B) - use data attributes to find correct cell
+          const operandBContainer = document.querySelector(".arithmetic-number-cells[data-operand='b']");
+          if (operandBContainer) {
+            const cells = Array.from(operandBContainer.querySelectorAll(".arithmetic-cell"));
+            if (cells[mulDigit]) {
+              cells[mulDigit].classList.add("arithmetic-mul-highlight");
+            }
+          }
+
+          // Highlight the current work cell
+          cell.classList.add("arithmetic-mul-highlight");
+        });
+      });
+    };
+
+    // Apply highlighting to existing rows
+    if (rowsHost) {
+      Array.from(rowsHost.querySelectorAll(".arithmetic-mul-work-row")).forEach(row => {
+        addMulHighlighting(row);
+      });
+    }
+
+    // Wrap the original wireMulWorkRow to also add highlighting
+    const originalWireMulWorkRow = wireMulWorkRow;
+    const enhancedWireMulWorkRow = (row) => {
+      originalWireMulWorkRow(row);
+      addMulHighlighting(row);
+    };
+    wireMulWorkRow = enhancedWireMulWorkRow;
 
     Array.from(mulContainer.querySelectorAll(".arithmetic-mul-work-row")).forEach(wireMulWorkRow);
     syncMulWorkState();
