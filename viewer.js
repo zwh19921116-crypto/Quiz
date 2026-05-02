@@ -2019,6 +2019,7 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
     const leadingCol = columns - 1 - shift - multiplicandDigits.length;
     if (carry > 0 && leadingCol >= 0) {
       row.work[leadingCol] = String(carry).split("").slice(-1)[0];
+      row.metadata[leadingCol] = { multiplicandIdx: multiplicandDigits.length, multiplierIdx: multiplierIndex };
     }
 
     // Fill in trailing zeros for the shift (e.g., 24 × 10 should show 240, not 24)
@@ -2026,6 +2027,8 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
       const zeroCol = columns - 1 - shiftIndex;
       if (zeroCol >= 0 && row.work[zeroCol] === "") {
         row.work[zeroCol] = "0";
+        // Trailing zeros represent the shift from this multiplier digit
+        row.metadata[zeroCol] = { multiplicandIdx: -1, multiplierIdx: multiplierIndex };
       }
     }
 
@@ -2554,16 +2557,18 @@ function wireArithmeticAnswerInputs() {
             el.classList.remove("arithmetic-mul-highlight");
           });
 
-          // Highlight the multiplicand digit (operand A) - use data attributes to find correct cell
-          const operandAContainer = document.querySelector(".arithmetic-number-cells[data-operand='a']");
-          if (operandAContainer) {
-            const cells = Array.from(operandAContainer.querySelectorAll(".arithmetic-cell"));
-            if (cells[mulIdx]) {
-              cells[mulIdx].classList.add("arithmetic-mul-highlight");
+          // Highlight the multiplicand digit (operand A) - only if not a shift zero
+          if (Number(mulIdx) !== -1) {
+            const operandAContainer = document.querySelector(".arithmetic-number-cells[data-operand='a']");
+            if (operandAContainer) {
+              const cells = Array.from(operandAContainer.querySelectorAll(".arithmetic-cell"));
+              if (cells[mulIdx]) {
+                cells[mulIdx].classList.add("arithmetic-mul-highlight");
+              }
             }
           }
 
-          // Highlight the multiplier digit (operand B) - use data attributes to find correct cell
+          // Highlight the multiplier digit (operand B)
           const operandBContainer = document.querySelector(".arithmetic-number-cells[data-operand='b']");
           if (operandBContainer) {
             const cells = Array.from(operandBContainer.querySelectorAll(".arithmetic-cell"));
@@ -2578,20 +2583,21 @@ function wireArithmeticAnswerInputs() {
       });
     };
 
-    // Apply highlighting to existing rows
+    // Apply highlighting to existing rows (including solution rows)
     if (rowsHost) {
       Array.from(rowsHost.querySelectorAll(".arithmetic-mul-work-row")).forEach(row => {
         addMulHighlighting(row);
       });
     }
 
-    // Wrap the original wireMulWorkRow to also add highlighting
+    // Wrap the original wireMulWorkRow to also add highlighting to new rows
     const originalWireMulWorkRow = wireMulWorkRow;
-    const enhancedWireMulWorkRow = (row) => {
-      originalWireMulWorkRow(row);
+    wireMulWorkRow = (row) => {
+      if (typeof originalWireMulWorkRow === 'function') {
+        originalWireMulWorkRow(row);
+      }
       addMulHighlighting(row);
     };
-    wireMulWorkRow = enhancedWireMulWorkRow;
 
     Array.from(mulContainer.querySelectorAll(".arithmetic-mul-work-row")).forEach(wireMulWorkRow);
     syncMulWorkState();
