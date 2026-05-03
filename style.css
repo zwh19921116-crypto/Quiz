@@ -1460,6 +1460,19 @@ body.modal-open {
   outline: 2px solid #fbbf24;
 }
 
+.arithmetic-mul-circle {
+  outline: 2.5px solid #ef4444 !important;
+  outline-offset: 2px;
+  border-radius: 50% !important;
+  box-shadow: none !important;
+}
+
+.arithmetic-cell.arithmetic-mul-circle {
+  outline: 2.5px solid #ef4444 !important;
+  outline-offset: 2px;
+  border-radius: 50% !important;
+}
+
 .arithmetic-work-cell-wrap[data-mul-cell="work"]:hover {
   background: #fef9ec;
   border-radius: 4px;

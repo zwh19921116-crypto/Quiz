@@ -1876,7 +1876,7 @@ function buildArithmeticMulWorkRow(columnCount, { readOnly = false, rowData = nu
       : "value=\"\"";
     const meta = metadata[index];
     const dataAttrs = meta && readOnly
-      ? `data-mul-idx="${meta.multiplicandIdx}" data-mul-digit="${meta.multiplierIdx}" data-mul-cell="work"`
+      ? `data-mul-idx="${meta.multiplicandIdx}" data-mul-digit="${meta.multiplierIdx}" data-mul-a-cell="${meta.aCellIdx != null ? meta.aCellIdx : -1}" data-mul-b-cell="${meta.bCellIdx != null ? meta.bCellIdx : -1}" data-mul-a-val="${meta.aVal != null ? meta.aVal : ""}" data-mul-b-val="${meta.bVal != null ? meta.bVal : ""}" data-mul-cell="work"`
       : "";
     return `
     <span class="arithmetic-work-cell-wrap" ${dataAttrs}>
@@ -1989,12 +1989,16 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
 
     if (multiplierDigit === 0) {
       // For rows with 0 multiplier, show zeros matching the multiplicand width, shifted appropriately
+      const bCellIdx0 = (columns - multiplierDigits.length) + multiplierIndex;
       for (let zeroIdx = 0; zeroIdx < multiplicandDigits.length; zeroIdx += 1) {
         const zeroCol = columns - 1 - shift - zeroIdx;
         if (zeroCol >= 0) {
           row.work[zeroCol] = "0";
+          const rawAIdx = multiplicandDigits.length - 1 - zeroIdx;
+          const aCellIdx0 = (columns - multiplicandDigits.length) + rawAIdx;
+          const aVal0 = Number.parseInt(multiplicandDigits[rawAIdx], 10) || 0;
           // Track: multiplicandIdx, multiplierIdx for highlighting
-          row.metadata[zeroCol] = { multiplicandIdx: zeroIdx, multiplierIdx: multiplierIndex };
+          row.metadata[zeroCol] = { multiplicandIdx: zeroIdx, multiplierIdx: multiplierIndex, aVal: aVal0, bVal: multiplierDigit, aCellIdx: aCellIdx0, bCellIdx: bCellIdx0 };
         }
       }
       rows.push(row);
@@ -2009,7 +2013,9 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
       if (targetCol < 0) continue;
       const product = (digit * multiplierDigit) + carry;
       row.work[targetCol] = String(product % 10);
-      row.metadata[targetCol] = { multiplicandIdx: index, multiplierIdx: multiplierIndex };
+      const aCellIdx = (columns - multiplicandDigits.length) + index;
+      const bCellIdx = (columns - multiplierDigits.length) + multiplierIndex;
+      row.metadata[targetCol] = { multiplicandIdx: index, multiplierIdx: multiplierIndex, aVal: digit, bVal: multiplierDigit, aCellIdx, bCellIdx };
       const nextCarry = Math.floor(product / 10);
       if (nextCarry > 0 && targetCol - 1 >= 0) {
         row.carry[targetCol - 1] = String(nextCarry).slice(-1);
@@ -2020,7 +2026,8 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
     const leadingCol = columns - 1 - shift - multiplicandDigits.length;
     if (carry > 0 && leadingCol >= 0) {
       row.work[leadingCol] = String(carry).split("").slice(-1)[0];
-      row.metadata[leadingCol] = { multiplicandIdx: multiplicandDigits.length, multiplierIdx: multiplierIndex };
+      const leadBCellIdx = (columns - multiplierDigits.length) + multiplierIndex;
+      row.metadata[leadingCol] = { multiplicandIdx: multiplicandDigits.length, multiplierIdx: multiplierIndex, aVal: null, bVal: multiplierDigit, aCellIdx: -1, bCellIdx: leadBCellIdx };
     }
 
     // Fill in trailing zeros for the shift (e.g., 24 × 10 should show 240, not 24)
@@ -2029,7 +2036,7 @@ function buildMultiplicationSolutionRows(operandAText, operandBText, columnCount
       if (zeroCol >= 0 && row.work[zeroCol] === "") {
         row.work[zeroCol] = "0";
         // Trailing zeros represent the shift from this multiplier digit
-        row.metadata[zeroCol] = { multiplicandIdx: -1, multiplierIdx: multiplierIndex };
+        row.metadata[zeroCol] = { multiplicandIdx: -1, multiplierIdx: multiplierIndex, aVal: null, bVal: null, aCellIdx: -1, bCellIdx: -1 };
       }
     }
 
@@ -2581,8 +2588,8 @@ function wireArithmeticAnswerInputs() {
           // Highlight the current work cell
           cell.classList.add("arithmetic-mul-highlight");
         });
-        cell.addEventListener("mouseenter", () => showMulTooltip(cell, document));
-        cell.addEventListener("mouseleave", hideMulTooltip);
+        cell.addEventListener("mouseenter", () => { applyMulCircle(cell, mulContainer, true); showMulTooltip(cell); });
+        cell.addEventListener("mouseleave", () => { applyMulCircle(cell, mulContainer, false); hideMulTooltip(); });
       });
     };
 
@@ -4465,34 +4472,18 @@ function getMulTooltipEl() {
   return tip;
 }
 
-function showMulTooltip(cell, root) {
-  const mulIdx = cell.dataset.mulIdx;
-  const mulDigit = cell.dataset.mulDigit;
-  if (mulIdx === undefined || mulDigit === undefined) return;
-  const searchRoot = root || document;
+function showMulTooltip(cell) {
+  const aVal = cell.dataset.mulAVal;
+  const bVal = cell.dataset.mulBVal;
   let text;
-  if (String(mulIdx) === "-1") {
-    const operandBContainer = searchRoot.querySelector(".arithmetic-number-cells[data-operand='b']");
-    let bDigit = "";
-    if (operandBContainer) {
-      const bCells = Array.from(operandBContainer.querySelectorAll(".arithmetic-cell"));
-      bDigit = bCells[Number(mulDigit)] ? bCells[Number(mulDigit)].textContent.trim() : "";
-    }
-    text = `Place value zero (× ${bDigit})`;
+  if (aVal === "" || aVal === undefined || bVal === "" || bVal === undefined) {
+    // trailing place-value zero — find bVal from bCellIdx
+    const bCellIdx = Number(cell.dataset.mulBCell);
+    if (bCellIdx < 0) return;
+    text = "Place value zero (shift)";
   } else {
-    const operandAContainer = searchRoot.querySelector(".arithmetic-number-cells[data-operand='a']");
-    const operandBContainer = searchRoot.querySelector(".arithmetic-number-cells[data-operand='b']");
-    let aDigit = "", bDigit = "";
-    if (operandAContainer) {
-      const aCells = Array.from(operandAContainer.querySelectorAll(".arithmetic-cell"));
-      aDigit = aCells[Number(mulIdx)] ? aCells[Number(mulIdx)].textContent.trim() : "";
-    }
-    if (operandBContainer) {
-      const bCells = Array.from(operandBContainer.querySelectorAll(".arithmetic-cell"));
-      bDigit = bCells[Number(mulDigit)] ? bCells[Number(mulDigit)].textContent.trim() : "";
-    }
-    const product = (Number(aDigit) || 0) * (Number(bDigit) || 0);
-    text = `${aDigit} × ${bDigit} = ${product}`;
+    const product = Number(aVal) * Number(bVal);
+    text = `${aVal} × ${bVal} = ${product}`;
   }
   const tip = getMulTooltipEl();
   tip.textContent = text;
@@ -4512,6 +4503,31 @@ function showMulTooltip(cell, root) {
 function hideMulTooltip() {
   const tip = document.getElementById("mul-hover-tip");
   if (tip) tip.style.display = "none";
+}
+
+function applyMulCircle(cell, container, add) {
+  if (add) {
+    const aCellIdx = Number(cell.dataset.mulACell);
+    const bCellIdx = Number(cell.dataset.mulBCell);
+    if (aCellIdx >= 0) {
+      const operandAEl = container.querySelector(".arithmetic-number-cells[data-operand='a']");
+      if (operandAEl) {
+        const cells = Array.from(operandAEl.querySelectorAll(".arithmetic-cell"));
+        if (cells[aCellIdx]) cells[aCellIdx].classList.add("arithmetic-mul-circle");
+      }
+    }
+    if (bCellIdx >= 0) {
+      const operandBEl = container.querySelector(".arithmetic-number-cells[data-operand='b']");
+      if (operandBEl) {
+        const cells = Array.from(operandBEl.querySelectorAll(".arithmetic-cell"));
+        if (cells[bCellIdx]) cells[bCellIdx].classList.add("arithmetic-mul-circle");
+      }
+    }
+    const workInput = cell.querySelector(".arithmetic-work-input");
+    if (workInput) workInput.classList.add("arithmetic-mul-circle");
+  } else {
+    container.querySelectorAll(".arithmetic-mul-circle").forEach(el => el.classList.remove("arithmetic-mul-circle"));
+  }
 }
 
 function wireMulHighlighting(container) {
@@ -4549,8 +4565,8 @@ function wireMulHighlighting(container) {
       // Highlight the clicked cell itself
       cell.classList.add("arithmetic-mul-highlight");
     });
-    cell.addEventListener("mouseenter", () => showMulTooltip(cell, container));
-    cell.addEventListener("mouseleave", hideMulTooltip);
+    cell.addEventListener("mouseenter", () => { applyMulCircle(cell, container, true); showMulTooltip(cell); });
+    cell.addEventListener("mouseleave", () => { applyMulCircle(cell, container, false); hideMulTooltip(); });
   });
 }
 
