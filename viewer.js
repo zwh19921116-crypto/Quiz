@@ -1531,6 +1531,19 @@ function formatFractionDisplay(fraction) {
   return `${fraction.numerator}/${fraction.denominator}`;
 }
 
+function fractionHtmlStacked(fraction) {
+  if (!fraction) return "<span>?</span>";
+  const num = escapeHtml(String(fraction.numerator));
+  if (fraction.denominator === 1) return `<span>${num}</span>`;
+  const den = escapeHtml(String(fraction.denominator));
+  return `<span class="frac"><span class="frac-num">${num}</span><span class="frac-den">${den}</span></span>`;
+}
+
+function renderQuestionText(text) {
+  // Escape HTML first, then replace digit/digit patterns with stacked fraction HTML
+  return escapeHtml(String(text)).replace(/(\d+)\/(\d+)/g, '<span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span>');
+}
+
 function lcmFraction(a, b) {
   const x = Math.abs(Math.trunc(Number(a)));
   const y = Math.abs(Math.trunc(Number(b)));
@@ -1623,14 +1636,14 @@ function buildFractionsMarkup(config) {
   return `
     <div class="simple-card">
       <p class="bar-chart-title">${title}</p>
-      <p>${escapeHtml(formatFractionDisplay(summary.fractionA))} ${summary.symbol} ${escapeHtml(formatFractionDisplay(summary.fractionB))} = ${escapeHtml(formatFractionDisplay(summary.result))}</p>
+      <p class="fraction-equation">${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${fractionHtmlStacked(summary.result)}</p>
       <div class="fraction-answer-panel" data-fraction-correct-num="${summary.result.numerator}" data-fraction-correct-den="${summary.result.denominator}">
         <label>Numerator <input type="number" step="1" data-role="fraction-answer-num" /></label>
         <label>Denominator <input type="number" step="1" data-role="fraction-answer-den" /></label>
         <button type="button" class="btn secondary" data-role="fraction-check-btn">Check</button>
         <span class="helper-text" data-role="fraction-feedback"></span>
       </div>
-      <p class="helper-text">Result (simplified): ${escapeHtml(formatFractionDisplay(summary.result))}</p>
+      <p class="helper-text">Result (simplified): ${fractionHtmlStacked(summary.result)}</p>
       <p class="helper-text">Why LCM/HCF: use LCM to get a common denominator for add/subtract, and use HCF to simplify the final fraction.</p>
       <ol class="helper-text fraction-step-list">${stepMarkup}</ol>
     </div>
@@ -5133,7 +5146,7 @@ function renderQuestion() {
   quizContainer.innerHTML = `
     <div class="question-card viewer-question">
       <p class="question-label">Question ${currentIndex + 1}</p>
-      <h2>${escapeHtml(question.question)}</h2>
+      <h2>${renderQuestionText(question.question)}</h2>
       ${imageMarkup}
       ${renderAnswerInput(question)}
     </div>
