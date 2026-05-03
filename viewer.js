@@ -5011,9 +5011,21 @@ function renderAnswerInput(question) {
     return buildArithmeticWorkspaceMarkup(config, { readOnly: false, revealAnswer: false });
   }
 
+  if (question.interactiveApp && question.interactiveApp.type === "fractions") {
+    return `
+      <div class="fraction-answer-panel">
+        <div class="fraction-input-widget">
+          <input type="number" step="1" placeholder="?" data-role="fraction-answer-num" aria-label="Numerator" />
+          <div class="fraction-input-line"></div>
+          <input type="number" step="1" placeholder="?" data-role="fraction-answer-den" aria-label="Denominator" />
+        </div>
+      </div>
+    `;
+  }
+
   // Interactive apps should only appear in the solution modal, not in the main question
   // So we skip them here and show the regular answer input instead
-  
+
   if (question.resultType === "short-answer" || question.resultType === "plot") {
     return `
       <div class="short-answer-box">
@@ -5090,7 +5102,7 @@ function wireOptionSelectionUI(question) {
 }
 
 function getAnswerTextInputs(scope = document) {
-  return Array.from(scope.querySelectorAll("#shortAnswerInput, .arithmetic-single-input, .arithmetic-digit-input"))
+  return Array.from(scope.querySelectorAll("#shortAnswerInput, .arithmetic-single-input, .arithmetic-digit-input, [data-role='fraction-answer-num'], [data-role='fraction-answer-den']"))
     .filter((node) => node instanceof HTMLInputElement && !node.disabled);
 }
 
@@ -5178,6 +5190,15 @@ function collectUserAnswer(question) {
   if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
     return cartesianPlotUserPoints.slice();
   }
+  if (question.interactiveApp && question.interactiveApp.type === "fractions") {
+    const container = document.getElementById("quizContainer");
+    const numInput = container && container.querySelector("[data-role='fraction-answer-num']");
+    const denInput = container && container.querySelector("[data-role='fraction-answer-den']");
+    const n = numInput ? String(numInput.value).trim() : "";
+    const d = denInput ? String(denInput.value).trim() : "";
+    if (n === "" || d === "") return "";
+    return d === "1" ? n : `${n}/${d}`;
+  }
   if (question.resultType === "short-answer" || question.resultType === "plot") {
     const input = document.getElementById("shortAnswerInput");
     return input ? input.value.trim() : "";
@@ -5193,6 +5214,21 @@ function collectUserAnswer(question) {
 }
 
 function answersMatch(question, userAnswer) {
+  if (question.interactiveApp && question.interactiveApp.type === "fractions") {
+    // Compare as equivalent fractions (cross-multiply)
+    const parseFrac = (s) => {
+      const str = String(s || "").trim();
+      const parts = str.split("/");
+      if (parts.length === 2) return { n: Number(parts[0]), d: Number(parts[1]) };
+      if (parts.length === 1 && str !== "") return { n: Number(parts[0]), d: 1 };
+      return null;
+    };
+    const user = parseFrac(userAnswer);
+    const expected = getExpectedAnswers(question)[0];
+    const correct = parseFrac(expected);
+    if (!user || !correct || !Number.isFinite(user.n) || !Number.isFinite(user.d) || user.d === 0) return false;
+    return (user.n * correct.d) === (correct.n * user.d);
+  }
   if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
     const config = question.interactiveApp.config || {};
     const answerPoints = Array.isArray(config.points) ? config.points : [];
@@ -5227,6 +5263,13 @@ function answersMatch(question, userAnswer) {
 }
 
 function validateAnswer(question, userAnswer) {
+  if (question.interactiveApp && question.interactiveApp.type === "fractions") {
+    const str = String(userAnswer || "").trim();
+    if (str === "") return false;
+    const parts = str.split("/");
+    if (parts.length === 2) return Number.isFinite(Number(parts[0])) && Number.isFinite(Number(parts[1])) && Number(parts[1]) !== 0;
+    return Number.isFinite(Number(str));
+  }
   if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
     return String(userAnswer || "").trim() !== "";
   }
