@@ -1,0 +1,222 @@
+{
+  "id": "quiz-1",
+  "title": "Fractions",
+  "description": "Auto-generated quiz aligned to VCAA style for Prep (Prep).",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 7
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "Calculate 1/7 + 5/7.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6/7",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use a common denominator: (1 x 7 + 5 x 7) / (7 x 7) = 42/49. Simplify to 6/7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "fractions",
+        "config": {
+          "title": "Fraction Operations",
+          "operation": "add",
+          "fractionA": {
+            "numerator": 1,
+            "denominator": 7
+          },
+          "fractionB": {
+            "numerator": 5,
+            "denominator": 7
+          }
+        }
+      }
+    },
+    {
+      "question": "Calculate 3/7 - 3/4.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "-9/28",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use a common denominator: (3 x 4 - 3 x 7) / (7 x 4) = -9/28. Simplify to -9/28.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "fractions",
+        "config": {
+          "title": "Fraction Operations",
+          "operation": "subtract",
+          "fractionA": {
+            "numerator": 3,
+            "denominator": 7
+          },
+          "fractionB": {
+            "numerator": 3,
+            "denominator": 4
+          }
+        }
+      }
+    },
+    {
+      "question": "Calculate 3/1 x 5/8.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "15/8",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Multiply numerators and denominators: (3 x 5) / (1 x 8) = 15/8. Simplify to 15/8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "fractions",
+        "config": {
+          "title": "Fraction Operations",
+          "operation": "multiply",
+          "fractionA": {
+            "numerator": 3,
+            "denominator": 1
+          },
+          "fractionB": {
+            "numerator": 5,
+            "denominator": 8
+          }
+        }
+      }
+    },
+    {
+      "question": "Calculate 6/5 / 2/1.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3/5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Divide by multiplying by the reciprocal: 6/5 x 1/2 = 6/10. Simplify to 3/5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "fractions",
+        "config": {
+          "title": "Fraction Operations",
+          "operation": "divide",
+          "fractionA": {
+            "numerator": 6,
+            "denominator": 5
+          },
+          "fractionB": {
+            "numerator": 2,
+            "denominator": 1
+          }
+        }
+      }
+    },
+    {
+      "question": "Calculate 2/7 / 2/5.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5/7",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Divide by multiplying by the reciprocal: 2/7 x 5/2 = 10/14. Simplify to 5/7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "fractions",
+        "config": {
+          "title": "Fraction Operations",
+          "operation": "divide",
+          "fractionA": {
+            "numerator": 2,
+            "denominator": 7
+          },
+          "fractionB": {
+            "numerator": 2,
+            "denominator": 5
+          }
+        }
+      }
+    },
+    {
+      "question": "Calculate 3/4 - 1/1.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "-1/4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use a common denominator: (3 x 1 - 1 x 4) / (4 x 1) = -1/4. Simplify to -1/4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "fractions",
+        "config": {
+          "title": "Fraction Operations",
+          "operation": "subtract",
+          "fractionA": {
+            "numerator": 3,
+            "denominator": 4
+          },
+          "fractionB": {
+            "numerator": 1,
+            "denominator": 1
+          }
+        }
+      }
+    },
+    {
+      "question": "Calculate 1/3 + 2/3.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use a common denominator: (1 x 3 + 2 x 3) / (3 x 3) = 9/9. Simplify to 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "fractions",
+        "config": {
+          "title": "Fraction Operations",
+          "operation": "add",
+          "fractionA": {
+            "numerator": 1,
+            "denominator": 3
+          },
+          "fractionB": {
+            "numerator": 2,
+            "denominator": 3
+          }
+        }
+      }
+    }
+  ]
+}
