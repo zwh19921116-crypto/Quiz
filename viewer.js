@@ -1847,6 +1847,56 @@ function buildArithmeticAnswerBoxesWithCornerCarry(answerText, { readOnly = fals
   return boxes.join("");
 }
 
+function computeMultiplicationColumnSums(solutionRows, columnCount) {
+  const count = Math.max(1, Number.parseInt(columnCount, 10) || 1);
+  const rows = Array.isArray(solutionRows) ? solutionRows : [];
+  const sums = new Array(count).fill(0);
+  const colAddends = Array.from({ length: count }, () => []);
+  const colCarryIn = new Array(count).fill(0);
+  let carry = 0;
+
+  for (let col = count - 1; col >= 0; col -= 1) {
+    colCarryIn[col] = carry;
+    let colSum = carry;
+    for (let rowIdx = 0; rowIdx < rows.length; rowIdx += 1) {
+      const row = rows[rowIdx];
+      const digit = Number.parseInt(row && row.work ? row.work[col] : "", 10) || 0;
+      colAddends[col].push(digit);
+      colSum += digit;
+    }
+    sums[col] = colSum % 10;
+    carry = Math.floor(colSum / 10);
+  }
+
+  return { sums, colAddends, colCarryIn };
+}
+
+function buildMultiplicationAnswerBoxesWithOrigins(answerText, solutionRows, columnCount, { readOnly = false } = {}) {
+  const cleaned = String(answerText || "").trim();
+  const requiredDigits = Math.max(1, Number.parseInt(columnCount, 10) || 1);
+  const inferredDigits = Math.max(1, cleaned.replace(/[^0-9-]/g, "").length || cleaned.length || 1);
+  const digits = Math.max(requiredDigits, inferredDigits, 1);
+  const chars = splitArithmeticDigits(cleaned, digits);
+  const { colAddends, colCarryIn } = computeMultiplicationColumnSums(solutionRows, digits);
+
+  const boxes = [];
+  for (let index = 0; index < digits; index += 1) {
+    const value = chars[index] || "";
+    const answerAttrs = readOnly
+      ? `value="${escapeHtml(value)}" readonly disabled`
+      : "value=\"\"";
+    const addendsJson = escapeHtml(JSON.stringify(colAddends[index] || []));
+    const carryIn = Number(colCarryIn[index]) || 0;
+    boxes.push(`
+      <span class="arithmetic-answer-cell-wrap arithmetic-sum-cell" data-sum-col="${index}" data-sum-addends="${addendsJson}" data-sum-carry="${carryIn}">
+        <input class="arithmetic-corner-carry arithmetic-corner-carry--decor" type="text" inputmode="numeric" maxlength="1" value="" readonly disabled tabindex="-1" aria-hidden="true" autocomplete="off" />
+        <input class="arithmetic-digit-input" type="text" inputmode="numeric" maxlength="1" ${answerAttrs} data-index="${index}" autocomplete="off" />
+      </span>
+    `);
+  }
+  return boxes.join("");
+}
+
 function buildArithmeticCarryBoxes(columns, { readOnly = false, values = [] } = {}) {
   const count = Math.max(1, Number.parseInt(columns, 10) || 1);
   const boxes = [];
@@ -2052,24 +2102,7 @@ function buildMultiplicationSumRow(solutionRows, columnCount) {
     return "";
   }
 
-  // Add up all the partial products, tracking per-column addends and carries
-  const sums = new Array(count).fill(0);
-  const colAddends = Array.from({ length: count }, () => []);
-  const colCarryIn = new Array(count).fill(0);
-  let carry = 0;
-
-  for (let col = count - 1; col >= 0; col -= 1) {
-    colCarryIn[col] = carry;
-    let colSum = carry;
-    for (let rowIdx = 0; rowIdx < solutionRows.length; rowIdx += 1) {
-      const row = solutionRows[rowIdx];
-      const digit = Number.parseInt(row.work[col], 10) || 0;
-      colAddends[col].push(digit);
-      colSum += digit;
-    }
-    sums[col] = colSum % 10;
-    carry = Math.floor(colSum / 10);
-  }
+  const { sums, colAddends, colCarryIn } = computeMultiplicationColumnSums(solutionRows, count);
 
   // Build the display cells
   const digitBoxes = Array.from({ length: count }, (_, index) => {
@@ -2296,7 +2329,7 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
       ? Math.max(baseColumns + 1, answerLen)
       : Math.max(baseColumns, answerLen);
 
-  const boxes = layout === "vertical"
+  let boxes = layout === "vertical"
     ? isMultiplication
       ? buildArithmeticAnswerBoxesWithCornerCarry(answerText, { readOnly, minDigits: columnCount })
       : buildArithmeticAnswerBoxes(answerText, { readOnly, minDigits: columnCount })
@@ -2349,13 +2382,16 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
     const mulSolutionRows = revealAnswer && isMultiplication
       ? buildMultiplicationSolutionRows(operandAText, operandBText, columnCount)
       : [];
+    if (revealAnswer && isMultiplication) {
+      boxes = buildMultiplicationAnswerBoxesWithOrigins(answerText, mulSolutionRows, columnCount, { readOnly });
+    }
     const mulSumRow = revealAnswer && isMultiplication && Array.isArray(mulSolutionRows) && mulSolutionRows.length > 0
       ? buildMultiplicationSumRow(mulSolutionRows, columnCount)
       : null;
     const workContainer = isMultiplication
       ? buildArithmeticMulWorkContainer(columnCount, { readOnly, solutionRows: mulSolutionRows })
       : "";
-    const sumRowMarkup = mulSumRow
+    const sumRowMarkup = mulSumRow && !readOnly
       ? `<div class="arithmetic-work-divider"><span class="arithmetic-op-spacer"></span><span class="arithmetic-divider-line"></span></div>` +
         `<div class="arithmetic-mul-work-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-work-cells">${mulSumRow}</span></div>`
       : "";
@@ -4515,7 +4551,7 @@ function hideMulTooltip() {
 function wireMulSumHover(container) {
   if (!container) return;
   container.querySelectorAll(".arithmetic-sum-cell[data-sum-col]").forEach((sumCell) => {
-    sumCell.style.cursor = "default";
+    sumCell.style.cursor = "pointer";
     sumCell.addEventListener("mouseenter", () => {
       const col = Number(sumCell.dataset.sumCol);
       let addends;
@@ -4528,8 +4564,10 @@ function wireMulSumHover(container) {
         if (inp) inp.classList.add("arithmetic-mul-circle");
       });
 
+      const resultInput = sumCell.querySelector(".arithmetic-work-input, .arithmetic-digit-input");
+      if (resultInput) resultInput.classList.add("arithmetic-mul-circle");
+
       // Build tooltip: e.g. "7 + 4 = 11" or "7 + 4 + 1 (carry) = 12"
-      const nonZeroAddends = addends.filter(v => v !== 0);
       let parts = [...addends.map(String)];
       if (carryIn > 0) parts.push(`${carryIn} (carry)`);
       const total = addends.reduce((a, b) => a + b, 0) + carryIn;
