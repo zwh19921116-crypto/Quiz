@@ -2554,7 +2554,13 @@ const AUTO_CREATE_SUBCATEGORY_OPTIONS = {
     { value: "division-short", label: "Division (Short)" },
     { value: "division-long", label: "Division (Long)" }
   ],
-  "fractions": [{ value: "operation-result", label: "Operation Result" }],
+  "fractions": [
+    { value: "fraction-addition", label: "Addition (+)" },
+    { value: "fraction-subtraction", label: "Subtraction (-)" },
+    { value: "fraction-multiplication", label: "Multiplication (x)" },
+    { value: "fraction-division", label: "Division (/)" },
+    { value: "operation-result", label: "Mixed Operation (Random)" }
+  ],
   "network-graph": [{ value: "node-count", label: "Node Count" }],
   "matrix": [{ value: "matrix-a-dim", label: "Matrix A Dimensions" }],
   "stem-and-leaf": [{ value: "value-count", label: "Value Count" }],
@@ -2592,15 +2598,18 @@ function updateAutoCreateCommandWordControl() {
 
   const category = String(categorySelect.value || "").trim().toLowerCase();
   const isArithmetic = category === "arithmetic";
+  const isFractions = category === "fractions";
 
-  if (isArithmetic) {
+  if (isArithmetic || isFractions) {
     const current = normalizeCommandWordChoice(commandWordSelect.value || "");
     if (current !== "calculate") {
       commandWordSelect.dataset.previousChoice = current;
     }
     commandWordSelect.value = "calculate";
     commandWordSelect.disabled = true;
-    commandWordSelect.title = "Arithmetic questions always use Calculate.";
+    commandWordSelect.title = isArithmetic
+      ? "Arithmetic questions always use Calculate."
+      : "Fraction questions always use Calculate.";
     return;
   }
 
@@ -2626,7 +2635,7 @@ function normalizeCommandWordChoice(value) {
 
 function pickCommandWordFromChoice(choice, { resultType = "", index = 0, category = "" } = {}) {
   const normalizedCategory = String(category || "").trim().toLowerCase();
-  if (normalizedCategory === "arithmetic") {
+  if (normalizedCategory === "arithmetic" || normalizedCategory === "fractions") {
     return "calculate";
   }
 
@@ -3561,6 +3570,101 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
   return null;
 }
 
+function resolveFractionRanges(normalizedDifficulty, generationOptions = {}) {
+  const defaultRanges = normalizedDifficulty === "hard"
+    ? { numerator: [2, 18], denominator: [3, 20] }
+    : normalizedDifficulty === "medium"
+      ? { numerator: [1, 12], denominator: [2, 14] }
+      : { numerator: [1, 8], denominator: [2, 10] };
+
+  const yearLevel = deriveYearLevelFromGenerationOptions(generationOptions);
+  if (yearLevel === null) return defaultRanges;
+  if (yearLevel <= 2) return { numerator: [1, 6], denominator: [2, 8] };
+  if (yearLevel <= 4) return { numerator: [1, 9], denominator: [2, 12] };
+  return defaultRanges;
+}
+
+function randomFractionFromRange(range) {
+  const numerator = randomIntBetween(range.numerator[0], range.numerator[1]);
+  const denominator = randomIntBetween(range.denominator[0], range.denominator[1]);
+  const simplified = simplifyFraction(numerator, denominator);
+  return simplified || { numerator: 1, denominator: 2 };
+}
+
+function buildAutoFractionsPayload(subcategory, difficulty, generationOptions = {}) {
+  const normalizedSubcategory = String(subcategory || "operation-result").trim().toLowerCase();
+  const normalizedDifficulty = String(difficulty || "easy").trim().toLowerCase();
+  const range = resolveFractionRanges(normalizedDifficulty, generationOptions);
+
+  const operation = normalizedSubcategory === "fraction-addition"
+    ? "add"
+    : normalizedSubcategory === "fraction-subtraction"
+      ? "subtract"
+      : normalizedSubcategory === "fraction-multiplication"
+        ? "multiply"
+        : normalizedSubcategory === "fraction-division"
+          ? "divide"
+          : pickRandomItem(["add", "subtract", "multiply", "divide"]) || "add";
+
+  const a = randomFractionFromRange(range);
+  let b = randomFractionFromRange(range);
+  if (operation === "divide") {
+    let attempts = 0;
+    while (b.numerator === 0 && attempts < 8) {
+      b = randomFractionFromRange(range);
+      attempts += 1;
+    }
+    if (b.numerator === 0) b = { numerator: 1, denominator: 2 };
+  }
+
+  const symbols = {
+    add: "+",
+    subtract: "-",
+    multiply: "x",
+    divide: "/"
+  };
+
+  let rawN = 0;
+  let rawD = 1;
+  let solution = "";
+
+  if (operation === "add") {
+    rawN = (a.numerator * b.denominator) + (b.numerator * a.denominator);
+    rawD = a.denominator * b.denominator;
+    solution = `Use a common denominator: (${a.numerator} x ${b.denominator} + ${b.numerator} x ${a.denominator}) / (${a.denominator} x ${b.denominator}) = ${rawN}/${rawD}.`;
+  } else if (operation === "subtract") {
+    rawN = (a.numerator * b.denominator) - (b.numerator * a.denominator);
+    rawD = a.denominator * b.denominator;
+    solution = `Use a common denominator: (${a.numerator} x ${b.denominator} - ${b.numerator} x ${a.denominator}) / (${a.denominator} x ${b.denominator}) = ${rawN}/${rawD}.`;
+  } else if (operation === "multiply") {
+    rawN = a.numerator * b.numerator;
+    rawD = a.denominator * b.denominator;
+    solution = `Multiply numerators and denominators: (${a.numerator} x ${b.numerator}) / (${a.denominator} x ${b.denominator}) = ${rawN}/${rawD}.`;
+  } else {
+    rawN = a.numerator * b.denominator;
+    rawD = a.denominator * b.numerator;
+    solution = `Divide by multiplying by the reciprocal: ${a.numerator}/${a.denominator} x ${b.denominator}/${b.numerator} = ${rawN}/${rawD}.`;
+  }
+
+  const simplified = simplifyFraction(rawN, rawD) || { numerator: rawN, denominator: rawD };
+  const simplifiedText = formatFractionDisplay(simplified);
+
+  return {
+    question: `Calculate ${a.numerator}/${a.denominator} ${symbols[operation]} ${b.numerator}/${b.denominator}.`,
+    solution: `${solution} Simplify to ${simplifiedText}.`,
+    correctAnswer: simplifiedText,
+    interactiveApp: {
+      type: "fractions",
+      config: {
+        title: "Fraction Operations",
+        operation,
+        fractionA: { numerator: a.numerator, denominator: a.denominator },
+        fractionB: { numerator: b.numerator, denominator: b.denominator }
+      }
+    }
+  };
+}
+
 function buildAutoPayloadForCategory(category, subcategory, difficulty, resultTypeChoice = "auto", generationOptions = {}) {
   const appType = String(category || "cartesian-plane").trim();
   const desired = String(resultTypeChoice || "auto").trim().toLowerCase();
@@ -3579,6 +3683,24 @@ function buildAutoPayloadForCategory(category, subcategory, difficulty, resultTy
   }
   if (appType === "arithmetic") {
     const base = buildAutoArithmeticPayload(subcategory, difficulty, generationOptions);
+    if (!base) return null;
+    const defaultResult = desired === "auto" ? "short-answer" : desired;
+    return postProcessAutoPayload(
+      asResultTypePayload(
+        {
+          ...base,
+          _generation: {
+            answerPolicy: generationOptions.answerPolicy || "auto",
+            decimalPlaces: generationOptions.decimalPlaces
+          }
+        },
+        defaultResult
+      ),
+      generationOptions
+    );
+  }
+  if (appType === "fractions") {
+    const base = buildAutoFractionsPayload(subcategory, difficulty, generationOptions);
     if (!base) return null;
     const defaultResult = desired === "auto" ? "short-answer" : desired;
     return postProcessAutoPayload(

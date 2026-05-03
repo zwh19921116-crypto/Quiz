@@ -1531,60 +1531,108 @@ function formatFractionDisplay(fraction) {
   return `${fraction.numerator}/${fraction.denominator}`;
 }
 
-function buildFractionsMarkup(config) {
-  const title = escapeHtml(String(config.title || "Fraction Operations"));
-  const operation = normalizeFractionOperation(config.operation);
-  const labels = {
-    add: "+",
-    subtract: "-",
-    multiply: "x",
-    divide: "�"
-  };
+function lcmFraction(a, b) {
+  const x = Math.abs(Math.trunc(Number(a)));
+  const y = Math.abs(Math.trunc(Number(b)));
+  if (!x || !y) return 0;
+  return Math.abs(x * y) / gcdFraction(x, y);
+}
 
-  const fractionA = simplifyFraction(config.fractionA && config.fractionA.numerator, config.fractionA && config.fractionA.denominator);
-  const fractionB = simplifyFraction(config.fractionB && config.fractionB.numerator, config.fractionB && config.fractionB.denominator);
-
+function buildFractionOperationSummary(config) {
+  const operation = normalizeFractionOperation(config && config.operation);
+  const fractionA = simplifyFraction(config && config.fractionA && config.fractionA.numerator, config && config.fractionA && config.fractionA.denominator);
+  const fractionB = simplifyFraction(config && config.fractionB && config.fractionB.numerator, config && config.fractionB && config.fractionB.denominator);
   if (!fractionA || !fractionB) {
-    return "<p class='helper-text'>Enter two valid fractions with non-zero denominators.</p>";
+    return { error: "Enter two valid fractions with non-zero denominators." };
   }
 
   if (operation === "divide" && fractionB.numerator === 0) {
-    return "<p class='helper-text'>Division by zero is undefined. Fraction B numerator must not be 0.</p>";
+    return { error: "Division by zero is undefined. Fraction B numerator must not be 0." };
   }
 
-  let rawResult = null;
-  if (operation === "add") {
-    rawResult = {
-      numerator: fractionA.numerator * fractionB.denominator + fractionB.numerator * fractionA.denominator,
-      denominator: fractionA.denominator * fractionB.denominator
-    };
-  } else if (operation === "subtract") {
-    rawResult = {
-      numerator: fractionA.numerator * fractionB.denominator - fractionB.numerator * fractionA.denominator,
-      denominator: fractionA.denominator * fractionB.denominator
-    };
+  const symbols = { add: "+", subtract: "-", multiply: "x", divide: "/" };
+  const labels = { add: "Addition", subtract: "Subtraction", multiply: "Multiplication", divide: "Division" };
+  const steps = [];
+
+  let rawNumerator = 0;
+  let rawDenominator = 1;
+  let lcmValue = null;
+
+  if (operation === "add" || operation === "subtract") {
+    lcmValue = lcmFraction(fractionA.denominator, fractionB.denominator);
+    const scaleA = lcmValue / fractionA.denominator;
+    const scaleB = lcmValue / fractionB.denominator;
+    const adjustedA = fractionA.numerator * scaleA;
+    const adjustedB = fractionB.numerator * scaleB;
+    rawNumerator = operation === "add" ? adjustedA + adjustedB : adjustedA - adjustedB;
+    rawDenominator = lcmValue;
+    steps.push(`LCM(${fractionA.denominator}, ${fractionB.denominator}) = ${lcmValue}, so both fractions can use a common denominator.`);
+    steps.push(`${fractionA.numerator}/${fractionA.denominator} = ${adjustedA}/${lcmValue} and ${fractionB.numerator}/${fractionB.denominator} = ${adjustedB}/${lcmValue}.`);
+    steps.push(`${adjustedA}/${lcmValue} ${symbols[operation]} ${adjustedB}/${lcmValue} = ${rawNumerator}/${rawDenominator}.`);
   } else if (operation === "multiply") {
-    rawResult = {
-      numerator: fractionA.numerator * fractionB.numerator,
-      denominator: fractionA.denominator * fractionB.denominator
-    };
+    rawNumerator = fractionA.numerator * fractionB.numerator;
+    rawDenominator = fractionA.denominator * fractionB.denominator;
+    steps.push("No LCM is needed for multiplication because we multiply across directly.");
+    steps.push(`(${fractionA.numerator} x ${fractionB.numerator}) / (${fractionA.denominator} x ${fractionB.denominator}) = ${rawNumerator}/${rawDenominator}.`);
   } else {
-    rawResult = {
-      numerator: fractionA.numerator * fractionB.denominator,
-      denominator: fractionA.denominator * fractionB.numerator
-    };
+    rawNumerator = fractionA.numerator * fractionB.denominator;
+    rawDenominator = fractionA.denominator * fractionB.numerator;
+    steps.push("No LCM is needed for division because we multiply by the reciprocal.");
+    steps.push(`${fractionA.numerator}/${fractionA.denominator} / ${fractionB.numerator}/${fractionB.denominator} = ${fractionA.numerator}/${fractionA.denominator} x ${fractionB.denominator}/${fractionB.numerator}.`);
+    steps.push(`= ${rawNumerator}/${rawDenominator}.`);
   }
 
-  const result = simplifyFraction(rawResult.numerator, rawResult.denominator);
-  if (!result) {
-    return "<p class='helper-text'>Could not compute this fraction operation.</p>";
+  const simplified = simplifyFraction(rawNumerator, rawDenominator);
+  if (!simplified) {
+    return { error: "Could not compute this fraction operation." };
   }
+
+  const hcfValue = gcdFraction(rawNumerator, rawDenominator);
+  if (hcfValue > 1) {
+    steps.push(`HCF(|${rawNumerator}|, ${Math.abs(rawDenominator)}) = ${hcfValue}, so divide numerator and denominator by ${hcfValue}.`);
+  } else {
+    steps.push(`HCF(|${rawNumerator}|, ${Math.abs(rawDenominator)}) = 1, so the fraction is already in simplest form.`);
+  }
+
+  return {
+    operation,
+    operationLabel: labels[operation],
+    symbol: symbols[operation],
+    fractionA,
+    fractionB,
+    rawNumerator,
+    rawDenominator,
+    result: simplified,
+    lcmValue,
+    hcfValue,
+    steps
+  };
+}
+
+function buildFractionsMarkup(config) {
+  const title = escapeHtml(String(config.title || "Fraction Operations"));
+  const summary = buildFractionOperationSummary(config || {});
+  if (summary.error) {
+    return `<p class='helper-text'>${escapeHtml(summary.error)}</p>`;
+  }
+
+  const stepMarkup = summary.steps
+    .map((step) => `<li>${escapeHtml(step)}</li>`)
+    .join("");
 
   return `
     <div class="simple-card">
       <p class="bar-chart-title">${title}</p>
-      <p>${escapeHtml(formatFractionDisplay(fractionA))} ${labels[operation]} ${escapeHtml(formatFractionDisplay(fractionB))} = ${escapeHtml(formatFractionDisplay(result))}</p>
-      <p class="helper-text">Result (simplified): ${escapeHtml(formatFractionDisplay(result))}</p>
+      <p>${escapeHtml(formatFractionDisplay(summary.fractionA))} ${summary.symbol} ${escapeHtml(formatFractionDisplay(summary.fractionB))} = ${escapeHtml(formatFractionDisplay(summary.result))}</p>
+      <div class="fraction-answer-panel" data-fraction-correct-num="${summary.result.numerator}" data-fraction-correct-den="${summary.result.denominator}">
+        <label>Numerator <input type="number" step="1" data-role="fraction-answer-num" /></label>
+        <label>Denominator <input type="number" step="1" data-role="fraction-answer-den" /></label>
+        <button type="button" class="btn secondary" data-role="fraction-check-btn">Check</button>
+        <span class="helper-text" data-role="fraction-feedback"></span>
+      </div>
+      <p class="helper-text">Result (simplified): ${escapeHtml(formatFractionDisplay(summary.result))}</p>
+      <p class="helper-text">Why LCM/HCF: use LCM to get a common denominator for add/subtract, and use HCF to simplify the final fraction.</p>
+      <ol class="helper-text fraction-step-list">${stepMarkup}</ol>
     </div>
   `;
 }
@@ -3463,16 +3511,55 @@ function buildTrigonometryDetailLines(app) {
 }
 
 function buildFractionsDetailLines(app) {
-  const config = app.config || {};
-  const operation = normalizeFractionOperation(config.operation);
-  const fractionA = simplifyFraction(config.fractionA && config.fractionA.numerator, config.fractionA && config.fractionA.denominator);
-  const fractionB = simplifyFraction(config.fractionB && config.fractionB.numerator, config.fractionB && config.fractionB.denominator);
-  const labels = { add: "Addition", subtract: "Subtraction", multiply: "Multiplication", divide: "Division" };
+  const summary = buildFractionOperationSummary(app && app.config ? app.config : {});
+  if (summary.error) {
+    return [summary.error];
+  }
   return [
-    `Operation: ${labels[operation]}`,
-    `Fraction A: ${formatFractionDisplay(fractionA)}`,
-    `Fraction B: ${formatFractionDisplay(fractionB)}`
+    `Operation: ${summary.operationLabel}`,
+    `Fraction A: ${formatFractionDisplay(summary.fractionA)}`,
+    `Fraction B: ${formatFractionDisplay(summary.fractionB)}`,
+    summary.lcmValue ? `LCM used: ${summary.lcmValue} (needed to match denominators before ${summary.operationLabel.toLowerCase()}).` : "LCM not required for this operation.",
+    `HCF used: ${summary.hcfValue} (${summary.hcfValue > 1 ? "used to simplify" : "already simplest form"}).`,
+    `Final result: ${formatFractionDisplay(summary.result)}`
   ];
+}
+
+function wireFractionsPreviewInputs(preview) {
+  if (!preview) return;
+  const panel = preview.querySelector(".fraction-answer-panel");
+  if (!panel) return;
+  const numInput = panel.querySelector("[data-role='fraction-answer-num']");
+  const denInput = panel.querySelector("[data-role='fraction-answer-den']");
+  const checkBtn = panel.querySelector("[data-role='fraction-check-btn']");
+  const feedback = panel.querySelector("[data-role='fraction-feedback']");
+  if (!(numInput instanceof HTMLInputElement) || !(denInput instanceof HTMLInputElement) || !(checkBtn instanceof HTMLButtonElement) || !(feedback instanceof HTMLElement)) {
+    return;
+  }
+
+  checkBtn.addEventListener("click", () => {
+    const userN = Number.parseInt(numInput.value, 10);
+    const userD = Number.parseInt(denInput.value, 10);
+    const correctN = Number.parseInt(panel.dataset.fractionCorrectNum, 10);
+    const correctD = Number.parseInt(panel.dataset.fractionCorrectDen, 10);
+
+    if (!Number.isFinite(userN) || !Number.isFinite(userD) || userD === 0) {
+      feedback.textContent = "Enter valid numerator and denominator (denominator cannot be 0).";
+      return;
+    }
+
+    const isEquivalent = (userN * correctD) === (correctN * userD);
+    const userSimple = simplifyFraction(userN, userD);
+    const isSimplified = !!userSimple && userSimple.numerator === correctN && userSimple.denominator === correctD;
+
+    if (isEquivalent && isSimplified) {
+      feedback.textContent = "Correct and simplified.";
+    } else if (isEquivalent) {
+      feedback.textContent = `Equivalent, but simplify to ${correctN}/${correctD}.`;
+    } else {
+      feedback.textContent = `Not quite. Simplified answer is ${correctN}/${correctD}.`;
+    }
+  });
 }
 
 function buildMatrixDetailLines(app) {
@@ -4364,11 +4451,13 @@ function mountTrigonometryInteractive(host, app) {
     config.adjacent = host.querySelector("[data-role='trig-adj']").value.trim();
     config.hypotenuse = host.querySelector("[data-role='trig-hyp']").value.trim();
     updateInteractivePreview(preview, app);
+    wireFractionsPreviewInputs(preview);
     updateInteractiveDetails(host, app);
   };
 
   host.querySelectorAll("input, select").forEach((input) => input.addEventListener("input", rerender));
   updateInteractivePreview(preview, app);
+  wireFractionsPreviewInputs(preview);
   updateInteractiveDetails(host, app);
 }
 

@@ -776,6 +776,39 @@ textarea {
   margin: 6px 0;
 }
 
+.fraction-answer-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.fraction-answer-panel label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.86rem;
+  color: #334155;
+}
+
+.fraction-answer-panel input {
+  width: 72px;
+  padding: 6px 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.fraction-step-list {
+  margin: 8px 0 0 18px;
+  padding: 0;
+}
+
+.fraction-step-list li {
+  margin: 4px 0;
+}
+
 .stem-leaf-table {
   width: 100%;
   border-collapse: collapse;
