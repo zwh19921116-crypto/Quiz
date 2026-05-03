@@ -4515,6 +4515,33 @@ function getMulTooltipEl() {
   return tip;
 }
 
+function positionMulTooltip(anchorEl, tip) {
+  if (!anchorEl || !tip) return;
+  const rect = anchorEl.getBoundingClientRect();
+  const tipW = tip.offsetWidth || 100;
+  const tipH = tip.offsetHeight || 32;
+  const gap = 10;
+  const minPad = 4;
+
+  // Prefer placing on the right so it does not block the working column.
+  let left = rect.right + gap;
+  if (left + tipW > window.innerWidth - minPad) {
+    left = rect.left - tipW - gap;
+  }
+  if (left < minPad) {
+    left = minPad;
+  }
+
+  let top = rect.top + (rect.height / 2) - (tipH / 2);
+  if (top < minPad) top = minPad;
+  if (top + tipH > window.innerHeight - minPad) {
+    top = window.innerHeight - tipH - minPad;
+  }
+
+  tip.style.left = `${left}px`;
+  tip.style.top = `${top}px`;
+}
+
 function showMulTooltip(cell) {
   const aVal = cell.dataset.mulAVal;
   const bVal = cell.dataset.mulBVal;
@@ -4531,16 +4558,7 @@ function showMulTooltip(cell) {
   const tip = getMulTooltipEl();
   tip.textContent = text;
   tip.style.display = "block";
-  const rect = cell.getBoundingClientRect();
-  const tipW = tip.offsetWidth || 100;
-  let left = rect.left + rect.width / 2 - tipW / 2;
-  if (left < 4) left = 4;
-  if (left + tipW > window.innerWidth - 4) left = window.innerWidth - tipW - 4;
-  tip.style.left = `${left}px`;
-  const above = rect.top > 50;
-  tip.style.top = above
-    ? `${rect.top - (tip.offsetHeight || 32) - 6}px`
-    : `${rect.bottom + 6}px`;
+  positionMulTooltip(cell, tip);
 }
 
 function hideMulTooltip() {
@@ -4576,16 +4594,7 @@ function wireMulSumHover(container) {
       const tip = getMulTooltipEl();
       tip.textContent = text;
       tip.style.display = "block";
-      const rect = sumCell.getBoundingClientRect();
-      const tipW = tip.offsetWidth || 100;
-      let left = rect.left + rect.width / 2 - tipW / 2;
-      if (left < 4) left = 4;
-      if (left + tipW > window.innerWidth - 4) left = window.innerWidth - tipW - 4;
-      tip.style.left = `${left}px`;
-      const above = rect.top > 50;
-      tip.style.top = above
-        ? `${rect.top - (tip.offsetHeight || 32) - 6}px`
-        : `${rect.bottom + 6}px`;
+      positionMulTooltip(sumCell, tip);
     });
     sumCell.addEventListener("mouseleave", () => {
       container.querySelectorAll(".arithmetic-mul-circle").forEach(el => el.classList.remove("arithmetic-mul-circle"));
@@ -5411,9 +5420,6 @@ window.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("load", loadQuiz);
-
-const versionEl = document.getElementById("viewerVersion");
-if (versionEl) versionEl.textContent = `v ${VIEWER_LAST_MODIFIED}`;
 
 
 
