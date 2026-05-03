@@ -2355,7 +2355,7 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
     const workContainer = isMultiplication
       ? buildArithmeticMulWorkContainer(columnCount, { readOnly, solutionRows: mulSolutionRows })
       : "";
-    const sumRowMarkup = mulSumRow && !readOnly
+    const sumRowMarkup = mulSumRow
       ? `<div class="arithmetic-work-divider"><span class="arithmetic-op-spacer"></span><span class="arithmetic-divider-line"></span></div>` +
         `<div class="arithmetic-mul-work-row"><span class="arithmetic-op-spacer"></span><span class="arithmetic-work-cells">${mulSumRow}</span></div>`
       : "";
