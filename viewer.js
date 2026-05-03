@@ -1638,8 +1638,11 @@ function buildFractionsMarkup(config) {
       <p class="bar-chart-title">${title}</p>
       <p class="fraction-equation">${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${fractionHtmlStacked(summary.result)}</p>
       <div class="fraction-answer-panel" data-fraction-correct-num="${summary.result.numerator}" data-fraction-correct-den="${summary.result.denominator}">
-        <label>Numerator <input type="number" step="1" data-role="fraction-answer-num" /></label>
-        <label>Denominator <input type="number" step="1" data-role="fraction-answer-den" /></label>
+        <div class="fraction-input-widget">
+          <input type="number" step="1" placeholder="?" data-role="fraction-answer-num" aria-label="Numerator" />
+          <div class="fraction-input-line"></div>
+          <input type="number" step="1" placeholder="?" data-role="fraction-answer-den" aria-label="Denominator" />
+        </div>
         <button type="button" class="btn secondary" data-role="fraction-check-btn">Check</button>
         <span class="helper-text" data-role="fraction-feedback"></span>
       </div>

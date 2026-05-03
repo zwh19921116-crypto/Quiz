@@ -816,25 +816,39 @@ textarea {
 .fraction-answer-panel {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 12px;
 }
 
-.fraction-answer-panel label {
+.fraction-input-widget {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6px;
-  font-size: 0.86rem;
-  color: #334155;
+  gap: 0;
 }
 
-.fraction-answer-panel input {
-  width: 72px;
+.fraction-input-widget input {
+  width: 64px;
   padding: 6px 8px;
   border: 1px solid #cbd5e1;
   border-radius: 6px;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.fraction-input-widget input::-webkit-outer-spin-button,
+.fraction-input-widget input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.fraction-input-line {
+  width: 72px;
+  height: 2px;
+  background: #334155;
+  margin: 4px 0;
 }
 
 .fraction-step-list {
