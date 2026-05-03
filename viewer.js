@@ -1633,10 +1633,13 @@ function buildFractionsMarkup(config) {
     .map((step) => `<li>${escapeHtml(step)}</li>`)
     .join("");
 
+  const tooltipLines = summary.steps.map((s, i) => `${i + 1}. ${s}`).join("\n");
+  const resultWithTooltip = `<span class="frac-tooltip-wrap" tabindex="0">${fractionHtmlStacked(summary.result)}<span class="frac-tooltip">${escapeHtml(tooltipLines)}</span></span>`;
+
   return `
     <div class="simple-card">
       <p class="bar-chart-title">${title}</p>
-      <p class="fraction-equation">${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${fractionHtmlStacked(summary.result)}</p>
+      <p class="fraction-equation">${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${resultWithTooltip}</p>
       <div class="fraction-answer-panel" data-fraction-correct-num="${summary.result.numerator}" data-fraction-correct-den="${summary.result.denominator}">
         <div class="fraction-input-widget">
           <input type="number" step="1" placeholder="?" data-role="fraction-answer-num" aria-label="Numerator" />

@@ -851,6 +851,40 @@ textarea {
   margin: 4px 0;
 }
 
+/* Fraction result hover tooltip */
+.frac-tooltip-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: help;
+  border-bottom: 2px dashed #6366f1;
+}
+
+.frac-tooltip {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: #f1f5f9;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  white-space: pre-line;
+  padding: 8px 12px;
+  border-radius: 8px;
+  width: max-content;
+  max-width: 280px;
+  z-index: 100;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.frac-tooltip-wrap:hover .frac-tooltip,
+.frac-tooltip-wrap:focus .frac-tooltip {
+  display: block;
+}
+
 .fraction-step-list {
   margin: 8px 0 0 18px;
   padding: 0;
