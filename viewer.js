@@ -1875,9 +1875,9 @@ function buildArithmeticMulWorkRow(columnCount, { readOnly = false, rowData = nu
       ? `value="${escapeHtml(workValue)}" readonly disabled`
       : "value=\"\"";
     const meta = metadata[index];
-    const dataAttrs = meta && readOnly
+    const dataAttrs = (meta && readOnly
       ? `data-mul-idx="${meta.multiplicandIdx}" data-mul-digit="${meta.multiplierIdx}" data-mul-a-cell="${meta.aCellIdx != null ? meta.aCellIdx : -1}" data-mul-b-cell="${meta.bCellIdx != null ? meta.bCellIdx : -1}" data-mul-a-val="${meta.aVal != null ? meta.aVal : ""}" data-mul-b-val="${meta.bVal != null ? meta.bVal : ""}" data-mul-cell="work"`
-      : "";
+      : "") + ` data-col-idx="${index}"`;
     return `
     <span class="arithmetic-work-cell-wrap" ${dataAttrs}>
       <input class="arithmetic-work-cell-carry" type="text" inputmode="numeric" maxlength="1" ${carryAttr} autocomplete="off" title="Carry" />
@@ -2052,15 +2052,19 @@ function buildMultiplicationSumRow(solutionRows, columnCount) {
     return "";
   }
 
-  // Add up all the partial products
+  // Add up all the partial products, tracking per-column addends and carries
   const sums = new Array(count).fill(0);
+  const colAddends = Array.from({ length: count }, () => []);
+  const colCarryIn = new Array(count).fill(0);
   let carry = 0;
 
   for (let col = count - 1; col >= 0; col -= 1) {
+    colCarryIn[col] = carry;
     let colSum = carry;
     for (let rowIdx = 0; rowIdx < solutionRows.length; rowIdx += 1) {
       const row = solutionRows[rowIdx];
       const digit = Number.parseInt(row.work[col], 10) || 0;
+      colAddends[col].push(digit);
       colSum += digit;
     }
     sums[col] = colSum % 10;
@@ -2070,8 +2074,10 @@ function buildMultiplicationSumRow(solutionRows, columnCount) {
   // Build the display cells
   const digitBoxes = Array.from({ length: count }, (_, index) => {
     const sumValue = String(sums[index] || "").slice(-1);
+    const addendsJson = escapeHtml(JSON.stringify(colAddends[index]));
+    const carryIn = colCarryIn[index];
     return `
-    <span class="arithmetic-work-cell-wrap">
+    <span class="arithmetic-work-cell-wrap arithmetic-sum-cell" data-sum-col="${index}" data-sum-addends="${addendsJson}" data-sum-carry="${carryIn}">
       <input class="arithmetic-work-cell-carry" type="text" inputmode="numeric" maxlength="1" value="" readonly disabled autocomplete="off" title="Carry" />
       <input class="arithmetic-work-input" type="text" inputmode="numeric" maxlength="1" value="${escapeHtml(sumValue)}" readonly disabled autocomplete="off" />
     </span>
@@ -2599,6 +2605,7 @@ function wireArithmeticAnswerInputs() {
         addMulHighlighting(row);
       });
     }
+    wireMulSumHover(mulContainer);
 
     Array.from(mulContainer.querySelectorAll(".arithmetic-mul-work-row")).forEach(wireMulWorkRow);
     syncMulWorkState();
@@ -4505,6 +4512,50 @@ function hideMulTooltip() {
   if (tip) tip.style.display = "none";
 }
 
+function wireMulSumHover(container) {
+  if (!container) return;
+  container.querySelectorAll(".arithmetic-sum-cell[data-sum-col]").forEach((sumCell) => {
+    sumCell.style.cursor = "default";
+    sumCell.addEventListener("mouseenter", () => {
+      const col = Number(sumCell.dataset.sumCol);
+      let addends;
+      try { addends = JSON.parse(sumCell.dataset.sumAddends || "[]"); } catch (e) { addends = []; }
+      const carryIn = Number(sumCell.dataset.sumCarry) || 0;
+
+      // Circle all partial-product work cells in the same column
+      container.querySelectorAll(`[data-col-idx="${col}"][data-mul-cell="work"]`).forEach((workWrap) => {
+        const inp = workWrap.querySelector(".arithmetic-work-input");
+        if (inp) inp.classList.add("arithmetic-mul-circle");
+      });
+
+      // Build tooltip: e.g. "7 + 4 = 11" or "7 + 4 + 1 (carry) = 12"
+      const nonZeroAddends = addends.filter(v => v !== 0);
+      let parts = [...addends.map(String)];
+      if (carryIn > 0) parts.push(`${carryIn} (carry)`);
+      const total = addends.reduce((a, b) => a + b, 0) + carryIn;
+      const text = parts.length > 1 ? `${parts.join(" + ")} = ${total}` : `${total}`;
+
+      const tip = getMulTooltipEl();
+      tip.textContent = text;
+      tip.style.display = "block";
+      const rect = sumCell.getBoundingClientRect();
+      const tipW = tip.offsetWidth || 100;
+      let left = rect.left + rect.width / 2 - tipW / 2;
+      if (left < 4) left = 4;
+      if (left + tipW > window.innerWidth - 4) left = window.innerWidth - tipW - 4;
+      tip.style.left = `${left}px`;
+      const above = rect.top > 50;
+      tip.style.top = above
+        ? `${rect.top - (tip.offsetHeight || 32) - 6}px`
+        : `${rect.bottom + 6}px`;
+    });
+    sumCell.addEventListener("mouseleave", () => {
+      container.querySelectorAll(".arithmetic-mul-circle").forEach(el => el.classList.remove("arithmetic-mul-circle"));
+      hideMulTooltip();
+    });
+  });
+}
+
 function applyMulCircle(cell, container, add) {
   if (add) {
     const aCellIdx = Number(cell.dataset.mulACell);
@@ -4568,6 +4619,7 @@ function wireMulHighlighting(container) {
     cell.addEventListener("mouseenter", () => { applyMulCircle(cell, container, true); showMulTooltip(cell); });
     cell.addEventListener("mouseleave", () => { applyMulCircle(cell, container, false); hideMulTooltip(); });
   });
+  wireMulSumHover(container);
 }
 
 function mountInteractiveApp(host, app) {
@@ -4582,6 +4634,7 @@ function mountInteractiveApp(host, app) {
     updateInteractivePreview(preview, app);
     updateInteractiveDetails(host, app);
     wireMulHighlighting(preview);
+    wireMulSumHover(preview);
     return;
   }
 
