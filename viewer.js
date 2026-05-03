@@ -2581,6 +2581,8 @@ function wireArithmeticAnswerInputs() {
           // Highlight the current work cell
           cell.classList.add("arithmetic-mul-highlight");
         });
+        cell.addEventListener("mouseenter", () => showMulTooltip(cell, document));
+        cell.addEventListener("mouseleave", hideMulTooltip);
       });
     };
 
@@ -4452,6 +4454,66 @@ function mountMatrixInteractive(host, app) {
   updateInteractiveDetails(host, app);
 }
 
+function getMulTooltipEl() {
+  let tip = document.getElementById("mul-hover-tip");
+  if (!tip) {
+    tip = document.createElement("div");
+    tip.id = "mul-hover-tip";
+    tip.className = "mul-hover-tip";
+    document.body.appendChild(tip);
+  }
+  return tip;
+}
+
+function showMulTooltip(cell, root) {
+  const mulIdx = cell.dataset.mulIdx;
+  const mulDigit = cell.dataset.mulDigit;
+  if (mulIdx === undefined || mulDigit === undefined) return;
+  const searchRoot = root || document;
+  let text;
+  if (String(mulIdx) === "-1") {
+    const operandBContainer = searchRoot.querySelector(".arithmetic-number-cells[data-operand='b']");
+    let bDigit = "";
+    if (operandBContainer) {
+      const bCells = Array.from(operandBContainer.querySelectorAll(".arithmetic-cell"));
+      bDigit = bCells[Number(mulDigit)] ? bCells[Number(mulDigit)].textContent.trim() : "";
+    }
+    text = `Place value zero (× ${bDigit})`;
+  } else {
+    const operandAContainer = searchRoot.querySelector(".arithmetic-number-cells[data-operand='a']");
+    const operandBContainer = searchRoot.querySelector(".arithmetic-number-cells[data-operand='b']");
+    let aDigit = "", bDigit = "";
+    if (operandAContainer) {
+      const aCells = Array.from(operandAContainer.querySelectorAll(".arithmetic-cell"));
+      aDigit = aCells[Number(mulIdx)] ? aCells[Number(mulIdx)].textContent.trim() : "";
+    }
+    if (operandBContainer) {
+      const bCells = Array.from(operandBContainer.querySelectorAll(".arithmetic-cell"));
+      bDigit = bCells[Number(mulDigit)] ? bCells[Number(mulDigit)].textContent.trim() : "";
+    }
+    const product = (Number(aDigit) || 0) * (Number(bDigit) || 0);
+    text = `${aDigit} × ${bDigit} = ${product}`;
+  }
+  const tip = getMulTooltipEl();
+  tip.textContent = text;
+  tip.style.display = "block";
+  const rect = cell.getBoundingClientRect();
+  const tipW = tip.offsetWidth || 100;
+  let left = rect.left + rect.width / 2 - tipW / 2;
+  if (left < 4) left = 4;
+  if (left + tipW > window.innerWidth - 4) left = window.innerWidth - tipW - 4;
+  tip.style.left = `${left}px`;
+  const above = rect.top > 50;
+  tip.style.top = above
+    ? `${rect.top - (tip.offsetHeight || 32) - 6}px`
+    : `${rect.bottom + 6}px`;
+}
+
+function hideMulTooltip() {
+  const tip = document.getElementById("mul-hover-tip");
+  if (tip) tip.style.display = "none";
+}
+
 function wireMulHighlighting(container) {
   if (!container) return;
   const workCells = container.querySelectorAll("[data-mul-cell='work']");
@@ -4487,6 +4549,8 @@ function wireMulHighlighting(container) {
       // Highlight the clicked cell itself
       cell.classList.add("arithmetic-mul-highlight");
     });
+    cell.addEventListener("mouseenter", () => showMulTooltip(cell, container));
+    cell.addEventListener("mouseleave", hideMulTooltip);
   });
 }
 
