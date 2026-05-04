@@ -1539,6 +1539,10 @@ function fractionHtmlStacked(fraction) {
   return `<span class="frac"><span class="frac-num">${num}</span><span class="frac-den">${den}</span></span>`;
 }
 
+function renderStepText(text) {
+  return escapeHtml(String(text)).replace(/(\d+)\/(\d+)/g, '<span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span>');
+}
+
 function renderQuestionText(text) {
   // Escape HTML first, then replace digit/digit patterns with stacked fraction HTML
   return escapeHtml(String(text)).replace(/(\d+)\/(\d+)/g, '<span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span>');
@@ -1630,7 +1634,7 @@ function buildFractionsMarkup(config) {
   }
 
   const stepMarkup = summary.steps
-    .map((step) => `<li>${escapeHtml(step)}</li>`)
+    .map((step) => `<li>${renderStepText(step)}</li>`)
     .join("");
 
   const tooltipLines = summary.steps.map((s, i) => `${i + 1}. ${s}`).join("\n");
@@ -1649,9 +1653,8 @@ function buildFractionsMarkup(config) {
         <button type="button" class="btn secondary" data-role="fraction-check-btn">Check</button>
         <span class="helper-text" data-role="fraction-feedback"></span>
       </div>
-      <p class="helper-text">Result (simplified): ${fractionHtmlStacked(summary.result)}</p>
-      <p class="helper-text">Why LCM/HCF: use LCM to get a common denominator for add/subtract, and use HCF to simplify the final fraction.</p>
-      <ol class="helper-text fraction-step-list">${stepMarkup}</ol>
+      <p class="fraction-steps-heading">Working out</p>
+      <ol class="fraction-step-list">${stepMarkup}</ol>
     </div>
   `;
 }

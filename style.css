@@ -885,13 +885,29 @@ textarea {
   display: block;
 }
 
+.fraction-steps-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  margin: 16px 0 6px;
+}
+
 .fraction-step-list {
-  margin: 8px 0 0 18px;
+  margin: 0 0 4px 20px;
   padding: 0;
 }
 
 .fraction-step-list li {
-  margin: 4px 0;
+  margin: 6px 0;
+  font-size: 0.95rem;
+  line-height: 2;
+  color: #334155;
+}
+
+.fraction-step-list .frac {
+  font-size: 0.9em;
 }
 
 .stem-leaf-table {
