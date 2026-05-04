@@ -4650,7 +4650,7 @@ function mountFractionsInteractive(host, app) {
     updateInteractiveDetails(host, app);
   };
 
-  host.querySelectorAll("input, select").forEach((input) => input.addEventListener("input", rerender));
+  host.querySelectorAll(".interactive-app-controls input, .interactive-app-controls select").forEach((input) => input.addEventListener("input", rerender));
   updateInteractivePreview(preview, app);
   updateInteractiveDetails(host, app);
 }
