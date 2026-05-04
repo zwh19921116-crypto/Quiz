@@ -2952,6 +2952,10 @@ function updateInteractivePreview(preview, app) {
   }
 
   preview.innerHTML = content || "<p class='helper-text'>No interactive preview available.</p>";
+
+  if (app.type === "fractions") {
+    wireFractionsPreviewInputs(preview);
+  }
 }
 
 function getSvgPointerPosition(svg, event) {
@@ -4573,13 +4577,11 @@ function mountTrigonometryInteractive(host, app) {
     config.adjacent = host.querySelector("[data-role='trig-adj']").value.trim();
     config.hypotenuse = host.querySelector("[data-role='trig-hyp']").value.trim();
     updateInteractivePreview(preview, app);
-    wireFractionsPreviewInputs(preview);
     updateInteractiveDetails(host, app);
   };
 
   host.querySelectorAll("input, select").forEach((input) => input.addEventListener("input", rerender));
   updateInteractivePreview(preview, app);
-  wireFractionsPreviewInputs(preview);
   updateInteractiveDetails(host, app);
 }
 
