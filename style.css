@@ -943,6 +943,36 @@ textarea {
   margin: 4px 0;
 }
 
+.fraction-inputs-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.fraction-panel-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.fraction-format-toggle {
+  background: none;
+  border: none;
+  color: #6366f1;
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.fraction-format-toggle:hover {
+  color: #4f46e5;
+}
+
 .fraction-steps-heading {
   font-size: 0.75rem;
   font-weight: 700;
