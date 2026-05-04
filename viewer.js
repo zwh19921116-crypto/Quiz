@@ -1543,6 +1543,26 @@ function renderStepText(text) {
   return escapeHtml(String(text)).replace(/(\d+)\/(\d+)/g, '<span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span>');
 }
 
+function toMixedNumber(fraction) {
+  if (!fraction || fraction.denominator === 1) return null;
+  const absNum = Math.abs(fraction.numerator);
+  if (absNum < fraction.denominator) return null;
+  const whole = Math.floor(absNum / fraction.denominator);
+  const remainder = absNum % fraction.denominator;
+  const sign = fraction.numerator < 0 ? -1 : 1;
+  return { whole: sign * whole, numerator: remainder, denominator: fraction.denominator };
+}
+
+function fractionHtmlMixed(fraction) {
+  if (!fraction) return "<span>?</span>";
+  const mixed = toMixedNumber(fraction);
+  if (!mixed) return fractionHtmlStacked(fraction);
+  const wholeHtml = `<span class="mixed-whole">${escapeHtml(String(mixed.whole))}</span>`;
+  if (mixed.numerator === 0) return wholeHtml;
+  const fracHtml = `<span class="frac"><span class="frac-num">${escapeHtml(String(mixed.numerator))}</span><span class="frac-den">${escapeHtml(String(mixed.denominator))}</span></span>`;
+  return `<span class="mixed-number">${wholeHtml}${fracHtml}</span>`;
+}
+
 function renderQuestionText(text) {
   // Escape HTML first, then replace digit/digit patterns with stacked fraction HTML
   return escapeHtml(String(text)).replace(/(\d+)\/(\d+)/g, '<span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span>');
@@ -1611,6 +1631,11 @@ function buildFractionOperationSummary(config) {
     steps.push(`HCF(|${rawNumerator}|, ${Math.abs(rawDenominator)}) = 1, so the fraction is already in simplest form.`);
   }
 
+  const mixed = toMixedNumber(simplified);
+  if (mixed && mixed.numerator > 0) {
+    steps.push(`Convert to a mixed number: ${simplified.numerator}/${simplified.denominator} = ${mixed.whole} and ${mixed.numerator}/${mixed.denominator}.`);
+  }
+
   return {
     operation,
     operationLabel: labels[operation],
@@ -1620,6 +1645,7 @@ function buildFractionOperationSummary(config) {
     rawNumerator,
     rawDenominator,
     result: simplified,
+    mixed,
     lcmValue,
     hcfValue,
     steps
@@ -1638,18 +1664,32 @@ function buildFractionsMarkup(config) {
     .join("");
 
   const tooltipLines = summary.steps.map((s, i) => `${i + 1}. ${s}`).join("\n");
-  const resultWithTooltip = `<span class="frac-tooltip-wrap" tabindex="0">${fractionHtmlStacked(summary.result)}<span class="frac-tooltip">${escapeHtml(tooltipLines)}</span></span>`;
+  const resultWithTooltip = `<span class="frac-tooltip-wrap" tabindex="0">${fractionHtmlMixed(summary.result)}<span class="frac-tooltip">${escapeHtml(tooltipLines)}</span></span>`;
+
+  const inputWidget = summary.mixed && summary.mixed.numerator > 0
+    ? `<div class="fraction-input-widget mixed-input">
+        <input type="number" step="1" placeholder="?" data-role="fraction-answer-whole" aria-label="Whole number" />
+        <span class="mixed-input-and">and</span>
+        <div class="fraction-input-stacked">
+          <input type="number" step="1" placeholder="?" data-role="fraction-answer-num" aria-label="Numerator" />
+          <div class="fraction-input-line"></div>
+          <input type="number" step="1" placeholder="?" data-role="fraction-answer-den" aria-label="Denominator" />
+        </div>
+      </div>`
+    : `<div class="fraction-input-widget">
+        <input type="number" step="1" placeholder="?" data-role="fraction-answer-num" aria-label="Numerator" />
+        <div class="fraction-input-line"></div>
+        <input type="number" step="1" placeholder="?" data-role="fraction-answer-den" aria-label="Denominator" />
+      </div>`;
+
+  const panelMode = summary.mixed && summary.mixed.numerator > 0 ? "mixed" : "proper";
 
   return `
     <div class="simple-card">
       <p class="bar-chart-title">${title}</p>
       <p class="fraction-equation">${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${resultWithTooltip}</p>
-      <div class="fraction-answer-panel" data-fraction-correct-num="${summary.result.numerator}" data-fraction-correct-den="${summary.result.denominator}">
-        <div class="fraction-input-widget">
-          <input type="number" step="1" placeholder="?" data-role="fraction-answer-num" aria-label="Numerator" />
-          <div class="fraction-input-line"></div>
-          <input type="number" step="1" placeholder="?" data-role="fraction-answer-den" aria-label="Denominator" />
-        </div>
+      <div class="fraction-answer-panel" data-fraction-mode="${panelMode}" data-fraction-correct-num="${summary.result.numerator}" data-fraction-correct-den="${summary.result.denominator}">
+        ${inputWidget}
         <button type="button" class="btn secondary" data-role="fraction-check-btn">Check</button>
         <span class="helper-text" data-role="fraction-feedback"></span>
       </div>
@@ -3551,37 +3591,70 @@ function wireFractionsPreviewInputs(preview) {
   if (!preview) return;
   const panel = preview.querySelector(".fraction-answer-panel");
   if (!panel) return;
-  const numInput = panel.querySelector("[data-role='fraction-answer-num']");
-  const denInput = panel.querySelector("[data-role='fraction-answer-den']");
   const checkBtn = panel.querySelector("[data-role='fraction-check-btn']");
   const feedback = panel.querySelector("[data-role='fraction-feedback']");
-  if (!(numInput instanceof HTMLInputElement) || !(denInput instanceof HTMLInputElement) || !(checkBtn instanceof HTMLButtonElement) || !(feedback instanceof HTMLElement)) {
-    return;
+  if (!(checkBtn instanceof HTMLButtonElement) || !(feedback instanceof HTMLElement)) return;
+
+  const isMixed = panel.dataset.fractionMode === "mixed";
+  const correctN = Number.parseInt(panel.dataset.fractionCorrectNum, 10);
+  const correctD = Number.parseInt(panel.dataset.fractionCorrectDen, 10);
+
+  if (isMixed) {
+    const wholeInput = panel.querySelector("[data-role='fraction-answer-whole']");
+    const numInput = panel.querySelector("[data-role='fraction-answer-num']");
+    const denInput = panel.querySelector("[data-role='fraction-answer-den']");
+    if (!(wholeInput instanceof HTMLInputElement) || !(numInput instanceof HTMLInputElement) || !(denInput instanceof HTMLInputElement)) return;
+    const correctMixed = toMixedNumber({ numerator: correctN, denominator: correctD });
+    const correctWhole = correctMixed ? correctMixed.whole : 0;
+    const correctFracN = correctMixed ? correctMixed.numerator : 0;
+    checkBtn.addEventListener("click", () => {
+      const userW = Number.parseInt(wholeInput.value, 10);
+      const userN = Number.parseInt(numInput.value, 10);
+      const userD = Number.parseInt(denInput.value, 10);
+      if (!Number.isFinite(userW) || !Number.isFinite(userN) || !Number.isFinite(userD) || userD === 0) {
+        feedback.textContent = "Fill in all three boxes. Denominator cannot be 0.";
+        return;
+      }
+      if (userN < 0 || userN >= userD) {
+        feedback.textContent = "The fraction part must be proper (numerator less than denominator).";
+        return;
+      }
+      const isCorrect = userW === correctWhole && userN === correctFracN && userD === correctD;
+      // Also accept equivalent proper fraction entered in whole box (userN=0 case)
+      const userImproperN = Math.abs(userW) * userD + userN;
+      const userSign = userW < 0 ? -1 : 1;
+      const isEquivalent = (userSign * userImproperN * correctD) === (correctN * userD);
+      if (isCorrect || (isEquivalent && userN === correctFracN && userD === correctD)) {
+        feedback.textContent = "Correct!";
+      } else if (isEquivalent) {
+        feedback.textContent = `Equivalent, but write as ${correctWhole} and ${correctFracN}/${correctD}.`;
+      } else {
+        feedback.textContent = `Not quite. Answer is ${correctWhole} and ${correctFracN}/${correctD}.`;
+      }
+    });
+  } else {
+    const numInput = panel.querySelector("[data-role='fraction-answer-num']");
+    const denInput = panel.querySelector("[data-role='fraction-answer-den']");
+    if (!(numInput instanceof HTMLInputElement) || !(denInput instanceof HTMLInputElement)) return;
+    checkBtn.addEventListener("click", () => {
+      const userN = Number.parseInt(numInput.value, 10);
+      const userD = Number.parseInt(denInput.value, 10);
+      if (!Number.isFinite(userN) || !Number.isFinite(userD) || userD === 0) {
+        feedback.textContent = "Enter valid numerator and denominator (denominator cannot be 0).";
+        return;
+      }
+      const isEquivalent = (userN * correctD) === (correctN * userD);
+      const userSimple = simplifyFraction(userN, userD);
+      const isSimplified = !!userSimple && userSimple.numerator === correctN && userSimple.denominator === correctD;
+      if (isEquivalent && isSimplified) {
+        feedback.textContent = "Correct and simplified.";
+      } else if (isEquivalent) {
+        feedback.textContent = `Equivalent, but simplify to ${correctN}/${correctD}.`;
+      } else {
+        feedback.textContent = `Not quite. Simplified answer is ${correctN}/${correctD}.`;
+      }
+    });
   }
-
-  checkBtn.addEventListener("click", () => {
-    const userN = Number.parseInt(numInput.value, 10);
-    const userD = Number.parseInt(denInput.value, 10);
-    const correctN = Number.parseInt(panel.dataset.fractionCorrectNum, 10);
-    const correctD = Number.parseInt(panel.dataset.fractionCorrectDen, 10);
-
-    if (!Number.isFinite(userN) || !Number.isFinite(userD) || userD === 0) {
-      feedback.textContent = "Enter valid numerator and denominator (denominator cannot be 0).";
-      return;
-    }
-
-    const isEquivalent = (userN * correctD) === (correctN * userD);
-    const userSimple = simplifyFraction(userN, userD);
-    const isSimplified = !!userSimple && userSimple.numerator === correctN && userSimple.denominator === correctD;
-
-    if (isEquivalent && isSimplified) {
-      feedback.textContent = "Correct and simplified.";
-    } else if (isEquivalent) {
-      feedback.textContent = `Equivalent, but simplify to ${correctN}/${correctD}.`;
-    } else {
-      feedback.textContent = `Not quite. Simplified answer is ${correctN}/${correctD}.`;
-    }
-  });
 }
 
 function buildMatrixDetailLines(app) {

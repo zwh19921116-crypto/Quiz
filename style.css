@@ -885,6 +885,64 @@ textarea {
   display: block;
 }
 
+/* Mixed number display */
+.mixed-number {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  vertical-align: middle;
+}
+
+.mixed-whole {
+  font-size: 1em;
+}
+
+/* Mixed number 3-box input */
+.fraction-input-widget.mixed-input {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.fraction-input-widget.mixed-input input[data-role="fraction-answer-whole"] {
+  width: 64px;
+}
+
+.mixed-input-and {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.fraction-input-stacked {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.fraction-input-stacked input {
+  width: 64px;
+  padding: 6px 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.fraction-input-stacked input::-webkit-outer-spin-button,
+.fraction-input-stacked input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.fraction-input-stacked .fraction-input-line {
+  width: 72px;
+  height: 2px;
+  background: #334155;
+  margin: 4px 0;
+}
+
 .fraction-steps-heading {
   font-size: 0.75rem;
   font-weight: 700;
