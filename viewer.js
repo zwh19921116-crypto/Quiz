@@ -1632,7 +1632,9 @@ function buildFractionOperationSummary(config) {
   }
 
   const mixed = toMixedNumber(simplified);
-  if (mixed && mixed.numerator > 0) {
+  const useMixed = (config.answerFormat === "mixed") && !!mixed && mixed.numerator > 0;
+
+  if (useMixed) {
     steps.push(`Convert to a mixed number: ${simplified.numerator}/${simplified.denominator} = ${mixed.whole} and ${mixed.numerator}/${mixed.denominator}.`);
   }
 
@@ -1645,7 +1647,7 @@ function buildFractionOperationSummary(config) {
     rawNumerator,
     rawDenominator,
     result: simplified,
-    mixed,
+    mixed: useMixed ? mixed : null,
     lcmValue,
     hcfValue,
     steps
