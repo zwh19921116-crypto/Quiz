@@ -1850,11 +1850,15 @@ function buildFractionOperationSummary(config) {
   } else if (operation === "multiply") {
     rawNumerator = fractionA.numerator * fractionB.numerator;
     rawDenominator = fractionA.denominator * fractionB.denominator;
+    whyLines.push("No LCD is needed for multiplication because denominators are multiplied directly, not matched.");
     steps.push("No LCM is needed for multiplication because we multiply across directly.");
-    steps.push(`(${fractionA.numerator} x ${fractionB.numerator}) / (${fractionA.denominator} x ${fractionB.denominator}) = ${rawNumerator}/${rawDenominator}.`);
+    steps.push(`Multiply the numerators: ${fractionA.numerator} x ${fractionB.numerator} = ${rawNumerator}.`);
+    steps.push(`Multiply the denominators: ${fractionA.denominator} x ${fractionB.denominator} = ${rawDenominator}.`);
+    steps.push(`${fractionA.numerator}/${fractionA.denominator} x ${fractionB.numerator}/${fractionB.denominator} = ${rawNumerator}/${rawDenominator}.`);
   } else {
     rawNumerator = fractionA.numerator * fractionB.denominator;
     rawDenominator = fractionA.denominator * fractionB.numerator;
+    whyLines.push("No LCD is needed for division. Use Stay, Change, Flip, then multiply.");
     steps.push(`Use Stay, Change, Flip: stay with ${fractionA.numerator}/${fractionA.denominator}, change division to multiplication, and flip ${fractionB.numerator}/${fractionB.denominator} to ${fractionB.denominator}/${fractionB.numerator}.`);
     steps.push(`${fractionA.numerator}/${fractionA.denominator} / ${fractionB.numerator}/${fractionB.denominator} = ${fractionA.numerator}/${fractionA.denominator} x ${fractionB.denominator}/${fractionB.numerator}.`);
     steps.push(`= ${rawNumerator}/${rawDenominator}.`);
@@ -1909,6 +1913,8 @@ function buildFractionsMarkup(config) {
     if (text.includes("= ") && text.includes(" and ") && text.includes("/")) return "Rewrite equivalent fractions";
     if (text.startsWith("Use Stay, Change, Flip")) return "Use Stay, Change, Flip";
     if (text.startsWith("No LCM is needed")) return "Choose the operation method";
+    if (text.startsWith("Multiply the numerators")) return "Calculate numerator";
+    if (text.startsWith("Multiply the denominators")) return "Calculate denominator";
     if (text.startsWith("Highest Common Factor (HCF)")) return "Simplify using Highest Common Factor (HCF)";
     if (text.startsWith("Convert to a mixed number")) return "Convert to mixed number";
     if (text.startsWith("=")) return "Write the result";
