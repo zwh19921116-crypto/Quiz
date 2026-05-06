@@ -1801,7 +1801,6 @@ function buildFractionReasonVisuals(summary) {
       numberA: summary.fractionA.denominator,
       numberB: summary.fractionB.denominator
     }));
-    visuals.push(buildLcdMultiplierMarkup(summary.fractionA, summary.fractionB, summary.lcmValue));
   }
 
   if (summary.hcfValue > 1) {
@@ -1917,10 +1916,20 @@ function buildFractionsMarkup(config) {
     return "Calculate";
   };
 
+  let lcdMultiplierPlaced = false;
   const stepMarkup = summary.steps
     .map((step) => {
-      const title = escapeHtml(buildFractionStepTitle(step));
-      return `<li><span class="fraction-step-title">${title}</span><span class="fraction-step-copy">${renderStepText(step)}</span></li>`;
+      const stepTitleText = buildFractionStepTitle(step);
+      const title = escapeHtml(stepTitleText);
+      const shouldShowLcdMultiplier =
+        !lcdMultiplierPlaced
+        && summary.lcmValue
+        && (summary.operation === "add" || summary.operation === "subtract")
+        && stepTitleText === "Calculate";
+
+      if (shouldShowLcdMultiplier) lcdMultiplierPlaced = true;
+
+      return `<li><span class="fraction-step-title">${title}</span><span class="fraction-step-copy">${renderStepText(step)}</span>${shouldShowLcdMultiplier ? buildLcdMultiplierMarkup(summary.fractionA, summary.fractionB, summary.lcmValue) : ""}</li>`;
     })
     .join("");
   const whyMarkup = (Array.isArray(summary.whyLines) ? summary.whyLines : [])
