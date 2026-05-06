@@ -3733,6 +3733,224 @@ function buildAutoFractionsPayload(subcategory, difficulty, generationOptions = 
   };
 }
 
+function buildDeterministicPayloadFromInteractiveApp(appType, app, desiredResultType = "short-answer", generationOptions = {}) {
+  if (!app || app.type !== appType) return null;
+
+  const cfg = app.config || {};
+  const defaultResult = String(desiredResultType || "short-answer").trim();
+  let base = null;
+
+  if (appType === "arithmetic") {
+    const operator = String(cfg.operator || "+").trim();
+    const a = Number(cfg.operandA);
+    const b = Number(cfg.operandB);
+    const safeA = Number.isFinite(a) ? a : 0;
+    const safeB = Number.isFinite(b) ? b : 0;
+    let result = 0;
+    if (operator === "-") result = safeA - safeB;
+    else if (operator === "x" || operator === "*") result = safeA * safeB;
+    else if (operator === "÷" || operator === "/") result = safeB !== 0 ? safeA / safeB : Number.NaN;
+    else result = safeA + safeB;
+
+    const answer = Number.isFinite(result) ? String(result) : "undefined";
+    base = {
+      question: "",
+      solution: Number.isFinite(result)
+        ? `Compute the operation: ${safeA} ${operator} ${safeB} = ${answer}.`
+        : "Division by zero is undefined.",
+      correctAnswer: answer,
+      interactiveApp: app
+    };
+  } else if (appType === "number-line") {
+    const points = Array.isArray(cfg.points) ? cfg.points : [];
+    const first = points[0] || { value: -3, label: "A" };
+    const second = points[1] || { value: 5, label: "B" };
+    const distance = Math.abs(Number(second.value) - Number(first.value));
+    base = {
+      question: "",
+      solution: `Distance = |${second.value} - ${first.value}| = ${distance}.`,
+      correctAnswer: String(distance),
+      interactiveApp: app
+    };
+  } else if (appType === "bar-chart") {
+    const items = Array.isArray(cfg.items) ? cfg.items : [];
+    const top = items.slice().sort((a, b) => Number(b.frequency || 0) - Number(a.frequency || 0))[0] || { category: "Cats", frequency: 8 };
+    base = {
+      question: "",
+      solution: `The largest bar is ${top.category} with frequency ${top.frequency}.`,
+      correctAnswer: String(top.category || ""),
+      interactiveApp: app
+    };
+  } else if (appType === "histogram") {
+    const values = Array.isArray(cfg.values) ? cfg.values : [];
+    base = {
+      question: "",
+      solution: `There are ${values.length} values in the dataset.`,
+      correctAnswer: String(values.length),
+      interactiveApp: app
+    };
+  } else if (appType === "box-plot") {
+    const datasets = normalizeBoxPlotDatasets(cfg);
+    const first = datasets[0] || { label: "A", values: [1, 2, 3] };
+    const stats = computeFiveNumber(first.values || []);
+    const median = stats ? roundTo(stats.median, 2) : 0;
+    base = {
+      question: "",
+      solution: `For dataset ${first.label || "A"}, the median is ${median}.`,
+      correctAnswer: String(median),
+      interactiveApp: app
+    };
+  } else if (appType === "scatter-plot") {
+    const points = Array.isArray(cfg.points) ? cfg.points : [];
+    const regression = computeLinearRegression(points);
+    const trend = !regression ? "no clear" : regression.correlation > 0 ? "positive" : regression.correlation < 0 ? "negative" : "no";
+    base = {
+      question: "",
+      solution: `The data trend is ${trend} correlation.`,
+      correctAnswer: trend === "no" ? "no correlation" : `${trend} correlation`,
+      interactiveApp: app
+    };
+  } else if (appType === "probability-tree") {
+    const paths = Array.isArray(cfg.paths) ? cfg.paths : [];
+    const total = roundTo(paths.reduce((sum, path) => sum + Number(path.probability || 0), 0), 3);
+    base = {
+      question: "",
+      solution: `Sum of listed path probabilities = ${total}.`,
+      correctAnswer: String(total),
+      interactiveApp: app
+    };
+  } else if (appType === "distribution-curve") {
+    base = {
+      question: "",
+      solution: `The mean parameter shown is ${cfg.mean}.`,
+      correctAnswer: String(cfg.mean),
+      interactiveApp: app
+    };
+  } else if (appType === "fractions") {
+    const operation = normalizeFractionOperation(cfg.operation);
+    const a = simplifyFraction(cfg.fractionA && cfg.fractionA.numerator, cfg.fractionA && cfg.fractionA.denominator);
+    const b = simplifyFraction(cfg.fractionB && cfg.fractionB.numerator, cfg.fractionB && cfg.fractionB.denominator);
+    if (!a || !b || (operation === "divide" && b.numerator === 0)) {
+      return null;
+    }
+
+    let numerator = 0;
+    let denominator = 1;
+    if (operation === "add") {
+      numerator = a.numerator * b.denominator + b.numerator * a.denominator;
+      denominator = a.denominator * b.denominator;
+    } else if (operation === "subtract") {
+      numerator = a.numerator * b.denominator - b.numerator * a.denominator;
+      denominator = a.denominator * b.denominator;
+    } else if (operation === "multiply") {
+      numerator = a.numerator * b.numerator;
+      denominator = a.denominator * b.denominator;
+    } else {
+      numerator = a.numerator * b.denominator;
+      denominator = a.denominator * b.numerator;
+    }
+    const result = simplifyFraction(numerator, denominator);
+    if (!result) return null;
+    const resultText = `${result.numerator}/${result.denominator}`;
+    base = {
+      question: "",
+      solution: `Applying the ${operation} operation gives ${resultText}.`,
+      correctAnswer: resultText,
+      interactiveApp: app
+    };
+  } else if (appType === "network-graph") {
+    const nodes = Array.isArray(cfg.nodes) ? cfg.nodes : [];
+    base = {
+      question: "",
+      solution: `There are ${nodes.length} nodes shown.`,
+      correctAnswer: String(nodes.length),
+      interactiveApp: app
+    };
+  } else if (appType === "matrix") {
+    const matrixA = Array.isArray(cfg.matrixA) ? cfg.matrixA : [];
+    const rows = matrixA.length;
+    const cols = rows > 0 && Array.isArray(matrixA[0]) ? matrixA[0].length : 0;
+    base = {
+      question: "",
+      solution: `Matrix A has ${rows} row(s) and ${cols} column(s), so dimensions are ${rows} x ${cols}.`,
+      correctAnswer: `${rows} x ${cols}`,
+      interactiveApp: app
+    };
+  } else if (appType === "stem-and-leaf") {
+    const values = Array.isArray(cfg.values) ? cfg.values : [];
+    base = {
+      question: "",
+      solution: `The dataset contains ${values.length} values.`,
+      correctAnswer: String(values.length),
+      interactiveApp: app
+    };
+  } else if (appType === "geometry-shapes") {
+    const shapes = Array.isArray(cfg.shapes) ? cfg.shapes : [];
+    base = {
+      question: "",
+      solution: `There are ${shapes.length} shape(s) configured.`,
+      correctAnswer: String(shapes.length),
+      interactiveApp: app
+    };
+  } else if (appType === "pythagoras") {
+    const a = Number.parseFloat(cfg.sideA);
+    const b = Number.parseFloat(cfg.sideB);
+    const c = Number.parseFloat(cfg.sideC);
+    let answer = "";
+    let explanation = "";
+    if (Number.isFinite(a) && Number.isFinite(b) && !Number.isFinite(c)) {
+      const hyp = roundTo(Math.sqrt(a * a + b * b), 2);
+      answer = String(hyp);
+      explanation = `c = sqrt(${a}^2 + ${b}^2) = ${hyp}.`;
+    } else if (Number.isFinite(a) && Number.isFinite(c) && !Number.isFinite(b)) {
+      const side = roundTo(Math.sqrt(Math.max(0, c * c - a * a)), 2);
+      answer = String(side);
+      explanation = `b = sqrt(${c}^2 - ${a}^2) = ${side}.`;
+    } else {
+      answer = String(cfg.sideC || "5");
+      explanation = `Use the configured sides to identify the missing value ${answer}.`;
+    }
+    base = {
+      question: "",
+      solution: explanation,
+      correctAnswer: answer,
+      interactiveApp: app
+    };
+  } else if (appType === "trigonometry") {
+    const focus = String(cfg.focusFunction || "sin").trim().toLowerCase();
+    const opp = Number.parseFloat(cfg.opposite);
+    const adj = Number.parseFloat(cfg.adjacent);
+    const hyp = Number.parseFloat(cfg.hypotenuse);
+    let value = Number.NaN;
+    if (focus === "sin" && Number.isFinite(opp) && Number.isFinite(hyp) && hyp !== 0) value = opp / hyp;
+    if (focus === "cos" && Number.isFinite(adj) && Number.isFinite(hyp) && hyp !== 0) value = adj / hyp;
+    if (focus === "tan" && Number.isFinite(opp) && Number.isFinite(adj) && adj !== 0) value = opp / adj;
+    const answer = Number.isFinite(value) ? String(roundTo(value, 3)) : "not defined";
+    base = {
+      question: "",
+      solution: `Using the side ratio for ${focus}, the value is ${answer}.`,
+      correctAnswer: answer,
+      interactiveApp: app
+    };
+  } else {
+    return null;
+  }
+
+  return postProcessAutoPayload(
+    asResultTypePayload(
+      {
+        ...base,
+        _generation: {
+          answerPolicy: generationOptions.answerPolicy || "auto",
+          decimalPlaces: generationOptions.decimalPlaces
+        }
+      },
+      defaultResult
+    ),
+    generationOptions
+  );
+}
+
 function buildAutoPayloadForCategory(category, subcategory, difficulty, resultTypeChoice = "auto", generationOptions = {}) {
   const appType = String(category || "cartesian-plane").trim();
   const desired = String(resultTypeChoice || "auto").trim().toLowerCase();
@@ -7661,6 +7879,68 @@ document.getElementById("autoCreateQuestionBtn").addEventListener("click", async
   updateQuestionFromForm();
   await persistSelectedQuizAfterMutation("Auto-created question");
   showToast("Question auto-created and semantically verified.", "success");
+});
+
+document.getElementById("recalculateAnswerBtn").addEventListener("click", async () => {
+  const question = activeQuestion();
+  if (!question) {
+    showToast("Select a question first.", "warning");
+    return;
+  }
+
+  const app = readInteractiveAppFromForm();
+  if (!app || !app.type) {
+    showToast("Select and configure an Interactive App first.", "warning");
+    return;
+  }
+
+  const resultTypeChoice = String(document.getElementById("resultType").value || "short-answer").trim();
+  const answerPolicy = String(document.getElementById("autoCreateAnswerFormat").value || "auto").trim();
+  const decimalPlaces = Number.parseInt(document.getElementById("autoCreateDecimalPlaces").value, 10);
+
+  const payload = buildDeterministicPayloadFromInteractiveApp(
+    app.type,
+    app,
+    resultTypeChoice,
+    {
+      answerPolicy,
+      decimalPlaces: Number.isInteger(decimalPlaces) ? decimalPlaces : 2,
+      commandWord: "calculate",
+      domainMin: null,
+      domainMax: null
+    }
+  );
+
+  if (!payload) {
+    showToast("Recalculate is not available for this app configuration.", "warning");
+    return;
+  }
+
+  const nextResultType = normalizeResultType(resultTypeChoice);
+  document.getElementById("solutionText").value = payload.solution || "";
+
+  if (Array.isArray(payload.options) && payload.options.length > 0 && ["multiple-choice", "true-false", "checkbox"].includes(nextResultType)) {
+    document.getElementById("option1").value = payload.options[0] || "";
+    document.getElementById("option2").value = payload.options[1] || "";
+    document.getElementById("option3").value = payload.options[2] || "";
+    document.getElementById("option4").value = payload.options[3] || "";
+  }
+
+  document.getElementById("correctAnswer").value = String(payload.correctAnswer || "");
+  refreshCorrectAnswerSelect({
+    resultType: nextResultType,
+    options: [
+      document.getElementById("option1").value.trim(),
+      document.getElementById("option2").value.trim(),
+      document.getElementById("option3").value.trim(),
+      document.getElementById("option4").value.trim()
+    ],
+    correctAnswer: String(payload.correctAnswer || "")
+  });
+
+  updateQuestionFromForm();
+  await persistSelectedQuizAfterMutation("Recalculated answer and solution");
+  showToast("Answer and solution recalculated from current app config.", "success");
 });
 
 document.getElementById("autoCreateQuizBtn").addEventListener("click", () => {
