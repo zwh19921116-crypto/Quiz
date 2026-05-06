@@ -3643,13 +3643,13 @@ function buildAutoImproperFractionPayload(normalizedDifficulty, generationOption
   const mixedNum = simplified.numerator % simplified.denominator;
   const mixedText = mixedNum === 0 ? `${mixedWhole}` : `${mixedWhole} and ${mixedNum}/${simplified.denominator}`;
   return {
-    question: `Calculate convert the improper fraction ${numerator}/${denominator} to a mixed number.`,
+    question: `Calculate convert the improper fraction ${numerator}/${denominator} to a mixed fraction.`,
     solution: `Divide the numerator by the denominator: ${numerator} ÷ ${denominator} = ${mixedWhole} remainder ${mixedNum}. So ${simplifiedText} = ${mixedText}.`,
     correctAnswer: mixedText,
     interactiveApp: {
       type: "fractions",
       config: {
-        title: "Improper Fraction to Mixed Number",
+        title: "Improper Fraction to Mixed Fraction",
         operation: "add",
         fractionA: { numerator: simplified.numerator, denominator: simplified.denominator },
         fractionB: { numerator: 0, denominator: simplified.denominator },
