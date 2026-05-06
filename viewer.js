@@ -1883,18 +1883,28 @@ function buildMixedToImproperArrowDiagram(summary) {
         <div class="mixed-arrow-canvas">
           <p class="mixed-arrow-row-label">Start with the mixed fraction</p>
           <div class="mixed-map-stage" aria-label="mixed fraction map">
-            ${mixedFractionHtml}
-            <svg class="mixed-map-svg" viewBox="0 0 420 170" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-              <defs>
-                <marker id="mixedMapArrowHead" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
-                  <polygon points="0,0 10,4 0,8" fill="#dc2626"></polygon>
-                </marker>
-              </defs>
-              <path class="mixed-map-path" d="M288 124 C236 128, 180 96, 120 84" marker-end="url(#mixedMapArrowHead)"></path>
-              <path class="mixed-map-path" d="M130 80 C185 44, 250 44, 284 58" marker-end="url(#mixedMapArrowHead)"></path>
-            </svg>
-            <span class="mixed-map-label is-multiply">multiply</span>
-            <span class="mixed-map-label is-plus">plus</span>
+            <div class="mixed-map-start">
+              <span class="mixed-map-start-label">Mixed Fraction</span>
+              ${mixedFractionHtml}
+            </div>
+            <div class="mixed-map-flow">
+              <div class="mixed-map-step">
+                <span class="mixed-map-chip is-denominator">Denominator ${escapeHtml(String(denominator))}</span>
+                <span class="mixed-map-arrow" aria-hidden="true">→</span>
+                <span class="mixed-map-chip is-whole">Whole ${escapeHtml(String(absWhole))}</span>
+                <span class="mixed-map-action">multiply</span>
+                <span class="mixed-map-arrow" aria-hidden="true">→</span>
+                <span class="mixed-map-chip is-product">Product ${escapeHtml(String(product))}</span>
+              </div>
+              <div class="mixed-map-step">
+                <span class="mixed-map-chip is-whole">Whole ${escapeHtml(String(absWhole))}</span>
+                <span class="mixed-map-arrow" aria-hidden="true">→</span>
+                <span class="mixed-map-chip is-numerator">Numerator ${escapeHtml(String(numerator))}</span>
+                <span class="mixed-map-action">plus</span>
+                <span class="mixed-map-arrow" aria-hidden="true">→</span>
+                <span class="mixed-map-chip is-result">New Numerator ${escapeHtml(String(summary.rawNumerator))}</span>
+              </div>
+            </div>
           </div>
         </div>
         <p class="mixed-arrow-formula">${escapeHtml(String(denominator))} x ${escapeHtml(String(absWhole))} + ${escapeHtml(String(numerator))} = ${escapeHtml(String(absImproperNumerator))}</p>

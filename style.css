@@ -908,22 +908,33 @@ textarea {
 }
 
 .mixed-map-stage {
-  position: relative;
   border: 1px solid #fecaca;
   border-radius: 10px;
   background: #fff;
-  padding: 12px 10px 16px;
-  min-height: 140px;
+  padding: 12px;
+  display: grid;
+  gap: 12px;
 }
 
 .mixed-map-expression {
-  position: absolute;
-  left: 50%;
-  top: 56%;
-  transform: translate(-50%, -50%);
   display: inline-flex;
   align-items: center;
   gap: 8px;
+}
+
+.mixed-map-start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.mixed-map-start-label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #991b1b;
 }
 
 .mixed-map-whole {
@@ -954,42 +965,51 @@ textarea {
   margin: 3px 0;
 }
 
-.mixed-map-svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+.mixed-map-flow {
+  display: grid;
+  gap: 8px;
 }
 
-.mixed-map-path {
-  fill: none;
-  stroke: #dc2626;
-  stroke-width: 3;
-  stroke-linecap: round;
+.mixed-map-step {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
 
-.mixed-map-label {
-  position: absolute;
-  color: #dc2626;
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  background: #fff;
-  border: 1px solid #fecaca;
+.mixed-map-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
   border-radius: 999px;
+  border: 1px solid #fecaca;
+  background: #fff7f7;
+  color: #7f1d1d;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.mixed-map-chip.is-product,
+.mixed-map-chip.is-result {
+  background: #fef2f2;
+}
+
+.mixed-map-arrow {
+  color: #dc2626;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.mixed-map-action {
   padding: 2px 8px;
-}
-
-.mixed-map-label.is-multiply {
-  left: 35%;
-  top: 74%;
-}
-
-.mixed-map-label.is-plus {
-  left: 58%;
-  top: 22%;
+  border-radius: 999px;
+  border: 1px solid #fca5a5;
+  background: #fff;
+  color: #dc2626;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .mixed-arrow-node {
@@ -1074,14 +1094,8 @@ textarea {
     font-size: 1.08rem;
   }
 
-  .mixed-map-label.is-multiply {
-    left: 28%;
-    top: 78%;
-  }
-
-  .mixed-map-label.is-plus {
-    left: 56%;
-    top: 20%;
+  .mixed-map-chip {
+    font-size: 0.74rem;
   }
 }
 
