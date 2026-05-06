@@ -5866,11 +5866,6 @@ function handleSolutionArrowScrollHotkey(event) {
   const modal = document.getElementById("solutionModal");
   if (!modal || modal.classList.contains("hidden")) return false;
 
-  const target = event.target;
-  if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || (target instanceof HTMLElement && target.isContentEditable)) {
-    return false;
-  }
-
   const dialog = modal.querySelector(".viewer-modal-dialog");
   if (!(dialog instanceof HTMLElement)) return false;
 
