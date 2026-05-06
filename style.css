@@ -1246,6 +1246,45 @@ textarea {
   font-size: 0.9em;
 }
 
+.lcd-multiplier-block {
+  margin: 10px 0 4px;
+  display: grid;
+  gap: 8px;
+}
+
+.lcd-multiplier-label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.lcd-multiplier-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.lcd-multiplier-badge {
+  background: #f97316;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 2px 9px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+.lcd-multiplier-arrow {
+  color: #f97316;
+  font-size: 1rem;
+}
+
 .fraction-why-line {
   margin: 0;
   padding: 8px 10px;

@@ -1762,6 +1762,33 @@ function buildFractionReasonTable({ title, kind, targetValue, numberA, numberB }
   `;
 }
 
+function buildLcdMultiplierMarkup(fractionA, fractionB, lcmValue) {
+  const scaleA = lcmValue / fractionA.denominator;
+  const scaleB = lcmValue / fractionB.denominator;
+  const newNumA = fractionA.numerator * scaleA;
+  const newNumB = fractionB.numerator * scaleB;
+
+  const row = (frac, scale, newNum) => {
+    const fracHtml = fractionHtmlStacked(frac);
+    const scaledHtml = fractionHtmlStacked({ numerator: newNum, denominator: lcmValue });
+    return `
+      <div class="lcd-multiplier-row">
+        ${fracHtml}
+        <span class="frac-op">=</span>
+        <span class="lcd-multiplier-badge">× ${scale}</span>
+        <span class="frac-op lcd-multiplier-arrow">→</span>
+        ${scaledHtml}
+      </div>`;
+  };
+
+  return `
+    <div class="lcd-multiplier-block">
+      <p class="lcd-multiplier-label">Multiply both parts by the same number to reach <strong>${lcmValue}</strong></p>
+      ${row(fractionA, scaleA, newNumA)}
+      ${row(fractionB, scaleB, newNumB)}
+    </div>`;
+}
+
 function buildFractionReasonVisuals(summary) {
   if (!summary || summary.error) return "";
 
@@ -1774,6 +1801,7 @@ function buildFractionReasonVisuals(summary) {
       numberA: summary.fractionA.denominator,
       numberB: summary.fractionB.denominator
     }));
+    visuals.push(buildLcdMultiplierMarkup(summary.fractionA, summary.fractionB, summary.lcmValue));
   }
 
   if (summary.hcfValue > 1) {
