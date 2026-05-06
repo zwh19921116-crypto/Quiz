@@ -53,7 +53,7 @@ function buildFractionIncorrectFeedbackMarkup(question, expectedAnswers) {
     ? buildFractionOperationSummary(question.interactiveApp.config || {})
     : null;
   const correctAnswerMarkup = summary && !summary.error && summary.result
-    ? fractionHtmlMixed(summary.result)
+    ? fractionHtmlImproperAndMixed(summary.result)
     : escapeHtml(Array.isArray(expectedAnswers) && expectedAnswers.length > 0 ? expectedAnswers.join(", ") : "N/A");
   const encouragementText = escapeHtml(`${getRandomEncouragingMessage()} Press "Show Solution" to see where you went wrong.`);
 
@@ -1652,6 +1652,13 @@ function fractionHtmlMixed(fraction) {
   return `<span class="mixed-number">${wholeHtml}${fracHtml}</span>`;
 }
 
+function fractionHtmlImproperAndMixed(fraction) {
+  if (!fraction) return "<span>?</span>";
+  const mixed = toMixedNumber(fraction);
+  if (!mixed || mixed.numerator === 0) return fractionHtmlStacked(fraction);
+  return `<span class="fraction-dual-answer">${fractionHtmlStacked(fraction)}<span class="frac-op">=</span>${fractionHtmlMixed(fraction)}</span>`;
+}
+
 function renderQuestionText(text) {
   // Escape HTML first, then replace digit/digit patterns with stacked fraction HTML
   return escapeHtml(String(text)).replace(/(\d+)\/(\d+)/g, '<span class="frac-wrap"><span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span></span>');
@@ -1945,7 +1952,7 @@ function buildFractionsMarkup(config) {
     ? `<div class="fraction-section"><p class="fraction-steps-heading">Why These Numbers?</p>${whyMarkup}${reasonVisualMarkup}</div>`
     : "";
 
-  const resultMarkup = fractionHtmlMixed(summary.result);
+  const resultMarkup = fractionHtmlImproperAndMixed(summary.result);
 
   return `
     <div class="simple-card fraction-solution-card">
