@@ -48,6 +48,18 @@ function buildShortAnswerIncorrectFeedback(expectedAnswers) {
   };
 }
 
+function buildFractionIncorrectFeedbackMarkup(question, expectedAnswers) {
+  const summary = question && question.interactiveApp && question.interactiveApp.type === "fractions"
+    ? buildFractionOperationSummary(question.interactiveApp.config || {})
+    : null;
+  const correctAnswerMarkup = summary && !summary.error && summary.result
+    ? fractionHtmlMixed(summary.result)
+    : escapeHtml(Array.isArray(expectedAnswers) && expectedAnswers.length > 0 ? expectedAnswers.join(", ") : "N/A");
+  const encouragementText = escapeHtml(`${getRandomEncouragingMessage()} Press "Show Solution" to see where you went wrong.`);
+
+  return `Correct answer: ${correctAnswerMarkup}<br>${encouragementText}`;
+}
+
 function normalizeQuizDescription(value) {
   return String(value || "").trim();
 }
@@ -5607,6 +5619,8 @@ function checkAnswer() {
   if (resultBox) {
     if (isCorrect) {
       resultBox.textContent = "Correct";
+    } else if (question.interactiveApp && question.interactiveApp.type === "fractions") {
+      resultBox.innerHTML = buildFractionIncorrectFeedbackMarkup(question, expectedAnswers);
     } else if (question.resultType === "short-answer" || question.resultType === "plot") {
       const shortAnswerFeedback = buildShortAnswerIncorrectFeedback(expectedAnswers);
       resultBox.innerHTML = `${escapeHtml(shortAnswerFeedback.correctAnswerText)}<br>${escapeHtml(shortAnswerFeedback.encouragementText)}`;
