@@ -1651,6 +1651,12 @@ body.modal-open {
   gap: 14px;
 }
 
+.viewer-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
 .quiz-settings-dialog {
   width: min(620px, 100%);
 }

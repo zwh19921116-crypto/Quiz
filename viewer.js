@@ -5962,7 +5962,11 @@ function openSolutionModal() {
   prepareSolutionModal(question, expectedAnswers);
   
   const modal = document.getElementById("solutionModal");
+  const solutionNextBtn = document.getElementById("solutionNextBtn");
   if (!modal) return;
+  if (solutionNextBtn) {
+    solutionNextBtn.textContent = currentIndex === quizData.questions.length - 1 ? "Finish Quiz" : "Next Question";
+  }
   modal.classList.remove("hidden");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
@@ -6100,6 +6104,10 @@ document.getElementById("notesViewerBtn").addEventListener("click", () => {
   panel.classList.toggle("hidden");
 });
 document.getElementById("closeSolutionBtn").addEventListener("click", closeSolutionModal);
+document.getElementById("solutionNextBtn").addEventListener("click", () => {
+  closeSolutionModal();
+  goNext();
+});
 document.getElementById("solutionModal").addEventListener("click", (event) => {
   const target = event.target;
   if (target instanceof HTMLElement && target.dataset.closeSolution === "true") {
