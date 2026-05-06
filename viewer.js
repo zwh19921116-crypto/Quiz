@@ -1846,11 +1846,20 @@ function buildFractionReasonVisuals(summary) {
 
 function buildFractionOperationSummary(config) {
   const operation = normalizeFractionOperation(config && config.operation);
+  const answerFormat = String(config && config.answerFormat ? config.answerFormat : "").trim().toLowerCase();
+  const titleText = String(config && config.title ? config.title : "").trim().toLowerCase();
   const fractionA = simplifyFraction(config && config.fractionA && config.fractionA.numerator, config && config.fractionA && config.fractionA.denominator);
   const fractionB = simplifyFraction(config && config.fractionB && config.fractionB.numerator, config && config.fractionB && config.fractionB.denominator);
   if (!fractionA || !fractionB) {
     return { error: "Enter two valid fractions with non-zero denominators." };
   }
+
+  const isZeroB = fractionB.numerator === 0;
+  const sameDenominator = fractionA.denominator === fractionB.denominator;
+  const looksLikeImproperToMixedTemplate = titleText.includes("improper") && titleText.includes("mixed");
+  const isImproperToMixedConversion = answerFormat === "mixed"
+    && fractionA.numerator > fractionA.denominator
+    && (looksLikeImproperToMixedTemplate || (operation === "add" && isZeroB && sameDenominator));
 
   if (operation === "divide" && fractionB.numerator === 0) {
     return { error: "Division by zero is undefined. Fraction B numerator must not be 0." };
@@ -1865,7 +1874,16 @@ function buildFractionOperationSummary(config) {
   let rawDenominator = 1;
   let lcmValue = null;
 
-  if (operation === "add" || operation === "subtract") {
+  if (isImproperToMixedConversion) {
+    rawNumerator = fractionA.numerator;
+    rawDenominator = fractionA.denominator;
+    const whole = Math.floor(Math.abs(rawNumerator) / Math.abs(rawDenominator));
+    const remainder = Math.abs(rawNumerator) % Math.abs(rawDenominator);
+    whyLines.push(`Convert improper fraction to mixed number by dividing ${Math.abs(rawNumerator)} by ${Math.abs(rawDenominator)}.`);
+    steps.push(`Start with the improper fraction ${rawNumerator}/${rawDenominator}.`);
+    steps.push(`${Math.abs(rawNumerator)} ÷ ${Math.abs(rawDenominator)} = ${whole} remainder ${remainder}.`);
+    steps.push(`Whole number is ${whole}, and fractional part is ${remainder}/${Math.abs(rawDenominator)}.`);
+  } else if (operation === "add" || operation === "subtract") {
     lcmValue = lcmFraction(fractionA.denominator, fractionB.denominator);
     const scaleA = lcmValue / fractionA.denominator;
     const scaleB = lcmValue / fractionB.denominator;
@@ -1907,7 +1925,7 @@ function buildFractionOperationSummary(config) {
 
   const mixed = toMixedNumber(simplified);
   const useMixed = !!mixed && mixed.numerator > 0 && (
-    config.answerFormat === "mixed" || operation === "multiply"
+    answerFormat === "mixed" || operation === "multiply"
   );
 
   if (useMixed) {
@@ -1924,6 +1942,7 @@ function buildFractionOperationSummary(config) {
     rawDenominator,
     result: simplified,
     mixed: useMixed ? mixed : null,
+    conversionMode: isImproperToMixedConversion ? "improper-to-mixed" : "operation",
     lcmValue,
     hcfValue,
     whyLines,
@@ -2013,6 +2032,9 @@ function buildFractionsMarkup(config, questionText = "") {
     : "";
 
   const resultMarkup = fractionHtmlImproperAndMixed(summary.result);
+  const finalEquation = summary.conversionMode === "improper-to-mixed"
+    ? `${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">=</span> ${fractionHtmlMixed(summary.result)}`
+    : `${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${resultMarkup}`;
   const questionIntro = String(questionText || "").trim();
   const questionMarkup = questionIntro
     ? `<div class="fraction-section"><p class="fraction-steps-heading">Question</p><p class="fraction-question-context">${renderQuestionText(questionIntro)}</p></div>`
@@ -2026,7 +2048,7 @@ function buildFractionsMarkup(config, questionText = "") {
       <p class="fraction-steps-heading">Steps</p>
       <ol class="fraction-step-list">${stepMarkup}</ol>
       <p class="fraction-steps-heading">Final Answer</p>
-      <p class="fraction-equation">${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${resultMarkup}</p>
+      <p class="fraction-equation">${finalEquation}</p>
     </div>
   `;
 }
