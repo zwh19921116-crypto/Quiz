@@ -1710,13 +1710,15 @@ function buildFractionReasonVisuals(summary) {
     }));
   }
 
-  visuals.push(buildFractionReasonTable({
-    title: "Highest Common Factor (HCF)",
-    kind: "hcf",
-    targetValue: summary.hcfValue,
-    numberA: Math.abs(summary.rawNumerator),
-    numberB: Math.abs(summary.rawDenominator)
-  }));
+  if (summary.hcfValue > 1) {
+    visuals.push(buildFractionReasonTable({
+      title: "Highest Common Factor (HCF)",
+      kind: "hcf",
+      targetValue: summary.hcfValue,
+      numberA: Math.abs(summary.rawNumerator),
+      numberB: Math.abs(summary.rawDenominator)
+    }));
+  }
 
   const filtered = visuals.filter((item) => String(item).trim() !== "");
   return filtered.length > 0 ? `<div class="fraction-visual-stack">${filtered.join("")}</div>` : "";
@@ -1763,7 +1765,7 @@ function buildFractionOperationSummary(config) {
   } else {
     rawNumerator = fractionA.numerator * fractionB.denominator;
     rawDenominator = fractionA.denominator * fractionB.numerator;
-    steps.push("No LCM is needed for division because we multiply by the reciprocal.");
+    steps.push(`Use Stay, Change, Flip: stay with ${fractionA.numerator}/${fractionA.denominator}, change division to multiplication, and flip ${fractionB.numerator}/${fractionB.denominator} to ${fractionB.denominator}/${fractionB.numerator}.`);
     steps.push(`${fractionA.numerator}/${fractionA.denominator} / ${fractionB.numerator}/${fractionB.denominator} = ${fractionA.numerator}/${fractionA.denominator} x ${fractionB.denominator}/${fractionB.numerator}.`);
     steps.push(`= ${rawNumerator}/${rawDenominator}.`);
   }
@@ -1777,9 +1779,6 @@ function buildFractionOperationSummary(config) {
   if (hcfValue > 1) {
     whyLines.push(`Highest Common Factor (HCF) is ${hcfValue} because it is the largest number that divides both ${Math.abs(rawNumerator)} and ${Math.abs(rawDenominator)} exactly.`);
     steps.push(`Highest Common Factor (HCF) = ${hcfValue}, so divide numerator and denominator by ${hcfValue}.`);
-  } else {
-    whyLines.push(`Highest Common Factor (HCF) is 1 because there is no common factor greater than 1 for ${Math.abs(rawNumerator)} and ${Math.abs(rawDenominator)}.`);
-    steps.push(`Highest Common Factor (HCF) = 1, so the fraction is already in simplest form.`);
   }
 
   const mixed = toMixedNumber(simplified);
@@ -1816,6 +1815,7 @@ function buildFractionsMarkup(config) {
     const text = String(stepText || "");
     if (text.startsWith("Lowest Common Denominator (LCD)")) return "Find Lowest Common Denominator (LCD)";
     if (text.includes("= ") && text.includes(" and ") && text.includes("/")) return "Rewrite equivalent fractions";
+    if (text.startsWith("Use Stay, Change, Flip")) return "Use Stay, Change, Flip";
     if (text.startsWith("No LCM is needed")) return "Choose the operation method";
     if (text.startsWith("Highest Common Factor (HCF)")) return "Simplify using Highest Common Factor (HCF)";
     if (text.startsWith("Convert to a mixed number")) return "Convert to mixed number";
