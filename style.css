@@ -795,6 +795,15 @@ textarea {
   vertical-align: middle;
   margin: 0 3px;
   font-size: 0.95em;
+  position: relative;
+}
+
+.frac-sign {
+  position: absolute;
+  left: -0.48em;
+  top: 0.08em;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .frac-num {
@@ -843,6 +852,187 @@ textarea {
   display: grid;
   gap: 6px;
   margin-top: 2px;
+}
+
+.fraction-visual-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.fraction-visual-card {
+  border: 1px solid #dbe6f3;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fbfdff 0%, #f5f9ff 100%);
+  padding: 12px;
+}
+
+.fraction-visual-card > summary {
+  list-style: none;
+}
+
+.fraction-visual-card > summary::-webkit-details-marker {
+  display: none;
+}
+
+.fraction-visual-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0f766e 0%, #155e75 100%);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 8px 18px rgba(15, 94, 117, 0.18);
+}
+
+.fraction-visual-toggle::before {
+  content: "+";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.fraction-visual-card[open] .fraction-visual-toggle::before {
+  content: "−";
+}
+
+.fraction-visual-card[open] .fraction-visual-toggle {
+  margin-bottom: 10px;
+}
+
+.fraction-visual-title {
+  margin: 0;
+  color: #0f3f76;
+  font-size: 0.96rem;
+  font-weight: 800;
+}
+
+.fraction-visual-note {
+  margin: 6px 0 0;
+  color: #334155;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+.fraction-times-wrap {
+  margin-top: 10px;
+  overflow-x: auto;
+}
+
+.fraction-times-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
+.fraction-times-corner,
+.fraction-times-header,
+.fraction-times-cell {
+  min-width: 34px;
+  height: 34px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.fraction-times-corner,
+.fraction-times-header {
+  background: #e8f0fb;
+  color: #0f3f76;
+}
+
+.fraction-times-cell {
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  position: relative;
+}
+
+.fraction-times-cell.is-first {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.fraction-times-cell.is-second {
+  background: #ecfeff;
+  border-color: #67e8f9;
+}
+
+.fraction-times-cell.is-common {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #166534;
+}
+
+.fraction-times-cell.is-target {
+  background: #fff7ed;
+  border-color: #fb923c;
+  color: #9a3412;
+}
+
+.fraction-times-cell.is-target::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 2px solid #ea580c;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.fraction-times-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.fraction-times-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  border: 1px solid #dbe6f3;
+  background: #ffffff;
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.fraction-times-key.is-first {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.fraction-times-key.is-second {
+  background: #ecfeff;
+  border-color: #67e8f9;
+}
+
+.fraction-times-key.is-common {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #166534;
+}
+
+.fraction-times-key.is-target {
+  background: #fff7ed;
+  border-color: #fb923c;
+  color: #9a3412;
 }
 
 .fraction-answer-panel {
@@ -1061,6 +1251,27 @@ textarea {
   font-size: 0.92rem;
   line-height: 1.55;
   font-weight: 700;
+}
+
+.fraction-explanation-work {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px 0;
+  vertical-align: middle;
+}
+
+.fraction-explanation-top {
+  padding: 0 8px 4px;
+  border-bottom: 2px solid #334155;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.fraction-explanation-bottom {
+  padding: 4px 8px 0;
+  font-weight: 700;
+  color: #334155;
 }
 
 .stem-leaf-table {

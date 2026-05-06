@@ -1533,14 +1533,37 @@ function formatFractionDisplay(fraction) {
 
 function fractionHtmlStacked(fraction) {
   if (!fraction) return "<span>?</span>";
-  const num = escapeHtml(String(fraction.numerator));
-  if (fraction.denominator === 1) return `<span>${num}</span>`;
+  const signHtml = fraction.numerator < 0 ? '<span class="frac-sign">-</span>' : "";
+  const num = escapeHtml(String(Math.abs(fraction.numerator)));
+  if (fraction.denominator === 1) return `<span>${signHtml}${num}</span>`;
   const den = escapeHtml(String(fraction.denominator));
-  return `<span class="frac"><span class="frac-num">${num}</span><span class="frac-den">${den}</span></span>`;
+  return `<span class="frac">${signHtml}<span class="frac-num">${num}</span><span class="frac-den">${den}</span></span>`;
 }
 
 function renderStepText(text) {
   return escapeHtml(String(text)).replace(/(\d+)\/(\d+)/g, '<span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span>');
+}
+
+function renderFractionExplanationText(text) {
+  const raw = String(text || "").trim();
+  if (!raw) return "";
+
+  let html = escapeHtml(raw);
+
+  html = html.replace(
+    /Use a common denominator:\s*\(([^()]+)\)\s*\/\s*\(([^()]+)\)/gi,
+    (_, numerator, denominator) => {
+      const top = escapeHtml(numerator.trim());
+      const bottom = escapeHtml(denominator.trim());
+      return `Use a common denominator:<div class="fraction-explanation-work"><span class="fraction-explanation-top">(${top})</span><span class="fraction-explanation-bottom">denominator (${bottom})</span></div>`;
+    }
+  );
+
+  html = html.replace(/(-?\d+)\/(\d+)/g, (_, numerator, denominator) => {
+    return fractionHtmlStacked({ numerator: Number(numerator), denominator: Number(denominator) });
+  });
+
+  return html.replace(/\n/g, "<br>");
 }
 
 function toMixedNumber(fraction) {
@@ -1641,9 +1664,13 @@ function buildFractionReasonTable({ title, kind, targetValue, numberA, numberB }
   const secondLegend = kind === "lcd" ? `Multiples of ${second}` : `Factors of ${second}`;
   const commonLegend = kind === "lcd" ? "Common multiples" : "Common factors";
   const targetLegend = kind === "lcd" ? "Chosen LCD" : "Chosen HCF";
+  const toggleLabel = kind === "lcd"
+    ? `Show 12 x 12 table for Lowest Common Denominator (LCD)`
+    : `Show 12 x 12 table for Highest Common Factor (HCF)`;
 
   return `
-    <div class="fraction-visual-card">
+    <details class="fraction-visual-card">
+      <summary class="fraction-visual-toggle">${escapeHtml(toggleLabel)}</summary>
       <p class="fraction-visual-title">${escapeHtml(title)}</p>
       <p class="fraction-visual-note">${escapeHtml(intro)}</p>
       <div class="fraction-times-wrap">
@@ -1665,7 +1692,7 @@ function buildFractionReasonTable({ title, kind, targetValue, numberA, numberB }
         <span class="fraction-times-key is-common">${escapeHtml(commonLegend)}</span>
         <span class="fraction-times-key is-target">${escapeHtml(targetLegend)}</span>
       </div>
-    </div>
+    </details>
   `;
 }
 
@@ -5602,7 +5629,7 @@ function prepareSolutionModal(question, expectedAnswers) {
   const interactiveAppMarkup = buildInteractiveAppMarkup(question.interactiveApp || null);
   let correctAnswerMarkup = escapeHtml(fallback);
   const explanationMarkup = question.interactiveApp && question.interactiveApp.type === "fractions"
-    ? renderStepText(rawSolution).replace(/\n/g, "<br>")
+    ? renderFractionExplanationText(rawSolution)
     : escapeHtml(rawSolution).replace(/\n/g, "<br>");
 
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
