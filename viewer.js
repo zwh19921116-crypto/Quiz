@@ -1796,6 +1796,29 @@ function buildLcdMultiplierMarkup(fractionA, fractionB, lcmValue) {
     </div>`;
 }
 
+function buildStayChangeFlipMarkup(summary) {
+  if (!summary || summary.error || summary.operation !== "divide") return "";
+
+  const a = summary.fractionA;
+  const b = summary.fractionB;
+  const flippedB = { numerator: b.denominator, denominator: b.numerator };
+
+  return `
+    <div class="scf-combo-block">
+      <div class="scf-combo-panels" role="group" aria-label="Stay Change Flip guide">
+        <span class="scf-chip scf-stay">Stay: ${fractionHtmlStacked(a)}</span>
+        <span class="scf-chip scf-change">Change: / to x</span>
+        <span class="scf-chip scf-flip">Flip: ${fractionHtmlStacked(b)} to ${fractionHtmlStacked(flippedB)}</span>
+      </div>
+      <p class="scf-combo-equation">
+        ${fractionHtmlStacked(a)} <span class="frac-op">/</span> ${fractionHtmlStacked(b)}
+        <span class="frac-op">=</span>
+        ${fractionHtmlStacked(a)} <span class="frac-op">x</span> ${fractionHtmlStacked(flippedB)}
+      </p>
+    </div>
+  `;
+}
+
 function buildFractionReasonVisuals(summary) {
   if (!summary || summary.error) return "";
 
@@ -1940,6 +1963,7 @@ function buildFractionsMarkup(config, questionText = "") {
   };
 
   let lcdMultiplierPlaced = false;
+  let scfPanelPlaced = false;
   const stepMarkup = summary.steps
     .map((step) => {
       const stepTitleText = buildFractionStepTitle(step);
@@ -1953,14 +1977,22 @@ function buildFractionsMarkup(config, questionText = "") {
       const shouldShowHcfVisual =
         summary.hcfValue > 1
         && stepTitleText === "Simplify using Highest Common Factor (HCF)";
+      const shouldShowScfPanel =
+        !scfPanelPlaced
+        && summary.operation === "divide"
+        && stepTitleText === "Calculate";
 
       if (shouldShowLcdMultiplier) lcdMultiplierPlaced = true;
+      if (shouldShowScfPanel) scfPanelPlaced = true;
 
       const lcdBeforeCalculateMarkup = shouldShowLcdMultiplier
         ? `<li class="step-tone-lcd"><span class="fraction-step-title">Scale To LCD</span>${buildLcdMultiplierMarkup(summary.fractionA, summary.fractionB, summary.lcmValue)}</li>`
         : "";
+      const scfBeforeCalculateMarkup = shouldShowScfPanel
+        ? `<li class="step-tone-neutral"><span class="fraction-step-title">Stay + Change + Flip</span>${buildStayChangeFlipMarkup(summary)}</li>`
+        : "";
 
-      return `${lcdBeforeCalculateMarkup}<li class="${toneClass}"><span class="fraction-step-title">${title}</span><span class="fraction-step-copy">${renderStepText(step)}</span>${shouldShowHcfVisual ? buildFractionReasonTable({
+      return `${lcdBeforeCalculateMarkup}${scfBeforeCalculateMarkup}<li class="${toneClass}"><span class="fraction-step-title">${title}</span><span class="fraction-step-copy">${renderStepText(step)}</span>${shouldShowHcfVisual ? buildFractionReasonTable({
         title: "Highest Common Factor (HCF)",
         kind: "hcf",
         targetValue: summary.hcfValue,
