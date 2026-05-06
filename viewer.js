@@ -1660,18 +1660,34 @@ function buildFractionOperationSummary(config) {
 }
 
 function buildFractionsMarkup(config) {
-  const title = escapeHtml(String(config.title || "Fraction Operations"));
   const summary = buildFractionOperationSummary(config || {});
   if (summary.error) {
     return `<p class='helper-text'>${escapeHtml(summary.error)}</p>`;
   }
 
+  const buildFractionStepTitle = (stepText) => {
+    const text = String(stepText || "");
+    if (text.startsWith("LCM(")) return "Find common denominator";
+    if (text.includes("= ") && text.includes(" and ") && text.includes("/")) return "Rewrite equivalent fractions";
+    if (text.startsWith("No LCM is needed")) return "Choose the operation method";
+    if (text.startsWith("HCF(")) return "Simplify the fraction";
+    if (text.startsWith("Convert to a mixed number")) return "Convert to mixed number";
+    if (text.startsWith("=")) return "Write the result";
+    return "Calculate";
+  };
+
   const stepMarkup = summary.steps
-    .map((step) => `<li>${renderStepText(step)}</li>`)
+    .map((step) => {
+      const title = escapeHtml(buildFractionStepTitle(step));
+      return `<li><span class="fraction-step-title">${title}</span><span class="fraction-step-copy">${renderStepText(step)}</span></li>`;
+    })
     .join("");
   const whyMarkup = (Array.isArray(summary.whyLines) ? summary.whyLines : [])
     .map((line) => `<p class="fraction-why-line">${renderStepText(line)}</p>`)
     .join("");
+  const whySection = whyMarkup
+    ? `<div class="fraction-section"><p class="fraction-steps-heading">Why These Numbers?</p>${whyMarkup}</div>`
+    : "";
 
   const tooltipLines = summary.steps.map((s, i) => `${i + 1}. ${s}`).join("\n");
   const resultWithTooltip = `<span class="frac-tooltip-wrap" tabindex="0">${fractionHtmlMixed(summary.result)}<span class="frac-tooltip">${escapeHtml(tooltipLines)}</span></span>`;
@@ -1679,9 +1695,10 @@ function buildFractionsMarkup(config) {
   const canBeMixed = summary.result.numerator > summary.result.denominator && summary.result.denominator !== 1;
 
   return `
-    <div class="simple-card">
-      <p class="bar-chart-title">${title}</p>
+    <div class="simple-card fraction-solution-card">
+      <p class="fraction-steps-heading">Final Answer</p>
       <p class="fraction-equation">${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${resultWithTooltip}</p>
+      <p class="fraction-guidance">Follow each step in order. The reasoning and calculations are shown below.</p>
       <div class="fraction-answer-panel" data-fraction-step="1" data-fraction-can-be-mixed="${canBeMixed}" data-fraction-correct-num="${summary.result.numerator}" data-fraction-correct-den="${summary.result.denominator}">
         <div class="fraction-step-block" data-step="1">
           <div class="fraction-inputs-row">
@@ -1712,8 +1729,8 @@ function buildFractionsMarkup(config) {
           <span class="helper-text" data-role="fraction-mixed-feedback"></span>
         </div>` : ""}
       </div>
-      ${whyMarkup}
-      <p class="fraction-steps-heading">Working out</p>
+      ${whySection}
+      <p class="fraction-steps-heading">Steps</p>
       <ol class="fraction-step-list">${stepMarkup}</ol>
     </div>
   `;

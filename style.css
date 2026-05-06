@@ -818,12 +818,31 @@ textarea {
 
 .fraction-equation {
   font-size: 1.5rem;
-  margin: 14px 0 12px;
+  margin: 8px 0 8px;
   display: flex;
   align-items: center;
   gap: 4px;
   font-weight: 700;
   color: #0f172a;
+}
+
+.fraction-solution-card {
+  display: grid;
+  gap: 10px;
+}
+
+.fraction-guidance {
+  margin: 0;
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.fraction-section {
+  display: grid;
+  gap: 6px;
+  margin-top: 2px;
 }
 
 .fraction-answer-panel {
@@ -993,18 +1012,39 @@ textarea {
   list-style: none;
   display: grid;
   gap: 8px;
+  counter-reset: frac-step;
 }
 
 .fraction-step-list li {
+  counter-increment: frac-step;
   margin: 0;
   font-size: 0.98rem;
-  line-height: 1.7;
+  line-height: 1.72;
   color: #1e293b;
-  background: #f8fbff;
+  background: #fbfdff;
   border: 1px solid #dbe6f3;
   border-radius: 10px;
-  padding: 8px 10px;
+  padding: 9px 12px;
   font-weight: 600;
+  display: grid;
+  gap: 4px;
+}
+
+.fraction-step-list li::before {
+  content: counter(frac-step) ") ";
+  color: #0f3f76;
+  font-weight: 800;
+}
+
+.fraction-step-title {
+  display: inline-block;
+  color: #0f3f76;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.fraction-step-copy {
+  color: #1e293b;
 }
 
 .fraction-step-list .frac {
@@ -1012,7 +1052,7 @@ textarea {
 }
 
 .fraction-why-line {
-  margin: 8px 0 2px;
+  margin: 0;
   padding: 8px 10px;
   border-radius: 9px;
   border: 1px dashed #c7d7ee;
