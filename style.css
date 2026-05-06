@@ -887,11 +887,74 @@ textarea {
 }
 
 .mixed-arrow-canvas {
-  position: relative;
-  min-height: 170px;
+  display: grid;
+  gap: 10px;
 }
 
-.mixed-arrow-svg {
+.mixed-arrow-row-label {
+  margin: 0;
+  color: #991b1b;
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mixed-arrow-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mixed-map-stage {
+  position: relative;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fff;
+  padding: 12px 10px 16px;
+  min-height: 140px;
+}
+
+.mixed-map-expression {
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mixed-map-whole {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #7f1d1d;
+}
+
+.mixed-map-frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 44px;
+}
+
+.mixed-map-num,
+.mixed-map-den {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #7f1d1d;
+  line-height: 1.1;
+}
+
+.mixed-map-line {
+  width: 44px;
+  height: 2px;
+  background: #7f1d1d;
+  margin: 3px 0;
+}
+
+.mixed-map-svg {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -899,19 +962,38 @@ textarea {
   pointer-events: none;
 }
 
-.mixed-arrow-path {
+.mixed-map-path {
   fill: none;
   stroke: #dc2626;
-  stroke-width: 3.2;
+  stroke-width: 3;
   stroke-linecap: round;
-  stroke-linejoin: round;
+}
+
+.mixed-map-label {
+  position: absolute;
+  color: #dc2626;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: #fff;
+  border: 1px solid #fecaca;
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.mixed-map-label.is-multiply {
+  left: 35%;
+  top: 74%;
+}
+
+.mixed-map-label.is-plus {
+  left: 58%;
+  top: 22%;
 }
 
 .mixed-arrow-node {
-  position: absolute;
-  width: 18%;
-  min-width: 102px;
-  transform: translateX(-50%);
+  min-width: 120px;
   border-radius: 10px;
   border: 1px solid #fecaca;
   background: #ffffff;
@@ -936,6 +1018,22 @@ textarea {
   color: #7f1d1d;
 }
 
+.mixed-arrow-operator {
+  font-size: 1.24rem;
+  font-weight: 900;
+  color: #7f1d1d;
+}
+
+.mixed-arrow-flow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #dc2626;
+}
+
 .mixed-arrow-node.is-product,
 .mixed-arrow-node.is-result {
   background: #fef2f2;
@@ -954,42 +1052,36 @@ textarea {
 }
 
 @media (max-width: 720px) {
-  .mixed-arrow-canvas {
-    min-height: 250px;
+  .mixed-arrow-row {
+    gap: 8px;
   }
 
   .mixed-arrow-node {
-    width: 30%;
-    min-width: 96px;
+    min-width: 100px;
   }
 
-  .mixed-arrow-node.is-denominator {
-    left: 16% !important;
-    top: 60% !important;
+  .mixed-arrow-flow {
+    min-width: 22px;
+    font-size: 1.15rem;
   }
 
-  .mixed-arrow-node.is-whole {
-    left: 50% !important;
-    top: 60% !important;
+  .mixed-map-whole {
+    font-size: 1.72rem;
   }
 
-  .mixed-arrow-node.is-product {
-    left: 84% !important;
-    top: 60% !important;
+  .mixed-map-num,
+  .mixed-map-den {
+    font-size: 1.08rem;
   }
 
-  .mixed-arrow-node.is-numerator {
-    left: 34% !important;
-    top: 12% !important;
+  .mixed-map-label.is-multiply {
+    left: 28%;
+    top: 78%;
   }
 
-  .mixed-arrow-node.is-result {
-    left: 70% !important;
-    top: 12% !important;
-  }
-
-  .mixed-arrow-path {
-    stroke-width: 3.6;
+  .mixed-map-label.is-plus {
+    left: 56%;
+    top: 20%;
   }
 }
 

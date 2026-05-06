@@ -1865,42 +1865,36 @@ function buildMixedToImproperArrowDiagram(summary) {
     ? `<p class="mixed-arrow-sign-note">Whole number is negative, so apply a negative sign to the final numerator.</p>`
     : "";
 
+  const mixedFractionHtml = `
+    <span class="mixed-map-expression" aria-label="mixed fraction">
+      <span class="mixed-map-whole">${escapeHtml(String(whole))}</span>
+      <span class="mixed-map-frac">
+        <span class="mixed-map-num">${escapeHtml(String(numerator))}</span>
+        <span class="mixed-map-line"></span>
+        <span class="mixed-map-den">${escapeHtml(String(denominator))}</span>
+      </span>
+    </span>
+  `;
+
   return `
     <div class="fraction-section">
       <p class="fraction-steps-heading">Conversion Diagram</p>
       <div class="mixed-arrow-card" role="group" aria-label="Mixed to improper conversion diagram">
         <div class="mixed-arrow-canvas">
-          <svg class="mixed-arrow-svg" viewBox="0 0 1000 180" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-            <defs>
-              <marker id="mixedArrowHead" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
-                <polygon points="0,0 10,4 0,8" fill="#dc2626"></polygon>
-              </marker>
-            </defs>
-            <path class="mixed-arrow-path" d="M95 58 C180 10, 300 10, 390 58" marker-end="url(#mixedArrowHead)"></path>
-            <path class="mixed-arrow-path" d="M270 58 C300 18, 345 18, 390 58" marker-end="url(#mixedArrowHead)"></path>
-            <path class="mixed-arrow-path" d="M430 126 C520 172, 650 172, 770 126" marker-end="url(#mixedArrowHead)"></path>
-            <path class="mixed-arrow-path" d="M600 126 C640 166, 690 166, 770 126" marker-end="url(#mixedArrowHead)"></path>
-          </svg>
-
-          <div class="mixed-arrow-node is-denominator" style="left: 3%; top: 60%;">
-            <span class="mixed-arrow-node-label">Denominator</span>
-            <span class="mixed-arrow-node-value">${escapeHtml(String(denominator))}</span>
-          </div>
-          <div class="mixed-arrow-node is-whole" style="left: 20%; top: 60%;">
-            <span class="mixed-arrow-node-label">Whole</span>
-            <span class="mixed-arrow-node-value">${escapeHtml(String(absWhole))}</span>
-          </div>
-          <div class="mixed-arrow-node is-product" style="left: 37%; top: 60%;">
-            <span class="mixed-arrow-node-label">Multiply</span>
-            <span class="mixed-arrow-node-value">${escapeHtml(String(product))}</span>
-          </div>
-          <div class="mixed-arrow-node is-numerator" style="left: 54%; top: 60%;">
-            <span class="mixed-arrow-node-label">Numerator</span>
-            <span class="mixed-arrow-node-value">${escapeHtml(String(numerator))}</span>
-          </div>
-          <div class="mixed-arrow-node is-result" style="left: 77%; top: 60%;">
-            <span class="mixed-arrow-node-label">New Numerator</span>
-            <span class="mixed-arrow-node-value">${escapeHtml(String(summary.rawNumerator))}</span>
+          <p class="mixed-arrow-row-label">Start with the mixed fraction</p>
+          <div class="mixed-map-stage" aria-label="mixed fraction map">
+            ${mixedFractionHtml}
+            <svg class="mixed-map-svg" viewBox="0 0 420 170" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <defs>
+                <marker id="mixedMapArrowHead" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+                  <polygon points="0,0 10,4 0,8" fill="#dc2626"></polygon>
+                </marker>
+              </defs>
+              <path class="mixed-map-path" d="M288 124 C236 128, 180 96, 120 84" marker-end="url(#mixedMapArrowHead)"></path>
+              <path class="mixed-map-path" d="M130 80 C185 44, 250 44, 284 58" marker-end="url(#mixedMapArrowHead)"></path>
+            </svg>
+            <span class="mixed-map-label is-multiply">multiply</span>
+            <span class="mixed-map-label is-plus">plus</span>
           </div>
         </div>
         <p class="mixed-arrow-formula">${escapeHtml(String(denominator))} x ${escapeHtml(String(absWhole))} + ${escapeHtml(String(numerator))} = ${escapeHtml(String(absImproperNumerator))}</p>
