@@ -1575,6 +1575,126 @@ function lcmFraction(a, b) {
   return Math.abs(x * y) / gcdFraction(x, y);
 }
 
+function buildFractionReasonTable({ title, kind, targetValue, numberA, numberB }) {
+  const size = 12;
+  const target = Math.abs(Math.trunc(Number(targetValue)));
+  const first = Math.abs(Math.trunc(Number(numberA)));
+  const second = Math.abs(Math.trunc(Number(numberB)));
+
+  if (!target || !first || !second) return "";
+
+  const targetFitsLcd = kind !== "lcd" || target <= size * size;
+  const targetFitsHcf = kind !== "hcf" || target <= size;
+  if (!targetFitsLcd || !targetFitsHcf) return "";
+
+  const headers = Array.from({ length: size }, (_, index) => index + 1);
+  let targetMarked = false;
+
+  const rowsMarkup = headers.map((rowValue) => {
+    const cellsMarkup = headers.map((colValue) => {
+      const cellValue = rowValue * colValue;
+      let cellClasses = ["fraction-times-cell"];
+      let isTarget = false;
+
+      if (kind === "lcd") {
+        const isMultipleA = cellValue % first === 0;
+        const isMultipleB = cellValue % second === 0;
+        const isCommon = isMultipleA && isMultipleB;
+        if (isMultipleA) cellClasses.push("is-first");
+        if (isMultipleB) cellClasses.push("is-second");
+        if (isCommon) cellClasses.push("is-common");
+        if (!targetMarked && isCommon && cellValue === target) {
+          cellClasses.push("is-target");
+          isTarget = true;
+          targetMarked = true;
+        }
+      } else if (rowValue === 1) {
+        const factorValue = colValue;
+        const isFactorA = first % factorValue === 0;
+        const isFactorB = second % factorValue === 0;
+        const isCommon = isFactorA && isFactorB;
+        if (isFactorA) cellClasses.push("is-first");
+        if (isFactorB) cellClasses.push("is-second");
+        if (isCommon) cellClasses.push("is-common");
+        if (!targetMarked && isCommon && factorValue === target) {
+          cellClasses.push("is-target");
+          isTarget = true;
+          targetMarked = true;
+        }
+      }
+
+      return `<td class="${cellClasses.join(" ")}"${isTarget ? ' aria-label="Selected value"' : ""}>${cellValue}</td>`;
+    }).join("");
+
+    return `
+      <tr>
+        <th scope="row" class="fraction-times-header">${rowValue}</th>
+        ${cellsMarkup}
+      </tr>
+    `;
+  }).join("");
+
+  const intro = kind === "lcd"
+    ? `The circled ${target} is the first common multiple of ${first} and ${second} in the 12 x 12 times table, so it is the Lowest Common Denominator (LCD).`
+    : `On the first row of the 12 x 12 times table, the circled ${target} is the largest number from 1 to 12 that divides both ${first} and ${second}, so it is the Highest Common Factor (HCF).`;
+  const firstLegend = kind === "lcd" ? `Multiples of ${first}` : `Factors of ${first}`;
+  const secondLegend = kind === "lcd" ? `Multiples of ${second}` : `Factors of ${second}`;
+  const commonLegend = kind === "lcd" ? "Common multiples" : "Common factors";
+  const targetLegend = kind === "lcd" ? "Chosen LCD" : "Chosen HCF";
+
+  return `
+    <div class="fraction-visual-card">
+      <p class="fraction-visual-title">${escapeHtml(title)}</p>
+      <p class="fraction-visual-note">${escapeHtml(intro)}</p>
+      <div class="fraction-times-wrap">
+        <table class="fraction-times-table" aria-label="${escapeHtml(title)} times table visual">
+          <thead>
+            <tr>
+              <th class="fraction-times-corner">×</th>
+              ${headers.map((value) => `<th scope="col" class="fraction-times-header">${value}</th>`).join("")}
+            </tr>
+          </thead>
+          <tbody>
+            ${rowsMarkup}
+          </tbody>
+        </table>
+      </div>
+      <div class="fraction-times-legend">
+        <span class="fraction-times-key is-first">${escapeHtml(firstLegend)}</span>
+        <span class="fraction-times-key is-second">${escapeHtml(secondLegend)}</span>
+        <span class="fraction-times-key is-common">${escapeHtml(commonLegend)}</span>
+        <span class="fraction-times-key is-target">${escapeHtml(targetLegend)}</span>
+      </div>
+    </div>
+  `;
+}
+
+function buildFractionReasonVisuals(summary) {
+  if (!summary || summary.error) return "";
+
+  const visuals = [];
+  if (summary.lcmValue) {
+    visuals.push(buildFractionReasonTable({
+      title: "Lowest Common Denominator (LCD)",
+      kind: "lcd",
+      targetValue: summary.lcmValue,
+      numberA: summary.fractionA.denominator,
+      numberB: summary.fractionB.denominator
+    }));
+  }
+
+  visuals.push(buildFractionReasonTable({
+    title: "Highest Common Factor (HCF)",
+    kind: "hcf",
+    targetValue: summary.hcfValue,
+    numberA: Math.abs(summary.rawNumerator),
+    numberB: Math.abs(summary.rawDenominator)
+  }));
+
+  const filtered = visuals.filter((item) => String(item).trim() !== "");
+  return filtered.length > 0 ? `<div class="fraction-visual-stack">${filtered.join("")}</div>` : "";
+}
+
 function buildFractionOperationSummary(config) {
   const operation = normalizeFractionOperation(config && config.operation);
   const fractionA = simplifyFraction(config && config.fractionA && config.fractionA.numerator, config && config.fractionA && config.fractionA.denominator);
@@ -1604,8 +1724,8 @@ function buildFractionOperationSummary(config) {
     const adjustedB = fractionB.numerator * scaleB;
     rawNumerator = operation === "add" ? adjustedA + adjustedB : adjustedA - adjustedB;
     rawDenominator = lcmValue;
-    whyLines.push(`LCM is ${lcmValue} because it is the smallest positive number divisible by both denominators ${fractionA.denominator} and ${fractionB.denominator}.`);
-    steps.push(`LCM(${fractionA.denominator}, ${fractionB.denominator}) = ${lcmValue}, so both fractions can use a common denominator.`);
+    whyLines.push(`Lowest Common Denominator (LCD) is ${lcmValue} because it is the smallest denominator that both ${fractionA.denominator} and ${fractionB.denominator} divide into exactly.`);
+    steps.push(`Lowest Common Denominator (LCD) = ${lcmValue}, so both fractions can use the same denominator.`);
     steps.push(`${fractionA.numerator}/${fractionA.denominator} = ${adjustedA}/${lcmValue} and ${fractionB.numerator}/${fractionB.denominator} = ${adjustedB}/${lcmValue}.`);
     steps.push(`${adjustedA}/${lcmValue} ${symbols[operation]} ${adjustedB}/${lcmValue} = ${rawNumerator}/${rawDenominator}.`);
   } else if (operation === "multiply") {
@@ -1628,11 +1748,11 @@ function buildFractionOperationSummary(config) {
 
   const hcfValue = gcdFraction(rawNumerator, rawDenominator);
   if (hcfValue > 1) {
-    whyLines.push(`HCF is ${hcfValue} because it is the largest number that divides both ${Math.abs(rawNumerator)} and ${Math.abs(rawDenominator)} exactly.`);
-    steps.push(`HCF(|${rawNumerator}|, ${Math.abs(rawDenominator)}) = ${hcfValue}, so divide numerator and denominator by ${hcfValue}.`);
+    whyLines.push(`Highest Common Factor (HCF) is ${hcfValue} because it is the largest number that divides both ${Math.abs(rawNumerator)} and ${Math.abs(rawDenominator)} exactly.`);
+    steps.push(`Highest Common Factor (HCF) = ${hcfValue}, so divide numerator and denominator by ${hcfValue}.`);
   } else {
-    whyLines.push(`HCF is 1 because there is no common factor greater than 1 for ${Math.abs(rawNumerator)} and ${Math.abs(rawDenominator)}.`);
-    steps.push(`HCF(|${rawNumerator}|, ${Math.abs(rawDenominator)}) = 1, so the fraction is already in simplest form.`);
+    whyLines.push(`Highest Common Factor (HCF) is 1 because there is no common factor greater than 1 for ${Math.abs(rawNumerator)} and ${Math.abs(rawDenominator)}.`);
+    steps.push(`Highest Common Factor (HCF) = 1, so the fraction is already in simplest form.`);
   }
 
   const mixed = toMixedNumber(simplified);
@@ -1667,10 +1787,10 @@ function buildFractionsMarkup(config) {
 
   const buildFractionStepTitle = (stepText) => {
     const text = String(stepText || "");
-    if (text.startsWith("LCM(")) return "Find common denominator";
+    if (text.startsWith("Lowest Common Denominator (LCD)")) return "Find Lowest Common Denominator (LCD)";
     if (text.includes("= ") && text.includes(" and ") && text.includes("/")) return "Rewrite equivalent fractions";
     if (text.startsWith("No LCM is needed")) return "Choose the operation method";
-    if (text.startsWith("HCF(")) return "Simplify the fraction";
+    if (text.startsWith("Highest Common Factor (HCF)")) return "Simplify using Highest Common Factor (HCF)";
     if (text.startsWith("Convert to a mixed number")) return "Convert to mixed number";
     if (text.startsWith("=")) return "Write the result";
     return "Calculate";
@@ -1685,17 +1805,17 @@ function buildFractionsMarkup(config) {
   const whyMarkup = (Array.isArray(summary.whyLines) ? summary.whyLines : [])
     .map((line) => `<p class="fraction-why-line">${renderStepText(line)}</p>`)
     .join("");
+  const reasonVisualMarkup = buildFractionReasonVisuals(summary);
   const whySection = whyMarkup
-    ? `<div class="fraction-section"><p class="fraction-steps-heading">Why These Numbers?</p>${whyMarkup}</div>`
+    ? `<div class="fraction-section"><p class="fraction-steps-heading">Why These Numbers?</p>${whyMarkup}${reasonVisualMarkup}</div>`
     : "";
 
-  const tooltipLines = summary.steps.map((s, i) => `${i + 1}. ${s}`).join("\n");
-  const resultWithTooltip = `<span class="frac-tooltip-wrap" tabindex="0">${fractionHtmlMixed(summary.result)}<span class="frac-tooltip">${escapeHtml(tooltipLines)}</span></span>`;
+  const resultMarkup = fractionHtmlMixed(summary.result);
 
   return `
     <div class="simple-card fraction-solution-card">
       <p class="fraction-steps-heading">Final Answer</p>
-      <p class="fraction-equation">${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${resultWithTooltip}</p>
+      <p class="fraction-equation">${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${resultMarkup}</p>
       <p class="fraction-guidance">Follow each step in order. The reasoning and calculations are shown below.</p>
       ${whySection}
       <p class="fraction-steps-heading">Steps</p>
@@ -5480,16 +5600,27 @@ function prepareSolutionModal(question, expectedAnswers) {
   const modalBody = document.getElementById("solutionModalBody");
   const pdfPreviewsMarkup = renderPdfAttachmentPreviews(solutionAttachments);
   const interactiveAppMarkup = buildInteractiveAppMarkup(question.interactiveApp || null);
+  let correctAnswerMarkup = escapeHtml(fallback);
+  const explanationMarkup = question.interactiveApp && question.interactiveApp.type === "fractions"
+    ? renderStepText(rawSolution).replace(/\n/g, "<br>")
+    : escapeHtml(rawSolution).replace(/\n/g, "<br>");
+
+  if (question.interactiveApp && question.interactiveApp.type === "fractions") {
+    const summary = buildFractionOperationSummary(question.interactiveApp.config || {});
+    if (!summary.error && summary.result) {
+      correctAnswerMarkup = fractionHtmlMixed(summary.result);
+    }
+  }
 
   modalBody.innerHTML = `
     <div class="solution-modal-section">
       <p class="solution-modal-label">Correct answer</p>
-      <p class="solution-modal-answer">${escapeHtml(fallback)}</p>
+      <p class="solution-modal-answer">${correctAnswerMarkup}</p>
     </div>
     ${hasDistinctSolution ? `
       <div class="solution-modal-section">
         <p class="solution-modal-label">Explanation</p>
-        <div class="solution-modal-copy">${escapeHtml(rawSolution).replace(/\n/g, "<br>")}</div>
+        <div class="solution-modal-copy">${explanationMarkup}</div>
       </div>
     ` : ""}
     ${interactiveAppMarkup}
