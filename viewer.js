@@ -5860,6 +5860,26 @@ function shouldHandleQuestionEnterHotkey(event) {
   return true;
 }
 
+function handleSolutionArrowScrollHotkey(event) {
+  if (!event || (event.key !== "ArrowDown" && event.key !== "ArrowUp")) return false;
+
+  const modal = document.getElementById("solutionModal");
+  if (!modal || modal.classList.contains("hidden")) return false;
+
+  const target = event.target;
+  if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || (target instanceof HTMLElement && target.isContentEditable)) {
+    return false;
+  }
+
+  const dialog = modal.querySelector(".viewer-modal-dialog");
+  if (!(dialog instanceof HTMLElement)) return false;
+
+  event.preventDefault();
+  const amount = event.key === "ArrowDown" ? 80 : -80;
+  dialog.scrollBy({ top: amount, behavior: "smooth" });
+  return true;
+}
+
 function handleQuestionEnterHotkey(event) {
   if (!shouldHandleQuestionEnterHotkey(event)) return;
   if (!quizData || !Array.isArray(quizData.questions) || quizData.questions.length === 0) return;
@@ -6115,6 +6135,11 @@ document.getElementById("solutionModal").addEventListener("click", (event) => {
   }
 });
 window.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+    if (handleSolutionArrowScrollHotkey(event)) {
+      return;
+    }
+  }
   if (event.key === "Enter") {
     handleQuestionEnterHotkey(event);
     return;
