@@ -1697,8 +1697,12 @@ async function loadLibraryFromRoot({ allowPrompt = true } = {}) {
           const freshHandle = await window.showDirectoryPicker({ mode: "readwrite" });
           rootDirectoryHandle = freshHandle;
           await saveRootDirectoryHandle(freshHandle);
-          // Scan the selected folder directly — user picked exactly what they want
-          loadedCategories = await loadLibraryFromHandleCategoryFolders(freshHandle, freshHandle.name);
+          // Scan the configured quiz root (for example selected repo root + quizzes/).
+          const configuredHandle = await getConfiguredRootHandle({ create: false, allowPrompt: false });
+          if (!configuredHandle) {
+            throw new Error("Could not resolve configured quiz root from selected folder.");
+          }
+          loadedCategories = await loadLibraryFromHandleCategoryFolders(configuredHandle, rootFolder);
           sourceMode = "handle-folder-scan";
           setLocalFolderPath(freshHandle);
         } catch (pickerError) {
