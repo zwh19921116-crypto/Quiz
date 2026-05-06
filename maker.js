@@ -1408,6 +1408,7 @@ async function loadLibraryFromHandleCategoryFolders(rootHandle, rootFolder) {
     try {
       categoryHandle = await rootHandle.getDirectoryHandle(folder, { create: false });
     } catch (error) {
+      loadedCategories.push(category);
       continue;
     }
 
@@ -1432,13 +1433,7 @@ async function loadLibraryFromHandleCategoryFolders(rootHandle, rootFolder) {
       category.quizzes.push(quiz);
     }
 
-    if (category.quizzes.length > 0) {
-      loadedCategories.push(category);
-    }
-  }
-
-  if (loadedCategories.length === 0) {
-    throw new Error(`No quiz JSON files found in ${rootFolder}/`);
+    loadedCategories.push(category);
   }
 
   return loadedCategories;
