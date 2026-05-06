@@ -1862,7 +1862,7 @@ function buildMixedToImproperArrowDiagram(summary) {
   }
 
   const signNote = whole < 0
-    ? `<p class="mixed-arrow-sign-note">Whole number is negative, so apply a negative sign to the final numerator.</p>`
+    ? `<p class="mixed-arrow-sign-note">Because the whole number is negative, the final numerator stays negative.</p>`
     : "";
 
   const mixedFractionHtml = `
@@ -1878,38 +1878,139 @@ function buildMixedToImproperArrowDiagram(summary) {
 
   return `
     <div class="fraction-section">
-      <p class="fraction-steps-heading">Conversion Diagram</p>
+      <p class="fraction-steps-heading">Change Mixed Number to Improper Fraction</p>
       <div class="mixed-arrow-card" role="group" aria-label="Mixed to improper conversion diagram">
         <div class="mixed-arrow-canvas">
-          <p class="mixed-arrow-row-label">Start with the mixed fraction</p>
+          <p class="mixed-arrow-row-label">Use this easy 3-step recipe</p>
           <div class="mixed-map-stage" aria-label="mixed fraction map">
             <div class="mixed-map-start">
-              <span class="mixed-map-start-label">Mixed Fraction</span>
+              <span class="mixed-map-start-label">Start Here</span>
               ${mixedFractionHtml}
             </div>
-            <div class="mixed-map-flow">
-              <div class="mixed-map-step">
-                <span class="mixed-map-chip is-denominator">Denominator ${escapeHtml(String(denominator))}</span>
-                <span class="mixed-map-arrow" aria-hidden="true">→</span>
-                <span class="mixed-map-chip is-whole">Whole ${escapeHtml(String(absWhole))}</span>
-                <span class="mixed-map-action">multiply</span>
-                <span class="mixed-map-arrow" aria-hidden="true">→</span>
-                <span class="mixed-map-chip is-product">Product ${escapeHtml(String(product))}</span>
+            <div class="mixed-flow-map" role="group" aria-label="Quick conversion flow">
+              <div class="mixed-flow-row">
+                <span class="mixed-flow-label">Multiply</span>
+                <span class="mixed-flow-node">Denominator ${escapeHtml(String(denominator))}</span>
+                <span class="mixed-flow-arrow" aria-hidden="true">→</span>
+                <span class="mixed-flow-node">Whole ${escapeHtml(String(absWhole))}</span>
+                <span class="mixed-flow-op" aria-hidden="true">x</span>
+                <span class="mixed-flow-node is-highlight">Product ${escapeHtml(String(product))}</span>
               </div>
-              <div class="mixed-map-step">
-                <span class="mixed-map-chip is-whole">Whole ${escapeHtml(String(absWhole))}</span>
-                <span class="mixed-map-arrow" aria-hidden="true">→</span>
-                <span class="mixed-map-chip is-numerator">Numerator ${escapeHtml(String(numerator))}</span>
-                <span class="mixed-map-action">plus</span>
-                <span class="mixed-map-arrow" aria-hidden="true">→</span>
-                <span class="mixed-map-chip is-result">New Numerator ${escapeHtml(String(summary.rawNumerator))}</span>
+              <div class="mixed-flow-row">
+                <span class="mixed-flow-label">Add</span>
+                <span class="mixed-flow-node">Product ${escapeHtml(String(product))}</span>
+                <span class="mixed-flow-arrow" aria-hidden="true">→</span>
+                <span class="mixed-flow-node">Numerator ${escapeHtml(String(numerator))}</span>
+                <span class="mixed-flow-op" aria-hidden="true">+</span>
+                <span class="mixed-flow-node is-result">New top ${escapeHtml(String(absImproperNumerator))}</span>
               </div>
             </div>
+            <ol class="mixed-step-list" aria-label="Conversion steps">
+              <li class="mixed-step-item">
+                <span class="mixed-step-index">1</span>
+                <div class="mixed-step-copy">
+                  <p class="mixed-step-title">Multiply the bottom number (denominator) by the whole number.</p>
+                  <p class="mixed-step-equation">${escapeHtml(String(denominator))} x ${escapeHtml(String(absWhole))} = ${escapeHtml(String(product))}</p>
+                </div>
+              </li>
+              <li class="mixed-step-item">
+                <span class="mixed-step-index">2</span>
+                <div class="mixed-step-copy">
+                  <p class="mixed-step-title">Add the top number (numerator). This gives the new top number.</p>
+                  <p class="mixed-step-equation">${escapeHtml(String(product))} + ${escapeHtml(String(numerator))} = ${escapeHtml(String(absImproperNumerator))}</p>
+                </div>
+              </li>
+              <li class="mixed-step-item">
+                <span class="mixed-step-index">3</span>
+                <div class="mixed-step-copy">
+                  <p class="mixed-step-title">Keep the same bottom number (denominator).</p>
+                  <p class="mixed-step-equation">Denominator stays ${escapeHtml(String(improperDenominator))}</p>
+                </div>
+              </li>
+            </ol>
           </div>
         </div>
-        <p class="mixed-arrow-formula">${escapeHtml(String(denominator))} x ${escapeHtml(String(absWhole))} + ${escapeHtml(String(numerator))} = ${escapeHtml(String(absImproperNumerator))}</p>
+        <p class="mixed-arrow-formula">New numerator = (${escapeHtml(String(denominator))} x ${escapeHtml(String(absWhole))}) + ${escapeHtml(String(numerator))} = ${escapeHtml(String(absImproperNumerator))}</p>
         ${signNote}
         <p class="mixed-arrow-final">Improper fraction: ${fractionHtmlStacked({ numerator: summary.rawNumerator, denominator: improperDenominator })}</p>
+      </div>
+    </div>
+  `;
+}
+
+function buildImproperToMixedDiagram(summary) {
+  if (!summary || summary.error || summary.conversionMode !== "improper-to-mixed" || !summary.fractionA) {
+    return "";
+  }
+
+  const numerator = Number(summary.fractionA.numerator);
+  const denominator = Number(summary.fractionA.denominator);
+  if (!Number.isFinite(numerator) || !Number.isFinite(denominator) || denominator === 0) {
+    return "";
+  }
+
+  const absNumerator = Math.abs(numerator);
+  const whole = Math.floor(absNumerator / denominator);
+  const remainder = absNumerator % denominator;
+  const remainderText = remainder === 0
+    ? "No remainder, so there is no fraction part."
+    : `Remainder is ${escapeHtml(String(remainder))}, so the fraction part is ${escapeHtml(String(remainder))}/${escapeHtml(String(denominator))}.`;
+
+  return `
+    <div class="fraction-section">
+      <p class="fraction-steps-heading">Change Improper Fraction to Mixed Number</p>
+      <div class="mixed-arrow-card" role="group" aria-label="Improper to mixed conversion diagram">
+        <div class="mixed-arrow-canvas">
+          <p class="mixed-arrow-row-label">Use this easy 3-step recipe</p>
+          <div class="mixed-map-stage" aria-label="improper fraction map">
+            <div class="mixed-map-start">
+              <span class="mixed-map-start-label">Start Here</span>
+              ${fractionHtmlStacked(summary.fractionA)}
+            </div>
+            <div class="mixed-flow-map" role="group" aria-label="Quick conversion flow">
+              <div class="mixed-flow-row">
+                <span class="mixed-flow-label">Divide</span>
+                <span class="mixed-flow-node">Numerator ${escapeHtml(String(absNumerator))}</span>
+                <span class="mixed-flow-arrow" aria-hidden="true">→</span>
+                <span class="mixed-flow-node">Denominator ${escapeHtml(String(denominator))}</span>
+                <span class="mixed-flow-op" aria-hidden="true">÷</span>
+                <span class="mixed-flow-node is-highlight">Whole ${escapeHtml(String(whole))}</span>
+              </div>
+              <div class="mixed-flow-row">
+                <span class="mixed-flow-label">Remainder</span>
+                <span class="mixed-flow-node">Remainder ${escapeHtml(String(remainder))}</span>
+                <span class="mixed-flow-arrow" aria-hidden="true">→</span>
+                <span class="mixed-flow-node">Keep denominator ${escapeHtml(String(denominator))}</span>
+                <span class="mixed-flow-op" aria-hidden="true">=</span>
+                <span class="mixed-flow-node is-result">Fraction ${escapeHtml(String(remainder))}/${escapeHtml(String(denominator))}</span>
+              </div>
+            </div>
+            <ol class="mixed-step-list" aria-label="Conversion steps">
+              <li class="mixed-step-item">
+                <span class="mixed-step-index">1</span>
+                <div class="mixed-step-copy">
+                  <p class="mixed-step-title">Divide the top number by the bottom number.</p>
+                  <p class="mixed-step-equation">${escapeHtml(String(absNumerator))} ÷ ${escapeHtml(String(denominator))} = ${escapeHtml(String(whole))} remainder ${escapeHtml(String(remainder))}</p>
+                </div>
+              </li>
+              <li class="mixed-step-item">
+                <span class="mixed-step-index">2</span>
+                <div class="mixed-step-copy">
+                  <p class="mixed-step-title">The quotient becomes the whole number.</p>
+                  <p class="mixed-step-equation">Whole number = ${escapeHtml(String(whole))}</p>
+                </div>
+              </li>
+              <li class="mixed-step-item">
+                <span class="mixed-step-index">3</span>
+                <div class="mixed-step-copy">
+                  <p class="mixed-step-title">Use the remainder as the new top number and keep the same bottom number.</p>
+                  <p class="mixed-step-equation">${remainderText}</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <p class="mixed-arrow-final">Mixed number: ${fractionHtmlMixed(summary.result)}</p>
       </div>
     </div>
   `;
@@ -1977,10 +2078,10 @@ function buildFractionOperationSummary(config, questionText = "") {
     rawDenominator = fractionA.denominator;
     const whole = Math.floor(Math.abs(rawNumerator) / Math.abs(rawDenominator));
     const remainder = Math.abs(rawNumerator) % Math.abs(rawDenominator);
-    whyLines.push(`Convert improper fraction to mixed number by dividing ${Math.abs(rawNumerator)} by ${Math.abs(rawDenominator)}.`);
+    whyLines.push(`To change an improper fraction to a mixed number, divide top by bottom.`);
     steps.push(`Start with the improper fraction ${rawNumerator}/${rawDenominator}.`);
     steps.push(`${Math.abs(rawNumerator)} ÷ ${Math.abs(rawDenominator)} = ${whole} remainder ${remainder}.`);
-    steps.push(`Whole number is ${whole}, and fractional part is ${remainder}/${Math.abs(rawDenominator)}.`);
+    steps.push(`Whole number is ${whole}, and the fraction part is ${remainder}/${Math.abs(rawDenominator)}.`);
   } else if (isMixedToImproperConversion) {
     const mixedWhole = parsedMixedFromQuestion.whole;
     const mixedNumerator = parsedMixedFromQuestion.numerator;
@@ -1989,10 +2090,10 @@ function buildFractionOperationSummary(config, questionText = "") {
     const absWhole = Math.abs(mixedWhole);
     rawNumerator = sign * ((absWhole * mixedDenominator) + mixedNumerator);
     rawDenominator = mixedDenominator;
-    whyLines.push("Convert mixed to improper using denominator x whole number + numerator.");
+    whyLines.push("To change a mixed number to an improper fraction, multiply then add.");
     steps.push(`Start with mixed number ${mixedWhole} and ${mixedNumerator}/${mixedDenominator}.`);
     steps.push(`${mixedDenominator} x ${absWhole} + ${mixedNumerator} = ${Math.abs(rawNumerator)}.`);
-    steps.push(`Put that over the same denominator: ${rawNumerator}/${rawDenominator}.`);
+    steps.push(`Keep the same denominator: ${rawNumerator}/${rawDenominator}.`);
   } else if (operation === "add" || operation === "subtract") {
     lcmValue = lcmFraction(fractionA.denominator, fractionB.denominator);
     const scaleA = lcmValue / fractionA.denominator;
@@ -2071,6 +2172,12 @@ function buildFractionsMarkup(config, questionText = "") {
 
   const buildFractionStepTitle = (stepText) => {
     const text = String(stepText || "");
+    if (text.startsWith("Start with the improper fraction")) return "Start with the fraction";
+    if (text.includes("remainder")) return "Divide and find the remainder";
+    if (text.startsWith("Whole number is")) return "Write the mixed number";
+    if (text.startsWith("Start with mixed number")) return "Start with the mixed number";
+    if (text.includes("x") && text.includes("+") && text.includes("=")) return "Find the new numerator";
+    if (text.startsWith("Put that over the same denominator")) return "Keep the same denominator";
     if (text.startsWith("Lowest Common Denominator (LCD)")) return "Find Lowest Common Denominator (LCD)";
     if (text.includes("= ") && text.includes(" and ") && text.includes("/")) return "Rewrite equivalent fractions";
     if (text.startsWith("Stay:")) return "Stay";
@@ -2140,10 +2247,17 @@ function buildFractionsMarkup(config, questionText = "") {
     .map((line) => `<p class="fraction-why-line">${renderStepText(line)}</p>`)
     .join("");
   const reasonVisualMarkup = buildFractionReasonVisuals(summary);
+  const improperToMixedDiagramMarkup = buildImproperToMixedDiagram(summary);
   const mixedToImproperDiagramMarkup = buildMixedToImproperArrowDiagram(summary);
+  const conversionDiagramMarkup = `${improperToMixedDiagramMarkup}${mixedToImproperDiagramMarkup}`;
   const whySection = whyMarkup
     ? `<div class="fraction-section"><p class="fraction-steps-heading">Why These Numbers?</p>${whyMarkup}${reasonVisualMarkup}</div>`
     : reasonVisualMarkup;
+  const guidanceText = summary.conversionMode === "mixed-to-improper"
+    ? "Use the 3-step recipe: multiply, add, then keep the same denominator."
+    : summary.conversionMode === "improper-to-mixed"
+      ? "Use the 3-step recipe: divide, use the quotient as whole number, then use the remainder over the same denominator."
+      : "Follow each step in order. Find LCD/HCF first, then calculate the result.";
 
   const resultMarkup = fractionHtmlImproperAndMixed(summary.result);
   const finalEquation = summary.conversionMode === "improper-to-mixed"
@@ -2159,9 +2273,9 @@ function buildFractionsMarkup(config, questionText = "") {
   return `
     <div class="simple-card fraction-solution-card">
       ${questionMarkup}
-      <p class="fraction-guidance">Follow each step in order. Find LCD/HCF first, then calculate the result.</p>
+      <p class="fraction-guidance">${escapeHtml(guidanceText)}</p>
       ${whySection}
-      ${mixedToImproperDiagramMarkup}
+      ${conversionDiagramMarkup}
       <p class="fraction-steps-heading">Steps</p>
       <ol class="fraction-step-list">${stepMarkup}</ol>
       <p class="fraction-steps-heading">Final Answer</p>

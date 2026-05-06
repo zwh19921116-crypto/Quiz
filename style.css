@@ -878,39 +878,32 @@ textarea {
 }
 
 .mixed-arrow-card {
-  border: 1px solid #fecaca;
-  border-radius: 12px;
-  background: linear-gradient(180deg, #fff7f7 0%, #fffdfd 100%);
-  padding: 12px;
+  border: 1px solid #cfe2f3;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #f8fcff 0%, #fdfefe 100%);
+  padding: 16px;
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .mixed-arrow-canvas {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .mixed-arrow-row-label {
   margin: 0;
-  color: #991b1b;
-  font-size: 0.84rem;
+  color: #1d4e89;
+  font-size: 0.86rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.mixed-arrow-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  letter-spacing: 0.04em;
 }
 
 .mixed-map-stage {
-  border: 1px solid #fecaca;
-  border-radius: 10px;
-  background: #fff;
+  border: 1px solid #d7e5f5;
+  border-radius: 12px;
+  background: #ffffff;
   padding: 12px;
   display: grid;
   gap: 12px;
@@ -926,21 +919,21 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .mixed-map-start-label {
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #991b1b;
+  color: #2563eb;
 }
 
 .mixed-map-whole {
   font-size: 2rem;
   font-weight: 900;
-  color: #7f1d1d;
+  color: #0f172a;
 }
 
 .mixed-map-frac {
@@ -954,148 +947,217 @@ textarea {
 .mixed-map-den {
   font-size: 1.2rem;
   font-weight: 900;
-  color: #7f1d1d;
+  color: #0f172a;
   line-height: 1.1;
 }
 
 .mixed-map-line {
   width: 44px;
   height: 2px;
-  background: #7f1d1d;
+  background: #0f172a;
   margin: 3px 0;
 }
 
-.mixed-map-flow {
+.mixed-flow-map {
   display: grid;
   gap: 8px;
+  border: 1px solid #d7e5f5;
+  border-radius: 10px;
+  background: #f9fbff;
+  padding: 9px;
 }
 
-.mixed-map-step {
+.mixed-flow-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
-.mixed-map-chip {
+.mixed-flow-label {
   display: inline-flex;
   align-items: center;
+  border-radius: 999px;
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
   padding: 4px 8px;
+  min-width: 72px;
+  justify-content: center;
+}
+
+.mixed-flow-node {
+  display: inline-flex;
+  align-items: center;
   border-radius: 999px;
-  border: 1px solid #fecaca;
-  background: #fff7f7;
-  color: #7f1d1d;
-  font-size: 0.8rem;
-  font-weight: 800;
-}
-
-.mixed-map-chip.is-product,
-.mixed-map-chip.is-result {
-  background: #fef2f2;
-}
-
-.mixed-map-arrow {
-  color: #dc2626;
-  font-size: 1.1rem;
-  font-weight: 900;
-}
-
-.mixed-map-action {
-  padding: 2px 8px;
-  border-radius: 999px;
-  border: 1px solid #fca5a5;
-  background: #fff;
-  color: #dc2626;
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.mixed-arrow-node {
-  min-width: 120px;
-  border-radius: 10px;
-  border: 1px solid #fecaca;
+  border: 1px solid #d6e2f1;
   background: #ffffff;
-  padding: 7px 8px;
-  display: grid;
-  gap: 3px;
-  text-align: center;
-  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.14);
+  color: #334155;
+  font-size: 0.79rem;
+  font-weight: 700;
+  padding: 4px 8px;
 }
 
-.mixed-arrow-node-label {
-  font-size: 0.7rem;
+.mixed-flow-node.is-highlight {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+  color: #1e3a8a;
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #991b1b;
 }
 
-.mixed-arrow-node-value {
-  font-size: 1.08rem;
+.mixed-flow-node.is-result {
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+  color: #065f46;
+  font-weight: 800;
+}
+
+.mixed-flow-arrow {
+  font-size: 1rem;
   font-weight: 900;
-  color: #7f1d1d;
+  line-height: 1;
+  color: #64748b;
 }
 
-.mixed-arrow-operator {
-  font-size: 1.24rem;
-  font-weight: 900;
-  color: #7f1d1d;
-}
-
-.mixed-arrow-flow {
+.mixed-flow-op {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 30px;
-  font-size: 1.35rem;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 0.88rem;
   font-weight: 900;
-  color: #dc2626;
 }
 
-.mixed-arrow-node.is-product,
-.mixed-arrow-node.is-result {
-  background: #fef2f2;
+.mixed-step-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.mixed-step-item {
+  border: 1px solid #dbe7f5;
+  border-radius: 10px;
+  background: #f8fbff;
+  padding: 10px 11px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.mixed-step-index {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.mixed-step-copy {
+  display: grid;
+  gap: 3px;
+}
+
+.mixed-step-title,
+.mixed-step-equation {
+  margin: 0;
+}
+
+.mixed-step-title {
+  color: #0f172a;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.mixed-step-equation {
+  color: #1e3a8a;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.45;
 }
 
 .mixed-arrow-formula,
 .mixed-arrow-final,
 .mixed-arrow-sign-note {
   margin: 0;
-  color: #7f1d1d;
+  color: #1e3a8a;
   font-weight: 700;
 }
 
 .mixed-arrow-sign-note {
-  font-size: 0.86rem;
+  font-size: 0.88rem;
+  color: #334155;
 }
 
 @media (max-width: 720px) {
-  .mixed-arrow-row {
-    gap: 8px;
+  .mixed-arrow-card {
+    padding: 14px;
   }
 
-  .mixed-arrow-node {
-    min-width: 100px;
+  .mixed-flow-map {
+    padding: 10px;
+    gap: 9px;
   }
 
-  .mixed-arrow-flow {
-    min-width: 22px;
-    font-size: 1.15rem;
+  .mixed-flow-row {
+    gap: 7px;
+  }
+
+  .mixed-flow-label,
+  .mixed-flow-node {
+    font-size: 0.84rem;
+    padding: 5px 9px;
+  }
+
+  .mixed-flow-arrow {
+    font-size: 1.1rem;
+  }
+
+  .mixed-flow-op {
+    width: 24px;
+    height: 24px;
+    font-size: 0.92rem;
+  }
+
+  .mixed-step-item {
+    padding: 11px 10px;
+    gap: 12px;
   }
 
   .mixed-map-whole {
-    font-size: 1.72rem;
+    font-size: 1.86rem;
   }
 
   .mixed-map-num,
   .mixed-map-den {
-    font-size: 1.08rem;
+    font-size: 1.16rem;
   }
 
-  .mixed-map-chip {
-    font-size: 0.74rem;
+  .mixed-step-title,
+  .mixed-step-equation {
+    font-size: 0.98rem;
+  }
+
+  .mixed-arrow-row-label {
+    font-size: 0.92rem;
   }
 }
 
@@ -1463,6 +1525,33 @@ textarea {
   font-weight: 600;
   display: grid;
   gap: 4px;
+}
+
+@media (max-width: 720px) {
+  .fraction-guidance {
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+
+  .fraction-step-list {
+    gap: 10px;
+  }
+
+  .fraction-step-list li {
+    font-size: 1.03rem;
+    line-height: 1.78;
+    padding: 11px 12px;
+  }
+
+  .fraction-step-title {
+    font-size: 0.96rem;
+  }
+
+  .fraction-equation {
+    font-size: 1.62rem;
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
 }
 
 .fraction-step-list li.step-tone-neutral {
