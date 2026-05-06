@@ -5382,13 +5382,35 @@ function renderAnswerInput(question) {
   }
 
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
+    const summary = buildFractionOperationSummary((question.interactiveApp && question.interactiveApp.config) || {});
+    const mixed = summary && !summary.error ? toMixedNumber(summary.result) : null;
+    const canBeMixed = !!mixed && mixed.numerator > 0;
     return `
-      <div class="fraction-answer-panel">
-        <div class="fraction-input-widget">
-          <input type="number" step="1" placeholder="?" data-role="fraction-answer-num" aria-label="Numerator" />
-          <div class="fraction-input-line"></div>
-          <input type="number" step="1" placeholder="?" data-role="fraction-answer-den" aria-label="Denominator" />
+      <div class="fraction-answer-panel two-stage">
+        <div class="fraction-step-block">
+          <p class="fraction-steps-heading">Enter Improper Fraction</p>
+          <div class="fraction-input-widget">
+            <input type="number" step="1" placeholder="?" data-role="fraction-answer-num" aria-label="Numerator" />
+            <div class="fraction-input-line"></div>
+            <input type="number" step="1" placeholder="?" data-role="fraction-answer-den" aria-label="Denominator" />
+          </div>
         </div>
+        ${canBeMixed ? `
+          <div class="fraction-step-block hidden" data-role="fraction-mixed-stage">
+            <p class="fraction-steps-heading">Then Enter Mixed Fraction</p>
+            <div class="fraction-input-widget mixed-input">
+              <input type="number" step="1" placeholder="Whole" data-role="fraction-answer-whole" aria-label="Whole number" />
+              <span class="mixed-input-and">and</span>
+              <div class="fraction-input-stacked">
+                <input type="number" step="1" placeholder="Num" data-role="fraction-mixed-num" aria-label="Mixed numerator" />
+                <div class="fraction-input-line"></div>
+                <input type="number" step="1" placeholder="Den" data-role="fraction-mixed-den" aria-label="Mixed denominator" />
+              </div>
+              <button type="button" class="btn secondary small" data-role="fraction-mixed-check-btn">Check mixed</button>
+            </div>
+            <p class="helper-text" data-role="fraction-mixed-feedback"></p>
+          </div>
+        ` : ""}
       </div>
     `;
   }
@@ -5508,6 +5530,54 @@ function applyAnswerInputResultState(isCorrect, scope = document) {
   });
 }
 
+function wireFractionMixedAnswerInput(question) {
+  const container = document.getElementById("quizContainer");
+  if (!container || !question || !question.interactiveApp || question.interactiveApp.type !== "fractions") return;
+
+  const mixedStage = container.querySelector("[data-role='fraction-mixed-stage']");
+  if (!mixedStage) return;
+
+  const summary = buildFractionOperationSummary((question.interactiveApp && question.interactiveApp.config) || {});
+  if (!summary || summary.error || !summary.result) return;
+  const mixed = toMixedNumber(summary.result);
+  if (!mixed || mixed.numerator <= 0) return;
+
+  const checkBtn = mixedStage.querySelector("[data-role='fraction-mixed-check-btn']");
+  const feedback = mixedStage.querySelector("[data-role='fraction-mixed-feedback']");
+  const wholeInput = mixedStage.querySelector("[data-role='fraction-answer-whole']");
+  const numInput = mixedStage.querySelector("[data-role='fraction-mixed-num']");
+  const denInput = mixedStage.querySelector("[data-role='fraction-mixed-den']");
+
+  if (!(checkBtn instanceof HTMLButtonElement)
+    || !(feedback instanceof HTMLElement)
+    || !(wholeInput instanceof HTMLInputElement)
+    || !(numInput instanceof HTMLInputElement)
+    || !(denInput instanceof HTMLInputElement)) {
+    return;
+  }
+
+  checkBtn.addEventListener("click", () => {
+    const userWhole = Number.parseInt(wholeInput.value, 10);
+    const userNum = Number.parseInt(numInput.value, 10);
+    const userDen = Number.parseInt(denInput.value, 10);
+
+    if (!Number.isFinite(userWhole) || !Number.isFinite(userNum) || !Number.isFinite(userDen) || userDen === 0) {
+      feedback.textContent = "Enter a valid mixed fraction.";
+      return;
+    }
+    if (userNum < 0 || userNum >= Math.abs(userDen)) {
+      feedback.textContent = "Fraction part must be proper (numerator less than denominator).";
+      return;
+    }
+
+    const expectedDen = Math.abs(mixed.denominator);
+    const isCorrect = userWhole === mixed.whole && userNum === mixed.numerator && Math.abs(userDen) === expectedDen;
+    feedback.textContent = isCorrect
+      ? "Great! Mixed fraction is correct."
+      : `Not quite. Try ${mixed.whole} and ${mixed.numerator}/${expectedDen}.`;
+  });
+}
+
 function renderQuestion() {
   const question = quizData.questions[currentIndex];
   const quizContainer = document.getElementById("quizContainer");
@@ -5545,6 +5615,9 @@ function renderQuestion() {
   }
   if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
     wireArithmeticAnswerInputs();
+  }
+  if (question.interactiveApp && question.interactiveApp.type === "fractions") {
+    wireFractionMixedAnswerInput(question);
   }
 
   wireAnswerInputVisualState(quizContainer);
@@ -5718,7 +5791,19 @@ function checkAnswer() {
   const resultBox = document.getElementById("resultBox");
   if (resultBox) {
     if (isCorrect) {
-      resultBox.textContent = "Correct";
+      if (question.interactiveApp && question.interactiveApp.type === "fractions") {
+        const summary = buildFractionOperationSummary((question.interactiveApp && question.interactiveApp.config) || {});
+        const mixed = summary && !summary.error ? toMixedNumber(summary.result) : null;
+        const mixedStage = document.getElementById("quizContainer") && document.getElementById("quizContainer").querySelector("[data-role='fraction-mixed-stage']");
+        if (mixedStage && mixed && mixed.numerator > 0) {
+          mixedStage.classList.remove("hidden");
+          resultBox.textContent = "Correct improper fraction. Now enter the mixed fraction.";
+        } else {
+          resultBox.textContent = "Correct";
+        }
+      } else {
+        resultBox.textContent = "Correct";
+      }
     } else if (question.interactiveApp && question.interactiveApp.type === "fractions") {
       resultBox.innerHTML = buildFractionIncorrectFeedbackMarkup(question, expectedAnswers);
     } else if (question.resultType === "short-answer" || question.resultType === "plot") {

@@ -1062,6 +1062,11 @@ textarea {
   background: #f8fbff;
 }
 
+.fraction-answer-panel.two-stage .fraction-step-block {
+  width: auto;
+  flex: 1 1 280px;
+}
+
 .fraction-input-widget {
   display: inline-flex;
   flex-direction: column;
