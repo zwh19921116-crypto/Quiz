@@ -5583,19 +5583,68 @@ function collectUserAnswer(question) {
   return selected ? selected.value : "";
 }
 
+function parseAnswerFraction(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return null;
+
+  const mixedMatch = raw.match(/^(-?\d+)\s+(\d+)\s*\/\s*(\d+)$/);
+  if (mixedMatch) {
+    const whole = Number.parseInt(mixedMatch[1], 10);
+    const numerator = Number.parseInt(mixedMatch[2], 10);
+    const denominator = Number.parseInt(mixedMatch[3], 10);
+    if (!Number.isFinite(whole) || !Number.isFinite(numerator) || !Number.isFinite(denominator) || denominator === 0) return null;
+    if (numerator < 0 || numerator >= Math.abs(denominator)) return null;
+    const sign = whole < 0 ? -1 : 1;
+    const absWhole = Math.abs(whole);
+    return {
+      n: sign * (absWhole * Math.abs(denominator) + numerator),
+      d: Math.abs(denominator)
+    };
+  }
+
+  const mixedAndMatch = raw.match(/^(-?\d+)\s+and\s+(\d+)\s*\/\s*(\d+)$/i);
+  if (mixedAndMatch) {
+    const whole = Number.parseInt(mixedAndMatch[1], 10);
+    const numerator = Number.parseInt(mixedAndMatch[2], 10);
+    const denominator = Number.parseInt(mixedAndMatch[3], 10);
+    if (!Number.isFinite(whole) || !Number.isFinite(numerator) || !Number.isFinite(denominator) || denominator === 0) return null;
+    if (numerator < 0 || numerator >= Math.abs(denominator)) return null;
+    const sign = whole < 0 ? -1 : 1;
+    const absWhole = Math.abs(whole);
+    return {
+      n: sign * (absWhole * Math.abs(denominator) + numerator),
+      d: Math.abs(denominator)
+    };
+  }
+
+  const fractionMatch = raw.match(/^(-?\d+)\s*\/\s*(-?\d+)$/);
+  if (fractionMatch) {
+    const n = Number.parseInt(fractionMatch[1], 10);
+    const dRaw = Number.parseInt(fractionMatch[2], 10);
+    if (!Number.isFinite(n) || !Number.isFinite(dRaw) || dRaw === 0) return null;
+    const sign = dRaw < 0 ? -1 : 1;
+    return { n: n * sign, d: Math.abs(dRaw) };
+  }
+
+  if (/^-?\d+$/.test(raw)) {
+    const n = Number.parseInt(raw, 10);
+    if (!Number.isFinite(n)) return null;
+    return { n, d: 1 };
+  }
+
+  return null;
+}
+
 function answersMatch(question, userAnswer) {
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
-    // Compare as equivalent fractions (cross-multiply)
-    const parseFrac = (s) => {
-      const str = String(s || "").trim();
-      const parts = str.split("/");
-      if (parts.length === 2) return { n: Number(parts[0]), d: Number(parts[1]) };
-      if (parts.length === 1 && str !== "") return { n: Number(parts[0]), d: 1 };
-      return null;
-    };
-    const user = parseFrac(userAnswer);
+    // Compare as equivalent fractions (cross-multiply), supporting mixed forms like "2 3/5".
+    const user = parseAnswerFraction(userAnswer);
     const expected = getExpectedAnswers(question)[0];
-    const correct = parseFrac(expected);
+    const fallbackSummary = buildFractionOperationSummary((question.interactiveApp && question.interactiveApp.config) || {});
+    const fallbackExpected = !fallbackSummary.error && fallbackSummary.result
+      ? `${fallbackSummary.result.numerator}/${fallbackSummary.result.denominator}`
+      : "";
+    const correct = parseAnswerFraction(expected || fallbackExpected);
     if (!user || !correct || !Number.isFinite(user.n) || !Number.isFinite(user.d) || user.d === 0) return false;
     return (user.n * correct.d) === (correct.n * user.d);
   }
@@ -5634,11 +5683,7 @@ function answersMatch(question, userAnswer) {
 
 function validateAnswer(question, userAnswer) {
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
-    const str = String(userAnswer || "").trim();
-    if (str === "") return false;
-    const parts = str.split("/");
-    if (parts.length === 2) return Number.isFinite(Number(parts[0])) && Number.isFinite(Number(parts[1])) && Number(parts[1]) !== 0;
-    return Number.isFinite(Number(str));
+    return !!parseAnswerFraction(userAnswer);
   }
   if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
     return String(userAnswer || "").trim() !== "";
