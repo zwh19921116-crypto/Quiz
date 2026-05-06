@@ -1590,6 +1590,7 @@ function buildFractionOperationSummary(config) {
   const symbols = { add: "+", subtract: "-", multiply: "x", divide: "/" };
   const labels = { add: "Addition", subtract: "Subtraction", multiply: "Multiplication", divide: "Division" };
   const steps = [];
+  const whyLines = [];
 
   let rawNumerator = 0;
   let rawDenominator = 1;
@@ -1603,6 +1604,7 @@ function buildFractionOperationSummary(config) {
     const adjustedB = fractionB.numerator * scaleB;
     rawNumerator = operation === "add" ? adjustedA + adjustedB : adjustedA - adjustedB;
     rawDenominator = lcmValue;
+    whyLines.push(`LCM is ${lcmValue} because it is the smallest positive number divisible by both denominators ${fractionA.denominator} and ${fractionB.denominator}.`);
     steps.push(`LCM(${fractionA.denominator}, ${fractionB.denominator}) = ${lcmValue}, so both fractions can use a common denominator.`);
     steps.push(`${fractionA.numerator}/${fractionA.denominator} = ${adjustedA}/${lcmValue} and ${fractionB.numerator}/${fractionB.denominator} = ${adjustedB}/${lcmValue}.`);
     steps.push(`${adjustedA}/${lcmValue} ${symbols[operation]} ${adjustedB}/${lcmValue} = ${rawNumerator}/${rawDenominator}.`);
@@ -1626,8 +1628,10 @@ function buildFractionOperationSummary(config) {
 
   const hcfValue = gcdFraction(rawNumerator, rawDenominator);
   if (hcfValue > 1) {
+    whyLines.push(`HCF is ${hcfValue} because it is the largest number that divides both ${Math.abs(rawNumerator)} and ${Math.abs(rawDenominator)} exactly.`);
     steps.push(`HCF(|${rawNumerator}|, ${Math.abs(rawDenominator)}) = ${hcfValue}, so divide numerator and denominator by ${hcfValue}.`);
   } else {
+    whyLines.push(`HCF is 1 because there is no common factor greater than 1 for ${Math.abs(rawNumerator)} and ${Math.abs(rawDenominator)}.`);
     steps.push(`HCF(|${rawNumerator}|, ${Math.abs(rawDenominator)}) = 1, so the fraction is already in simplest form.`);
   }
 
@@ -1650,6 +1654,7 @@ function buildFractionOperationSummary(config) {
     mixed: useMixed ? mixed : null,
     lcmValue,
     hcfValue,
+    whyLines,
     steps
   };
 }
@@ -1663,6 +1668,9 @@ function buildFractionsMarkup(config) {
 
   const stepMarkup = summary.steps
     .map((step) => `<li>${renderStepText(step)}</li>`)
+    .join("");
+  const whyMarkup = (Array.isArray(summary.whyLines) ? summary.whyLines : [])
+    .map((line) => `<p class="fraction-why-line">${renderStepText(line)}</p>`)
     .join("");
 
   const tooltipLines = summary.steps.map((s, i) => `${i + 1}. ${s}`).join("\n");
@@ -1704,6 +1712,7 @@ function buildFractionsMarkup(config) {
           <span class="helper-text" data-role="fraction-mixed-feedback"></span>
         </div>` : ""}
       </div>
+      ${whyMarkup}
       <p class="fraction-steps-heading">Working out</p>
       <ol class="fraction-step-list">${stepMarkup}</ol>
     </div>

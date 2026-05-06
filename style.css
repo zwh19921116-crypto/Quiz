@@ -1,4 +1,6 @@
-﻿:root {
+﻿@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap");
+
+:root {
   --bg-1: #f7f9fc;
   --bg-2: #e7eef7;
   --card: #ffffff;
@@ -9,6 +11,8 @@
   --primary-2: #155e75;
   --danger: #b91c1c;
   --shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+  --font-body: "Nunito", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-display: "DM Serif Display", Georgia, serif;
 }
 
 * {
@@ -17,7 +21,9 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.01em;
   color: var(--ink);
   background: radial-gradient(circle at 0 0, #ffffff 0%, var(--bg-1) 45%, var(--bg-2) 100%);
 }
@@ -85,11 +91,15 @@ kbd {
 h1 {
   margin: 6px 0;
   font-size: 2rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 h2 {
   margin-top: 0;
   font-size: 1.2rem;
+  font-weight: 800;
 }
 
 .section-card,
@@ -105,7 +115,7 @@ h2 {
 label {
   display: block;
   margin: 12px 0 6px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 input,
@@ -141,7 +151,8 @@ textarea {
   color: #fff;
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
   padding: 11px 16px;
-  font-weight: 600;
+  font-weight: 800;
+  letter-spacing: 0.01em;
   cursor: pointer;
   text-decoration: none;
 }
@@ -806,19 +817,29 @@ textarea {
 }
 
 .fraction-equation {
-  font-size: 1.4rem;
-  margin: 12px 0;
+  font-size: 1.5rem;
+  margin: 14px 0 12px;
   display: flex;
   align-items: center;
   gap: 4px;
+  font-weight: 700;
+  color: #0f172a;
 }
 
 .fraction-answer-panel {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 12px;
+}
+
+.fraction-step-block {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #dbe6f3;
+  border-radius: 10px;
+  background: #f8fbff;
 }
 
 .fraction-input-widget {
@@ -833,7 +854,9 @@ textarea {
   padding: 6px 8px;
   border: 1px solid #cbd5e1;
   border-radius: 6px;
-  font-size: 1.1rem;
+  font-size: 1.06rem;
+  font-family: var(--font-body);
+  font-weight: 700;
   text-align: center;
   -moz-appearance: textfield;
 }
@@ -868,7 +891,9 @@ textarea {
   transform: translateX(-50%);
   background: #1e293b;
   color: #f1f5f9;
-  font-size: 0.8rem;
+  font-size: 0.86rem;
+  font-family: var(--font-body);
+  font-weight: 600;
   line-height: 1.5;
   white-space: pre-line;
   padding: 8px 12px;
@@ -909,7 +934,8 @@ textarea {
 }
 
 .mixed-input-and {
-  font-size: 0.9rem;
+  font-size: 0.94rem;
+  font-weight: 700;
   color: #64748b;
 }
 
@@ -925,7 +951,9 @@ textarea {
   padding: 6px 8px;
   border: 1px solid #cbd5e1;
   border-radius: 6px;
-  font-size: 1.1rem;
+  font-size: 1.06rem;
+  font-family: var(--font-body);
+  font-weight: 700;
   text-align: center;
   -moz-appearance: textfield;
 }
@@ -951,28 +979,48 @@ textarea {
 }
 
 .fraction-steps-heading {
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: #64748b;
-  margin: 16px 0 6px;
+  margin: 16px 0 8px;
 }
 
 .fraction-step-list {
-  margin: 0 0 4px 20px;
+  margin: 0;
   padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
 }
 
 .fraction-step-list li {
-  margin: 6px 0;
-  font-size: 0.95rem;
-  line-height: 2;
-  color: #334155;
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #1e293b;
+  background: #f8fbff;
+  border: 1px solid #dbe6f3;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-weight: 600;
 }
 
 .fraction-step-list .frac {
   font-size: 0.9em;
+}
+
+.fraction-why-line {
+  margin: 8px 0 2px;
+  padding: 8px 10px;
+  border-radius: 9px;
+  border: 1px dashed #c7d7ee;
+  background: #f5f9ff;
+  color: #0f3f76;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  font-weight: 700;
 }
 
 .stem-leaf-table {
@@ -1092,6 +1140,8 @@ textarea {
 .viewer-question h2 {
   margin: 0 0 14px;
   line-height: 1.35;
+  font-size: 1.42rem;
+  font-weight: 800;
 }
 
 .options-list {
@@ -1139,6 +1189,7 @@ textarea {
 .option-item span {
   display: block;
   width: 100%;
+  font-weight: 600;
 }
 
 .viewer-actions {
@@ -1246,6 +1297,8 @@ body.modal-open {
 
 .viewer-modal-header h2 {
   margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
 }
 
 .viewer-modal-body {
@@ -1299,7 +1352,8 @@ body.modal-open {
 
 .solution-modal-copy {
   color: #0f172a;
-  line-height: 1.6;
+  line-height: 1.75;
+  font-size: 1rem;
 }
 
 .solution-attachment-list {
