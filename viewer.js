@@ -1928,11 +1928,23 @@ function buildFractionsMarkup(config, questionText = "") {
     return "Calculate";
   };
 
+  const getFractionStepToneClass = (stepTitleText) => {
+    if (stepTitleText === "Stay") return "step-tone-stay";
+    if (stepTitleText === "Change") return "step-tone-change";
+    if (stepTitleText === "Flip") return "step-tone-flip";
+    if (stepTitleText === "Calculate numerator" || stepTitleText === "Calculate denominator") return "step-tone-calc";
+    if (stepTitleText === "Simplify using Highest Common Factor (HCF)") return "step-tone-simplify";
+    if (stepTitleText === "Convert to mixed number") return "step-tone-mixed";
+    if (stepTitleText === "Find Lowest Common Denominator (LCD)" || stepTitleText === "Rewrite equivalent fractions") return "step-tone-lcd";
+    return "step-tone-neutral";
+  };
+
   let lcdMultiplierPlaced = false;
   const stepMarkup = summary.steps
     .map((step) => {
       const stepTitleText = buildFractionStepTitle(step);
       const title = escapeHtml(stepTitleText);
+      const toneClass = getFractionStepToneClass(stepTitleText);
       const shouldShowLcdMultiplier =
         !lcdMultiplierPlaced
         && summary.lcmValue
@@ -1945,10 +1957,10 @@ function buildFractionsMarkup(config, questionText = "") {
       if (shouldShowLcdMultiplier) lcdMultiplierPlaced = true;
 
       const lcdBeforeCalculateMarkup = shouldShowLcdMultiplier
-        ? `<li><span class="fraction-step-title">Scale To LCD</span>${buildLcdMultiplierMarkup(summary.fractionA, summary.fractionB, summary.lcmValue)}</li>`
+        ? `<li class="step-tone-lcd"><span class="fraction-step-title">Scale To LCD</span>${buildLcdMultiplierMarkup(summary.fractionA, summary.fractionB, summary.lcmValue)}</li>`
         : "";
 
-      return `${lcdBeforeCalculateMarkup}<li><span class="fraction-step-title">${title}</span><span class="fraction-step-copy">${renderStepText(step)}</span>${shouldShowHcfVisual ? buildFractionReasonTable({
+      return `${lcdBeforeCalculateMarkup}<li class="${toneClass}"><span class="fraction-step-title">${title}</span><span class="fraction-step-copy">${renderStepText(step)}</span>${shouldShowHcfVisual ? buildFractionReasonTable({
         title: "Highest Common Factor (HCF)",
         kind: "hcf",
         targetValue: summary.hcfValue,

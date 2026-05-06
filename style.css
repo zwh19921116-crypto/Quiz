@@ -1243,6 +1243,46 @@ textarea {
   gap: 4px;
 }
 
+.fraction-step-list li.step-tone-neutral {
+  background: #fbfdff;
+  border-color: #dbe6f3;
+}
+
+.fraction-step-list li.step-tone-lcd {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.fraction-step-list li.step-tone-stay {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.fraction-step-list li.step-tone-change {
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+.fraction-step-list li.step-tone-flip {
+  background: #fff1f2;
+  border-color: #fecdd3;
+}
+
+.fraction-step-list li.step-tone-calc {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.fraction-step-list li.step-tone-simplify {
+  background: #f5f3ff;
+  border-color: #ddd6fe;
+}
+
+.fraction-step-list li.step-tone-mixed {
+  background: #f0fdfa;
+  border-color: #99f6e4;
+}
+
 .fraction-step-list li::before {
   content: counter(frac-step) ") ";
   color: #0f3f76;
