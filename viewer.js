@@ -2214,6 +2214,8 @@ function buildFractionsMarkup(config, questionText = "") {
   const improperToMixedDiagramMarkup = buildImproperToMixedDiagram(summary);
   const mixedToImproperDiagramMarkup = buildMixedToImproperArrowDiagram(summary);
   const conversionDiagramMarkup = `${improperToMixedDiagramMarkup}${mixedToImproperDiagramMarkup}`;
+  const isConversionQuestion = summary.conversionMode === "improper-to-mixed" || summary.conversionMode === "mixed-to-improper";
+  const shouldShowGenericSteps = !isConversionQuestion;
   const whySection = whyMarkup
     ? `<div class="fraction-section"><p class="fraction-steps-heading">Why These Numbers?</p>${whyMarkup}${reasonVisualMarkup}</div>`
     : reasonVisualMarkup;
@@ -2233,6 +2235,9 @@ function buildFractionsMarkup(config, questionText = "") {
   const questionMarkup = questionIntro
     ? `<div class="fraction-section"><p class="fraction-steps-heading">Question</p><p class="fraction-question-context">${renderQuestionText(questionIntro)}</p></div>`
     : "";
+  const stepsSectionMarkup = shouldShowGenericSteps
+    ? `<p class="fraction-steps-heading">Steps</p><ol class="fraction-step-list">${stepMarkup}</ol>`
+    : "";
 
   return `
     <div class="simple-card fraction-solution-card">
@@ -2240,8 +2245,7 @@ function buildFractionsMarkup(config, questionText = "") {
       <p class="fraction-guidance">${escapeHtml(guidanceText)}</p>
       ${whySection}
       ${conversionDiagramMarkup}
-      <p class="fraction-steps-heading">Steps</p>
-      <ol class="fraction-step-list">${stepMarkup}</ol>
+      ${stepsSectionMarkup}
       <p class="fraction-steps-heading">Final Answer</p>
       <p class="fraction-equation">${finalEquation}</p>
     </div>
