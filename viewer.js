@@ -5979,6 +5979,10 @@ function openSolutionModal() {
   const modal = document.getElementById("solutionModal");
   const solutionNextBtn = document.getElementById("solutionNextBtn");
   if (!modal) return;
+  const dialog = modal.querySelector(".viewer-modal-dialog");
+  const body = document.getElementById("solutionModalBody");
+  if (dialog instanceof HTMLElement) dialog.scrollTop = 0;
+  if (body instanceof HTMLElement) body.scrollTop = 0;
   if (solutionNextBtn) {
     solutionNextBtn.textContent = currentIndex === quizData.questions.length - 1 ? "Finish Quiz" : "Next Question";
   }
@@ -5991,6 +5995,10 @@ function openSolutionModal() {
 function closeSolutionModal() {
   const modal = document.getElementById("solutionModal");
   if (!modal) return;
+  const dialog = modal.querySelector(".viewer-modal-dialog");
+  const body = document.getElementById("solutionModalBody");
+  if (dialog instanceof HTMLElement) dialog.scrollTop = 0;
+  if (body instanceof HTMLElement) body.scrollTop = 0;
   modal.classList.add("hidden");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
