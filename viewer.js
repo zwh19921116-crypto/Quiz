@@ -5454,8 +5454,8 @@ function renderAnswerInput(question) {
           </div>
         </div>
         ${canBeMixed ? `
-          <div class="fraction-step-block hidden" data-role="fraction-mixed-stage">
-            <p class="fraction-steps-heading">Then Enter Mixed Fraction</p>
+          <div class="fraction-step-block" data-role="fraction-mixed-stage">
+            <p class="fraction-steps-heading">Mixed Fraction (if required)</p>
             <div class="fraction-input-widget mixed-input">
               <input type="number" step="1" placeholder="Whole" data-role="fraction-answer-whole" aria-label="Whole number" />
               <span class="mixed-input-and">and</span>
@@ -5552,7 +5552,7 @@ function wireOptionSelectionUI(question) {
 }
 
 function getAnswerTextInputs(scope = document) {
-  return Array.from(scope.querySelectorAll("#shortAnswerInput, .arithmetic-single-input, .arithmetic-digit-input, [data-role='fraction-answer-num'], [data-role='fraction-answer-den']"))
+  return Array.from(scope.querySelectorAll("#shortAnswerInput, .arithmetic-single-input, .arithmetic-digit-input, [data-role='fraction-answer-num'], [data-role='fraction-answer-den'], [data-role='fraction-answer-whole'], [data-role='fraction-mixed-num'], [data-role='fraction-mixed-den']"))
     .filter((node) => node instanceof HTMLInputElement && !node.disabled);
 }
 
@@ -5697,6 +5697,17 @@ function collectUserAnswer(question) {
     const container = document.getElementById("quizContainer");
     const numInput = container && container.querySelector("[data-role='fraction-answer-num']");
     const denInput = container && container.querySelector("[data-role='fraction-answer-den']");
+    const wholeInput = container && container.querySelector("[data-role='fraction-answer-whole']");
+    const mixedNumInput = container && container.querySelector("[data-role='fraction-mixed-num']");
+    const mixedDenInput = container && container.querySelector("[data-role='fraction-mixed-den']");
+
+    const wholeValue = wholeInput ? String(wholeInput.value).trim() : "";
+    const mixedNumValue = mixedNumInput ? String(mixedNumInput.value).trim() : "";
+    const mixedDenValue = mixedDenInput ? String(mixedDenInput.value).trim() : "";
+    if (wholeValue !== "" && mixedNumValue !== "" && mixedDenValue !== "") {
+      return `${wholeValue} and ${mixedNumValue}/${mixedDenValue}`;
+    }
+
     const n = numInput ? String(numInput.value).trim() : "";
     const d = denInput ? String(denInput.value).trim() : "";
     if (n === "" || d === "") return "";
