@@ -1261,6 +1261,38 @@ textarea {
   vertical-align: middle;
 }
 
+.fraction-explanation-blocks {
+  display: grid;
+  gap: 12px;
+}
+
+.fraction-explanation-block {
+  display: grid;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid #dbe6f3;
+  border-radius: 10px;
+  background: #fbfdff;
+}
+
+.fraction-explanation-label {
+  margin: 0;
+  color: #0f3f76;
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.fraction-explanation-math {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  color: #0f172a;
+  font-weight: 700;
+}
+
 .fraction-explanation-top {
   padding: 0 8px 4px;
   border-bottom: 2px solid #334155;

@@ -1544,9 +1544,63 @@ function renderStepText(text) {
   return escapeHtml(String(text)).replace(/(\d+)\/(\d+)/g, '<span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span>');
 }
 
+function parseFractionText(value) {
+  const text = String(value || "").trim();
+  const fractionMatch = text.match(/^(-?\d+)\/(\d+)$/);
+  if (fractionMatch) {
+    return {
+      numerator: Number(fractionMatch[1]),
+      denominator: Number(fractionMatch[2])
+    };
+  }
+
+  const integerMatch = text.match(/^-?\d+$/);
+  if (integerMatch) {
+    return {
+      numerator: Number(text),
+      denominator: 1
+    };
+  }
+
+  return null;
+}
+
+function renderFractionValueText(value) {
+  const parsed = parseFractionText(value);
+  return parsed ? fractionHtmlStacked(parsed) : escapeHtml(String(value || ""));
+}
+
 function renderFractionExplanationText(text) {
   const raw = String(text || "").trim();
   if (!raw) return "";
+
+  const commonDenominatorPattern = raw.match(
+    /^Use a common denominator:\s*\(([^()]+)\)\s*\/\s*\(([^()]+)\)\s*=\s*([^\.]+)\.\s*Simplify to\s*([^\.]+)\.?$/i
+  );
+
+  if (commonDenominatorPattern) {
+    const [, numeratorExpression, denominatorExpression, unsimplifiedResult, simplifiedResult] = commonDenominatorPattern;
+    return `
+      <div class="fraction-explanation-blocks">
+        <div class="fraction-explanation-block">
+          <p class="fraction-explanation-label">Use a common denominator</p>
+          <div class="fraction-explanation-math">
+            <span class="fraction-explanation-work"><span class="fraction-explanation-top">(${escapeHtml(numeratorExpression.trim())})</span><span class="fraction-explanation-bottom">(${escapeHtml(denominatorExpression.trim())})</span></span>
+            <span class="frac-op">=</span>
+            ${renderFractionValueText(unsimplifiedResult.trim())}
+          </div>
+        </div>
+        <div class="fraction-explanation-block">
+          <p class="fraction-explanation-label">Simplify</p>
+          <div class="fraction-explanation-math">
+            ${renderFractionValueText(unsimplifiedResult.trim())}
+            <span class="frac-op">=</span>
+            ${renderFractionValueText(simplifiedResult.trim())}
+          </div>
+        </div>
+      </div>
+    `;
+  }
 
   let html = escapeHtml(raw);
 
@@ -1555,7 +1609,7 @@ function renderFractionExplanationText(text) {
     (_, numerator, denominator) => {
       const top = escapeHtml(numerator.trim());
       const bottom = escapeHtml(denominator.trim());
-      return `Use a common denominator:<div class="fraction-explanation-work"><span class="fraction-explanation-top">(${top})</span><span class="fraction-explanation-bottom">denominator (${bottom})</span></div>`;
+      return `Use a common denominator:<div class="fraction-explanation-work"><span class="fraction-explanation-top">(${top})</span><span class="fraction-explanation-bottom">(${bottom})</span></div>`;
     }
   );
 
