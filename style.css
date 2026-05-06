@@ -1383,18 +1383,66 @@ textarea {
   color: #9f1239;
 }
 
-.scf-combo-equation {
-  margin: 0;
-  padding: 7px 10px;
-  border-radius: 8px;
+.scf-before-after {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: 8px;
+}
+
+.scf-summary-card {
   border: 1px dashed #c7d7ee;
+  border-radius: 8px;
   background: #f8fbff;
+  padding: 8px 10px;
+  display: grid;
+  gap: 5px;
+}
+
+.scf-before {
+  background: #f8fbff;
+}
+
+.scf-after {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.scf-summary-label {
+  margin: 0;
+  color: #475569;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.scf-summary-expression {
+  margin: 0;
   font-weight: 700;
   color: #1e293b;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 4px;
+}
+
+.scf-summary-arrow {
+  align-self: center;
+  justify-self: center;
+  color: #0f3f76;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 760px) {
+  .scf-before-after {
+    grid-template-columns: 1fr;
+  }
+
+  .scf-summary-arrow {
+    transform: rotate(90deg);
+  }
 }
 
 .fraction-why-line {

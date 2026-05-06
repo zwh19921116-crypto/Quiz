@@ -1808,11 +1808,17 @@ function buildStayChangeFlipMarkup(summary) {
         <span class="scf-chip scf-change">Change: / to x</span>
         <span class="scf-chip scf-flip">Flip: ${fractionHtmlStacked(b)} to ${fractionHtmlStacked(flippedB)}</span>
       </div>
-      <p class="scf-combo-equation">
-        ${fractionHtmlStacked(a)} <span class="frac-op">/</span> ${fractionHtmlStacked(b)}
-        <span class="frac-op">=</span>
-        ${fractionHtmlStacked(a)} <span class="frac-op">x</span> ${fractionHtmlStacked(flippedB)}
-      </p>
+      <div class="scf-before-after" role="group" aria-label="Before and after Stay Change Flip">
+        <div class="scf-summary-card scf-before">
+          <p class="scf-summary-label">Before</p>
+          <p class="scf-summary-expression">${fractionHtmlStacked(a)} <span class="frac-op">/</span> ${fractionHtmlStacked(b)}</p>
+        </div>
+        <div class="scf-summary-arrow">→</div>
+        <div class="scf-summary-card scf-after">
+          <p class="scf-summary-label">After</p>
+          <p class="scf-summary-expression">${fractionHtmlStacked(a)} <span class="frac-op">x</span> ${fractionHtmlStacked(flippedB)}</p>
+        </div>
+      </div>
     </div>
   `;
 }
