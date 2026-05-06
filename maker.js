@@ -839,77 +839,85 @@ async function loadLibraryFromGithubFlatIndex(context) {
   }
 
   const githubRepo = context.githubRepo;
-  const rootPath = String(githubRepo.repoPath || "").replace(/^\/+|\/+$/g, "");
-  const rootPrefix = rootPath ? `/${rootPath}/` : "/";
+  const baseRootPath = String(githubRepo.repoPath || "").replace(/^\/+|\/+$/g, "");
+  const rootPathCandidates = [baseRootPath];
+  if (!baseRootPath) {
+    rootPathCandidates.push(DEFAULT_QUIZ_ROOT);
+  } else if (!baseRootPath.toLowerCase().endsWith(`/${DEFAULT_QUIZ_ROOT}`) && baseRootPath.toLowerCase() !== DEFAULT_QUIZ_ROOT) {
+    rootPathCandidates.push(`${baseRootPath}/${DEFAULT_QUIZ_ROOT}`);
+  }
+
   const indexUrl = `https://data.jsdelivr.com/v1/package/gh/${encodeURIComponent(githubRepo.owner)}/${encodeURIComponent(githubRepo.repo)}@${encodeURIComponent(githubRepo.branch)}/flat`;
-  
-  console.log("[CDN Fallback] Fetching index from:", indexUrl);
-  console.log("[CDN Fallback] Looking for rootPath:", rootPath, "rootPrefix:", rootPrefix);
-  
   const indexResponse = await fetch(indexUrl, { cache: "no-store" });
   if (!indexResponse.ok) {
-    throw new Error(`Could not read ${rootPath || "repository root"} index from CDN (status ${indexResponse.status})`);
+    throw new Error(`Could not read ${baseRootPath || "repository root"} index from CDN (status ${indexResponse.status})`);
   }
 
   const indexPayload = await indexResponse.json();
   const files = Array.isArray(indexPayload && indexPayload.files) ? indexPayload.files : [];
-  console.log("[CDN Fallback] Total files in repository:", files.length);
-  
-  const quizFilePaths = files
-    .map((entry) => String(entry && entry.name ? entry.name : ""))
-    .filter((name) => name.startsWith(rootPrefix))
-    .filter((name) => name.toLowerCase().endsWith(".json"))
-    .filter((name) => !name.toLowerCase().endsWith("/index.json"));
 
-  console.log("[CDN Fallback] Quiz file paths found:", quizFilePaths.length, quizFilePaths.slice(0, 5));
-  
-  if (quizFilePaths.length === 0) {
-    throw new Error(`No quiz JSON files found in ${rootPath || "repository root"}`);
-  }
+  for (const rootPath of rootPathCandidates) {
+    const rootPrefix = rootPath ? `/${rootPath}/` : "/";
+    const quizFilePaths = files
+      .map((entry) => String(entry && entry.name ? entry.name : ""))
+      .filter((name) => name.startsWith(rootPrefix))
+      .filter((name) => name.toLowerCase().endsWith(".json"))
+      .filter((name) => !name.toLowerCase().endsWith("/index.json"));
 
-  const groupedByFolder = new Map();
-  quizFilePaths.forEach((fullPath) => {
-    const relative = rootPath ? fullPath.slice(rootPrefix.length) : fullPath.replace(/^\/+/, "");
-    const folder = relative.split("/")[0] || "";
-    if (!folder) {
-      return;
+    if (quizFilePaths.length === 0) {
+      continue;
     }
 
-    const list = groupedByFolder.get(folder) || [];
-    list.push(relative);
-    groupedByFolder.set(folder, list);
-  });
-
-  if (groupedByFolder.size === 0) {
-    throw new Error(`No category folders found in ${rootPath || "repository root"}`);
-  }
-
-  const loadedCategories = [];
-
-  for (const [folder, relativePaths] of groupedByFolder.entries()) {
-    const category = createCategory(categoryNameFromFolder(folder));
-
-    for (const relativePath of relativePaths) {
-      const repoFilePath = rootPath ? `${rootPath}/${relativePath}` : relativePath;
-      const quizPath = buildGitHubCdnUrl(githubRepo, repoFilePath);
-      const quizResponse = await fetch(quizPath, { cache: "no-store" });
-      if (!quizResponse.ok) {
-        continue;
+    const groupedByFolder = new Map();
+    quizFilePaths.forEach((fullPath) => {
+      const relative = rootPath ? fullPath.slice(rootPrefix.length) : fullPath.replace(/^\/+/, "");
+      const folder = relative.split("/")[0] || "";
+      if (!folder) {
+        return;
       }
 
-      const quizJson = await quizResponse.json();
-      const quiz = createQuiz(quizTitleFromFilePath(relativePath));
-      quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
-      quiz.sourcePath = quizPath;
-      applyLoadedQuizJsonToQuiz(quiz, quizJson);
-      quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
-      category.quizzes.push(quiz);
+      const list = groupedByFolder.get(folder) || [];
+      list.push(relative);
+      groupedByFolder.set(folder, list);
+    });
+
+    if (groupedByFolder.size === 0) {
+      continue;
     }
 
-    loadedCategories.push(category);
+    const loadedCategories = [];
+
+    for (const [folder, relativePaths] of groupedByFolder.entries()) {
+      const category = createCategory(categoryNameFromFolder(folder));
+
+      for (const relativePath of relativePaths) {
+        const repoFilePath = rootPath ? `${rootPath}/${relativePath}` : relativePath;
+        const quizPath = buildGitHubCdnUrl(githubRepo, repoFilePath);
+        const quizResponse = await fetch(quizPath, { cache: "no-store" });
+        if (!quizResponse.ok) {
+          continue;
+        }
+
+        const quizJson = await quizResponse.json();
+        const quiz = createQuiz(quizTitleFromFilePath(relativePath));
+        quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
+        quiz.sourcePath = quizPath;
+        applyLoadedQuizJsonToQuiz(quiz, quizJson);
+        quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
+        category.quizzes.push(quiz);
+      }
+
+      if (category.quizzes.length > 0) {
+        loadedCategories.push(category);
+      }
+    }
+
+    if (loadedCategories.length > 0) {
+      return loadedCategories;
+    }
   }
 
-  return loadedCategories;
+  throw new Error(`No quiz JSON files found in ${baseRootPath || "repository root"}`);
 }
 
 async function loadLibraryFromGithubFolders(context) {
@@ -918,63 +926,84 @@ async function loadLibraryFromGithubFolders(context) {
   }
 
   const githubRepo = context.githubRepo;
-  const rootPath = String(githubRepo.repoPath || "").replace(/^\/+|\/+$/g, "");
-  const rootEntries = await readGitHubDirectoryEntries(githubRepo, rootPath);
-  const categoryFolders = rootEntries
-    .filter((entry) => entry && entry.type === "dir")
-    .map((entry) => String(entry.name || "").trim())
-    .filter((name) => name !== "");
-
-  if (categoryFolders.length === 0) {
-    throw new Error(`No category folders found in ${rootPath || "repository root"}`);
+  const baseRootPath = String(githubRepo.repoPath || "").replace(/^\/+|\/+$/g, "");
+  const rootPathCandidates = [baseRootPath];
+  if (!baseRootPath) {
+    rootPathCandidates.push(DEFAULT_QUIZ_ROOT);
+  } else if (!baseRootPath.toLowerCase().endsWith(`/${DEFAULT_QUIZ_ROOT}`) && baseRootPath.toLowerCase() !== DEFAULT_QUIZ_ROOT) {
+    rootPathCandidates.push(`${baseRootPath}/${DEFAULT_QUIZ_ROOT}`);
   }
 
-  const loadedCategories = [];
-
-  for (const folder of categoryFolders) {
-    const category = createCategory(categoryNameFromFolder(folder));
-    const folderPath = rootPath ? `${rootPath}/${folder}` : folder;
-    let folderEntries = [];
-
+  for (const rootPath of rootPathCandidates) {
+    let rootEntries = [];
     try {
-      folderEntries = await readGitHubDirectoryEntries(githubRepo, folderPath);
+      rootEntries = await readGitHubDirectoryEntries(githubRepo, rootPath);
     } catch (error) {
       continue;
     }
 
-    const jsonFiles = folderEntries.filter((entry) => {
-      if (!entry || entry.type !== "file") return false;
-      const name = String(entry.name || "").toLowerCase();
-      return name.endsWith(".json") && name !== "index.json";
-    });
+    const categoryFolders = rootEntries
+      .filter((entry) => entry && entry.type === "dir")
+      .map((entry) => String(entry.name || "").trim())
+      .filter((name) => name !== "");
 
-    for (const fileEntry of jsonFiles) {
-      const fileName = String(fileEntry.name || "").trim();
-      if (!fileName) {
-        continue;
-      }
-
-      const relativePath = `${folder}/${fileName}`;
-      const repoFilePath = rootPath ? `${rootPath}/${relativePath}` : relativePath;
-      const quizPath = getGitHubDownloadUrl(fileEntry, githubRepo, repoFilePath);
-      const quizResponse = await fetch(quizPath, { cache: "no-store" });
-      if (!quizResponse.ok) {
-        continue;
-      }
-
-      const quizJson = await quizResponse.json();
-      const quiz = createQuiz(quizTitleFromFilePath(relativePath));
-      quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
-      quiz.sourcePath = quizPath;
-      applyLoadedQuizJsonToQuiz(quiz, quizJson);
-      quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
-      category.quizzes.push(quiz);
+    if (categoryFolders.length === 0) {
+      continue;
     }
 
-    loadedCategories.push(category);
+    const loadedCategories = [];
+
+    for (const folder of categoryFolders) {
+      const category = createCategory(categoryNameFromFolder(folder));
+      const folderPath = rootPath ? `${rootPath}/${folder}` : folder;
+      let folderEntries = [];
+
+      try {
+        folderEntries = await readGitHubDirectoryEntries(githubRepo, folderPath);
+      } catch (error) {
+        continue;
+      }
+
+      const jsonFiles = folderEntries.filter((entry) => {
+        if (!entry || entry.type !== "file") return false;
+        const name = String(entry.name || "").toLowerCase();
+        return name.endsWith(".json") && name !== "index.json";
+      });
+
+      for (const fileEntry of jsonFiles) {
+        const fileName = String(fileEntry.name || "").trim();
+        if (!fileName) {
+          continue;
+        }
+
+        const relativePath = `${folder}/${fileName}`;
+        const repoFilePath = rootPath ? `${rootPath}/${relativePath}` : relativePath;
+        const quizPath = getGitHubDownloadUrl(fileEntry, githubRepo, repoFilePath);
+        const quizResponse = await fetch(quizPath, { cache: "no-store" });
+        if (!quizResponse.ok) {
+          continue;
+        }
+
+        const quizJson = await quizResponse.json();
+        const quiz = createQuiz(quizTitleFromFilePath(relativePath));
+        quiz.fileName = normalizeQuizFileName(baseNameFromPath(relativePath));
+        quiz.sourcePath = quizPath;
+        applyLoadedQuizJsonToQuiz(quiz, quizJson);
+        quiz.questions = Array.isArray(quizJson.questions) ? quizJson.questions.map(normalizeQuestion) : [];
+        category.quizzes.push(quiz);
+      }
+
+      if (category.quizzes.length > 0) {
+        loadedCategories.push(category);
+      }
+    }
+
+    if (loadedCategories.length > 0) {
+      return loadedCategories;
+    }
   }
 
-  return loadedCategories;
+  throw new Error(`No category folders with quiz files found in ${baseRootPath || "repository root"}`);
 }
 
 function baseNameFromPath(path) {
@@ -1379,7 +1408,6 @@ async function loadLibraryFromHandleCategoryFolders(rootHandle, rootFolder) {
     try {
       categoryHandle = await rootHandle.getDirectoryHandle(folder, { create: false });
     } catch (error) {
-      loadedCategories.push(category);
       continue;
     }
 
@@ -1404,7 +1432,13 @@ async function loadLibraryFromHandleCategoryFolders(rootHandle, rootFolder) {
       category.quizzes.push(quiz);
     }
 
-    loadedCategories.push(category);
+    if (category.quizzes.length > 0) {
+      loadedCategories.push(category);
+    }
+  }
+
+  if (loadedCategories.length === 0) {
+    throw new Error(`No quiz JSON files found in ${rootFolder}/`);
   }
 
   return loadedCategories;
@@ -1486,7 +1520,13 @@ async function loadLibraryFromCategoryFolders(rootFolder) {
       category.quizzes.push(quiz);
     }
 
-    loadedCategories.push(category);
+    if (category.quizzes.length > 0) {
+      loadedCategories.push(category);
+    }
+  }
+
+  if (loadedCategories.length === 0) {
+    throw new Error(`No quiz JSON files found in ${rootFolder}/`);
   }
 
   return loadedCategories;
