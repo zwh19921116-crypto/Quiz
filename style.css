@@ -877,6 +877,122 @@ textarea {
   gap: 10px;
 }
 
+.mixed-arrow-card {
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fff7f7 0%, #fffdfd 100%);
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.mixed-arrow-canvas {
+  position: relative;
+  min-height: 170px;
+}
+
+.mixed-arrow-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.mixed-arrow-path {
+  fill: none;
+  stroke: #dc2626;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mixed-arrow-node {
+  position: absolute;
+  width: 18%;
+  min-width: 102px;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  border: 1px solid #fecaca;
+  background: #ffffff;
+  padding: 7px 8px;
+  display: grid;
+  gap: 3px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.14);
+}
+
+.mixed-arrow-node-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #991b1b;
+}
+
+.mixed-arrow-node-value {
+  font-size: 1.08rem;
+  font-weight: 900;
+  color: #7f1d1d;
+}
+
+.mixed-arrow-node.is-product,
+.mixed-arrow-node.is-result {
+  background: #fef2f2;
+}
+
+.mixed-arrow-formula,
+.mixed-arrow-final,
+.mixed-arrow-sign-note {
+  margin: 0;
+  color: #7f1d1d;
+  font-weight: 700;
+}
+
+.mixed-arrow-sign-note {
+  font-size: 0.86rem;
+}
+
+@media (max-width: 720px) {
+  .mixed-arrow-canvas {
+    min-height: 250px;
+  }
+
+  .mixed-arrow-node {
+    width: 30%;
+    min-width: 96px;
+  }
+
+  .mixed-arrow-node.is-denominator {
+    left: 16% !important;
+    top: 60% !important;
+  }
+
+  .mixed-arrow-node.is-whole {
+    left: 50% !important;
+    top: 60% !important;
+  }
+
+  .mixed-arrow-node.is-product {
+    left: 84% !important;
+    top: 60% !important;
+  }
+
+  .mixed-arrow-node.is-numerator {
+    left: 34% !important;
+    top: 12% !important;
+  }
+
+  .mixed-arrow-node.is-result {
+    left: 70% !important;
+    top: 12% !important;
+  }
+
+  .mixed-arrow-path {
+    stroke-width: 3.6;
+  }
+}
+
 .fraction-visual-card {
   border: 1px solid #dbe6f3;
   border-radius: 12px;
