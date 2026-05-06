@@ -2236,6 +2236,11 @@ function normalizeArithmeticLayout(value) {
 }
 
 function computeArithmeticAnswerFromConfig(config) {
+  const explicitAnswer = String(config && config.answer != null ? config.answer : "").trim();
+  if (explicitAnswer !== "") {
+    return explicitAnswer;
+  }
+
   const a = Number.parseInt(config && config.operandA, 10);
   const b = Number.parseInt(config && config.operandB, 10);
   const operator = String(config && config.operator ? config.operator : "+").trim();
@@ -5747,8 +5752,9 @@ function collectUserAnswer(question) {
     const wholeValue = wholeInput ? String(wholeInput.value).trim() : "";
     const mixedNumValue = mixedNumInput ? String(mixedNumInput.value).trim() : "";
     const mixedDenValue = mixedDenInput ? String(mixedDenInput.value).trim() : "";
-    if (wholeValue !== "" && mixedNumValue !== "" && mixedDenValue !== "") {
-      return `${wholeValue} and ${mixedNumValue}/${mixedDenValue}`;
+    if (mixedNumValue !== "" && mixedDenValue !== "") {
+      const normalizedWhole = wholeValue !== "" ? wholeValue : "0";
+      return `${normalizedWhole} and ${mixedNumValue}/${mixedDenValue}`;
     }
 
     const n = numInput ? String(numInput.value).trim() : "";
@@ -6034,7 +6040,15 @@ function prepareSolutionModal(question, expectedAnswers) {
   const modalBody = document.getElementById("solutionModalBody");
   const pdfPreviewsMarkup = renderPdfAttachmentPreviews(solutionAttachments);
   const isFractionsApp = question.interactiveApp && question.interactiveApp.type === "fractions";
-  const interactiveAppMarkup = isFractionsApp ? "" : buildInteractiveAppMarkup(question.interactiveApp || null);
+  const solutionInteractiveApp = question.interactiveApp ? cloneInteractiveApp(question.interactiveApp) : null;
+  if (solutionInteractiveApp && solutionInteractiveApp.type === "arithmetic" && expectedAnswers.length > 0) {
+    const normalizedConfig = solutionInteractiveApp.config && typeof solutionInteractiveApp.config === "object"
+      ? solutionInteractiveApp.config
+      : {};
+    normalizedConfig.answer = String(expectedAnswers[0]);
+    solutionInteractiveApp.config = normalizedConfig;
+  }
+  const interactiveAppMarkup = isFractionsApp ? "" : buildInteractiveAppMarkup(solutionInteractiveApp || null);
   let correctAnswerMarkup = escapeHtml(fallback);
   const explanationMarkup = question.interactiveApp && question.interactiveApp.type === "fractions"
     ? renderFractionExplanationText(rawSolution)
@@ -6078,7 +6092,7 @@ function prepareSolutionModal(question, expectedAnswers) {
     ${pdfPreviewsMarkup}
   `;
 
-  if (!isFractionsApp) wireInteractiveAppModal(modalBody, question.interactiveApp || null);
+  if (!isFractionsApp) wireInteractiveAppModal(modalBody, solutionInteractiveApp || null);
 }
 
 function openSolutionModal() {
