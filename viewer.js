@@ -5694,31 +5694,37 @@ function prepareSolutionModal(question, expectedAnswers) {
   const solutionAttachments = normalizeSolutionAttachments(question.solutionAttachments);
   const modalBody = document.getElementById("solutionModalBody");
   const pdfPreviewsMarkup = renderPdfAttachmentPreviews(solutionAttachments);
-  const interactiveAppMarkup = buildInteractiveAppMarkup(question.interactiveApp || null);
+  const isFractionsApp = question.interactiveApp && question.interactiveApp.type === "fractions";
+  const interactiveAppMarkup = isFractionsApp ? "" : buildInteractiveAppMarkup(question.interactiveApp || null);
   let correctAnswerMarkup = escapeHtml(fallback);
   const explanationMarkup = question.interactiveApp && question.interactiveApp.type === "fractions"
     ? renderFractionExplanationText(rawSolution)
     : escapeHtml(rawSolution).replace(/\n/g, "<br>");
 
-  if (question.interactiveApp && question.interactiveApp.type === "fractions") {
-    const summary = buildFractionOperationSummary(question.interactiveApp.config || {});
-    if (!summary.error && summary.result) {
+  let fractionSolutionMarkup = "";
+  if (isFractionsApp) {
+    fractionSolutionMarkup = buildFractionsMarkup(question.interactiveApp.config || {});
+  } else {
+    const summary = buildFractionOperationSummary(question.interactiveApp && question.interactiveApp.config || {});
+    if (question.interactiveApp && question.interactiveApp.type === "fractions" && !summary.error && summary.result) {
       correctAnswerMarkup = fractionHtmlMixed(summary.result);
     }
   }
 
   modalBody.innerHTML = `
-    <div class="solution-modal-section">
-      <p class="solution-modal-label">Correct answer</p>
-      <p class="solution-modal-answer">${correctAnswerMarkup}</p>
-    </div>
-    ${hasDistinctSolution ? `
+    ${isFractionsApp ? fractionSolutionMarkup : `
       <div class="solution-modal-section">
-        <p class="solution-modal-label">Explanation</p>
-        <div class="solution-modal-copy">${explanationMarkup}</div>
+        <p class="solution-modal-label">Correct answer</p>
+        <p class="solution-modal-answer">${correctAnswerMarkup}</p>
       </div>
-    ` : ""}
-    ${interactiveAppMarkup}
+      ${hasDistinctSolution ? `
+        <div class="solution-modal-section">
+          <p class="solution-modal-label">Explanation</p>
+          <div class="solution-modal-copy">${explanationMarkup}</div>
+        </div>
+      ` : ""}
+      ${interactiveAppMarkup}
+    `}
     ${solutionAttachments.length > 0 ? `
       <div class="solution-modal-section">
         <p class="solution-modal-label">Attachments</p>
@@ -5730,7 +5736,7 @@ function prepareSolutionModal(question, expectedAnswers) {
     ${pdfPreviewsMarkup}
   `;
 
-  wireInteractiveAppModal(modalBody, question.interactiveApp || null);
+  if (!isFractionsApp) wireInteractiveAppModal(modalBody, question.interactiveApp || null);
 }
 
 function openSolutionModal() {
