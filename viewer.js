@@ -1539,7 +1539,6 @@ function simplifyFraction(numerator, denominator) {
 
 function formatFractionDisplay(fraction) {
   if (!fraction) return "invalid";
-  if (fraction.denominator === 1) return `${fraction.numerator}`;
   return `${fraction.numerator}/${fraction.denominator}`;
 }
 
@@ -1547,7 +1546,6 @@ function fractionHtmlStacked(fraction) {
   if (!fraction) return "<span>?</span>";
   const signHtml = fraction.numerator < 0 ? '<span class="frac-sign">-</span>' : "";
   const num = escapeHtml(String(Math.abs(fraction.numerator)));
-  if (fraction.denominator === 1) return `<span class="frac-wrap">${signHtml}<span>${num}</span></span>`;
   const den = escapeHtml(String(fraction.denominator));
   return `<span class="frac-wrap">${signHtml}<span class="frac"><span class="frac-num">${num}</span><span class="frac-den">${den}</span></span></span>`;
 }
