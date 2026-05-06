@@ -1692,43 +1692,11 @@ function buildFractionsMarkup(config) {
   const tooltipLines = summary.steps.map((s, i) => `${i + 1}. ${s}`).join("\n");
   const resultWithTooltip = `<span class="frac-tooltip-wrap" tabindex="0">${fractionHtmlMixed(summary.result)}<span class="frac-tooltip">${escapeHtml(tooltipLines)}</span></span>`;
 
-  const canBeMixed = summary.result.numerator > summary.result.denominator && summary.result.denominator !== 1;
-
   return `
     <div class="simple-card fraction-solution-card">
       <p class="fraction-steps-heading">Final Answer</p>
       <p class="fraction-equation">${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${resultWithTooltip}</p>
       <p class="fraction-guidance">Follow each step in order. The reasoning and calculations are shown below.</p>
-      <div class="fraction-answer-panel" data-fraction-step="1" data-fraction-can-be-mixed="${canBeMixed}" data-fraction-correct-num="${summary.result.numerator}" data-fraction-correct-den="${summary.result.denominator}">
-        <div class="fraction-step-block" data-step="1">
-          <div class="fraction-inputs-row">
-            <div class="fraction-input-widget">
-              <input type="number" step="1" placeholder="?" data-role="fraction-answer-num" aria-label="Numerator" />
-              <div class="fraction-input-line"></div>
-              <input type="number" step="1" placeholder="?" data-role="fraction-answer-den" aria-label="Denominator" />
-            </div>
-            <button type="button" class="btn secondary" data-role="fraction-check-btn">Check</button>
-          </div>
-          <span class="helper-text" data-role="fraction-feedback"></span>
-        </div>
-        ${canBeMixed ? `
-        <div class="fraction-step-block" data-step="2" style="display:none">
-          <p class="fraction-steps-heading" style="margin-top:14px">Now write as a mixed number</p>
-          <div class="fraction-inputs-row">
-            <div class="fraction-input-widget mixed-input">
-              <input type="number" step="1" placeholder="?" data-role="fraction-answer-whole" aria-label="Whole number" />
-              <span class="mixed-input-and">and</span>
-              <div class="fraction-input-stacked">
-                <input type="number" step="1" placeholder="?" data-role="fraction-mixed-num" aria-label="Numerator" />
-                <div class="fraction-input-line"></div>
-                <input type="number" step="1" placeholder="?" data-role="fraction-mixed-den" aria-label="Denominator" />
-              </div>
-            </div>
-            <button type="button" class="btn secondary" data-role="fraction-mixed-check-btn">Check</button>
-          </div>
-          <span class="helper-text" data-role="fraction-mixed-feedback"></span>
-        </div>` : ""}
-      </div>
       ${whySection}
       <p class="fraction-steps-heading">Steps</p>
       <ol class="fraction-step-list">${stepMarkup}</ol>
