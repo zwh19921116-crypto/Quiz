@@ -1659,7 +1659,10 @@ function fractionHtmlImproperAndMixed(fraction) {
 
 function renderQuestionText(text) {
   // Escape HTML first, then replace digit/digit patterns with stacked fraction HTML
-  return escapeHtml(String(text)).replace(/(\d+)\/(\d+)/g, '<span class="frac-wrap"><span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span></span>');
+  // After fractions are replaced, any remaining standalone / is a division operator — swap for ÷
+  return escapeHtml(String(text))
+    .replace(/(\d+)\/(\d+)/g, '<span class="frac-wrap"><span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span></span>')
+    .replace(/ \/ /g, ' ÷ ');
 }
 
 function lcmFraction(a, b) {
@@ -1811,7 +1814,7 @@ function buildStayChangeFlipMarkup(summary) {
       <div class="scf-before-after" role="group" aria-label="Before and after Stay Change Flip">
         <div class="scf-summary-card scf-before">
           <p class="scf-summary-label">Before</p>
-          <p class="scf-summary-expression">${fractionHtmlStacked(a)} <span class="frac-op">/</span> ${fractionHtmlStacked(b)}</p>
+          <p class="scf-summary-expression">${fractionHtmlStacked(a)} <span class="frac-op">÷</span> ${fractionHtmlStacked(b)}</p>
         </div>
         <div class="scf-summary-arrow">→</div>
         <div class="scf-summary-card scf-after">
@@ -1853,7 +1856,7 @@ function buildFractionOperationSummary(config) {
     return { error: "Division by zero is undefined. Fraction B numerator must not be 0." };
   }
 
-  const symbols = { add: "+", subtract: "-", multiply: "x", divide: "/" };
+  const symbols = { add: "+", subtract: "-", multiply: "x", divide: "÷" };
   const labels = { add: "Addition", subtract: "Subtraction", multiply: "Multiplication", divide: "Division" };
   const steps = [];
   const whyLines = [];
