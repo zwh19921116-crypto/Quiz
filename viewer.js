@@ -1882,10 +1882,7 @@ function buildFractionOperationSummary(config) {
     rawNumerator = fractionA.numerator * fractionB.denominator;
     rawDenominator = fractionA.denominator * fractionB.numerator;
     whyLines.push("Division of fractions uses Stay, Change, Flip: keep the first fraction, change / to x, then flip the second fraction.");
-    steps.push(`Stay: keep the first fraction as ${fractionA.numerator}/${fractionA.denominator}.`);
-    steps.push("Change: change division (/) to multiplication (x).");
-    steps.push(`Flip: turn ${fractionB.numerator}/${fractionB.denominator} into ${fractionB.denominator}/${fractionB.numerator}.`);
-    steps.push(`${fractionA.numerator}/${fractionA.denominator} / ${fractionB.numerator}/${fractionB.denominator} = ${fractionA.numerator}/${fractionA.denominator} x ${fractionB.denominator}/${fractionB.numerator}.`);
+    steps.push(`Use Stay, Change, Flip: ${fractionA.numerator}/${fractionA.denominator} / ${fractionB.numerator}/${fractionB.denominator} = ${fractionA.numerator}/${fractionA.denominator} x ${fractionB.denominator}/${fractionB.numerator}.`);
     steps.push(`Multiply the numerators: ${fractionA.numerator} x ${fractionB.denominator} = ${rawNumerator}.`);
     steps.push(`Multiply the denominators: ${fractionA.denominator} x ${fractionB.numerator} = ${rawDenominator}.`);
     steps.push(`= ${rawNumerator}/${rawDenominator}.`);
@@ -1980,7 +1977,7 @@ function buildFractionsMarkup(config, questionText = "") {
       const shouldShowScfPanel =
         !scfPanelPlaced
         && summary.operation === "divide"
-        && stepTitleText === "Calculate";
+        && stepTitleText === "Use Stay, Change, Flip";
 
       if (shouldShowLcdMultiplier) lcdMultiplierPlaced = true;
       if (shouldShowScfPanel) scfPanelPlaced = true;
