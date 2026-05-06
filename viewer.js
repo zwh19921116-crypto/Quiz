@@ -1901,7 +1901,7 @@ function buildFractionOperationSummary(config) {
   };
 }
 
-function buildFractionsMarkup(config) {
+function buildFractionsMarkup(config, questionText = "") {
   const summary = buildFractionOperationSummary(config || {});
   if (summary.error) {
     return `<p class='helper-text'>${escapeHtml(summary.error)}</p>`;
@@ -1959,9 +1959,14 @@ function buildFractionsMarkup(config) {
     : "";
 
   const resultMarkup = fractionHtmlImproperAndMixed(summary.result);
+  const questionIntro = String(questionText || "").trim();
+  const questionMarkup = questionIntro
+    ? `<div class="fraction-section"><p class="fraction-steps-heading">Question</p><p class="fraction-question-context">${renderQuestionText(questionIntro)}</p></div>`
+    : "";
 
   return `
     <div class="simple-card fraction-solution-card">
+      ${questionMarkup}
       <p class="fraction-guidance">Follow each step in order. Find LCD/HCF first, then calculate the result.</p>
       ${whySection}
       <p class="fraction-steps-heading">Steps</p>
@@ -5910,7 +5915,10 @@ function prepareSolutionModal(question, expectedAnswers) {
 
   let fractionSolutionMarkup = "";
   if (isFractionsApp) {
-    fractionSolutionMarkup = buildFractionsMarkup(question.interactiveApp.config || {});
+    fractionSolutionMarkup = buildFractionsMarkup(
+      question.interactiveApp.config || {},
+      question.question || ""
+    );
   } else {
     const summary = buildFractionOperationSummary(question.interactiveApp && question.interactiveApp.config || {});
     if (question.interactiveApp && question.interactiveApp.type === "fractions" && !summary.error && summary.result) {
