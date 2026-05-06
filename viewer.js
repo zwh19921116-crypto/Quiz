@@ -5535,6 +5535,7 @@ function wireFractionMixedAnswerInput(question) {
 
   const mixedStage = container.querySelector("[data-role='fraction-mixed-stage']");
   if (!mixedStage) return;
+  mixedStage.dataset.mixedChecked = "false";
 
   const summary = buildFractionOperationSummary((question.interactiveApp && question.interactiveApp.config) || {});
   if (!summary || summary.error || !summary.result) return;
@@ -5571,6 +5572,7 @@ function wireFractionMixedAnswerInput(question) {
 
     const expectedDen = Math.abs(mixed.denominator);
     const isCorrect = userWhole === mixed.whole && userNum === mixed.numerator && Math.abs(userDen) === expectedDen;
+    mixedStage.dataset.mixedChecked = isCorrect ? "true" : "false";
     feedback.textContent = isCorrect
       ? "Great! Mixed fraction is correct."
       : `Not quite. Try ${mixed.whole} and ${mixed.numerator}/${expectedDen}.`;
@@ -5798,6 +5800,9 @@ function checkAnswer() {
         const mixedStage = document.getElementById("quizContainer") && document.getElementById("quizContainer").querySelector("[data-role='fraction-mixed-stage']");
         if (mixedStage && mixed && mixed.numerator > 0 && isImproperAnswer) {
           mixedStage.classList.remove("hidden");
+          mixedStage.dataset.mixedChecked = "false";
+          const mixedWholeInput = mixedStage.querySelector("[data-role='fraction-answer-whole']");
+          if (mixedWholeInput instanceof HTMLInputElement) mixedWholeInput.focus();
           resultBox.textContent = "Correct improper fraction. Now enter the mixed fraction.";
         } else {
           resultBox.textContent = "Correct";
@@ -5862,6 +5867,22 @@ function handleQuestionEnterHotkey(event) {
   if (!answerChecked) {
     checkAnswer();
     return;
+  }
+
+  const activeQuestion = quizData.questions[currentIndex];
+  if (!solutionShownForCurrentQuestion
+    && activeQuestion
+    && activeQuestion.interactiveApp
+    && activeQuestion.interactiveApp.type === "fractions") {
+    const quizContainer = document.getElementById("quizContainer");
+    const mixedStage = quizContainer && quizContainer.querySelector("[data-role='fraction-mixed-stage']");
+    const mixedCheckBtn = mixedStage && mixedStage.querySelector("[data-role='fraction-mixed-check-btn']");
+    const isMixedStageVisible = !!(mixedStage instanceof HTMLElement && !mixedStage.classList.contains("hidden"));
+    const isMixedChecked = !!(mixedStage instanceof HTMLElement && mixedStage.dataset.mixedChecked === "true");
+    if (isMixedStageVisible && !isMixedChecked && mixedCheckBtn instanceof HTMLButtonElement) {
+      mixedCheckBtn.click();
+      return;
+    }
   }
 
   if (!solutionShownForCurrentQuestion) {
