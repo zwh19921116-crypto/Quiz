@@ -1944,12 +1944,12 @@ function buildFractionsMarkup(config) {
 
   return `
     <div class="simple-card fraction-solution-card">
-      <p class="fraction-steps-heading">Final Answer</p>
-      <p class="fraction-equation">${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${resultMarkup}</p>
-      <p class="fraction-guidance">Follow each step in order. The reasoning and calculations are shown below.</p>
+      <p class="fraction-guidance">Follow each step in order. Find LCD/HCF first, then calculate the result.</p>
       ${whySection}
       <p class="fraction-steps-heading">Steps</p>
       <ol class="fraction-step-list">${stepMarkup}</ol>
+      <p class="fraction-steps-heading">Final Answer</p>
+      <p class="fraction-equation">${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${resultMarkup}</p>
     </div>
   `;
 }
