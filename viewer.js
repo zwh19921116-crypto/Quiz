@@ -5672,8 +5672,8 @@ function wireFractionMixedAnswerInput(question) {
       feedback.textContent = "Enter a valid mixed fraction.";
       return;
     }
-    if (userNum < 0 || userNum >= Math.abs(userDen)) {
-      feedback.textContent = "Fraction part must be proper (numerator less than denominator).";
+    if (userNum < 0) {
+      feedback.textContent = "Numerator must be 0 or greater.";
       return;
     }
 
@@ -5786,7 +5786,7 @@ function parseAnswerFraction(value) {
     const numerator = Number.parseInt(mixedMatch[2], 10);
     const denominator = Number.parseInt(mixedMatch[3], 10);
     if (!Number.isFinite(whole) || !Number.isFinite(numerator) || !Number.isFinite(denominator) || denominator === 0) return null;
-    if (numerator < 0 || numerator >= Math.abs(denominator)) return null;
+    if (numerator < 0) return null;
     const sign = whole < 0 ? -1 : 1;
     const absWhole = Math.abs(whole);
     return {
@@ -5801,7 +5801,7 @@ function parseAnswerFraction(value) {
     const numerator = Number.parseInt(mixedAndMatch[2], 10);
     const denominator = Number.parseInt(mixedAndMatch[3], 10);
     if (!Number.isFinite(whole) || !Number.isFinite(numerator) || !Number.isFinite(denominator) || denominator === 0) return null;
-    if (numerator < 0 || numerator >= Math.abs(denominator)) return null;
+    if (numerator < 0) return null;
     const sign = whole < 0 ? -1 : 1;
     const absWhole = Math.abs(whole);
     return {
