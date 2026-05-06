@@ -5388,7 +5388,6 @@ function renderAnswerInput(question) {
     return `
       <div class="fraction-answer-panel two-stage">
         <div class="fraction-step-block">
-          <p class="fraction-steps-heading">Enter Improper Fraction</p>
           <div class="fraction-input-widget">
             <input type="number" step="1" placeholder="?" data-role="fraction-answer-num" aria-label="Numerator" />
             <div class="fraction-input-line"></div>
@@ -5792,10 +5791,12 @@ function checkAnswer() {
   if (resultBox) {
     if (isCorrect) {
       if (question.interactiveApp && question.interactiveApp.type === "fractions") {
+        const userFraction = parseAnswerFraction(userAnswer);
+        const isImproperAnswer = !!userFraction && Math.abs(userFraction.n) > Math.abs(userFraction.d);
         const summary = buildFractionOperationSummary((question.interactiveApp && question.interactiveApp.config) || {});
         const mixed = summary && !summary.error ? toMixedNumber(summary.result) : null;
         const mixedStage = document.getElementById("quizContainer") && document.getElementById("quizContainer").querySelector("[data-role='fraction-mixed-stage']");
-        if (mixedStage && mixed && mixed.numerator > 0) {
+        if (mixedStage && mixed && mixed.numerator > 0 && isImproperAnswer) {
           mixedStage.classList.remove("hidden");
           resultBox.textContent = "Correct improper fraction. Now enter the mixed fraction.";
         } else {
