@@ -1887,24 +1887,6 @@ function buildMixedToImproperArrowDiagram(summary) {
               <span class="mixed-map-start-label">Start Here</span>
               ${mixedFractionHtml}
             </div>
-            <div class="mixed-flow-map" role="group" aria-label="Quick conversion flow">
-              <div class="mixed-flow-row">
-                <span class="mixed-flow-label">Multiply</span>
-                <span class="mixed-flow-node">Denominator ${escapeHtml(String(denominator))}</span>
-                <span class="mixed-flow-arrow" aria-hidden="true">→</span>
-                <span class="mixed-flow-node">Whole ${escapeHtml(String(absWhole))}</span>
-                <span class="mixed-flow-op" aria-hidden="true">x</span>
-                <span class="mixed-flow-node is-highlight">Product ${escapeHtml(String(product))}</span>
-              </div>
-              <div class="mixed-flow-row">
-                <span class="mixed-flow-label">Add</span>
-                <span class="mixed-flow-node">Product ${escapeHtml(String(product))}</span>
-                <span class="mixed-flow-arrow" aria-hidden="true">→</span>
-                <span class="mixed-flow-node">Numerator ${escapeHtml(String(numerator))}</span>
-                <span class="mixed-flow-op" aria-hidden="true">+</span>
-                <span class="mixed-flow-node is-result">New top ${escapeHtml(String(absImproperNumerator))}</span>
-              </div>
-            </div>
             <ol class="mixed-step-list" aria-label="Conversion steps">
               <li class="mixed-step-item">
                 <span class="mixed-step-index">1</span>
@@ -1966,24 +1948,6 @@ function buildImproperToMixedDiagram(summary) {
             <div class="mixed-map-start">
               <span class="mixed-map-start-label">Start Here</span>
               ${fractionHtmlStacked(summary.fractionA)}
-            </div>
-            <div class="mixed-flow-map" role="group" aria-label="Quick conversion flow">
-              <div class="mixed-flow-row">
-                <span class="mixed-flow-label">Divide</span>
-                <span class="mixed-flow-node">Numerator ${escapeHtml(String(absNumerator))}</span>
-                <span class="mixed-flow-arrow" aria-hidden="true">→</span>
-                <span class="mixed-flow-node">Denominator ${escapeHtml(String(denominator))}</span>
-                <span class="mixed-flow-op" aria-hidden="true">÷</span>
-                <span class="mixed-flow-node is-highlight">Whole ${escapeHtml(String(whole))}</span>
-              </div>
-              <div class="mixed-flow-row">
-                <span class="mixed-flow-label">Remainder</span>
-                <span class="mixed-flow-node">Remainder ${escapeHtml(String(remainder))}</span>
-                <span class="mixed-flow-arrow" aria-hidden="true">→</span>
-                <span class="mixed-flow-node">Keep denominator ${escapeHtml(String(denominator))}</span>
-                <span class="mixed-flow-op" aria-hidden="true">=</span>
-                <span class="mixed-flow-node is-result">Fraction ${escapeHtml(String(remainder))}/${escapeHtml(String(denominator))}</span>
-              </div>
             </div>
             <ol class="mixed-step-list" aria-label="Conversion steps">
               <li class="mixed-step-item">
