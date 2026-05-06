@@ -1844,7 +1844,29 @@ function buildFractionReasonVisuals(summary) {
   return filtered.length > 0 ? `<div class="fraction-visual-stack">${filtered.join("")}</div>` : "";
 }
 
-function buildFractionOperationSummary(config) {
+function extractMixedNumberFromQuestionText(text) {
+  const raw = String(text || "").trim();
+  if (!raw) return null;
+
+  const match = raw.match(/(-?\d+)\s*(?:and\s*)?(\d+)\s*\/\s*(\d+)/i);
+  if (!match) return null;
+
+  const whole = Number.parseInt(match[1], 10);
+  const numerator = Number.parseInt(match[2], 10);
+  const denominator = Number.parseInt(match[3], 10);
+  if (!Number.isFinite(whole) || !Number.isFinite(numerator) || !Number.isFinite(denominator) || denominator === 0) {
+    return null;
+  }
+  if (numerator < 0) return null;
+
+  return {
+    whole,
+    numerator,
+    denominator: Math.abs(denominator)
+  };
+}
+
+function buildFractionOperationSummary(config, questionText = "") {
   const operation = normalizeFractionOperation(config && config.operation);
   const answerFormat = String(config && config.answerFormat ? config.answerFormat : "").trim().toLowerCase();
   const titleText = String(config && config.title ? config.title : "").trim().toLowerCase();
@@ -1857,9 +1879,14 @@ function buildFractionOperationSummary(config) {
   const isZeroB = fractionB.numerator === 0;
   const sameDenominator = fractionA.denominator === fractionB.denominator;
   const looksLikeImproperToMixedTemplate = titleText.includes("improper") && titleText.includes("mixed");
+  const looksLikeMixedToImproperTemplate = titleText.includes("mixed") && titleText.includes("improper");
   const isImproperToMixedConversion = answerFormat === "mixed"
     && fractionA.numerator > fractionA.denominator
     && (looksLikeImproperToMixedTemplate || (operation === "add" && isZeroB && sameDenominator));
+  const parsedMixedFromQuestion = extractMixedNumberFromQuestionText(questionText);
+  const isMixedToImproperConversion = answerFormat === "improper"
+    && !!parsedMixedFromQuestion
+    && (looksLikeMixedToImproperTemplate || (operation === "add" && isZeroB));
 
   if (operation === "divide" && fractionB.numerator === 0) {
     return { error: "Division by zero is undefined. Fraction B numerator must not be 0." };
@@ -1883,6 +1910,18 @@ function buildFractionOperationSummary(config) {
     steps.push(`Start with the improper fraction ${rawNumerator}/${rawDenominator}.`);
     steps.push(`${Math.abs(rawNumerator)} ÷ ${Math.abs(rawDenominator)} = ${whole} remainder ${remainder}.`);
     steps.push(`Whole number is ${whole}, and fractional part is ${remainder}/${Math.abs(rawDenominator)}.`);
+  } else if (isMixedToImproperConversion) {
+    const mixedWhole = parsedMixedFromQuestion.whole;
+    const mixedNumerator = parsedMixedFromQuestion.numerator;
+    const mixedDenominator = parsedMixedFromQuestion.denominator;
+    const sign = mixedWhole < 0 ? -1 : 1;
+    const absWhole = Math.abs(mixedWhole);
+    rawNumerator = sign * ((absWhole * mixedDenominator) + mixedNumerator);
+    rawDenominator = mixedDenominator;
+    whyLines.push("Convert mixed to improper using denominator x whole number + numerator.");
+    steps.push(`Start with mixed number ${mixedWhole} and ${mixedNumerator}/${mixedDenominator}.`);
+    steps.push(`${mixedDenominator} x ${absWhole} + ${mixedNumerator} = ${Math.abs(rawNumerator)}.`);
+    steps.push(`Put that over the same denominator: ${rawNumerator}/${rawDenominator}.`);
   } else if (operation === "add" || operation === "subtract") {
     lcmValue = lcmFraction(fractionA.denominator, fractionB.denominator);
     const scaleA = lcmValue / fractionA.denominator;
@@ -1942,7 +1981,10 @@ function buildFractionOperationSummary(config) {
     rawDenominator,
     result: simplified,
     mixed: useMixed ? mixed : null,
-    conversionMode: isImproperToMixedConversion ? "improper-to-mixed" : "operation",
+    conversionMode: isImproperToMixedConversion
+      ? "improper-to-mixed"
+      : (isMixedToImproperConversion ? "mixed-to-improper" : "operation"),
+    mixedInput: isMixedToImproperConversion ? parsedMixedFromQuestion : null,
     lcmValue,
     hcfValue,
     whyLines,
@@ -1951,7 +1993,7 @@ function buildFractionOperationSummary(config) {
 }
 
 function buildFractionsMarkup(config, questionText = "") {
-  const summary = buildFractionOperationSummary(config || {});
+  const summary = buildFractionOperationSummary(config || {}, questionText);
   if (summary.error) {
     return `<p class='helper-text'>${escapeHtml(summary.error)}</p>`;
   }
@@ -2034,7 +2076,9 @@ function buildFractionsMarkup(config, questionText = "") {
   const resultMarkup = fractionHtmlImproperAndMixed(summary.result);
   const finalEquation = summary.conversionMode === "improper-to-mixed"
     ? `${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">=</span> ${fractionHtmlMixed(summary.result)}`
-    : `${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${resultMarkup}`;
+    : summary.conversionMode === "mixed-to-improper" && summary.mixedInput
+      ? `${fractionHtmlMixed({ numerator: (summary.mixedInput.whole < 0 ? -1 : 1) * ((Math.abs(summary.mixedInput.whole) * summary.mixedInput.denominator) + summary.mixedInput.numerator), denominator: summary.mixedInput.denominator })} <span class="frac-op">=</span> ${fractionHtmlStacked(summary.result)}`
+      : `${fractionHtmlStacked(summary.fractionA)} <span class="frac-op">${escapeHtml(summary.symbol)}</span> ${fractionHtmlStacked(summary.fractionB)} <span class="frac-op">=</span> ${resultMarkup}`;
   const questionIntro = String(questionText || "").trim();
   const questionMarkup = questionIntro
     ? `<div class="fraction-section"><p class="fraction-steps-heading">Question</p><p class="fraction-question-context">${renderQuestionText(questionIntro)}</p></div>`
