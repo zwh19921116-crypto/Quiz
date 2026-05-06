@@ -2586,6 +2586,7 @@ const AUTO_CREATE_SUBCATEGORY_OPTIONS = {
     { value: "basic-subtraction-v", label: "Basic Subtraction - Vertical" },
     { value: "basic-multiplication-h", label: "Basic Multiplication - Horizontal" },
     { value: "basic-multiplication-v", label: "Basic Multiplication - Vertical" },
+    { value: "ratios-rates", label: "Ratios and Rates" },
     { value: "division-short", label: "Division (Short)" },
     { value: "division-long", label: "Division (Long)" }
   ],
@@ -3499,6 +3500,35 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
   const normalizedDifficulty = String(difficulty || "easy").trim().toLowerCase();
   const ranges = resolveArithmeticRanges(normalizedDifficulty, generationOptions);
 
+  if (normalizedSubcategory === "ratios-rates") {
+    const useRateQuestion = Math.random() < 0.5;
+
+    if (useRateQuestion) {
+      const distance = randomIntBetween(normalizedDifficulty === "hard" ? 120 : 60, normalizedDifficulty === "hard" ? 420 : 240);
+      const time = randomIntBetween(normalizedDifficulty === "hard" ? 2 : 2, normalizedDifficulty === "hard" ? 7 : 5);
+      const divisibleDistance = distance - (distance % time);
+      const speed = divisibleDistance / time;
+      return {
+        question: `A car travels ${divisibleDistance} km in ${time} hours. What is the average speed in km/h?`,
+        solution: `Average speed = distance ÷ time = ${divisibleDistance} ÷ ${time} = ${speed} km/h.`,
+        correctAnswer: String(speed),
+        interactiveApp: null
+      };
+    }
+
+    const ratioA = randomIntBetween(2, normalizedDifficulty === "hard" ? 9 : 7);
+    const ratioB = randomIntBetween(2, normalizedDifficulty === "hard" ? 9 : 7);
+    const scale = randomIntBetween(normalizedDifficulty === "hard" ? 5 : 3, normalizedDifficulty === "hard" ? 12 : 9);
+    const total = (ratioA + ratioB) * scale;
+    const firstPart = ratioA * scale;
+    return {
+      question: `The ratio of apples to oranges is ${ratioA}:${ratioB}. If there are ${total} fruits in total, how many apples are there?`,
+      solution: `Total ratio parts = ${ratioA} + ${ratioB} = ${ratioA + ratioB}. One part = ${total} ÷ ${ratioA + ratioB} = ${scale}. Apples = ${ratioA} × ${scale} = ${firstPart}.`,
+      correctAnswer: String(firstPart),
+      interactiveApp: null
+    };
+  }
+
   if (["basic-addition", "basic-addition-h", "basic-addition-v"].includes(normalizedSubcategory)) {
     const a = randomIntBetween(ranges.add[0], ranges.add[1]);
     const b = randomIntBetween(ranges.add[0], ranges.add[1]);
@@ -4327,6 +4357,7 @@ function buildAutoQuizTemplatePool(gradeValue, yearValue = "auto") {
   ];
 
   const generalPool = [
+    { category: "arithmetic", subcategory: "ratios-rates", difficulty: "medium", resultType: "short-answer" },
     { category: "arithmetic", subcategory: "division-long", difficulty: "medium", resultType: "short-answer" },
     { category: "fractions", subcategory: "operation-result", difficulty: "medium", resultType: "short-answer" },
     { category: "bar-chart", subcategory: "highest-category", difficulty: "medium", resultType: "multiple-choice" },
