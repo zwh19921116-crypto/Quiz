@@ -1547,13 +1547,13 @@ function fractionHtmlStacked(fraction) {
   if (!fraction) return "<span>?</span>";
   const signHtml = fraction.numerator < 0 ? '<span class="frac-sign">-</span>' : "";
   const num = escapeHtml(String(Math.abs(fraction.numerator)));
-  if (fraction.denominator === 1) return `<span>${signHtml}${num}</span>`;
+  if (fraction.denominator === 1) return `<span class="frac-wrap">${signHtml}<span>${num}</span></span>`;
   const den = escapeHtml(String(fraction.denominator));
-  return `<span class="frac">${signHtml}<span class="frac-num">${num}</span><span class="frac-den">${den}</span></span>`;
+  return `<span class="frac-wrap">${signHtml}<span class="frac"><span class="frac-num">${num}</span><span class="frac-den">${den}</span></span></span>`;
 }
 
 function renderStepText(text) {
-  return escapeHtml(String(text)).replace(/(\d+)\/(\d+)/g, '<span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span>');
+  return escapeHtml(String(text)).replace(/(\d+)\/(\d+)/g, '<span class="frac-wrap"><span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span></span>');
 }
 
 function parseFractionText(value) {
@@ -1648,13 +1648,13 @@ function fractionHtmlMixed(fraction) {
   if (!mixed) return fractionHtmlStacked(fraction);
   const wholeHtml = `<span class="mixed-whole">${escapeHtml(String(mixed.whole))}</span>`;
   if (mixed.numerator === 0) return wholeHtml;
-  const fracHtml = `<span class="frac"><span class="frac-num">${escapeHtml(String(mixed.numerator))}</span><span class="frac-den">${escapeHtml(String(mixed.denominator))}</span></span>`;
+  const fracHtml = `<span class="frac-wrap"><span class="frac"><span class="frac-num">${escapeHtml(String(mixed.numerator))}</span><span class="frac-den">${escapeHtml(String(mixed.denominator))}</span></span></span>`;
   return `<span class="mixed-number">${wholeHtml}${fracHtml}</span>`;
 }
 
 function renderQuestionText(text) {
   // Escape HTML first, then replace digit/digit patterns with stacked fraction HTML
-  return escapeHtml(String(text)).replace(/(\d+)\/(\d+)/g, '<span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span>');
+  return escapeHtml(String(text)).replace(/(\d+)\/(\d+)/g, '<span class="frac-wrap"><span class="frac"><span class="frac-num">$1</span><span class="frac-den">$2</span></span></span>');
 }
 
 function lcmFraction(a, b) {
