@@ -1633,6 +1633,7 @@ function setLocalFolderPath(handleOrName) {
 
 async function loadLibraryFromRoot({ allowPrompt = true } = {}) {
   const rootFolder = normalizeRootFolder(state.rootFolder);
+  let effectiveRootFolder = rootFolder;
   let context = resolveRootFetchContext(rootFolder);
   const rootSourceMode = normalizeRootSourceMode(state.rootSourceMode);
 
@@ -1675,15 +1676,43 @@ async function loadLibraryFromRoot({ allowPrompt = true } = {}) {
 
     // Primary: File System Access API
     if (supportsFolderDeletion()) {
+      const tryLoadFromHandle = async (handle, folderLabel) => {
+        if (!handle) return null;
+
+        try {
+          const categories = await loadLibraryFromHandleCategoryFolders(handle, folderLabel);
+          if (Array.isArray(categories) && categories.length > 0) {
+            return { categories, mode: "handle-folder-scan", folderLabel };
+          }
+        } catch (error) {
+          // Try manifest fallback on the same handle.
+        }
+
+        try {
+          const categories = await loadLibraryFromHandleManifest(handle, folderLabel);
+          if (Array.isArray(categories) && categories.length > 0) {
+            return { categories, mode: "handle-manifest", folderLabel };
+          }
+        } catch (error) {
+          // Ignore and let caller continue with next candidate.
+        }
+
+        return null;
+      };
+
       // On explicit refresh, always show picker so user can re-select.
       // On silent load (allowPrompt=false), try saved handle only.
       if (!allowPrompt) {
         try {
           const savedRoot = await getConfiguredRootHandle({ create: false, allowPrompt: false });
           if (savedRoot) {
-            loadedCategories = await loadLibraryFromHandleCategoryFolders(savedRoot, rootFolder);
-            sourceMode = "handle-folder-scan";
-            setLocalFolderPath(savedRoot);
+            const loaded = await tryLoadFromHandle(savedRoot, rootFolder);
+            if (loaded) {
+              loadedCategories = loaded.categories;
+              sourceMode = loaded.mode;
+              effectiveRootFolder = loaded.folderLabel;
+              setLocalFolderPath(savedRoot);
+            }
           }
         } catch (savedHandleError) {
           console.warn("[LOCAL] Saved handle failed:", savedHandleError.message);
@@ -1697,13 +1726,33 @@ async function loadLibraryFromRoot({ allowPrompt = true } = {}) {
           const freshHandle = await window.showDirectoryPicker({ mode: "readwrite" });
           rootDirectoryHandle = freshHandle;
           await saveRootDirectoryHandle(freshHandle);
-          // Scan the configured quiz root (for example selected repo root + quizzes/).
+          // Try configured root first, then selected folder, then selected/quizzes fallback.
           const configuredHandle = await getConfiguredRootHandle({ create: false, allowPrompt: false });
-          if (!configuredHandle) {
-            throw new Error("Could not resolve configured quiz root from selected folder.");
+          const candidates = [];
+          if (configuredHandle) {
+            candidates.push({ handle: configuredHandle, folderLabel: rootFolder });
           }
-          loadedCategories = await loadLibraryFromHandleCategoryFolders(configuredHandle, rootFolder);
-          sourceMode = "handle-folder-scan";
+          candidates.push({ handle: freshHandle, folderLabel: String(freshHandle.name || rootFolder).trim() || rootFolder });
+          try {
+            const quizzesHandle = await freshHandle.getDirectoryHandle(DEFAULT_QUIZ_ROOT, { create: false });
+            candidates.push({ handle: quizzesHandle, folderLabel: DEFAULT_QUIZ_ROOT });
+          } catch (error) {
+            // No quizzes child folder on selected handle.
+          }
+
+          let loaded = null;
+          for (const candidate of candidates) {
+            loaded = await tryLoadFromHandle(candidate.handle, candidate.folderLabel);
+            if (loaded) break;
+          }
+
+          if (!loaded) {
+            throw new Error("Could not find category folders or index.json in the selected root.");
+          }
+
+          loadedCategories = loaded.categories;
+          sourceMode = loaded.mode;
+          effectiveRootFolder = loaded.folderLabel;
           setLocalFolderPath(freshHandle);
         } catch (pickerError) {
           if (pickerError.name === "AbortError") {
@@ -1742,7 +1791,7 @@ async function loadLibraryFromRoot({ allowPrompt = true } = {}) {
   }
 
   state.categories = loadedCategories;
-  state.rootFolder = rootFolder;
+  state.rootFolder = effectiveRootFolder;
   const initialSelection = pickInitialSelection(loadedCategories);
   state.selectedCategoryId = initialSelection.categoryId;
   state.selectedQuizId = initialSelection.quizId;
