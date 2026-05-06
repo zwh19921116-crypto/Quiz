@@ -1858,9 +1858,13 @@ function buildFractionOperationSummary(config) {
   } else {
     rawNumerator = fractionA.numerator * fractionB.denominator;
     rawDenominator = fractionA.denominator * fractionB.numerator;
-    whyLines.push("No LCD is needed for division. Use Stay, Change, Flip, then multiply.");
-    steps.push(`Use Stay, Change, Flip: stay with ${fractionA.numerator}/${fractionA.denominator}, change division to multiplication, and flip ${fractionB.numerator}/${fractionB.denominator} to ${fractionB.denominator}/${fractionB.numerator}.`);
+    whyLines.push("Division of fractions uses Stay, Change, Flip: keep the first fraction, change / to x, then flip the second fraction.");
+    steps.push(`Stay: keep the first fraction as ${fractionA.numerator}/${fractionA.denominator}.`);
+    steps.push("Change: change division (/) to multiplication (x).");
+    steps.push(`Flip: turn ${fractionB.numerator}/${fractionB.denominator} into ${fractionB.denominator}/${fractionB.numerator}.`);
     steps.push(`${fractionA.numerator}/${fractionA.denominator} / ${fractionB.numerator}/${fractionB.denominator} = ${fractionA.numerator}/${fractionA.denominator} x ${fractionB.denominator}/${fractionB.numerator}.`);
+    steps.push(`Multiply the numerators: ${fractionA.numerator} x ${fractionB.denominator} = ${rawNumerator}.`);
+    steps.push(`Multiply the denominators: ${fractionA.denominator} x ${fractionB.numerator} = ${rawDenominator}.`);
     steps.push(`= ${rawNumerator}/${rawDenominator}.`);
   }
 
@@ -1911,6 +1915,9 @@ function buildFractionsMarkup(config, questionText = "") {
     const text = String(stepText || "");
     if (text.startsWith("Lowest Common Denominator (LCD)")) return "Find Lowest Common Denominator (LCD)";
     if (text.includes("= ") && text.includes(" and ") && text.includes("/")) return "Rewrite equivalent fractions";
+    if (text.startsWith("Stay:")) return "Stay";
+    if (text.startsWith("Change:")) return "Change";
+    if (text.startsWith("Flip:")) return "Flip";
     if (text.startsWith("Use Stay, Change, Flip")) return "Use Stay, Change, Flip";
     if (text.startsWith("No LCM is needed")) return "Choose the operation method";
     if (text.startsWith("Multiply the numerators")) return "Calculate numerator";
