@@ -2558,8 +2558,10 @@ const AUTO_CREATE_SUBCATEGORY_OPTIONS = {
     { value: "fraction-addition", label: "Addition (+)" },
     { value: "fraction-subtraction", label: "Subtraction (-)" },
     { value: "fraction-multiplication", label: "Multiplication (x)" },
-    { value: "fraction-division", label: "Division (/)" },
-    { value: "operation-result", label: "Mixed Operation (Random)" }
+    { value: "fraction-division", label: "Division (÷)" },
+    { value: "operation-result", label: "Mixed Operation (Random)" },
+    { value: "improper-fraction", label: "Improper Fractions" },
+    { value: "mixed-number", label: "Mixed Numbers" }
   ],
   "network-graph": [{ value: "node-count", label: "Node Count" }],
   "matrix": [{ value: "matrix-a-dim", label: "Matrix A Dimensions" }],
@@ -3591,10 +3593,76 @@ function randomFractionFromRange(range) {
   return simplified || { numerator: 1, denominator: 2 };
 }
 
+function buildAutoImproperFractionPayload(normalizedDifficulty, generationOptions = {}) {
+  // Generate an improper fraction (numerator > denominator) and ask student to simplify/identify it
+  const maxDen = normalizedDifficulty === "hard" ? 12 : normalizedDifficulty === "medium" ? 9 : 6;
+  const denominator = randomIntBetween(2, maxDen);
+  const maxWhole = normalizedDifficulty === "hard" ? 5 : normalizedDifficulty === "medium" ? 4 : 3;
+  const whole = randomIntBetween(1, maxWhole);
+  const extraNum = randomIntBetween(1, denominator - 1);
+  const numerator = whole * denominator + extraNum;
+  const simplified = simplifyFraction(numerator, denominator) || { numerator, denominator };
+  const simplifiedText = formatFractionDisplay(simplified);
+  // Compute mixed number answer
+  const mixedWhole = Math.floor(simplified.numerator / simplified.denominator);
+  const mixedNum = simplified.numerator % simplified.denominator;
+  const mixedText = mixedNum === 0 ? `${mixedWhole}` : `${mixedWhole} and ${mixedNum}/${simplified.denominator}`;
+  return {
+    question: `Calculate convert the improper fraction ${numerator}/${denominator} to a mixed number.`,
+    solution: `Divide the numerator by the denominator: ${numerator} ÷ ${denominator} = ${mixedWhole} remainder ${mixedNum}. So ${simplifiedText} = ${mixedText}.`,
+    correctAnswer: mixedText,
+    interactiveApp: {
+      type: "fractions",
+      config: {
+        title: "Improper Fraction to Mixed Number",
+        operation: "add",
+        fractionA: { numerator: simplified.numerator, denominator: simplified.denominator },
+        fractionB: { numerator: 0, denominator: simplified.denominator },
+        answerFormat: "mixed"
+      }
+    }
+  };
+}
+
+function buildAutoMixedNumberPayload(normalizedDifficulty, generationOptions = {}) {
+  // Generate a mixed number and ask student to convert to an improper fraction
+  const maxDen = normalizedDifficulty === "hard" ? 12 : normalizedDifficulty === "medium" ? 9 : 6;
+  const denominator = randomIntBetween(2, maxDen);
+  const maxWhole = normalizedDifficulty === "hard" ? 5 : normalizedDifficulty === "medium" ? 4 : 3;
+  const whole = randomIntBetween(1, maxWhole);
+  const partNum = randomIntBetween(1, denominator - 1);
+  const improperNum = whole * denominator + partNum;
+  const simplified = simplifyFraction(improperNum, denominator) || { numerator: improperNum, denominator };
+  const simplifiedText = formatFractionDisplay(simplified);
+  return {
+    question: `Calculate convert the mixed number ${whole} and ${partNum}/${denominator} to an improper fraction.`,
+    solution: `Multiply the whole number by the denominator and add the numerator: (${whole} x ${denominator}) + ${partNum} = ${improperNum}. So the improper fraction is ${simplifiedText}.`,
+    correctAnswer: simplifiedText,
+    interactiveApp: {
+      type: "fractions",
+      config: {
+        title: "Mixed Number to Improper Fraction",
+        operation: "add",
+        fractionA: { numerator: simplified.numerator, denominator: simplified.denominator },
+        fractionB: { numerator: 0, denominator: simplified.denominator },
+        answerFormat: "improper"
+      }
+    }
+  };
+}
+
 function buildAutoFractionsPayload(subcategory, difficulty, generationOptions = {}) {
   const normalizedSubcategory = String(subcategory || "operation-result").trim().toLowerCase();
   const normalizedDifficulty = String(difficulty || "easy").trim().toLowerCase();
   const range = resolveFractionRanges(normalizedDifficulty, generationOptions);
+
+  // Handle improper-fraction and mixed-number subcategories separately
+  if (normalizedSubcategory === "improper-fraction") {
+    return buildAutoImproperFractionPayload(normalizedDifficulty, generationOptions);
+  }
+  if (normalizedSubcategory === "mixed-number") {
+    return buildAutoMixedNumberPayload(normalizedDifficulty, generationOptions);
+  }
 
   const operation = normalizedSubcategory === "fraction-addition"
     ? "add"
@@ -4671,7 +4739,6 @@ function buildDefaultInteractiveApp(type) {
       return {
         type,
         config: {
-          title: "Fraction Operations",
           operation: "add",
           fractionA: { numerator: 1, denominator: 2 },
           fractionB: { numerator: 1, denominator: 3 }
@@ -5473,7 +5540,6 @@ function formatFractionDisplay(fraction) {
 }
 
 function buildFractionsMarkup(config) {
-  const title = escapeInteractiveHtml(String(config.title || "Fraction Operations"));
   const operation = normalizeFractionOperation(config.operation);
   const labels = {
     add: "+",
@@ -5523,7 +5589,6 @@ function buildFractionsMarkup(config) {
 
   return `
     <div class="simple-card">
-      <p class="bar-chart-title">${title}</p>
       <p>${escapeInteractiveHtml(formatFractionDisplay(fractionA))} ${labels[operation]} ${escapeInteractiveHtml(formatFractionDisplay(fractionB))} = ${escapeInteractiveHtml(formatFractionDisplay(result))}</p>
       <p class="helper-text">Result (simplified): ${escapeInteractiveHtml(formatFractionDisplay(result))}</p>
     </div>
@@ -6123,7 +6188,6 @@ function readInteractiveAppFromForm() {
       return {
         type,
         config: {
-          title: document.getElementById("fxTitle").value.trim() || "Fraction Operations",
           operation: normalizeFractionOperation(document.getElementById("fxOperation").value),
           fractionA: {
             numerator: Number.isInteger(numeratorA) ? numeratorA : 1,
@@ -6294,7 +6358,6 @@ function populateInteractiveAppForm(app) {
   document.getElementById("dcTo").value = distributionConfig.to ?? 1;
 
   const fractionsConfig = (type === "fractions" ? nextApp : buildDefaultInteractiveApp("fractions")).config;
-  document.getElementById("fxTitle").value = fractionsConfig.title || "Fraction Operations";
   document.getElementById("fxOperation").value = normalizeFractionOperation(fractionsConfig.operation);
   document.getElementById("fxNumeratorA").value = Number.isFinite(Number(fractionsConfig.fractionA && fractionsConfig.fractionA.numerator)) ? String(fractionsConfig.fractionA.numerator) : "1";
   document.getElementById("fxDenominatorA").value = Number.isFinite(Number(fractionsConfig.fractionA && fractionsConfig.fractionA.denominator)) && Number(fractionsConfig.fractionA.denominator) !== 0 ? String(fractionsConfig.fractionA.denominator) : "2";
