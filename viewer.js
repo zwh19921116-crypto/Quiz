@@ -1922,7 +1922,11 @@ function buildFractionsMarkup(config) {
 
       if (shouldShowLcdMultiplier) lcdMultiplierPlaced = true;
 
-      return `<li><span class="fraction-step-title">${title}</span><span class="fraction-step-copy">${renderStepText(step)}</span>${shouldShowLcdMultiplier ? buildLcdMultiplierMarkup(summary.fractionA, summary.fractionB, summary.lcmValue) : ""}${shouldShowHcfVisual ? buildFractionReasonTable({
+      const lcdBeforeCalculateMarkup = shouldShowLcdMultiplier
+        ? `<li><span class="fraction-step-title">Scale To LCD</span>${buildLcdMultiplierMarkup(summary.fractionA, summary.fractionB, summary.lcmValue)}</li>`
+        : "";
+
+      return `${lcdBeforeCalculateMarkup}<li><span class="fraction-step-title">${title}</span><span class="fraction-step-copy">${renderStepText(step)}</span>${shouldShowHcfVisual ? buildFractionReasonTable({
         title: "Highest Common Factor (HCF)",
         kind: "hcf",
         targetValue: summary.hcfValue,
