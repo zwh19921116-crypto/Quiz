@@ -1803,16 +1803,6 @@ function buildFractionReasonVisuals(summary) {
     }));
   }
 
-  if (summary.hcfValue > 1) {
-    visuals.push(buildFractionReasonTable({
-      title: "Highest Common Factor (HCF)",
-      kind: "hcf",
-      targetValue: summary.hcfValue,
-      numberA: Math.abs(summary.rawNumerator),
-      numberB: Math.abs(summary.rawDenominator)
-    }));
-  }
-
   const filtered = visuals.filter((item) => String(item).trim() !== "");
   return filtered.length > 0 ? `<div class="fraction-visual-stack">${filtered.join("")}</div>` : "";
 }
@@ -1926,10 +1916,19 @@ function buildFractionsMarkup(config) {
         && summary.lcmValue
         && (summary.operation === "add" || summary.operation === "subtract")
         && stepTitleText === "Calculate";
+      const shouldShowHcfVisual =
+        summary.hcfValue > 1
+        && stepTitleText === "Simplify using Highest Common Factor (HCF)";
 
       if (shouldShowLcdMultiplier) lcdMultiplierPlaced = true;
 
-      return `<li><span class="fraction-step-title">${title}</span><span class="fraction-step-copy">${renderStepText(step)}</span>${shouldShowLcdMultiplier ? buildLcdMultiplierMarkup(summary.fractionA, summary.fractionB, summary.lcmValue) : ""}</li>`;
+      return `<li><span class="fraction-step-title">${title}</span><span class="fraction-step-copy">${renderStepText(step)}</span>${shouldShowLcdMultiplier ? buildLcdMultiplierMarkup(summary.fractionA, summary.fractionB, summary.lcmValue) : ""}${shouldShowHcfVisual ? buildFractionReasonTable({
+        title: "Highest Common Factor (HCF)",
+        kind: "hcf",
+        targetValue: summary.hcfValue,
+        numberA: Math.abs(summary.rawNumerator),
+        numberB: Math.abs(summary.rawDenominator)
+      }) : ""}</li>`;
     })
     .join("");
   const whyMarkup = (Array.isArray(summary.whyLines) ? summary.whyLines : [])
