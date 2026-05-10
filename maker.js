@@ -1292,6 +1292,27 @@ function categoryNameFromFolder(folderName) {
     .replace(/\b\w/g, (char) => char.toUpperCase()) || "Category";
 }
 
+function categorySortRank(name) {
+  const normalized = String(name || "").trim().toLowerCase();
+  if (/^prep\b/.test(normalized)) return 0;
+  if (/^grade\b/.test(normalized)) return 1;
+  if (/^year\b/.test(normalized)) return 2;
+  if (/^vce\b/.test(normalized)) return 3;
+  return 4;
+}
+
+function sortCategoriesForDisplay(categories) {
+  const list = Array.isArray(categories) ? categories.slice() : [];
+  list.sort((a, b) => {
+    const leftName = String(a && a.name ? a.name : "").trim();
+    const rightName = String(b && b.name ? b.name : "").trim();
+    const rankDiff = categorySortRank(leftName) - categorySortRank(rightName);
+    if (rankDiff !== 0) return rankDiff;
+    return leftName.localeCompare(rightName, undefined, { sensitivity: "base", numeric: true });
+  });
+  return list;
+}
+
 function extractDirectoryEntries(html, responseUrl) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(String(html || ""), "text/html");
@@ -1708,49 +1729,49 @@ async function loadLibraryFromRoot({ allowPrompt = true } = {}) {
       throw new Error("Local mode expects a local path like quizzes, not an http URL.");
     }
 
-    // Primary: File System Access API
-    if (supportsFolderDeletion()) {
-      // On explicit refresh, always show picker so user can re-select.
-      // On silent load (allowPrompt=false), try saved handle only.
-      if (!allowPrompt) {
-        try {
-          const savedRoot = await getConfiguredRootHandle({ create: false, allowPrompt: false });
-          if (savedRoot) {
-            loadedCategories = await loadLibraryFromHandleCategoryFolders(savedRoot, rootFolder);
-            sourceMode = "handle-folder-scan";
-            setLocalFolderPath(savedRoot);
-          }
-        } catch (savedHandleError) {
-          console.warn("[LOCAL] Saved handle failed:", savedHandleError.message);
-        }
-      }
-
-      // Show picker when user explicitly clicks Refresh, or if silent load found nothing
-      if (loadedCategories.length === 0 && allowPrompt) {
-        let pickerAborted = false;
-        try {
-          const freshHandle = await window.showDirectoryPicker({ mode: "readwrite" });
-          rootDirectoryHandle = freshHandle;
-          await saveRootDirectoryHandle(freshHandle);
-          // Scan the selected folder directly — user picked exactly what they want
-          loadedCategories = await loadLibraryFromHandleCategoryFolders(freshHandle, freshHandle.name);
-          sourceMode = "handle-folder-scan";
-          setLocalFolderPath(freshHandle);
-        } catch (pickerError) {
-          if (pickerError.name === "AbortError") {
-            pickerAborted = true;
-          } else {
-            console.error("[LOCAL] Folder scan after picker failed:", pickerError.message);
-            throw new Error(`Could not read category folders from selected folder: ${pickerError.message}`);
-          }
-        }
-        if (pickerAborted) {
-          throw new Error("No folder selected. Please click Refresh and select your quiz root folder.");
-        }
+    // 1) Try direct category folder scan from root path first (works on HTTP/local servers).
+    if (loadedCategories.length === 0) {
+      try {
+        loadedCategories = await loadLibraryFromCategoryFolders(rootFolder);
+        sourceMode = "folder-scan";
+      } catch (folderScanError) {
+        // Continue to handle-based and manifest fallbacks.
       }
     }
 
-    // Fallback: manifest (index.json)
+    // 2) Try saved folder handle before prompting.
+    if (loadedCategories.length === 0 && supportsFolderDeletion()) {
+      try {
+        const savedRoot = await getConfiguredRootHandle({ create: false, allowPrompt: false });
+        if (savedRoot) {
+          loadedCategories = await loadLibraryFromHandleCategoryFolders(savedRoot, rootFolder);
+          sourceMode = "handle-folder-scan";
+          setLocalFolderPath(savedRoot);
+        }
+      } catch (savedHandleError) {
+        console.warn("[LOCAL] Saved handle failed:", savedHandleError.message);
+      }
+    }
+
+    // 3) Prompt picker only when user-triggered refresh asks for it.
+    if (loadedCategories.length === 0 && supportsFolderDeletion() && allowPrompt) {
+      try {
+        const freshHandle = await window.showDirectoryPicker({ mode: "readwrite" });
+        rootDirectoryHandle = freshHandle;
+        await saveRootDirectoryHandle(freshHandle);
+        loadedCategories = await loadLibraryFromHandleCategoryFolders(freshHandle, freshHandle.name);
+        sourceMode = "handle-folder-scan";
+        setLocalFolderPath(freshHandle);
+      } catch (pickerError) {
+        if (pickerError && pickerError.name !== "AbortError") {
+          console.error("[LOCAL] Folder scan after picker failed:", pickerError.message);
+          throw new Error(`Could not read category folders from selected folder: ${pickerError.message}`);
+        }
+        // Picker canceled: continue to manifest fallback.
+      }
+    }
+
+    // 4) Fallback: manifest (index.json)
     if (loadedCategories.length === 0) {
       try {
         const indexPath = `${rootFolder}/index.json`;
@@ -1772,9 +1793,10 @@ async function loadLibraryFromRoot({ allowPrompt = true } = {}) {
     throw new Error("Unknown root source mode. Please select Local or GitHub.");
   }
 
-  state.categories = loadedCategories;
+  const orderedCategories = sortCategoriesForDisplay(loadedCategories);
+  state.categories = orderedCategories;
   state.rootFolder = rootFolder;
-  const initialSelection = pickInitialSelection(loadedCategories);
+  const initialSelection = pickInitialSelection(orderedCategories);
   state.selectedCategoryId = initialSelection.categoryId;
   state.selectedQuizId = initialSelection.quizId;
   state.selectedQuestionIndex = initialSelection.questionIndex;
@@ -2579,13 +2601,18 @@ const AUTO_CREATE_SUBCATEGORY_OPTIONS = {
   "scatter-plot": [{ value: "correlation-sign", label: "Correlation Sign" }],
   "probability-tree": [{ value: "path-sum", label: "Total Path Probability" }],
   "distribution-curve": [{ value: "mean", label: "Mean" }],
+  "introduction": [{ value: "cover", label: "Cover" }],
   arithmetic: [
     { value: "basic-addition-h", label: "Basic Addition - Horizontal" },
     { value: "basic-addition-v", label: "Basic Addition - Vertical" },
+    { value: "visual-addition", label: "Visual Addition" },
     { value: "basic-subtraction-h", label: "Basic Subtraction - Horizontal" },
     { value: "basic-subtraction-v", label: "Basic Subtraction - Vertical" },
+    { value: "visual-subtraction", label: "Visual Subtraction" },
     { value: "basic-multiplication-h", label: "Basic Multiplication - Horizontal" },
     { value: "basic-multiplication-v", label: "Basic Multiplication - Vertical" },
+    { value: "visual-multiplication", label: "Visual Multiplication" },
+    { value: "visual-division", label: "Visual Division" },
     { value: "ratios-rates", label: "Ratios and Rates" },
     { value: "division-short", label: "Division (Short)" },
     { value: "division-long", label: "Division (Long)" }
@@ -2600,19 +2627,55 @@ const AUTO_CREATE_SUBCATEGORY_OPTIONS = {
     { value: "mixed-number", label: "Mixed Numbers" }
   ],
   "network-graph": [{ value: "node-count", label: "Node Count" }],
-  "matrix": [{ value: "matrix-a-dim", label: "Matrix A Dimensions" }],
+  "matrix": [
+    { value: "matrix-a-dim", label: "Matrix A Dimensions" },
+    { value: "matrix-add", label: "A + B" },
+    { value: "matrix-subtract", label: "A - B" },
+    { value: "matrix-multiply", label: "A x B" },
+    { value: "matrix-transpose", label: "Transpose (A^T)" },
+    { value: "matrix-determinant", label: "Determinant (det(A))" }
+  ],
   "stem-and-leaf": [{ value: "value-count", label: "Value Count" }],
   "geometry-shapes": [{ value: "shape-count", label: "Shape Count" }],
   "pythagoras": [{ value: "hypotenuse", label: "Find Hypotenuse" }],
   "trigonometry": [{ value: "focus-function", label: "Focus Function Ratio" }]
 };
 
+function sortOptionItemsByLabel(items) {
+  const source = Array.isArray(items) ? items.slice() : [];
+  source.sort((a, b) => String(a && a.label ? a.label : "").localeCompare(String(b && b.label ? b.label : ""), undefined, { sensitivity: "base" }));
+  return source;
+}
+
+function sortSelectOptionsAlphabetically(selectElement) {
+  if (!(selectElement instanceof HTMLSelectElement)) return;
+  const selectedValue = String(selectElement.value || "");
+  const options = Array.from(selectElement.options).map((option) => ({
+    value: String(option.value || ""),
+    label: String(option.textContent || "").trim()
+  }));
+
+  const sorted = sortOptionItemsByLabel(options);
+  selectElement.innerHTML = "";
+  sorted.forEach((item) => {
+    const option = document.createElement("option");
+    option.value = item.value;
+    option.textContent = item.label;
+    selectElement.appendChild(option);
+  });
+
+  const hasSelected = sorted.some((item) => item.value === selectedValue);
+  if (hasSelected) {
+    selectElement.value = selectedValue;
+  }
+}
+
 function populateAutoCreateSubcategoryOptions() {
   const categorySelect = document.getElementById("autoCreateCategory");
   const subcategorySelect = document.getElementById("autoCreateSubcategory");
   if (!categorySelect || !subcategorySelect) return;
   const category = String(categorySelect.value || "cartesian-plane").trim();
-  const options = AUTO_CREATE_SUBCATEGORY_OPTIONS[category] || [{ value: "core", label: "Core" }];
+  const options = sortOptionItemsByLabel(AUTO_CREATE_SUBCATEGORY_OPTIONS[category] || [{ value: "core", label: "Core" }]);
   const current = String(subcategorySelect.value || "").trim();
 
   subcategorySelect.innerHTML = "";
@@ -2627,36 +2690,6 @@ function populateAutoCreateSubcategoryOptions() {
   subcategorySelect.value = hasCurrent ? current : options[0].value;
 }
 
-function updateAutoCreateCommandWordControl() {
-  const categorySelect = document.getElementById("autoCreateCategory");
-  const commandWordSelect = document.getElementById("autoCreateCommandWord");
-  if (!(categorySelect instanceof HTMLSelectElement) || !(commandWordSelect instanceof HTMLSelectElement)) {
-    return;
-  }
-
-  const category = String(categorySelect.value || "").trim().toLowerCase();
-  const isArithmetic = category === "arithmetic";
-  const isFractions = category === "fractions";
-
-  if (isArithmetic || isFractions) {
-    const current = normalizeCommandWordChoice(commandWordSelect.value || "");
-    if (current !== "calculate") {
-      commandWordSelect.dataset.previousChoice = current;
-    }
-    commandWordSelect.value = "calculate";
-    commandWordSelect.disabled = true;
-    commandWordSelect.title = isArithmetic
-      ? "Arithmetic questions always use Calculate."
-      : "Fraction questions always use Calculate.";
-    return;
-  }
-
-  commandWordSelect.disabled = false;
-  const previous = normalizeCommandWordChoice(commandWordSelect.dataset.previousChoice || "random");
-  commandWordSelect.value = previous === "calculate" ? "random" : previous;
-  commandWordSelect.title = "";
-}
-
 function capitalizeWord(value) {
   const text = String(value || "").trim();
   if (!text) return "Determine";
@@ -2668,7 +2701,7 @@ function normalizeCommandWordChoice(value) {
   if (["determine", "sketch", "interpret", "justify", "calculate", "random"].includes(normalized)) {
     return normalized;
   }
-  return "determine";
+  return "random";
 }
 
 function pickCommandWordFromChoice(choice, { resultType = "", index = 0, category = "" } = {}) {
@@ -2773,7 +2806,7 @@ function applyAnswerFormatToPayload(payload, policy, decimalPlaces) {
 
 function postProcessAutoPayload(payload, generationOptions = {}) {
   if (!payload) return payload;
-  const commandWordChoice = normalizeCommandWordChoice(generationOptions.commandWord || "determine");
+  const commandWordChoice = normalizeCommandWordChoice(generationOptions.commandWord || "random");
   const commandWord = pickCommandWordFromChoice(commandWordChoice, {
     resultType: payload.resultType,
     index: Number.isInteger(generationOptions.questionIndex) ? generationOptions.questionIndex : null,
@@ -3404,9 +3437,21 @@ function verifyAutoPayload(category, subcategory, payload) {
   }
 
   if (appType === "arithmetic") {
-    const expected = extractArithmeticExpectedAnswer(questionText);
+    let expected = extractArithmeticExpectedAnswer(questionText);
+    if (!Number.isFinite(expected) && app && app.type === "arithmetic") {
+      const cfg = app.config || {};
+      const a = Number.parseFloat(cfg.operandA);
+      const b = Number.parseFloat(cfg.operandB);
+      const operator = String(cfg.operator || "+").trim();
+      if (Number.isFinite(a) && Number.isFinite(b)) {
+        if (operator === "-") expected = a - b;
+        else if (operator === "x" || operator === "*") expected = a * b;
+        else if ((operator === "/" || operator === "÷") && Math.abs(b) > 1e-9) expected = a / b;
+        else if (operator === "+") expected = a + b;
+      }
+    }
     if (!Number.isFinite(expected)) {
-      issues.push("Arithmetic verification failed: could not parse arithmetic expression from question text.");
+      issues.push("Arithmetic verification failed: could not determine expected value from question text or arithmetic config.");
     } else {
       const resultType = normalizeResultType(payload && payload.resultType);
       const tolerance = 0.01;
@@ -3464,14 +3509,53 @@ function deriveYearLevelFromGenerationOptions(generationOptions = {}) {
   return null;
 }
 
-function resolveArithmeticRanges(normalizedDifficulty, generationOptions = {}) {
+function resolveArithmeticRanges(difficultyInput, generationOptions = {}) {
+  const yearLevel = deriveYearLevelFromGenerationOptions(generationOptions);
+  
+  // Handle numeric difficulty (1-10) with grade scaling
+  const numDifficulty = Number.parseInt(difficultyInput, 10);
+  if (!Number.isNaN(numDifficulty) && numDifficulty >= 1 && numDifficulty <= 10) {
+    if (yearLevel === 0) {
+      // Prep: increase by 5 for each level, starting at 5
+      const maxAdd = numDifficulty * 5;
+      return { add: [0, maxAdd], sub: [0, maxAdd], mul: [1, Math.max(1, numDifficulty - 2)], div: [1, Math.max(1, numDifficulty - 2)] };
+    }
+    
+    if (yearLevel === 1) {
+      // Year 1: start at 5, increase by 5 per level
+      const maxAdd = numDifficulty * 5;
+      const maxSub = numDifficulty * 5 + 10;
+      return { add: [1, maxAdd], sub: [1, maxSub], mul: [1, Math.max(1, numDifficulty - 2)], div: [1, Math.max(1, numDifficulty - 2)] };
+    }
+    
+    if (yearLevel === 2) {
+      // Year 2: start higher
+      const maxAdd = numDifficulty * 5 + 10;
+      const maxSub = numDifficulty * 5 + 20;
+      return { add: [1, maxAdd], sub: [1, maxSub], mul: [2, Math.max(2, numDifficulty - 1)], div: [2, Math.max(2, numDifficulty - 1)] };
+    }
+    
+    if (yearLevel <= 4) {
+      // Year 3-4: higher ranges
+      const maxAdd = numDifficulty * 10;
+      const maxSub = numDifficulty * 10 + 20;
+      return { add: [5, maxAdd], sub: [5, maxSub], mul: [2, Math.max(2, numDifficulty)], div: [2, Math.max(2, numDifficulty)] };
+    }
+    
+    // Default for older grades
+    const maxAdd = numDifficulty * 15;
+    const maxSub = numDifficulty * 15 + 50;
+    return { add: [1, maxAdd], sub: [1, maxSub], mul: [4, Math.max(4, numDifficulty + 2)], div: [4, Math.max(4, numDifficulty)] };
+  }
+  
+  // Handle string difficulty for backward compatibility
+  const normalizedDifficulty = String(difficultyInput || "easy").trim().toLowerCase();
   const defaultRanges = normalizedDifficulty === "hard"
     ? { add: [60, 500], sub: [80, 600], mul: [8, 24], div: [6, 24] }
     : normalizedDifficulty === "medium"
       ? { add: [20, 200], sub: [30, 250], mul: [4, 15], div: [3, 15] }
       : { add: [1, 50], sub: [1, 80], mul: [2, 10], div: [2, 10] };
 
-  const yearLevel = deriveYearLevelFromGenerationOptions(generationOptions);
   if (yearLevel === null) {
     return defaultRanges;
   }
@@ -3495,17 +3579,79 @@ function resolveArithmeticRanges(normalizedDifficulty, generationOptions = {}) {
   return defaultRanges;
 }
 
+const ARITHMETIC_OBJECT_CONTEXTS = [
+  { kind: "ball", singular: "ball", plural: "balls" },
+  { kind: "car", singular: "car", plural: "cars" },
+  { kind: "star", singular: "star", plural: "stars" }
+];
+
+function pickArithmeticObjectContext() {
+  return pickRandomItem(ARITHMETIC_OBJECT_CONTEXTS) || ARITHMETIC_OBJECT_CONTEXTS[0];
+}
+
+function toArithmeticObjectLabel(context, count) {
+  const safeCount = Number.parseInt(count, 10);
+  return safeCount === 1 ? context.singular : context.plural;
+}
+
+function toBeVerbForCount(count) {
+  const safeCount = Number.parseInt(count, 10);
+  return safeCount === 1 ? "is" : "are";
+}
+
+function toGroupLabel(count) {
+  const safeCount = Number.parseInt(count, 10);
+  return safeCount === 1 ? "group" : "groups";
+}
+
+function pickVisualMultiplicationFactors(ranges) {
+  const minFactor = Math.max(2, Math.min(Number(ranges && ranges.mul && ranges.mul[0]), 6));
+  const maxFactor = Math.max(minFactor, Math.min(Number(ranges && ranges.mul && ranges.mul[1]), 8));
+
+  let groups = randomIntBetween(minFactor, maxFactor);
+  let each = randomIntBetween(minFactor, maxFactor);
+  let attempts = 0;
+  while (groups * each > 36 && attempts < 40) {
+    groups = randomIntBetween(minFactor, maxFactor);
+    each = randomIntBetween(minFactor, maxFactor);
+    attempts += 1;
+  }
+
+  if (groups * each > 36) {
+    groups = Math.min(groups, 6);
+    each = Math.min(each, 6);
+  }
+
+  return { groups, each };
+}
+
 function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions = {}) {
   const normalizedSubcategory = String(subcategory || "basic-addition").trim().toLowerCase();
-  const normalizedDifficulty = String(difficulty || "easy").trim().toLowerCase();
-  const ranges = resolveArithmeticRanges(normalizedDifficulty, generationOptions);
+  
+  // Pass difficulty as-is (can be numeric 1-10 or string like "easy")
+  const difficultyInput = difficulty || "easy";
+  const ranges = resolveArithmeticRanges(difficultyInput, generationOptions);
+  
+  // Determine if difficulty is "hard" for backward-compatible checks
+  const numDiff = Number.parseInt(difficultyInput, 10);
+  const isHardDifficulty = !Number.isNaN(numDiff) ? numDiff >= 8 : String(difficultyInput).trim().toLowerCase() === "hard";
 
-  if (normalizedSubcategory === "ratios-rates") {
+  const resolvedSubcategory = normalizedSubcategory === "visual-addition"
+    ? "basic-addition-h"
+    : normalizedSubcategory === "visual-subtraction"
+      ? "basic-subtraction-h"
+      : normalizedSubcategory === "visual-multiplication"
+        ? "basic-multiplication-h"
+        : normalizedSubcategory === "visual-division"
+          ? "division-short"
+          : normalizedSubcategory;
+
+  if (resolvedSubcategory === "ratios-rates") {
     const useRateQuestion = Math.random() < 0.5;
 
     if (useRateQuestion) {
-      const distance = randomIntBetween(normalizedDifficulty === "hard" ? 120 : 60, normalizedDifficulty === "hard" ? 420 : 240);
-      const time = randomIntBetween(normalizedDifficulty === "hard" ? 2 : 2, normalizedDifficulty === "hard" ? 7 : 5);
+      const distance = randomIntBetween(isHardDifficulty ? 120 : 60, isHardDifficulty ? 420 : 240);
+      const time = randomIntBetween(isHardDifficulty ? 2 : 2, isHardDifficulty ? 7 : 5);
       const divisibleDistance = distance - (distance % time);
       const speed = divisibleDistance / time;
       return {
@@ -3516,9 +3662,9 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
       };
     }
 
-    const ratioA = randomIntBetween(2, normalizedDifficulty === "hard" ? 9 : 7);
-    const ratioB = randomIntBetween(2, normalizedDifficulty === "hard" ? 9 : 7);
-    const scale = randomIntBetween(normalizedDifficulty === "hard" ? 5 : 3, normalizedDifficulty === "hard" ? 12 : 9);
+    const ratioA = randomIntBetween(2, isHardDifficulty ? 9 : 7);
+    const ratioB = randomIntBetween(2, isHardDifficulty ? 9 : 7);
+    const scale = randomIntBetween(isHardDifficulty ? 5 : 3, isHardDifficulty ? 12 : 9);
     const total = (ratioA + ratioB) * scale;
     const firstPart = ratioA * scale;
     return {
@@ -3529,14 +3675,20 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
     };
   }
 
-  if (["basic-addition", "basic-addition-h", "basic-addition-v"].includes(normalizedSubcategory)) {
-    const a = randomIntBetween(ranges.add[0], ranges.add[1]);
-    const b = randomIntBetween(ranges.add[0], ranges.add[1]);
+  if (["basic-addition", "basic-addition-h", "basic-addition-v"].includes(resolvedSubcategory)) {
+    const minAdd = Math.max(ranges.add[0], 1);
+    const maxAdd = Math.max(minAdd, ranges.add[1]);
+    const a = randomIntBetween(minAdd, maxAdd);
+    const b = randomIntBetween(minAdd, maxAdd);
     const answer = a + b;
-    const layout = normalizedSubcategory === "basic-addition-v" ? "vertical" : "horizontal";
+    const layout = resolvedSubcategory === "basic-addition-v" ? "vertical" : "horizontal";
+    const objectContext = pickArithmeticObjectContext();
+    const leftLabel = toArithmeticObjectLabel(objectContext, a);
+    const rightLabel = toArithmeticObjectLabel(objectContext, b);
+    const totalLabel = toArithmeticObjectLabel(objectContext, answer);
     return {
-      question: `Calculate ${a} + ${b}.`,
-      solution: `Add the numbers: ${a} + ${b} = ${answer}.`,
+      question: `A collection contains ${a} ${leftLabel}, and another collection contains ${b} ${rightLabel}. Find the total number of ${totalLabel}.`,
+      solution: `Combine both collections: ${a} + ${b} = ${answer}. Therefore, the total is ${answer} ${totalLabel}.`,
       correctAnswer: String(answer),
       interactiveApp: {
         type: "arithmetic",
@@ -3546,22 +3698,30 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
           operandA: a,
           operandB: b,
           answer: String(answer),
-          answerDigits: String(answer).length
+          answerDigits: String(answer).length,
+          visualMode: "objects",
+          visualKind: objectContext.kind,
+          visualLabel: objectContext.plural,
+          visualGrouping: "addition"
         }
       }
     };
   }
 
-  if (["basic-subtraction", "basic-subtraction-h", "basic-subtraction-v"].includes(normalizedSubcategory)) {
+  if (["basic-subtraction", "basic-subtraction-h", "basic-subtraction-v"].includes(resolvedSubcategory)) {
     const a = randomIntBetween(ranges.sub[0], ranges.sub[1]);
     const b = randomIntBetween(ranges.sub[0], Math.max(ranges.sub[0], Math.floor(a * 0.9)));
     const top = Math.max(a, b);
     const bottom = Math.min(a, b);
     const answer = top - bottom;
-    const layout = normalizedSubcategory === "basic-subtraction-v" ? "vertical" : "horizontal";
+    const layout = resolvedSubcategory === "basic-subtraction-v" ? "vertical" : "horizontal";
+    const objectContext = pickArithmeticObjectContext();
+    const topLabel = toArithmeticObjectLabel(objectContext, top);
+    const bottomLabel = toArithmeticObjectLabel(objectContext, bottom);
+    const remainLabel = toArithmeticObjectLabel(objectContext, answer);
     return {
-      question: `Calculate ${top} - ${bottom}.`,
-      solution: `Subtract ${bottom} from ${top}: ${top} - ${bottom} = ${answer}.`,
+      question: `A set has ${top} ${topLabel}. If ${bottom} ${bottomLabel} are removed, how many ${remainLabel} remain?`,
+      solution: `Subtract the removed amount from the original set: ${top} - ${bottom} = ${answer}. Therefore, ${answer} ${remainLabel} remain.`,
       correctAnswer: String(answer),
       interactiveApp: {
         type: "arithmetic",
@@ -3571,20 +3731,29 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
           operandA: top,
           operandB: bottom,
           answer: String(answer),
-          answerDigits: String(answer).length
+          answerDigits: String(answer).length,
+          visualMode: "objects",
+          visualKind: objectContext.kind,
+          visualLabel: objectContext.plural,
+          visualGrouping: "subtraction"
         }
       }
     };
   }
 
-  if (["basic-multiplication", "basic-multiplication-h", "basic-multiplication-v"].includes(normalizedSubcategory)) {
-    const a = randomIntBetween(ranges.mul[0], ranges.mul[1]);
-    const b = randomIntBetween(ranges.mul[0], ranges.mul[1]);
+  if (["basic-multiplication", "basic-multiplication-h", "basic-multiplication-v"].includes(resolvedSubcategory)) {
+    const factors = pickVisualMultiplicationFactors(ranges);
+    const a = factors.groups;
+    const b = factors.each;
     const answer = a * b;
-    const layout = normalizedSubcategory === "basic-multiplication-v" ? "vertical" : "horizontal";
+    const layout = resolvedSubcategory === "basic-multiplication-v" ? "vertical" : "horizontal";
+    const objectContext = pickArithmeticObjectContext();
+    const eachLabel = toArithmeticObjectLabel(objectContext, b);
+    const totalLabel = toArithmeticObjectLabel(objectContext, answer);
+    const groupLabel = toGroupLabel(a);
     return {
-      question: `Calculate ${a} x ${b}.`,
-      solution: `Multiply: ${a} x ${b} = ${answer}.`,
+      question: `There ${toBeVerbForCount(a)} ${a} ${groupLabel}, with ${b} ${eachLabel} in each group. Find the total number of ${totalLabel}.`,
+      solution: `Use multiplication for equal groups: ${a} x ${b} = ${answer}. Therefore, the total is ${answer} ${totalLabel}.`,
       correctAnswer: String(answer),
       interactiveApp: {
         type: "arithmetic",
@@ -3594,31 +3763,55 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
           operandA: a,
           operandB: b,
           answer: String(answer),
-          answerDigits: String(answer).length
+          answerDigits: String(answer).length,
+          visualMode: "objects",
+          visualKind: objectContext.kind,
+          visualLabel: objectContext.plural,
+          visualGrouping: "groups"
         }
       }
     };
   }
 
-  if (normalizedSubcategory === "division-short") {
+  if (resolvedSubcategory === "division-short") {
     const divisor = randomIntBetween(ranges.div[0], ranges.div[1]);
     const quotient = randomIntBetween(ranges.div[0], ranges.div[1] + 10);
     const dividend = divisor * quotient;
+    const objectContext = pickArithmeticObjectContext();
+    const itemLabel = toArithmeticObjectLabel(objectContext, dividend);
+    const groupLabel = toGroupLabel(divisor);
     return {
-      question: `Use short division to calculate ${dividend} / ${divisor}.`,
-      solution: `Since ${divisor} x ${quotient} = ${dividend}, the quotient is ${quotient}.`,
+      question: `${dividend} ${itemLabel} ${toBeVerbForCount(dividend)} shared equally into ${divisor} ${groupLabel}. How many ${itemLabel} are in each group?`,
+      solution: `Use division for equal sharing: ${dividend} / ${divisor} = ${quotient}. Check: ${divisor} x ${quotient} = ${dividend}.`,
       correctAnswer: String(quotient),
-      interactiveApp: null
+      interactiveApp: {
+        type: "arithmetic",
+        config: {
+          layout: "horizontal",
+          operator: "/",
+          operandA: dividend,
+          operandB: divisor,
+          answer: String(quotient),
+          answerDigits: String(quotient).length,
+          visualMode: "objects",
+          visualKind: objectContext.kind,
+          visualLabel: objectContext.plural,
+          visualGrouping: "division"
+        }
+      }
     };
   }
 
-  if (normalizedSubcategory === "division-long") {
+  if (resolvedSubcategory === "division-long") {
     const divisor = randomIntBetween(ranges.div[0], ranges.div[1]);
     const quotient = randomIntBetween(ranges.div[0] + 4, ranges.div[1] + 20);
     const dividend = divisor * quotient;
+    const objectContext = pickArithmeticObjectContext();
+    const itemLabel = toArithmeticObjectLabel(objectContext, dividend);
+    const groupLabel = toGroupLabel(divisor);
     return {
-      question: `Use long division to divide ${dividend} by ${divisor}.`,
-      solution: `Long division gives quotient ${quotient} because ${divisor} x ${quotient} = ${dividend} with remainder 0.`,
+      question: `${dividend} ${itemLabel} ${toBeVerbForCount(dividend)} shared equally into ${divisor} ${groupLabel}. How many ${itemLabel} are in each group?`,
+      solution: `Apply long division: ${dividend} / ${divisor} = ${quotient}. Check: ${divisor} x ${quotient} = ${dividend} with remainder 0.`,
       correctAnswer: String(quotient),
       interactiveApp: {
         type: "arithmetic",
@@ -3628,13 +3821,67 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
           operandA: dividend,
           operandB: divisor,
           answer: String(quotient),
-          answerDigits: String(quotient).length
+          answerDigits: String(quotient).length,
+          visualMode: "objects",
+          visualKind: objectContext.kind,
+          visualLabel: objectContext.plural,
+          visualGrouping: "division"
         }
       }
     };
   }
 
   return null;
+}
+
+function buildAutoIntroductionPayload(subcategory) {
+  const normalizedSubcategory = String(subcategory || "cover").trim().toLowerCase();
+  if (normalizedSubcategory !== "cover") return null;
+
+  return {
+    question: "Welcome. Please read and accept the Terms of Use and EULA before starting this quiz.\n\nIf you find any incorrect question, answer, solution, or feedback, contact us before continuing.",
+    solution: "Learner acknowledged the Terms of Use and EULA and agreed to contact support for any content issues.",
+    correctAnswer: "accepted",
+    options: ["", "", "", ""],
+    resultType: "short-answer",
+    interactiveApp: {
+      type: "introduction",
+      config: {
+        title: "Before You Start",
+        requireSupportAcknowledgement: true,
+        supportLabel: "Support",
+        supportEmail: ""
+      }
+    }
+  };
+}
+
+function isIntroductionQuestionItem(item) {
+  if (!item || typeof item !== "object") return false;
+  if (item.interactiveApp && item.interactiveApp.type === "introduction") return true;
+
+  const prompt = String(item.question || "").trim().toLowerCase();
+  if (!prompt) return false;
+  const hasIntroTerms = prompt.includes("terms") || prompt.includes("conditions") || prompt.includes("eula");
+  const mentionsAccept = prompt.includes("accept") || prompt.includes("acknowledge");
+  return hasIntroTerms && mentionsAccept;
+}
+
+function createAutoIntroductionQuestion(generationOptions = {}) {
+  const payload = buildAutoIntroductionPayload("cover");
+  if (!payload) return null;
+
+  return normalizeQuestion({
+    question: payload.question || "",
+    resultType: payload.resultType || "short-answer",
+    options: Array.isArray(payload.options) ? payload.options : ["", "", "", ""],
+    correctAnswer: payload.correctAnswer || "accepted",
+    notesAttachments: [],
+    image: "",
+    solution: payload.solution || "",
+    solutionAttachments: [],
+    interactiveApp: payload.interactiveApp || null
+  });
 }
 
 function resolveFractionRanges(normalizedDifficulty, generationOptions = {}) {
@@ -3798,6 +4045,129 @@ function buildAutoFractionsPayload(subcategory, difficulty, generationOptions = 
   };
 }
 
+function matrixToAnswerString(matrix) {
+  if (!matrixIsRectangular(matrix)) return "";
+  return matrix
+    .map((row) => row.map((value) => formatMatrixNumber(value)).join(","))
+    .join(";");
+}
+
+function buildRandomMatrix(rows, cols, minValue, maxValue) {
+  const matrix = [];
+  for (let rowIndex = 0; rowIndex < rows; rowIndex += 1) {
+    const row = [];
+    for (let colIndex = 0; colIndex < cols; colIndex += 1) {
+      row.push(randomIntBetween(minValue, maxValue));
+    }
+    matrix.push(row);
+  }
+  return matrix;
+}
+
+function buildAutoMatrixPayload(subcategory, difficulty, resultTypeChoice = "auto", generationOptions = {}) {
+  const normalizedSubcategory = String(subcategory || "matrix-a-dim").trim().toLowerCase();
+  const normalizedDifficulty = String(difficulty || "easy").trim().toLowerCase();
+  const desired = String(resultTypeChoice || "auto").trim().toLowerCase();
+  const defaultResult = desired === "auto" ? "short-answer" : desired;
+
+  const range = normalizedDifficulty === "hard"
+    ? { min: -12, max: 12 }
+    : normalizedDifficulty === "medium"
+      ? { min: -9, max: 9 }
+      : { min: -6, max: 6 };
+
+  let operation = "multiply";
+  let matrixA = [[1, 2], [3, 4]];
+  let matrixB = [[5, 6], [7, 8]];
+  let question = "";
+  let solution = "";
+  let correctAnswer = "";
+
+  if (normalizedSubcategory === "matrix-a-dim") {
+    operation = "multiply";
+    const rows = normalizedDifficulty === "hard" ? 4 : normalizedDifficulty === "medium" ? 3 : 2;
+    const cols = normalizedDifficulty === "hard" ? 3 : normalizedDifficulty === "medium" ? 4 : 3;
+    matrixA = buildRandomMatrix(rows, cols, range.min, range.max);
+    matrixB = [[1]];
+    question = "What are the dimensions of Matrix A?";
+    solution = `Dimensions are written as rows x columns. Matrix A has ${rows} rows and ${cols} columns, so the dimensions are ${rows} x ${cols}.`;
+    correctAnswer = `${rows} x ${cols}`;
+  } else if (normalizedSubcategory === "matrix-add" || normalizedSubcategory === "matrix-subtract") {
+    operation = normalizedSubcategory === "matrix-add" ? "add" : "subtract";
+    const rows = normalizedDifficulty === "hard" ? 3 : 2;
+    const cols = normalizedDifficulty === "easy" ? 2 : 3;
+    matrixA = buildRandomMatrix(rows, cols, range.min, range.max);
+    matrixB = buildRandomMatrix(rows, cols, range.min, range.max);
+    const result = operation === "add" ? matrixAdd(matrixA, matrixB) : matrixSubtract(matrixA, matrixB);
+    if (!result) return null;
+    const symbol = operation === "add" ? "+" : "-";
+    question = `Calculate A ${symbol} B. Enter your matrix as rows separated by semicolons (e.g. 1,2;3,4).`;
+    solution = `Compute each entry position-wise. The result is ${matrixToAnswerString(result)}.`;
+    correctAnswer = matrixToAnswerString(result);
+  } else if (normalizedSubcategory === "matrix-multiply") {
+    operation = "multiply";
+    const aRows = normalizedDifficulty === "hard" ? 3 : 2;
+    const shared = normalizedDifficulty === "easy" ? 2 : 3;
+    const bCols = normalizedDifficulty === "hard" ? 3 : 2;
+    matrixA = buildRandomMatrix(aRows, shared, range.min, range.max);
+    matrixB = buildRandomMatrix(shared, bCols, range.min, range.max);
+    const result = matrixMultiply(matrixA, matrixB);
+    if (!result) return null;
+    question = "Calculate A x B. Enter your matrix as rows separated by semicolons (e.g. 1,2;3,4).";
+    solution = `Multiply rows of A by columns of B. The result is ${matrixToAnswerString(result)}.`;
+    correctAnswer = matrixToAnswerString(result);
+  } else if (normalizedSubcategory === "matrix-transpose") {
+    operation = "transpose";
+    const rows = normalizedDifficulty === "hard" ? 4 : 3;
+    const cols = normalizedDifficulty === "easy" ? 2 : 3;
+    matrixA = buildRandomMatrix(rows, cols, range.min, range.max);
+    matrixB = [[1]];
+    const result = matrixTranspose(matrixA);
+    if (!result) return null;
+    question = "Find A^T (the transpose of A). Enter your matrix as rows separated by semicolons (e.g. 1,2;3,4).";
+    solution = `Swap rows and columns of A. The transpose is ${matrixToAnswerString(result)}.`;
+    correctAnswer = matrixToAnswerString(result);
+  } else if (normalizedSubcategory === "matrix-determinant") {
+    operation = "determinant";
+    const size = normalizedDifficulty === "easy" ? 2 : 3;
+    const detRange = normalizedDifficulty === "hard" ? { min: -6, max: 6 } : range;
+    matrixA = buildRandomMatrix(size, size, detRange.min, detRange.max);
+    matrixB = [[1]];
+    const determinant = matrixDeterminant(matrixA);
+    if (!Number.isFinite(determinant)) return null;
+    question = "Find det(A).";
+    solution = `Using determinant rules for a ${size}x${size} matrix, det(A) = ${formatMatrixNumber(determinant)}.`;
+    correctAnswer = formatMatrixNumber(determinant);
+  } else {
+    return buildAutoMatrixPayload("matrix-a-dim", difficulty, resultTypeChoice, generationOptions);
+  }
+
+  return postProcessAutoPayload(
+    asResultTypePayload(
+      {
+        question,
+        solution,
+        correctAnswer,
+        interactiveApp: {
+          type: "matrix",
+          config: {
+            title: "Matrix Operations",
+            operation,
+            matrixA,
+            matrixB
+          }
+        },
+        _generation: {
+          answerPolicy: generationOptions.answerPolicy || "auto",
+          decimalPlaces: generationOptions.decimalPlaces
+        }
+      },
+      defaultResult
+    ),
+    generationOptions
+  );
+}
+
 function buildDeterministicPayloadFromInteractiveApp(appType, app, desiredResultType = "short-answer", generationOptions = {}) {
   if (!app || app.type !== appType) return null;
 
@@ -3935,9 +4305,12 @@ function buildDeterministicPayloadFromInteractiveApp(appType, app, desiredResult
     const matrixA = Array.isArray(cfg.matrixA) ? cfg.matrixA : [];
     const rows = matrixA.length;
     const cols = rows > 0 && Array.isArray(matrixA[0]) ? matrixA[0].length : 0;
+    const matrixText = rows > 0
+      ? `\nMatrix A:\n${matrixA.map((row) => `[${Array.isArray(row) ? row.join(" ") : ""}]`).join("\n")}`
+      : "";
     base = {
-      question: "",
-      solution: `Matrix A has ${rows} row(s) and ${cols} column(s), so dimensions are ${rows} x ${cols}.`,
+      question: `What are the dimensions of Matrix A?${matrixText}`,
+      solution: `Dimensions are written in the order rows x columns. Matrix A has ${rows} rows and ${cols} columns, so the dimensions are ${rows} x ${cols}.`,
       correctAnswer: `${rows} x ${cols}`,
       interactiveApp: app
     };
@@ -4020,6 +4393,21 @@ function buildAutoPayloadForCategory(category, subcategory, difficulty, resultTy
   const appType = String(category || "cartesian-plane").trim();
   const desired = String(resultTypeChoice || "auto").trim().toLowerCase();
 
+  if (appType === "introduction") {
+    const base = buildAutoIntroductionPayload(subcategory);
+    if (!base) return null;
+    return postProcessAutoPayload(
+      {
+        ...base,
+        _generation: {
+          answerPolicy: generationOptions.answerPolicy || "auto",
+          decimalPlaces: generationOptions.decimalPlaces
+        }
+      },
+      generationOptions
+    );
+  }
+
   if (appType === "cartesian-plane") {
     return postProcessAutoPayload(
       buildAutoCreatedQuestionPayload(subcategory, difficulty, resultTypeChoice),
@@ -4067,6 +4455,9 @@ function buildAutoPayloadForCategory(category, subcategory, difficulty, resultTy
       ),
       generationOptions
     );
+  }
+  if (appType === "matrix") {
+    return buildAutoMatrixPayload(subcategory, difficulty, resultTypeChoice, generationOptions);
   }
 
   const app = buildDefaultInteractiveApp(appType);
@@ -4180,9 +4571,12 @@ function buildAutoPayloadForCategory(category, subcategory, difficulty, resultTy
     const matrixA = Array.isArray(cfg.matrixA) ? cfg.matrixA : [];
     const rows = matrixA.length;
     const cols = rows > 0 && Array.isArray(matrixA[0]) ? matrixA[0].length : 0;
+    const matrixText = rows > 0
+      ? `\nMatrix A:\n${matrixA.map((row) => `[${Array.isArray(row) ? row.join(" ") : ""}]`).join("\n")}`
+      : "";
     base = {
-      question: "What are the dimensions of Matrix A?",
-      solution: `Matrix A has ${rows} row(s) and ${cols} column(s), so dimensions are ${rows} x ${cols}.`,
+      question: `What are the dimensions of Matrix A?${matrixText}`,
+      solution: `Dimensions are written in the order rows x columns. Matrix A has ${rows} rows and ${cols} columns, so the dimensions are ${rows} x ${cols}.`,
       correctAnswer: `${rows} x ${cols}`,
       interactiveApp: app
     };
@@ -4275,7 +4669,7 @@ function getSelectOptionLabel(selectId) {
 
 function normalizeAutoQuizQuestionCount(value) {
   const parsed = Number.parseInt(value, 10);
-  if (!Number.isInteger(parsed)) return 10;
+  if (!Number.isInteger(parsed)) return 1;
   return Math.max(1, Math.min(60, parsed));
 }
 
@@ -4356,6 +4750,14 @@ function buildAutoQuizTemplatePool(gradeValue, yearValue = "auto") {
     { category: "trigonometry", subcategory: "focus-function", difficulty: "hard", resultType: "short-answer" }
   ];
 
+  const generalUnit1Pool = [
+    { category: "arithmetic", subcategory: "ratios-rates", difficulty: "medium", resultType: "short-answer" },
+    { category: "fractions", subcategory: "operation-result", difficulty: "medium", resultType: "short-answer" },
+    { category: "bar-chart", subcategory: "highest-category", difficulty: "medium", resultType: "multiple-choice" },
+    { category: "histogram", subcategory: "count-values", difficulty: "medium", resultType: "short-answer" },
+    { category: "probability-tree", subcategory: "path-sum", difficulty: "medium", resultType: "short-answer" }
+  ];
+
   const generalPool = [
     { category: "arithmetic", subcategory: "ratios-rates", difficulty: "medium", resultType: "short-answer" },
     { category: "arithmetic", subcategory: "division-long", difficulty: "medium", resultType: "short-answer" },
@@ -4401,6 +4803,9 @@ function buildAutoQuizTemplatePool(gradeValue, yearValue = "auto") {
   if (grade.startsWith("vce-methods-")) {
     return methodsPool;
   }
+  if (grade === "vce-general-unit-1") {
+    return generalUnit1Pool;
+  }
   if (grade.startsWith("vce-general-")) {
     return generalPool;
   }
@@ -4423,6 +4828,20 @@ function resolveAutoQuizDifficultyFromYear(gradeValue, yearValue) {
   if (yearLevel <= 2) return "easy";
   if (yearLevel <= 8) return "medium";
   return "hard";
+}
+
+function resolveAutoCreateDifficultyFromGrade() {
+  const gradeSelect = document.getElementById("autoQuizGrade");
+  const gradeValue = gradeSelect instanceof HTMLSelectElement ? String(gradeSelect.value || "year-7") : "year-7";
+  return resolveAutoQuizDifficultyFromYear(gradeValue, "auto");
+}
+
+function syncAutoCreateDifficultyControl() {
+  const difficultyBadge = document.getElementById("autoCreateDifficultyBadge");
+  if (!(difficultyBadge instanceof HTMLElement)) return;
+  const autoDifficulty = resolveAutoCreateDifficultyFromGrade();
+  const normalized = ["easy", "medium", "hard"].includes(autoDifficulty) ? autoDifficulty : "medium";
+  difficultyBadge.textContent = `Auto Difficulty: ${capitalizeWord(normalized)}`;
 }
 
 function buildAutoQuizQuestion(questionTemplate, index, generationOptions) {
@@ -4470,29 +4889,24 @@ async function autoCreateEntireQuiz(quizId = state.selectedQuizId) {
   const existingCount = existingQuestions.length;
 
   const gradeSelect = document.getElementById("autoQuizGrade");
-  const yearSelect = document.getElementById("autoQuizYear");
   const countInput = document.getElementById("autoQuizQuestionCount");
   const selectedCategory = String(document.getElementById("autoCreateCategory").value || "").trim();
   const selectedSubcategory = String(document.getElementById("autoCreateSubcategory").value || "").trim();
-  const selectedResultType = String(document.getElementById("autoCreateResultType").value || "auto").trim();
-  const selectedCommandWord = String(document.getElementById("autoCreateCommandWord").value || "determine").trim();
-  const answerPolicy = String(document.getElementById("autoCreateAnswerFormat").value || "auto").trim();
-  const decimalPlaces = Number.parseInt(document.getElementById("autoCreateDecimalPlaces").value, 10);
 
   const gradeValue = gradeSelect instanceof HTMLSelectElement ? String(gradeSelect.value || "year-7") : "year-7";
   const gradeLabel = getSelectOptionLabel("autoQuizGrade") || "VCAA Mathematics";
-  const yearValue = yearSelect instanceof HTMLSelectElement ? String(yearSelect.value || "auto") : "auto";
+  const yearValue = "auto";
   const yearLabel = resolveAutoQuizYear(gradeValue, yearValue);
   const yearDifficulty = resolveAutoQuizDifficultyFromYear(gradeValue, yearValue);
-  const questionCount = normalizeAutoQuizQuestionCount(countInput instanceof HTMLInputElement ? countInput.value : 10);
+  const questionCount = normalizeAutoQuizQuestionCount(countInput instanceof HTMLInputElement ? countInput.value : 1);
   if (countInput instanceof HTMLInputElement) {
     countInput.value = String(questionCount);
   }
 
   const generationOptions = {
-    commandWord: selectedCommandWord || "determine",
-    answerPolicy,
-    decimalPlaces: Number.isInteger(decimalPlaces) ? decimalPlaces : 2,
+    commandWord: "random",
+    answerPolicy: "auto",
+    decimalPlaces: 2,
     gradeValue,
     yearValue,
     yearDifficulty,
@@ -4505,7 +4919,7 @@ async function autoCreateEntireQuiz(quizId = state.selectedQuizId) {
       category: selectedCategory,
       subcategory: selectedSubcategory,
       difficulty: yearDifficulty,
-      resultType: selectedResultType || "auto"
+      resultType: "auto"
     }]
     : null;
 
@@ -4559,7 +4973,13 @@ async function autoCreateEntireQuiz(quizId = state.selectedQuizId) {
     return;
   }
 
-  quiz.questions = existingQuestions.concat(generatedQuestions);
+  const hasIntroductionAtStart = existingQuestions.length > 0 && isIntroductionQuestionItem(existingQuestions[0]);
+  const introQuestion = hasIntroductionAtStart ? null : createAutoIntroductionQuestion(generationOptions);
+  if (introQuestion) {
+    quiz.questions = [introQuestion].concat(existingQuestions, generatedQuestions);
+  } else {
+    quiz.questions = existingQuestions.concat(generatedQuestions);
+  }
   if (!String(quiz.title || "").trim()) {
     quiz.title = `${gradeLabel}${yearLabel ? ` ${yearLabel}` : ""} Auto Quiz`;
   }
@@ -4569,7 +4989,7 @@ async function autoCreateEntireQuiz(quizId = state.selectedQuizId) {
     questionLimit: quiz.questions.length
   });
 
-  state.selectedQuestionIndex = existingCount;
+  state.selectedQuestionIndex = (introQuestion ? 1 : 0) + existingCount;
   renderAll();
   await persistSelectedQuizAfterMutation("Auto-generated questions");
 
@@ -5952,14 +6372,18 @@ function buildMatrixTableMarkup(matrix, caption) {
     return `<div class="simple-card"><p>${escapeInteractiveHtml(caption)}: invalid matrix</p></div>`;
   }
   const rows = matrix
-    .map((row) => `<tr>${row.map((value) => `<td style="border:1px solid #cbd5e1;padding:4px 8px;text-align:right;">${escapeInteractiveHtml(formatMatrixNumber(value))}</td>`).join("")}</tr>`)
+    .map((row) => `<tr>${row.map((value) => `<td>${escapeInteractiveHtml(formatMatrixNumber(value))}</td>`).join("")}</tr>`)
     .join("");
   return `
-    <div class="simple-card">
+    <div class="simple-card matrix-card">
       <p><strong>${escapeInteractiveHtml(caption)}</strong> (${matrix.length}x${matrix[0].length})</p>
-      <table style="border-collapse:collapse; margin-top:6px;">
-        <tbody>${rows}</tbody>
-      </table>
+      <div class="matrix-wrap" role="img" aria-label="${escapeInteractiveHtml(caption)} ${matrix.length} by ${matrix[0].length}">
+        <span class="matrix-bracket matrix-bracket-left" aria-hidden="true"></span>
+        <table class="matrix-grid">
+          <tbody>${rows}</tbody>
+        </table>
+        <span class="matrix-bracket matrix-bracket-right" aria-hidden="true"></span>
+      </div>
     </div>
   `;
 }
@@ -6146,6 +6570,176 @@ function computeArithmeticPreviewAnswer(config) {
   return String(a + b);
 }
 
+function normalizeArithmeticVisualKind(value) {
+  const kind = String(value || "ball").trim().toLowerCase();
+  if (["ball", "car", "star"].includes(kind)) return kind;
+  return "ball";
+}
+
+function buildArithmeticObjectIconSvg(kind) {
+  if (kind === "car") {
+    return `
+      <svg viewBox="0 0 28 20" width="24" height="18" aria-hidden="true" focusable="false">
+        <rect x="4" y="8" width="18" height="7" rx="2" fill="#2563eb"></rect>
+        <rect x="8" y="5" width="8" height="4" rx="1" fill="#93c5fd"></rect>
+        <circle cx="9" cy="16" r="2" fill="#1f2937"></circle>
+        <circle cx="19" cy="16" r="2" fill="#1f2937"></circle>
+      </svg>
+    `;
+  }
+  if (kind === "star") {
+    return `
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+        <polygon points="12,2 15,9 22,9 16.5,13.5 18.5,21 12,16.5 5.5,21 7.5,13.5 2,9 9,9" fill="#f59e0b"></polygon>
+      </svg>
+    `;
+  }
+  return `
+    <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false">
+      <circle cx="10" cy="10" r="7" fill="#ef4444"></circle>
+    </svg>
+  `;
+}
+
+function buildArithmeticObjectGroup(count, kind) {
+  const safeCount = Math.max(0, Math.min(24, Number.parseInt(count, 10) || 0));
+  const chips = [];
+  for (let index = 0; index < safeCount; index += 1) {
+    chips.push(`<span class="arithmetic-object-icon">${buildArithmeticObjectIconSvg(kind)}</span>`);
+  }
+  return chips.join("");
+}
+
+function buildArithmeticObjectVisualMarkup(config, { revealAnswer = false } = {}) {
+  const visualMode = String(config && config.visualMode ? config.visualMode : "").trim().toLowerCase();
+  if (visualMode !== "objects") return "";
+
+  const operator = String(config && config.operator ? config.operator : "+").trim();
+  if (!["+", "-", "x", "*", "/"].includes(operator)) return "";
+
+  const a = Number.parseInt(config && config.operandA, 10);
+  const b = Number.parseInt(config && config.operandB, 10);
+  if (!Number.isInteger(a) || !Number.isInteger(b) || a < 0 || b < 0) return "";
+
+  const kind = normalizeArithmeticVisualKind(config && config.visualKind);
+  const label = String(config && config.visualLabel ? config.visualLabel : "objects").trim() || "objects";
+
+  if (operator === "-") {
+    const remaining = Math.max(0, a - b);
+    const totalMarkup = revealAnswer
+      ? buildArithmeticObjectGroup(remaining, kind)
+      : `<span class="arithmetic-object-unknown">?</span>`;
+    return `
+      <div class="arithmetic-object-visual" role="img" aria-label="${escapeInteractiveHtml(a)} minus ${escapeInteractiveHtml(b)} ${escapeInteractiveHtml(label)}">
+        <div class="arithmetic-object-group">${buildArithmeticObjectGroup(a, kind)}</div>
+        <span class="arithmetic-object-op">-</span>
+        <div class="arithmetic-object-group">${buildArithmeticObjectGroup(b, kind)}</div>
+        <span class="arithmetic-object-op">=</span>
+        <div class="arithmetic-object-group">${totalMarkup}</div>
+      </div>
+    `;
+  }
+
+  if (operator === "/") {
+    if (b <= 0) return "";
+    const quotient = Math.floor(a / b);
+    const buckets = [];
+    const shownGroups = Math.max(0, Math.min(12, b));
+    const shownEach = Math.max(0, Math.min(12, quotient));
+    for (let groupIndex = 0; groupIndex < shownGroups; groupIndex += 1) {
+      buckets.push(`<div class="arithmetic-object-bucket">${buildArithmeticObjectGroup(shownEach, kind)}</div>`);
+    }
+    return `
+      <div class="arithmetic-object-multiplication" role="img" aria-label="${escapeInteractiveHtml(a)} shared into ${escapeInteractiveHtml(b)} groups of ${escapeInteractiveHtml(label)}">
+        ${buckets.join("")}
+      </div>
+    `;
+  }
+
+  if (operator === "+") {
+    const total = a + b;
+    const totalMarkup = revealAnswer
+      ? buildArithmeticObjectGroup(total, kind)
+      : `<span class="arithmetic-object-unknown">?</span>`;
+
+    return `
+      <div class="arithmetic-object-visual" role="img" aria-label="${escapeInteractiveHtml(a)} plus ${escapeInteractiveHtml(b)} ${escapeInteractiveHtml(label)}">
+        <div class="arithmetic-object-group">${buildArithmeticObjectGroup(a, kind)}</div>
+        <span class="arithmetic-object-op">+</span>
+        <div class="arithmetic-object-group">${buildArithmeticObjectGroup(b, kind)}</div>
+        <span class="arithmetic-object-op">=</span>
+        <div class="arithmetic-object-group">${totalMarkup}</div>
+      </div>
+    `;
+  }
+
+  const groups = Math.max(0, Math.min(12, a));
+  const each = Math.max(0, Math.min(12, b));
+  const buckets = [];
+  for (let groupIndex = 0; groupIndex < groups; groupIndex += 1) {
+    buckets.push(`<div class="arithmetic-object-bucket">${buildArithmeticObjectGroup(each, kind)}</div>`);
+  }
+  return `
+    <div class="arithmetic-object-multiplication" role="img" aria-label="${escapeInteractiveHtml(a)} groups of ${escapeInteractiveHtml(b)} ${escapeInteractiveHtml(label)}">
+      ${buckets.join("")}
+    </div>
+  `;
+}
+
+function buildArithmeticReasoningMarkup(config, { revealAnswer = false } = {}) {
+  if (!revealAnswer) return "";
+  const visualMode = String(config && config.visualMode ? config.visualMode : "").trim().toLowerCase();
+  if (visualMode !== "objects") return "";
+
+  const operator = String(config && config.operator ? config.operator : "+").trim();
+  const a = Number.parseInt(config && config.operandA, 10);
+  const b = Number.parseInt(config && config.operandB, 10);
+  if (!Number.isInteger(a) || !Number.isInteger(b)) return "";
+
+  if (operator === "+" || operator === "-") {
+    const result = operator === "+" ? a + b : a - b;
+    const inRange = [a, b, result].every((value) => Number.isInteger(value) && value >= 0 && value <= 100);
+    if (!inRange) return "";
+
+    const stepStart = operator === "+" ? a + 1 : Math.max(1, result + 1);
+    const stepEnd = operator === "+" ? result : a;
+    const cells = [];
+    for (let value = 1; value <= 100; value += 1) {
+      const classes = ["arithmetic-number-chart-cell"];
+      if (value === a) classes.push("start");
+      if (value === result) classes.push("result");
+      if (value >= stepStart && value <= stepEnd) classes.push("step");
+      cells.push(`<span class="${classes.join(" ")}">${value}</span>`);
+    }
+
+    const explanation = operator === "+"
+      ? `Number chart jump: start at ${a}, move forward ${b} to land on ${result}.`
+      : `Number chart jump: start at ${a}, move back ${b} to land on ${result}.`;
+
+    return `
+      <p class="helper-text arithmetic-why">${escapeInteractiveHtml(explanation)}</p>
+      <div class="arithmetic-number-chart" role="img" aria-label="Number chart showing ${escapeInteractiveHtml(String(a))} ${escapeInteractiveHtml(operator)} ${escapeInteractiveHtml(String(b))} equals ${escapeInteractiveHtml(String(result))}">
+        ${cells.join("")}
+      </div>
+    `;
+  }
+
+  if (operator === "x" || operator === "*") {
+    const table = [];
+    for (let i = 1; i <= 10; i += 1) {
+      table.push(`${b} x ${i} = ${b * i}`);
+    }
+    return `<p class="helper-text arithmetic-why">Times table check: ${escapeInteractiveHtml(table.join(" | "))}</p>`;
+  }
+
+  if (operator === "/" && b !== 0) {
+    const q = Math.floor(a / b);
+    return `<p class="helper-text arithmetic-why">Equal groups check: ${escapeInteractiveHtml(String(a))} / ${escapeInteractiveHtml(String(b))} = ${escapeInteractiveHtml(String(q))}, and ${escapeInteractiveHtml(String(b))} x ${escapeInteractiveHtml(String(q))} = ${escapeInteractiveHtml(String(b * q))}.</p>`;
+  }
+
+  return "";
+}
+
 function buildArithmeticPreviewMarkup(config) {
   const rawLayout = String(config && config.layout ? config.layout : "horizontal").trim().toLowerCase();
   const layout = rawLayout === "vertical" ? "vertical" : rawLayout === "long" ? "long" : "horizontal";
@@ -6153,13 +6747,15 @@ function buildArithmeticPreviewMarkup(config) {
   const a = escapeInteractiveHtml(String(config && config.operandA != null ? config.operandA : ""));
   const b = escapeInteractiveHtml(String(config && config.operandB != null ? config.operandB : ""));
   const answer = escapeInteractiveHtml(String(config && config.answer ? config.answer : computeArithmeticPreviewAnswer(config)));
+  const objectVisualMarkup = buildArithmeticObjectVisualMarkup(config || {}, { revealAnswer: true });
+  const reasoningMarkup = buildArithmeticReasoningMarkup(config || {}, { revealAnswer: true });
   if (layout === "long" || (layout === "vertical" && String(config && config.operator ? config.operator : "+").trim() === "/")) {
-    return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (long division)</p><p style="font-family:Consolas,monospace;line-height:1.6;text-align:right">&nbsp;&nbsp;${answer}<br>${b} ) ${a}<br>--------</p></div>`;
+    return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (long division)</p>${objectVisualMarkup}${reasoningMarkup}<p style="font-family:Consolas,monospace;line-height:1.6;text-align:right">&nbsp;&nbsp;${answer}<br>${b} ) ${a}<br>--------</p></div>`;
   }
   if (layout === "vertical") {
-    return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (${layout})</p><p style="font-family:Consolas,monospace;line-height:1.6">&nbsp;&nbsp;${a}<br>${operator} ${b}<br>-----<br>&nbsp;&nbsp;${answer}</p></div>`;
+    return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (${layout})</p>${objectVisualMarkup}${reasoningMarkup}<p style="font-family:Consolas,monospace;line-height:1.6">&nbsp;&nbsp;${a}<br>${operator} ${b}<br>-----<br>&nbsp;&nbsp;${answer}</p></div>`;
   }
-  return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (${layout})</p><p style="font-family:Consolas,monospace">${a} ${operator} ${b} = ${answer}</p></div>`;
+  return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (${layout})</p>${objectVisualMarkup}${reasoningMarkup}<p style="font-family:Consolas,monospace">${a} ${operator} ${b} = ${answer}</p></div>`;
 }
 
 function buildInteractiveAppMarkup(app) {
@@ -7132,6 +7728,9 @@ function saveQuizSettingsFromModal() {
 
   renderAll();
   closeQuizSettingsModal();
+  
+  // Persist settings to disk
+  persistSelectedQuizAfterMutation("Quiz settings updated");
   showToast("Quiz settings saved.", "success");
 }
 
@@ -7901,6 +8500,44 @@ document.getElementById("saveQuestionBtn").addEventListener("click", async () =>
   showToast("Question updated in Maker, but file save did not run. Connect Root Folder if needed.", "warning");
 });
 
+document.getElementById("autoCreateDifficultyLevel").addEventListener("input", (e) => {
+  const value = String(e.target.value || "5").trim();
+  const valueDisplay = document.getElementById("autoCreateDifficultyValue");
+  if (valueDisplay) {
+    valueDisplay.textContent = value;
+  }
+});
+
+// Check if an arithmetic question with same operands already exists in the active quiz
+function isArithmeticQuestionDuplicate(payload) {
+  const quiz = activeQuiz();
+  if (!quiz || !quiz.questions || payload.interactiveApp?.type !== "arithmetic") {
+    return false;
+  }
+
+  const config = payload.interactiveApp?.config;
+  if (!config) return false;
+
+  // Create a signature of this question
+  const signature = `${config.operator}_${config.operandA}_${config.operandB}_${config.layout || "horizontal"}`;
+
+  // Check against existing questions
+  for (const existingQuestion of quiz.questions) {
+    if (!existingQuestion.interactiveApp || existingQuestion.interactiveApp.type !== "arithmetic") {
+      continue;
+    }
+    const existingConfig = existingQuestion.interactiveApp.config;
+    if (!existingConfig) continue;
+
+    const existingSignature = `${existingConfig.operator}_${existingConfig.operandA}_${existingConfig.operandB}_${existingConfig.layout || "horizontal"}`;
+    if (signature === existingSignature) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 document.getElementById("autoCreateQuestionBtn").addEventListener("click", async () => {
   const question = activeQuestion();
   if (!question) {
@@ -7910,27 +8547,40 @@ document.getElementById("autoCreateQuestionBtn").addEventListener("click", async
 
   const category = String(document.getElementById("autoCreateCategory").value || "cartesian-plane").trim();
   const subcategory = String(document.getElementById("autoCreateSubcategory").value || "linear").trim();
-  const difficulty = String(document.getElementById("autoCreateDifficulty").value || "easy").trim();
+  const manualDifficulty = Number.parseInt(document.getElementById("autoCreateDifficultyLevel").value || "5", 10);
+  const difficulty = Math.max(1, Math.min(10, manualDifficulty));
   const resultTypeChoice = String(document.getElementById("autoCreateResultType").value || "auto").trim();
-  const commandWord = String(document.getElementById("autoCreateCommandWord").value || "determine").trim();
-  const answerPolicy = String(document.getElementById("autoCreateAnswerFormat").value || "auto").trim();
-  const decimalPlaces = Number.parseInt(document.getElementById("autoCreateDecimalPlaces").value, 10);
-  const domainMinRaw = document.getElementById("autoCreateDomainMin").value;
-  const domainMaxRaw = document.getElementById("autoCreateDomainMax").value;
-  const domainMin = domainMinRaw === "" ? null : Number.parseFloat(domainMinRaw);
-  const domainMax = domainMaxRaw === "" ? null : Number.parseFloat(domainMaxRaw);
 
   const generationOptions = {
-    commandWord,
-    answerPolicy,
-    decimalPlaces: Number.isInteger(decimalPlaces) ? decimalPlaces : 2,
-    domainMin,
-    domainMax
+    commandWord: "random",
+    answerPolicy: "auto",
+    decimalPlaces: 2,
+    domainMin: null,
+    domainMax: null
   };
 
-  const payload = buildAutoPayloadForCategory(category, subcategory, difficulty, resultTypeChoice, generationOptions);
-  if (!payload) {
-    showToast("Could not generate this question for the selected category. Try a different subcategory or difficulty.", "warning");
+  // Try up to 10 times to generate a unique question
+  let payload = null;
+  let duplicateAttempts = 0;
+  const maxAttempts = 10;
+
+  while (duplicateAttempts < maxAttempts) {
+    payload = buildAutoPayloadForCategory(category, subcategory, difficulty, resultTypeChoice, generationOptions);
+    if (!payload) {
+      showToast("Could not generate this question for the selected category. Try a different subcategory or difficulty.", "warning");
+      return;
+    }
+
+    // Check for duplicates
+    if (!isArithmeticQuestionDuplicate(payload)) {
+      break; // Found a unique question
+    }
+
+    duplicateAttempts += 1;
+  }
+
+  if (duplicateAttempts >= maxAttempts) {
+    showToast("Could not generate a unique question after 10 attempts. This question type may have limited variation at this difficulty level.", "warning");
     return;
   }
 
@@ -7961,16 +8611,14 @@ document.getElementById("recalculateAnswerBtn").addEventListener("click", async 
   }
 
   const resultTypeChoice = String(document.getElementById("resultType").value || "short-answer").trim();
-  const answerPolicy = String(document.getElementById("autoCreateAnswerFormat").value || "auto").trim();
-  const decimalPlaces = Number.parseInt(document.getElementById("autoCreateDecimalPlaces").value, 10);
 
   const payload = buildDeterministicPayloadFromInteractiveApp(
     app.type,
     app,
     resultTypeChoice,
     {
-      answerPolicy,
-      decimalPlaces: Number.isInteger(decimalPlaces) ? decimalPlaces : 2,
+      answerPolicy: "auto",
+      decimalPlaces: 2,
       commandWord: "calculate",
       domainMin: null,
       domainMax: null
@@ -8015,7 +8663,10 @@ document.getElementById("autoCreateQuizBtn").addEventListener("click", () => {
 
 document.getElementById("autoCreateCategory").addEventListener("change", () => {
   populateAutoCreateSubcategoryOptions();
-  updateAutoCreateCommandWordControl();
+});
+
+document.getElementById("autoQuizGrade").addEventListener("change", () => {
+  syncAutoCreateDifficultyControl();
 });
 
 document.getElementById("validateGeneratedQuestionBtn").addEventListener("click", () => {
@@ -8052,8 +8703,9 @@ document.getElementById("cppPresetType").addEventListener("change", () => {
   updateQuestionFromForm();
 });
 
+sortSelectOptionsAlphabetically(document.getElementById("autoCreateCategory"));
 populateAutoCreateSubcategoryOptions();
-updateAutoCreateCommandWordControl();
+syncAutoCreateDifficultyControl();
 
 document.getElementById("cppGeneratePointsBtn").addEventListener("click", () => {
   const presetType = String(document.getElementById("cppPresetType").value || "linear").trim() || "linear";

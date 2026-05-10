@@ -10,6 +10,16 @@
   <div class="app-shell">
     <div class="container">
       <div class="page-header">
+        <div class="logo-placeholder" aria-label="Logo placeholder">
+          <img
+            class="logo-image"
+            src="assets/logo.png"
+            alt="Quiz logo"
+            onload="this.style.display='block'; this.nextElementSibling.style.display='none'; this.parentElement.classList.remove('is-empty');"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex'; this.parentElement.classList.add('is-empty');"
+          />
+          <span class="logo-fallback">Add Logo</span>
+        </div>
         <p class="eyebrow">Authoring Studio</p>
         <h1>Quiz Maker <span id="versionBadge" style="font-size: 0.6em; opacity: 0.7; margin-left: 10px;"></span></h1>
         <p class="helper-text">Build categories, quizzes, and questions from one workspace.</p>
@@ -139,13 +149,19 @@
 
               <div class="nl-range-row">
                 <div>
-                  <label for="autoCreateDifficulty">Auto Create: Difficulty</label>
-                  <select id="autoCreateDifficulty" class="nl-range-input">
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                  </select>
+                  <label>Auto Difficulty (from Grade/Course)</label>
+                  <div id="autoCreateDifficultyBadge" class="helper-text">Auto Difficulty: Medium</div>
                 </div>
+                <div>
+                  <label for="autoCreateDifficultyLevel">Manual Difficulty (1-10)</label>
+                  <div class="nl-difficulty-row">
+                    <input type="range" id="autoCreateDifficultyLevel" class="nl-range-input" min="1" max="10" value="5" style="flex: 1;">
+                    <span id="autoCreateDifficultyValue" class="helper-text" style="min-width: 40px; text-align: center;">5</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nl-range-row">
                 <div>
                   <label for="autoCreateResultType">Auto Create: Result Type</label>
                   <select id="autoCreateResultType" class="nl-range-input">
@@ -159,45 +175,6 @@
               </div>
 
               <div class="nl-range-row">
-                <div>
-                  <label for="autoCreateCommandWord">Auto Create: Command Word</label>
-                  <select id="autoCreateCommandWord" class="nl-range-input">
-                    <option value="calculate">Calculate</option>
-                    <option value="random">Random</option>
-                    <option value="determine">Determine</option>
-                    <option value="sketch">Sketch</option>
-                    <option value="interpret">Interpret</option>
-                    <option value="justify">Justify</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="autoCreateAnswerFormat">Auto Create: Answer Format</label>
-                  <select id="autoCreateAnswerFormat" class="nl-range-input">
-                    <option value="auto">Auto</option>
-                    <option value="exact">Exact</option>
-                    <option value="decimal">Decimal</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="nl-range-row">
-                <div>
-                  <label for="autoCreateDecimalPlaces">Decimal Places</label>
-                  <input type="number" id="autoCreateDecimalPlaces" min="0" max="6" step="1" value="2" class="nl-range-input" />
-                </div>
-                <div>
-                  <label for="autoCreateDomainMin">Domain Restriction (x min, optional)</label>
-                  <input type="number" id="autoCreateDomainMin" step="0.1" class="nl-range-input" placeholder="e.g. -3" />
-                </div>
-                <div>
-                  <label for="autoCreateDomainMax">Domain Restriction (x max, optional)</label>
-                  <input type="number" id="autoCreateDomainMax" step="0.1" class="nl-range-input" placeholder="e.g. 3" />
-                </div>
-              </div>
-
-              <div class="nl-range-row">
-                <div>
-                  <label for="autoQuizGrade">Auto Quiz: VCAA Grade/Course</label>
                   <select id="autoQuizGrade" class="nl-range-input">
                     <option value="prep">Prep</option>
                     <option value="year-1">Year 1</option>
@@ -225,25 +202,8 @@
                   </select>
                 </div>
                 <div>
-                  <label for="autoQuizYear">Auto Quiz: Year Focus</label>
-                  <select id="autoQuizYear" class="nl-range-input">
-                    <option value="auto">Auto from Grade/Course</option>
-                    <option value="prep">Prep</option>
-                    <option value="1">Year 1</option>
-                    <option value="2">Year 2</option>
-                    <option value="3">Year 3</option>
-                    <option value="4">Year 4</option>
-                    <option value="5">Year 5</option>
-                    <option value="6">Year 6</option>
-                    <option value="7">Year 7</option>
-                    <option value="8">Year 8</option>
-                    <option value="9">Year 9</option>
-                    <option value="10">Year 10</option>
-                  </select>
-                </div>
-                <div>
                   <label for="autoQuizQuestionCount">Auto Quiz: Number of Questions</label>
-                  <input type="number" id="autoQuizQuestionCount" min="1" max="60" step="1" value="10" class="nl-range-input" />
+                  <input type="number" id="autoQuizQuestionCount" min="1" max="60" step="1" value="1" class="nl-range-input" />
                 </div>
               </div>
 
@@ -253,7 +213,7 @@
                 <button class="btn" id="autoCreateQuizBtn" type="button">Auto Create Entire Quiz (VCAA)</button>
                 <button class="btn secondary" id="validateGeneratedQuestionBtn" type="button">Validate Question + Answer</button>
               </div>
-              <p class="helper-text">Auto Create fills question text, solution, and interactive app config using deterministic templates (no AI). Entire Quiz mode builds VCAA-aligned quizzes for the selected grade/course and year focus.</p>
+              <p class="helper-text">Auto Create fills question text, solution, and interactive app config using deterministic templates (no AI). Entire Quiz mode builds VCAA-aligned quizzes for the selected category, subcategory, grade/course, and number of questions.</p>
 
               <label for="questionText">1) Question</label>
               <textarea id="questionText" rows="2" placeholder="Enter question"></textarea>

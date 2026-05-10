@@ -1,0 +1,9 @@
+End User License Agreement (EULA)
+
+This software and quiz content are licensed, not sold.
+
+You are granted a limited, non-exclusive, non-transferable license to use this quiz for learning purposes.
+
+You may not reverse engineer, modify, distribute, or create derivative works of protected content unless explicitly permitted.
+
+The provider is not liable for losses arising from misuse or unauthorized distribution.

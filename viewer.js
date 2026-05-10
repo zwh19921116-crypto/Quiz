@@ -4,7 +4,18 @@ let currentIndex = 0;
 let score = 0;
 let answerChecked = false;
 let solutionShownForCurrentQuestion = false;
+let quizStarted = false;
+let prestartTermsRequestId = 0;
 let cartesianPlotUserPoints = [];
+let currentDifficulty = 5;
+let difficultyAdjustmentPending = false;
+let quizAnswerLog = [];
+const DEFAULT_TERMS_CONDITIONS_TXT_PATH = "terms-and-conditions.txt";
+const DEFAULT_EULA_TXT_PATH = "eula.txt";
+const DEFAULT_TERMS_CONDITIONS_LINK_PATH = "terms-and-conditions.html";
+const DEFAULT_EULA_LINK_PATH = "eula.html";
+const DEFAULT_TERMS_JSON_PATH = "legal/terms.json";
+const DEFAULT_TERMS_TXT_PATH = "legal/terms.txt";
 const QUIZ_ORDER_MODES = {
   ORDERED: "ordered",
   RANDOM: "random"
@@ -79,8 +90,134 @@ function normalizeQuizSettings(value) {
   const settings = value && typeof value === "object" ? value : {};
   return {
     questionOrder: normalizeQuizQuestionOrder(settings.questionOrder),
-    questionLimit: normalizeQuizQuestionLimit(settings.questionLimit)
+    questionLimit: normalizeQuizQuestionLimit(settings.questionLimit),
+    termsConditionsTxtPath: typeof settings.termsConditionsTxtPath === "string" ? settings.termsConditionsTxtPath.trim() : "",
+    eulaTxtPath: typeof settings.eulaTxtPath === "string" ? settings.eulaTxtPath.trim() : "",
+    termsConditionsLinkPath: typeof settings.termsConditionsLinkPath === "string" ? settings.termsConditionsLinkPath.trim() : "",
+    eulaLinkPath: typeof settings.eulaLinkPath === "string" ? settings.eulaLinkPath.trim() : "",
+    termsJsonPath: typeof settings.termsJsonPath === "string" ? settings.termsJsonPath.trim() : "",
+    termsTxtPath: typeof settings.termsTxtPath === "string" ? settings.termsTxtPath.trim() : ""
   };
+}
+
+function toParagraphList(value) {
+  if (Array.isArray(value)) {
+    return value.map((line) => String(line || "").trim()).filter((line) => line !== "");
+  }
+  const raw = String(value || "").trim();
+  if (!raw) return [];
+  return raw.split(/\r?\n+/).map((line) => line.trim()).filter((line) => line !== "");
+}
+
+function parseTermsJsonPayload(raw) {
+  if (!raw || typeof raw !== "object") return null;
+  const title = typeof raw.title === "string" ? raw.title.trim() : "";
+  const subtitle = typeof raw.subtitle === "string" ? raw.subtitle.trim() : "";
+  const supportLabel = typeof raw.supportLabel === "string" ? raw.supportLabel.trim() : "";
+  const supportEmail = typeof raw.supportEmail === "string" ? raw.supportEmail.trim() : "";
+  const body = toParagraphList(raw.body || raw.terms || raw.content || raw.text || "");
+  if (!title && !subtitle && body.length === 0 && !supportEmail) return null;
+  return {
+    title,
+    subtitle,
+    body,
+    supportLabel,
+    supportEmail
+  };
+}
+
+async function tryLoadTermsFromJson(path) {
+  const targetPath = String(path || "").trim();
+  if (!targetPath) return null;
+  try {
+    const response = await fetch(targetPath, { cache: "no-store" });
+    if (!response.ok) return null;
+    const payload = await response.json();
+    return parseTermsJsonPayload(payload);
+  } catch (error) {
+    return null;
+  }
+}
+
+async function tryLoadTermsFromTxt(path) {
+  const targetPath = String(path || "").trim();
+  if (!targetPath) return null;
+  try {
+    const response = await fetch(targetPath, { cache: "no-store" });
+    if (!response.ok) return null;
+    const text = await response.text();
+    const body = toParagraphList(text);
+    if (body.length === 0) return null;
+    return { body };
+  } catch (error) {
+    return null;
+  }
+}
+
+async function loadExternalTermsForQuiz(settings) {
+  const cfg = settings && typeof settings === "object" ? settings : {};
+  const termsConditionsTxtPath = String(cfg.termsConditionsTxtPath || cfg.termsTxtPath || DEFAULT_TERMS_CONDITIONS_TXT_PATH).trim();
+  const eulaTxtPath = String(cfg.eulaTxtPath || DEFAULT_EULA_TXT_PATH).trim();
+  const jsonPath = String(cfg.termsJsonPath || DEFAULT_TERMS_JSON_PATH).trim();
+  const txtPath = String(cfg.termsTxtPath || DEFAULT_TERMS_TXT_PATH).trim();
+
+  const fromTermsTxt = await tryLoadTermsFromTxt(termsConditionsTxtPath);
+  const fromEulaTxt = await tryLoadTermsFromTxt(eulaTxtPath);
+  if (fromTermsTxt || fromEulaTxt) {
+    const combinedBody = [];
+    if (fromTermsTxt && Array.isArray(fromTermsTxt.body) && fromTermsTxt.body.length > 0) {
+      combinedBody.push("Terms and Conditions of Use");
+      combinedBody.push(...fromTermsTxt.body);
+    }
+    if (fromEulaTxt && Array.isArray(fromEulaTxt.body) && fromEulaTxt.body.length > 0) {
+      combinedBody.push("EULA");
+      combinedBody.push(...fromEulaTxt.body);
+    }
+
+    if (combinedBody.length > 0) {
+      return {
+        subtitle: "Terms and Conditions of Use and EULA",
+        body: combinedBody
+      };
+    }
+  }
+
+  const fromJson = await tryLoadTermsFromJson(jsonPath);
+  if (fromJson) return fromJson;
+
+  const fromTxt = await tryLoadTermsFromTxt(txtPath);
+  if (fromTxt) return fromTxt;
+
+  return null;
+}
+
+function resolveTermsAndEulaLinks(settings) {
+  const cfg = settings && typeof settings === "object" ? settings : {};
+  const termsHref = String(cfg.termsConditionsLinkPath || DEFAULT_TERMS_CONDITIONS_LINK_PATH).trim();
+  const eulaHref = String(cfg.eulaLinkPath || DEFAULT_EULA_LINK_PATH).trim();
+  return {
+    termsHref: termsHref || DEFAULT_TERMS_CONDITIONS_LINK_PATH,
+    eulaHref: eulaHref || DEFAULT_EULA_LINK_PATH
+  };
+}
+
+function wireLegalLinksOpenBehavior(container) {
+  if (!(container instanceof HTMLElement)) return;
+  const links = container.querySelectorAll("a[data-legal-link]");
+  links.forEach((node) => {
+    if (!(node instanceof HTMLAnchorElement)) return;
+    node.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const href = String(node.getAttribute("href") || "").trim();
+      if (!href) return;
+
+      const popup = window.open(href, "_blank", "noopener,noreferrer,width=980,height=760");
+      if (!popup) {
+        window.open(href, "_blank");
+      }
+    });
+  });
 }
 
 function shuffleQuestions(items) {
@@ -180,12 +317,165 @@ function showToast(message, variant = "info") {
   }, 2200);
 }
 
+function appendMatrixAToLegacyQuestion(questionText, interactiveApp) {
+  const base = String(questionText || "").trim();
+  const app = interactiveApp && typeof interactiveApp === "object" ? interactiveApp : null;
+  if (!app || app.type !== "matrix") return base;
+
+  const lower = base.toLowerCase();
+  const isDimensionsPrompt = lower.includes("dimensions of matrix a");
+  const alreadyContainsMatrix = lower.includes("matrix a:");
+  if (!isDimensionsPrompt || alreadyContainsMatrix) return base;
+
+  const config = app.config && typeof app.config === "object" ? app.config : {};
+  const matrixA = Array.isArray(config.matrixA) ? config.matrixA : [];
+  const safeRows = matrixA
+    .filter((row) => Array.isArray(row) && row.length > 0)
+    .map((row) => `[${row.map((value) => String(value)).join(" ")}]`);
+
+  if (safeRows.length === 0) return base;
+  return `${base}\nMatrix A:\n${safeRows.join("\n")}`;
+}
+
+function buildMatrixDimensionExplanation(question) {
+  if (!question || !question.interactiveApp || question.interactiveApp.type !== "matrix") return "";
+  const prompt = String(question.question || "").trim().toLowerCase();
+  if (!prompt.includes("dimensions of matrix a")) return "";
+
+  const config = question.interactiveApp.config && typeof question.interactiveApp.config === "object"
+    ? question.interactiveApp.config
+    : {};
+  const matrixA = sanitizeMatrix(config.matrixA);
+  if (!matrixIsRectangular(matrixA)) return "";
+
+  const rows = matrixA.length;
+  const cols = matrixA[0].length;
+  return [
+    "Dimensions are written in the order rows x columns.",
+    `Rows in Matrix A = ${rows}.`,
+    `Columns in Matrix A = ${cols}.`,
+    `So the dimensions are ${rows} x ${cols}.`
+  ].join("\n");
+}
+
+function buildMatrixSolutionMarkup(question) {
+  if (!question || !question.interactiveApp || question.interactiveApp.type !== "matrix") return "";
+  const config = question.interactiveApp.config && typeof question.interactiveApp.config === "object"
+    ? question.interactiveApp.config
+    : {};
+  const operation = normalizeMatrixOperation(config.operation);
+  const matrixA = sanitizeMatrix(config.matrixA);
+  const matrixB = sanitizeMatrix(config.matrixB);
+  if (!matrixIsRectangular(matrixA)) return "";
+
+  const rows = matrixA.length;
+  const cols = matrixA[0].length;
+  let operationMarkup = "";
+
+  if (operation === "add") {
+    const result = matrixAdd(matrixA, matrixB);
+    operationMarkup = result
+      ? `
+        <div class="solution-modal-section">
+          <p class="solution-modal-label">A + B</p>
+          ${buildMatrixTableMarkup(result, "Result", { showDimensions: false })}
+        </div>
+      `
+      : "<div class=\"solution-modal-section\"><p class=\"solution-modal-copy\">Addition requires A and B to have the same dimensions.</p></div>";
+  } else if (operation === "subtract") {
+    const result = matrixSubtract(matrixA, matrixB);
+    operationMarkup = result
+      ? `
+        <div class="solution-modal-section">
+          <p class="solution-modal-label">A - B</p>
+          ${buildMatrixTableMarkup(result, "Result", { showDimensions: false })}
+        </div>
+      `
+      : "<div class=\"solution-modal-section\"><p class=\"solution-modal-copy\">Subtraction requires A and B to have the same dimensions.</p></div>";
+  } else if (operation === "multiply") {
+    const result = matrixMultiply(matrixA, matrixB);
+    operationMarkup = result
+      ? `
+        <div class="solution-modal-section">
+          <p class="solution-modal-label">A x B</p>
+          ${buildMatrixTableMarkup(result, "Result", { showDimensions: false })}
+        </div>
+      `
+      : "<div class=\"solution-modal-section\"><p class=\"solution-modal-copy\">Multiplication requires columns in A to equal rows in B.</p></div>";
+  } else if (operation === "transpose") {
+    const result = matrixTranspose(matrixA);
+    operationMarkup = result
+      ? `
+        <div class="solution-modal-section">
+          <p class="solution-modal-label">A^T</p>
+          ${buildMatrixTableMarkup(result, "Transpose", { showDimensions: false })}
+        </div>
+      `
+      : "";
+  } else if (operation === "determinant") {
+    const determinant = matrixDeterminant(matrixA);
+    operationMarkup = Number.isFinite(determinant)
+      ? `
+        <div class="solution-modal-section">
+          <p class="solution-modal-label">det(A)</p>
+          <p class="solution-modal-answer">${escapeHtml(formatMatrixNumber(determinant))}</p>
+        </div>
+      `
+      : "<div class=\"solution-modal-section\"><p class=\"solution-modal-copy\">Determinant is only defined for square matrices.</p></div>";
+  }
+
+  const showMatrixB = (operation === "add" || operation === "subtract" || operation === "multiply") && matrixIsRectangular(matrixB);
+  return `
+    <div class="solution-modal-section">
+      <p class="solution-modal-label">Matrix A</p>
+      ${buildMatrixTableMarkup(matrixA, "Matrix A", { showDimensions: false })}
+    </div>
+    ${showMatrixB ? `
+      <div class="solution-modal-section">
+        <p class="solution-modal-label">Matrix B</p>
+        ${buildMatrixTableMarkup(matrixB, "Matrix B", { showDimensions: false })}
+      </div>
+    ` : ""}
+    ${operation === "multiply" || operation === "add" || operation === "subtract" ? `
+      <div class="solution-modal-section">
+        <p class="solution-modal-label">Dimensions</p>
+        <ul class="solution-step-list">
+          <li>Matrix A: <strong>${rows} x ${cols}</strong>.</li>
+          ${showMatrixB ? `<li>Matrix B: <strong>${matrixB.length} x ${matrixB[0].length}</strong>.</li>` : ""}
+        </ul>
+      </div>
+    ` : ""}
+    ${operation === "multiply" || operation === "add" || operation === "subtract" || operation === "transpose" || operation === "determinant" ? operationMarkup : `
+      <div class="solution-modal-section">
+        <p class="solution-modal-label">Why This Dimension</p>
+        <ul class="solution-step-list">
+          <li>Dimensions are written as rows x columns.</li>
+          <li>Rows in Matrix A: <strong>${rows}</strong>.</li>
+          <li>Columns in Matrix A: <strong>${cols}</strong>.</li>
+          <li>Therefore, dimensions = <strong>${rows} x ${cols}</strong>.</li>
+        </ul>
+      </div>
+    `}
+  `;
+}
+
 function normalizeQuestion(item) {
   const options = Array.isArray(item.options) ? item.options.filter((opt) => String(opt).trim() !== "") : [];
   const resultType = normalizeResultType(item.resultType);
+  const interactiveApp = item.interactiveApp || null;
+  const sourceQuestionText = String(
+    item.question
+    || item.prompt
+    || item.text
+    || item.title
+    || item.name
+    || item.label
+    || ""
+  ).trim();
+  const questionText = appendMatrixAToLegacyQuestion(sourceQuestionText || "Untitled Question", interactiveApp);
 
   const normalized = {
-    question: item.question || "Untitled Question",
+    question: questionText,
     resultType,
     options,
     correctAnswer: item.correctAnswer,
@@ -195,11 +485,83 @@ function normalizeQuestion(item) {
     solution: item.solution || ""
   };
 
-  if (item.interactiveApp) {
-    normalized.interactiveApp = item.interactiveApp;
+  if (interactiveApp) {
+    normalized.interactiveApp = interactiveApp;
   }
 
   return normalized;
+}
+
+function isIntroductionQuestion(question) {
+  if (question && question.interactiveApp && question.interactiveApp.type === "introduction") {
+    return true;
+  }
+
+  const prompt = String(question && question.question ? question.question : "").trim().toLowerCase();
+  if (!prompt) return false;
+  const hasIntroTerms = prompt.includes("terms") || prompt.includes("conditions") || prompt.includes("eula");
+  const mentionsAccept = prompt.includes("accept") || prompt.includes("acknowledge");
+  return hasIntroTerms && mentionsAccept;
+}
+
+function buildIntroductionCardMarkup(question) {
+  const config = question && question.interactiveApp && question.interactiveApp.config && typeof question.interactiveApp.config === "object"
+    ? question.interactiveApp.config
+    : {};
+  const title = String(config.title || "Before You Start").trim() || "Before You Start";
+  const supportLabel = String(config.supportLabel || "Support").trim() || "Support";
+  const supportEmail = String(config.supportEmail || "").trim();
+  const requireSupportAcknowledgement = config.requireSupportAcknowledgement !== false;
+  const paragraphs = String(question && question.question ? question.question : "")
+    .split(/\n+/)
+    .map((line) => line.trim())
+    .filter((line) => line !== "");
+  const bodyMarkup = paragraphs.length > 0
+    ? paragraphs.map((line) => `<p>${escapeHtml(line)}</p>`).join("")
+    : "<p>Please review the Terms and Conditions and EULA before continuing.</p>";
+  const supportLine = supportEmail
+    ? `<p class=\"intro-support\"><strong>${escapeHtml(supportLabel)}:</strong> <a href=\"mailto:${escapeHtml(supportEmail)}\">${escapeHtml(supportEmail)}</a></p>`
+    : "";
+  const termsLinks = resolveTermsAndEulaLinks(quizData && quizData.settings ? quizData.settings : {});
+
+  return `
+    <div class="question-card viewer-question intro-card">
+      <p class="question-label">Introduction</p>
+      <h2>${escapeHtml(title)}</h2>
+      <p class="intro-lead">Please accept to continue. If needed, open the full Terms and Conditions and EULA below.</p>
+      <button class="btn secondary intro-toggle-btn" id="introToggleTermsBtn" type="button">View Terms and Conditions</button>
+      <div class="intro-terms-panel hidden" id="introTermsPanel">
+        <div class="intro-copy">${bodyMarkup}</div>
+        ${supportLine}
+      </div>
+      <div class="intro-acceptance" role="group" aria-label="Terms and Conditions acceptance">
+        <label class="intro-check-item">
+          <input id="introAcceptTerms" type="checkbox" />
+          <span>I have read and accept the <a href="${escapeHtml(termsLinks.termsHref)}" target="_blank" rel="noopener noreferrer" data-legal-link="terms">Terms and Conditions of Use</a> and <a href="${escapeHtml(termsLinks.eulaHref)}" target="_blank" rel="noopener noreferrer" data-legal-link="eula">EULA</a>.</span>
+        </label>
+        ${requireSupportAcknowledgement ? `
+          <label class="intro-check-item">
+            <input id="introAcknowledgeSupport" type="checkbox" />
+            <span>I will contact support if I find incorrect questions, answers, solutions, or feedback.</span>
+          </label>
+        ` : ""}
+      </div>
+    </div>
+  `;
+}
+
+function wireIntroductionCardUI(container) {
+  if (!(container instanceof HTMLElement)) return;
+  wireLegalLinksOpenBehavior(container);
+  const toggleBtn = container.querySelector("#introToggleTermsBtn");
+  const termsPanel = container.querySelector("#introTermsPanel");
+  if (!(toggleBtn instanceof HTMLButtonElement) || !(termsPanel instanceof HTMLElement)) return;
+
+  toggleBtn.addEventListener("click", () => {
+    const isHidden = termsPanel.classList.contains("hidden");
+    termsPanel.classList.toggle("hidden", !isHidden);
+    toggleBtn.textContent = isHidden ? "Hide Terms and Conditions" : "View Terms and Conditions";
+  });
 }
 
 function normalizeResultType(value) {
@@ -221,7 +583,9 @@ function normalizeResultType(value) {
 function resetRuntimeForLoadedQuiz() {
   currentIndex = 0;
   score = 0;
+  quizAnswerLog = [];
   answerChecked = false;
+  quizStarted = false;
   document.getElementById("checkAnswerBtn").style.display = "inline-block";
   document.getElementById("nextQuestionBtn").style.display = "inline-block";
   document.getElementById("notesViewerBtn").style.display = "inline-block";
@@ -231,14 +595,146 @@ function resetRuntimeForLoadedQuiz() {
   closeSolutionModal();
 }
 
+function buildDefaultPrestartIntro() {
+  return {
+    title: "Before You Start",
+    body: [
+      "Please read and accept the Terms and Conditions of Use and EULA before starting this quiz.",
+      "If you find any incorrect question, answer, solution, or feedback, contact support."
+    ],
+    supportLabel: "Support",
+    supportEmail: ""
+  };
+}
+
+function buildPrestartIntroFromQuestion(question) {
+  const config = question && question.interactiveApp && question.interactiveApp.config && typeof question.interactiveApp.config === "object"
+    ? question.interactiveApp.config
+    : {};
+  const lines = String(question && question.question ? question.question : "")
+    .split(/\n+/)
+    .map((line) => line.trim())
+    .filter((line) => line !== "");
+
+  return {
+    title: String(config.title || "Before You Start").trim() || "Before You Start",
+    body: lines.length > 0 ? lines : buildDefaultPrestartIntro().body,
+    supportLabel: String(config.supportLabel || "Support").trim() || "Support",
+    supportEmail: String(config.supportEmail || "").trim()
+  };
+}
+
+function extractPrestartIntroAndQuestions(questions) {
+  const list = Array.isArray(questions) ? questions.slice() : [];
+  if (list.length > 0 && isIntroductionQuestion(list[0])) {
+    return {
+      intro: buildPrestartIntroFromQuestion(list[0]),
+      questions: list.slice(1)
+    };
+  }
+
+  return {
+    intro: buildDefaultPrestartIntro(),
+    questions: list
+  };
+}
+
+function setViewerProgressChromeVisible(visible) {
+  const progressRow = document.querySelector(".progress-row");
+  const progressTrack = document.querySelector(".viewer-progress-track");
+  if (progressRow instanceof HTMLElement) {
+    progressRow.style.display = visible ? "flex" : "none";
+  }
+  if (progressTrack instanceof HTMLElement) {
+    progressTrack.style.display = visible ? "block" : "none";
+  }
+}
+
+function renderPrestartIntroScreen() {
+  const quizContainer = document.getElementById("quizContainer");
+  const intro = quizData && quizData.prestartIntro ? quizData.prestartIntro : buildDefaultPrestartIntro();
+  const quizTitle = String(quizData && quizData.title ? quizData.title : "Quiz Viewer").trim() || "Quiz Viewer";
+  const subtitle = String(intro && intro.subtitle ? intro.subtitle : "Terms and Conditions of Use").trim() || "Terms and Conditions of Use";
+  const lines = Array.isArray(intro.body) ? intro.body : [];
+  const bodyMarkup = lines.length > 0
+    ? lines.map((line) => `<p>${escapeHtml(line)}</p>`).join("")
+    : "<p>Please read and accept the Terms and Conditions and EULA before starting.</p>";
+  const supportMarkup = intro.supportEmail
+    ? `<p class="intro-support"><strong>${escapeHtml(intro.supportLabel || "Support")}:</strong> <a href="mailto:${escapeHtml(intro.supportEmail)}">${escapeHtml(intro.supportEmail)}</a></p>`
+    : "";
+  const termsLinks = resolveTermsAndEulaLinks(quizData && quizData.settings ? quizData.settings : {});
+
+  quizContainer.innerHTML = `
+    <div class="question-card viewer-question viewer-start-card">
+      <p class="question-label">Welcome</p>
+      <h2 class="start-main-title">${escapeHtml(quizTitle)}</h2>
+      <p class="start-subtitle">${escapeHtml(subtitle)}</p>
+      <div class="intro-copy">${bodyMarkup}</div>
+      ${supportMarkup}
+      <div class="intro-acceptance" role="group" aria-label="Terms and Conditions acceptance">
+        <label class="intro-check-item">
+          <input id="startAcceptTerms" type="checkbox" />
+          <span>I have read and accept the <a href="${escapeHtml(termsLinks.termsHref)}" target="_blank" rel="noopener noreferrer" data-legal-link="terms">Terms and Conditions of Use</a> and <a href="${escapeHtml(termsLinks.eulaHref)}" target="_blank" rel="noopener noreferrer" data-legal-link="eula">EULA</a>.</span>
+        </label>
+      </div>
+      <div class="button-group start-cta-row" style="margin-top:12px;">
+        <button class="btn start-quiz-btn" id="startQuizBtn" type="button">Start Quiz</button>
+      </div>
+    </div>
+  `;
+
+  quizContainer.classList.add("prestart-mode");
+  wireLegalLinksOpenBehavior(quizContainer);
+  setViewerProgressChromeVisible(false);
+  document.getElementById("checkAnswerBtn").style.display = "none";
+  document.getElementById("nextQuestionBtn").style.display = "none";
+  document.getElementById("notesViewerBtn").style.display = "none";
+  document.getElementById("showSolutionBtn").classList.add("hidden");
+  document.getElementById("resultBox").textContent = "";
+  document.getElementById("resultBox").className = "";
+
+  const startBtn = document.getElementById("startQuizBtn");
+  if (startBtn instanceof HTMLButtonElement) {
+    startBtn.addEventListener("click", () => {
+      const accepted = document.getElementById("startAcceptTerms");
+      const hasAccepted = accepted instanceof HTMLInputElement && accepted.checked;
+      if (!hasAccepted) {
+        showToast("Please accept the Terms and Conditions before starting.", "warning");
+        return;
+      }
+
+      quizStarted = true;
+      quizContainer.classList.remove("prestart-mode");
+  setViewerProgressChromeVisible(true);
+      document.getElementById("checkAnswerBtn").style.display = "inline-block";
+      document.getElementById("nextQuestionBtn").style.display = "inline-block";
+      document.getElementById("notesViewerBtn").style.display = "inline-block";
+
+      if (!Array.isArray(quizData.questions) || quizData.questions.length === 0) {
+        document.getElementById("quizContainer").innerHTML = "<p>This quiz has no questions yet.</p>";
+        document.getElementById("checkAnswerBtn").style.display = "none";
+        document.getElementById("nextQuestionBtn").style.display = "none";
+        document.getElementById("notesViewerBtn").style.display = "none";
+        document.getElementById("progressText").textContent = "Question 0 of 0";
+        document.getElementById("scoreText").textContent = "Score: 0";
+        return;
+      }
+
+      renderQuestion();
+    });
+  }
+}
+
 function applySingleQuiz(quiz) {
   const normalizedSettings = normalizeQuizSettings(quiz.settings);
   const preparedQuestions = applyQuizSettingsToQuestions(quiz.questions || [], normalizedSettings);
+  const prestartPayload = extractPrestartIntroAndQuestions(preparedQuestions);
   quizData = {
     ...quiz,
     description: normalizeQuizDescription(quiz.description),
     settings: normalizedSettings,
-    questions: preparedQuestions
+    prestartIntro: prestartPayload.intro,
+    questions: prestartPayload.questions
   };
 
   resetRuntimeForLoadedQuiz();
@@ -256,18 +752,28 @@ function applySingleQuiz(quiz) {
   }
 
   if (!Array.isArray(quizData.questions) || quizData.questions.length === 0) {
-    document.getElementById("quizContainer").innerHTML = "<p>This quiz has no questions yet.</p>";
-    document.getElementById("checkAnswerBtn").style.display = "none";
-    document.getElementById("nextQuestionBtn").style.display = "none";
-    document.getElementById("notesViewerBtn").style.display = "none";
-    document.getElementById("notesViewerPanel").classList.add("hidden");
-    document.getElementById("progressText").textContent = "Question 0 of 0";
-    document.getElementById("scoreText").textContent = "Score: 0";
-    document.getElementById("viewerProgressFill").style.width = "0%";
-    return;
+    renderPrestartIntroScreen();
+  } else {
+    renderPrestartIntroScreen();
   }
 
-  renderQuestion();
+  const requestId = ++prestartTermsRequestId;
+  loadExternalTermsForQuiz(quizData.settings).then((externalTerms) => {
+    if (requestId !== prestartTermsRequestId) return;
+    if (!externalTerms || !quizData) return;
+
+    quizData.prestartIntro = {
+      ...quizData.prestartIntro,
+      ...externalTerms,
+      body: Array.isArray(externalTerms.body) && externalTerms.body.length > 0
+        ? externalTerms.body
+        : quizData.prestartIntro.body
+    };
+
+    if (!quizStarted) {
+      renderPrestartIntroScreen();
+    }
+  });
 }
 
 function getRequestedFile() {
@@ -275,12 +781,379 @@ function getRequestedFile() {
   const requested = params.get("file");
   return requested ? requested.trim() : "quiz-database.json";
 }
+function buildShareQuizText() {
+  const title = String((quizData && quizData.title) || "Quiz").trim() || "Quiz";
+  const quizFile = getRequestedFile();
+  const shareUrl = window.location.href;
+  return `Try this quiz: ${title}. ${shareUrl}${quizFile ? ` (file: ${quizFile})` : ""}`;
+}
+
+async function shareQuizLink() {
+  const shareText = buildShareQuizText();
+  const shareTitle = String((quizData && quizData.title) || "Quiz").trim() || "Quiz";
+  const shareUrl = window.location.href;
+
+  try {
+    if (navigator.share) {
+      await navigator.share({
+        title: shareTitle,
+        text: shareText,
+        url: shareUrl
+      });
+      showToast("Shared successfully.", "success");
+      return;
+    }
+  } catch (error) {
+    // Keep going to clipboard fallback when share is canceled or unavailable.
+  }
+
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(shareText);
+      showToast("Quiz link copied. Paste it in social media.", "success");
+      return;
+    }
+  } catch (error) {
+    // Fallback to manual copy prompt below.
+  }
+
+  window.prompt("Copy and share this quiz link:", shareText);
+}
+
+function formatAnswerForReport(value) {
+  if (Array.isArray(value)) {
+    return value.map((item) => String(item)).join(", ");
+  }
+
+  if (value && typeof value === "object") {
+    try {
+      return JSON.stringify(value);
+    } catch (error) {
+      return String(value);
+    }
+  }
+
+  const text = String(value == null ? "" : value).trim();
+  return text;
+}
+
+function isImageAttachmentUrl(url) {
+  const raw = String(url || "").trim();
+  if (!raw) return false;
+  if (/^data:image\//i.test(raw)) return true;
+  return /\.(png|jpe?g|gif|webp|svg)(\?.*)?$/i.test(raw);
+}
+
+function buildAttemptRecord(question, userAnswer, expectedAnswers, isCorrect, questionNumber) {
+  const expectedText = Array.isArray(expectedAnswers) && expectedAnswers.length > 0
+    ? expectedAnswers.join(", ")
+    : "N/A";
+  const solutionText = String(question && question.solution ? question.solution : "").trim();
+  const questionImage = String(question && question.image ? question.image : "").trim();
+  const solutionImages = normalizeSolutionAttachments(question && question.solutionAttachments)
+    .filter((item) => item && isImageAttachmentUrl(item.url))
+    .map((item) => ({
+      name: String(item.name || "Solution image").trim() || "Solution image",
+      url: String(item.url || "").trim()
+    }))
+    .filter((item) => item.url !== "");
+  const questionType = question && question.interactiveApp && question.interactiveApp.type
+    ? String(question.interactiveApp.type)
+    : String(question && question.resultType ? question.resultType : "unknown");
+  const interactiveApp = question && question.interactiveApp ? cloneInteractiveApp(question.interactiveApp) : null;
+
+  return {
+    questionNumber,
+    questionText: String(question && question.question ? question.question : "").trim(),
+    userAnswer: formatAnswerForReport(userAnswer),
+    correctAnswer: expectedText,
+    solution: solutionText || `Correct answer: ${expectedText}`,
+    questionImage,
+    solutionImages,
+    questionType,
+    interactiveApp,
+    isCorrect: Boolean(isCorrect),
+    isIntroduction: isIntroductionQuestion(question)
+  };
+}
+
+function renderAttemptReviewMarkup(attempts) {
+  if (!Array.isArray(attempts) || attempts.length === 0) {
+    return "<p class=\"helper-text\">No graded answers yet.</p>";
+  }
+
+  return attempts.map((item, index) => {
+    const statusClass = item.isCorrect ? "review-item-correct" : "review-item-incorrect";
+    const statusText = item.isCorrect ? "Correct" : "Incorrect";
+    const solutionImagesMarkup = Array.isArray(item.solutionImages) && item.solutionImages.length > 0
+      ? `
+        <div class="review-solution-images">
+          ${item.solutionImages.map((image) => `
+            <figure class="review-solution-figure">
+              <img class="review-image" src="${escapeHtml(image.url)}" alt="${escapeHtml(image.name)}" />
+              <figcaption>${escapeHtml(image.name)}</figcaption>
+            </figure>
+          `).join("")}
+        </div>
+      `
+      : "";
+    return `
+    <article class="review-item ${statusClass}" data-result="${item.isCorrect ? "correct" : "incorrect"}">
+      <section class="review-col review-question-col">
+        <p class="review-col-label">Question ${item.questionNumber}</p>
+        <p class="review-status ${item.isCorrect ? "status-correct" : "status-incorrect"}">${statusText}</p>
+        <p class="review-question-text">${escapeHtml(item.questionText || "")}</p>
+        ${item.questionImage ? `<img class="review-image" src="${escapeHtml(item.questionImage)}" alt="Question image" />` : ""}
+        ${item.interactiveApp && item.interactiveApp.type ? `<div class="review-interactive-host" data-attempt-index="${index}"></div>` : ""}
+        <p class="review-answer-line"><strong>Your answer:</strong> ${escapeHtml(item.userAnswer || "(blank)")}</p>
+      </section>
+      <div class="review-section-break" aria-hidden="true"></div>
+      <section class="review-col review-solution-col">
+        <p class="review-col-label">Solution</p>
+        <p class="review-answer-line"><strong>Correct answer:</strong> ${escapeHtml(item.correctAnswer || "N/A")}</p>
+        <div class="review-solution-text">${escapeHtml(item.solution || "").replace(/\n/g, "<br>")}</div>
+        ${solutionImagesMarkup}
+      </section>
+    </article>
+  `;
+  }).join("");
+}
+
+function wireReviewInteractivePreviews(attempts) {
+  const list = Array.isArray(attempts) ? attempts : [];
+  const hosts = Array.from(document.querySelectorAll(".review-interactive-host"));
+  hosts.forEach((host) => {
+    if (!(host instanceof HTMLElement)) return;
+    const index = Number.parseInt(host.dataset.attemptIndex || "-1", 10);
+    if (!Number.isInteger(index) || index < 0 || index >= list.length) return;
+    const attempt = list[index];
+    if (!attempt || !attempt.interactiveApp || !attempt.interactiveApp.type) return;
+    host.innerHTML = "";
+    mountInteractiveApp(host, cloneInteractiveApp(attempt.interactiveApp));
+  });
+}
+
+function buildReviewAnalyticsMarkup(attempts) {
+  const list = Array.isArray(attempts) ? attempts : [];
+  const total = list.length;
+  const correct = list.filter((item) => item.isCorrect).length;
+  const incorrect = total - correct;
+  const accuracy = total === 0 ? 0 : Math.round((correct / total) * 100);
+
+  const typeCounts = {};
+  list.forEach((item) => {
+    const type = String(item.questionType || "unknown").trim() || "unknown";
+    typeCounts[type] = (typeCounts[type] || 0) + 1;
+  });
+  const topTypes = Object.entries(typeCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3)
+    .map(([type, count]) => `${escapeHtml(type)} (${count})`)
+    .join(", ");
+
+  return `
+    <div class="review-analytics">
+      <div class="analytics-card"><p class="analytics-label">Total</p><p class="analytics-value">${total}</p></div>
+      <div class="analytics-card"><p class="analytics-label">Correct</p><p class="analytics-value analytics-correct">${correct}</p></div>
+      <div class="analytics-card"><p class="analytics-label">Incorrect</p><p class="analytics-value analytics-incorrect">${incorrect}</p></div>
+      <div class="analytics-card"><p class="analytics-label">Accuracy</p><p class="analytics-value">${accuracy}%</p></div>
+    </div>
+    ${topTypes ? `<p class="analytics-meta"><strong>Top question types:</strong> ${topTypes}</p>` : ""}
+  `;
+}
+
+function exportQuizResultsPdf(total, percent) {
+  const quizTitle = String((quizData && quizData.title) || "Quiz").trim() || "Quiz";
+  const generatedAt = new Date();
+  const generatedLabel = generatedAt.toLocaleString();
+  const quizUrl = window.location.href;
+  const finalCard = document.querySelector("#quizContainer .final-card");
+  const finalScoreNode = finalCard ? finalCard.querySelector("p") : null;
+  const finalScoreText = finalScoreNode ? finalScoreNode.textContent : `Your final score is ${score} out of ${total} (${percent}%).`;
+
+  // Export the exact review panel markup already rendered on the final results page.
+  const reviewPanel = document.getElementById("reviewPanel");
+  let reviewMarkup = "<p class=\"helper-text\">Review not available yet.</p>";
+  let incorrectQuestionLinksMarkup = "";
+  if (reviewPanel) {
+    const clone = reviewPanel.cloneNode(true);
+    if (clone instanceof HTMLElement) {
+      clone.classList.remove("hidden");
+      clone.removeAttribute("id");
+
+      const seenQuestionNumbers = new Set();
+      const incorrectLinks = [];
+      const reviewItems = Array.from(clone.querySelectorAll(".review-item"));
+      reviewItems.forEach((node) => {
+        if (!(node instanceof HTMLElement)) return;
+        if (String(node.dataset.result || "") !== "incorrect") return;
+
+        const labelNode = node.querySelector(".review-col-label");
+        const labelText = labelNode ? String(labelNode.textContent || "").trim() : "";
+        const match = labelText.match(/Question\s+(\d+)/i);
+        const questionNumber = match ? Number.parseInt(match[1], 10) : NaN;
+        if (!Number.isInteger(questionNumber) || seenQuestionNumbers.has(questionNumber)) return;
+
+        seenQuestionNumbers.add(questionNumber);
+        const anchorId = `incorrect-q-${questionNumber}`;
+        node.id = anchorId;
+
+        const solutionSection = node.querySelector(".review-solution-col");
+        if (solutionSection instanceof HTMLElement) {
+          solutionSection.insertAdjacentHTML("beforeend", `<p class="pdf-back-top"><a href="#pdf-top">Back to top</a></p>`);
+        }
+
+        incorrectLinks.push({ questionNumber, anchorId });
+      });
+
+      if (incorrectLinks.length > 0) {
+        const sortedLinks = incorrectLinks
+          .sort((a, b) => a.questionNumber - b.questionNumber)
+          .map((item) => `<a class="incorrect-link-chip" href="#${item.anchorId}">Question ${item.questionNumber}</a>`)
+          .join("");
+        incorrectQuestionLinksMarkup = `
+          <div class="incorrect-link-row">
+            <strong>Incorrect questions:</strong>
+            ${sortedLinks}
+          </div>
+        `;
+      }
+
+      reviewMarkup = clone.outerHTML;
+    }
+  }
+
+  const printHtml = `
+    <!doctype html>
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <title>${escapeHtml(quizTitle)} - Results</title>
+        <link rel="stylesheet" href="style.css" />
+        <style>
+          body { font-family: Arial, sans-serif; color: #0f172a; margin: 24px; }
+          h1 { margin: 0 0 8px; font-size: 24px; }
+          .meta { margin: 0 0 16px; color: #334155; }
+          .summary { border: 1px solid #cbd5e1; border-radius: 10px; padding: 12px; margin-bottom: 16px; background: #f8fafc; }
+          .summary p { margin: 4px 0; }
+          .quiz-link { color: #1d4ed8; text-decoration: underline; word-break: break-all; }
+          .incorrect-link-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+          .incorrect-link-chip { display: inline-block; text-decoration: none; color: #1d4ed8; border: 1px solid #93c5fd; background: #eff6ff; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 700; }
+          .pdf-back-top { margin: 10px 0 0; }
+          .pdf-back-top a { color: #1d4ed8; text-decoration: underline; font-size: 12px; font-weight: 700; }
+          .button-group, .review-filters, #toggleReviewBtn, #shareResultBtn, #exportResultsBtn, #restartBtn { display: none !important; }
+          .review-panel { margin-top: 0 !important; }
+          /* Allow long solutions to flow to next page instead of clipping. */
+          .review-item { break-inside: auto; page-break-inside: auto; overflow: visible !important; }
+          .review-col, .review-solution-col, .review-solution-text { break-inside: auto; page-break-inside: auto; overflow: visible !important; }
+          .review-image { page-break-inside: avoid; break-inside: avoid; max-height: none !important; height: auto !important; }
+          .review-interactive-host, .interactive-app-preview, .solution-modal-section { page-break-inside: auto; break-inside: auto; overflow: visible !important; }
+          @media print { 
+            body { margin: 12mm; }
+            .review-panel { display: block !important; }
+            .review-image { display: block !important; max-width: 100% !important; }
+            .review-item, .review-col { page-break-inside: auto !important; break-inside: auto !important; }
+            .review-panel, .review-panel * { overflow: visible !important; }
+            .review-image, .review-solution-figure, .review-solution-images { max-height: none !important; height: auto !important; }
+            .review-interactive-host, .interactive-app-preview, .interactive-app-preview * { max-height: none !important; height: auto !important; }
+            svg, canvas, img { max-width: 100% !important; }
+          }
+        </style>
+      </head>
+      <body id="pdf-top">
+        <h1>${escapeHtml(quizTitle)} - Result Report</h1>
+        <p class="meta">Generated: ${escapeHtml(generatedLabel)}</p>
+        <section class="summary">
+          <p><strong>${escapeHtml(String(finalScoreText || ""))}</strong></p>
+          ${incorrectQuestionLinksMarkup}
+          <p style="margin-top: 12px; border-top: 1px solid #cbd5e1; padding-top: 12px;"><strong>Quiz Link:</strong> <a class="quiz-link" href="${escapeHtml(quizUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(quizUrl)}</a></p>
+        </section>
+        ${reviewMarkup}
+      </body>
+    </html>
+  `;
+
+  const printWindow = window.open("", "_blank");
+  if (!printWindow) {
+    showToast("Popup blocked. Please allow popups to export PDF.", "warning");
+    return;
+  }
+
+  printWindow.document.open();
+  printWindow.document.write(printHtml);
+  printWindow.document.close();
+  printWindow.focus();
+  window.setTimeout(() => {
+    printWindow.print();
+  }, 250);
+}
 
 function setError(message) {
   document.getElementById("quizContainer").innerHTML = `<p>${message}</p>`;
   document.getElementById("checkAnswerBtn").style.display = "none";
   document.getElementById("nextQuestionBtn").style.display = "none";
   document.getElementById("notesViewerBtn").style.display = "none";
+}
+
+function setErrorWithLocalActions(message, requestedFile) {
+  const pickerSupported = typeof window.showOpenFilePicker === "function" || typeof window.showDirectoryPicker === "function";
+  const actionMarkup = pickerSupported
+    ? `<div class="button-group" style="margin-top:12px;">
+         <button class="btn" id="pickLocalQuizFileBtn" type="button">Choose Local Quiz File</button>
+         <button class="btn secondary" id="pickLocalQuizFolderBtn" type="button">Choose Local Quiz Folder</button>
+       </div>`
+    : "";
+
+  document.getElementById("quizContainer").innerHTML = `
+    <p>${message}</p>
+    ${pickerSupported ? `<p class="helper-text">Tip: use a local picker button below when opening the viewer from local files.</p>` : ""}
+    ${actionMarkup}
+  `;
+  document.getElementById("checkAnswerBtn").style.display = "none";
+  document.getElementById("nextQuestionBtn").style.display = "none";
+  document.getElementById("notesViewerBtn").style.display = "none";
+
+  const pickFileBtn = document.getElementById("pickLocalQuizFileBtn");
+  if (pickFileBtn) {
+    pickFileBtn.addEventListener("click", async () => {
+      try {
+        if (typeof window.showOpenFilePicker !== "function") {
+          throw new Error("Local file access is not supported in this browser.");
+        }
+        const handles = await window.showOpenFilePicker({
+          multiple: false,
+          types: [{
+            description: "Quiz JSON",
+            accept: { "application/json": [".json"] }
+          }]
+        });
+        const handle = Array.isArray(handles) ? handles[0] : null;
+        if (!handle) throw new Error("No file selected.");
+        const file = await handle.getFile();
+        const text = await file.text();
+        const rawData = JSON.parse(text);
+        const parsedQuiz = parseQuizPayload(rawData);
+        applySingleQuiz(parsedQuiz);
+        showToast("Loaded local quiz file.", "success");
+      } catch (error) {
+        showToast("Could not load selected local quiz file.", "warning");
+      }
+    });
+  }
+
+  const pickFolderBtn = document.getElementById("pickLocalQuizFolderBtn");
+  if (pickFolderBtn) {
+    pickFolderBtn.addEventListener("click", async () => {
+      try {
+        const rawData = await loadQuizFromLocalHandle(requestedFile);
+        const parsedQuiz = parseQuizPayload(rawData);
+        applySingleQuiz(parsedQuiz);
+        showToast("Loaded local quiz from selected folder.", "success");
+      } catch (error) {
+        showToast("Could not find quiz JSON in selected folder.", "warning");
+      }
+    });
+  }
 }
 
 function splitPath(value) {
@@ -330,6 +1203,7 @@ function updateHeader() {
 
   document.getElementById("progressText").textContent = `Question ${currentIndex + 1} of ${total}`;
   document.getElementById("scoreText").textContent = `Score: ${score}`;
+  
   document.getElementById("viewerProgressFill").style.width = `${progress}%`;
 }
 
@@ -2320,19 +3194,24 @@ function formatMatrixNumber(value) {
   return String(rounded);
 }
 
-function buildMatrixTableMarkup(matrix, caption) {
+function buildMatrixTableMarkup(matrix, caption, options = {}) {
+  const { showDimensions = true } = options || {};
   if (!matrixIsRectangular(matrix)) {
     return `<div class="simple-card"><p>${escapeHtml(caption)}: invalid matrix</p></div>`;
   }
   const rows = matrix
-    .map((row) => `<tr>${row.map((value) => `<td style="border:1px solid #cbd5e1;padding:4px 8px;text-align:right;">${escapeHtml(formatMatrixNumber(value))}</td>`).join("")}</tr>`)
+    .map((row) => `<tr>${row.map((value) => `<td>${escapeHtml(formatMatrixNumber(value))}</td>`).join("")}</tr>`)
     .join("");
   return `
-    <div class="simple-card">
-      <p><strong>${escapeHtml(caption)}</strong> (${matrix.length}x${matrix[0].length})</p>
-      <table style="border-collapse:collapse; margin-top:6px;">
-        <tbody>${rows}</tbody>
-      </table>
+    <div class="simple-card matrix-card">
+      <p><strong>${escapeHtml(caption)}</strong>${showDimensions ? ` (${matrix.length}x${matrix[0].length})` : ""}</p>
+      <div class="matrix-wrap" role="img" aria-label="${escapeHtml(caption)} ${matrix.length} by ${matrix[0].length}">
+        <span class="matrix-bracket matrix-bracket-left" aria-hidden="true"></span>
+        <table class="matrix-grid">
+          <tbody>${rows}</tbody>
+        </table>
+        <span class="matrix-bracket matrix-bracket-right" aria-hidden="true"></span>
+      </div>
     </div>
   `;
 }
@@ -2473,6 +3352,292 @@ function computeArithmeticAnswerFromConfig(config) {
   if (operator === "x" || operator === "*") return String(a * b);
   if (operator === "/" && b !== 0) return String(a / b);
   return String(a + b);
+}
+
+function normalizeArithmeticVisualKind(value) {
+  const kind = String(value || "ball").trim().toLowerCase();
+  if (["ball", "car", "star"].includes(kind)) return kind;
+  return "ball";
+}
+
+function adjustOperandsByDifficulty(operandA, operandB, operator, difficulty) {
+  const level = Math.max(1, Math.min(10, difficulty || 5));
+  const multiplier = level / 5;
+  let adjustedA = Math.round(operandA * multiplier);
+  let adjustedB = Math.round(operandB * multiplier);
+  
+  if (operator === "-") {
+    adjustedA = Math.max(adjustedB, adjustedA);
+  }
+  if (operator === "/" || operator === "x" || operator === "*") {
+    adjustedA = Math.max(1, Math.min(20, adjustedA));
+    adjustedB = Math.max(1, Math.min(12, adjustedB));
+  } else {
+    adjustedA = Math.max(0, Math.min(30, adjustedA));
+    adjustedB = Math.max(0, Math.min(30, adjustedB));
+  }
+  
+  return { a: adjustedA, b: adjustedB };
+}
+
+function toVisualItemWord(config, count) {
+  const rawPlural = String(config && config.visualLabel ? config.visualLabel : "objects").trim().toLowerCase() || "objects";
+  const rawSingular = rawPlural.endsWith("s") && rawPlural.length > 1
+    ? rawPlural.slice(0, -1)
+    : rawPlural;
+  const safeCount = Number.parseInt(count, 10);
+  return safeCount === 1 ? rawSingular : rawPlural;
+}
+
+function buildProfessionalVisualArithmeticPrompt(config, fallbackQuestion = "") {
+  const cfg = config && typeof config === "object" ? config : {};
+  const operator = String(cfg.operator || "+").trim();
+  const a = Number.parseInt(cfg.operandA, 10);
+  const b = Number.parseInt(cfg.operandB, 10);
+  if (!Number.isInteger(a) || !Number.isInteger(b)) {
+    return String(fallbackQuestion || "").trim();
+  }
+
+  const labelA = toVisualItemWord(cfg, a);
+  const labelB = toVisualItemWord(cfg, b);
+  if (operator === "+") {
+    const totalLabel = toVisualItemWord(cfg, a + b);
+    return `A collection has ${a} ${labelA}, and another collection has ${b} ${labelB}. What is the total number of ${totalLabel}?`;
+  }
+  if (operator === "-") {
+    const remainLabel = toVisualItemWord(cfg, Math.max(0, a - b));
+    return `A set contains ${a} ${labelA}. If ${b} ${labelB} are removed, how many ${remainLabel} remain?`;
+  }
+  if (operator === "x" || operator === "*") {
+    const totalLabel = toVisualItemWord(cfg, a * b);
+    const groupWord = a === 1 ? "group" : "groups";
+    return `There are ${a} ${groupWord}, with ${b} ${labelB} in each group. What is the total number of ${totalLabel}?`;
+  }
+  if (operator === "/" && b !== 0) {
+    const itemLabel = toVisualItemWord(cfg, a);
+    const groupWord = b === 1 ? "group" : "groups";
+    return `${a} ${itemLabel} are shared equally into ${b} ${groupWord}. How many ${toVisualItemWord(cfg, Math.floor(a / b))} are in each group?`;
+  }
+
+  return String(fallbackQuestion || "").trim();
+}
+
+function buildArithmeticObjectIconSvg(kind) {
+  if (kind === "car") {
+    return `
+      <svg viewBox="0 0 100 70" width="60" height="42" aria-hidden="true" focusable="false" shape-rendering="geometricPrecision">
+        <!-- Car body with rounded shape -->
+        <path d="M 15 45 Q 10 45 10 55 L 10 60 Q 10 65 15 65 L 85 65 Q 90 65 90 60 L 90 55 Q 90 45 85 45 L 70 45 Q 68 35 60 25 L 40 25 Q 32 35 30 45 Z" fill="#dc2626"></path>
+        
+        <!-- Front bumper -->
+        <rect x="8" y="56" width="84" height="3" fill="#991b1b"></rect>
+        
+        <!-- Front window -->
+        <path d="M 32 30 L 50 25 L 50 45 L 32 45 Z" fill="#06b6d4" stroke="#0891b2" stroke-width="2"></path>
+        
+        <!-- Rear window -->
+        <path d="M 50 25 L 68 30 L 68 45 L 50 45 Z" fill="#06b6d4" stroke="#0891b2" stroke-width="2"></path>
+        
+        <!-- Door line -->
+        <line x1="50" y1="45" x2="50" y2="60" stroke="#991b1b" stroke-width="2"></line>
+        
+        <!-- Front door details -->
+        <line x1="40" y1="50" x2="42" y2="50" stroke="#1f2937" stroke-width="1.5"></line>
+        
+        <!-- Front wheel -->
+        <circle cx="25" cy="62" r="10" fill="#1f2937"></circle>
+        <circle cx="25" cy="62" r="7" fill="#374151"></circle>
+        <circle cx="25" cy="62" r="4" fill="#111827"></circle>
+        
+        <!-- Rear wheel -->
+        <circle cx="75" cy="62" r="10" fill="#1f2937"></circle>
+        <circle cx="75" cy="62" r="7" fill="#374151"></circle>
+        <circle cx="75" cy="62" r="4" fill="#111827"></circle>
+        
+        <!-- Headlight -->
+        <rect x="12" y="50" width="6" height="6" rx="1" fill="#fbbf24" stroke="#f59e0b" stroke-width="1"></rect>
+        <rect x="13" y="51" width="4" height="4" fill="#fef3c7"></rect>
+        
+        <!-- Roofline accent -->
+        <path d="M 32 30 Q 50 20 68 30" stroke="#b91c1c" stroke-width="2" fill="none"></path>
+      </svg>
+    `;
+  }
+  if (kind === "star") {
+    return `
+      <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false" shape-rendering="geometricPrecision">
+        <polygon points="12,2 16,10 24,10 17,16 20,24 12,18 4,24 7,16 0,10 8,10" fill="#f59e0b" stroke="#d97706" stroke-width="1"></polygon>
+      </svg>
+    `;
+  }
+  return `
+    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false" shape-rendering="geometricPrecision">
+      <circle cx="12" cy="12" r="9" fill="#ef4444" stroke="#dc2626" stroke-width="1"></circle>
+      <circle cx="8" cy="9" r="2.5" fill="#fca5a5"></circle>
+    </svg>
+  `;
+}
+
+function calculateGridDimensions(count) {
+  if (count <= 0) return { cols: 1, rows: 0 };
+  if (count <= 2) return { cols: count, rows: 1 };
+  if (count <= 4) return { cols: 2, rows: Math.ceil(count / 2) };
+  if (count <= 6) return { cols: 3, rows: Math.ceil(count / 3) };
+  if (count <= 8) return { cols: 4, rows: Math.ceil(count / 4) };
+  if (count <= 12) return { cols: 4, rows: Math.ceil(count / 4) };
+  return { cols: 6, rows: Math.ceil(count / 6) };
+}
+
+function buildArithmeticObjectGroup(count, kind, showNumbers = false) {
+  const safeCount = Math.max(0, Math.min(24, Number.parseInt(count, 10) || 0));
+  const { cols, rows } = calculateGridDimensions(safeCount);
+  const chips = [];
+  
+  for (let index = 0; index < safeCount; index += 1) {
+    if (showNumbers) {
+      chips.push(`<div class="arithmetic-object-numbered"><div class="arithmetic-object-number">${index + 1}</div><span class="arithmetic-object-icon">${buildArithmeticObjectIconSvg(kind)}</span></div>`);
+    } else {
+      chips.push(`<span class="arithmetic-object-icon">${buildArithmeticObjectIconSvg(kind)}</span>`);
+    }
+  }
+  
+  const gridStyle = `grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);`;
+  return `<div class="arithmetic-object-group-container"><div class="arithmetic-object-group" style="${gridStyle}">${chips.join("")}</div></div>`;
+}
+
+function buildArithmeticObjectVisualMarkup(config, { revealAnswer = false } = {}) {
+  const visualMode = String(config && config.visualMode ? config.visualMode : "").trim().toLowerCase();
+  if (visualMode !== "objects") return "";
+
+  const operator = String(config && config.operator ? config.operator : "+").trim();
+  if (!["+", "-", "x", "*", "/"].includes(operator)) return "";
+
+  const a = Number.parseInt(config && config.operandA, 10);
+  const b = Number.parseInt(config && config.operandB, 10);
+  if (!Number.isInteger(a) || !Number.isInteger(b) || a < 0 || b < 0) return "";
+
+  const kind = normalizeArithmeticVisualKind(config && config.visualKind);
+  const label = String(config && config.visualLabel ? config.visualLabel : "objects").trim() || "objects";
+
+  if (operator === "-") {
+    const remaining = Math.max(0, a - b);
+    const totalMarkup = revealAnswer
+      ? buildArithmeticObjectGroup(remaining, kind, revealAnswer)
+      : `<span class="arithmetic-object-unknown">?</span>`;
+
+    return `
+      <div class="arithmetic-object-visual" role="img" aria-label="${escapeHtml(a)} minus ${escapeHtml(b)} ${escapeHtml(label)}">
+        <div class="arithmetic-object-line">
+          <div>${buildArithmeticObjectGroup(a, kind, revealAnswer)}</div>
+          <span class="arithmetic-object-op">-</span>
+          <div>${buildArithmeticObjectGroup(b, kind, revealAnswer)}</div>
+          <span class="arithmetic-object-op">=</span>
+          <div>${totalMarkup}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  if (operator === "/") {
+    if (b <= 0) return "";
+    const quotient = Math.floor(a / b);
+    const buckets = [];
+    const shownGroups = Math.max(0, Math.min(12, b));
+    const shownEach = Math.max(0, Math.min(12, quotient));
+    for (let groupIndex = 0; groupIndex < shownGroups; groupIndex += 1) {
+      buckets.push(`<div class="arithmetic-object-bucket">${buildArithmeticObjectGroup(shownEach, kind, revealAnswer)}</div>`);
+    }
+    return `
+      <div class="arithmetic-object-multiplication" role="img" aria-label="${escapeHtml(a)} shared into ${escapeHtml(b)} groups of ${escapeHtml(label)}">
+        ${buckets.join("")}
+      </div>
+    `;
+  }
+
+  if (operator === "+") {
+    const total = a + b;
+    const totalMarkup = revealAnswer
+      ? buildArithmeticObjectGroup(total, kind, revealAnswer)
+      : `<span class="arithmetic-object-unknown">?</span>`;
+
+    return `
+      <div class="arithmetic-object-visual" role="img" aria-label="${escapeHtml(a)} plus ${escapeHtml(b)} ${escapeHtml(label)}">
+        <div class="arithmetic-object-line">
+          <div>${buildArithmeticObjectGroup(a, kind, revealAnswer)}</div>
+          <span class="arithmetic-object-op">+</span>
+          <div>${buildArithmeticObjectGroup(b, kind, revealAnswer)}</div>
+          <span class="arithmetic-object-op">=</span>
+          <div>${totalMarkup}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  const groups = Math.max(0, Math.min(12, a));
+  const each = Math.max(0, Math.min(12, b));
+  const buckets = [];
+  for (let groupIndex = 0; groupIndex < groups; groupIndex += 1) {
+    buckets.push(`<div class="arithmetic-object-bucket">${buildArithmeticObjectGroup(each, kind, revealAnswer)}</div>`);
+  }
+  return `
+    <div class="arithmetic-object-multiplication" role="img" aria-label="${escapeHtml(a)} groups of ${escapeHtml(b)} ${escapeHtml(label)}">
+      ${buckets.join("")}
+    </div>
+  `;
+}
+
+function buildArithmeticReasoningMarkup(config, { revealAnswer = false } = {}) {
+  if (!revealAnswer) return "";
+  const visualMode = String(config && config.visualMode ? config.visualMode : "").trim().toLowerCase();
+  if (visualMode !== "objects") return "";
+
+  const operator = String(config && config.operator ? config.operator : "+").trim();
+  const a = Number.parseInt(config && config.operandA, 10);
+  const b = Number.parseInt(config && config.operandB, 10);
+  if (!Number.isInteger(a) || !Number.isInteger(b)) return "";
+
+  if (operator === "+" || operator === "-") {
+    const result = operator === "+" ? a + b : a - b;
+    const inRange = [a, b, result].every((value) => Number.isInteger(value) && value >= 0 && value <= 100);
+    if (!inRange) return "";
+
+    const stepStart = operator === "+" ? a + 1 : Math.max(1, result + 1);
+    const stepEnd = operator === "+" ? result : a;
+    const cells = [];
+    for (let value = 1; value <= 100; value += 1) {
+      const classes = ["arithmetic-number-chart-cell"];
+      if (value === a) classes.push("start");
+      if (value === result) classes.push("result");
+      if (value >= stepStart && value <= stepEnd) classes.push("step");
+      cells.push(`<span class="${classes.join(" ")}">${value}</span>`);
+    }
+
+    const explanation = operator === "+"
+      ? `Number chart jump: start at ${a}, move forward ${b} to land on ${result}.`
+      : `Number chart jump: start at ${a}, move back ${b} to land on ${result}.`;
+
+    return `
+      <p class="helper-text arithmetic-why">${escapeHtml(explanation)}</p>
+      <div class="arithmetic-number-chart" role="img" aria-label="Number chart showing ${escapeHtml(String(a))} ${escapeHtml(operator)} ${escapeHtml(String(b))} equals ${escapeHtml(String(result))}">
+        ${cells.join("")}
+      </div>
+    `;
+  }
+
+  if (operator === "x" || operator === "*") {
+    const table = [];
+    for (let i = 1; i <= 10; i += 1) {
+      table.push(`${b} x ${i} = ${b * i}`);
+    }
+    return `<p class="helper-text arithmetic-why">Times table check: ${escapeHtml(table.join(" | "))}</p>`;
+  }
+
+  if (operator === "/" && b !== 0) {
+    const q = Math.floor(a / b);
+    return `<p class="helper-text arithmetic-why">Equal groups check: ${escapeHtml(String(a))} / ${escapeHtml(String(b))} = ${escapeHtml(String(q))}, and ${escapeHtml(String(b))} x ${escapeHtml(String(q))} = ${escapeHtml(String(b * q))}.</p>`;
+  }
+
+  return "";
 }
 
 function buildArithmeticAnswerBoxes(answerText, { readOnly = false, minDigits = 1 } = {}) {
@@ -2973,14 +4138,56 @@ function buildArithmeticSingleInput(answerText, { readOnly = false } = {}) {
   return `<input class="arithmetic-single-input" type="text" inputmode="numeric" ${attrs} autocomplete="off" style="min-width:${minLength}ch" />`;
 }
 
-function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer = false } = {}) {
+function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer = false, questionText = "" } = {}) {
   const layout = normalizeArithmeticLayout(config && config.layout);
   const operatorRaw = String(config && config.operator ? config.operator : "+").trim() || "+";
   const operator = escapeHtml(operatorRaw);
-  const operandAText = String(config && config.operandA != null ? config.operandA : "").trim();
-  const operandBText = String(config && config.operandB != null ? config.operandB : "").trim();
+  const operandAText = String(config && config.operandA != null ? config.operandA : 0);
+  const operandBText = String(config && config.operandB != null ? config.operandB : 0);
   const operandA = escapeHtml(operandAText);
   const operandB = escapeHtml(operandBText);
+  const visualMode = String(config && config.visualMode ? config.visualMode : "").trim().toLowerCase();
+  const isVisualObjects = visualMode === "objects";
+  const resolvedQuestionText = String(questionText || "").trim();
+  const operationLabelMap = {
+    "+": "Addition",
+    "-": "Subtraction",
+    "x": "Multiplication",
+    "*": "Multiplication",
+    "/": "Division"
+  };
+  const visualQuestionMarkup = isVisualObjects && resolvedQuestionText
+    ? `<p class="arithmetic-visual-question">${renderQuestionText(resolvedQuestionText)}</p>`
+    : "";
+  
+  const objectVisualMarkup = buildArithmeticObjectVisualMarkup(config || {}, { revealAnswer });
+  const reasoningMarkup = buildArithmeticReasoningMarkup(config || {}, { revealAnswer });
+  const visualHeaderMarkup = isVisualObjects
+    ? `
+      <div class="arithmetic-visual-header">
+        <p class="arithmetic-visual-kicker">Visual Arithmetic</p>
+        <div class="arithmetic-visual-meta">
+          <span class="arithmetic-visual-badge">${escapeHtml(operationLabelMap[operatorRaw] || "Arithmetic")}</span>
+        </div>
+      </div>
+    `
+    : "";
+  const visualModelPanelMarkup = isVisualObjects && objectVisualMarkup
+    ? `
+      <section class="arithmetic-visual-panel" aria-label="Visual model">
+        <p class="arithmetic-visual-panel-title">Visual Model</p>
+        ${objectVisualMarkup}
+      </section>
+    `
+    : objectVisualMarkup;
+  const visualReasoningPanelMarkup = isVisualObjects && reasoningMarkup
+    ? `
+      <section class="arithmetic-visual-panel arithmetic-visual-panel-secondary" aria-label="Reasoning">
+        <p class="arithmetic-visual-panel-title">Reasoning</p>
+        ${reasoningMarkup}
+      </section>
+    `
+    : reasoningMarkup;
   const computedAnswerText = computeArithmeticAnswerFromConfig(config || {});
   const answerText = revealAnswer ? computedAnswerText : "";
   const sizingAnswerDigits = String(computedAnswerText || "").trim();
@@ -3016,6 +4223,10 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
     const workContainer = buildArithmeticLongDivisionWorkContainer(longColumns, { readOnly, solutionRows });
     return `
       <div class="arithmetic-workspace arithmetic-long-division-layout">
+        ${visualHeaderMarkup}
+        ${visualQuestionMarkup}
+        ${visualModelPanelMarkup}
+        ${visualReasoningPanelMarkup}
         <div class="arithmetic-long-division-stack">
           <div class="arithmetic-long-quotient-row">
             <span class="arithmetic-long-side-spacer"></span>
@@ -3076,6 +4287,10 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
       : "";
     return `
       <div class="arithmetic-workspace arithmetic-layout-vertical">
+        ${visualHeaderMarkup}
+        ${visualQuestionMarkup}
+        ${visualModelPanelMarkup}
+        ${visualReasoningPanelMarkup}
         <div class="arithmetic-vertical-stack">
           ${topCarryRow}
           ${mulCarryRow}
@@ -3092,6 +4307,10 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
 
   return `
     <div class="arithmetic-workspace arithmetic-layout-horizontal">
+      ${visualHeaderMarkup}
+      ${visualQuestionMarkup}
+      ${visualModelPanelMarkup}
+      ${visualReasoningPanelMarkup}
       <div class="arithmetic-horizontal-expression">
         <span class="arithmetic-number">${operandA}</span>
         <span class="arithmetic-operator">${operator}</span>
@@ -5693,7 +6912,12 @@ function renderAnswerInput(question) {
 
   if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
     const config = question.interactiveApp.config || {};
-    return buildArithmeticWorkspaceMarkup(config, { readOnly: false, revealAnswer: false });
+    const visualMode = String(config.visualMode || "").trim().toLowerCase();
+    return buildArithmeticWorkspaceMarkup(config, {
+      readOnly: false,
+      revealAnswer: false,
+      questionText: visualMode === "objects" ? "" : (question.question || "")
+    });
   }
 
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
@@ -5755,6 +6979,39 @@ function renderAnswerInput(question) {
 
   // Interactive apps should only appear in the solution modal, not in the main question
   // So we skip them here and show the regular answer input instead
+
+  if (
+    question.resultType === "short-answer"
+    && question.interactiveApp
+    && question.interactiveApp.type === "matrix"
+  ) {
+    const matrixPrompt = String(question.question || "").trim().toLowerCase();
+    const asksForDimensions = matrixPrompt.includes("dimensions of matrix a");
+    if (asksForDimensions) {
+      return `
+        <div class="short-answer-box matrix-dimension-box">
+          <div class="matrix-dimension-input">
+            <input type="number" min="1" step="1" inputmode="numeric" data-role="matrix-dim-rows" aria-label="Matrix rows" autocomplete="off" />
+            <span class="matrix-dimension-sep">x</span>
+            <input type="number" min="1" step="1" inputmode="numeric" data-role="matrix-dim-cols" aria-label="Matrix columns" autocomplete="off" />
+          </div>
+        </div>
+      `;
+    }
+
+    const matrixConfig = question.interactiveApp.config && typeof question.interactiveApp.config === "object"
+      ? question.interactiveApp.config
+      : {};
+    const operation = normalizeMatrixOperation(matrixConfig.operation);
+    const placeholder = operation === "determinant" ? "Example: -12" : "Example: 1,2;3,4";
+
+    return `
+      <div class="short-answer-box">
+        <label for="matrixResultInput">Your answer</label>
+        <input id="matrixResultInput" type="text" placeholder="${escapeHtml(placeholder)}" autocomplete="off" />
+      </div>
+    `;
+  }
 
   if (question.resultType === "short-answer" || question.resultType === "plot") {
     return `
@@ -5832,7 +7089,7 @@ function wireOptionSelectionUI(question) {
 }
 
 function getAnswerTextInputs(scope = document) {
-  return Array.from(scope.querySelectorAll("#shortAnswerInput, .arithmetic-single-input, .arithmetic-digit-input, [data-role='fraction-answer-num'], [data-role='fraction-answer-den'], [data-role='fraction-answer-whole'], [data-role='fraction-mixed-num'], [data-role='fraction-mixed-den']"))
+  return Array.from(scope.querySelectorAll("#shortAnswerInput, #matrixResultInput, .arithmetic-single-input, .arithmetic-digit-input, [data-role='fraction-answer-num'], [data-role='fraction-answer-den'], [data-role='fraction-answer-whole'], [data-role='fraction-mixed-num'], [data-role='fraction-mixed-den'], [data-role='matrix-dim-rows'], [data-role='matrix-dim-cols']"))
     .filter((node) => node instanceof HTMLInputElement && !node.disabled);
 }
 
@@ -5919,8 +7176,10 @@ function wireFractionMixedAnswerInput(question) {
 }
 
 function renderQuestion() {
+  setViewerProgressChromeVisible(true);
   const question = quizData.questions[currentIndex];
   const quizContainer = document.getElementById("quizContainer");
+  quizContainer.classList.remove("prestart-mode");
   const resultBox = document.getElementById("resultBox");
   const nextBtn = document.getElementById("nextQuestionBtn");
   const showSolutionBtn = document.getElementById("showSolutionBtn");
@@ -5938,10 +7197,53 @@ function renderQuestion() {
     ? `<img class="question-image" src="${escapeHtml(question.image)}" alt="Question visual" />`
     : "";
 
+  let promptText = String(question.question || "").trim();
+
+  let matrixQuestionMarkup = "";
+  if (isIntroductionQuestion(question)) {
+    quizContainer.innerHTML = buildIntroductionCardMarkup(question);
+    wireIntroductionCardUI(quizContainer);
+    wireAnswerInputVisualState(quizContainer);
+    renderNotesPanel(question);
+    updateHeader();
+    return;
+  }
+
+  if (question.interactiveApp && question.interactiveApp.type === "matrix") {
+    const matrixConfig = question.interactiveApp.config && typeof question.interactiveApp.config === "object"
+      ? question.interactiveApp.config
+      : {};
+    const operation = normalizeMatrixOperation(matrixConfig.operation);
+    const matrixA = sanitizeMatrix(matrixConfig.matrixA);
+    const matrixB = sanitizeMatrix(matrixConfig.matrixB);
+    const labels = { add: "A + B", subtract: "A - B", multiply: "A x B", determinant: "det(A)", transpose: "A^T" };
+    promptText = String(question.question || "").split(/\nmatrix a:/i)[0].trim() || promptText;
+
+    if (matrixIsRectangular(matrixA)) {
+      const showMatrixB = (operation === "add" || operation === "subtract" || operation === "multiply") && matrixIsRectangular(matrixB);
+      matrixQuestionMarkup = `
+        <div class="matrix-question-block">
+          <p class="helper-text">Operation: ${escapeHtml(labels[operation] || "Matrix")}</p>
+          ${buildMatrixTableMarkup(matrixA, "Matrix A", { showDimensions: false })}
+          ${showMatrixB ? buildMatrixTableMarkup(matrixB, "Matrix B", { showDimensions: false }) : ""}
+        </div>
+      `;
+    }
+  }
+
+  if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
+    const arithmeticConfig = question.interactiveApp.config || {};
+    const visualMode = String(arithmeticConfig.visualMode || "").trim().toLowerCase();
+    if (visualMode === "objects") {
+      promptText = buildProfessionalVisualArithmeticPrompt(arithmeticConfig, promptText) || promptText;
+    }
+  }
+
   quizContainer.innerHTML = `
     <div class="question-card viewer-question">
       <p class="question-label">Question ${currentIndex + 1}</p>
-      <h2>${renderQuestionText(question.question)}</h2>
+      <h2>${renderQuestionText(promptText)}</h2>
+      ${matrixQuestionMarkup}
       ${imageMarkup}
       ${renderAnswerInput(question)}
     </div>
@@ -5967,6 +7269,15 @@ function renderQuestion() {
 }
 
 function collectUserAnswer(question) {
+  if (isIntroductionQuestion(question)) {
+    const termsInput = document.getElementById("introAcceptTerms");
+    const supportInput = document.getElementById("introAcknowledgeSupport");
+    return {
+      acceptedTerms: Boolean(termsInput && termsInput.checked),
+      acknowledgedSupport: supportInput ? Boolean(supportInput.checked) : true
+    };
+  }
+
   if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
     return collectArithmeticWorkspaceAnswer(document.getElementById("quizContainer"));
   }
@@ -5993,6 +7304,26 @@ function collectUserAnswer(question) {
     const d = denInput ? String(denInput.value).trim() : "";
     if (n === "" || d === "") return "";
     return d === "1" ? n : `${n}/${d}`;
+  }
+  if (
+    question.resultType === "short-answer"
+    && question.interactiveApp
+    && question.interactiveApp.type === "matrix"
+  ) {
+    const matrixPrompt = String(question.question || "").trim().toLowerCase();
+    const asksForDimensions = matrixPrompt.includes("dimensions of matrix a");
+    if (!asksForDimensions) {
+      const matrixInput = document.getElementById("matrixResultInput");
+      return matrixInput ? String(matrixInput.value || "").trim() : "";
+    }
+
+    const container = document.getElementById("quizContainer");
+    const rowsInput = container && container.querySelector("[data-role='matrix-dim-rows']");
+    const colsInput = container && container.querySelector("[data-role='matrix-dim-cols']");
+    const rows = rowsInput ? String(rowsInput.value || "").trim() : "";
+    const cols = colsInput ? String(colsInput.value || "").trim() : "";
+    if (!rows || !cols) return "";
+    return `${rows} x ${cols}`;
   }
   if (question.resultType === "short-answer" || question.resultType === "plot") {
     const input = document.getElementById("shortAnswerInput");
@@ -6061,6 +7392,11 @@ function parseAnswerFraction(value) {
 }
 
 function answersMatch(question, userAnswer) {
+  if (isIntroductionQuestion(question)) {
+    const answerObj = userAnswer && typeof userAnswer === "object" ? userAnswer : {};
+    return Boolean(answerObj.acceptedTerms) && Boolean(answerObj.acknowledgedSupport);
+  }
+
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
     // Compare as equivalent fractions (cross-multiply), supporting mixed forms like "2 3/5".
     const user = parseAnswerFraction(userAnswer);
@@ -6097,16 +7433,110 @@ function answersMatch(question, userAnswer) {
   const isArithmetic = Boolean(
     question.interactiveApp && question.interactiveApp.type === "arithmetic"
   );
+  const isMatrix = Boolean(
+    question.interactiveApp && question.interactiveApp.type === "matrix"
+  );
   const normalizeForMatch = (v) => {
     const n = norm(v);
     return isArithmetic ? stripLeadingZeros(n) : n;
   };
+  const normalizeMatrixDimension = (v) => {
+    const raw = String(v || "").trim().toLowerCase();
+    const compact = raw.replace(/\s+/g, "");
+    let match = compact.match(/^(\d+)(?:x|\*|×)(\d+)$/);
+    if (!match) {
+      match = raw.match(/^(\d+)\s*(?:x|\*|×|by)\s*(\d+)$/i);
+    }
+    return match ? `${Number.parseInt(match[1], 10)}x${Number.parseInt(match[2], 10)}` : null;
+  };
+  const parseNumericToken = (v) => {
+    const raw = String(v || "").trim();
+    if (!/^[-+]?(?:\d+\.?\d*|\.\d+)$/.test(raw)) return null;
+    const value = Number.parseFloat(raw);
+    return Number.isFinite(value) ? value : null;
+  };
+  const parseMatrixAnswer = (v) => {
+    const raw = String(v || "").trim();
+    if (!raw) return null;
+    const normalized = raw
+      .replace(/\[/g, "")
+      .replace(/\]/g, "")
+      .replace(/\|/g, ";")
+      .replace(/\r/g, "")
+      .trim();
+
+    const rows = normalized.includes(";")
+      ? normalized.split(";")
+      : normalized.split("\n");
+    const parsedRows = rows
+      .map((row) => row.trim())
+      .filter((row) => row !== "")
+      .map((row) => {
+        const tokens = row.includes(",")
+          ? row.split(",")
+          : row.split(/\s+/);
+        const numbers = tokens
+          .map((token) => token.trim())
+          .filter((token) => token !== "")
+          .map((token) => Number.parseFloat(token));
+        return numbers.every((num) => Number.isFinite(num)) ? numbers : null;
+      });
+
+    if (parsedRows.length === 0 || parsedRows.some((row) => !Array.isArray(row) || row.length === 0)) return null;
+    const width = parsedRows[0].length;
+    if (!parsedRows.every((row) => row.length === width)) return null;
+    return parsedRows;
+  };
+  const matricesEqual = (a, b) => {
+    if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length || a.length === 0) return false;
+    if (a[0].length !== b[0].length) return false;
+    const tolerance = 0.001;
+    for (let r = 0; r < a.length; r += 1) {
+      for (let c = 0; c < a[r].length; c += 1) {
+        if (Math.abs(Number(a[r][c]) - Number(b[r][c])) > tolerance) return false;
+      }
+    }
+    return true;
+  };
   const value = normalizeForMatch(userAnswer);
   if (!value || expected.length === 0) return false;
+
+  if (question.resultType === "short-answer") {
+    if (isMatrix) {
+      const userDim = normalizeMatrixDimension(userAnswer);
+      const expectedDims = expected
+        .map((item) => normalizeMatrixDimension(item))
+        .filter((item) => item !== null);
+      if (userDim && expectedDims.length > 0) {
+        return expectedDims.includes(userDim);
+      }
+
+       const userMatrix = parseMatrixAnswer(userAnswer);
+       const expectedMatrices = expected
+         .map((item) => parseMatrixAnswer(item))
+         .filter((item) => item !== null);
+       if (userMatrix && expectedMatrices.length > 0) {
+         return expectedMatrices.some((matrix) => matricesEqual(userMatrix, matrix));
+       }
+    }
+
+    const userNumeric = parseNumericToken(value);
+    const expectedNumeric = expected.map(parseNumericToken);
+    if (userNumeric !== null && expectedNumeric.every((item) => item !== null)) {
+      const tolerance = 0.001;
+      return expectedNumeric.some((item) => Math.abs(item - userNumeric) <= tolerance);
+    }
+  }
+
   return expected.map(normalizeForMatch).includes(value);
 }
 
 function validateAnswer(question, userAnswer) {
+  if (isIntroductionQuestion(question)) {
+    const answerObj = userAnswer && typeof userAnswer === "object" ? userAnswer : {};
+    return Boolean(answerObj.acceptedTerms) && Boolean(answerObj.acknowledgedSupport);
+  }
+
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
     return !!parseAnswerFraction(userAnswer);
   }
@@ -6134,15 +7564,36 @@ function checkAnswer() {
   }
 
   const isCorrect = answersMatch(question, userAnswer);
-  if (isCorrect) {
+  if (isCorrect && !isIntroductionQuestion(question)) {
     score += 1;
+    currentDifficulty = Math.min(10, currentDifficulty + 1);
+    difficultyAdjustmentPending = true;
+  } else if (!isCorrect && !isIntroductionQuestion(question)) {
+    currentDifficulty = Math.max(1, currentDifficulty - 1);
+    difficultyAdjustmentPending = true;
   }
 
   const expectedAnswers = getExpectedAnswers(question);
+  const attemptRecord = buildAttemptRecord(
+    question,
+    userAnswer,
+    expectedAnswers,
+    isCorrect,
+    currentIndex + 1
+  );
+  quizAnswerLog.push(attemptRecord);
 
   const resultBox = document.getElementById("resultBox");
   if (resultBox) {
-    if (isCorrect) {
+    if (isIntroductionQuestion(question)) {
+      if (isCorrect) {
+        resultBox.textContent = "Accepted. You can continue to the quiz.";
+        resultBox.className = "result-correct";
+      } else {
+        resultBox.textContent = "Please accept the Terms and Conditions and the support acknowledgement before continuing.";
+        resultBox.className = "result-incorrect";
+      }
+    } else if (isCorrect) {
       if (question.interactiveApp && question.interactiveApp.type === "fractions") {
         const userFraction = parseAnswerFraction(userAnswer);
         const isImproperAnswer = !!userFraction && Math.abs(userFraction.n) > Math.abs(userFraction.d);
@@ -6178,13 +7629,19 @@ function checkAnswer() {
   }
 
   // Visual feedback for selected options
-  highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswers);
+  if (!isIntroductionQuestion(question)) {
+    highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswers);
+  }
   applyAnswerInputResultState(isCorrect, document.getElementById("quizContainer"));
 
   // Store expected answers for later use in solution modal
   window.currentExpectedAnswers = expectedAnswers;
 
-  document.getElementById("showSolutionBtn").classList.remove("hidden");
+  if (isIntroductionQuestion(question)) {
+    document.getElementById("showSolutionBtn").classList.add("hidden");
+  } else {
+    document.getElementById("showSolutionBtn").classList.remove("hidden");
+  }
   document.getElementById("nextQuestionBtn").disabled = false;
   answerChecked = true;
 
@@ -6267,13 +7724,18 @@ function handleQuestionEnterHotkey(event) {
 function prepareSolutionModal(question, expectedAnswers) {
   const fallback = expectedAnswers.length > 0 ? expectedAnswers.join(question.resultType === "checkbox" ? ", " : "") : "N/A";
   const rawSolution = String(question.solution || "").trim();
+  const matrixDimensionExplanation = buildMatrixDimensionExplanation(question);
+  const matrixSolutionMarkup = buildMatrixSolutionMarkup(question);
   const defaultSolution = `Correct answer: ${fallback}`;
-  const hasDistinctSolution = rawSolution !== "" && norm(rawSolution) !== norm(defaultSolution);
+  const hasDistinctSolution = matrixDimensionExplanation !== "" || matrixSolutionMarkup !== "" || (rawSolution !== "" && norm(rawSolution) !== norm(defaultSolution));
   const solutionAttachments = normalizeSolutionAttachments(question.solutionAttachments);
   const modalBody = document.getElementById("solutionModalBody");
   const pdfPreviewsMarkup = renderPdfAttachmentPreviews(solutionAttachments);
   const isFractionsApp = question.interactiveApp && question.interactiveApp.type === "fractions";
+  const isMatrixApp = question.interactiveApp && question.interactiveApp.type === "matrix";
   const solutionInteractiveApp = question.interactiveApp ? cloneInteractiveApp(question.interactiveApp) : null;
+  
+  // For arithmetic questions, display the original unadjusted question as presented to student
   if (solutionInteractiveApp && solutionInteractiveApp.type === "arithmetic" && expectedAnswers.length > 0) {
     const normalizedConfig = solutionInteractiveApp.config && typeof solutionInteractiveApp.config === "object"
       ? solutionInteractiveApp.config
@@ -6281,11 +7743,12 @@ function prepareSolutionModal(question, expectedAnswers) {
     normalizedConfig.answer = String(expectedAnswers[0]);
     solutionInteractiveApp.config = normalizedConfig;
   }
-  const interactiveAppMarkup = isFractionsApp ? "" : buildInteractiveAppMarkup(solutionInteractiveApp || null);
+  const interactiveAppMarkup = (isFractionsApp || isMatrixApp) ? "" : buildInteractiveAppMarkup(solutionInteractiveApp || null);
   let correctAnswerMarkup = escapeHtml(fallback);
+  const explanationText = matrixDimensionExplanation || rawSolution;
   const explanationMarkup = question.interactiveApp && question.interactiveApp.type === "fractions"
     ? renderFractionExplanationText(rawSolution)
-    : escapeHtml(rawSolution).replace(/\n/g, "<br>");
+    : escapeHtml(explanationText).replace(/\n/g, "<br>");
 
   let fractionSolutionMarkup = "";
   if (isFractionsApp) {
@@ -6306,7 +7769,8 @@ function prepareSolutionModal(question, expectedAnswers) {
         <p class="solution-modal-label">Correct answer</p>
         <p class="solution-modal-answer">${correctAnswerMarkup}</p>
       </div>
-      ${hasDistinctSolution ? `
+      ${matrixSolutionMarkup}
+      ${hasDistinctSolution && !isMatrixApp ? `
         <div class="solution-modal-section">
           <p class="solution-modal-label">Explanation</p>
           <div class="solution-modal-copy">${explanationMarkup}</div>
@@ -6325,7 +7789,7 @@ function prepareSolutionModal(question, expectedAnswers) {
     ${pdfPreviewsMarkup}
   `;
 
-  if (!isFractionsApp) wireInteractiveAppModal(modalBody, solutionInteractiveApp || null);
+  if (!isFractionsApp && !isMatrixApp) wireInteractiveAppModal(modalBody, solutionInteractiveApp || null);
 }
 
 function openSolutionModal() {
@@ -6414,11 +7878,32 @@ function goNext() {
 
   const total = quizData.questions.length;
   const percent = total === 0 ? 0 : Math.round((score / total) * 100);
+  const reviewedAttempts = quizAnswerLog.filter((item) => !item.isIntroduction);
+  const mistakes = reviewedAttempts.filter((item) => !item.isCorrect);
+  const reviewMarkup = renderAttemptReviewMarkup(reviewedAttempts);
+  const analyticsMarkup = buildReviewAnalyticsMarkup(reviewedAttempts);
   document.getElementById("quizContainer").innerHTML = `
     <div class="question-card viewer-question final-card">
       <h2>Quiz Complete</h2>
       <p>Your final score is ${score} out of ${total} (${percent}%).</p>
-      <button class="btn" id="restartBtn">Restart Quiz</button>
+      <div class="button-group" style="justify-content:center; gap:10px;">
+        <button class="btn secondary" id="shareResultBtn">Share Quiz Link</button>
+        <button class="btn secondary" id="exportResultsBtn">Export PDF</button>
+        <button class="btn secondary" id="toggleReviewBtn">${mistakes.length > 0 ? `Hide Review (${mistakes.length})` : "Show Review"}</button>
+        <button class="btn" id="restartBtn">Restart Quiz</button>
+      </div>
+      <section id="reviewPanel" class="review-panel${mistakes.length > 0 ? "" : " hidden"}">
+        <h3>Review and Analytics</h3>
+        ${analyticsMarkup}
+        <div class="review-filters" role="group" aria-label="Review filters">
+          <button class="btn secondary review-filter-btn is-active" data-filter="all" type="button">Show All</button>
+          <button class="btn secondary review-filter-btn" data-filter="correct" type="button">Show Correct</button>
+          <button class="btn secondary review-filter-btn" data-filter="incorrect" type="button">Show Incorrect</button>
+        </div>
+        <div class="review-grid">
+          ${reviewMarkup}
+        </div>
+      </section>
     </div>
   `;
   document.getElementById("resultBox").textContent = "";
@@ -6433,9 +7918,60 @@ function goNext() {
   document.getElementById("scoreText").textContent = `Final Score: ${score} / ${total}`;
   document.getElementById("viewerProgressFill").style.width = "100%";
 
+  wireReviewInteractivePreviews(reviewedAttempts);
+
+  const shareBtn = document.getElementById("shareResultBtn");
+  if (shareBtn instanceof HTMLButtonElement) {
+    shareBtn.addEventListener("click", async () => {
+      await shareQuizLink();
+    });
+  }
+
+  const exportBtn = document.getElementById("exportResultsBtn");
+  if (exportBtn instanceof HTMLButtonElement) {
+    exportBtn.addEventListener("click", () => {
+      exportQuizResultsPdf(total, percent);
+      showToast("PDF export opened.", "success");
+    });
+  }
+
+  const reviewPanel = document.getElementById("reviewPanel");
+  const toggleReviewBtn = document.getElementById("toggleReviewBtn");
+  if (reviewPanel instanceof HTMLElement && toggleReviewBtn instanceof HTMLButtonElement) {
+    toggleReviewBtn.addEventListener("click", () => {
+      reviewPanel.classList.toggle("hidden");
+      const hidden = reviewPanel.classList.contains("hidden");
+      toggleReviewBtn.textContent = hidden
+        ? (mistakes.length > 0 ? `Show Review (${mistakes.length})` : "Show Review")
+        : (mistakes.length > 0 ? `Hide Review (${mistakes.length})` : "Hide Review");
+    });
+  }
+
+  const filterButtons = Array.from(document.querySelectorAll(".review-filter-btn"));
+  const reviewItems = Array.from(document.querySelectorAll(".review-item"));
+  filterButtons.forEach((button) => {
+    if (!(button instanceof HTMLButtonElement)) return;
+    button.addEventListener("click", () => {
+      const targetFilter = String(button.dataset.filter || "all").toLowerCase();
+      filterButtons.forEach((btn) => {
+        if (btn instanceof HTMLButtonElement) {
+          btn.classList.toggle("is-active", btn === button);
+        }
+      });
+
+      reviewItems.forEach((item) => {
+        if (!(item instanceof HTMLElement)) return;
+        const result = String(item.dataset.result || "").toLowerCase();
+        const shouldShow = targetFilter === "all" || result === targetFilter;
+        item.classList.toggle("hidden", !shouldShow);
+      });
+    });
+  });
+
   document.getElementById("restartBtn").addEventListener("click", () => {
     currentIndex = 0;
     score = 0;
+    quizAnswerLog = [];
     document.getElementById("checkAnswerBtn").style.display = "inline-block";
     document.getElementById("nextQuestionBtn").style.display = "inline-block";
     document.getElementById("notesViewerBtn").style.display = "inline-block";
@@ -6457,19 +7993,8 @@ async function loadQuiz() {
     const parsedQuiz = parseQuizPayload(rawData);
     applySingleQuiz(parsedQuiz);
   } catch (error) {
-    if (window.location.protocol === "file:") {
-      try {
-        const rawData = await loadQuizFromLocalHandle(requestedFile);
-        const parsedQuiz = parseQuizPayload(rawData);
-        applySingleQuiz(parsedQuiz);
-        showToast("Loaded local quiz after folder selection.", "success");
-        return;
-      } catch (localError) {
-        // Fall through to user-facing error below.
-      }
-    }
-
-    setError(`Could not load quiz file: ${requestedFile}`);
+    // Most browsers require an explicit user gesture for local file access pickers.
+    setErrorWithLocalActions(`Could not load quiz file: ${requestedFile}`, requestedFile);
     return;
   }
 }
@@ -6477,6 +8002,9 @@ async function loadQuiz() {
 document.getElementById("checkAnswerBtn").addEventListener("click", checkAnswer);
 document.getElementById("showSolutionBtn").addEventListener("click", openSolutionModal);
 document.getElementById("nextQuestionBtn").addEventListener("click", goNext);
+document.getElementById("shareQuizLinkBtn").addEventListener("click", () => {
+  shareQuizLink();
+});
 document.getElementById("notesViewerBtn").addEventListener("click", () => {
   const panel = document.getElementById("notesViewerPanel");
   if (panel.innerHTML.trim() === "") {

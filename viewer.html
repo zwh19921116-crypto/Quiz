@@ -9,10 +9,22 @@
 <body>
   <div class="app-shell">
     <div class="container viewer-container">
-      <div class="page-header" style="position:relative;">
-        <p class="eyebrow">Learning Assessment</p>
-        <h1 id="quizTitle">Quiz Viewer</h1>
-        <p id="quizDescription" class="quiz-description hidden"></p>
+      <div class="page-header page-header-split" style="position:relative;">
+        <div class="page-header-main">
+          <p class="eyebrow">Learning Assessment</p>
+          <h1 id="quizTitle">Quiz Viewer</h1>
+          <p id="quizDescription" class="quiz-description hidden"></p>
+        </div>
+        <div class="logo-placeholder" aria-label="Logo placeholder">
+          <img
+            class="logo-image"
+            src="assets/logo.png"
+            alt="Quiz logo"
+            onload="this.style.display='block'; this.nextElementSibling.style.display='none'; this.parentElement.classList.remove('is-empty');"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex'; this.parentElement.classList.add('is-empty');"
+          />
+          <span class="logo-fallback">Add Logo</span>
+        </div>
       </div>
 
       <div id="quizSelectorWrap" class="section-card viewer-quiz-picker hidden">
@@ -22,7 +34,9 @@
 
       <div class="progress-row">
         <span id="progressText">Question 1 of 1</span>
+        <span id="difficultyText" style="display: none;">Difficulty: 5/10</span>
         <span id="scoreText">Score: 0</span>
+        <button class="btn secondary" id="shareQuizLinkBtn" type="button">Share Quiz Link</button>
       </div>
 
       <div class="viewer-progress-track">
@@ -60,6 +74,6 @@
     </div>
   </div>
 
-  <script src="viewer.js?v=20260506-2"></script>
+  <script src="viewer.js?v=20260509-6"></script>
 </body>
 </html>
