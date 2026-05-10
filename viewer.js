@@ -898,7 +898,7 @@ function renderAttemptReviewMarkup(attempts) {
       `
       : "";
     return `
-    <article class="review-item ${statusClass}" data-result="${item.isCorrect ? "correct" : "incorrect"}">
+    <article class="review-item ${statusClass}" data-result="${item.isCorrect ? "correct" : "incorrect"}" data-question-number="${Number.isInteger(item.questionNumber) ? item.questionNumber : ""}">
       <section class="review-col review-question-col">
         <p class="review-col-label">Question ${item.questionNumber}</p>
         <p class="review-status ${item.isCorrect ? "status-correct" : "status-incorrect"}">${statusText}</p>
@@ -981,22 +981,32 @@ function exportQuizResultsPdf(total, percent) {
       clone.classList.remove("hidden");
       clone.removeAttribute("id");
 
-      const seenQuestionNumbers = new Set();
       const incorrectLinks = [];
       const reviewItems = Array.from(clone.querySelectorAll(".review-item"));
+      let incorrectAnchorCounter = 0;
       reviewItems.forEach((node) => {
         if (!(node instanceof HTMLElement)) return;
         if (String(node.dataset.result || "") !== "incorrect") return;
 
-        const labelNode = node.querySelector(".review-col-label");
-        const labelText = labelNode ? String(labelNode.textContent || "").trim() : "";
-        const match = labelText.match(/Question\s+(\d+)/i);
-        const questionNumber = match ? Number.parseInt(match[1], 10) : NaN;
-        if (!Number.isInteger(questionNumber) || seenQuestionNumbers.has(questionNumber)) return;
+        const datasetQuestionNumber = Number.parseInt(String(node.dataset.questionNumber || ""), 10);
+        let questionNumber = datasetQuestionNumber;
+        if (!Number.isInteger(questionNumber)) {
+          const labelNode = node.querySelector(".review-col-label");
+          const labelText = labelNode ? String(labelNode.textContent || "").trim() : "";
+          const match = labelText.match(/Question\s+(\d+)/i);
+          questionNumber = match ? Number.parseInt(match[1], 10) : NaN;
+        }
+        if (!Number.isInteger(questionNumber)) return;
 
-        seenQuestionNumbers.add(questionNumber);
-        const anchorId = `incorrect-q-${questionNumber}`;
-        node.id = anchorId;
+        incorrectAnchorCounter += 1;
+        const anchorId = `incorrect-q-anchor-${incorrectAnchorCounter}`;
+        node.id = `incorrect-q-item-${incorrectAnchorCounter}`;
+
+        const jumpAnchor = document.createElement("span");
+        jumpAnchor.id = anchorId;
+        jumpAnchor.className = "pdf-jump-anchor";
+        jumpAnchor.setAttribute("aria-hidden", "true");
+        node.insertAdjacentElement("beforebegin", jumpAnchor);
 
         const solutionSection = node.querySelector(".review-solution-col");
         if (solutionSection instanceof HTMLElement) {
@@ -1004,6 +1014,23 @@ function exportQuizResultsPdf(total, percent) {
         }
 
         incorrectLinks.push({ questionNumber, anchorId });
+      });
+
+      // Embedded PDF iframes are frequently truncated by browser print engines.
+      // Replace them with direct links so exported PDFs are complete and stable.
+      const embeddedPdfFrames = Array.from(clone.querySelectorAll(".solution-pdf-frame"));
+      embeddedPdfFrames.forEach((frame, index) => {
+        if (!(frame instanceof HTMLIFrameElement)) return;
+        const src = String(frame.getAttribute("src") || "").trim();
+        if (!src) {
+          frame.remove();
+          return;
+        }
+        const title = String(frame.getAttribute("title") || `PDF ${index + 1}`).trim() || `PDF ${index + 1}`;
+        const fallback = document.createElement("p");
+        fallback.className = "pdf-inline-link";
+        fallback.innerHTML = `<strong>PDF attachment:</strong> <a href="${escapeHtml(src)}" target="_blank" rel="noopener noreferrer">${escapeHtml(title)}</a>`;
+        frame.replaceWith(fallback);
       });
 
       if (incorrectLinks.length > 0) {
@@ -1031,12 +1058,17 @@ function exportQuizResultsPdf(total, percent) {
         <title>${escapeHtml(quizTitle)} - Results</title>
         <link rel="stylesheet" href="style.css" />
         <style>
+          @page { size: auto; margin: 12mm; }
+          html, body { width: auto !important; overflow: visible !important; }
           body { font-family: Arial, sans-serif; color: #0f172a; margin: 24px; }
           h1 { margin: 0 0 8px; font-size: 24px; }
           .meta { margin: 0 0 16px; color: #334155; }
           .summary { border: 1px solid #cbd5e1; border-radius: 10px; padding: 12px; margin-bottom: 16px; background: #f8fafc; }
           .summary p { margin: 4px 0; }
           .quiz-link { color: #1d4ed8; text-decoration: underline; word-break: break-all; }
+          .pdf-jump-anchor { display: block; position: relative; top: -2mm; height: 0; }
+          .pdf-inline-link { margin: 8px 0; font-size: 13px; }
+          .pdf-inline-link a { color: #1d4ed8; text-decoration: underline; word-break: break-all; }
           .incorrect-link-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
           .incorrect-link-chip { display: inline-block; text-decoration: none; color: #1d4ed8; border: 1px solid #93c5fd; background: #eff6ff; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 700; }
           .pdf-back-top { margin: 10px 0 0; }
@@ -1048,8 +1080,9 @@ function exportQuizResultsPdf(total, percent) {
           .review-col, .review-solution-col, .review-solution-text { break-inside: auto; page-break-inside: auto; overflow: visible !important; }
           .review-image { page-break-inside: avoid; break-inside: avoid; max-height: none !important; height: auto !important; }
           .review-interactive-host, .interactive-app-preview, .solution-modal-section { page-break-inside: auto; break-inside: auto; overflow: visible !important; }
+          .solution-pdf-frame { display: none !important; }
           @media print { 
-            body { margin: 12mm; }
+            body { margin: 0; }
             .review-panel { display: block !important; }
             .review-image { display: block !important; max-width: 100% !important; }
             .review-item, .review-col { page-break-inside: auto !important; break-inside: auto !important; }
@@ -1057,6 +1090,7 @@ function exportQuizResultsPdf(total, percent) {
             .review-image, .review-solution-figure, .review-solution-images { max-height: none !important; height: auto !important; }
             .review-interactive-host, .interactive-app-preview, .interactive-app-preview * { max-height: none !important; height: auto !important; }
             svg, canvas, img { max-width: 100% !important; }
+            iframe { display: none !important; }
           }
         </style>
       </head>
@@ -1082,10 +1116,35 @@ function exportQuizResultsPdf(total, percent) {
   printWindow.document.open();
   printWindow.document.write(printHtml);
   printWindow.document.close();
-  printWindow.focus();
-  window.setTimeout(() => {
+
+  const waitForPrintReady = () => {
+    const readyState = printWindow.document.readyState;
+    const waitForLoad = readyState === "complete"
+      ? Promise.resolve()
+      : new Promise((resolve) => {
+        printWindow.addEventListener("load", () => resolve(), { once: true });
+        window.setTimeout(resolve, 1500);
+      });
+
+    return waitForLoad.then(() => {
+      const imageNodes = Array.from(printWindow.document.images || []);
+      if (imageNodes.length === 0) return Promise.resolve();
+      const imagePromises = imageNodes.map((img) => {
+        if (img.complete) return Promise.resolve();
+        return new Promise((resolve) => {
+          img.addEventListener("load", () => resolve(), { once: true });
+          img.addEventListener("error", () => resolve(), { once: true });
+          window.setTimeout(resolve, 1200);
+        });
+      });
+      return Promise.all(imagePromises).then(() => undefined);
+    });
+  };
+
+  waitForPrintReady().finally(() => {
+    printWindow.focus();
     printWindow.print();
-  }, 250);
+  });
 }
 
 function setError(message) {
