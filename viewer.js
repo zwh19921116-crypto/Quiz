@@ -962,6 +962,42 @@ function buildReviewAnalyticsMarkup(attempts) {
   `;
 }
 
+function buildPdfInteractiveSummaryMarkup(attempt) {
+  const app = attempt && attempt.interactiveApp ? attempt.interactiveApp : null;
+  if (!app || !app.type) {
+    return "<p class=\"pdf-interactive-note\">Interactive visual omitted in PDF-safe mode.</p>";
+  }
+
+  const type = String(app.type || "interactive").trim();
+  const config = app && app.config && typeof app.config === "object" ? app.config : {};
+  const summaryLines = [];
+
+  if (type === "arithmetic") {
+    const operator = String(config.operator || "+").trim();
+    const a = Number.parseInt(config.operandA, 10);
+    const b = Number.parseInt(config.operandB, 10);
+    const answer = computeArithmeticAnswerFromConfig(config);
+    if (Number.isInteger(a) && Number.isInteger(b)) {
+      summaryLines.push(`Expression: ${a} ${operator} ${b} = ${answer}`);
+    }
+    const visualKind = String(config.visualKind || "objects").trim();
+    summaryLines.push(`Model: ${visualKind}`);
+  } else if (type === "cartesian-plane" || type === "cartesian-plane-plot") {
+    summaryLines.push("Graph visual is available in the online report.");
+  } else if (type === "fractions") {
+    summaryLines.push("Fraction visual is available in the online report.");
+  } else {
+    summaryLines.push("Interactive visual is available in the online report.");
+  }
+
+  return `
+    <div class="pdf-interactive-summary">
+      <p class="pdf-interactive-title">Interactive Summary (${escapeHtml(type)})</p>
+      ${summaryLines.map((line) => `<p class="pdf-interactive-note">${escapeHtml(line)}</p>`).join("")}
+    </div>
+  `;
+}
+
 function exportQuizResultsPdf(total, percent) {
   const quizTitle = String((quizData && quizData.title) || "Quiz").trim() || "Quiz";
   const generatedAt = new Date();
@@ -1033,6 +1069,22 @@ function exportQuizResultsPdf(total, percent) {
         frame.replaceWith(fallback);
       });
 
+      // PDF-safe mode: replace heavyweight interactive previews with compact summaries
+      // so cards cannot be clipped by print pagination.
+      const reviewedAttempts = Array.isArray(quizAnswerLog)
+        ? quizAnswerLog.filter((item) => !item.isIntroduction)
+        : [];
+      const interactiveHosts = Array.from(clone.querySelectorAll(".review-interactive-host"));
+      interactiveHosts.forEach((host) => {
+        if (!(host instanceof HTMLElement)) return;
+        const attemptIndex = Number.parseInt(String(host.dataset.attemptIndex || ""), 10);
+        const attempt = Number.isInteger(attemptIndex) && attemptIndex >= 0 && attemptIndex < reviewedAttempts.length
+          ? reviewedAttempts[attemptIndex]
+          : null;
+        host.classList.add("pdf-interactive-safe-host");
+        host.innerHTML = buildPdfInteractiveSummaryMarkup(attempt);
+      });
+
       if (incorrectLinks.length > 0) {
         const sortedLinks = incorrectLinks
           .sort((a, b) => a.questionNumber - b.questionNumber)
@@ -1067,6 +1119,10 @@ function exportQuizResultsPdf(total, percent) {
           .summary p { margin: 4px 0; }
           .quiz-link { color: #1d4ed8; text-decoration: underline; word-break: break-all; }
           .pdf-jump-anchor { display: block; position: relative; top: -2mm; height: 0; }
+          .pdf-interactive-safe-host { border-style: dashed; background: #f8fafc; }
+          .pdf-interactive-summary { border: 1px solid #cbd5e1; border-radius: 8px; background: #ffffff; padding: 8px 10px; }
+          .pdf-interactive-title { margin: 0 0 4px; font-size: 12px; font-weight: 800; color: #0f172a; }
+          .pdf-interactive-note { margin: 0; font-size: 12px; color: #334155; }
           .pdf-inline-link { margin: 8px 0; font-size: 13px; }
           .pdf-inline-link a { color: #1d4ed8; text-decoration: underline; word-break: break-all; }
           .incorrect-link-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
@@ -1076,8 +1132,8 @@ function exportQuizResultsPdf(total, percent) {
           .button-group, .review-filters, #toggleReviewBtn, #shareResultBtn, #exportResultsBtn, #restartBtn { display: none !important; }
           .review-panel { margin-top: 0 !important; }
           /* Allow long solutions to flow to next page instead of clipping. */
-          .review-item { break-inside: auto; page-break-inside: auto; overflow: visible !important; }
-          .review-col, .review-solution-col, .review-solution-text { break-inside: auto; page-break-inside: auto; overflow: visible !important; }
+          .review-item { break-inside: avoid-page; page-break-inside: avoid; overflow: visible !important; }
+          .review-col, .review-solution-col, .review-solution-text { break-inside: avoid-page; page-break-inside: avoid; overflow: visible !important; }
           .review-image { page-break-inside: avoid; break-inside: avoid; max-height: none !important; height: auto !important; }
           .review-interactive-host, .interactive-app-preview, .solution-modal-section { page-break-inside: auto; break-inside: auto; overflow: visible !important; }
           .solution-pdf-frame { display: none !important; }
@@ -1085,7 +1141,7 @@ function exportQuizResultsPdf(total, percent) {
             body { margin: 0; }
             .review-panel { display: block !important; }
             .review-image { display: block !important; max-width: 100% !important; }
-            .review-item, .review-col { page-break-inside: auto !important; break-inside: auto !important; }
+            .review-item, .review-col { page-break-inside: avoid !important; break-inside: avoid-page !important; }
             .review-panel, .review-panel * { overflow: visible !important; }
             .review-image, .review-solution-figure, .review-solution-images { max-height: none !important; height: auto !important; }
             .review-interactive-host, .interactive-app-preview, .interactive-app-preview * { max-height: none !important; height: auto !important; }
