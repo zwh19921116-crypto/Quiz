@@ -88,7 +88,10 @@
           <aside class="panel-column">
             <div class="panel-head">
               <h2>Questions</h2>
-              <button class="btn small" id="addQuestionBtn">Add</button>
+              <div class="panel-head-actions">
+                <button class="btn small" id="addQuestionBtn">Add</button>
+                <button class="btn secondary small" id="clearQuestionBtn" type="button">Clear Quiz Questions</button>
+              </div>
             </div>
             <input type="search" id="questionSearch" class="panel-search" placeholder="Search questions..." autocomplete="off" />
             <p class="helper-text">Drag questions to reorder.</p>
@@ -110,6 +113,7 @@
                 <div>
                   <label for="autoCreateCategory">Auto Create: Category</label>
                   <select id="autoCreateCategory" class="nl-range-input">
+                    <option value="introduction-to-numbers">Introduction to Numbers</option>
                     <option value="cartesian-plane">Cartesian Plane</option>
                     <option value="cartesian-plane-plot">Cartesian Plane - Plot</option>
                     <option value="number-line">Number Line</option>
@@ -203,7 +207,7 @@
                 </div>
                 <div>
                   <label for="autoQuizQuestionCount">Auto Quiz: Number of Questions</label>
-                  <input type="number" id="autoQuizQuestionCount" min="1" max="60" step="1" value="1" class="nl-range-input" />
+                  <input type="number" id="autoQuizQuestionCount" min="1" max="500" step="1" value="1" class="nl-range-input" />
                 </div>
               </div>
 
@@ -306,6 +310,7 @@
                 <label for="interactiveAppType">8) App Template</label>
                 <select id="interactiveAppType">
                   <option value="">None</option>
+                  <option value="number-tracing">Number Tracing</option>
                   <option value="arithmetic">Arithmetic</option>
                   <option value="number-line">Number Line</option>
                   <option value="cartesian-plane">Cartesian Plane</option>
@@ -374,6 +379,21 @@
                   </div>
                   <label for="arithAnswer">Answer (optional override)</label>
                   <input type="text" id="arithAnswer" class="nl-range-input" placeholder="Auto-computed if blank" />
+                </div>
+
+                <div id="numberTracingConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="ntTargetNumber">Target Number</label>
+                      <input type="number" id="ntTargetNumber" class="nl-range-input" min="0" max="100" value="5" />
+                    </div>
+                  </div>
+                  <label for="ntPrompt">Prompt</label>
+                  <input type="text" id="ntPrompt" class="nl-range-input" value="Tap the matching number, then trace it." />
+                  <div class="nl-range-row">
+                    <label><input type="checkbox" id="ntPrepMode" checked /> Prep mode (recognition-first)</label>
+                    <label><input type="checkbox" id="ntShowQuantityDots" checked /> Show quantity dots (0-20)</label>
+                  </div>
                 </div>
 
                 <div id="cartesianPlaneConfig" class="hidden">

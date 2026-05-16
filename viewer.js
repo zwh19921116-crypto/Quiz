@@ -10,6 +10,8 @@ let cartesianPlotUserPoints = [];
 let currentDifficulty = 5;
 let difficultyAdjustmentPending = false;
 let quizAnswerLog = [];
+const numberTracingCompletionByQuestion = {};
+const numberTracingSnapshotByQuestion = {};
 const DEFAULT_TERMS_CONDITIONS_TXT_PATH = "terms-and-conditions.txt";
 const DEFAULT_EULA_TXT_PATH = "eula.txt";
 const DEFAULT_TERMS_CONDITIONS_LINK_PATH = "terms-and-conditions.html";
@@ -31,6 +33,42 @@ const ENCOURAGING_INCORRECT_MESSAGES = [
   "Well done for staying engaged."
 ];
 let lastEncouragingMessageIndex = -1;
+
+function isNumberTracingQuestion(question) {
+  return Boolean(question && question.interactiveApp && question.interactiveApp.type === "number-tracing");
+}
+
+function hasCompletedTracingForCurrentQuestion() {
+  return Boolean(numberTracingCompletionByQuestion[currentIndex]);
+}
+
+function captureNumberTracingSnapshotForCurrentQuestion() {
+  const quizContainer = document.getElementById("quizContainer");
+  const canvas = quizContainer && quizContainer.querySelector(".number-tracing-canvas");
+  if (!(canvas instanceof HTMLCanvasElement)) return;
+  try {
+    numberTracingSnapshotByQuestion[currentIndex] = canvas.toDataURL("image/png");
+  } catch (error) {
+    // Ignore snapshot failures and keep the rest of the flow working.
+  }
+}
+
+function updateNextQuestionButtonState() {
+  const nextBtn = document.getElementById("nextQuestionBtn");
+  if (!(nextBtn instanceof HTMLButtonElement)) return;
+  if (!answerChecked) {
+    nextBtn.disabled = true;
+    return;
+  }
+
+  const question = quizData && Array.isArray(quizData.questions) ? quizData.questions[currentIndex] : null;
+  if (!isNumberTracingQuestion(question)) {
+    nextBtn.disabled = false;
+    return;
+  }
+
+  nextBtn.disabled = !hasCompletedTracingForCurrentQuestion();
+}
 
 function getRandomEncouragingMessage() {
   const count = ENCOURAGING_INCORRECT_MESSAGES.length;
@@ -861,6 +899,9 @@ function buildAttemptRecord(question, userAnswer, expectedAnswers, isCorrect, qu
     ? String(question.interactiveApp.type)
     : String(question && question.resultType ? question.resultType : "unknown");
   const interactiveApp = question && question.interactiveApp ? cloneInteractiveApp(question.interactiveApp) : null;
+  const tracingSnapshot = questionType === "number-tracing"
+    ? String(numberTracingSnapshotByQuestion[Math.max(0, questionNumber - 1)] || "")
+    : "";
 
   return {
     questionNumber,
@@ -872,6 +913,7 @@ function buildAttemptRecord(question, userAnswer, expectedAnswers, isCorrect, qu
     solutionImages,
     questionType,
     interactiveApp,
+    tracingSnapshot,
     isCorrect: Boolean(isCorrect),
     isIntroduction: isIntroductionQuestion(question)
   };
@@ -912,6 +954,7 @@ function renderAttemptReviewMarkup(attempts) {
         <p class="review-col-label">Solution</p>
         <p class="review-answer-line"><strong>Correct answer:</strong> ${escapeHtml(item.correctAnswer || "N/A")}</p>
         <div class="review-solution-text">${escapeHtml(item.solution || "").replace(/\n/g, "<br>")}</div>
+        ${item.tracingSnapshot ? `<img class="solution-tracing-image" src="${escapeHtml(item.tracingSnapshot)}" alt="Your traced number" />` : ""}
         ${solutionImagesMarkup}
       </section>
     </article>
@@ -1006,6 +1049,43 @@ function exportQuizResultsPdf(total, percent) {
   const finalCard = document.querySelector("#quizContainer .final-card");
   const finalScoreNode = finalCard ? finalCard.querySelector("p") : null;
   const finalScoreText = finalScoreNode ? finalScoreNode.textContent : `Your final score is ${score} out of ${total} (${percent}%).`;
+  const reviewedAttempts = Array.isArray(quizAnswerLog)
+    ? quizAnswerLog.filter((item) => !item.isIntroduction)
+    : [];
+  const answerKeyRowsMarkup = reviewedAttempts.length > 0
+    ? reviewedAttempts.map((item) => {
+      const questionNumber = Number.isInteger(item && item.questionNumber) ? item.questionNumber : "-";
+      const resultLabel = item && item.isCorrect ? "Correct" : "Incorrect";
+      const yourAnswer = formatAnswerForReport(item && item.userAnswer ? item.userAnswer : "") || "(blank)";
+      const correctAnswer = formatAnswerForReport(item && item.correctAnswer ? item.correctAnswer : "") || "N/A";
+      return `
+        <tr>
+          <td>${escapeHtml(String(questionNumber))}</td>
+          <td>${escapeHtml(resultLabel)}</td>
+          <td>${escapeHtml(yourAnswer)}</td>
+          <td>${escapeHtml(correctAnswer)}</td>
+        </tr>
+      `;
+    }).join("")
+    : `<tr><td colspan="4">No graded answers yet.</td></tr>`;
+  const answerKeyMarkup = `
+    <section class="pdf-answer-key-page">
+      <h2>Detailed Results and Answers</h2>
+      <table class="pdf-answer-table" aria-label="Detailed results and answers">
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Result</th>
+            <th>Your Answer</th>
+            <th>Correct Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${answerKeyRowsMarkup}
+        </tbody>
+      </table>
+    </section>
+  `;
 
   // Export the exact review panel markup already rendered on the final results page.
   const reviewPanel = document.getElementById("reviewPanel");
@@ -1044,11 +1124,6 @@ function exportQuizResultsPdf(total, percent) {
         jumpAnchor.setAttribute("aria-hidden", "true");
         node.insertAdjacentElement("beforebegin", jumpAnchor);
 
-        const solutionSection = node.querySelector(".review-solution-col");
-        if (solutionSection instanceof HTMLElement) {
-          solutionSection.insertAdjacentHTML("beforeend", `<p class="pdf-back-top"><a href="#pdf-top">Back to top</a></p>`);
-        }
-
         incorrectLinks.push({ questionNumber, anchorId });
       });
 
@@ -1069,20 +1144,46 @@ function exportQuizResultsPdf(total, percent) {
         frame.replaceWith(fallback);
       });
 
-      // PDF-safe mode: replace heavyweight interactive previews with compact summaries
-      // so cards cannot be clipped by print pagination.
-      const reviewedAttempts = Array.isArray(quizAnswerLog)
-        ? quizAnswerLog.filter((item) => !item.isIntroduction)
-        : [];
-      const interactiveHosts = Array.from(clone.querySelectorAll(".review-interactive-host"));
-      interactiveHosts.forEach((host) => {
-        if (!(host instanceof HTMLElement)) return;
-        const attemptIndex = Number.parseInt(String(host.dataset.attemptIndex || ""), 10);
-        const attempt = Number.isInteger(attemptIndex) && attemptIndex >= 0 && attemptIndex < reviewedAttempts.length
-          ? reviewedAttempts[attemptIndex]
-          : null;
-        host.classList.add("pdf-interactive-safe-host");
-        host.innerHTML = buildPdfInteractiveSummaryMarkup(attempt);
+      // Compact PDF mode: keep question + image + answers only (no full working section).
+      reviewItems.forEach((node) => {
+        if (!(node instanceof HTMLElement)) return;
+        const questionCol = node.querySelector(".review-question-col");
+        const solutionCol = node.querySelector(".review-solution-col");
+        const sectionBreak = node.querySelector(".review-section-break");
+
+        if (questionCol instanceof HTMLElement) {
+          const interactiveHost = questionCol.querySelector(".review-interactive-host");
+          if (interactiveHost instanceof HTMLElement) {
+            interactiveHost.remove();
+          }
+        }
+
+        if (questionCol instanceof HTMLElement && solutionCol instanceof HTMLElement) {
+          const correctAnswerLine = solutionCol.querySelector(".review-answer-line");
+          if (correctAnswerLine instanceof HTMLElement) {
+            const correctAnswerClone = correctAnswerLine.cloneNode(true);
+            if (correctAnswerClone instanceof HTMLElement) {
+              correctAnswerClone.classList.add("pdf-correct-answer-line");
+              questionCol.appendChild(correctAnswerClone);
+            }
+          }
+
+          const tracingImage = solutionCol.querySelector(".solution-tracing-image");
+          if (tracingImage instanceof HTMLImageElement) {
+            const tracingImageClone = tracingImage.cloneNode(true);
+            if (tracingImageClone instanceof HTMLImageElement) {
+              tracingImageClone.classList.add("review-image");
+              questionCol.appendChild(tracingImageClone);
+            }
+          }
+        }
+
+        if (solutionCol instanceof HTMLElement) {
+          solutionCol.remove();
+        }
+        if (sectionBreak instanceof HTMLElement) {
+          sectionBreak.remove();
+        }
       });
 
       if (incorrectLinks.length > 0) {
@@ -1119,21 +1220,21 @@ function exportQuizResultsPdf(total, percent) {
           .summary p { margin: 4px 0; }
           .quiz-link { color: #1d4ed8; text-decoration: underline; word-break: break-all; }
           .pdf-jump-anchor { display: block; position: relative; top: -2mm; height: 0; }
-          .pdf-interactive-safe-host { border-style: dashed; background: #f8fafc; }
-          .pdf-interactive-summary { border: 1px solid #cbd5e1; border-radius: 8px; background: #ffffff; padding: 8px 10px; }
-          .pdf-interactive-title { margin: 0 0 4px; font-size: 12px; font-weight: 800; color: #0f172a; }
-          .pdf-interactive-note { margin: 0; font-size: 12px; color: #334155; }
           .pdf-inline-link { margin: 8px 0; font-size: 13px; }
           .pdf-inline-link a { color: #1d4ed8; text-decoration: underline; word-break: break-all; }
           .incorrect-link-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
           .incorrect-link-chip { display: inline-block; text-decoration: none; color: #1d4ed8; border: 1px solid #93c5fd; background: #eff6ff; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 700; }
-          .pdf-back-top { margin: 10px 0 0; }
-          .pdf-back-top a { color: #1d4ed8; text-decoration: underline; font-size: 12px; font-weight: 700; }
+          .pdf-correct-answer-line { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #cbd5e1; }
+          .pdf-answer-key-page { page-break-before: always; break-before: page; margin-top: 0; }
+          .pdf-answer-key-page h2 { margin: 0 0 10px; font-size: 20px; color: #0f172a; }
+          .pdf-answer-table { width: 100%; border-collapse: collapse; border: 1px solid #cbd5e1; }
+          .pdf-answer-table th, .pdf-answer-table td { border: 1px solid #dbe3ee; padding: 8px 10px; text-align: left; vertical-align: top; font-size: 12px; }
+          .pdf-answer-table th { background: #eff6ff; color: #1e3a8a; font-weight: 800; }
           .button-group, .review-filters, #toggleReviewBtn, #shareResultBtn, #exportResultsBtn, #restartBtn { display: none !important; }
           .review-panel { margin-top: 0 !important; }
           /* Allow long solutions to flow to next page instead of clipping. */
           .review-item { break-inside: avoid-page; page-break-inside: avoid; overflow: visible !important; }
-          .review-col, .review-solution-col, .review-solution-text { break-inside: avoid-page; page-break-inside: avoid; overflow: visible !important; }
+          .review-col { break-inside: avoid-page; page-break-inside: avoid; overflow: visible !important; }
           .review-image { page-break-inside: avoid; break-inside: avoid; max-height: none !important; height: auto !important; }
           .review-interactive-host, .interactive-app-preview, .solution-modal-section { page-break-inside: auto; break-inside: auto; overflow: visible !important; }
           .solution-pdf-frame { display: none !important; }
@@ -1143,8 +1244,7 @@ function exportQuizResultsPdf(total, percent) {
             .review-image { display: block !important; max-width: 100% !important; }
             .review-item, .review-col { page-break-inside: avoid !important; break-inside: avoid-page !important; }
             .review-panel, .review-panel * { overflow: visible !important; }
-            .review-image, .review-solution-figure, .review-solution-images { max-height: none !important; height: auto !important; }
-            .review-interactive-host, .interactive-app-preview, .interactive-app-preview * { max-height: none !important; height: auto !important; }
+            .review-image { max-height: none !important; height: auto !important; }
             svg, canvas, img { max-width: 100% !important; }
             iframe { display: none !important; }
           }
@@ -1159,6 +1259,7 @@ function exportQuizResultsPdf(total, percent) {
           <p style="margin-top: 12px; border-top: 1px solid #cbd5e1; padding-top: 12px;"><strong>Quiz Link:</strong> <a class="quiz-link" href="${escapeHtml(quizUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(quizUrl)}</a></p>
         </section>
         ${reviewMarkup}
+        ${answerKeyMarkup}
       </body>
     </html>
   `;
@@ -4771,7 +4872,369 @@ function cloneInteractiveApp(app) {
   }
 }
 
+function normalizeTracingTargetNumber(value) {
+  const parsed = Number.parseInt(value, 10);
+  if (!Number.isInteger(parsed)) return 5;
+  return Math.max(0, Math.min(100, parsed));
+}
+
+function numberToSimpleWord(value) {
+  const n = Number.parseInt(value, 10);
+  if (!Number.isInteger(n) || n < 0 || n > 100) return String(value || "");
+  const words0To19 = [
+    "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+    "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"
+  ];
+  const tensWords = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+  if (n < 20) return words0To19[n];
+  if (n === 100) return "one hundred";
+  const tens = Math.floor(n / 10);
+  const ones = n % 10;
+  return ones === 0 ? tensWords[tens] : `${tensWords[tens]}-${words0To19[ones]}`;
+}
+
+function getDigitTracePaths(digitChar) {
+  const paths = {
+    "0": [
+      "M 25 12 C 8 28 8 76 25 92 C 42 108 68 108 85 92 C 102 76 102 28 85 12 C 68 -4 42 -4 25 12"
+    ],
+    "1": [
+      "M 35 22 L 52 8 L 52 96"
+    ],
+    "2": [
+      "M 18 24 C 30 6 72 6 84 24 C 90 34 86 48 76 56 L 22 96 L 88 96"
+    ],
+    "3": [
+      "M 20 20 C 42 4 78 4 84 26 C 88 40 76 52 58 56 C 76 60 90 72 84 90 C 76 112 40 112 20 94"
+    ],
+    "4": [
+      "M 24 66 L 66 14 L 66 98",
+      "M 24 66 L 86 66"
+    ],
+    "5": [
+      "M 82 10 L 28 10 L 24 52 C 34 44 46 42 58 44 C 82 48 90 76 74 94 C 58 112 30 108 18 92"
+    ],
+    "6": [
+      "M 78 16 C 60 2 30 8 22 34 C 16 52 20 76 36 92 C 50 106 74 104 84 84 C 94 64 82 46 62 46 C 44 46 30 56 28 74"
+    ],
+    "7": [
+      "M 16 12 L 88 12 L 42 96"
+    ],
+    "8": [
+      "M 50 10 C 32 10 20 22 20 36 C 20 48 30 58 50 62 C 70 58 80 48 80 36 C 80 22 68 10 50 10",
+      "M 50 62 C 24 66 16 80 20 92 C 26 108 74 108 80 92 C 84 80 76 66 50 62"
+    ],
+    "9": [
+      "M 76 50 C 72 70 56 86 36 86 C 18 86 10 68 16 52 C 24 34 46 32 62 42 C 78 52 84 70 80 94"
+    ]
+  };
+  return paths[String(digitChar)] || paths["0"];
+}
+
+function extractPathStartPoint(pathDef) {
+  const match = String(pathDef || "").match(/M\s*(-?\d+(?:\.\d+)?)\s*(-?\d+(?:\.\d+)?)/i);
+  if (!match) return null;
+  return {
+    x: Number.parseFloat(match[1]),
+    y: Number.parseFloat(match[2])
+  };
+}
+
+function buildNumberTracingSvgMarkup(targetNumber) {
+  const digits = String(Math.max(0, Number.parseInt(targetNumber, 10) || 0)).split("").filter((ch) => /\d/.test(ch));
+  const safeDigits = digits.length > 0 ? digits : ["0"];
+  const digitWidth = 110;
+  const gap = 20;
+  const leftPad = 22;
+  const topPad = 6;
+  const viewHeight = 120;
+  const totalWidth = leftPad * 2 + (safeDigits.length * digitWidth) + ((safeDigits.length - 1) * gap);
+
+  const traceParts = [];
+  safeDigits.forEach((digit, index) => {
+    const offsetX = leftPad + index * (digitWidth + gap);
+    const offsetY = topPad;
+    const paths = getDigitTracePaths(digit);
+    paths.forEach((pathDef) => {
+      traceParts.push(`<path class="number-tracing-shadow-path" d="${pathDef}" transform="translate(${offsetX}, ${offsetY})"></path>`);
+      traceParts.push(`<path class="number-tracing-dotted-path" d="${pathDef}" transform="translate(${offsetX}, ${offsetY})"></path>`);
+    });
+  });
+
+  return `
+    <svg class="number-tracing-svg" viewBox="0 0 ${totalWidth} ${viewHeight}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Trace number ${targetNumber}">
+      <line class="number-tracing-guide-line" x1="0" y1="18" x2="${totalWidth}" y2="18"></line>
+      <line class="number-tracing-guide-line number-tracing-guide-line-mid" x1="0" y1="60" x2="${totalWidth}" y2="60"></line>
+      <line class="number-tracing-guide-line" x1="0" y1="104" x2="${totalWidth}" y2="104"></line>
+      ${traceParts.join("")}
+    </svg>
+  `;
+}
+
+function getDigitStrokeCount(digitChar) {
+  return getDigitTracePaths(digitChar).length;
+}
+
+function getTracingExpectedStrokes(targetNumber) {
+  const digits = String(Math.max(0, Number.parseInt(targetNumber, 10) || 0)).split("").filter((ch) => /\d/.test(ch));
+  if (digits.length === 0) return 1;
+  return digits.reduce((sum, ch) => sum + getDigitStrokeCount(ch), 0);
+}
+
+function buildNumberTracingMarkup(config = {}) {
+  const target = normalizeTracingTargetNumber(config.targetNumber);
+  const prompt = String(config.prompt || "Trace the dotted number and say it aloud.").trim();
+  const targetLabel = `Trace number: ${target}`;
+  const prepMode = Boolean(config.prepMode);
+  const showInstructions = config.showInstructions === true;
+  const minDotsPercent = Number.isFinite(Number(config.minDotsPercent))
+    ? Math.max(1, Math.min(100, Number(config.minDotsPercent)))
+    : 95;
+  const guidanceMarkup = `
+    <div class="number-tracing-assist" role="note" aria-label="Stroke guidance">
+      <p class="number-tracing-assist-title">How to write</p>
+      <p class="number-tracing-assist-step">1. Trace directly over the dotted number.</p>
+      <p class="number-tracing-assist-step">2. Touch the pink guide dots with your drawing.</p>
+      <p class="number-tracing-strokes">Touch requirement: ${Math.round(minDotsPercent)}% of dots.</p>
+    </div>
+  `;
+  return `
+    <div class="number-tracing-card">
+      ${showInstructions && prepMode ? "<p class='helper-text number-tracing-prep'>Prep mode: tap, say, trace.</p>" : ""}
+      ${showInstructions ? `<p class="helper-text number-tracing-prompt">${escapeHtml(prompt)}</p>` : ""}
+      ${showInstructions ? `<p class="number-tracing-target">${escapeHtml(targetLabel)}</p>` : ""}
+      ${showInstructions ? guidanceMarkup : ""}
+      <div class="number-tracing-stage" data-tracing-stage="true">
+        ${buildNumberTracingSvgMarkup(target)}
+        <canvas class="number-tracing-canvas" width="280" height="190" aria-label="Tracing canvas"></canvas>
+      </div>
+    </div>
+  `;
+}
+
+function wireNumberTracingCanvas(container, options = {}) {
+  if (!container) return;
+  const { onTraceProgress } = options;
+  const stage = container.querySelector("[data-tracing-stage='true']");
+  const canvas = container.querySelector(".number-tracing-canvas");
+  if (!(stage instanceof HTMLElement) || !(canvas instanceof HTMLCanvasElement)) return;
+
+  const context = canvas.getContext("2d");
+  if (!context) return;
+
+  let guideSamples = [];
+  let coveredGuideSampleCount = 0;
+  let traceCoveragePercent = 0;
+
+  const minDotsPercent = Number.isFinite(Number(options.minDotsPercent))
+    ? Math.max(1, Math.min(100, Number(options.minDotsPercent)))
+    : 95;
+  const brushSize = Number.isFinite(Number(options.brushSize)) ? Math.max(6, Number(options.brushSize)) : 10;
+
+  const pointToSegmentDistance = (point, start, end) => {
+    const dx = end.x - start.x;
+    const dy = end.y - start.y;
+    if (dx === 0 && dy === 0) {
+      const sx = point.x - start.x;
+      const sy = point.y - start.y;
+      return Math.sqrt((sx * sx) + (sy * sy));
+    }
+    const t = Math.max(0, Math.min(1, (((point.x - start.x) * dx) + ((point.y - start.y) * dy)) / ((dx * dx) + (dy * dy))));
+    const projX = start.x + (t * dx);
+    const projY = start.y + (t * dy);
+    const px = point.x - projX;
+    const py = point.y - projY;
+    return Math.sqrt((px * px) + (py * py));
+  };
+
+  const recalcCoveragePercent = () => {
+    if (!guideSamples.length) {
+      traceCoveragePercent = 0;
+      return;
+    }
+    traceCoveragePercent = (coveredGuideSampleCount / guideSamples.length) * 100;
+  };
+
+  const getRequiredDotCount = () => {
+    if (!guideSamples.length) return 1;
+    return Math.max(1, Math.ceil(guideSamples.length * (minDotsPercent / 100)));
+  };
+
+  const rebuildGuideSamples = () => {
+    guideSamples = [];
+    coveredGuideSampleCount = 0;
+    traceCoveragePercent = 0;
+
+    const svg = stage.querySelector(".number-tracing-svg");
+    if (!(svg instanceof SVGSVGElement)) return;
+    const canvasRect = canvas.getBoundingClientRect();
+    if (!canvasRect.width || !canvasRect.height) return;
+    const sampleStep = 4;
+
+    svg.querySelectorAll(".number-tracing-dotted-path").forEach((pathNode) => {
+      if (!(pathNode instanceof SVGPathElement)) return;
+      const ctm = pathNode.getScreenCTM();
+      if (!ctm) return;
+      const totalLength = pathNode.getTotalLength();
+      for (let d = 0; d <= totalLength; d += sampleStep) {
+        const point = pathNode.getPointAtLength(d);
+        const screenX = (ctm.a * point.x) + (ctm.c * point.y) + ctm.e;
+        const screenY = (ctm.b * point.x) + (ctm.d * point.y) + ctm.f;
+        guideSamples.push({
+          x: screenX - canvasRect.left,
+          y: screenY - canvasRect.top,
+          covered: false
+        });
+      }
+    });
+
+    recalcCoveragePercent();
+  };
+
+  const markCoverageForSegment = (start, end) => {
+    if (!guideSamples.length) return;
+    const threshold = Math.max(7.5, (context.lineWidth * 1.25));
+    let hasNewCoverage = false;
+    for (let i = 0; i < guideSamples.length; i += 1) {
+      const sample = guideSamples[i];
+      if (sample.covered) continue;
+      if (pointToSegmentDistance(sample, start, end) <= threshold) {
+        sample.covered = true;
+        coveredGuideSampleCount += 1;
+        hasNewCoverage = true;
+      }
+    }
+    if (hasNewCoverage) {
+      recalcCoveragePercent();
+    }
+  };
+
+  const setCanvasSize = () => {
+    const rect = stage.getBoundingClientRect();
+    const width = Math.max(200, Math.round(rect.width));
+    const height = Math.max(140, Math.round(rect.height));
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.max(1, Math.round(width * dpr));
+    canvas.height = Math.max(1, Math.round(height * dpr));
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    context.setTransform(1, 0, 0, 1, 0, 0);
+    context.scale(dpr, dpr);
+    context.lineCap = "round";
+    context.lineJoin = "round";
+    context.lineWidth = brushSize;
+    context.strokeStyle = "#0284c7";
+    rebuildGuideSamples();
+    notifyProgress();
+  };
+
+  const toPoint = (event) => {
+    const rect = canvas.getBoundingClientRect();
+    return {
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top
+    };
+  };
+
+  let drawing = false;
+  let lastPoint = null;
+  let traceMotionCount = 0;
+  let traceTotalDistance = 0;
+  let traceMinX = Number.POSITIVE_INFINITY;
+  let traceMaxX = Number.NEGATIVE_INFINITY;
+  let traceMinY = Number.POSITIVE_INFINITY;
+  let traceMaxY = Number.NEGATIVE_INFINITY;
+  let completedStrokeCount = 0;
+  let currentStrokeMoved = false;
+  let hasSignificantTrace = false;
+  const notifyProgress = () => {
+    if (typeof onTraceProgress === "function") {
+      onTraceProgress(hasSignificantTrace, traceMotionCount, {
+        strokeCount: completedStrokeCount,
+        coveragePercent: traceCoveragePercent,
+        coveredGuideDots: coveredGuideSampleCount,
+        totalGuideDots: guideSamples.length,
+        requiredDots: getRequiredDotCount(),
+        minDotsPercent
+      });
+    }
+  };
+
+  const onDown = (event) => {
+    drawing = true;
+    lastPoint = toPoint(event);
+    currentStrokeMoved = false;
+    markCoverageForSegment(lastPoint, lastPoint);
+    notifyProgress();
+    canvas.setPointerCapture(event.pointerId);
+  };
+
+  const onMove = (event) => {
+    if (!drawing || !lastPoint) return;
+    const next = toPoint(event);
+    context.beginPath();
+    context.moveTo(lastPoint.x, lastPoint.y);
+    context.lineTo(next.x, next.y);
+    context.stroke();
+
+    const dx = next.x - lastPoint.x;
+    const dy = next.y - lastPoint.y;
+    const distance = Math.sqrt((dx * dx) + (dy * dy));
+    if (distance >= 1.5) {
+      currentStrokeMoved = true;
+      traceMotionCount += 1;
+      traceTotalDistance += distance;
+      traceMinX = Math.min(traceMinX, lastPoint.x, next.x);
+      traceMaxX = Math.max(traceMaxX, lastPoint.x, next.x);
+      traceMinY = Math.min(traceMinY, lastPoint.y, next.y);
+      traceMaxY = Math.max(traceMaxY, lastPoint.y, next.y);
+      markCoverageForSegment(lastPoint, next);
+      const hasGuideCoverage = coveredGuideSampleCount >= getRequiredDotCount();
+      if (!hasSignificantTrace && hasGuideCoverage) {
+        hasSignificantTrace = true;
+      }
+      notifyProgress();
+    }
+
+    lastPoint = next;
+  };
+
+  const onUp = (event) => {
+    drawing = false;
+    if (lastPoint) {
+      // Count simple tap interactions by checking coverage at the tap point.
+      markCoverageForSegment(lastPoint, lastPoint);
+    }
+    if (currentStrokeMoved) {
+      completedStrokeCount += 1;
+      currentStrokeMoved = false;
+    }
+
+    const hasGuideCoverage = coveredGuideSampleCount >= getRequiredDotCount();
+    if (!hasSignificantTrace && hasGuideCoverage) {
+      hasSignificantTrace = true;
+    }
+    notifyProgress();
+
+    lastPoint = null;
+    if (canvas.hasPointerCapture(event.pointerId)) {
+      canvas.releasePointerCapture(event.pointerId);
+    }
+  };
+
+  canvas.addEventListener("pointerdown", onDown);
+  canvas.addEventListener("pointermove", onMove);
+  canvas.addEventListener("pointerup", onUp);
+  canvas.addEventListener("pointercancel", onUp);
+  canvas.addEventListener("pointerleave", onUp);
+
+  setCanvasSize();
+  window.addEventListener("resize", setCanvasSize);
+  notifyProgress();
+}
+
 function getInteractiveAppTitle(type) {
+  if (type === "number-tracing") return "Interactive: Number Tracing";
   if (type === "number-line") return "Interactive: Number Line";
   if (type === "cartesian-plane") return "Interactive: Cartesian Plane";
     if (type === "cartesian-plane-plot") return "Interactive: Cartesian Plane - Plot";
@@ -4792,11 +5255,13 @@ function getInteractiveAppTitle(type) {
   return "Interactive Math";
 }
 
-function updateInteractivePreview(preview, app) {
+function updateInteractivePreview(preview, app, options = {}) {
   if (!preview || !app || !app.type) return;
 
   let content = "";
-  if (app.type === "number-line") {
+  if (app.type === "number-tracing") {
+    content = buildNumberTracingMarkup(app.config || {});
+  } else if (app.type === "number-line") {
     content = buildNumberLineSvgString(app.config || {});
   } else if (app.type === "cartesian-plane") {
     content = buildCartesianPlaneSvgString(app.config || {});
@@ -4833,6 +5298,20 @@ function updateInteractivePreview(preview, app) {
   }
 
   preview.innerHTML = content || "<p class='helper-text'>No interactive preview available.</p>";
+
+  if (app.type === "number-tracing") {
+    const config = app.config || {};
+    const minDotsPercent = Number.isFinite(Number(config.minDotsPercent))
+      ? Math.max(1, Math.min(100, Number(config.minDotsPercent)))
+      : 95;
+    wireNumberTracingCanvas(preview, {
+      onTraceProgress: typeof options.onTracingProgress === "function"
+        ? options.onTracingProgress
+        : null,
+      minDotsPercent,
+      brushSize: 10
+    });
+  }
 
   if (app.type === "fractions") {
     wireFractionsPreviewInputs(preview);
@@ -5631,10 +6110,26 @@ function buildArithmeticDetailLines(app) {
   ];
 }
 
+function buildNumberTracingDetailLines(app) {
+  const config = app.config || {};
+  const target = normalizeTracingTargetNumber(config.targetNumber);
+  const prompt = String(config.prompt || "Trace the dotted number and say it aloud.").trim();
+  const prepMode = Boolean(config.prepMode);
+  const showQuantityDots = Boolean(config.showQuantityDots);
+  return [
+    `Target number: ${target}`,
+    `Instruction: ${prompt}`,
+    `Prep mode: ${prepMode ? "on" : "off"}`,
+    `Quantity dots: ${showQuantityDots ? "on" : "off"}`
+  ];
+}
+
 function updateInteractiveDetails(host, app) {
   if (!host || !app || !app.type) return;
   let lines = [];
-  if (app.type === "arithmetic") {
+  if (app.type === "number-tracing") {
+    lines = buildNumberTracingDetailLines(app);
+  } else if (app.type === "arithmetic") {
     lines = buildArithmeticDetailLines(app);
   } else if (app.type === "number-line") {
     lines = buildNumberLineDetailLines(app);
@@ -6793,8 +7288,33 @@ function wireMulHighlighting(container) {
   wireMulSumHover(container);
 }
 
-function mountInteractiveApp(host, app) {
+function mountInteractiveApp(host, app, options = {}) {
   if (!host || !app || !app.type) return;
+  const { onTracingProgress } = options;
+
+  if (app.type === "number-tracing") {
+    host.innerHTML = `
+      <div class="interactive-app-preview"></div>
+      <div class="interactive-app-controls">
+        <button class="btn secondary" type="button" data-role="tracing-clear">Clear Tracing</button>
+      </div>
+    `;
+
+    const preview = host.querySelector(".interactive-app-preview");
+    updateInteractivePreview(preview, app, {
+      onTracingProgress
+    });
+
+    const clearBtn = host.querySelector("[data-role='tracing-clear']");
+    if (clearBtn instanceof HTMLButtonElement) {
+      clearBtn.addEventListener("click", () => {
+        updateInteractivePreview(preview, app, {
+          onTracingProgress
+        });
+      });
+    }
+    return;
+  }
 
   if (app.type === "arithmetic") {
     host.innerHTML = `
@@ -7092,6 +7612,13 @@ function renderAnswerInput(question) {
     `;
   }
 
+  if (question.interactiveApp && question.interactiveApp.type === "number-tracing") {
+    return `
+      <div class="interactive-app-host" data-role="number-tracing-host"></div>
+      <p class="number-tracing-status" data-role="tracing-status" aria-live="polite">Trace status: not complete</p>
+    `;
+  }
+
   // Interactive apps should only appear in the solution modal, not in the main question
   // So we skip them here and show the regular answer input instead
 
@@ -7298,15 +7825,25 @@ function renderQuestion() {
   const resultBox = document.getElementById("resultBox");
   const nextBtn = document.getElementById("nextQuestionBtn");
   const showSolutionBtn = document.getElementById("showSolutionBtn");
+  const checkBtn = document.getElementById("checkAnswerBtn");
 
   answerChecked = false;
   solutionShownForCurrentQuestion = false;
+  if (isNumberTracingQuestion(question)) {
+    numberTracingCompletionByQuestion[currentIndex] = false;
+  }
   resultBox.textContent = "";
   resultBox.className = "";
   nextBtn.disabled = true;
   showSolutionBtn.classList.add("hidden");
   nextBtn.textContent = currentIndex === quizData.questions.length - 1 ? "Finish Quiz" : "Next Question";
   closeSolutionModal();
+
+  if (checkBtn instanceof HTMLButtonElement) {
+    checkBtn.style.display = question && question.interactiveApp && question.interactiveApp.type === "number-tracing"
+      ? "none"
+      : "inline-block";
+  }
 
   const imageMarkup = question.image
     ? `<img class="question-image" src="${escapeHtml(question.image)}" alt="Question visual" />`
@@ -7376,6 +7913,49 @@ function renderQuestion() {
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
     wireFractionMixedAnswerInput(question);
   }
+  if (question.interactiveApp && question.interactiveApp.type === "number-tracing") {
+    const tracingHost = quizContainer.querySelector("[data-role='number-tracing-host']");
+    const tracingStatus = quizContainer.querySelector("[data-role='tracing-status']");
+    const tracingConfig = (question.interactiveApp && question.interactiveApp.config) || {};
+    const minDotsPercent = Number.isFinite(Number(tracingConfig.minDotsPercent))
+      ? Math.max(1, Math.min(100, Number(tracingConfig.minDotsPercent)))
+      : 95;
+    const updateTracingStatus = (isComplete, progress = {}) => {
+      if (!(tracingStatus instanceof HTMLElement)) return;
+      const coveredGuideDots = Number.isFinite(Number(progress.coveredGuideDots)) ? Number(progress.coveredGuideDots) : 0;
+      const totalGuideDots = Number.isFinite(Number(progress.totalGuideDots)) ? Number(progress.totalGuideDots) : 0;
+      const requiredDots = Number.isFinite(Number(progress.requiredDots))
+        ? Number(progress.requiredDots)
+        : Math.max(1, Math.ceil(totalGuideDots * (minDotsPercent / 100)));
+      const dotHint = totalGuideDots > 0
+        ? `Dots traced: ${Math.min(coveredGuideDots, totalGuideDots)}/${totalGuideDots}.`
+        : `Dots traced: 0/0.`;
+      if (isComplete) {
+        tracingStatus.textContent = `Good job! Tracing complete. ${dotHint} Requirement met: ${requiredDots}+ touched.`;
+      } else {
+        tracingStatus.textContent = `Trace status: not complete. ${dotHint} Need ${requiredDots}+ dot(s) touched.`;
+      }
+      tracingStatus.classList.toggle("is-complete", Boolean(isComplete));
+    };
+
+    updateTracingStatus(hasCompletedTracingForCurrentQuestion(), {
+      strokeCount: 0
+    });
+
+    if (tracingHost instanceof HTMLElement) {
+      mountInteractiveApp(tracingHost, cloneInteractiveApp(question.interactiveApp), {
+        onTracingProgress: (isComplete, _traceMoves, progress) => {
+          numberTracingCompletionByQuestion[currentIndex] = Boolean(numberTracingCompletionByQuestion[currentIndex] || isComplete);
+          const completed = hasCompletedTracingForCurrentQuestion();
+          updateTracingStatus(completed, progress);
+          if (completed && !answerChecked) {
+            checkAnswer();
+          }
+          updateNextQuestionButtonState();
+        }
+      });
+    }
+  }
 
   wireAnswerInputVisualState(quizContainer);
 
@@ -7391,6 +7971,12 @@ function collectUserAnswer(question) {
       acceptedTerms: Boolean(termsInput && termsInput.checked),
       acknowledgedSupport: supportInput ? Boolean(supportInput.checked) : true
     };
+  }
+
+  if (isNumberTracingQuestion(question)) {
+    return hasCompletedTracingForCurrentQuestion()
+      ? String(question && question.correctAnswer != null ? question.correctAnswer : "traced")
+      : "";
   }
 
   if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
@@ -7510,6 +8096,10 @@ function answersMatch(question, userAnswer) {
   if (isIntroductionQuestion(question)) {
     const answerObj = userAnswer && typeof userAnswer === "object" ? userAnswer : {};
     return Boolean(answerObj.acceptedTerms) && Boolean(answerObj.acknowledgedSupport);
+  }
+
+  if (isNumberTracingQuestion(question)) {
+    return hasCompletedTracingForCurrentQuestion();
   }
 
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
@@ -7652,6 +8242,10 @@ function validateAnswer(question, userAnswer) {
     return Boolean(answerObj.acceptedTerms) && Boolean(answerObj.acknowledgedSupport);
   }
 
+  if (isNumberTracingQuestion(question)) {
+    return hasCompletedTracingForCurrentQuestion();
+  }
+
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
     return !!parseAnswerFraction(userAnswer);
   }
@@ -7689,6 +8283,9 @@ function checkAnswer() {
   }
 
   const expectedAnswers = getExpectedAnswers(question);
+  if (isNumberTracingQuestion(question)) {
+    captureNumberTracingSnapshotForCurrentQuestion();
+  }
   const attemptRecord = buildAttemptRecord(
     question,
     userAnswer,
@@ -7757,8 +8354,11 @@ function checkAnswer() {
   } else {
     document.getElementById("showSolutionBtn").classList.remove("hidden");
   }
-  document.getElementById("nextQuestionBtn").disabled = false;
   answerChecked = true;
+  updateNextQuestionButtonState();
+  if (isNumberTracingQuestion(question) && !hasCompletedTracingForCurrentQuestion()) {
+    showToast("Trace the number to unlock Next Question.", "info");
+  }
 
   if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
     const config = question.interactiveApp.config || {};
@@ -7833,6 +8433,11 @@ function handleQuestionEnterHotkey(event) {
     return;
   }
 
+  const nextBtn = document.getElementById("nextQuestionBtn");
+  if (nextBtn instanceof HTMLButtonElement && nextBtn.disabled) {
+    return;
+  }
+
   goNext();
 }
 
@@ -7842,8 +8447,10 @@ function prepareSolutionModal(question, expectedAnswers) {
   const matrixDimensionExplanation = buildMatrixDimensionExplanation(question);
   const matrixSolutionMarkup = buildMatrixSolutionMarkup(question);
   const defaultSolution = `Correct answer: ${fallback}`;
-  const hasDistinctSolution = matrixDimensionExplanation !== "" || matrixSolutionMarkup !== "" || (rawSolution !== "" && norm(rawSolution) !== norm(defaultSolution));
+  const isNumberTracingApp = question.interactiveApp && question.interactiveApp.type === "number-tracing";
+  const hasDistinctSolution = !isNumberTracingApp && (matrixDimensionExplanation !== "" || matrixSolutionMarkup !== "" || (rawSolution !== "" && norm(rawSolution) !== norm(defaultSolution)));
   const solutionAttachments = normalizeSolutionAttachments(question.solutionAttachments);
+  const tracingSnapshot = isNumberTracingApp ? String(numberTracingSnapshotByQuestion[currentIndex] || "") : "";
   const modalBody = document.getElementById("solutionModalBody");
   const pdfPreviewsMarkup = renderPdfAttachmentPreviews(solutionAttachments);
   const isFractionsApp = question.interactiveApp && question.interactiveApp.type === "fractions";
@@ -7858,12 +8465,22 @@ function prepareSolutionModal(question, expectedAnswers) {
     normalizedConfig.answer = String(expectedAnswers[0]);
     solutionInteractiveApp.config = normalizedConfig;
   }
-  const interactiveAppMarkup = (isFractionsApp || isMatrixApp) ? "" : buildInteractiveAppMarkup(solutionInteractiveApp || null);
+  const interactiveAppMarkup = (isFractionsApp || isMatrixApp || isNumberTracingApp) ? "" : buildInteractiveAppMarkup(solutionInteractiveApp || null);
   let correctAnswerMarkup = escapeHtml(fallback);
-  const explanationText = matrixDimensionExplanation || rawSolution;
+  const explanationText = isNumberTracingApp ? "" : (matrixDimensionExplanation || rawSolution);
   const explanationMarkup = question.interactiveApp && question.interactiveApp.type === "fractions"
     ? renderFractionExplanationText(rawSolution)
     : escapeHtml(explanationText).replace(/\n/g, "<br>");
+
+  if (isNumberTracingApp) {
+    const tracingConfig = (question.interactiveApp && question.interactiveApp.config) || {};
+    const numeral = normalizeTracingTargetNumber(tracingConfig.targetNumber != null ? tracingConfig.targetNumber : fallback);
+    const numeralWord = numberToSimpleWord(numeral);
+    correctAnswerMarkup = `
+      <span class="solution-number-word">${escapeHtml(numeralWord)}</span>
+      <span class="solution-number-digit">${escapeHtml(String(numeral))}</span>
+    `;
+  }
 
   let fractionSolutionMarkup = "";
   if (isFractionsApp) {
@@ -7910,6 +8527,10 @@ function prepareSolutionModal(question, expectedAnswers) {
 function openSolutionModal() {
   const question = quizData.questions[currentIndex];
   const expectedAnswers = window.currentExpectedAnswers || getExpectedAnswers(question);
+
+  if (isNumberTracingQuestion(question)) {
+    captureNumberTracingSnapshotForCurrentQuestion();
+  }
   
   // Prepare modal content when user clicks Show Solution
   prepareSolutionModal(question, expectedAnswers);
@@ -7984,6 +8605,9 @@ function highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswer
 
 function goNext() {
   if (!answerChecked) return;
+
+  const nextBtn = document.getElementById("nextQuestionBtn");
+  if (nextBtn instanceof HTMLButtonElement && nextBtn.disabled) return;
 
   if (currentIndex < quizData.questions.length - 1) {
     currentIndex += 1;
@@ -8087,6 +8711,12 @@ function goNext() {
     currentIndex = 0;
     score = 0;
     quizAnswerLog = [];
+    Object.keys(numberTracingCompletionByQuestion).forEach((key) => {
+      delete numberTracingCompletionByQuestion[key];
+    });
+    Object.keys(numberTracingSnapshotByQuestion).forEach((key) => {
+      delete numberTracingSnapshotByQuestion[key];
+    });
     document.getElementById("checkAnswerBtn").style.display = "inline-block";
     document.getElementById("nextQuestionBtn").style.display = "inline-block";
     document.getElementById("notesViewerBtn").style.display = "inline-block";

@@ -319,6 +319,46 @@ function normalizeText(value) {
   return String(value || "").trim().toLowerCase();
 }
 
+function normalizeWhitespace(value) {
+  return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function stableSerialize(value) {
+  if (Array.isArray(value)) {
+    return `[${value.map((item) => stableSerialize(item)).join(",")}]`;
+  }
+  if (value && typeof value === "object") {
+    const keys = Object.keys(value).sort();
+    return `{${keys.map((key) => `${JSON.stringify(key)}:${stableSerialize(value[key])}`).join(",")}}`;
+  }
+  return JSON.stringify(value);
+}
+
+function buildQuestionUniquenessSignature(item) {
+  if (!item || typeof item !== "object") return "";
+
+  const resultType = normalizeResultType(item.resultType || "short-answer");
+  const app = item.interactiveApp && typeof item.interactiveApp === "object" ? item.interactiveApp : null;
+  const appType = app && app.type ? String(app.type).trim().toLowerCase() : "";
+  const appConfig = app && app.config && typeof app.config === "object" ? app.config : null;
+
+  if (appType && appConfig) {
+    return `app|${appType}|${resultType}|${stableSerialize(appConfig)}`;
+  }
+
+  const questionText = normalizeText(normalizeWhitespace(item.question || ""));
+  const correctAnswer = normalizeText(normalizeWhitespace(item.correctAnswer || ""));
+  return `text|${resultType}|${questionText}|${correctAnswer}`;
+}
+
+function isQuestionDuplicateInSet(item, seenSignatures) {
+  const signature = buildQuestionUniquenessSignature(item);
+  if (!signature) {
+    return false;
+  }
+  return seenSignatures.has(signature);
+}
+
 function normalizeResultType(value) {
   const normalized = String(value || "")
     .trim()
@@ -2602,6 +2642,7 @@ const AUTO_CREATE_SUBCATEGORY_OPTIONS = {
   "probability-tree": [{ value: "path-sum", label: "Total Path Probability" }],
   "distribution-curve": [{ value: "mean", label: "Mean" }],
   "introduction": [{ value: "cover", label: "Cover" }],
+  "introduction-to-numbers": [{ value: "identify-numbers", label: "Identify Numbers" }],
   arithmetic: [
     { value: "basic-addition-h", label: "Basic Addition - Horizontal" },
     { value: "basic-addition-v", label: "Basic Addition - Vertical" },
@@ -2704,8 +2745,17 @@ function normalizeCommandWordChoice(value) {
   return "random";
 }
 
-function pickCommandWordFromChoice(choice, { resultType = "", index = 0, category = "" } = {}) {
+function isVisualArithmeticSubcategory(value) {
+  const normalized = String(value || "").trim().toLowerCase();
+  return ["visual-addition", "visual-subtraction", "visual-multiplication", "visual-division"].includes(normalized);
+}
+
+function pickCommandWordFromChoice(choice, { resultType = "", index = 0, category = "", subcategory = "" } = {}) {
   const normalizedCategory = String(category || "").trim().toLowerCase();
+  const normalizedSubcategory = String(subcategory || "").trim().toLowerCase();
+  if (normalizedCategory === "arithmetic" && isVisualArithmeticSubcategory(normalizedSubcategory)) {
+    return "determine";
+  }
   if (normalizedCategory === "arithmetic" || normalizedCategory === "fractions") {
     return "calculate";
   }
@@ -2818,9 +2868,13 @@ function postProcessAutoPayload(payload, generationOptions = {}) {
     : 2;
   const domainMin = generationOptions.domainMin;
   const domainMax = generationOptions.domainMax;
+  const skipCommandWord = String(generationOptions.category || "").trim().toLowerCase() === "arithmetic"
+    && isVisualArithmeticSubcategory(generationOptions.subcategory);
 
   let next = { ...payload };
-  next.question = applyCommandWordToQuestion(next.question, commandWord);
+  if (!skipCommandWord) {
+    next.question = applyCommandWordToQuestion(next.question, commandWord);
+  }
   next = applyDomainRestrictionToPayload(next, domainMin, domainMax);
   next = applyAnswerFormatToPayload(next, answerPolicy, decimalPlaces);
   return next;
@@ -3515,17 +3569,33 @@ function resolveArithmeticRanges(difficultyInput, generationOptions = {}) {
   // Handle numeric difficulty (1-10) with grade scaling
   const numDifficulty = Number.parseInt(difficultyInput, 10);
   if (!Number.isNaN(numDifficulty) && numDifficulty >= 1 && numDifficulty <= 10) {
+    if (yearLevel === null) {
+      // No explicit grade/year selected (e.g. quick Auto Create): keep level 1 truly beginner.
+      const maxAdd = Math.max(3, numDifficulty * 3);
+      const maxSub = Math.max(5, numDifficulty * 4);
+      const maxMulDiv = Math.max(1, Math.ceil(numDifficulty / 2));
+      return {
+        add: [0, maxAdd],
+        sub: [0, maxSub],
+        mul: [1, maxMulDiv],
+        div: [1, maxMulDiv]
+      };
+    }
+
     if (yearLevel === 0) {
-      // Prep: increase by 5 for each level, starting at 5
-      const maxAdd = numDifficulty * 5;
-      return { add: [0, maxAdd], sub: [0, maxAdd], mul: [1, Math.max(1, numDifficulty - 2)], div: [1, Math.max(1, numDifficulty - 2)] };
+      // Prep: keep level 1 very gentle.
+      const maxAdd = Math.max(2, numDifficulty * 2);
+      const maxSub = Math.max(3, numDifficulty * 2 + 1);
+      const maxMulDiv = Math.max(1, Math.floor((numDifficulty + 1) / 3));
+      return { add: [0, maxAdd], sub: [0, maxSub], mul: [1, maxMulDiv], div: [1, maxMulDiv] };
     }
     
     if (yearLevel === 1) {
-      // Year 1: start at 5, increase by 5 per level
-      const maxAdd = numDifficulty * 5;
-      const maxSub = numDifficulty * 5 + 10;
-      return { add: [1, maxAdd], sub: [1, maxSub], mul: [1, Math.max(1, numDifficulty - 2)], div: [1, Math.max(1, numDifficulty - 2)] };
+      // Year 1: gentle progression from simple number facts.
+      const maxAdd = Math.max(4, numDifficulty * 3 + 1);
+      const maxSub = Math.max(6, numDifficulty * 3 + 3);
+      const maxMulDiv = Math.max(1, Math.floor((numDifficulty + 2) / 3));
+      return { add: [0, maxAdd], sub: [0, maxSub], mul: [1, maxMulDiv], div: [1, maxMulDiv] };
     }
     
     if (yearLevel === 2) {
@@ -3535,7 +3605,7 @@ function resolveArithmeticRanges(difficultyInput, generationOptions = {}) {
       return { add: [1, maxAdd], sub: [1, maxSub], mul: [2, Math.max(2, numDifficulty - 1)], div: [2, Math.max(2, numDifficulty - 1)] };
     }
     
-    if (yearLevel <= 4) {
+    if (yearLevel !== null && yearLevel <= 4) {
       // Year 3-4: higher ranges
       const maxAdd = numDifficulty * 10;
       const maxSub = numDifficulty * 10 + 20;
@@ -3561,11 +3631,23 @@ function resolveArithmeticRanges(difficultyInput, generationOptions = {}) {
   }
 
   if (yearLevel === 0) {
-    return { add: [0, 10], sub: [0, 10], mul: [1, 5], div: [1, 5] };
+    if (normalizedDifficulty === "hard") {
+      return { add: [0, 8], sub: [0, 10], mul: [1, 3], div: [1, 3] };
+    }
+    if (normalizedDifficulty === "medium") {
+      return { add: [0, 6], sub: [0, 8], mul: [1, 2], div: [1, 2] };
+    }
+    return { add: [0, 4], sub: [0, 6], mul: [1, 1], div: [1, 1] };
   }
 
   if (yearLevel === 1) {
-    return { add: [1, 10], sub: [1, 20], mul: [1, 5], div: [1, 5] };
+    if (normalizedDifficulty === "hard") {
+      return { add: [0, 12], sub: [0, 16], mul: [1, 4], div: [1, 4] };
+    }
+    if (normalizedDifficulty === "medium") {
+      return { add: [0, 9], sub: [0, 12], mul: [1, 3], div: [1, 3] };
+    }
+    return { add: [0, 6], sub: [0, 8], mul: [1, 2], div: [1, 2] };
   }
 
   if (yearLevel === 2) {
@@ -3604,6 +3686,81 @@ function toGroupLabel(count) {
   return safeCount === 1 ? "group" : "groups";
 }
 
+const ARITHMETIC_PROMPT_VARIANTS = ["a", "b", "c", "d", "e", "f", "g", "h"];
+
+function pickArithmeticPromptVariant() {
+  return pickRandomItem(ARITHMETIC_PROMPT_VARIANTS) || "a";
+}
+
+function buildAdditionQuestionText({ a, b, leftLabel, rightLabel, totalLabel, isVisual, variant }) {
+  const v = String(variant || "a").trim().toLowerCase();
+  if (isVisual) {
+    if (v === "b") return `How many ${totalLabel} are there all together when one collection has ${a} ${leftLabel} and another has ${b} ${rightLabel}?`;
+    if (v === "c") return `There are ${a} ${leftLabel} in one collection and ${b} ${rightLabel} in another. How many ${totalLabel} are there in total?`;
+    if (v === "d") return `One group has ${a} ${leftLabel}. Another has ${b} ${rightLabel}. How many ${totalLabel} are there altogether?`;
+    if (v === "e") return `How many ${totalLabel} do you have altogether if you combine ${a} ${leftLabel} and ${b} ${rightLabel}?`;
+    if (v === "f") return `You can see ${a} ${leftLabel} and ${b} ${rightLabel}. How many ${totalLabel} are there in all?`;
+    if (v === "g") return `Find how many ${totalLabel} there are altogether: ${a} ${leftLabel} plus ${b} ${rightLabel}.`;
+    if (v === "h") return `Altogether, how many ${totalLabel} are shown when there are ${a} ${leftLabel} and ${b} ${rightLabel}?`;
+    return `How many ${totalLabel} are there altogether if one collection has ${a} ${leftLabel} and another has ${b} ${rightLabel}?`;
+  }
+
+  if (v === "b") return `A collection has ${a} ${leftLabel}, and another has ${b} ${rightLabel}. How many ${totalLabel} are there in total?`;
+  if (v === "c") return `There are ${a} ${leftLabel} and ${b} ${rightLabel}. Find the total number of ${totalLabel}.`;
+  if (v === "d") return `Combine ${a} ${leftLabel} with ${b} ${rightLabel}. What is the total number of ${totalLabel}?`;
+  if (v === "e") return `Join ${a} ${leftLabel} and ${b} ${rightLabel}. How many ${totalLabel} are there altogether?`;
+  if (v === "f") return `Add the two collections: ${a} ${leftLabel} and ${b} ${rightLabel}. Find the total ${totalLabel}.`;
+  if (v === "g") return `What is the total number of ${totalLabel} when you combine ${a} ${leftLabel} and ${b} ${rightLabel}?`;
+  if (v === "h") return `There are ${a} ${leftLabel} in one set and ${b} ${rightLabel} in another set. How many ${totalLabel} in all?`;
+  return `A collection contains ${a} ${leftLabel}, and another collection contains ${b} ${rightLabel}. Find the total number of ${totalLabel}.`;
+}
+
+function buildSubtractionQuestionText({ top, bottom, topLabel, bottomLabel, remainLabel, variant, isVisual }) {
+  const v = String(variant || "a").trim().toLowerCase();
+  if (isVisual) {
+    if (v === "b") return `How many ${remainLabel} are left when there are ${top} ${topLabel} and ${bottom} ${bottomLabel} are removed?`;
+    if (v === "c") return `A set starts with ${top} ${topLabel}. If ${bottom} ${bottomLabel} are taken away, how many ${remainLabel} remain?`;
+    if (v === "d") return `There are ${top} ${topLabel}. Take away ${bottom} ${bottomLabel}. How many ${remainLabel} are left?`;
+    if (v === "e") return `How many ${remainLabel} are there after removing ${bottom} ${bottomLabel} from ${top} ${topLabel}?`;
+    if (v === "f") return `Start with ${top} ${topLabel} and remove ${bottom} ${bottomLabel}. How many ${remainLabel} remain?`;
+    if (v === "g") return `Find how many ${remainLabel} are left: ${top} ${topLabel} minus ${bottom} ${bottomLabel}.`;
+    if (v === "h") return `After taking away ${bottom} ${bottomLabel} from ${top} ${topLabel}, how many ${remainLabel} are left?`;
+    return `How many ${remainLabel} remain if there are ${top} ${topLabel} and ${bottom} ${bottomLabel} are taken away?`;
+  }
+
+  if (v === "b") return `A set has ${top} ${topLabel}. ${bottom} ${bottomLabel} are removed. How many ${remainLabel} remain?`;
+  if (v === "c") return `Start with ${top} ${topLabel} and remove ${bottom} ${bottomLabel}. How many ${remainLabel} are left?`;
+  if (v === "d") return `There are ${top} ${topLabel} in total. If ${bottom} ${bottomLabel} are taken away, find the remaining ${remainLabel}.`;
+  if (v === "e") return `Take ${bottom} ${bottomLabel} away from ${top} ${topLabel}. How many ${remainLabel} remain?`;
+  if (v === "f") return `How many ${remainLabel} are left after removing ${bottom} ${bottomLabel} from ${top} ${topLabel}?`;
+  if (v === "g") return `Find the remaining ${remainLabel} when ${bottom} ${bottomLabel} are removed from ${top} ${topLabel}.`;
+  if (v === "h") return `Begin with ${top} ${topLabel}. Remove ${bottom} ${bottomLabel}. What is the number of ${remainLabel} left?`;
+  return `A set has ${top} ${topLabel}. If ${bottom} ${bottomLabel} are removed, how many ${remainLabel} remain?`;
+}
+
+function buildMultiplicationQuestionText({ groups, each, eachLabel, totalLabel, groupLabel, variant, isVisual }) {
+  const v = String(variant || "a").trim().toLowerCase();
+  if (isVisual) {
+    if (v === "b") return `How many ${totalLabel} are there altogether with ${groups} ${groupLabel} and ${each} ${eachLabel} in each group?`;
+    if (v === "c") return `There are ${groups} ${groupLabel}, each with ${each} ${eachLabel}. How many ${totalLabel} are there in total?`;
+    if (v === "d") return `If each of the ${groups} ${groupLabel} has ${each} ${eachLabel}, how many ${totalLabel} are there altogether?`;
+    if (v === "e") return `How many ${totalLabel} are there altogether when ${groups} ${groupLabel} each contain ${each} ${eachLabel}?`;
+    if (v === "f") return `Count all ${totalLabel}: ${groups} ${groupLabel} with ${each} ${eachLabel} in each group.`;
+    if (v === "g") return `Find the total ${totalLabel} for ${groups} ${groupLabel} of ${each} ${eachLabel} each.`;
+    if (v === "h") return `There are ${groups} ${groupLabel} and each has ${each} ${eachLabel}. How many ${totalLabel} in all?`;
+    return `How many ${totalLabel} are there in total if there are ${groups} ${groupLabel} with ${each} ${eachLabel} in each group?`;
+  }
+
+  if (v === "b") return `There ${toBeVerbForCount(groups)} ${groups} ${groupLabel}, each containing ${each} ${eachLabel}. Find the total number of ${totalLabel}.`;
+  if (v === "c") return `A model shows ${groups} ${groupLabel} with ${each} ${eachLabel} per group. How many ${totalLabel} are there in all?`;
+  if (v === "d") return `Count the total when ${groups} ${groupLabel} each have ${each} ${eachLabel}. How many ${totalLabel} are there?`;
+  if (v === "e") return `How many ${totalLabel} are there altogether for ${groups} ${groupLabel} of ${each} ${eachLabel}?`;
+  if (v === "f") return `Each of the ${groups} ${groupLabel} has ${each} ${eachLabel}. Find the total ${totalLabel}.`;
+  if (v === "g") return `Work out the number of ${totalLabel} in all: ${groups} groups, ${each} ${eachLabel} in each.`;
+  if (v === "h") return `Find the total ${totalLabel} when there are ${groups} ${groupLabel} with ${each} ${eachLabel} each.`;
+  return `There ${toBeVerbForCount(groups)} ${groups} ${groupLabel}, with ${each} ${eachLabel} in each group. Find the total number of ${totalLabel}.`;
+}
+
 function pickVisualMultiplicationFactors(ranges) {
   const minFactor = Math.max(2, Math.min(Number(ranges && ranges.mul && ranges.mul[0]), 6));
   const maxFactor = Math.max(minFactor, Math.min(Number(ranges && ranges.mul && ranges.mul[1]), 8));
@@ -3627,6 +3784,10 @@ function pickVisualMultiplicationFactors(ranges) {
 
 function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions = {}) {
   const normalizedSubcategory = String(subcategory || "basic-addition").trim().toLowerCase();
+  const isVisualAddition = normalizedSubcategory === "visual-addition";
+  const isVisualSubtraction = normalizedSubcategory === "visual-subtraction";
+  const isVisualMultiplication = normalizedSubcategory === "visual-multiplication";
+  const isVisualDivision = normalizedSubcategory === "visual-division";
   
   // Pass difficulty as-is (can be numeric 1-10 or string like "easy")
   const difficultyInput = difficulty || "easy";
@@ -3683,12 +3844,24 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
     const answer = a + b;
     const layout = resolvedSubcategory === "basic-addition-v" ? "vertical" : "horizontal";
     const objectContext = pickArithmeticObjectContext();
+    const promptVariant = pickArithmeticPromptVariant();
     const leftLabel = toArithmeticObjectLabel(objectContext, a);
     const rightLabel = toArithmeticObjectLabel(objectContext, b);
     const totalLabel = toArithmeticObjectLabel(objectContext, answer);
+    const questionText = buildAdditionQuestionText({
+      a,
+      b,
+      leftLabel,
+      rightLabel,
+      totalLabel,
+      isVisual: isVisualAddition,
+      variant: promptVariant
+    });
     return {
-      question: `A collection contains ${a} ${leftLabel}, and another collection contains ${b} ${rightLabel}. Find the total number of ${totalLabel}.`,
-      solution: `Combine both collections: ${a} + ${b} = ${answer}. Therefore, the total is ${answer} ${totalLabel}.`,
+      question: questionText,
+      solution: isVisualAddition
+        ? `Combine both collections: ${a} + ${b} = ${answer}. Therefore, the total is ${answer} ${totalLabel}.`
+        : `Add the numbers: ${a} + ${b} = ${answer}.`,
       correctAnswer: String(answer),
       interactiveApp: {
         type: "arithmetic",
@@ -3699,10 +3872,11 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
           operandB: b,
           answer: String(answer),
           answerDigits: String(answer).length,
-          visualMode: "objects",
-          visualKind: objectContext.kind,
-          visualLabel: objectContext.plural,
-          visualGrouping: "addition"
+          visualMode: isVisualAddition ? "objects" : "none",
+          visualKind: isVisualAddition ? objectContext.kind : "",
+          visualLabel: isVisualAddition ? objectContext.plural : "",
+          visualGrouping: isVisualAddition ? "addition" : "",
+          promptVariant
         }
       }
     };
@@ -3716,12 +3890,24 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
     const answer = top - bottom;
     const layout = resolvedSubcategory === "basic-subtraction-v" ? "vertical" : "horizontal";
     const objectContext = pickArithmeticObjectContext();
+    const promptVariant = pickArithmeticPromptVariant();
     const topLabel = toArithmeticObjectLabel(objectContext, top);
     const bottomLabel = toArithmeticObjectLabel(objectContext, bottom);
     const remainLabel = toArithmeticObjectLabel(objectContext, answer);
+    const questionText = buildSubtractionQuestionText({
+      top,
+      bottom,
+      topLabel,
+      bottomLabel,
+      remainLabel,
+      variant: promptVariant,
+      isVisual: isVisualSubtraction
+    });
     return {
-      question: `A set has ${top} ${topLabel}. If ${bottom} ${bottomLabel} are removed, how many ${remainLabel} remain?`,
-      solution: `Subtract the removed amount from the original set: ${top} - ${bottom} = ${answer}. Therefore, ${answer} ${remainLabel} remain.`,
+      question: questionText,
+      solution: isVisualSubtraction
+        ? `Subtract the removed amount from the original set: ${top} - ${bottom} = ${answer}. Therefore, ${answer} ${remainLabel} remain.`
+        : `Subtract the numbers: ${top} - ${bottom} = ${answer}.`,
       correctAnswer: String(answer),
       interactiveApp: {
         type: "arithmetic",
@@ -3732,10 +3918,11 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
           operandB: bottom,
           answer: String(answer),
           answerDigits: String(answer).length,
-          visualMode: "objects",
-          visualKind: objectContext.kind,
-          visualLabel: objectContext.plural,
-          visualGrouping: "subtraction"
+          visualMode: isVisualSubtraction ? "objects" : "none",
+          visualKind: isVisualSubtraction ? objectContext.kind : "",
+          visualLabel: isVisualSubtraction ? objectContext.plural : "",
+          visualGrouping: isVisualSubtraction ? "subtraction" : "",
+          promptVariant
         }
       }
     };
@@ -3748,12 +3935,24 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
     const answer = a * b;
     const layout = resolvedSubcategory === "basic-multiplication-v" ? "vertical" : "horizontal";
     const objectContext = pickArithmeticObjectContext();
+    const promptVariant = pickArithmeticPromptVariant();
     const eachLabel = toArithmeticObjectLabel(objectContext, b);
     const totalLabel = toArithmeticObjectLabel(objectContext, answer);
     const groupLabel = toGroupLabel(a);
+    const questionText = buildMultiplicationQuestionText({
+      groups: a,
+      each: b,
+      eachLabel,
+      totalLabel,
+      groupLabel,
+      variant: promptVariant,
+      isVisual: isVisualMultiplication
+    });
     return {
-      question: `There ${toBeVerbForCount(a)} ${a} ${groupLabel}, with ${b} ${eachLabel} in each group. Find the total number of ${totalLabel}.`,
-      solution: `Use multiplication for equal groups: ${a} x ${b} = ${answer}. Therefore, the total is ${answer} ${totalLabel}.`,
+      question: questionText,
+      solution: isVisualMultiplication
+        ? `Use multiplication for equal groups: ${a} x ${b} = ${answer}. Therefore, the total is ${answer} ${totalLabel}.`
+        : `Multiply the numbers: ${a} x ${b} = ${answer}.`,
       correctAnswer: String(answer),
       interactiveApp: {
         type: "arithmetic",
@@ -3764,10 +3963,11 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
           operandB: b,
           answer: String(answer),
           answerDigits: String(answer).length,
-          visualMode: "objects",
-          visualKind: objectContext.kind,
-          visualLabel: objectContext.plural,
-          visualGrouping: "groups"
+          visualMode: isVisualMultiplication ? "objects" : "none",
+          visualKind: isVisualMultiplication ? objectContext.kind : "",
+          visualLabel: isVisualMultiplication ? objectContext.plural : "",
+          visualGrouping: isVisualMultiplication ? "groups" : "",
+          promptVariant
         }
       }
     };
@@ -3782,7 +3982,9 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
     const groupLabel = toGroupLabel(divisor);
     return {
       question: `${dividend} ${itemLabel} ${toBeVerbForCount(dividend)} shared equally into ${divisor} ${groupLabel}. How many ${itemLabel} are in each group?`,
-      solution: `Use division for equal sharing: ${dividend} / ${divisor} = ${quotient}. Check: ${divisor} x ${quotient} = ${dividend}.`,
+      solution: isVisualDivision
+        ? `Use division for equal sharing: ${dividend} / ${divisor} = ${quotient}. Check: ${divisor} x ${quotient} = ${dividend}.`
+        : `Divide the numbers: ${dividend} / ${divisor} = ${quotient}. Check: ${divisor} x ${quotient} = ${dividend}.`,
       correctAnswer: String(quotient),
       interactiveApp: {
         type: "arithmetic",
@@ -3793,10 +3995,10 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
           operandB: divisor,
           answer: String(quotient),
           answerDigits: String(quotient).length,
-          visualMode: "objects",
-          visualKind: objectContext.kind,
-          visualLabel: objectContext.plural,
-          visualGrouping: "division"
+          visualMode: isVisualDivision ? "objects" : "none",
+          visualKind: isVisualDivision ? objectContext.kind : "",
+          visualLabel: isVisualDivision ? objectContext.plural : "",
+          visualGrouping: isVisualDivision ? "division" : ""
         }
       }
     };
@@ -3851,6 +4053,82 @@ function buildAutoIntroductionPayload(subcategory) {
         requireSupportAcknowledgement: true,
         supportLabel: "Support",
         supportEmail: ""
+      }
+    }
+  };
+}
+
+function buildAutoIntroductionToNumbersPayload(subcategory, difficulty, generationOptions = {}) {
+  const normalizedSubcategory = String(subcategory || "identify-numbers").trim().toLowerCase();
+  if (normalizedSubcategory !== "identify-numbers") return null;
+
+  const rawDifficulty = String(difficulty == null ? "" : difficulty).trim().toLowerCase();
+  const parsedDifficulty = Number.parseInt(rawDifficulty, 10);
+  const difficultyBand = Number.isFinite(parsedDifficulty)
+    ? (parsedDifficulty <= 3 ? "easy" : parsedDifficulty <= 7 ? "medium" : "hard")
+    : (["easy", "medium", "hard"].includes(rawDifficulty) ? rawDifficulty : "medium");
+
+  const yearLevel = deriveYearLevelFromGenerationOptions(generationOptions);
+  const isPrep = yearLevel === 0;
+  const prepLevelOneToThree = [1, 2, 3, 4, 5];
+  const prepLevelFourToSix = [6, 7, 8, 9, 10];
+  const prepLevelSevenToTen = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+  const countingTens = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+  const baseNumbers = Array.from({ length: 21 }, (_, index) => index);
+  const tensNumbers = [30, 40, 50, 60, 70, 80, 90, 100];
+  const allNumbers = baseNumbers.concat(tensNumbers);
+
+  let targets = [];
+  let prompt = "Trace the dotted number and say it aloud.";
+  if (isPrep) {
+    if (Number.isInteger(parsedDifficulty) && parsedDifficulty >= 1 && parsedDifficulty <= 3) {
+      targets = prepLevelOneToThree;
+    } else if (parsedDifficulty === 4) {
+      // As requested: Level 4 focuses on counting in tens.
+      targets = countingTens;
+      prompt = "Count in tens, then trace the dotted number and say it aloud.";
+    } else if (Number.isInteger(parsedDifficulty) && parsedDifficulty >= 4 && parsedDifficulty <= 6) {
+      targets = prepLevelFourToSix;
+    } else if (Number.isInteger(parsedDifficulty) && parsedDifficulty >= 7 && parsedDifficulty <= 10) {
+      targets = prepLevelSevenToTen;
+    } else {
+      targets = prepLevelOneToThree;
+    }
+  } else {
+    targets = difficultyBand === "easy"
+      ? baseNumbers
+      : difficultyBand === "medium"
+        ? allNumbers.filter((value) => value <= 50)
+        : allNumbers;
+  }
+
+  const questionIndex = Number.parseInt(generationOptions && generationOptions.questionIndex, 10);
+  const isFirstQuestion = Number.isInteger(questionIndex) && questionIndex === 0;
+  const target = isFirstQuestion ? 0 : (pickRandomItem(targets) || 5);
+  const questionText = isFirstQuestion
+    ? "Trace the dotted circle numeral in the interactive app."
+    : "Trace the dotted numeral in the interactive app.";
+  const solutionText = isFirstQuestion
+    ? "The numeral is 0, which is drawn as a circle. Trace the dotted circle while saying zero aloud."
+    : `The dotted numeral is ${target}. Trace it while saying ${target} aloud.`;
+  const promptText = isFirstQuestion
+    ? "Trace the dotted circle (0) and say zero aloud."
+    : prompt;
+
+  return {
+    question: questionText,
+    solution: solutionText,
+    correctAnswer: String(target),
+    options: ["", "", "", ""],
+    resultType: "short-answer",
+    interactiveApp: {
+      type: "number-tracing",
+      config: {
+        targetNumber: target,
+        prompt: promptText,
+        prepMode: isPrep || difficultyBand === "easy",
+        showQuantityDots: isPrep || difficultyBand === "easy",
+        showInstructions: false
       }
     }
   };
@@ -4207,6 +4485,18 @@ function buildDeterministicPayloadFromInteractiveApp(appType, app, desiredResult
       correctAnswer: String(distance),
       interactiveApp: app
     };
+  } else if (appType === "number-tracing") {
+    const target = Number.parseInt(cfg.targetNumber, 10);
+    const safeTarget = Number.isInteger(target) ? Math.max(0, Math.min(100, target)) : 5;
+    const prepMode = Boolean(cfg.prepMode);
+    base = {
+      question: prepMode
+        ? "Look at the dotted numeral. Choose the matching number, then trace it."
+        : "Look at the dotted numeral in the interactive app. Identify the number and trace it.",
+      solution: `The dotted numeral is ${safeTarget}. Trace it while saying ${safeTarget} aloud.`,
+      correctAnswer: String(safeTarget),
+      interactiveApp: app
+    };
   } else if (appType === "bar-chart") {
     const items = Array.isArray(cfg.items) ? cfg.items : [];
     const top = items.slice().sort((a, b) => Number(b.frequency || 0) - Number(a.frequency || 0))[0] || { category: "Cats", frequency: 8 };
@@ -4391,7 +4681,22 @@ function buildDeterministicPayloadFromInteractiveApp(appType, app, desiredResult
 
 function buildAutoPayloadForCategory(category, subcategory, difficulty, resultTypeChoice = "auto", generationOptions = {}) {
   const appType = String(category || "cartesian-plane").trim();
+  const normalizedSubcategory = String(subcategory || "").trim();
   const desired = String(resultTypeChoice || "auto").trim().toLowerCase();
+  const rawDifficulty = String(difficulty == null ? "" : difficulty).trim().toLowerCase();
+  const parsedDifficulty = Number.parseInt(rawDifficulty, 10);
+  const difficultyBand = Number.isFinite(parsedDifficulty)
+    ? (parsedDifficulty <= 3 ? "easy" : parsedDifficulty <= 7 ? "medium" : "hard")
+    : (["easy", "medium", "hard"].includes(rawDifficulty) ? rawDifficulty : "medium");
+  // Arithmetic supports numeric 1-10 tuning. Other categories use easy/medium/hard pools.
+  const effectiveDifficulty = appType === "arithmetic"
+    ? (Number.isFinite(parsedDifficulty) ? parsedDifficulty : difficultyBand)
+    : difficultyBand;
+  const processedOptions = {
+    ...generationOptions,
+    category: appType,
+    subcategory: normalizedSubcategory
+  };
 
   if (appType === "introduction") {
     const base = buildAutoIntroductionPayload(subcategory);
@@ -4404,24 +4709,30 @@ function buildAutoPayloadForCategory(category, subcategory, difficulty, resultTy
           decimalPlaces: generationOptions.decimalPlaces
         }
       },
-      generationOptions
+      processedOptions
     );
+  }
+
+  if (appType === "introduction-to-numbers") {
+    const base = buildAutoIntroductionToNumbersPayload(subcategory, difficulty, generationOptions);
+    if (!base) return null;
+    return base;
   }
 
   if (appType === "cartesian-plane") {
     return postProcessAutoPayload(
-      buildAutoCreatedQuestionPayload(subcategory, difficulty, resultTypeChoice),
-      generationOptions
+      buildAutoCreatedQuestionPayload(subcategory, effectiveDifficulty, resultTypeChoice),
+      processedOptions
     );
   }
   if (appType === "cartesian-plane-plot") {
     return postProcessAutoPayload(
-      buildAutoCartesianPlotPayload(subcategory, difficulty),
-      generationOptions
+      buildAutoCartesianPlotPayload(subcategory, effectiveDifficulty),
+      processedOptions
     );
   }
   if (appType === "arithmetic") {
-    const base = buildAutoArithmeticPayload(subcategory, difficulty, generationOptions);
+    const base = buildAutoArithmeticPayload(subcategory, effectiveDifficulty, generationOptions);
     if (!base) return null;
     const defaultResult = desired === "auto" ? "short-answer" : desired;
     return postProcessAutoPayload(
@@ -4435,11 +4746,11 @@ function buildAutoPayloadForCategory(category, subcategory, difficulty, resultTy
         },
         defaultResult
       ),
-      generationOptions
+      processedOptions
     );
   }
   if (appType === "fractions") {
-    const base = buildAutoFractionsPayload(subcategory, difficulty, generationOptions);
+    const base = buildAutoFractionsPayload(subcategory, effectiveDifficulty, generationOptions);
     if (!base) return null;
     const defaultResult = desired === "auto" ? "short-answer" : desired;
     return postProcessAutoPayload(
@@ -4453,11 +4764,11 @@ function buildAutoPayloadForCategory(category, subcategory, difficulty, resultTy
         },
         defaultResult
       ),
-      generationOptions
+      processedOptions
     );
   }
   if (appType === "matrix") {
-    return buildAutoMatrixPayload(subcategory, difficulty, resultTypeChoice, generationOptions);
+    return buildAutoMatrixPayload(subcategory, effectiveDifficulty, resultTypeChoice, generationOptions);
   }
 
   const app = buildDefaultInteractiveApp(appType);
@@ -4670,7 +4981,7 @@ function getSelectOptionLabel(selectId) {
 function normalizeAutoQuizQuestionCount(value) {
   const parsed = Number.parseInt(value, 10);
   if (!Number.isInteger(parsed)) return 1;
-  return Math.max(1, Math.min(60, parsed));
+  return Math.max(1, Math.min(500, parsed));
 }
 
 function resolveAutoQuizYear(gradeValue, yearValue) {
@@ -4848,7 +5159,9 @@ function buildAutoQuizQuestion(questionTemplate, index, generationOptions) {
   const commandWordChoice = normalizeCommandWordChoice(generationOptions && generationOptions.commandWord);
   const nextCommandWord = pickCommandWordFromChoice(commandWordChoice, {
     resultType: questionTemplate && questionTemplate.resultType,
-    index
+    index,
+    category: questionTemplate && questionTemplate.category,
+    subcategory: questionTemplate && questionTemplate.subcategory
   });
   const difficultyOverride = String(generationOptions && generationOptions.yearDifficulty || "").trim().toLowerCase();
   const normalizedOverride = ["easy", "medium", "hard"].includes(difficultyOverride) ? difficultyOverride : "";
@@ -4931,14 +5244,43 @@ async function autoCreateEntireQuiz(quizId = state.selectedQuizId) {
     return;
   }
 
+  const globalTemplatePool = buildAutoQuizTemplatePool(gradeValue, yearValue);
+  const categoryExpansionPool = selectedCategory
+    ? globalTemplatePool.filter((item) => String(item.category || "").trim() === selectedCategory)
+    : [];
+  const strictSubcategoryPool = selectedCategory && selectedSubcategory
+    ? globalTemplatePool.filter((item) => {
+      const itemCategory = String(item.category || "").trim();
+      const itemSubcategory = String(item.subcategory || "").trim();
+      return itemCategory === selectedCategory && itemSubcategory === selectedSubcategory;
+    })
+    : [];
+  const hasFocusedTemplate = Array.isArray(focusedTemplate) && focusedTemplate.length > 0;
+  const expansionPool = hasFocusedTemplate
+    ? (strictSubcategoryPool.length > 0 ? strictSubcategoryPool : focusedTemplate)
+    : [];
+
   const generatedQuestions = [];
   const failureMessages = [];
-  const maxAttempts = questionCount * 8;
+  const seenSignatures = new Set();
+  existingQuestions.forEach((item) => {
+    if (!item || isIntroductionQuestionItem(item)) return;
+    const signature = buildQuestionUniquenessSignature(item);
+    if (signature) seenSignatures.add(signature);
+  });
+
+  let activeTemplatePool = templatePool.slice();
+  let expandedTemplatePool = false;
+  const maxAttempts = Math.max(questionCount * 60, 1200);
   let attempts = 0;
   let cursor = 0;
 
   while (generatedQuestions.length < questionCount && attempts < maxAttempts) {
-    const template = templatePool[cursor % templatePool.length];
+    if (activeTemplatePool.length === 0) {
+      break;
+    }
+
+    const template = activeTemplatePool[cursor % activeTemplatePool.length];
     const payload = buildAutoQuizQuestion(template, generatedQuestions.length, generationOptions);
     attempts += 1;
     cursor += 1;
@@ -4954,7 +5296,7 @@ async function autoCreateEntireQuiz(quizId = state.selectedQuizId) {
       continue;
     }
 
-    generatedQuestions.push(normalizeQuestion({
+    const normalizedCandidate = normalizeQuestion({
       question: payload.question || "",
       resultType: payload.resultType || "short-answer",
       options: Array.isArray(payload.options) ? payload.options : ["", "", "", ""],
@@ -4964,7 +5306,30 @@ async function autoCreateEntireQuiz(quizId = state.selectedQuizId) {
       solution: payload.solution || "",
       solutionAttachments: [],
       interactiveApp: payload.interactiveApp || null
-    }));
+    });
+
+    if (isQuestionDuplicateInSet(normalizedCandidate, seenSignatures)) {
+      failureMessages.push(`${template.category}/${template.subcategory}: duplicate question skipped`);
+      continue;
+    }
+
+    const signature = buildQuestionUniquenessSignature(normalizedCandidate);
+    if (signature) seenSignatures.add(signature);
+    generatedQuestions.push(normalizedCandidate);
+
+    // If generation stalls, only widen within allowed scope.
+    if (!expandedTemplatePool && hasFocusedTemplate && generatedQuestions.length < questionCount) {
+      const progressRatio = generatedQuestions.length / Math.max(1, attempts);
+      const shouldExpand = attempts > Math.max(300, questionCount * 2) && progressRatio < 0.35;
+      const canExpandBeyondCurrent = Array.isArray(expansionPool)
+        && expansionPool.length > 0
+        && expansionPool.some((item) => !activeTemplatePool.some((active) => active.category === item.category && active.subcategory === item.subcategory && active.resultType === item.resultType && active.difficulty === item.difficulty));
+      if (shouldExpand && canExpandBeyondCurrent) {
+        activeTemplatePool = expansionPool.slice();
+        cursor = 0;
+        expandedTemplatePool = true;
+      }
+    }
   }
 
   if (generatedQuestions.length === 0) {
@@ -4994,7 +5359,10 @@ async function autoCreateEntireQuiz(quizId = state.selectedQuizId) {
   await persistSelectedQuizAfterMutation("Auto-generated questions");
 
   if (generatedQuestions.length < questionCount) {
-    showToast(`Added ${generatedQuestions.length}/${questionCount} questions. Some templates failed verification.`, "warning");
+    const expandedNote = expandedTemplatePool
+      ? " Unique combinations were exhausted in the selected scope."
+      : "";
+    showToast(`Added ${generatedQuestions.length}/${questionCount} questions. Some templates failed verification.${expandedNote}`, "warning");
     return;
   }
 
@@ -5312,6 +5680,16 @@ function serializeMatrixRows(rows) {
 
 function buildDefaultInteractiveApp(type) {
   switch (type) {
+    case "number-tracing":
+      return {
+        type,
+        config: {
+          targetNumber: 5,
+          prompt: "Tap the matching number, then trace it.",
+          prepMode: true,
+          showQuantityDots: true
+        }
+      };
     case "arithmetic":
       return {
         type,
@@ -6758,9 +7136,33 @@ function buildArithmeticPreviewMarkup(config) {
   return `<div class="simple-card"><p class="bar-chart-title">Arithmetic (${layout})</p>${objectVisualMarkup}${reasoningMarkup}<p style="font-family:Consolas,monospace">${a} ${operator} ${b} = ${answer}</p></div>`;
 }
 
+function buildNumberTracingPreviewMarkup(config) {
+  const target = Number.parseInt(config && config.targetNumber, 10);
+  const safeTarget = Number.isInteger(target) ? Math.max(0, Math.min(100, target)) : 5;
+  const prompt = escapeInteractiveHtml(String(config && config.prompt ? config.prompt : "Trace the dotted number and say it aloud."));
+  const prepMode = Boolean(config && config.prepMode);
+  const showQuantityDots = Boolean(config && config.showQuantityDots);
+  const quantityDots = showQuantityDots && safeTarget >= 0 && safeTarget <= 20
+    ? `<div class="number-tracing-dots" aria-label="${safeTarget} quantity dots">${Array.from({ length: safeTarget }).map(() => "<span class='number-tracing-dot'></span>").join("")}</div>`
+    : "";
+  return `
+    <div class="simple-card number-tracing-card">
+      <p class="bar-chart-title">Number Tracing</p>
+      ${prepMode ? "<p class='helper-text'>Prep mode: recognition-first</p>" : ""}
+      <p class="helper-text">${prompt}</p>
+      <svg class="number-tracing-svg" viewBox="0 0 280 190" role="img" aria-label="Dotted number ${safeTarget}">
+        <text x="50%" y="62%" text-anchor="middle" dominant-baseline="middle" class="number-tracing-glyph">${safeTarget}</text>
+      </svg>
+      ${quantityDots}
+    </div>
+  `;
+}
+
 function buildInteractiveAppMarkup(app) {
   if (!app || !app.type) return "<p class='helper-text'>Choose a template to add an optional interactive math visual.</p>";
   switch (app.type) {
+    case "number-tracing":
+      return buildNumberTracingPreviewMarkup(app.config || {});
     case "arithmetic":
       return buildArithmeticPreviewMarkup(app.config || {});
     case "number-line":
@@ -6861,12 +7263,14 @@ function renderInteractiveAppPreview(app) {
 }
 
 function setInteractiveAppConfigVisibility(type) {
-  ["arithmeticConfig", "numberLineConfig", "cartesianPlaneConfig", "cartesianPlotConfig", "barChartConfig", "histogramConfig", "boxPlotConfig", "scatterPlotConfig", "probabilityTreeConfig", "distributionCurveConfig", "fractionsConfig", "networkGraphConfig", "matrixConfig", "stemLeafConfig", "geometryShapesConfig", "pythagorasConfig", "trigonometryConfig"]
+  ["arithmeticConfig", "numberTracingConfig", "numberLineConfig", "cartesianPlaneConfig", "cartesianPlotConfig", "barChartConfig", "histogramConfig", "boxPlotConfig", "scatterPlotConfig", "probabilityTreeConfig", "distributionCurveConfig", "fractionsConfig", "networkGraphConfig", "matrixConfig", "stemLeafConfig", "geometryShapesConfig", "pythagorasConfig", "trigonometryConfig"]
     .forEach((id) => {
       const element = document.getElementById(id);
       if (element) {
         const matches = id === "arithmeticConfig"
           ? type === "arithmetic"
+          : id === "numberTracingConfig"
+            ? type === "number-tracing"
           : id === "numberLineConfig"
             ? type === "number-line"
           : id === "cartesianPlaneConfig"
@@ -6908,6 +7312,21 @@ function readInteractiveAppFromForm() {
   if (!type) return null;
 
   switch (type) {
+    case "number-tracing": {
+      const targetNumber = Number.parseInt(document.getElementById("ntTargetNumber").value, 10);
+      const prompt = String(document.getElementById("ntPrompt").value || "").trim();
+      const prepMode = Boolean(document.getElementById("ntPrepMode").checked);
+      const showQuantityDots = Boolean(document.getElementById("ntShowQuantityDots").checked);
+      return {
+        type,
+        config: {
+          targetNumber: Number.isInteger(targetNumber) ? Math.max(0, Math.min(100, targetNumber)) : 5,
+          prompt: prompt || (prepMode ? "Tap the matching number, then trace it." : "Trace the dotted number and say it aloud."),
+          prepMode,
+          showQuantityDots
+        }
+      };
+    }
     case "arithmetic": {
       const rawLayout = String(document.getElementById("arithLayout").value || "horizontal").trim().toLowerCase();
       const layout = rawLayout === "vertical" ? "vertical" : rawLayout === "long" ? "long" : "horizontal";
@@ -7167,12 +7586,19 @@ function populateInteractiveAppForm(app) {
 
   const numberLineConfig = (type === "number-line" ? nextApp : buildDefaultInteractiveApp("number-line")).config;
   const arithmeticConfig = (type === "arithmetic" ? nextApp : buildDefaultInteractiveApp("arithmetic")).config;
+  const numberTracingConfig = (type === "number-tracing" ? nextApp : buildDefaultInteractiveApp("number-tracing")).config;
   const savedLayout = String(arithmeticConfig.layout || "horizontal").trim().toLowerCase();
   document.getElementById("arithLayout").value = savedLayout === "vertical" ? "vertical" : savedLayout === "long" ? "long" : "horizontal";
   document.getElementById("arithOperator").value = String(arithmeticConfig.operator || "+").trim() || "+";
   document.getElementById("arithOperandA").value = Number.isFinite(Number(arithmeticConfig.operandA)) ? String(arithmeticConfig.operandA) : "0";
   document.getElementById("arithOperandB").value = Number.isFinite(Number(arithmeticConfig.operandB)) ? String(arithmeticConfig.operandB) : "0";
   document.getElementById("arithAnswer").value = arithmeticConfig.answer || "";
+
+  const tracingTarget = Number.parseInt(numberTracingConfig.targetNumber, 10);
+  document.getElementById("ntTargetNumber").value = Number.isInteger(tracingTarget) ? String(Math.max(0, Math.min(100, tracingTarget))) : "5";
+  document.getElementById("ntPrompt").value = String(numberTracingConfig.prompt || "Tap the matching number, then trace it.");
+  document.getElementById("ntPrepMode").checked = Boolean(numberTracingConfig.prepMode);
+  document.getElementById("ntShowQuantityDots").checked = Boolean(numberTracingConfig.showQuantityDots);
 
   document.getElementById("nlMin").value = numberLineConfig.min ?? -10;
   document.getElementById("nlMax").value = numberLineConfig.max ?? 10;
@@ -7762,6 +8188,21 @@ function requireDeletePhrase(scopeLabel) {
   return false;
 }
 
+function requireActionPassword(scopeLabel, expectedPhrase) {
+  const typed = prompt(`To clear this ${scopeLabel}, enter password: ${expectedPhrase}`);
+  if (typed === expectedPhrase) {
+    return true;
+  }
+
+  if (typed === null) {
+    showToast("Action canceled.", "info");
+  } else {
+    showToast("Action blocked. Incorrect password.", "warning");
+  }
+
+  return false;
+}
+
 async function deleteCategory(id) {
   if (!requireDeletePhrase("category")) return;
 
@@ -7847,6 +8288,29 @@ async function deleteQuestion(index) {
   quiz.questions.splice(index, 1);
   renderAll();
   await persistSelectedQuizAfterMutation("Question list");
+}
+
+async function clearQuizQuestions() {
+  const quiz = activeQuiz();
+  if (!quiz || !Array.isArray(quiz.questions)) {
+    showToast("Select a quiz first.", "warning");
+    return;
+  }
+
+  if (quiz.questions.length === 0) {
+    showToast("This quiz has no questions to clear.", "info");
+    return;
+  }
+
+  if (!requireActionPassword("all questions in this quiz", "CLEAR")) {
+    return;
+  }
+
+  quiz.questions = [createEmptyQuestion()];
+  state.selectedQuestionIndex = 0;
+  renderAll();
+  await persistSelectedQuizAfterMutation("Quiz questions cleared");
+  showToast("All questions were cleared for this quiz.", "success");
 }
 
 function scheduleSilentDiskSave(delayMs = 700) {
@@ -8292,6 +8756,9 @@ document.getElementById("openQuizSettingsBtn").addEventListener("click", () => {
   openQuizSettingsModal();
 });
 document.getElementById("addQuestionBtn").addEventListener("click", addQuestion);
+document.getElementById("clearQuestionBtn").addEventListener("click", () => {
+  void clearQuizQuestions();
+});
 
 document.getElementById("categorySearch").addEventListener("input", renderCategoryList);
 document.getElementById("quizSearch").addEventListener("input", renderQuizList);
@@ -8508,34 +8975,19 @@ document.getElementById("autoCreateDifficultyLevel").addEventListener("input", (
   }
 });
 
-// Check if an arithmetic question with same operands already exists in the active quiz
-function isArithmeticQuestionDuplicate(payload) {
+// Check if a generated question already exists in the active quiz.
+function isGeneratedQuestionDuplicate(payload) {
   const quiz = activeQuiz();
-  if (!quiz || !quiz.questions || payload.interactiveApp?.type !== "arithmetic") {
+  if (!quiz || !Array.isArray(quiz.questions) || !payload) {
     return false;
   }
-
-  const config = payload.interactiveApp?.config;
-  if (!config) return false;
-
-  // Create a signature of this question
-  const signature = `${config.operator}_${config.operandA}_${config.operandB}_${config.layout || "horizontal"}`;
-
-  // Check against existing questions
+  const seenSignatures = new Set();
   for (const existingQuestion of quiz.questions) {
-    if (!existingQuestion.interactiveApp || existingQuestion.interactiveApp.type !== "arithmetic") {
-      continue;
-    }
-    const existingConfig = existingQuestion.interactiveApp.config;
-    if (!existingConfig) continue;
-
-    const existingSignature = `${existingConfig.operator}_${existingConfig.operandA}_${existingConfig.operandB}_${existingConfig.layout || "horizontal"}`;
-    if (signature === existingSignature) {
-      return true;
-    }
+    if (!existingQuestion || isIntroductionQuestionItem(existingQuestion)) continue;
+    const existingSignature = buildQuestionUniquenessSignature(existingQuestion);
+    if (existingSignature) seenSignatures.add(existingSignature);
   }
-
-  return false;
+  return isQuestionDuplicateInSet(payload, seenSignatures);
 }
 
 document.getElementById("autoCreateQuestionBtn").addEventListener("click", async () => {
@@ -8572,7 +9024,7 @@ document.getElementById("autoCreateQuestionBtn").addEventListener("click", async
     }
 
     // Check for duplicates
-    if (!isArithmeticQuestionDuplicate(payload)) {
+    if (!isGeneratedQuestionDuplicate(payload)) {
       break; // Found a unique question
     }
 

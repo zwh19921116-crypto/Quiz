@@ -599,6 +599,139 @@ textarea {
   background: #ffffff;
 }
 
+.number-tracing-card {
+  display: grid;
+  gap: 10px;
+}
+
+.number-tracing-prompt {
+  margin: 0;
+}
+
+.number-tracing-target {
+  margin: 0;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+
+.number-tracing-assist {
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  background: #eff6ff;
+  padding: 8px 10px;
+  display: grid;
+  gap: 4px;
+}
+
+.number-tracing-assist-title {
+  margin: 0;
+  color: #1d4ed8;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.number-tracing-assist-step {
+  margin: 0;
+  color: #1e3a8a;
+  font-size: 0.86rem;
+}
+
+.number-tracing-strokes {
+  margin: 0;
+  color: #475569;
+  font-size: 0.88rem;
+}
+
+.number-tracing-prep {
+  margin: 0;
+  color: #0f766e;
+  font-weight: 600;
+}
+
+.number-tracing-stage {
+  position: relative;
+  border: 1px solid #dbe6f3;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  min-height: 220px;
+  overflow: hidden;
+}
+
+.number-tracing-svg {
+  width: 100%;
+  height: 220px;
+  display: block;
+}
+
+.number-tracing-guide-line {
+  stroke: #cbd5e1;
+  stroke-width: 1;
+}
+
+.number-tracing-guide-line-mid {
+  stroke: #86efac;
+  stroke-width: 1.1;
+}
+
+.number-tracing-shadow-path {
+  fill: none;
+  stroke: #cbd5e1;
+  stroke-width: 11;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.45;
+}
+
+.number-tracing-dotted-path {
+  fill: none;
+  stroke: #fb7185;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1 5;
+}
+
+.number-tracing-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.number-tracing-dots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14px, 1fr));
+  gap: 6px;
+  max-width: 320px;
+}
+
+.number-tracing-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #38bdf8;
+  border: 1px solid #0284c7;
+}
+
+.number-tracing-status {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.number-tracing-status.is-complete {
+  border-color: #16a34a;
+  background: #f0fdf4;
+  color: #166534;
+}
+
 .matrix-card .matrix-bracket {
   width: 12px;
   min-height: 100%;
@@ -2510,10 +2643,36 @@ body.modal-open {
   font-weight: 700;
 }
 
+.solution-number-word {
+  display: block;
+  color: #475569;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+  text-transform: capitalize;
+}
+
+.solution-number-digit {
+  display: block;
+  color: #0f172a;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
 .solution-modal-copy {
   color: #0f172a;
   line-height: 1.75;
   font-size: 1rem;
+}
+
+.solution-tracing-image {
+  display: block;
+  width: min(100%, 440px);
+  height: auto;
+  border: 1px solid #dbe3ee;
+  border-radius: 10px;
+  background: #ffffff;
 }
 
 .solution-step-list {
