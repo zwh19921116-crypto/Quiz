@@ -223,11 +223,15 @@
       justify-content: center;
       background: linear-gradient(135deg, #0f766e 0%, #0ea5e9 100%);
       color: #ffffff;
-      font-size: 1.1rem;
+      font-size: clamp(0.95rem, 2.1vw, 1.22rem);
       font-weight: 900;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      text-transform: none;
       transition: transform 0.2s ease;
+      text-align: center;
+      line-height: 1.2;
+      padding: 0 14px;
+      text-shadow: 0 2px 10px rgba(15, 23, 42, 0.42);
     }
 
     .category-card:hover .category-icon-fallback {
@@ -847,19 +851,14 @@
           const cat = entry.cat;
           const name  = escapeHtml(cat.name || "Unnamed Category");
           const count = Array.isArray(cat.quizzes) ? cat.quizzes.length : 0;
-          const badge = String(cat && cat.name ? cat.name : "Year")
-            .split(/\s+/)
-            .filter(Boolean)
-            .slice(0, 2)
-            .map((part) => part.charAt(0).toUpperCase())
-            .join("") || "YR";
+          const badge = escapeHtml(String(cat && cat.name ? cat.name : "Year").trim() || "Year");
           const label = count === 1 ? "1 quiz" : count + " quizzes";
           const imagePath = getCategoryImagePath(cat);
           const fallbackStyle = getCategoryFallbackStyle(cat, i);
           const iconMarkup = imagePath
             ? '<img class="category-icon-image" src="' + escapeHtml(imagePath) + '" alt="' + name + ' image" loading="lazy" onerror="this.style.display=\'none\'; if (this.nextElementSibling) this.nextElementSibling.style.display=\'inline-flex\';" />' +
-              '<span class="category-icon-fallback" style="display:none; background:' + escapeHtml(fallbackStyle) + '">' + escapeHtml(badge) + '</span>'
-            : '<span class="category-icon-fallback" style="background:' + escapeHtml(fallbackStyle) + '">' + escapeHtml(badge) + '</span>';
+              '<span class="category-icon-fallback" style="display:none; background:' + escapeHtml(fallbackStyle) + '">' + badge + '</span>'
+            : '<span class="category-icon-fallback" style="background:' + escapeHtml(fallbackStyle) + '">' + badge + '</span>';
           const iconClass = imagePath ? 'category-icon has-image' : 'category-icon';
 
           return (
