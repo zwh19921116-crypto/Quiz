@@ -308,7 +308,7 @@
 
       <!-- Panel: Categories -->
       <div class="menu-panel" id="panelCategories">
-        <p class="menu-section-label">Select a Category</p>
+        <p class="menu-section-label">SELECT YEAR</p>
         <div class="category-grid" id="categoryGrid"></div>
       </div>
 
@@ -491,6 +491,46 @@
       // ── Back button ─────────────────────────────────────────
       backBtn.addEventListener("click", showCategories);
 
+      // ── Probe quiz files and filter unreachable ones ────────
+      async function probeFile(path) {
+        try {
+          const res = await fetch(path, { method: "HEAD", cache: "no-store" });
+          return res.ok;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      async function filterAvailableCategories(categories, root) {
+        const checks = [];
+        categories.forEach(function (cat) {
+          (Array.isArray(cat.quizzes) ? cat.quizzes : []).forEach(function (quiz) {
+            checks.push({
+              cat: cat,
+              quiz: quiz,
+              path: resolveQuizFilePath(quiz.file || "")
+            });
+          });
+        });
+
+        const results = await Promise.all(
+          checks.map(function (c) { return probeFile(c.path).then(function (ok) { return { c, ok }; }); })
+        );
+
+        const validFiles = new Set();
+        results.forEach(function (r) { if (r.ok) validFiles.add(r.c.quiz.file); });
+
+        return categories
+          .map(function (cat) {
+            return Object.assign({}, cat, {
+              quizzes: (Array.isArray(cat.quizzes) ? cat.quizzes : []).filter(function (q) {
+                return validFiles.has(q.file);
+              })
+            });
+          })
+          .filter(function (cat) { return cat.quizzes.length > 0; });
+      }
+
       // ── Boot ────────────────────────────────────────────────
       async function loadIndex() {
         try {
@@ -499,10 +539,16 @@
             throw new Error("Could not load quiz index (" + response.status + ").");
           }
           indexData = await response.json();
+          indexData = Object.assign({}, indexData, {
+            categories: await filterAvailableCategories(
+              Array.isArray(indexData.categories) ? indexData.categories : [],
+              String((indexData && indexData.root) || "quizzes")
+            )
+          });
           renderCategories();
         } catch (err) {
           setStatus(
-            "Could not load quiz library. Make sure quizzes/index.json exists and the app is served over HTTP. (" + err.message + ")",
+            "Could not load quiz library. Make sure the app is served over HTTP. (" + err.message + ")",
             true
           );
         }

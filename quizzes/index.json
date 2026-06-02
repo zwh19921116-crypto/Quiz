@@ -2,33 +2,6 @@
   "root": "quizzes",
   "categories": [
     {
-      "name": "General",
-      "quizzes": [
-        {
-          "title": "Sample Quiz",
-          "file": "general/sample-quiz.json"
-        }
-      ]
-    },
-    {
-      "name": "Science",
-      "quizzes": [
-        {
-          "title": "Planets Quiz",
-          "file": "science/planets-quiz.json"
-        }
-      ]
-    },
-    {
-      "name": "Space",
-      "quizzes": [
-        {
-          "title": "New Quiz",
-          "file": "space/new-quiz.json"
-        }
-      ]
-    },
-    {
       "name": "Time",
       "quizzes": [
         {
@@ -43,6 +16,14 @@
         {
           "title": "Prep - Introduction to Numbers",
           "file": "prep/prep-introduction-to-numbers.json"
+        },
+        {
+          "title": "Quiz 3",
+          "file": "prep/quiz-3.json"
+        },
+        {
+          "title": "TEST",
+          "file": "prep/test.json"
         }
       ]
     }
