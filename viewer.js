@@ -153,13 +153,39 @@ function toParagraphList(value) {
   return raw.split(/\r?\n+/).map((line) => line.trim()).filter((line) => line !== "");
 }
 
+function normalizeLegalParagraphs(lines) {
+  const list = Array.isArray(lines)
+    ? lines.map((line) => String(line || "").trim()).filter((line) => line !== "")
+    : [];
+
+  const result = [];
+  let previousKey = "";
+  list.forEach((line) => {
+    const key = line.toLowerCase();
+    if (key === previousKey) return;
+    result.push(line);
+    previousKey = key;
+  });
+  return result;
+}
+
+function isTermsHeading(line) {
+  const value = String(line || "").trim().toLowerCase();
+  return value === "terms and conditions of use" || value === "terms and conditions";
+}
+
+function isEulaHeading(line) {
+  const value = String(line || "").trim().toLowerCase();
+  return value === "eula" || value === "end user license agreement (eula)" || value === "end user license agreement";
+}
+
 function parseTermsJsonPayload(raw) {
   if (!raw || typeof raw !== "object") return null;
   const title = typeof raw.title === "string" ? raw.title.trim() : "";
   const subtitle = typeof raw.subtitle === "string" ? raw.subtitle.trim() : "";
   const supportLabel = typeof raw.supportLabel === "string" ? raw.supportLabel.trim() : "";
   const supportEmail = typeof raw.supportEmail === "string" ? raw.supportEmail.trim() : "";
-  const body = toParagraphList(raw.body || raw.terms || raw.content || raw.text || "");
+  const body = normalizeLegalParagraphs(toParagraphList(raw.body || raw.terms || raw.content || raw.text || ""));
   if (!title && !subtitle && body.length === 0 && !supportEmail) return null;
   return {
     title,
@@ -208,20 +234,30 @@ async function loadExternalTermsForQuiz(settings) {
   const fromTermsTxt = await tryLoadTermsFromTxt(termsConditionsTxtPath);
   const fromEulaTxt = await tryLoadTermsFromTxt(eulaTxtPath);
   if (fromTermsTxt || fromEulaTxt) {
+    const termsLines = normalizeLegalParagraphs((fromTermsTxt && Array.isArray(fromTermsTxt.body)) ? fromTermsTxt.body : []);
+    const eulaLines = normalizeLegalParagraphs((fromEulaTxt && Array.isArray(fromEulaTxt.body)) ? fromEulaTxt.body : []);
     const combinedBody = [];
-    if (fromTermsTxt && Array.isArray(fromTermsTxt.body) && fromTermsTxt.body.length > 0) {
-      combinedBody.push("Terms and Conditions of Use");
-      combinedBody.push(...fromTermsTxt.body);
-    }
-    if (fromEulaTxt && Array.isArray(fromEulaTxt.body) && fromEulaTxt.body.length > 0) {
-      combinedBody.push("EULA");
-      combinedBody.push(...fromEulaTxt.body);
+
+    if (termsLines.length > 0) {
+      if (!isTermsHeading(termsLines[0])) {
+        combinedBody.push("Terms and Conditions of Use");
+      }
+      combinedBody.push(...termsLines);
     }
 
-    if (combinedBody.length > 0) {
+    if (eulaLines.length > 0) {
+      if (!isEulaHeading(eulaLines[0])) {
+        combinedBody.push("EULA");
+      }
+      combinedBody.push(...eulaLines);
+    }
+
+    const cleanedCombinedBody = normalizeLegalParagraphs(combinedBody);
+
+    if (cleanedCombinedBody.length > 0) {
       return {
         subtitle: "Terms and Conditions of Use and EULA",
-        body: combinedBody
+        body: cleanedCombinedBody
       };
     }
   }
@@ -230,7 +266,12 @@ async function loadExternalTermsForQuiz(settings) {
   if (fromJson) return fromJson;
 
   const fromTxt = await tryLoadTermsFromTxt(txtPath);
-  if (fromTxt) return fromTxt;
+  if (fromTxt) {
+    return {
+      ...fromTxt,
+      body: normalizeLegalParagraphs(Array.isArray(fromTxt.body) ? fromTxt.body : [])
+    };
+  }
 
   return null;
 }
