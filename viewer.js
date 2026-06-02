@@ -764,30 +764,6 @@ function renderPrestartIntroScreen() {
   const intro = quizData && quizData.prestartIntro ? quizData.prestartIntro : buildDefaultPrestartIntro();
   const quizTitle = String(quizData && quizData.title ? quizData.title : "Quiz Viewer").trim() || "Quiz Viewer";
   const subtitle = String(intro && intro.subtitle ? intro.subtitle : "Terms and Conditions of Use").trim() || "Terms and Conditions of Use";
-  const lines = Array.isArray(intro.body) ? intro.body : [];
-
-  const renderStartLegalBodyMarkup = (items) => {
-    if (!Array.isArray(items) || items.length === 0) {
-      return "<p>Please read and accept the Terms and Conditions and EULA before starting.</p>";
-    }
-
-    return items.map((line) => {
-      const text = String(line || "").trim();
-      if (!text) return "";
-      const lower = text.toLowerCase();
-      if (lower === "terms and conditions of use" || lower === "terms and conditions") {
-        return `<p class=\"start-legal-heading\">${escapeHtml(text)}</p>`;
-      }
-      if (lower === "eula" || lower === "end user license agreement") {
-        return `<p class=\"start-legal-heading\">${escapeHtml(text)}</p>`;
-      }
-      return `<p>${escapeHtml(text)}</p>`;
-    }).join("");
-  };
-
-  const bodyMarkup = lines.length > 0
-    ? renderStartLegalBodyMarkup(lines)
-    : "<p>Please read and accept the Terms and Conditions and EULA before starting.</p>";
   const supportMarkup = intro.supportEmail
     ? `<p class="intro-support"><strong>${escapeHtml(intro.supportLabel || "Support")}:</strong> <a href="mailto:${escapeHtml(intro.supportEmail)}">${escapeHtml(intro.supportEmail)}</a></p>`
     : "";
@@ -799,10 +775,6 @@ function renderPrestartIntroScreen() {
       <h2 class="start-main-title">${escapeHtml(quizTitle)}</h2>
       <p class="start-subtitle">${escapeHtml(subtitle)}</p>
       <p class="intro-lead">Please review the Terms and EULA before starting this quiz.</p>
-      <button class="btn secondary intro-toggle-btn" id="startToggleTermsBtn" type="button">View Terms and EULA</button>
-      <div class="intro-terms-panel hidden" id="startTermsPanel">
-        <div class="intro-copy">${bodyMarkup}</div>
-      </div>
       ${supportMarkup}
       <div class="intro-acceptance" role="group" aria-label="Terms and Conditions acceptance">
         <label class="intro-check-item">
@@ -825,16 +797,6 @@ function renderPrestartIntroScreen() {
   document.getElementById("showSolutionBtn").classList.add("hidden");
   document.getElementById("resultBox").textContent = "";
   document.getElementById("resultBox").className = "";
-
-  const startTermsToggleBtn = document.getElementById("startToggleTermsBtn");
-  const startTermsPanel = document.getElementById("startTermsPanel");
-  if (startTermsToggleBtn instanceof HTMLButtonElement && startTermsPanel instanceof HTMLElement) {
-    startTermsToggleBtn.addEventListener("click", () => {
-      const isHidden = startTermsPanel.classList.contains("hidden");
-      startTermsPanel.classList.toggle("hidden", !isHidden);
-      startTermsToggleBtn.textContent = isHidden ? "Hide Terms and EULA" : "View Terms and EULA";
-    });
-  }
 
   const startAcceptTerms = document.getElementById("startAcceptTerms");
   const syncStartButtonState = () => {
