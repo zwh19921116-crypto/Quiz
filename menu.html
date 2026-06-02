@@ -156,28 +156,26 @@
     .category-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 18px;
+      gap: 20px;
     }
 
     .category-card {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      padding: 12px;
+      border-radius: 18px;
+      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.14);
+      padding: 0;
       cursor: pointer;
-      transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
       user-select: none;
       position: relative;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      min-height: 200px;
     }
 
     .category-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.16);
+      transform: translateY(-6px);
+      box-shadow: 0 28px 52px rgba(15, 23, 42, 0.2);
       border-color: var(--primary);
     }
 
@@ -185,32 +183,24 @@
       transform: translateY(0);
     }
 
-    .category-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 3px;
-      background: linear-gradient(90deg, #0f766e 0%, #0ea5e9 100%);
-      opacity: 0.8;
-    }
-
     .category-icon {
       width: 100%;
-      height: 132px;
-      border-radius: 12px;
+      height: 200px;
+      border-radius: 0;
       background: linear-gradient(140deg, #0f766e 0%, #155e75 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1rem;
       overflow: hidden;
-      box-shadow: 0 10px 22px rgba(15, 118, 110, 0.24);
+      box-shadow: inset 0 -70px 90px rgba(15, 23, 42, 0.35);
+      position: relative;
     }
 
     .category-icon.has-image {
       background: #ffffff;
-      border: 1px solid #dbe3ee;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.14);
+      border: 0;
+      box-shadow: inset 0 -70px 90px rgba(15, 23, 42, 0.35);
     }
 
     .category-icon-image {
@@ -218,6 +208,11 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.28s ease;
+    }
+
+    .category-card:hover .category-icon-image {
+      transform: scale(1.04);
     }
 
     .category-icon-fallback {
@@ -232,26 +227,59 @@
       font-weight: 900;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      transition: transform 0.2s ease;
     }
 
-    .category-body {
-      padding: 0 4px 4px;
+    .category-card:hover .category-icon-fallback {
+      transform: scale(1.03);
+    }
+
+    .category-media-overlay {
+      position: absolute;
+      inset: 0;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.12) 0%, rgba(15, 23, 42, 0.52) 100%);
+    }
+
+    .category-count-chip {
+      align-self: flex-end;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      color: #f8fafc;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 6px 10px;
+      backdrop-filter: blur(2px);
+    }
+
+    .category-title-wrap {
+      display: grid;
+      gap: 6px;
     }
 
     .category-name {
-      margin: 0 0 5px;
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--ink);
+      margin: 0;
+      font-size: 1.22rem;
+      font-weight: 900;
+      color: #ffffff;
+      text-shadow: 0 4px 12px rgba(15, 23, 42, 0.5);
     }
 
     .category-count {
       margin: 0;
-      font-size: 0.8rem;
-      color: var(--muted);
-      font-weight: 700;
-      letter-spacing: 0.02em;
+      font-size: 0.76rem;
+      color: rgba(241, 245, 249, 0.98);
+      font-weight: 800;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(15, 23, 42, 0.45);
     }
 
     /* Quiz list */
@@ -262,16 +290,16 @@
     }
 
     .quiz-item {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.07);
+      background: linear-gradient(145deg, #ffffff 0%, #f6fbff 100%);
+      border: 1px solid #d8e5f4;
+      border-radius: 16px;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
       padding: 18px 20px;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 16px;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
       user-select: none;
       position: relative;
       overflow: hidden;
@@ -287,9 +315,9 @@
     }
 
     .quiz-item:hover {
-      transform: translateX(4px);
+      transform: translateX(6px);
       border-color: var(--primary);
-      box-shadow: 0 6px 24px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.14);
     }
 
     .quiz-item:active {
@@ -299,21 +327,21 @@
     .quiz-item-icon {
       width: 54px;
       height: 54px;
-      border-radius: 10px;
-      background: linear-gradient(140deg, #0f766e 0%, #0ea5e9 100%);
+      border-radius: 12px;
+      background: linear-gradient(140deg, #0f766e 0%, #0284c7 100%);
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.4);
       box-shadow: 0 8px 16px rgba(15, 23, 42, 0.18);
     }
 
     .quiz-item-icon-label {
       color: #ffffff;
-      font-size: 0.64rem;
+      font-size: 0.72rem;
       font-weight: 900;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
@@ -339,6 +367,14 @@
       font-weight: 800;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #eaf4ff;
+      border: 1px solid #d1e6fb;
+      border-radius: 999px;
+      padding: 4px 10px;
+      width: fit-content;
     }
 
     .quiz-item-description {
@@ -354,10 +390,18 @@
     }
 
     .quiz-item-arrow {
-      color: var(--primary);
-      font-size: 1.2rem;
+      color: #0f766e;
+      font-size: 1.05rem;
       font-weight: 800;
       flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: #e6f6f4;
+      border: 1px solid #ccebe6;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Back button */
@@ -445,11 +489,11 @@
       }
 
       .category-card {
-        padding: 10px;
+        min-height: 188px;
       }
 
       .category-icon {
-        height: 116px;
+        height: 188px;
       }
     }
   </style>
@@ -783,10 +827,15 @@
 
           return (
             '<div class="category-card" data-source-index="' + entry.sourceIndex + '" tabindex="0" role="button" aria-label="Open ' + name + '">' +
-            '  <div class="' + iconClass + '">' + iconMarkup + "</div>" +
-            '  <div class="category-body">' +
-            '    <p class="category-name">' + name + "</p>" +
-            '    <p class="category-count">' + label + "</p>" +
+            '  <div class="' + iconClass + '">' +
+            '    ' + iconMarkup +
+            '    <div class="category-media-overlay">' +
+            '      <span class="category-count-chip">' + label + '</span>' +
+            '      <div class="category-title-wrap">' +
+            '        <p class="category-name">' + name + "</p>" +
+            '        <p class="category-count">Year Level</p>' +
+            '      </div>' +
+            '    </div>' +
             '  </div>' +
             "</div>"
           );
@@ -836,10 +885,16 @@
           const title = escapeHtml(quiz.title || quiz.file || "Untitled Quiz");
           const file  = escapeHtml(resolveQuizFilePath(quiz.file || ""));
           const desc = escapeHtml(descriptions[i] || "");
+          const moduleBadge = String(quiz && quiz.title ? quiz.title : "Quiz")
+            .split(/\s+/)
+            .filter(Boolean)
+            .slice(0, 2)
+            .map((part) => part.charAt(0).toUpperCase())
+            .join("") || "QZ";
           const descMarkup = desc ? '<p class="quiz-item-description">' + desc + '</p>' : '';
           return (
             '<div class="quiz-item" data-file="' + file + '" tabindex="0" role="button" aria-label="Start ' + title + '">' +
-            '  <div class="quiz-item-icon"><span class="quiz-item-icon-label">Quiz</span></div>' +
+            '  <div class="quiz-item-icon"><span class="quiz-item-icon-label">' + escapeHtml(moduleBadge) + '</span></div>' +
             '  <div class="quiz-item-body">' +
             '    <p class="quiz-item-title">' + title + "</p>" +
             '    <p class="quiz-item-meta">' + escapeHtml(catName) + "</p>" +
