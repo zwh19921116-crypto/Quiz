@@ -243,14 +243,16 @@
       inset: 0;
       padding: 14px;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
+      align-items: center;
       pointer-events: none;
       background: linear-gradient(180deg, rgba(15, 23, 42, 0.12) 0%, rgba(15, 23, 42, 0.52) 100%);
     }
 
     .category-count-chip {
-      align-self: flex-end;
+      position: absolute;
+      top: 14px;
+      right: 14px;
       background: rgba(255, 255, 255, 0.16);
       border: 1px solid rgba(255, 255, 255, 0.38);
       color: #f8fafc;
@@ -263,27 +265,14 @@
       backdrop-filter: blur(2px);
     }
 
-    .category-title-wrap {
-      display: grid;
-      gap: 6px;
-    }
-
-    .category-name {
+    .category-title-center {
       margin: 0;
-      font-size: 1.22rem;
+      font-size: clamp(1.3rem, 2.8vw, 1.8rem);
       font-weight: 900;
       color: #ffffff;
+      text-align: center;
+      letter-spacing: 0.01em;
       text-shadow: 0 4px 12px rgba(15, 23, 42, 0.5);
-    }
-
-    .category-count {
-      margin: 0;
-      font-size: 0.76rem;
-      color: rgba(241, 245, 249, 0.98);
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      text-shadow: 0 2px 8px rgba(15, 23, 42, 0.45);
     }
 
     /* Quiz list */
@@ -867,10 +856,7 @@
             '    ' + iconMarkup +
             '    <div class="category-media-overlay">' +
             '      <span class="category-count-chip">' + label + '</span>' +
-            '      <div class="category-title-wrap">' +
-            '        <p class="category-name">' + name + "</p>" +
-            '        <p class="category-count">Year Level</p>' +
-            '      </div>' +
+            '      <p class="category-title-center">' + name + "</p>" +
             '    </div>' +
             '  </div>' +
             "</div>"
