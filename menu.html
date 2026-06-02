@@ -10,11 +10,62 @@
     .menu-shell {
       min-height: 100vh;
       padding: 36px 16px 60px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% -10%, rgba(14, 116, 144, 0.18) 0%, rgba(14, 116, 144, 0) 42%),
+        radial-gradient(circle at 92% 8%, rgba(34, 197, 94, 0.16) 0%, rgba(34, 197, 94, 0) 36%);
     }
 
     .menu-container {
       max-width: 960px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-toolbar {
+      margin: 6px 0 24px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid #d7e3f2;
+      border-radius: 14px;
+      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.1);
+      backdrop-filter: blur(6px);
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .menu-toolbar-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .menu-search-input {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #c7d4e7;
+      background: #ffffff;
+      padding: 11px 12px;
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .menu-search-input:focus {
+      border-color: #0f766e;
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+    }
+
+    .menu-search-meta {
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.02em;
     }
 
     /* Breadcrumb */
@@ -84,10 +135,16 @@
       border: 1px solid var(--line);
       border-radius: 16px;
       box-shadow: var(--shadow);
-      padding: 24px 20px;
+      padding: 16px;
       cursor: pointer;
       transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
       user-select: none;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      align-items: center;
+      gap: 12px;
     }
 
     .category-card:hover {
@@ -100,16 +157,24 @@
       transform: translateY(0);
     }
 
+    .category-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0f766e 0%, #0ea5e9 100%);
+      opacity: 0.8;
+    }
+
     .category-icon {
-      width: 44px;
-      height: 44px;
+      width: 56px;
+      height: 56px;
       border-radius: 12px;
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.3rem;
-      margin-bottom: 14px;
       overflow: hidden;
       box-shadow: 0 6px 14px rgba(15, 118, 110, 0.24);
     }
@@ -136,7 +201,7 @@
     }
 
     .category-name {
-      margin: 0 0 6px;
+      margin: 0 0 5px;
       font-size: 1.05rem;
       font-weight: 800;
       color: var(--ink);
@@ -168,6 +233,17 @@
       gap: 16px;
       transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
       user-select: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quiz-item::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      background: linear-gradient(180deg, #0f766e 0%, #0ea5e9 100%);
+      opacity: 0.75;
     }
 
     .quiz-item:hover {
@@ -252,6 +328,16 @@
       font-size: 0.96rem;
     }
 
+    .menu-empty {
+      text-align: center;
+      padding: 22px 16px;
+      border: 1px dashed #b9c9de;
+      border-radius: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.75);
+    }
+
     .menu-status.error {
       color: var(--danger);
     }
@@ -281,14 +367,27 @@
     }
 
     @media (max-width: 600px) {
+      .menu-toolbar-row {
+        grid-template-columns: 1fr;
+      }
+
       .category-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 420px) {
       .category-grid {
         grid-template-columns: 1fr;
+      }
+
+      .category-card {
+        grid-template-columns: 50px 1fr;
+      }
+
+      .category-icon {
+        width: 50px;
+        height: 50px;
       }
     }
   </style>
@@ -326,6 +425,20 @@
         <span class="breadcrumb-current" id="breadcrumbHome">All Categories</span>
       </nav>
 
+      <div class="menu-toolbar" role="search" aria-label="Quiz menu search">
+        <div class="menu-toolbar-row">
+          <input
+            id="menuSearchInput"
+            class="menu-search-input"
+            type="text"
+            placeholder="Search year or quiz title"
+            autocomplete="off"
+          />
+          <button class="btn secondary" id="clearSearchBtn" type="button">Clear</button>
+        </div>
+        <p class="menu-search-meta" id="menuSearchMeta">Showing all available years</p>
+      </div>
+
       <!-- Loading / error state -->
       <div class="menu-status" id="menuStatus">Loading quiz library&hellip;</div>
 
@@ -361,12 +474,17 @@
       const quizListLabel  = document.getElementById("quizListLabel");
       const breadcrumb     = document.getElementById("breadcrumb");
       const backBtn        = document.getElementById("backToCategories");
+      const searchInput    = document.getElementById("menuSearchInput");
+      const clearSearchBtn = document.getElementById("clearSearchBtn");
+      const searchMeta     = document.getElementById("menuSearchMeta");
+      let activeView       = "categories";
 
       // Category icons (cycles through if more categories than icons)
       const CATEGORY_ICONS = ["📚", "🔬", "🌍", "⏰", "🔢", "🎨", "🏅", "💡", "📐", "🌐"];
 
       // ── Utilities ───────────────────────────────────────────
       function showPanel(name) {
+        activeView = name;
         panelCats.classList.toggle("active", name === "categories");
         panelQuizzes.classList.toggle("active", name === "quizzes");
       }
@@ -391,6 +509,19 @@
           .toLowerCase()
           .replace(/[^a-z0-9]+/g, "-")
           .replace(/^-+|-+$/g, "");
+      }
+
+      function normalizeSearchQuery(value) {
+        return String(value || "").trim().toLowerCase();
+      }
+
+      function getSearchQuery() {
+        return normalizeSearchQuery(searchInput && searchInput.value);
+      }
+
+      function setSearchMeta(text) {
+        if (!(searchMeta instanceof HTMLElement)) return;
+        searchMeta.textContent = text;
       }
 
       function resolveQuizFilePath(file) {
@@ -472,10 +603,22 @@
         currentCategoryIndex = -1;
         renderBreadcrumb(null);
         showPanel("categories");
+        renderCategories();
       }
 
       async function renderCategories() {
         const categories = (indexData && Array.isArray(indexData.categories)) ? indexData.categories : [];
+        const query = getSearchQuery();
+
+        const categoryEntries = categories
+          .map((cat, sourceIndex) => ({ cat, sourceIndex }))
+          .filter((entry) => {
+            if (!query) return true;
+            const nameMatch = normalizeSearchQuery(entry.cat && entry.cat.name).includes(query);
+            if (nameMatch) return true;
+            const quizzes = Array.isArray(entry.cat && entry.cat.quizzes) ? entry.cat.quizzes : [];
+            return quizzes.some((quiz) => normalizeSearchQuery(quiz && quiz.title).includes(query));
+          });
 
         if (categories.length === 0) {
           setStatus("No categories found in the quiz library. Open the Maker to create some.", false);
@@ -484,9 +627,19 @@
 
         setStatus("", false);
 
-        const imagePaths = await Promise.all(categories.map((cat) => resolveCategoryImage(cat)));
+        const imagePaths = await Promise.all(categoryEntries.map((entry) => resolveCategoryImage(entry.cat)));
 
-        categoryGrid.innerHTML = categories.map((cat, i) => {
+        if (categoryEntries.length === 0) {
+          categoryGrid.innerHTML = '<div class="menu-empty">No year matched your search.</div>';
+          setSearchMeta('No year matches for "' + (searchInput ? searchInput.value.trim() : "") + '"');
+          showPanel("categories");
+          return;
+        }
+
+        setSearchMeta(query ? `${categoryEntries.length} year(s) matched` : `${categoryEntries.length} year(s) available`);
+
+        categoryGrid.innerHTML = categoryEntries.map((entry, i) => {
+          const cat = entry.cat;
           const name  = escapeHtml(cat.name || "Unnamed Category");
           const count = Array.isArray(cat.quizzes) ? cat.quizzes.length : 0;
           const icon  = CATEGORY_ICONS[i % CATEGORY_ICONS.length];
@@ -498,10 +651,12 @@
           const iconClass = imagePath ? 'category-icon has-image' : 'category-icon';
 
           return (
-            '<div class="category-card" data-index="' + i + '" tabindex="0" role="button" aria-label="Open ' + name + '">' +
+            '<div class="category-card" data-source-index="' + entry.sourceIndex + '" tabindex="0" role="button" aria-label="Open ' + name + '">' +
             '  <div class="' + iconClass + '">' + iconMarkup + "</div>" +
-            '  <p class="category-name">' + name + "</p>" +
-            '  <p class="category-count">' + label + "</p>" +
+            '  <div>' +
+            '    <p class="category-name">' + name + "</p>" +
+            '    <p class="category-count">' + label + "</p>" +
+            '  </div>' +
             "</div>"
           );
         }).join("");
@@ -509,12 +664,12 @@
         // Wire click + keyboard
         categoryGrid.querySelectorAll(".category-card").forEach(function (card) {
           card.addEventListener("click", function () {
-            openCategory(parseInt(card.dataset.index, 10));
+            openCategory(parseInt(card.dataset.sourceIndex, 10));
           });
           card.addEventListener("keydown", function (e) {
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
-              openCategory(parseInt(card.dataset.index, 10));
+              openCategory(parseInt(card.dataset.sourceIndex, 10));
             }
           });
         });
@@ -534,14 +689,21 @@
         quizListLabel.textContent = catName;
 
         const quizzes = Array.isArray(cat.quizzes) ? cat.quizzes : [];
+        const query = getSearchQuery();
+        const filteredQuizzes = quizzes.filter((quiz) => {
+          if (!query) return true;
+          return normalizeSearchQuery(quiz && quiz.title).includes(query);
+        });
 
-        if (quizzes.length === 0) {
-          quizList.innerHTML = '<p class="menu-status">No quizzes in this category yet.</p>';
+        setSearchMeta(query ? `${filteredQuizzes.length} quiz(es) matched in ${catName}` : `${quizzes.length} quiz(es) in ${catName}`);
+
+        if (filteredQuizzes.length === 0) {
+          quizList.innerHTML = '<div class="menu-empty">No quiz matched your search in this year.</div>';
           showPanel("quizzes");
           return;
         }
 
-        quizList.innerHTML = quizzes.map(function (quiz, qi) {
+        quizList.innerHTML = filteredQuizzes.map(function (quiz) {
           const title = escapeHtml(quiz.title || quiz.file || "Untitled Quiz");
           const file  = escapeHtml(resolveQuizFilePath(quiz.file || ""));
           return (
@@ -578,6 +740,30 @@
 
       // ── Back button ─────────────────────────────────────────
       backBtn.addEventListener("click", showCategories);
+
+      if (searchInput instanceof HTMLInputElement) {
+        searchInput.addEventListener("input", () => {
+          if (activeView === "quizzes" && currentCategoryIndex >= 0) {
+            openCategory(currentCategoryIndex);
+            return;
+          }
+          renderCategories();
+        });
+      }
+
+      if (clearSearchBtn instanceof HTMLButtonElement) {
+        clearSearchBtn.addEventListener("click", () => {
+          if (searchInput instanceof HTMLInputElement) {
+            searchInput.value = "";
+            searchInput.focus();
+          }
+          if (activeView === "quizzes" && currentCategoryIndex >= 0) {
+            openCategory(currentCategoryIndex);
+            return;
+          }
+          renderCategories();
+        });
+      }
 
       // ── Probe quiz files and filter unreachable ones ────────
       async function probeFile(path) {
