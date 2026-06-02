@@ -38,9 +38,26 @@
 
     .menu-toolbar-row {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr auto auto;
       gap: 10px;
       align-items: center;
+    }
+
+    .menu-sort-select {
+      min-width: 132px;
+      border-radius: 10px;
+      border: 1px solid #c7d4e7;
+      background: #ffffff;
+      padding: 11px 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .menu-sort-select:focus {
+      border-color: #0f766e;
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
     }
 
     .menu-search-input {
@@ -434,6 +451,10 @@
             placeholder="Search year or quiz title"
             autocomplete="off"
           />
+          <select id="categorySortSelect" class="menu-sort-select" aria-label="Sort years">
+            <option value="asc" selected>Sort: A-Z</option>
+            <option value="desc">Sort: Z-A</option>
+          </select>
           <button class="btn secondary" id="clearSearchBtn" type="button">Clear</button>
         </div>
         <p class="menu-search-meta" id="menuSearchMeta">Showing all available years</p>
@@ -475,9 +496,11 @@
       const breadcrumb     = document.getElementById("breadcrumb");
       const backBtn        = document.getElementById("backToCategories");
       const searchInput    = document.getElementById("menuSearchInput");
+      const sortSelect     = document.getElementById("categorySortSelect");
       const clearSearchBtn = document.getElementById("clearSearchBtn");
       const searchMeta     = document.getElementById("menuSearchMeta");
       let activeView       = "categories";
+      const alnumCollator  = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
 
       // Category icons (cycles through if more categories than icons)
       const CATEGORY_ICONS = ["📚", "🔬", "🌍", "⏰", "🔢", "🎨", "🏅", "💡", "📐", "🌐"];
@@ -522,6 +545,24 @@
       function setSearchMeta(text) {
         if (!(searchMeta instanceof HTMLElement)) return;
         searchMeta.textContent = text;
+      }
+
+      function getSortMode() {
+        const value = String(sortSelect && sortSelect.value ? sortSelect.value : "asc").toLowerCase();
+        return value === "desc" ? "desc" : "asc";
+      }
+
+      function compareCategoryNamesAlnum(aName, bName) {
+        const left = String(aName || "").trim();
+        const right = String(bName || "").trim();
+        const leftStartsWithDigit = /^\d/.test(left);
+        const rightStartsWithDigit = /^\d/.test(right);
+
+        if (leftStartsWithDigit !== rightStartsWithDigit) {
+          return leftStartsWithDigit ? -1 : 1;
+        }
+
+        return alnumCollator.compare(left, right);
       }
 
       function resolveQuizFilePath(file) {
@@ -618,6 +659,14 @@
             if (nameMatch) return true;
             const quizzes = Array.isArray(entry.cat && entry.cat.quizzes) ? entry.cat.quizzes : [];
             return quizzes.some((quiz) => normalizeSearchQuery(quiz && quiz.title).includes(query));
+          })
+          .sort((left, right) => {
+            const dir = getSortMode() === "desc" ? -1 : 1;
+            const base = compareCategoryNamesAlnum(
+              left && left.cat ? left.cat.name : "",
+              right && right.cat ? right.cat.name : ""
+            );
+            return base * dir;
           });
 
         if (categories.length === 0) {
@@ -747,6 +796,12 @@
             openCategory(currentCategoryIndex);
             return;
           }
+          renderCategories();
+        });
+      }
+
+      if (sortSelect instanceof HTMLSelectElement) {
+        sortSelect.addEventListener("change", () => {
           renderCategories();
         });
       }
