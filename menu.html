@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Menu</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Menu-specific layout ─────────────────────────────────── */
+    .menu-shell {
+      min-height: 100vh;
+      padding: 36px 16px 60px;
+    }
+
+    .menu-container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .breadcrumb-item {
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--primary);
+      font: inherit;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .breadcrumb-item:hover {
+      color: var(--primary-2);
+    }
+
+    .breadcrumb-sep {
+      color: var(--line);
+      user-select: none;
+    }
+
+    .breadcrumb-current {
+      color: var(--ink);
+    }
+
+    /* Panels */
+    .menu-panel {
+      display: none;
+    }
+
+    .menu-panel.active {
+      display: block;
+    }
+
+    /* Section heading */
+    .menu-section-label {
+      margin: 0 0 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    /* Category grid */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .category-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 24px 20px;
+      cursor: pointer;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+      user-select: none;
+    }
+
+    .category-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 48px rgba(15, 23, 42, 0.16);
+      border-color: var(--primary);
+    }
+
+    .category-card:active {
+      transform: translateY(0);
+    }
+
+    .category-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+
+    .category-name {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .category-count {
+      margin: 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* Quiz list */
+    .quiz-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .quiz-item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.07);
+      padding: 18px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+      user-select: none;
+    }
+
+    .quiz-item:hover {
+      transform: translateX(4px);
+      border-color: var(--primary);
+      box-shadow: 0 6px 24px rgba(15, 23, 42, 0.12);
+    }
+
+    .quiz-item:active {
+      transform: translateX(0);
+    }
+
+    .quiz-item-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .quiz-item-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .quiz-item-title {
+      margin: 0 0 3px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .quiz-item-meta {
+      margin: 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .quiz-item-arrow {
+      color: var(--primary);
+      font-size: 1.2rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* Back button */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 9px 16px;
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--muted);
+      cursor: pointer;
+      margin-bottom: 24px;
+      transition: border-color 0.12s, color 0.12s;
+    }
+
+    .back-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Error / loading states */
+    .menu-status {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .menu-status.error {
+      color: var(--danger);
+    }
+
+    /* Header nav link */
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .header-nav-link {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      transition: border-color 0.12s, color 0.12s;
+    }
+
+    .header-nav-link:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    @media (max-width: 600px) {
+      .category-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-shell">
+    <div class="menu-container">
+
+      <!-- Page header -->
+      <div class="page-header page-header-split" style="margin-bottom: 28px;">
+        <div class="page-header-main">
+          <p class="eyebrow">Learning Assessment</p>
+          <h1>Quiz Menu</h1>
+        </div>
+        <div class="logo-placeholder" aria-label="Logo placeholder">
+          <img
+            class="logo-image"
+            src="assets/logo.png"
+            alt="Quiz logo"
+            onload="this.style.display='block'; this.nextElementSibling.style.display='none'; this.parentElement.classList.remove('is-empty');"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex'; this.parentElement.classList.add('is-empty');"
+          />
+          <span class="logo-fallback">Add Logo</span>
+        </div>
+      </div>
+
+      <!-- Top nav links -->
+      <div class="header-nav">
+        <a class="header-nav-link" href="index.html">&#8592; Home</a>
+        <a class="header-nav-link" href="maker.html">Quiz Maker</a>
+      </div>
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" id="breadcrumb" aria-label="Navigation breadcrumb">
+        <span class="breadcrumb-current" id="breadcrumbHome">All Categories</span>
+      </nav>
+
+      <!-- Loading / error state -->
+      <div class="menu-status" id="menuStatus">Loading quiz library&hellip;</div>
+
+      <!-- Panel: Categories -->
+      <div class="menu-panel" id="panelCategories">
+        <p class="menu-section-label">Select a Category</p>
+        <div class="category-grid" id="categoryGrid"></div>
+      </div>
+
+      <!-- Panel: Quizzes within a category -->
+      <div class="menu-panel" id="panelQuizzes">
+        <button class="back-btn" id="backToCategories" type="button">&#8592; All Categories</button>
+        <p class="menu-section-label" id="quizListLabel">Select a Quiz</p>
+        <div class="quiz-list" id="quizList"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const INDEX_PATH = "quizzes/index.json";
+
+      let indexData = null;
+      let currentCategoryIndex = -1;
+
+      // ── DOM refs ────────────────────────────────────────────
+      const statusEl       = document.getElementById("menuStatus");
+      const panelCats      = document.getElementById("panelCategories");
+      const panelQuizzes   = document.getElementById("panelQuizzes");
+      const categoryGrid   = document.getElementById("categoryGrid");
+      const quizList       = document.getElementById("quizList");
+      const quizListLabel  = document.getElementById("quizListLabel");
+      const breadcrumb     = document.getElementById("breadcrumb");
+      const backBtn        = document.getElementById("backToCategories");
+
+      // Category icons (cycles through if more categories than icons)
+      const CATEGORY_ICONS = ["📚", "🔬", "🌍", "⏰", "🔢", "🎨", "🏅", "💡", "📐", "🌐"];
+
+      // ── Utilities ───────────────────────────────────────────
+      function showPanel(name) {
+        panelCats.classList.toggle("active", name === "categories");
+        panelQuizzes.classList.toggle("active", name === "quizzes");
+      }
+
+      function setStatus(message, isError) {
+        statusEl.textContent = message;
+        statusEl.className   = "menu-status" + (isError ? " error" : "");
+        statusEl.style.display = message ? "block" : "none";
+      }
+
+      function escapeHtml(str) {
+        return String(str || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function resolveQuizFilePath(file) {
+        const root = String((indexData && indexData.root) || "quizzes").replace(/\/+$/, "");
+        const f    = String(file || "").replace(/^\/+/, "");
+        // Avoid double-prefixing if the file already starts with root/
+        if (f.startsWith(root + "/") || f.startsWith(root + "\\")) {
+          return f;
+        }
+        return root + "/" + f;
+      }
+
+      // ── Breadcrumb ──────────────────────────────────────────
+      function renderBreadcrumb(categoryName) {
+        if (!categoryName) {
+          breadcrumb.innerHTML = '<span class="breadcrumb-current" id="breadcrumbHome">All Categories</span>';
+          return;
+        }
+        breadcrumb.innerHTML =
+          '<button class="breadcrumb-item" id="breadcrumbHome" type="button">All Categories</button>' +
+          '<span class="breadcrumb-sep">›</span>' +
+          '<span class="breadcrumb-current">' + escapeHtml(categoryName) + "</span>";
+
+        document.getElementById("breadcrumbHome").addEventListener("click", showCategories);
+      }
+
+      // ── Category panel ──────────────────────────────────────
+      function showCategories() {
+        currentCategoryIndex = -1;
+        renderBreadcrumb(null);
+        showPanel("categories");
+      }
+
+      function renderCategories() {
+        const categories = (indexData && Array.isArray(indexData.categories)) ? indexData.categories : [];
+
+        if (categories.length === 0) {
+          setStatus("No categories found in the quiz library. Open the Maker to create some.", false);
+          return;
+        }
+
+        setStatus("", false);
+
+        categoryGrid.innerHTML = categories.map((cat, i) => {
+          const name  = escapeHtml(cat.name || "Unnamed Category");
+          const count = Array.isArray(cat.quizzes) ? cat.quizzes.length : 0;
+          const icon  = CATEGORY_ICONS[i % CATEGORY_ICONS.length];
+          const label = count === 1 ? "1 quiz" : count + " quizzes";
+
+          return (
+            '<div class="category-card" data-index="' + i + '" tabindex="0" role="button" aria-label="Open ' + name + '">' +
+            '  <div class="category-icon">' + icon + "</div>" +
+            '  <p class="category-name">' + name + "</p>" +
+            '  <p class="category-count">' + label + "</p>" +
+            "</div>"
+          );
+        }).join("");
+
+        // Wire click + keyboard
+        categoryGrid.querySelectorAll(".category-card").forEach(function (card) {
+          card.addEventListener("click", function () {
+            openCategory(parseInt(card.dataset.index, 10));
+          });
+          card.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openCategory(parseInt(card.dataset.index, 10));
+            }
+          });
+        });
+
+        showPanel("categories");
+      }
+
+      // ── Quiz panel ──────────────────────────────────────────
+      function openCategory(index) {
+        const categories = (indexData && Array.isArray(indexData.categories)) ? indexData.categories : [];
+        const cat = categories[index];
+        if (!cat) return;
+
+        currentCategoryIndex = index;
+        const catName = String(cat.name || "Category");
+        renderBreadcrumb(catName);
+        quizListLabel.textContent = catName;
+
+        const quizzes = Array.isArray(cat.quizzes) ? cat.quizzes : [];
+
+        if (quizzes.length === 0) {
+          quizList.innerHTML = '<p class="menu-status">No quizzes in this category yet.</p>';
+          showPanel("quizzes");
+          return;
+        }
+
+        quizList.innerHTML = quizzes.map(function (quiz, qi) {
+          const title = escapeHtml(quiz.title || quiz.file || "Untitled Quiz");
+          const file  = escapeHtml(resolveQuizFilePath(quiz.file || ""));
+          return (
+            '<div class="quiz-item" data-file="' + file + '" tabindex="0" role="button" aria-label="Start ' + title + '">' +
+            '  <div class="quiz-item-icon">📝</div>' +
+            '  <div class="quiz-item-body">' +
+            '    <p class="quiz-item-title">' + title + "</p>" +
+            '    <p class="quiz-item-meta">' + escapeHtml(catName) + "</p>" +
+            "  </div>" +
+            '  <span class="quiz-item-arrow">›</span>' +
+            "</div>"
+          );
+        }).join("");
+
+        quizList.querySelectorAll(".quiz-item").forEach(function (item) {
+          item.addEventListener("click", function () {
+            launchQuiz(item.dataset.file);
+          });
+          item.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              launchQuiz(item.dataset.file);
+            }
+          });
+        });
+
+        showPanel("quizzes");
+      }
+
+      function launchQuiz(file) {
+        if (!file) return;
+        window.location.href = "viewer.html?file=" + encodeURIComponent(file);
+      }
+
+      // ── Back button ─────────────────────────────────────────
+      backBtn.addEventListener("click", showCategories);
+
+      // ── Boot ────────────────────────────────────────────────
+      async function loadIndex() {
+        try {
+          const response = await fetch(INDEX_PATH, { cache: "no-store" });
+          if (!response.ok) {
+            throw new Error("Could not load quiz index (" + response.status + ").");
+          }
+          indexData = await response.json();
+          renderCategories();
+        } catch (err) {
+          setStatus(
+            "Could not load quiz library. Make sure quizzes/index.json exists and the app is served over HTTP. (" + err.message + ")",
+            true
+          );
+        }
+      }
+
+      loadIndex();
+    })();
+  </script>
+</body>
+</html>

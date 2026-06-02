@@ -1,0 +1,537 @@
+{
+  "id": "prep-introduction-to-numbers",
+  "title": "Prep - Introduction to Numbers",
+  "description": "Trace numbers 0 to 20.",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 21
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Trace the dotted circle numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The numeral is 0, which is drawn as a circle. Trace the dotted circle while saying zero aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 0,
+          "prompt": "Trace the dotted circle (0) and say zero aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 1. Trace it while saying 1 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 1,
+          "prompt": "Trace the dotted numeral 1 and say 1 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 2. Trace it while saying 2 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 2,
+          "prompt": "Trace the dotted numeral 2 and say 2 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 3. Trace it while saying 3 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 3,
+          "prompt": "Trace the dotted numeral 3 and say 3 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 4. Trace it while saying 4 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 4,
+          "prompt": "Trace the dotted numeral 4 and say 4 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 5. Trace it while saying 5 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 5,
+          "prompt": "Trace the dotted numeral 5 and say 5 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 6. Trace it while saying 6 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 6,
+          "prompt": "Trace the dotted numeral 6 and say 6 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 7. Trace it while saying 7 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 7,
+          "prompt": "Trace the dotted numeral 7 and say 7 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 8. Trace it while saying 8 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 8,
+          "prompt": "Trace the dotted numeral 8 and say 8 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "9",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 9. Trace it while saying 9 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 9,
+          "prompt": "Trace the dotted numeral 9 and say 9 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 10. Trace it while saying 10 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 10,
+          "prompt": "Trace the dotted numeral 10 and say 10 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "11",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 11. Trace it while saying 11 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 11,
+          "prompt": "Trace the dotted numeral 11 and say 11 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 12. Trace it while saying 12 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 12,
+          "prompt": "Trace the dotted numeral 12 and say 12 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "13",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 13. Trace it while saying 13 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 13,
+          "prompt": "Trace the dotted numeral 13 and say 13 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "14",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 14. Trace it while saying 14 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 14,
+          "prompt": "Trace the dotted numeral 14 and say 14 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "15",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 15. Trace it while saying 15 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 15,
+          "prompt": "Trace the dotted numeral 15 and say 15 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "16",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 16. Trace it while saying 16 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 16,
+          "prompt": "Trace the dotted numeral 16 and say 16 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "17",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 17. Trace it while saying 17 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 17,
+          "prompt": "Trace the dotted numeral 17 and say 17 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "18",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 18. Trace it while saying 18 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 18,
+          "prompt": "Trace the dotted numeral 18 and say 18 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "19",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 19. Trace it while saying 19 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 19,
+          "prompt": "Trace the dotted numeral 19 and say 19 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the dotted numeral in the interactive app.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 20. Trace it while saying 20 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 20,
+          "prompt": "Trace the dotted numeral 20 and say 20 aloud.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    }
+  ]
+}

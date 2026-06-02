@@ -1,0 +1,84 @@
+{
+  "id": "time-basics",
+  "title": "Time Basics",
+  "description": "Learn to tell time using digital and analog clocks.",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": null
+  },
+  "category": "Time",
+  "questions": [
+    {
+      "question": "Write the digital time for: quarter past 3.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3:15",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "quarter past 3 is written as 3:15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "time",
+        "config": {
+          "mode": "digital",
+          "hour": 3,
+          "minute": 15,
+          "period": ""
+        }
+      }
+    },
+    {
+      "question": "Set the analog clock to 7:40.",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7:40",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Move the minute hand to 40 minutes and place the hour hand between 7 and 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "time",
+        "config": {
+          "mode": "analog",
+          "hour": 7,
+          "minute": 40,
+          "period": ""
+        }
+      }
+    },
+    {
+      "question": "Look at the analog clock and choose the correct digital time.",
+      "resultType": "multiple-choice",
+      "options": [
+        "9:25",
+        "9:20",
+        "8:25",
+        "9:30"
+      ],
+      "correctAnswer": "9:25",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The hour hand is just past 9 and the minute hand is on 25, so the correct time is 9:25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "time",
+        "config": {
+          "mode": "analog-to-digital",
+          "hour": 9,
+          "minute": 25,
+          "period": ""
+        }
+      }
+    }
+  ]
+}

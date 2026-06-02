@@ -83,15 +83,21 @@ function getRandomEncouragingMessage() {
   return ENCOURAGING_INCORRECT_MESSAGES[index];
 }
 
-function buildIncorrectFeedbackMessage() {
-  return `${getRandomEncouragingMessage()} Press "Show Solution" to see where you went wrong.`;
+function buildIncorrectFeedbackMessage(userAnswer, expectedAnswers) {
+  const userText = formatAnswerForReport(userAnswer) || "(blank)";
+  const correctText = Array.isArray(expectedAnswers) && expectedAnswers.length > 0
+    ? expectedAnswers.map((item) => formatAnswerForReport(item)).filter((item) => item !== "").join(", ")
+    : "N/A";
+  return `Your answer: ${userText}<br>Correct answer: ${correctText}<br>${getRandomEncouragingMessage()} Press "Show Solution" to see where you went wrong.`;
 }
 
-function buildShortAnswerIncorrectFeedback(expectedAnswers) {
+function buildShortAnswerIncorrectFeedback(userAnswer, expectedAnswers) {
   const fallback = Array.isArray(expectedAnswers) && expectedAnswers.length > 0
     ? expectedAnswers.join(", ")
     : "N/A";
+  const typed = formatAnswerForReport(userAnswer) || "(blank)";
   return {
+    userAnswerText: `Your answer: ${typed}`,
     correctAnswerText: `Correct answer: ${fallback}`,
     encouragementText: `${getRandomEncouragingMessage()} Press "Show Solution" to see where you went wrong.`
   };
@@ -611,11 +617,35 @@ function normalizeResultType(value) {
   if (!normalized) return "multiple-choice";
   if (["multiple-choice", "multiplechoice", "mcq"].includes(normalized)) return "multiple-choice";
   if (["short-answer", "shortanswer", "short"].includes(normalized)) return "short-answer";
+  if (["date", "date-answer", "dateanswer"].includes(normalized)) return "date";
   if (["plot", "graph", "graph-plot", "plot-graph"].includes(normalized)) return "plot";
   if (["true-false", "truefalse", "boolean"].includes(normalized)) return "true-false";
   if (["checkbox", "multi-select", "multiselect"].includes(normalized)) return "checkbox";
 
   return "multiple-choice";
+}
+
+function parseDdMmYyyyDate(text) {
+  const raw = String(text || "").trim();
+  const match = raw.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (!match) return null;
+
+  const day = Number.parseInt(match[1], 10);
+  const month = Number.parseInt(match[2], 10);
+  const year = Number.parseInt(match[3], 10);
+  if (!Number.isInteger(day) || !Number.isInteger(month) || !Number.isInteger(year)) return null;
+
+  const candidate = new Date(year, month - 1, day);
+  if (candidate.getFullYear() !== year || (candidate.getMonth() + 1) !== month || candidate.getDate() !== day) {
+    return null;
+  }
+
+  return {
+    day,
+    month,
+    year,
+    canonical: `${String(day).padStart(2, "0")}/${String(month).padStart(2, "0")}/${String(year).padStart(4, "0")}`
+  };
 }
 
 function resetRuntimeForLoadedQuiz() {
@@ -819,6 +849,30 @@ function getRequestedFile() {
   const requested = params.get("file");
   return requested ? requested.trim() : "quiz-database.json";
 }
+
+function flattenQuizIndexEntries(indexPayload) {
+  const entries = [];
+  if (!indexPayload || !Array.isArray(indexPayload.categories)) return entries;
+
+  indexPayload.categories.forEach((category) => {
+    const categoryName = String((category && category.name) || "").trim();
+    const quizzes = Array.isArray(category && category.quizzes) ? category.quizzes : [];
+    quizzes.forEach((quiz) => {
+      const file = String((quiz && quiz.file) || "").trim();
+      if (!file) return;
+      const title = String((quiz && quiz.title) || file).trim() || file;
+      const label = categoryName ? `${categoryName} - ${title}` : title;
+      entries.push({ file, label });
+    });
+  });
+
+  return entries;
+}
+
+function showQuizSelectorFromIndex() {
+  // Navigation is handled by menu.html — selector no longer used.
+}
+
 function buildShareQuizText() {
   const title = String((quizData && quizData.title) || "Quiz").trim() || "Quiz";
   const quizFile = getRequestedFile();
@@ -1027,6 +1081,16 @@ function buildPdfInteractiveSummaryMarkup(attempt) {
     summaryLines.push(`Model: ${visualKind}`);
   } else if (type === "cartesian-plane" || type === "cartesian-plane-plot") {
     summaryLines.push("Graph visual is available in the online report.");
+  } else if (type === "number-ordering") {
+    const normalized = getNumberOrderingConfig(config);
+    summaryLines.push(`Direction: ${normalized.direction}`);
+    summaryLines.push(`Cards: ${normalized.cards.join(", ")}`);
+    summaryLines.push(`Correct order: ${normalized.correctOrder.join(", ")}`);
+  } else if (type === "icon-count") {
+    const normalized = normalizeIconCountConfig(config);
+    summaryLines.push(`Total icons: ${normalized.totalCount}`);
+    summaryLines.push(`Icon shape: ${normalized.iconShape}`);
+    summaryLines.push(`Groups: ${normalized.groups.join(", ")}`);
   } else if (type === "fractions") {
     summaryLines.push("Fraction visual is available in the online report.");
   } else {
@@ -1311,65 +1375,17 @@ function setError(message) {
   document.getElementById("notesViewerBtn").style.display = "none";
 }
 
-function setErrorWithLocalActions(message, requestedFile) {
-  const pickerSupported = typeof window.showOpenFilePicker === "function" || typeof window.showDirectoryPicker === "function";
-  const actionMarkup = pickerSupported
-    ? `<div class="button-group" style="margin-top:12px;">
-         <button class="btn" id="pickLocalQuizFileBtn" type="button">Choose Local Quiz File</button>
-         <button class="btn secondary" id="pickLocalQuizFolderBtn" type="button">Choose Local Quiz Folder</button>
-       </div>`
-    : "";
-
+function setError(message) {
   document.getElementById("quizContainer").innerHTML = `
-    <p>${message}</p>
-    ${pickerSupported ? `<p class="helper-text">Tip: use a local picker button below when opening the viewer from local files.</p>` : ""}
-    ${actionMarkup}
+    <div class="section-card" style="text-align:center; padding:40px 24px;">
+      <p style="color:var(--danger); font-weight:700; margin:0 0 12px;">${escapeHtml(message)}</p>
+      <a class="btn secondary" href="menu.html">&#8592; Back to Menu</a>
+    </div>
   `;
   document.getElementById("checkAnswerBtn").style.display = "none";
   document.getElementById("nextQuestionBtn").style.display = "none";
   document.getElementById("notesViewerBtn").style.display = "none";
-
-  const pickFileBtn = document.getElementById("pickLocalQuizFileBtn");
-  if (pickFileBtn) {
-    pickFileBtn.addEventListener("click", async () => {
-      try {
-        if (typeof window.showOpenFilePicker !== "function") {
-          throw new Error("Local file access is not supported in this browser.");
-        }
-        const handles = await window.showOpenFilePicker({
-          multiple: false,
-          types: [{
-            description: "Quiz JSON",
-            accept: { "application/json": [".json"] }
-          }]
-        });
-        const handle = Array.isArray(handles) ? handles[0] : null;
-        if (!handle) throw new Error("No file selected.");
-        const file = await handle.getFile();
-        const text = await file.text();
-        const rawData = JSON.parse(text);
-        const parsedQuiz = parseQuizPayload(rawData);
-        applySingleQuiz(parsedQuiz);
-        showToast("Loaded local quiz file.", "success");
-      } catch (error) {
-        showToast("Could not load selected local quiz file.", "warning");
-      }
-    });
-  }
-
-  const pickFolderBtn = document.getElementById("pickLocalQuizFolderBtn");
-  if (pickFolderBtn) {
-    pickFolderBtn.addEventListener("click", async () => {
-      try {
-        const rawData = await loadQuizFromLocalHandle(requestedFile);
-        const parsedQuiz = parseQuizPayload(rawData);
-        applySingleQuiz(parsedQuiz);
-        showToast("Loaded local quiz from selected folder.", "success");
-      } catch (error) {
-        showToast("Could not find quiz JSON in selected folder.", "warning");
-      }
-    });
-  }
+  document.getElementById("showSolutionBtn").classList.add("hidden");
 }
 
 function splitPath(value) {
@@ -1394,22 +1410,38 @@ async function loadQuizFromLocalHandle(requestedFile) {
   }
 
   const rootHandle = await window.showDirectoryPicker({ mode: "read" });
-  const segments = splitPath(requestedFile);
-  if (segments.length === 0) {
+  const requestedSegments = splitPath(requestedFile);
+  if (requestedSegments.length === 0) {
     throw new Error("Invalid quiz path.");
   }
 
-  const fileName = segments.pop();
-  let directoryHandle = rootHandle;
-
-  for (const segment of segments) {
-    directoryHandle = await directoryHandle.getDirectoryHandle(segment, { create: false });
+  const candidatePaths = [requestedSegments];
+  if (requestedSegments[0] && requestedSegments[0].toLowerCase() === "quizzes" && requestedSegments.length > 1) {
+    // Support users selecting either the project root folder or the quizzes folder itself.
+    candidatePaths.push(requestedSegments.slice(1));
   }
 
-  const fileHandle = await directoryHandle.getFileHandle(fileName, { create: false });
-  const file = await fileHandle.getFile();
-  const text = await file.text();
-  return JSON.parse(text);
+  for (const pathSegments of candidatePaths) {
+    try {
+      const segments = [...pathSegments];
+      const fileName = segments.pop();
+      if (!fileName) continue;
+
+      let directoryHandle = rootHandle;
+      for (const segment of segments) {
+        directoryHandle = await directoryHandle.getDirectoryHandle(segment, { create: false });
+      }
+
+      const fileHandle = await directoryHandle.getFileHandle(fileName, { create: false });
+      const file = await fileHandle.getFile();
+      const text = await file.text();
+      return JSON.parse(text);
+    } catch (pathError) {
+      // Try the next candidate path.
+    }
+  }
+
+  throw new Error("Could not find quiz file in selected folder.");
 }
 
 function updateHeader() {
@@ -1455,6 +1487,141 @@ function escapeHtml(text) {
     .replace(/>/g, "&gt;")
     .replace(/\"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+function normalizeTimeMode(value) {
+  const mode = String(value || "digital").trim().toLowerCase();
+  if (["digital", "analog", "analog-to-digital"].includes(mode)) return mode;
+  return "digital";
+}
+
+function normalizeTimeHour(value) {
+  const hour = Number.parseInt(value, 10);
+  if (!Number.isInteger(hour)) return 12;
+  if (hour < 1) return 1;
+  if (hour > 12) return 12;
+  return hour;
+}
+
+function normalizeTimeMinute(value) {
+  const minute = Number.parseInt(value, 10);
+  if (!Number.isInteger(minute)) return 0;
+  if (minute < 0) return 0;
+  if (minute > 59) return 59;
+  return minute;
+}
+
+function normalizeTimePeriod(value) {
+  const period = String(value || "").trim().toUpperCase();
+  return period === "AM" || period === "PM" ? period : "";
+}
+
+function formatTimeDisplay(hour, minute, period = "") {
+  const hh = normalizeTimeHour(hour);
+  const mm = String(normalizeTimeMinute(minute)).padStart(2, "0");
+  const suffix = normalizeTimePeriod(period);
+  return suffix ? `${hh}:${mm} ${suffix}` : `${hh}:${mm}`;
+}
+
+function parseTimeText(value) {
+  const raw = String(value || "").trim().toUpperCase();
+  if (!raw) return null;
+
+  const matched = raw.match(/^(\d{1,2})\s*[:.]\s*([0-5]?\d)(?:\s*(AM|PM))?$/i);
+  if (!matched) return null;
+
+  const originalHour = Number.parseInt(matched[1], 10);
+  if (!Number.isInteger(originalHour)) return null;
+
+  const hour = normalizeTimeHour(originalHour);
+  const minute = normalizeTimeMinute(matched[2]);
+  const period = normalizeTimePeriod(matched[3] || "");
+
+  if (!period && (originalHour === 0 || originalHour > 12)) {
+    const hour24 = Math.max(0, Math.min(23, originalHour));
+    const derivedPeriod = hour24 >= 12 ? "PM" : "AM";
+    const hour12 = ((hour24 + 11) % 12) + 1;
+    return {
+      hour: hour12,
+      minute,
+      period: derivedPeriod,
+      format: "24h",
+      minutesOfDay: (hour24 * 60) + minute,
+      minutesOnClock: ((hour12 % 12) * 60) + minute,
+      hasPeriod: true
+    };
+  }
+
+  const hour24 = period === "PM"
+    ? ((hour % 12) + 12)
+    : period === "AM"
+      ? (hour % 12)
+      : null;
+  return {
+    hour,
+    minute,
+    period,
+    format: period ? "12h" : "12h-implicit",
+    minutesOfDay: Number.isInteger(hour24) ? (hour24 * 60) + minute : null,
+    minutesOnClock: ((hour % 12) * 60) + minute,
+    hasPeriod: period !== ""
+  };
+}
+
+function pad2(value) {
+  const num = Number.parseInt(value, 10);
+  if (!Number.isFinite(num)) return "00";
+  return String(num).padStart(2, "0");
+}
+
+function buildInitialAnalogTime(targetHour, targetMinute) {
+  const safeHour = normalizeTimeHour(targetHour);
+  const safeMinute = normalizeTimeMinute(targetMinute);
+  let startHour = safeHour;
+  let startMinute = (safeMinute + 25) % 60;
+  if (safeMinute + 25 >= 60) {
+    startHour = startHour === 12 ? 1 : startHour + 1;
+  }
+
+  // Safety guard: ensure we never initialize exactly on the target time.
+  if (startHour === safeHour && startMinute === safeMinute) {
+    startMinute = (safeMinute + 30) % 60;
+    if (safeMinute + 30 >= 60) {
+      startHour = startHour === 12 ? 1 : startHour + 1;
+    }
+  }
+
+  return { hour: startHour, minute: startMinute };
+}
+
+function buildTimeClockNumbersMarkup() {
+  return Array.from({ length: 12 }, (_, index) => {
+    const number = index + 1;
+    const angle = number * 30;
+    return `<span class="time-clock-number" style="--angle:${angle}deg">${number}</span>`;
+  }).join("");
+}
+
+function buildTimeClockMarkup(config, { withReadout = true } = {}) {
+  const safeConfig = config && typeof config === "object" ? config : {};
+  const hour = normalizeTimeHour(safeConfig.hour);
+  const minute = normalizeTimeMinute(safeConfig.minute);
+  const period = normalizeTimePeriod(safeConfig.period);
+  const minuteAngle = minute * 6;
+  const hourAngle = (hour % 12) * 30;
+  const display = formatTimeDisplay(hour, minute, period);
+
+  return `
+    <div class="time-clock-panel">
+      <div class="time-analog-face" aria-hidden="true">
+        ${buildTimeClockNumbersMarkup()}
+        <span class="time-center-dot"></span>
+        <span class="time-hand hour" style="transform: translate(-50%, -100%) rotate(${hourAngle}deg);"></span>
+        <span class="time-hand minute" style="transform: translate(-50%, -100%) rotate(${minuteAngle}deg);"></span>
+      </div>
+      ${withReadout ? `<p class="helper-text">${escapeHtml(display)}</p>` : ""}
+    </div>
+  `;
 }
 
 // ── Interactive App renderer ───────────────────────────────────────────────
@@ -3551,6 +3718,78 @@ function normalizeArithmeticLayout(value) {
   return "horizontal";
 }
 
+function parseArithmeticLinkAnswerText(value) {
+  const seenLeft = new Set();
+  const seenRight = new Set();
+  const pairs = String(value || "")
+    .split("|")
+    .map((item) => String(item || "").trim())
+    .filter((item) => item !== "")
+    .map((entry) => {
+      const parts = entry.split(":");
+      if (parts.length !== 2) return null;
+      const left = Number.parseInt(parts[0], 10);
+      const right = Number.parseInt(parts[1], 10);
+      if (!Number.isInteger(left) || !Number.isInteger(right)) return null;
+      if (seenLeft.has(left) || seenRight.has(right)) return null;
+      seenLeft.add(left);
+      seenRight.add(right);
+      return { left, right };
+    })
+    .filter((item) => item !== null);
+  return pairs.sort((a, b) => (a.left - b.left) || (a.right - b.right));
+}
+
+function serializeArithmeticLinkAnswerPairs(pairs) {
+  return (Array.isArray(pairs) ? pairs : [])
+    .filter((item) => item && Number.isInteger(item.left) && Number.isInteger(item.right))
+    .sort((a, b) => (a.left - b.left) || (a.right - b.right))
+    .map((item) => `${item.left}:${item.right}`)
+    .join("|");
+}
+
+function normalizeArithmeticLinkConfig(config) {
+  const linkOperator = String(config && config.linkOperator ? config.linkOperator : "+").trim() === "-" ? "-" : "+";
+  const targetValueRaw = Number.parseInt(config && config.targetValue, 10);
+  const legacyTargetRaw = Number.parseInt(config && config.targetSum, 10);
+  const targetValue = Number.isInteger(targetValueRaw)
+    ? targetValueRaw
+    : (Number.isInteger(legacyTargetRaw) ? legacyTargetRaw : 10);
+  const leftNumbers = Array.isArray(config && config.leftNumbers)
+    ? config.leftNumbers.map((item) => Number.parseInt(item, 10)).filter((item) => Number.isInteger(item))
+    : [];
+  const fallbackLeft = leftNumbers.length > 0
+    ? leftNumbers
+    : (linkOperator === "-" ? [6, 7, 8, 9] : [1, 2, 3, 4]);
+  const rightRaw = Array.isArray(config && config.rightNumbers)
+    ? config.rightNumbers.map((item) => Number.parseInt(item, 10)).filter((item) => Number.isInteger(item))
+    : [];
+  const rightNumbers = rightRaw.length === fallbackLeft.length
+    ? rightRaw
+    : fallbackLeft.map((item) => (linkOperator === "-" ? item - targetValue : targetValue - item));
+
+  const expectedPairs = Array.isArray(config && config.pairs)
+    ? config.pairs
+      .map((item) => ({
+        left: Number.parseInt(item && item.left, 10),
+        right: Number.parseInt(item && item.right, 10)
+      }))
+      .filter((item) => Number.isInteger(item.left) && Number.isInteger(item.right))
+    : fallbackLeft.map((left) => ({
+      left,
+      right: linkOperator === "-" ? left - targetValue : targetValue - left
+    }));
+
+  return {
+    linkOperator,
+    targetValue,
+    targetSum: targetValue,
+    leftNumbers: fallbackLeft,
+    rightNumbers,
+    expectedPairs
+  };
+}
+
 function computeArithmeticAnswerFromConfig(config) {
   const explicitAnswer = String(config && config.answer != null ? config.answer : "").trim();
   if (explicitAnswer !== "") {
@@ -4354,6 +4593,40 @@ function buildArithmeticSingleInput(answerText, { readOnly = false } = {}) {
   return `<input class="arithmetic-single-input" type="text" inputmode="numeric" ${attrs} autocomplete="off" style="min-width:${minLength}ch" />`;
 }
 
+function buildArithmeticLinkToTenMarkup(config, { readOnly = false, revealAnswer = false } = {}) {
+  const normalized = normalizeArithmeticLinkConfig(config || {});
+  const expectedAnswer = serializeArithmeticLinkAnswerPairs(normalized.expectedPairs);
+  const initialAnswer = readOnly && revealAnswer ? expectedAnswer : "";
+  const targetLabel = normalized.linkOperator === "-"
+    ? `A - B = ${normalized.targetValue}`
+    : `A + B = ${normalized.targetValue}`;
+  const instruction = normalized.linkOperator === "-"
+    ? `Link one card from Column A to one card from Column B so every pair satisfies A - B = ${normalized.targetValue}.`
+    : `Link one card from Column A to one card from Column B so every pair adds to ${normalized.targetValue}.`;
+  return `
+    <div class="arith-link-workspace">
+      <div class="arith-link-target">Target: ${escapeHtml(String(targetLabel))}</div>
+      <div class="arith-link-board" data-role="arith-link-board" data-readonly="${readOnly ? "true" : "false"}" data-target="${escapeHtml(String(normalized.targetValue))}" data-link-operator="${escapeHtml(String(normalized.linkOperator))}">
+        <svg class="arith-link-lines" data-role="arith-link-lines" aria-hidden="true"></svg>
+        <div class="arith-link-column" data-role="arith-link-left">
+          <p class="arith-link-heading">Column A</p>
+          ${normalized.leftNumbers.map((value, index) => `
+            <button type="button" class="arith-link-card" data-side="left" data-index="${index}" data-value="${escapeHtml(String(value))}" ${readOnly ? "disabled" : ""}>${escapeHtml(String(value))}</button>
+          `).join("")}
+        </div>
+        <div class="arith-link-column" data-role="arith-link-right">
+          <p class="arith-link-heading">Column B</p>
+          ${normalized.rightNumbers.map((value, index) => `
+            <button type="button" class="arith-link-card" data-side="right" data-index="${index}" data-value="${escapeHtml(String(value))}" ${readOnly ? "disabled" : ""}>${escapeHtml(String(value))}</button>
+          `).join("")}
+        </div>
+      </div>
+      <input type="hidden" data-role="arith-link-answer" value="${escapeHtml(initialAnswer)}" />
+      <p class="helper-text">${escapeHtml(String(instruction))}</p>
+    </div>
+  `;
+}
+
 function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer = false, questionText = "" } = {}) {
   const layout = normalizeArithmeticLayout(config && config.layout);
   const operatorRaw = String(config && config.operator ? config.operator : "+").trim() || "+";
@@ -4363,6 +4636,9 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
   const operandA = escapeHtml(operandAText);
   const operandB = escapeHtml(operandBText);
   const visualMode = String(config && config.visualMode ? config.visualMode : "").trim().toLowerCase();
+  if (visualMode === "link-to-10") {
+    return buildArithmeticLinkToTenMarkup(config, { readOnly, revealAnswer });
+  }
   const isVisualObjects = visualMode === "objects";
   const resolvedQuestionText = String(questionText || "").trim();
   const operationLabelMap = {
@@ -4538,6 +4814,386 @@ function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer
   `;
 }
 
+function arithmeticLinkColorByIndex(index) {
+  const palette = ["#ef4444", "#f59e0b", "#22c55e", "#3b82f6", "#a855f7", "#ec4899", "#14b8a6", "#84cc16"];
+  return palette[Math.abs(Number.parseInt(index, 10) || 0) % palette.length];
+}
+
+function drawArithmeticLinkLines(board, links, dragGhost = null) {
+  if (!(board instanceof HTMLElement)) return;
+  const svg = board.querySelector("[data-role='arith-link-lines']");
+  if (!(svg instanceof SVGElement)) return;
+
+  const boardRect = board.getBoundingClientRect();
+  const width = Math.max(1, boardRect.width);
+  const height = Math.max(1, boardRect.height);
+  svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  svg.setAttribute("width", String(width));
+  svg.setAttribute("height", String(height));
+
+  const leftCards = Array.from(board.querySelectorAll(".arith-link-card[data-side='left']"));
+  const rightCards = Array.from(board.querySelectorAll(".arith-link-card[data-side='right']"));
+  const lines = [];
+
+  (Array.isArray(links) ? links : []).forEach((item) => {
+    const left = leftCards[item.leftIndex];
+    const right = rightCards[item.rightIndex];
+    if (!(left instanceof HTMLElement) || !(right instanceof HTMLElement)) return;
+    const lRect = left.getBoundingClientRect();
+    const rRect = right.getBoundingClientRect();
+    const x1 = lRect.right - boardRect.left;
+    const y1 = lRect.top + (lRect.height / 2) - boardRect.top;
+    const x2 = rRect.left - boardRect.left;
+    const y2 = rRect.top + (rRect.height / 2) - boardRect.top;
+    const stroke = item.color || arithmeticLinkColorByIndex(item.leftIndex);
+    lines.push(`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="arith-link-line" stroke="${stroke}" />`);
+  });
+
+  if (dragGhost && Number.isFinite(dragGhost.x1) && Number.isFinite(dragGhost.y1) && Number.isFinite(dragGhost.x2) && Number.isFinite(dragGhost.y2)) {
+    const stroke = dragGhost.color || arithmeticLinkColorByIndex(dragGhost.leftIndex);
+    lines.push(`<line x1="${dragGhost.x1}" y1="${dragGhost.y1}" x2="${dragGhost.x2}" y2="${dragGhost.y2}" class="arith-link-line is-ghost" stroke="${stroke}" />`);
+  }
+
+  svg.innerHTML = lines.join("");
+}
+
+function wireArithmeticLinkToTenInputs(scope = document) {
+  const boards = Array.from(scope.querySelectorAll("[data-role='arith-link-board'][data-readonly='false']"));
+  boards.forEach((board) => {
+    if (!(board instanceof HTMLElement)) return;
+    const leftCards = Array.from(board.querySelectorAll(".arith-link-card[data-side='left']"));
+    const rightCards = Array.from(board.querySelectorAll(".arith-link-card[data-side='right']"));
+    const hiddenInput = board.parentElement && board.parentElement.querySelector("[data-role='arith-link-answer']");
+    const links = [];
+    let selectedLeftIndex = -1;
+    let dragGhost = null;
+    let activePointerId = null;
+    let activeDragMode = null;
+    let hoveredRightIndex = -1;
+
+    const cardCenterInBoard = (card) => {
+      if (!(card instanceof HTMLElement)) return null;
+      const boardRect = board.getBoundingClientRect();
+      const rect = card.getBoundingClientRect();
+      return {
+        x: rect.right - boardRect.left,
+        y: rect.top + (rect.height / 2) - boardRect.top
+      };
+    };
+
+    const removeLinkByLeft = (leftIndex) => {
+      for (let i = links.length - 1; i >= 0; i -= 1) {
+        if (links[i].leftIndex === leftIndex) links.splice(i, 1);
+      }
+    };
+
+    const removeLinkByRight = (rightIndex) => {
+      for (let i = links.length - 1; i >= 0; i -= 1) {
+        if (links[i].rightIndex === rightIndex) links.splice(i, 1);
+      }
+    };
+
+    const syncUi = () => {
+      leftCards.forEach((node, index) => {
+        if (!(node instanceof HTMLElement)) return;
+        const isLinked = links.some((item) => item.leftIndex === index);
+        node.classList.toggle("is-linked", isLinked);
+        node.classList.toggle("is-active", selectedLeftIndex === index);
+      });
+      rightCards.forEach((node, index) => {
+        if (!(node instanceof HTMLElement)) return;
+        const isLinked = links.some((item) => item.rightIndex === index);
+        node.classList.toggle("is-linked", isLinked);
+      });
+
+      const answerPairs = links
+        .map((item) => {
+          const leftValue = Number.parseInt(String(leftCards[item.leftIndex] && leftCards[item.leftIndex].dataset.value || ""), 10);
+          const rightValue = Number.parseInt(String(rightCards[item.rightIndex] && rightCards[item.rightIndex].dataset.value || ""), 10);
+          return Number.isInteger(leftValue) && Number.isInteger(rightValue)
+            ? { left: leftValue, right: rightValue }
+            : null;
+        })
+        .filter((item) => item !== null);
+
+      if (hiddenInput instanceof HTMLInputElement) {
+        hiddenInput.value = serializeArithmeticLinkAnswerPairs(answerPairs);
+      }
+
+      drawArithmeticLinkLines(board, links, dragGhost);
+    };
+
+    const applyLink = (leftIndex, rightIndex) => {
+      const samePairIndex = links.findIndex((item) => item.leftIndex === leftIndex && item.rightIndex === rightIndex);
+      if (samePairIndex >= 0) {
+        links.splice(samePairIndex, 1);
+        return;
+      }
+      removeLinkByLeft(leftIndex);
+      removeLinkByRight(rightIndex);
+      links.push({ leftIndex, rightIndex, color: arithmeticLinkColorByIndex(leftIndex) });
+    };
+
+    const startDragFromLeft = (leftIndex, pointerId, eventTarget) => {
+      const leftCard = leftCards[leftIndex];
+      const start = cardCenterInBoard(leftCard);
+      if (!start) return;
+      activePointerId = pointerId;
+      dragGhost = {
+        leftIndex,
+        x1: start.x,
+        y1: start.y,
+        x2: start.x,
+        y2: start.y,
+        color: arithmeticLinkColorByIndex(leftIndex)
+      };
+      syncUi();
+    };
+
+    const startMouseDragFromLeft = (leftIndex) => {
+      const leftCard = leftCards[leftIndex];
+      const start = cardCenterInBoard(leftCard);
+      if (!start) return;
+      activeDragMode = "mouse";
+      activePointerId = "mouse";
+      dragGhost = {
+        leftIndex,
+        x1: start.x,
+        y1: start.y,
+        x2: start.x,
+        y2: start.y,
+        color: arithmeticLinkColorByIndex(leftIndex)
+      };
+      syncUi();
+    };
+
+    const startTouchDragFromLeft = (leftIndex) => {
+      const leftCard = leftCards[leftIndex];
+      const start = cardCenterInBoard(leftCard);
+      if (!start) return;
+      activeDragMode = "touch";
+      activePointerId = "touch";
+      dragGhost = {
+        leftIndex,
+        x1: start.x,
+        y1: start.y,
+        x2: start.x,
+        y2: start.y,
+        color: arithmeticLinkColorByIndex(leftIndex)
+      };
+      syncUi();
+    };
+
+    const clearDrag = () => {
+      dragGhost = null;
+      activePointerId = null;
+      activeDragMode = null;
+      hoveredRightIndex = -1;
+      selectedLeftIndex = -1;
+      syncUi();
+    };
+
+    const updateDragPosition = (clientX, clientY) => {
+      if (!dragGhost) return;
+      const boardRect = board.getBoundingClientRect();
+      dragGhost.x2 = Math.max(0, Math.min(boardRect.width, clientX - boardRect.left));
+      dragGhost.y2 = Math.max(0, Math.min(boardRect.height, clientY - boardRect.top));
+      syncUi();
+    };
+
+    const findRightIndexAtViewportPoint = (clientX, clientY) => {
+      return rightCards.findIndex((node) => {
+        if (!(node instanceof HTMLElement)) return false;
+        const rect = node.getBoundingClientRect();
+        return clientX >= rect.left
+          && clientX <= rect.right
+          && clientY >= rect.top
+          && clientY <= rect.bottom;
+      });
+    };
+
+    const updateHoveredRightByPoint = (clientX, clientY) => {
+      const nextIndex = findRightIndexAtViewportPoint(clientX, clientY);
+      hoveredRightIndex = Number.isInteger(nextIndex) ? nextIndex : -1;
+    };
+
+    const endDragAtPoint = (clientX, clientY) => {
+      if (!dragGhost) return;
+      let rightIndex = findRightIndexAtViewportPoint(clientX, clientY);
+
+      if (!Number.isInteger(rightIndex) || rightIndex < 0) {
+        const dropNode = document.elementFromPoint(clientX, clientY);
+        const rightCard = dropNode instanceof HTMLElement ? dropNode.closest(".arith-link-card[data-side='right']") : null;
+        if (rightCard instanceof HTMLElement) {
+          rightIndex = Number.parseInt(String(rightCard.dataset.index || "-1"), 10);
+        }
+      }
+
+      if ((!Number.isInteger(rightIndex) || rightIndex < 0) && Number.isInteger(hoveredRightIndex) && hoveredRightIndex >= 0) {
+        rightIndex = hoveredRightIndex;
+      }
+
+      if (Number.isInteger(rightIndex) && rightIndex >= 0) {
+        applyLink(dragGhost.leftIndex, rightIndex);
+      }
+      clearDrag();
+    };
+
+    const handlePointerMoveGlobal = (event) => {
+      if (!dragGhost || activeDragMode !== "pointer" || activePointerId == null || event.pointerId !== activePointerId) return;
+      updateHoveredRightByPoint(event.clientX, event.clientY);
+      updateDragPosition(event.clientX, event.clientY);
+    };
+
+    const handlePointerUpGlobal = (event) => {
+      if (!dragGhost || activeDragMode !== "pointer" || activePointerId == null || event.pointerId !== activePointerId) return;
+      endDragAtPoint(event.clientX, event.clientY);
+    };
+
+    const handlePointerCancelGlobal = (event) => {
+      if (!dragGhost || activeDragMode !== "pointer" || activePointerId == null || event.pointerId !== activePointerId) return;
+      clearDrag();
+    };
+
+    const handleMouseMoveGlobal = (event) => {
+      if (!dragGhost || activeDragMode !== "mouse") return;
+      updateHoveredRightByPoint(event.clientX, event.clientY);
+      updateDragPosition(event.clientX, event.clientY);
+    };
+
+    const handleMouseUpGlobal = (event) => {
+      if (!dragGhost || activeDragMode !== "mouse") return;
+      endDragAtPoint(event.clientX, event.clientY);
+    };
+
+    const handleTouchMoveGlobal = (event) => {
+      if (!dragGhost || activeDragMode !== "touch") return;
+      const touch = event.touches && event.touches[0];
+      if (!touch) return;
+      updateHoveredRightByPoint(touch.clientX, touch.clientY);
+      updateDragPosition(touch.clientX, touch.clientY);
+      event.preventDefault();
+    };
+
+    const handleTouchEndGlobal = (event) => {
+      if (!dragGhost || activeDragMode !== "touch") return;
+      const touch = event.changedTouches && event.changedTouches[0];
+      if (!touch) {
+        clearDrag();
+        return;
+      }
+      endDragAtPoint(touch.clientX, touch.clientY);
+    };
+
+    document.addEventListener("pointermove", handlePointerMoveGlobal);
+    document.addEventListener("pointerup", handlePointerUpGlobal);
+    document.addEventListener("pointercancel", handlePointerCancelGlobal);
+    document.addEventListener("mousemove", handleMouseMoveGlobal);
+    document.addEventListener("mouseup", handleMouseUpGlobal);
+    document.addEventListener("touchmove", handleTouchMoveGlobal, { passive: false });
+    document.addEventListener("touchend", handleTouchEndGlobal);
+    document.addEventListener("touchcancel", handleTouchEndGlobal);
+
+    leftCards.forEach((node, index) => {
+      if (!(node instanceof HTMLButtonElement)) return;
+      node.addEventListener("click", () => {
+        const existingLinkIndex = links.findIndex((item) => item.leftIndex === index);
+        if (selectedLeftIndex < 0 && existingLinkIndex >= 0) {
+          links.splice(existingLinkIndex, 1);
+          syncUi();
+          return;
+        }
+        selectedLeftIndex = selectedLeftIndex === index ? -1 : index;
+        syncUi();
+      });
+
+      node.addEventListener("pointerdown", (event) => {
+        if (!event.isPrimary) return;
+        event.preventDefault();
+        selectedLeftIndex = index;
+        activeDragMode = "pointer";
+        startDragFromLeft(index, event.pointerId, node);
+      });
+
+      node.addEventListener("mousedown", (event) => {
+        if (event.button !== 0) return;
+        if (activeDragMode === "pointer") return;
+        event.preventDefault();
+        selectedLeftIndex = index;
+        startMouseDragFromLeft(index);
+      });
+
+      node.addEventListener("touchstart", (event) => {
+        if (activeDragMode === "pointer") return;
+        event.preventDefault();
+        selectedLeftIndex = index;
+        startTouchDragFromLeft(index);
+      }, { passive: false });
+    });
+
+    rightCards.forEach((node, index) => {
+      if (!(node instanceof HTMLButtonElement)) return;
+
+      node.addEventListener("pointerenter", () => {
+        if (!dragGhost) return;
+        hoveredRightIndex = index;
+      });
+
+      node.addEventListener("pointerleave", () => {
+        if (!dragGhost) return;
+        if (hoveredRightIndex === index) hoveredRightIndex = -1;
+      });
+
+      node.addEventListener("pointerup", (event) => {
+        if (!event.isPrimary || !dragGhost) return;
+        applyLink(dragGhost.leftIndex, index);
+        clearDrag();
+      });
+
+      node.addEventListener("mouseup", () => {
+        if (!dragGhost) return;
+        applyLink(dragGhost.leftIndex, index);
+        clearDrag();
+      });
+
+      node.addEventListener("touchend", (event) => {
+        if (!dragGhost) return;
+        event.preventDefault();
+        applyLink(dragGhost.leftIndex, index);
+        clearDrag();
+      }, { passive: false });
+
+      node.addEventListener("click", () => {
+        if (selectedLeftIndex < 0) {
+          const existingLinkIndex = links.findIndex((item) => item.rightIndex === index);
+          if (existingLinkIndex >= 0) {
+            links.splice(existingLinkIndex, 1);
+            syncUi();
+          }
+          return;
+        }
+
+        applyLink(selectedLeftIndex, index);
+        selectedLeftIndex = -1;
+        syncUi();
+      });
+    });
+
+    window.addEventListener("resize", () => drawArithmeticLinkLines(board, links));
+    board.addEventListener("DOMNodeRemoved", () => {
+      document.removeEventListener("pointermove", handlePointerMoveGlobal);
+      document.removeEventListener("pointerup", handlePointerUpGlobal);
+      document.removeEventListener("pointercancel", handlePointerCancelGlobal);
+      document.removeEventListener("mousemove", handleMouseMoveGlobal);
+      document.removeEventListener("mouseup", handleMouseUpGlobal);
+      document.removeEventListener("touchmove", handleTouchMoveGlobal);
+      document.removeEventListener("touchend", handleTouchEndGlobal);
+      document.removeEventListener("touchcancel", handleTouchEndGlobal);
+    });
+    syncUi();
+  });
+}
+
 function wireArithmeticAnswerInputs() {
   const blockNonTypingInput = (input) => {
     input.addEventListener("beforeinput", (event) => {
@@ -4567,6 +5223,11 @@ function wireArithmeticAnswerInputs() {
 
   const singleInputs = Array.from(document.querySelectorAll(".arithmetic-single-input"))
     .filter((node) => node instanceof HTMLInputElement && !node.disabled);
+  const linkBoards = Array.from(document.querySelectorAll("[data-role='arith-link-board'][data-readonly='false']"));
+  if (linkBoards.length > 0) {
+    wireArithmeticLinkToTenInputs(document);
+    return;
+  }
   singleInputs.forEach((input) => {
     blockNonTypingInput(input);
     input.addEventListener("input", () => {
@@ -4852,6 +5513,10 @@ function stripLeadingZeros(value) {
 
 function collectArithmeticWorkspaceAnswer(root) {
   const scope = root || document;
+  const linkAnswer = scope.querySelector("[data-role='arith-link-answer']");
+  if (linkAnswer instanceof HTMLInputElement) {
+    return String(linkAnswer.value || "").trim();
+  }
   const singleInput = scope.querySelector(".arithmetic-single-input");
   if (singleInput instanceof HTMLInputElement) {
     return stripLeadingZeros(singleInput.value);
@@ -4925,7 +5590,8 @@ function getDigitTracePaths(digitChar) {
       "M 50 62 C 24 66 16 80 20 92 C 26 108 74 108 80 92 C 84 80 76 66 50 62"
     ],
     "9": [
-      "M 76 50 C 72 70 56 86 36 86 C 18 86 10 68 16 52 C 24 34 46 32 62 42 C 78 52 84 70 80 94"
+      "M 42 20 C 50 12 64 12 72 20 C 80 28 80 42 72 50 C 64 58 50 58 42 50 C 34 42 34 28 42 20",
+      "M 74 32 L 74 104"
     ]
   };
   return paths[String(digitChar)] || paths["0"];
@@ -5233,8 +5899,254 @@ function wireNumberTracingCanvas(container, options = {}) {
   notifyProgress();
 }
 
+function normalizeNumberOrderingDirection(value) {
+  return String(value || "ascending").trim().toLowerCase() === "descending"
+    ? "descending"
+    : "ascending";
+}
+
+function parseNumberOrderingValues(value) {
+  if (Array.isArray(value)) {
+    return value
+      .map((item) => Number.parseInt(item, 10))
+      .filter((item) => Number.isInteger(item));
+  }
+
+  return String(value || "")
+    .split(/[\s,]+/)
+    .map((item) => Number.parseInt(item, 10))
+    .filter((item) => Number.isInteger(item));
+}
+
+function getNumberOrderingConfig(appOrConfig) {
+  const config = appOrConfig && appOrConfig.config ? appOrConfig.config : appOrConfig;
+  const direction = normalizeNumberOrderingDirection(config && config.direction);
+  const cards = parseNumberOrderingValues(config && config.cards);
+  const safeCards = cards.length > 0 ? cards : [7, 3, 9, 5];
+  const explicitOrder = parseNumberOrderingValues(config && config.correctOrder);
+  const fallbackOrder = safeCards.slice().sort((a, b) => a - b);
+  if (direction === "descending") {
+    fallbackOrder.reverse();
+  }
+  const correctOrder = explicitOrder.length > 0 ? explicitOrder : fallbackOrder;
+  const defaultPrompt = direction === "descending"
+    ? "Order the number cards from largest to smallest."
+    : "Order the number cards from smallest to largest.";
+  const prompt = String((config && config.prompt) || defaultPrompt).trim() || defaultPrompt;
+  return {
+    direction,
+    cards: safeCards,
+    correctOrder,
+    prompt
+  };
+}
+
+function buildNumberOrderingMarkup(config = {}) {
+  const normalized = getNumberOrderingConfig(config);
+  const currentOrderText = normalized.cards.join(", ");
+  return `
+    <div class="number-ordering-card" data-number-ordering-root="true">
+      <p class="helper-text number-ordering-prompt">${escapeHtml(normalized.prompt)}</p>
+      <div class="number-ordering-cards" data-number-ordering-stage="true" aria-label="Number ordering cards"></div>
+      <p class="number-ordering-current">Current order: <strong data-role="number-ordering-current">${escapeHtml(currentOrderText)}</strong></p>
+      <p class="helper-text number-ordering-tip">Drag cards to reorder. You can also use left/right buttons.</p>
+    </div>
+  `;
+}
+
+function normalizeIconCountConfig(config = {}) {
+  const totalRaw = Number.parseInt(config.totalCount, 10);
+  const totalCount = Number.isInteger(totalRaw) ? Math.max(0, Math.min(20, totalRaw)) : 8;
+  const iconShapeRaw = String(config.iconShape || "circle").trim().toLowerCase();
+  const iconShape = ["circle", "star", "apple"].includes(iconShapeRaw) ? iconShapeRaw : "circle";
+  let groups = Array.isArray(config.groups)
+    ? config.groups.map((item) => Number.parseInt(item, 10)).filter((item) => Number.isInteger(item) && item >= 0)
+    : [];
+  if (groups.length === 0) {
+    groups = [totalCount];
+  }
+  const sum = groups.reduce((acc, value) => acc + value, 0);
+  if (sum !== totalCount) {
+    groups = [totalCount];
+  }
+  const prompt = String(config.prompt || "How many icons are shown in total?").trim() || "How many icons are shown in total?";
+  return {
+    totalCount,
+    groups,
+    iconShape,
+    prompt
+  };
+}
+
+function buildIconCountMarkup(config = {}) {
+  const normalized = normalizeIconCountConfig(config);
+  const iconGlyph = normalized.iconShape === "star"
+    ? "&#9733;"
+    : normalized.iconShape === "apple"
+      ? "&#127822;"
+      : "";
+  return `
+    <div class="icon-count-card">
+      <p class="helper-text icon-count-prompt">${escapeHtml(normalized.prompt)}</p>
+      <div class="icon-count-groups" aria-label="Icon groups for counting">
+        ${normalized.groups.map((group, groupIndex) => `
+          <div class="icon-count-group" aria-label="Group ${groupIndex + 1} with ${group} icons">
+            ${Array.from({ length: group }).map(() => `<span class='icon-count-dot icon-count-dot-${normalized.iconShape}'>${iconGlyph}</span>`).join("")}
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function wireNumberOrderingInteraction(container, app, options = {}) {
+  if (!(container instanceof HTMLElement)) return;
+  const normalized = getNumberOrderingConfig(app && app.config ? app.config : app);
+  const stage = container.querySelector("[data-number-ordering-stage='true']");
+  if (!(stage instanceof HTMLElement)) return;
+
+  const currentLabel = container.querySelector("[data-role='number-ordering-current']");
+  const answerInput = container.querySelector("[data-role='number-ordering-answer']")
+    || (container.parentElement && container.parentElement.querySelector("[data-role='number-ordering-answer']"));
+  const onChange = typeof options.onChange === "function" ? options.onChange : null;
+  let currentOrder = normalized.cards.slice();
+  let draggingIndex = -1;
+  let touchDragIndex = -1;
+
+  const updateStateUi = () => {
+    const text = currentOrder.join(", ");
+    if (currentLabel instanceof HTMLElement) {
+      currentLabel.textContent = text;
+    }
+    if (answerInput instanceof HTMLInputElement) {
+      answerInput.value = text;
+    }
+    stage.dataset.order = text;
+    if (onChange) {
+      onChange(currentOrder.slice());
+    }
+  };
+
+  const moveCard = (fromIndex, toIndex) => {
+    if (!Number.isInteger(fromIndex) || !Number.isInteger(toIndex)) return;
+    if (fromIndex < 0 || toIndex < 0 || fromIndex >= currentOrder.length || toIndex >= currentOrder.length) return;
+    if (fromIndex === toIndex) return;
+    const next = currentOrder.slice();
+    const [moved] = next.splice(fromIndex, 1);
+    next.splice(toIndex, 0, moved);
+    currentOrder = next;
+    renderCards();
+  };
+
+  const renderCards = () => {
+    stage.innerHTML = currentOrder.map((value, index) => `
+      <div class="number-ordering-item-wrap" data-index="${index}">
+        <button
+          type="button"
+          class="number-ordering-item"
+          draggable="true"
+          data-role="number-ordering-card"
+          data-index="${index}"
+          aria-label="Card ${escapeHtml(String(value))}"
+        >${escapeHtml(String(value))}</button>
+        <div class="number-ordering-shift-controls">
+          <button type="button" class="number-ordering-shift-btn" data-role="number-ordering-left" data-index="${index}" aria-label="Move left">&#9664;</button>
+          <button type="button" class="number-ordering-shift-btn" data-role="number-ordering-right" data-index="${index}" aria-label="Move right">&#9654;</button>
+        </div>
+      </div>
+    `).join("");
+
+    stage.querySelectorAll("[data-role='number-ordering-card']").forEach((node) => {
+      if (!(node instanceof HTMLButtonElement)) return;
+      node.addEventListener("dragstart", (event) => {
+        draggingIndex = Number.parseInt(node.dataset.index || "-1", 10);
+        node.classList.add("is-dragging");
+        if (event.dataTransfer) {
+          event.dataTransfer.effectAllowed = "move";
+          event.dataTransfer.setData("text/plain", String(draggingIndex));
+        }
+      });
+      node.addEventListener("dragend", () => {
+        draggingIndex = -1;
+        node.classList.remove("is-dragging");
+      });
+      node.addEventListener("pointerdown", (event) => {
+        if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
+        touchDragIndex = Number.parseInt(node.dataset.index || "-1", 10);
+        node.classList.add("is-dragging");
+        if (node.setPointerCapture) {
+          node.setPointerCapture(event.pointerId);
+        }
+      });
+      node.addEventListener("pointermove", (event) => {
+        if (touchDragIndex < 0) return;
+        if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
+        event.preventDefault();
+      });
+      node.addEventListener("pointerup", (event) => {
+        if (touchDragIndex < 0) return;
+        if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
+        const sourceIndex = touchDragIndex;
+        touchDragIndex = -1;
+        node.classList.remove("is-dragging");
+        if (node.releasePointerCapture && node.hasPointerCapture && node.hasPointerCapture(event.pointerId)) {
+          node.releasePointerCapture(event.pointerId);
+        }
+        const dropTarget = document.elementFromPoint(event.clientX, event.clientY);
+        const targetCard = dropTarget instanceof HTMLElement
+          ? dropTarget.closest("[data-role='number-ordering-card']")
+          : null;
+        const targetIndex = targetCard instanceof HTMLElement
+          ? Number.parseInt(targetCard.dataset.index || "-1", 10)
+          : sourceIndex;
+        moveCard(sourceIndex, targetIndex);
+      });
+      node.addEventListener("pointercancel", (event) => {
+        touchDragIndex = -1;
+        node.classList.remove("is-dragging");
+        if (node.releasePointerCapture && node.hasPointerCapture && node.hasPointerCapture(event.pointerId)) {
+          node.releasePointerCapture(event.pointerId);
+        }
+      });
+      node.addEventListener("dragover", (event) => {
+        event.preventDefault();
+      });
+      node.addEventListener("drop", (event) => {
+        event.preventDefault();
+        const targetIndex = Number.parseInt(node.dataset.index || "-1", 10);
+        const fromData = event.dataTransfer ? Number.parseInt(event.dataTransfer.getData("text/plain"), 10) : draggingIndex;
+        const sourceIndex = Number.isInteger(fromData) && fromData >= 0 ? fromData : draggingIndex;
+        moveCard(sourceIndex, targetIndex);
+      });
+    });
+
+    stage.querySelectorAll("[data-role='number-ordering-left']").forEach((node) => {
+      if (!(node instanceof HTMLButtonElement)) return;
+      node.addEventListener("click", () => {
+        const index = Number.parseInt(node.dataset.index || "-1", 10);
+        moveCard(index, Math.max(0, index - 1));
+      });
+    });
+
+    stage.querySelectorAll("[data-role='number-ordering-right']").forEach((node) => {
+      if (!(node instanceof HTMLButtonElement)) return;
+      node.addEventListener("click", () => {
+        const index = Number.parseInt(node.dataset.index || "-1", 10);
+        moveCard(index, Math.min(currentOrder.length - 1, index + 1));
+      });
+    });
+
+    updateStateUi();
+  };
+
+  renderCards();
+}
+
 function getInteractiveAppTitle(type) {
+  if (type === "time") return "Interactive: Time";
   if (type === "number-tracing") return "Interactive: Number Tracing";
+  if (type === "number-ordering") return "Interactive: Number Ordering";
+  if (type === "icon-count") return "Interactive: Icon Count";
   if (type === "number-line") return "Interactive: Number Line";
   if (type === "cartesian-plane") return "Interactive: Cartesian Plane";
     if (type === "cartesian-plane-plot") return "Interactive: Cartesian Plane - Plot";
@@ -5261,6 +6173,12 @@ function updateInteractivePreview(preview, app, options = {}) {
   let content = "";
   if (app.type === "number-tracing") {
     content = buildNumberTracingMarkup(app.config || {});
+  } else if (app.type === "number-ordering") {
+    content = buildNumberOrderingMarkup(app.config || {});
+  } else if (app.type === "icon-count") {
+    content = buildIconCountMarkup(app.config || {});
+  } else if (app.type === "time") {
+    content = buildTimeClockMarkup(app.config || {}, { withReadout: true });
   } else if (app.type === "number-line") {
     content = buildNumberLineSvgString(app.config || {});
   } else if (app.type === "cartesian-plane") {
@@ -5313,8 +6231,60 @@ function updateInteractivePreview(preview, app, options = {}) {
     });
   }
 
+  if (app.type === "number-ordering") {
+    wireNumberOrderingInteraction(preview, app, {
+      onChange: typeof options.onNumberOrderingChange === "function"
+        ? options.onNumberOrderingChange
+        : null
+    });
+  }
+
   if (app.type === "fractions") {
     wireFractionsPreviewInputs(preview);
+  }
+
+  if (app.type === "arithmetic") {
+    const config = app.config || {};
+    const visualMode = String(config.visualMode || "").trim().toLowerCase();
+    if (visualMode === "link-to-10") {
+      const board = preview.querySelector("[data-role='arith-link-board']");
+      if (board instanceof HTMLElement) {
+        const leftCards = Array.from(board.querySelectorAll(".arith-link-card[data-side='left']"));
+        const rightCards = Array.from(board.querySelectorAll(".arith-link-card[data-side='right']"));
+        const normalizedLinkConfig = normalizeArithmeticLinkConfig(config);
+        const fallbackAnswer = serializeArithmeticLinkAnswerPairs(normalizedLinkConfig.expectedPairs);
+        const answerText = String(config.answer || fallbackAnswer || "");
+        const pairs = parseArithmeticLinkAnswerText(answerText);
+        const usedLeftIndices = new Set();
+        const usedRightIndices = new Set();
+        const links = pairs
+          .map((pair) => {
+            const leftIndex = leftCards.findIndex((node, index) => {
+              if (usedLeftIndices.has(index)) return false;
+              return Number.parseInt(String(node.dataset.value || ""), 10) === pair.left;
+            });
+            const rightIndex = rightCards.findIndex((node, index) => {
+              if (usedRightIndices.has(index)) return false;
+              return Number.parseInt(String(node.dataset.value || ""), 10) === pair.right;
+            });
+            if (leftIndex < 0 || rightIndex < 0) return null;
+            usedLeftIndices.add(leftIndex);
+            usedRightIndices.add(rightIndex);
+            return { leftIndex, rightIndex, color: arithmeticLinkColorByIndex(leftIndex) };
+          })
+          .filter((item) => item !== null);
+
+        leftCards.forEach((node, index) => {
+          if (!(node instanceof HTMLElement)) return;
+          node.classList.toggle("is-linked", links.some((item) => item.leftIndex === index));
+        });
+        rightCards.forEach((node, index) => {
+          if (!(node instanceof HTMLElement)) return;
+          node.classList.toggle("is-linked", links.some((item) => item.rightIndex === index));
+        });
+        drawArithmeticLinkLines(board, links);
+      }
+    }
   }
 }
 
@@ -6093,6 +7063,18 @@ function buildMatrixDetailLines(app) {
 
 function buildArithmeticDetailLines(app) {
   const config = app.config || {};
+  const visualMode = String(config.visualMode || "").trim().toLowerCase();
+  if (visualMode === "link-to-10") {
+    const normalized = normalizeArithmeticLinkConfig(config);
+    const isSubtraction = normalized.linkOperator === "-";
+    return [
+      `Mode: ${isSubtraction ? "Subtraction Link" : "Addition Link"}`,
+      `Target ${isSubtraction ? "difference" : "sum"}: ${normalized.targetValue}`,
+      `Column A: ${normalized.leftNumbers.join(", ")}`,
+      `Column B: ${normalized.rightNumbers.join(", ")}`
+    ];
+  }
+
   const a = Number.parseInt(config.operandA, 10);
   const b = Number.parseInt(config.operandB, 10);
   const operator = String(config.operator || "+").trim() || "+";
@@ -7292,6 +8274,15 @@ function mountInteractiveApp(host, app, options = {}) {
   if (!host || !app || !app.type) return;
   const { onTracingProgress } = options;
 
+  if (app.type === "time") {
+    host.innerHTML = `
+      <div class="interactive-app-preview"></div>
+    `;
+    const preview = host.querySelector(".interactive-app-preview");
+    updateInteractivePreview(preview, app);
+    return;
+  }
+
   if (app.type === "number-tracing") {
     host.innerHTML = `
       <div class="interactive-app-preview"></div>
@@ -7313,6 +8304,28 @@ function mountInteractiveApp(host, app, options = {}) {
         });
       });
     }
+    return;
+  }
+
+  if (app.type === "number-ordering") {
+    host.innerHTML = `
+      <div class="interactive-app-preview"></div>
+    `;
+    const preview = host.querySelector(".interactive-app-preview");
+    updateInteractivePreview(preview, app, {
+      onNumberOrderingChange: typeof options.onNumberOrderingChange === "function"
+        ? options.onNumberOrderingChange
+        : null
+    });
+    return;
+  }
+
+  if (app.type === "icon-count") {
+    host.innerHTML = `
+      <div class="interactive-app-preview"></div>
+    `;
+    const preview = host.querySelector(".interactive-app-preview");
+    updateInteractivePreview(preview, app);
     return;
   }
 
@@ -7545,6 +8558,88 @@ function renderAnswerInput(question) {
     `;
   }
 
+  if (question.interactiveApp && question.interactiveApp.type === "time") {
+    const config = question.interactiveApp.config || {};
+    const mode = normalizeTimeMode(config.mode);
+    const targetHour = normalizeTimeHour(config.hour);
+    const targetMinute = normalizeTimeMinute(config.minute);
+    const period = normalizeTimePeriod(config.period);
+
+    if (mode === "analog") {
+      const initial = buildInitialAnalogTime(targetHour, targetMinute);
+      return `
+        <div class="time-answer-panel" data-role="time-analog-panel" data-start-hour="${initial.hour}" data-start-minute="${initial.minute}">
+          <div class="time-analog-face" data-role="time-live-clock" aria-hidden="true">
+            ${buildTimeClockNumbersMarkup()}
+            <span class="time-center-dot"></span>
+            <span class="time-hand hour is-draggable" data-role="time-hour-hand" data-hand="hour"></span>
+            <span class="time-hand minute is-draggable" data-role="time-minute-hand" data-hand="minute"></span>
+          </div>
+          <p class="helper-text">Drag the clock hands to set the time.</p>
+          <p class="helper-text">Your selected time: <strong data-role="time-live-label">${escapeHtml(formatTimeDisplay(initial.hour, initial.minute, period))}</strong></p>
+        </div>
+      `;
+    }
+
+    if (mode === "analog-to-digital") {
+      const type = question.resultType === "checkbox" ? "checkbox" : "radio";
+      const inputName = question.resultType === "checkbox" ? "activeQuestionCheck" : "activeQuestion";
+      const options = question.options || [];
+      return `
+        <div class="time-answer-panel">
+          ${buildTimeClockMarkup(config, { withReadout: false })}
+          <div class="options-list">
+            ${options.map((option, optionIndex) => `
+              <label class="option-item">
+                <input type="${type}" name="${inputName}" value="${escapeHtml(option)}" data-index="${optionIndex}" />
+                <span>${escapeHtml(option)}</span>
+              </label>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="time-answer-panel">
+        <div class="time-digital-canvas" data-role="time-digital-canvas" aria-live="polite">
+          <input
+            class="time-digital-input"
+            data-role="time-digital-hour"
+            type="text"
+            inputmode="numeric"
+            maxlength="2"
+            placeholder="00"
+            aria-label="Hour"
+            autocomplete="off"
+          />
+          <span class="time-digital-colon" aria-hidden="true">:</span>
+          <input
+            class="time-digital-input"
+            data-role="time-digital-minute"
+            type="text"
+            inputmode="numeric"
+            maxlength="2"
+            placeholder="00"
+            aria-label="Minute"
+            autocomplete="off"
+          />
+          <select class="time-digital-period" data-role="time-digital-period" aria-label="AM or PM">
+            <option value="">--</option>
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+          </select>
+        </div>
+        <p class="helper-text">${(() => {
+          const challenge = String((config && config.digitalChallenge) || "words-to-12h").trim().toLowerCase();
+          if (challenge === "12h-to-24h") return "Enter answer in 24-hour format (HH:MM).";
+          if (challenge === "24h-to-12h") return "Enter answer in 12-hour format (H:MM AM/PM).";
+          return "Enter the time in HH:MM format.";
+        })()}</p>
+      </div>
+    `;
+  }
+
   if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
     const config = question.interactiveApp.config || {};
     const visualMode = String(config.visualMode || "").trim().toLowerCase();
@@ -7619,6 +8714,23 @@ function renderAnswerInput(question) {
     `;
   }
 
+  if (question.interactiveApp && question.interactiveApp.type === "number-ordering") {
+    return `
+      <div class="interactive-app-host" data-role="number-ordering-host"></div>
+      <input type="hidden" data-role="number-ordering-answer" value="" />
+    `;
+  }
+
+  if (question.interactiveApp && question.interactiveApp.type === "icon-count") {
+    return `
+      <div class="interactive-app-host" data-role="icon-count-host"></div>
+      <div class="short-answer-box">
+        <label for="shortAnswerInput">Your answer</label>
+        <input id="shortAnswerInput" type="text" inputmode="numeric" placeholder="Type your answer" autocomplete="off" />
+      </div>
+    `;
+  }
+
   // Interactive apps should only appear in the solution modal, not in the main question
   // So we skip them here and show the regular answer input instead
 
@@ -7660,6 +8772,21 @@ function renderAnswerInput(question) {
       <div class="short-answer-box">
         <label for="shortAnswerInput">Your answer</label>
         <input id="shortAnswerInput" type="text" placeholder="Type your answer" autocomplete="off" />
+      </div>
+    `;
+  }
+
+  if (question.resultType === "date") {
+    return `
+      <div class="short-answer-box date-answer-box">
+        <label>Date answer (DD/MM/YYYY)</label>
+        <div class="date-answer-grid">
+          <input type="text" inputmode="numeric" maxlength="2" placeholder="DD" data-role="date-day" aria-label="Day" autocomplete="off" />
+          <span class="date-answer-sep" aria-hidden="true">/</span>
+          <input type="text" inputmode="numeric" maxlength="2" placeholder="MM" data-role="date-month" aria-label="Month" autocomplete="off" />
+          <span class="date-answer-sep" aria-hidden="true">/</span>
+          <input type="text" inputmode="numeric" maxlength="4" placeholder="YYYY" data-role="date-year" aria-label="Year" autocomplete="off" />
+        </div>
       </div>
     `;
   }
@@ -7717,7 +8844,7 @@ function syncOptionSelectionState() {
 
 function wireOptionSelectionUI(question) {
   if (question.interactiveApp && question.interactiveApp.type === "arithmetic") return;
-  if (question.resultType === "short-answer" || question.resultType === "plot") return;
+  if (question.resultType === "short-answer" || question.resultType === "plot" || question.resultType === "date") return;
 
   const selector = question.resultType === "checkbox"
     ? "input[name='activeQuestionCheck']"
@@ -7731,7 +8858,7 @@ function wireOptionSelectionUI(question) {
 }
 
 function getAnswerTextInputs(scope = document) {
-  return Array.from(scope.querySelectorAll("#shortAnswerInput, #matrixResultInput, .arithmetic-single-input, .arithmetic-digit-input, [data-role='fraction-answer-num'], [data-role='fraction-answer-den'], [data-role='fraction-answer-whole'], [data-role='fraction-mixed-num'], [data-role='fraction-mixed-den'], [data-role='matrix-dim-rows'], [data-role='matrix-dim-cols']"))
+  return Array.from(scope.querySelectorAll("#shortAnswerInput, #matrixResultInput, .arithmetic-single-input, .arithmetic-digit-input, [data-role='fraction-answer-num'], [data-role='fraction-answer-den'], [data-role='fraction-answer-whole'], [data-role='fraction-mixed-num'], [data-role='fraction-mixed-den'], [data-role='matrix-dim-rows'], [data-role='matrix-dim-cols'], [data-role='time-digital-hour'], [data-role='time-digital-minute'], [data-role='date-day'], [data-role='date-month'], [data-role='date-year']"))
     .filter((node) => node instanceof HTMLInputElement && !node.disabled);
 }
 
@@ -7815,6 +8942,222 @@ function wireFractionMixedAnswerInput(question) {
       ? "Great! Mixed fraction is correct."
       : `Not quite. Try ${mixed.whole} and ${mixed.numerator}/${expectedDen}.`;
   });
+}
+
+function wireTimeAnalogAnswerInput(question) {
+  if (!question || !question.interactiveApp || question.interactiveApp.type !== "time") return;
+  const config = question.interactiveApp.config || {};
+  if (normalizeTimeMode(config.mode) !== "analog") return;
+
+  const container = document.getElementById("quizContainer");
+  if (!container) return;
+
+  const panel = container.querySelector("[data-role='time-analog-panel']");
+  const clock = panel && panel.querySelector("[data-role='time-live-clock']");
+  const hourHand = panel && panel.querySelector("[data-role='time-hour-hand']");
+  const minuteHand = panel && panel.querySelector("[data-role='time-minute-hand']");
+  const label = panel && panel.querySelector("[data-role='time-live-label']");
+  if (!(clock instanceof HTMLElement)
+    || !(hourHand instanceof HTMLElement)
+    || !(minuteHand instanceof HTMLElement)
+    || !(label instanceof HTMLElement)) {
+    return;
+  }
+
+  const period = normalizeTimePeriod(config.period);
+  const startHour = panel instanceof HTMLElement ? normalizeTimeHour(panel.dataset.startHour) : normalizeTimeHour(config.hour);
+  const startMinute = panel instanceof HTMLElement ? normalizeTimeMinute(panel.dataset.startMinute) : normalizeTimeMinute(config.minute);
+  let hour = startHour;
+  let minute = startMinute;
+  let activeHand = "";
+  let lastDraggedMinute = null;
+
+  const sync = () => {
+    const minuteAngle = minute * 6;
+    const hourAngle = (hour % 12) * 30;
+    hourHand.style.transform = `translate(-50%, -100%) rotate(${hourAngle}deg)`;
+    minuteHand.style.transform = `translate(-50%, -100%) rotate(${minuteAngle}deg)`;
+    label.textContent = formatTimeDisplay(hour, minute, period);
+    panel.dataset.timeHour = String(hour);
+    panel.dataset.timeMinute = String(minute);
+  };
+
+  const pointerToAngle = (event) => {
+    const rect = clock.getBoundingClientRect();
+    const cx = rect.left + (rect.width / 2);
+    const cy = rect.top + (rect.height / 2);
+    const dx = event.clientX - cx;
+    const dy = event.clientY - cy;
+    const radians = Math.atan2(dy, dx);
+    return (radians * 180 / Math.PI + 90 + 360) % 360;
+  };
+
+  const updateFromPointer = (event) => {
+    if (!activeHand) return;
+    const angle = pointerToAngle(event);
+    if (activeHand === "minute") {
+      const nextMinute = Math.round(angle / 6) % 60;
+      if (Number.isInteger(lastDraggedMinute)) {
+        const delta = nextMinute - lastDraggedMinute;
+        if (delta <= -30) {
+          hour = hour === 12 ? 1 : hour + 1;
+        } else if (delta >= 30) {
+          hour = hour === 1 ? 12 : hour - 1;
+        }
+      }
+      minute = nextMinute;
+      lastDraggedMinute = nextMinute;
+    } else if (activeHand === "hour") {
+      const roundedHour = Math.round(angle / 30) % 12;
+      hour = roundedHour === 0 ? 12 : roundedHour;
+      lastDraggedMinute = null;
+    }
+    sync();
+  };
+
+  const beginDrag = (hand, event) => {
+    event.preventDefault();
+    activeHand = hand;
+    if (hand === "minute") {
+      lastDraggedMinute = minute;
+    } else {
+      lastDraggedMinute = null;
+    }
+    updateFromPointer(event);
+  };
+
+  hourHand.addEventListener("pointerdown", (event) => beginDrag("hour", event));
+  minuteHand.addEventListener("pointerdown", (event) => beginDrag("minute", event));
+
+  window.addEventListener("pointermove", updateFromPointer);
+  window.addEventListener("pointerup", () => {
+    activeHand = "";
+    lastDraggedMinute = null;
+  });
+
+  sync();
+}
+
+function wireTimeDigitalAnswerInput(question) {
+  if (!question || !question.interactiveApp || question.interactiveApp.type !== "time") return;
+  const config = question.interactiveApp.config || {};
+  if (normalizeTimeMode(config.mode) !== "digital") return;
+
+  const container = document.getElementById("quizContainer");
+  if (!container) return;
+
+  const hourInput = container.querySelector("[data-role='time-digital-hour']");
+  const minuteInput = container.querySelector("[data-role='time-digital-minute']");
+  const periodSelect = container.querySelector("[data-role='time-digital-period']");
+  if (!(hourInput instanceof HTMLInputElement)
+    || !(minuteInput instanceof HTMLInputElement)) {
+    return;
+  }
+
+  const challenge = String(config.digitalChallenge || "words-to-12h").trim().toLowerCase();
+  const uses24HourInput = challenge === "12h-to-24h";
+  const requiresPeriod = challenge === "24h-to-12h";
+  const allows24HourInput = uses24HourInput || !requiresPeriod;
+  const sanitizeDigits = (input) => {
+    input.value = String(input.value || "").replace(/\D+/g, "").slice(0, 2);
+  };
+
+  const selectAll = (input) => {
+    if (!(input instanceof HTMLInputElement)) return;
+    try {
+      input.setSelectionRange(0, input.value.length);
+    } catch (_error) {
+      // Some mobile browsers may not support setSelectionRange for all states.
+    }
+  };
+
+  const enableOverwriteOnClick = (input) => {
+    if (!(input instanceof HTMLInputElement)) return;
+    input.addEventListener("focus", () => {
+      requestAnimationFrame(() => selectAll(input));
+    });
+    input.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse" || event.pointerType === "pen") {
+        event.preventDefault();
+        input.focus();
+        selectAll(input);
+      }
+    });
+  };
+
+  const normalizeBounds = () => {
+    const rawHour = hourInput.value === "" ? 0 : Number.parseInt(hourInput.value, 10);
+    const rawMinute = minuteInput.value === "" ? 0 : Number.parseInt(minuteInput.value, 10);
+    if (allows24HourInput) {
+      hourInput.value = String(Math.max(0, Math.min(23, Number.isFinite(rawHour) ? rawHour : 0))).padStart(2, "0");
+      minuteInput.value = String(Math.max(0, Math.min(59, Number.isFinite(rawMinute) ? rawMinute : 0))).padStart(2, "0");
+    } else {
+      hourInput.value = String(Math.max(1, Math.min(12, Number.isFinite(rawHour) && rawHour !== 0 ? rawHour : 12))).padStart(2, "0");
+      minuteInput.value = String(Math.max(0, Math.min(59, Number.isFinite(rawMinute) ? rawMinute : 0))).padStart(2, "0");
+    }
+  };
+
+  const updateModeUi = () => {
+    if (periodSelect instanceof HTMLSelectElement) {
+      periodSelect.classList.toggle("hidden", !requiresPeriod);
+      if (!requiresPeriod) {
+        periodSelect.value = "";
+      } else if (!periodSelect.value) {
+        periodSelect.value = "AM";
+      }
+    }
+
+  };
+
+  const handleInput = (event) => {
+    if (event && event.target instanceof HTMLInputElement) {
+      sanitizeDigits(event.target);
+      if (event.target.value.length === 2) {
+        if (event.target === hourInput) {
+          minuteInput.focus();
+          minuteInput.select();
+        } else if (event.target === minuteInput && periodSelect instanceof HTMLSelectElement && !periodSelect.classList.contains("hidden")) {
+          periodSelect.focus();
+        }
+      }
+    }
+  };
+
+  hourInput.addEventListener("input", handleInput);
+  minuteInput.addEventListener("input", handleInput);
+  hourInput.addEventListener("keydown", (event) => {
+    if (event.key === "Tab" && !event.shiftKey) {
+      event.preventDefault();
+      minuteInput.focus();
+      selectAll(minuteInput);
+    }
+  });
+  minuteInput.addEventListener("keydown", (event) => {
+    if (event.key === "Tab" && event.shiftKey) {
+      event.preventDefault();
+      hourInput.focus();
+      selectAll(hourInput);
+      return;
+    }
+    if (event.key === "Tab" && !event.shiftKey && periodSelect instanceof HTMLSelectElement && !periodSelect.classList.contains("hidden")) {
+      event.preventDefault();
+      periodSelect.focus();
+    }
+  });
+  hourInput.addEventListener("blur", normalizeBounds);
+  minuteInput.addEventListener("blur", normalizeBounds);
+  enableOverwriteOnClick(hourInput);
+  enableOverwriteOnClick(minuteInput);
+  if (periodSelect instanceof HTMLSelectElement) {
+    periodSelect.addEventListener("change", () => {
+      if (!periodSelect.value) periodSelect.value = "AM";
+    });
+  }
+
+  updateModeUi();
+  if (!hourInput.value) hourInput.value = "00";
+  if (!minuteInput.value) minuteInput.value = "00";
+  normalizeBounds();
 }
 
 function renderQuestion() {
@@ -7913,6 +9256,10 @@ function renderQuestion() {
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
     wireFractionMixedAnswerInput(question);
   }
+  if (question.interactiveApp && question.interactiveApp.type === "time") {
+    wireTimeAnalogAnswerInput(question);
+    wireTimeDigitalAnswerInput(question);
+  }
   if (question.interactiveApp && question.interactiveApp.type === "number-tracing") {
     const tracingHost = quizContainer.querySelector("[data-role='number-tracing-host']");
     const tracingStatus = quizContainer.querySelector("[data-role='tracing-status']");
@@ -7927,13 +9274,13 @@ function renderQuestion() {
       const requiredDots = Number.isFinite(Number(progress.requiredDots))
         ? Number(progress.requiredDots)
         : Math.max(1, Math.ceil(totalGuideDots * (minDotsPercent / 100)));
-      const dotHint = totalGuideDots > 0
-        ? `Dots traced: ${Math.min(coveredGuideDots, totalGuideDots)}/${totalGuideDots}.`
-        : `Dots traced: 0/0.`;
+      const completionPercent = totalGuideDots > 0
+        ? Math.round((Math.min(coveredGuideDots, totalGuideDots) / totalGuideDots) * 100)
+        : 0;
       if (isComplete) {
-        tracingStatus.textContent = `Good job! Tracing complete. ${dotHint} Requirement met: ${requiredDots}+ touched.`;
+        tracingStatus.textContent = `Good job! Tracing complete. Completion: ${completionPercent}%.`;
       } else {
-        tracingStatus.textContent = `Trace status: not complete. ${dotHint} Need ${requiredDots}+ dot(s) touched.`;
+        tracingStatus.textContent = `Trace status: not complete. Completion: ${completionPercent}%.`;
       }
       tracingStatus.classList.toggle("is-complete", Boolean(isComplete));
     };
@@ -7954,6 +9301,31 @@ function renderQuestion() {
           updateNextQuestionButtonState();
         }
       });
+    }
+  }
+  if (question.interactiveApp && question.interactiveApp.type === "number-ordering") {
+    const orderingHost = quizContainer.querySelector("[data-role='number-ordering-host']");
+    const orderingAnswerInput = quizContainer.querySelector("[data-role='number-ordering-answer']");
+    if (orderingHost instanceof HTMLElement) {
+      mountInteractiveApp(orderingHost, cloneInteractiveApp(question.interactiveApp), {
+        onNumberOrderingChange: (order) => {
+          if (!(orderingAnswerInput instanceof HTMLInputElement)) return;
+          const values = Array.isArray(order)
+            ? order.map((item) => Number.parseInt(item, 10)).filter((item) => Number.isInteger(item))
+            : [];
+          orderingAnswerInput.value = values.join(", ");
+        }
+      });
+      if (orderingAnswerInput instanceof HTMLInputElement) {
+        const initialOrder = getNumberOrderingConfig(question.interactiveApp).cards;
+        orderingAnswerInput.value = initialOrder.join(", ");
+      }
+    }
+  }
+  if (question.interactiveApp && question.interactiveApp.type === "icon-count") {
+    const iconCountHost = quizContainer.querySelector("[data-role='icon-count-host']");
+    if (iconCountHost instanceof HTMLElement) {
+      mountInteractiveApp(iconCountHost, cloneInteractiveApp(question.interactiveApp));
     }
   }
 
@@ -7979,8 +9351,40 @@ function collectUserAnswer(question) {
       : "";
   }
 
+  if (question.interactiveApp && question.interactiveApp.type === "number-ordering") {
+    const container = document.getElementById("quizContainer");
+    const answerInput = container && container.querySelector("[data-role='number-ordering-answer']");
+    const raw = answerInput instanceof HTMLInputElement
+      ? String(answerInput.value || "")
+      : "";
+    return parseNumberOrderingValues(raw);
+  }
+
   if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
     return collectArithmeticWorkspaceAnswer(document.getElementById("quizContainer"));
+  }
+  if (question.interactiveApp && question.interactiveApp.type === "time") {
+    const config = question.interactiveApp.config || {};
+    const mode = normalizeTimeMode(config.mode);
+    const period = normalizeTimePeriod(config.period);
+    if (mode === "analog") {
+      const container = document.getElementById("quizContainer");
+      const panel = container && container.querySelector("[data-role='time-analog-panel']");
+      const hour = panel instanceof HTMLElement ? normalizeTimeHour(panel.dataset.timeHour) : normalizeTimeHour(config.hour);
+      const minute = panel instanceof HTMLElement ? normalizeTimeMinute(panel.dataset.timeMinute) : normalizeTimeMinute(config.minute);
+      return formatTimeDisplay(hour, minute, period);
+    }
+    if (mode === "digital") {
+      const container = document.getElementById("quizContainer");
+      const hourInput = container && container.querySelector("[data-role='time-digital-hour']");
+      const minuteInput = container && container.querySelector("[data-role='time-digital-minute']");
+      const periodSelect = container && container.querySelector("[data-role='time-digital-period']");
+      const hh = hourInput instanceof HTMLInputElement ? String(hourInput.value || "").trim() : "";
+      const mm = minuteInput instanceof HTMLInputElement ? String(minuteInput.value || "").trim() : "";
+      const pp = periodSelect instanceof HTMLSelectElement ? String(periodSelect.value || "").trim() : "";
+      if (!hh || !mm) return "";
+      return pp ? `${hh}:${mm} ${pp}` : `${hh}:${mm}`;
+    }
   }
   if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
     return cartesianPlotUserPoints.slice();
@@ -8025,6 +9429,17 @@ function collectUserAnswer(question) {
     const cols = colsInput ? String(colsInput.value || "").trim() : "";
     if (!rows || !cols) return "";
     return `${rows} x ${cols}`;
+  }
+  if (question.resultType === "date") {
+    const container = document.getElementById("quizContainer");
+    const dayInput = container && container.querySelector("[data-role='date-day']");
+    const monthInput = container && container.querySelector("[data-role='date-month']");
+    const yearInput = container && container.querySelector("[data-role='date-year']");
+    const day = dayInput ? String(dayInput.value || "").trim() : "";
+    const month = monthInput ? String(monthInput.value || "").trim() : "";
+    const year = yearInput ? String(yearInput.value || "").trim() : "";
+    if (!day || !month || !year) return "";
+    return `${day.padStart(2, "0")}/${month.padStart(2, "0")}/${year.padStart(4, "0")}`;
   }
   if (question.resultType === "short-answer" || question.resultType === "plot") {
     const input = document.getElementById("shortAnswerInput");
@@ -8102,6 +9517,53 @@ function answersMatch(question, userAnswer) {
     return hasCompletedTracingForCurrentQuestion();
   }
 
+  if (question.interactiveApp && question.interactiveApp.type === "number-ordering") {
+    const expectedFromConfig = getNumberOrderingConfig(question.interactiveApp).correctOrder;
+    const expectedFromAnswer = parseNumberOrderingValues(getExpectedAnswers(question)[0] || "");
+    const expected = expectedFromAnswer.length > 0 ? expectedFromAnswer : expectedFromConfig;
+    const typed = Array.isArray(userAnswer) ? userAnswer : parseNumberOrderingValues(userAnswer);
+    if (typed.length !== expected.length || expected.length === 0) return false;
+    return typed.every((value, index) => Number(value) === Number(expected[index]));
+  }
+
+  if (question.interactiveApp && question.interactiveApp.type === "time") {
+    const config = question.interactiveApp.config || {};
+    const mode = normalizeTimeMode(config.mode);
+    const challenge = String(config.digitalChallenge || "words-to-12h").trim().toLowerCase();
+    const expectedFromConfig = parseTimeText(formatTimeDisplay(
+      normalizeTimeHour(config.hour),
+      normalizeTimeMinute(config.minute),
+      normalizeTimePeriod(config.period)
+    ));
+    const expectedAnswers = getExpectedAnswers(question);
+    const expectedFromAnswer = parseTimeText(expectedAnswers[0] || "");
+    const expected = expectedFromAnswer || expectedFromConfig;
+    if (!expected) return false;
+
+    if (mode === "analog-to-digital") {
+      const selected = parseTimeText(userAnswer);
+      if (!selected) return false;
+      if (Number.isInteger(selected.minutesOfDay) && Number.isInteger(expected.minutesOfDay)) {
+        return selected.minutesOfDay === expected.minutesOfDay;
+      }
+      return selected.minutesOnClock === expected.minutesOnClock;
+    }
+
+    const typed = parseTimeText(userAnswer);
+    if (!typed) return false;
+    if (mode === "digital" && challenge === "words-to-12h") {
+      if (typed.hasPeriod && Number.isInteger(expected.minutesOfDay)) {
+        return typed.minutesOfDay === expected.minutesOfDay;
+      }
+      return typed.minutesOnClock === expected.minutesOnClock;
+    }
+    if (Number.isInteger(expected.minutesOfDay)) {
+      if (!Number.isInteger(typed.minutesOfDay)) return false;
+      return typed.minutesOfDay === expected.minutesOfDay;
+    }
+    return typed.minutesOnClock === expected.minutesOnClock;
+  }
+
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
     // Compare as equivalent fractions (cross-multiply), supporting mixed forms like "2 3/5".
     const user = parseAnswerFraction(userAnswer);
@@ -8135,6 +9597,17 @@ function answersMatch(question, userAnswer) {
     return uniquePicked.length === uniqueExpected.length && uniquePicked.every((item, idx) => item === uniqueExpected[idx]);
   }
 
+  if (question.resultType === "date") {
+    const userDate = parseDdMmYyyyDate(userAnswer);
+    if (!userDate) return false;
+    const expectedDates = getExpectedAnswers(question)
+      .map((item) => parseDdMmYyyyDate(item))
+      .filter((item) => item && item.canonical)
+      .map((item) => item.canonical);
+    if (expectedDates.length === 0) return false;
+    return expectedDates.includes(userDate.canonical);
+  }
+
   const isArithmetic = Boolean(
     question.interactiveApp && question.interactiveApp.type === "arithmetic"
   );
@@ -8160,6 +9633,20 @@ function answersMatch(question, userAnswer) {
     const value = Number.parseFloat(raw);
     return Number.isFinite(value) ? value : null;
   };
+
+  if (isArithmetic) {
+    const arithmeticConfig = question.interactiveApp && question.interactiveApp.config
+      ? question.interactiveApp.config
+      : {};
+    const visualMode = String(arithmeticConfig.visualMode || "").trim().toLowerCase();
+    if (visualMode === "link-to-10") {
+      const expectedPairs = normalizeArithmeticLinkConfig(arithmeticConfig).expectedPairs;
+      const expectedText = serializeArithmeticLinkAnswerPairs(expectedPairs);
+      const userText = serializeArithmeticLinkAnswerPairs(parseArithmeticLinkAnswerText(userAnswer));
+      return expectedText !== "" && userText === expectedText;
+    }
+  }
+
   const parseMatrixAnswer = (v) => {
     const raw = String(v || "").trim();
     if (!raw) return null;
@@ -8246,10 +9733,26 @@ function validateAnswer(question, userAnswer) {
     return hasCompletedTracingForCurrentQuestion();
   }
 
+  if (question.interactiveApp && question.interactiveApp.type === "number-ordering") {
+    return Array.isArray(userAnswer) && userAnswer.length > 0;
+  }
+
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
     return !!parseAnswerFraction(userAnswer);
   }
+  if (question.interactiveApp && question.interactiveApp.type === "time") {
+    const mode = normalizeTimeMode(question.interactiveApp.config && question.interactiveApp.config.mode);
+    if (mode === "analog") return true;
+    if (mode === "digital") return !!parseTimeText(userAnswer);
+  }
   if (question.interactiveApp && question.interactiveApp.type === "arithmetic") {
+    const config = question.interactiveApp.config || {};
+    const visualMode = String(config.visualMode || "").trim().toLowerCase();
+    if (visualMode === "link-to-10") {
+      const normalized = normalizeArithmeticLinkConfig(config);
+      const pairs = parseArithmeticLinkAnswerText(userAnswer);
+      return pairs.length === normalized.leftNumbers.length && normalized.leftNumbers.length > 0;
+    }
     return String(userAnswer || "").trim() !== "";
   }
   if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
@@ -8257,6 +9760,10 @@ function validateAnswer(question, userAnswer) {
   }
   if (question.resultType === "checkbox") {
     return Array.isArray(userAnswer) && userAnswer.length > 0;
+  }
+
+  if (question.resultType === "date") {
+    return !!parseDdMmYyyyDate(userAnswer);
   }
 
   return String(userAnswer || "").trim() !== "";
@@ -8331,11 +9838,11 @@ function checkAnswer() {
       }
     } else if (question.interactiveApp && question.interactiveApp.type === "fractions") {
       resultBox.innerHTML = buildFractionIncorrectFeedbackMarkup(question, expectedAnswers);
-    } else if (question.resultType === "short-answer" || question.resultType === "plot") {
-      const shortAnswerFeedback = buildShortAnswerIncorrectFeedback(expectedAnswers);
-      resultBox.innerHTML = `${escapeHtml(shortAnswerFeedback.correctAnswerText)}<br>${escapeHtml(shortAnswerFeedback.encouragementText)}`;
+    } else if (question.resultType === "short-answer" || question.resultType === "plot" || question.resultType === "date") {
+      const shortAnswerFeedback = buildShortAnswerIncorrectFeedback(userAnswer, expectedAnswers);
+      resultBox.innerHTML = `${escapeHtml(shortAnswerFeedback.userAnswerText)}<br>${escapeHtml(shortAnswerFeedback.correctAnswerText)}<br>${escapeHtml(shortAnswerFeedback.encouragementText)}`;
     } else {
-      resultBox.textContent = buildIncorrectFeedbackMessage();
+      resultBox.innerHTML = buildIncorrectFeedbackMessage(userAnswer, expectedAnswers);
     }
     resultBox.className = isCorrect ? "result-correct" : "result-incorrect";
   }
@@ -8726,21 +10233,17 @@ function goNext() {
 }
 
 async function loadQuiz() {
-  document.getElementById("quizSelectorWrap").classList.add("hidden");
-
   const requestedFile = getRequestedFile();
   try {
     const response = await fetch(requestedFile, { cache: "no-store" });
     if (!response.ok) {
-      throw new Error("load failed");
+      throw new Error(`Quiz file not found (${response.status}).`);
     }
     const rawData = await response.json();
     const parsedQuiz = parseQuizPayload(rawData);
     applySingleQuiz(parsedQuiz);
   } catch (error) {
-    // Most browsers require an explicit user gesture for local file access pickers.
-    setErrorWithLocalActions(`Could not load quiz file: ${requestedFile}`, requestedFile);
-    return;
+    setError(`Could not load quiz: ${error.message}`);
   }
 }
 
