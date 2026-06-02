@@ -55,6 +55,8 @@
 
         <div class="button-group">
           <button class="btn secondary" id="connectRootBtn" type="button">Connect Root Folder</button>
+          <button class="btn secondary" id="importTableBtn" type="button">Import Spreadsheet</button>
+          <input type="file" id="importTableInput" class="hidden" accept=".xlsx,.xls,.csv" />
           <button class="btn" id="saveQuizBtn">Save Selected Quiz</button>
           <button class="btn secondary" id="downloadQuizBtn">Download Selected Quiz JSON</button>
           <button class="btn secondary" id="copyJsonBtn">Copy JSON</button>
@@ -114,6 +116,7 @@
                   <label for="autoCreateCategory">Auto Create: Category</label>
                   <select id="autoCreateCategory" class="nl-range-input">
                     <option value="introduction-to-numbers">Introduction to Numbers</option>
+                    <option value="time">Time</option>
                     <option value="cartesian-plane">Cartesian Plane</option>
                     <option value="cartesian-plane-plot">Cartesian Plane - Plot</option>
                     <option value="number-line">Number Line</option>
@@ -136,6 +139,9 @@
                 <div>
                   <label for="autoCreateSubcategory">Auto Create: Subcategory</label>
                   <select id="autoCreateSubcategory" class="nl-range-input">
+                    <option value="digital">Digital</option>
+                    <option value="analog">Analog</option>
+                    <option value="analog-to-digital">Analog to Digital</option>
                     <option value="linear">Linear</option>
                     <option value="quadratic">Quadratic</option>
                     <option value="cubic">Cubic</option>
@@ -171,6 +177,7 @@
                   <select id="autoCreateResultType" class="nl-range-input">
                     <option value="auto">Auto (Recommended)</option>
                     <option value="short-answer">Short Answer</option>
+                    <option value="date">Date (DD/MM/YYYY)</option>
                     <option value="plot">Plot</option>
                     <option value="multiple-choice">Multiple Choice</option>
                     <option value="true-false">True / False</option>
@@ -218,6 +225,7 @@
                 <button class="btn secondary" id="validateGeneratedQuestionBtn" type="button">Validate Question + Answer</button>
               </div>
               <p class="helper-text">Auto Create fills question text, solution, and interactive app config using deterministic templates (no AI). Entire Quiz mode builds VCAA-aligned quizzes for the selected category, subcategory, grade/course, and number of questions.</p>
+              <p class="helper-text">For Time questions: Auto Create is editable. Open Interactive App > Time and tick/untick "Use custom answer/options (do not auto-overwrite)" to control whether Maker updates or preserves your manual answer fields.</p>
 
               <label for="questionText">1) Question</label>
               <textarea id="questionText" rows="2" placeholder="Enter question"></textarea>
@@ -226,6 +234,7 @@
               <select id="resultType">
                 <option value="multiple-choice">Multiple Choice</option>
                 <option value="short-answer">Short Answer</option>
+                <option value="date">Date (DD/MM/YYYY)</option>
                 <option value="plot">Plot</option>
                 <option value="true-false">True / False</option>
                 <option value="checkbox">Checkbox</option>
@@ -310,7 +319,11 @@
                 <label for="interactiveAppType">8) App Template</label>
                 <select id="interactiveAppType">
                   <option value="">None</option>
+                  <option value="time">Time</option>
                   <option value="number-tracing">Number Tracing</option>
+                  <option value="number-ordering">Number Ordering</option>
+                  <option value="icon-count">Icon Count</option>
+                  <option value="calendar-sequence">Calendar Sequence</option>
                   <option value="arithmetic">Arithmetic</option>
                   <option value="number-line">Number Line</option>
                   <option value="cartesian-plane">Cartesian Plane</option>
@@ -393,6 +406,120 @@
                   <div class="nl-range-row">
                     <label><input type="checkbox" id="ntPrepMode" checked /> Prep mode (recognition-first)</label>
                     <label><input type="checkbox" id="ntShowQuantityDots" checked /> Show quantity dots (0-20)</label>
+                  </div>
+                </div>
+
+                <div id="numberOrderingConfig" class="hidden">
+                  <label for="noPrompt">Prompt</label>
+                  <input type="text" id="noPrompt" class="nl-range-input" value="Order the number cards from smallest to largest." />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="noDirection">Direction</label>
+                      <select id="noDirection" class="nl-range-input">
+                        <option value="ascending">Ascending</option>
+                        <option value="descending">Descending</option>
+                      </select>
+                    </div>
+                  </div>
+                  <label for="noCards">Cards (comma separated)</label>
+                  <input type="text" id="noCards" class="nl-range-input" value="7, 3, 9, 5" placeholder="Example: 7, 3, 9, 5" />
+                  <label for="noCorrectOrder">Correct Order (comma separated)</label>
+                  <input type="text" id="noCorrectOrder" class="nl-range-input" value="3, 5, 7, 9" placeholder="Example: 3, 5, 7, 9" />
+                </div>
+
+                <div id="iconCountConfig" class="hidden">
+                  <label for="icPrompt">Prompt</label>
+                  <input type="text" id="icPrompt" class="nl-range-input" value="How many icons are shown in total?" />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="icTotalCount">Total Icons (0-20)</label>
+                      <input type="number" id="icTotalCount" class="nl-range-input" min="0" max="20" value="8" />
+                    </div>
+                    <div>
+                      <label for="icIconShape">Icon Shape</label>
+                      <select id="icIconShape" class="nl-range-input">
+                        <option value="circle">Circle</option>
+                        <option value="star">Star</option>
+                        <option value="apple">Apple</option>
+                      </select>
+                    </div>
+                  </div>
+                  <label for="icGroups">Group sizes (comma separated)</label>
+                  <input type="text" id="icGroups" class="nl-range-input" value="3, 2, 3" placeholder="Example: 3, 2, 3" />
+                </div>
+
+                <div id="calendarSequenceConfig" class="hidden">
+                  <label for="csPrompt">Prompt</label>
+                  <input type="text" id="csPrompt" class="nl-range-input" value="If today is Tuesday, what is the next day?" />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="csMode">Mode</label>
+                      <select id="csMode" class="nl-range-input">
+                        <option value="days">Days</option>
+                        <option value="months">Months</option>
+                        <option value="dates">Dates</option>
+                        <option value="years">Years</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="csCurrent">Current Item</label>
+                      <input type="text" id="csCurrent" class="nl-range-input" value="Tuesday" />
+                    </div>
+                    <div>
+                      <label for="csStep">Step</label>
+                      <input type="number" id="csStep" class="nl-range-input" min="1" max="10" value="1" />
+                    </div>
+                  </div>
+                  <label for="csValues">Sequence Values (comma separated)</label>
+                  <input type="text" id="csValues" class="nl-range-input" value="Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" />
+                </div>
+
+                <div id="timeConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="timeMode">Mode</label>
+                      <select id="timeMode" class="nl-range-input">
+                        <option value="digital">Digital</option>
+                        <option value="analog">Analog</option>
+                        <option value="analog-to-digital">Analog to Digital</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="timeFocus">Clock Focus</label>
+                      <select id="timeFocus" class="nl-range-input">
+                        <option value="exact-time">Exact time (hour + minute)</option>
+                        <option value="hour-only">By hour only (o'clock)</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="timeDigitalChallenge">Digital Practice</label>
+                      <select id="timeDigitalChallenge" class="nl-range-input">
+                        <option value="words-to-12h">Words to 12-hour</option>
+                        <option value="12h-to-24h">12-hour to 24-hour</option>
+                        <option value="24h-to-12h">24-hour to 12-hour</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="timePeriod">Period</label>
+                      <select id="timePeriod" class="nl-range-input">
+                        <option value="">Not set</option>
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="timeHour">Hour (1-12)</label>
+                      <input type="number" id="timeHour" class="nl-range-input" min="1" max="12" value="3" />
+                    </div>
+                    <div>
+                      <label for="timeMinute">Minute (0-59)</label>
+                      <input type="number" id="timeMinute" class="nl-range-input" min="0" max="59" value="15" />
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <label><input type="checkbox" id="timeAllowCustomAnswer" /> Use custom answer/options (do not auto-overwrite)</label>
                   </div>
                 </div>
 
@@ -794,6 +921,71 @@
     </div>
   </div>
 
+  <div id="importModal" class="viewer-modal hidden" aria-hidden="true">
+    <div class="viewer-modal-backdrop" data-close-import-modal="true"></div>
+    <div class="viewer-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="importModalTitle" style="max-width:min(1200px,96vw); width:96vw;">
+      <div class="viewer-modal-header">
+        <h2 id="importModalTitle">Spreadsheet Import</h2>
+        <button class="icon-btn" id="closeImportModalBtn" type="button" aria-label="Close import dialog">x</button>
+      </div>
+      <div class="viewer-modal-body">
+        <div class="panel-head" style="margin-bottom:8px;">
+          <h2 style="margin:0;">Import Preview</h2>
+          <div class="panel-head-actions">
+            <button class="btn secondary" id="selectImportFileBtn" type="button">Choose Spreadsheet</button>
+            <button class="btn secondary" id="exportValidationBtn" type="button" disabled>Export Validation CSV</button>
+            <button class="btn" id="applyImportBtn" type="button">Apply Import</button>
+            <button class="btn secondary" id="clearImportPreviewBtn" type="button">Clear Preview</button>
+          </div>
+        </div>
+        <p class="helper-text">Choose file, review preview and validation, then click Apply Import.</p>
+        <p class="helper-text" id="importPreviewMeta">No spreadsheet loaded.</p>
+        <div style="overflow:auto; border:1px solid #dbe3ee; border-radius:10px; background:#fff; max-height:360px;">
+          <table id="importPreviewTable" style="width:100%; border-collapse:collapse; min-width:900px;">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Grade</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Module</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Lesson Part</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Lesson Name</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Category</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Subcategory</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Q No</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Question Type</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Question</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Options</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Learning Outcome</th>
+              </tr>
+            </thead>
+            <tbody id="importPreviewBody">
+              <tr><td colspan="11" style="padding:8px;">No rows loaded.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="importValidationCard" style="margin-top:10px; border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:10px;">
+          <h3 style="margin:0 0 6px 0; font-size:1rem;">Validation</h3>
+          <p class="helper-text" id="importValidationMeta">No validation run yet.</p>
+          <div style="overflow:auto; border:1px solid #eef2f8; border-radius:8px; max-height:220px;">
+            <table style="width:100%; border-collapse:collapse; min-width:720px;">
+              <thead>
+                <tr>
+                  <th style="text-align:left; padding:8px; border-bottom:1px solid #e7edf6;">Level</th>
+                  <th style="text-align:left; padding:8px; border-bottom:1px solid #e7edf6;">Grade</th>
+                  <th style="text-align:left; padding:8px; border-bottom:1px solid #e7edf6;">Lesson Part</th>
+                  <th style="text-align:left; padding:8px; border-bottom:1px solid #e7edf6;">Q No</th>
+                  <th style="text-align:left; padding:8px; border-bottom:1px solid #e7edf6;">Issue</th>
+                </tr>
+              </thead>
+              <tbody id="importValidationBody">
+                <tr><td colspan="5" style="padding:8px;">No issues detected.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="quizSettingsModal" class="viewer-modal hidden" aria-hidden="true">
     <div class="viewer-modal-backdrop" data-close-quiz-settings="true"></div>
     <div class="viewer-modal-dialog quiz-settings-dialog" role="dialog" aria-modal="true" aria-labelledby="quizSettingsModalTitle">
@@ -827,6 +1019,7 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="maker.js"></script>
 </body>
 </html>

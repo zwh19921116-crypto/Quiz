@@ -144,6 +144,46 @@ const state = {
   draggingQuestionIndex: -1
 };
 
+let pendingImportRows = [];
+let pendingImportSourceName = "";
+let pendingImportValidation = null;
+
+const ALLOWED_IMPORT_GRADE_CATEGORIES = [
+  "Prep",
+  "Grade 1",
+  "Grade 2",
+  "Grade 3",
+  "Grade 4",
+  "Grade 5",
+  "Grade 6"
+];
+
+const IMPORT_GRADE_ALIASES = {
+  prep: "Prep",
+  preprimary: "Prep",
+  preprimaryschool: "Prep",
+  kindergarten: "Prep",
+  kindy: "Prep",
+  grade1: "Grade 1",
+  g1: "Grade 1",
+  year1: "Grade 1",
+  grade2: "Grade 2",
+  g2: "Grade 2",
+  year2: "Grade 2",
+  grade3: "Grade 3",
+  g3: "Grade 3",
+  year3: "Grade 3",
+  grade4: "Grade 4",
+  g4: "Grade 4",
+  year4: "Grade 4",
+  grade5: "Grade 5",
+  g5: "Grade 5",
+  year5: "Grade 5",
+  grade6: "Grade 6",
+  g6: "Grade 6",
+  year6: "Grade 6"
+};
+
 const QUIZ_ORDER_MODES = {
   ORDERED: "ordered",
   RANDOM: "random"
@@ -264,6 +304,9 @@ function createEmptyQuestion() {
     resultType: normalizeResultType("multiple-choice"),
     options: ["", "", "", ""],
     correctAnswer: "",
+    category: "",
+    subcategory: "",
+    learningOutcome: "",
     notesAttachments: [],
     image: "",
     solution: "",
@@ -366,6 +409,7 @@ function normalizeResultType(value) {
     .replace(/[_\s]+/g, "-");
 
   if (["short-answer", "shortanswer", "short"].includes(normalized)) return "short-answer";
+  if (["date", "date-answer", "dateanswer"].includes(normalized)) return "date";
   if (["plot", "graph", "graph-plot", "plot-graph"].includes(normalized)) return "plot";
   if (["true-false", "truefalse", "boolean"].includes(normalized)) return "true-false";
   if (["checkbox", "multi-select", "multiselect"].includes(normalized)) return "checkbox";
@@ -1927,6 +1971,10 @@ function getQuestionValidationIssues(question) {
     if (!matchesChoice) {
       issues.push("Correct answer must match one option exactly.");
     }
+  } else if (resultType === "date") {
+    if (!/^\d{2}\/\d{2}\/\d{4}$/.test(answerValue)) {
+      issues.push("Date correct answer must be in DD/MM/YYYY format.");
+    }
   } else if (resultType === "checkbox") {
     const answers = answerValue.split(",").map((item) => item.trim()).filter((item) => item !== "");
     const invalid = answers.some((item) => !choiceOptions.some((option) => normalizeText(option) === normalizeText(item)));
@@ -2611,6 +2659,14 @@ const AUTO_CREATE_CARTESIAN_TEMPLATES = {
 };
 
 const AUTO_CREATE_SUBCATEGORY_OPTIONS = {
+  "time": [
+    { value: "digital", label: "Digital" },
+    { value: "digital-by-hour", label: "Digital - by Hour" },
+    { value: "analog", label: "Analog" },
+    { value: "analog-by-hour", label: "Analog - by Hour" },
+    { value: "mixed-by-hour", label: "Mixed - by Hour" },
+    { value: "analog-to-digital", label: "Analog to Digital" }
+  ],
   "cartesian-plane": [
     { value: "linear", label: "Linear" },
     { value: "quadratic", label: "Quadratic" },
@@ -2642,8 +2698,14 @@ const AUTO_CREATE_SUBCATEGORY_OPTIONS = {
   "probability-tree": [{ value: "path-sum", label: "Total Path Probability" }],
   "distribution-curve": [{ value: "mean", label: "Mean" }],
   "introduction": [{ value: "cover", label: "Cover" }],
-  "introduction-to-numbers": [{ value: "identify-numbers", label: "Identify Numbers" }],
+  "introduction-to-numbers": [
+    { value: "identify-numbers", label: "Identify Numbers" },
+    { value: "total-number", label: "Total Number" },
+    { value: "order-the-numbers", label: "Order the Numbers" }
+  ],
   arithmetic: [
+    { value: "addition-link", label: "Addition (Link)" },
+    { value: "subtraction-link", label: "Subtraction (Link)" },
     { value: "basic-addition-h", label: "Basic Addition - Horizontal" },
     { value: "basic-addition-v", label: "Basic Addition - Vertical" },
     { value: "visual-addition", label: "Visual Addition" },
@@ -2747,7 +2809,7 @@ function normalizeCommandWordChoice(value) {
 
 function isVisualArithmeticSubcategory(value) {
   const normalized = String(value || "").trim().toLowerCase();
-  return ["visual-addition", "visual-subtraction", "visual-multiplication", "visual-division"].includes(normalized);
+  return ["visual-addition", "visual-subtraction", "visual-multiplication", "visual-division", "addition-link", "subtraction-link"].includes(normalized);
 }
 
 function pickCommandWordFromChoice(choice, { resultType = "", index = 0, category = "", subcategory = "" } = {}) {
@@ -3323,6 +3385,15 @@ function asResultTypePayload(base, desiredResultType) {
     };
   }
 
+  if (resultType === "date") {
+    return {
+      ...cleanBase,
+      resultType: "date",
+      options: ["", "", "", ""],
+      correctAnswer: answerText
+    };
+  }
+
   return {
     ...cleanBase,
     resultType: resultType === "plot" ? "plot" : "short-answer",
@@ -3491,9 +3562,50 @@ function verifyAutoPayload(category, subcategory, payload) {
   }
 
   if (appType === "arithmetic") {
+    const cfg = app && app.type === "arithmetic" ? (app.config || {}) : {};
+    const visualMode = String(cfg.visualMode || "").trim().toLowerCase();
+    if (visualMode === "link-to-10") {
+      const linkOperator = String(cfg.linkOperator || "+").trim() === "-" ? "-" : "+";
+      const targetRaw = Number.parseInt(cfg.targetValue, 10);
+      const legacyTargetRaw = Number.parseInt(cfg.targetSum, 10);
+      const targetValue = Number.isInteger(targetRaw)
+        ? targetRaw
+        : (Number.isInteger(legacyTargetRaw) ? legacyTargetRaw : 10);
+      const expectedPairs = Array.isArray(cfg.pairs)
+        ? cfg.pairs
+          .map((item) => ({ left: Number.parseInt(item && item.left, 10), right: Number.parseInt(item && item.right, 10) }))
+          .filter((item) => Number.isInteger(item.left) && Number.isInteger(item.right))
+        : [];
+      if (expectedPairs.length === 0) {
+        issues.push("Arithmetic link verification failed: no expected pairs configured.");
+      } else {
+        const expectedAnswer = expectedPairs
+          .slice()
+          .sort((a, b) => (a.left - b.left) || (a.right - b.right))
+          .map((item) => `${item.left}:${item.right}`)
+          .join("|");
+        if (String(payload.correctAnswer || "").trim() !== expectedAnswer) {
+          issues.push("Arithmetic link verification failed: correct answer does not match configured card pairs.");
+        }
+        const invalidArithmeticPair = expectedPairs.some((item) => {
+          if (linkOperator === "-") {
+            return (item.left - item.right) !== targetValue;
+          }
+          return (item.left + item.right) !== targetValue;
+        });
+        if (invalidArithmeticPair) {
+          const expression = linkOperator === "-" ? "left - right" : "left + right";
+          issues.push(`Arithmetic link verification failed: configured pairs do not satisfy ${expression} = ${targetValue}.`);
+        }
+      }
+      return {
+        ok: issues.length === 0,
+        issues
+      };
+    }
+
     let expected = extractArithmeticExpectedAnswer(questionText);
     if (!Number.isFinite(expected) && app && app.type === "arithmetic") {
-      const cfg = app.config || {};
       const a = Number.parseFloat(cfg.operandA);
       const b = Number.parseFloat(cfg.operandB);
       const operator = String(cfg.operator || "+").trim();
@@ -3836,6 +3948,64 @@ function buildAutoArithmeticPayload(subcategory, difficulty, generationOptions =
     };
   }
 
+  if (resolvedSubcategory === "addition-link" || resolvedSubcategory === "subtraction-link") {
+    const isSubtractionLink = resolvedSubcategory === "subtraction-link";
+    const minTarget = isSubtractionLink
+      ? (isHardDifficulty ? 3 : 1)
+      : (isHardDifficulty ? 11 : 7);
+    const maxTarget = isSubtractionLink
+      ? (isHardDifficulty ? 12 : 8)
+      : (isHardDifficulty ? 19 : 14);
+    const targetValue = randomIntBetween(minTarget, maxTarget);
+    const pairCount = 4;
+    let leftNumbers = [];
+    let rightNumbers = [];
+    let pairs = [];
+
+    if (isSubtractionLink) {
+      const candidateRightNumbers = Array.from({ length: isHardDifficulty ? 12 : 9 }, (_, index) => index + 1);
+      const selectedRight = shuffleList(candidateRightNumbers).slice(0, Math.min(pairCount, candidateRightNumbers.length));
+      leftNumbers = shuffleList(selectedRight.map((value) => value + targetValue));
+      rightNumbers = shuffleList(selectedRight.slice());
+      pairs = leftNumbers.map((left) => ({ left, right: left - targetValue }));
+    } else {
+      const candidateLeftNumbers = Array.from({ length: Math.max(2, targetValue - 1) }, (_, index) => index + 1);
+      leftNumbers = shuffleList(candidateLeftNumbers).slice(0, Math.min(pairCount, candidateLeftNumbers.length));
+      rightNumbers = shuffleList(leftNumbers.map((value) => targetValue - value));
+      pairs = leftNumbers.map((left) => ({ left, right: targetValue - left }));
+    }
+
+    const answerText = pairs
+      .slice()
+      .sort((a, b) => (a.left - b.left) || (a.right - b.right))
+      .map((item) => `${item.left}:${item.right}`)
+      .join("|");
+    const operatorText = isSubtractionLink ? "-" : "+";
+    const modeLabel = isSubtractionLink ? "difference" : "sum";
+    return {
+      question: `Match each number in Column A to a number in Column B so every pair satisfies A ${operatorText} B = ${targetValue}.`,
+      solution: `Correct links are ${pairs.map((item) => `${item.left} to ${item.right}`).join(", ")}. Every linked pair gives a ${modeLabel} of ${targetValue}.`,
+      correctAnswer: answerText,
+      interactiveApp: {
+        type: "arithmetic",
+        config: {
+          layout: "horizontal",
+          operator: operatorText,
+          operandA: "",
+          operandB: "",
+          answer: answerText,
+          visualMode: "link-to-10",
+          linkOperator: operatorText,
+          targetValue,
+          targetSum: targetValue,
+          leftNumbers,
+          rightNumbers,
+          pairs
+        }
+      }
+    };
+  }
+
   if (["basic-addition", "basic-addition-h", "basic-addition-v"].includes(resolvedSubcategory)) {
     const minAdd = Math.max(ranges.add[0], 1);
     const maxAdd = Math.max(minAdd, ranges.add[1]);
@@ -4060,7 +4230,6 @@ function buildAutoIntroductionPayload(subcategory) {
 
 function buildAutoIntroductionToNumbersPayload(subcategory, difficulty, generationOptions = {}) {
   const normalizedSubcategory = String(subcategory || "identify-numbers").trim().toLowerCase();
-  if (normalizedSubcategory !== "identify-numbers") return null;
 
   const rawDifficulty = String(difficulty == null ? "" : difficulty).trim().toLowerCase();
   const parsedDifficulty = Number.parseInt(rawDifficulty, 10);
@@ -4077,6 +4246,81 @@ function buildAutoIntroductionToNumbersPayload(subcategory, difficulty, generati
   const baseNumbers = Array.from({ length: 21 }, (_, index) => index);
   const tensNumbers = [30, 40, 50, 60, 70, 80, 90, 100];
   const allNumbers = baseNumbers.concat(tensNumbers);
+
+  const buildRandomIconGroups = (total) => {
+    const safeTotal = Math.max(0, Math.min(20, Number.parseInt(total, 10) || 0));
+    if (safeTotal === 0) return [0];
+
+    const maxGroups = Math.min(5, safeTotal);
+    const minGroups = safeTotal <= 2 ? 1 : 2;
+    const groupCount = Math.floor(Math.random() * (maxGroups - minGroups + 1)) + minGroups;
+    const groups = Array.from({ length: groupCount }, () => 1);
+    let remaining = safeTotal - groupCount;
+
+    while (remaining > 0) {
+      const index = Math.floor(Math.random() * groupCount);
+      if (groups[index] >= 6) continue;
+      groups[index] += 1;
+      remaining -= 1;
+    }
+
+    return shuffleList(groups);
+  };
+
+  if (normalizedSubcategory === "total-number") {
+    const target = Math.floor(Math.random() * 21);
+    const groups = buildRandomIconGroups(target);
+    return {
+      question: "How many icons are shown in total?",
+      solution: `Count all icons across each group. The total is ${target}.`,
+      correctAnswer: String(target),
+      options: ["", "", "", ""],
+      resultType: "short-answer",
+      interactiveApp: {
+        type: "icon-count",
+        config: {
+          prompt: "How many icons are shown in total?",
+          totalCount: target,
+          iconShape: "circle",
+          groups
+        }
+      }
+    };
+  }
+
+  if (normalizedSubcategory === "order-the-numbers") {
+    const rangeMin = isPrep ? 0 : (difficultyBand === "easy" ? 0 : difficultyBand === "medium" ? 10 : 20);
+    const rangeMax = isPrep ? 20 : (difficultyBand === "easy" ? 30 : difficultyBand === "medium" ? 60 : 100);
+    const cardCount = isPrep
+      ? (Number.isInteger(parsedDifficulty) && parsedDifficulty >= 7 ? 5 : 4)
+      : (difficultyBand === "hard" ? 6 : difficultyBand === "medium" ? 5 : 4);
+    const maxStart = Math.max(rangeMin, rangeMax - (cardCount - 1));
+    const start = Math.floor(Math.random() * (maxStart - rangeMin + 1)) + rangeMin;
+    const ordered = Array.from({ length: cardCount }, (_, index) => start + index);
+    let cards = shuffleList(ordered);
+    if (cards.every((value, index) => value === ordered[index]) && cards.length > 1) {
+      cards = cards.slice(1).concat(cards[0]);
+    }
+
+    return {
+      question: "Order the number cards from smallest to largest.",
+      solution: `The correct ascending order is ${ordered.join(", ")}.`,
+      correctAnswer: ordered.join(", "),
+      options: ["", "", "", ""],
+      resultType: "short-answer",
+      interactiveApp: {
+        type: "number-ordering",
+        config: {
+          prompt: "Order the number cards from smallest to largest.",
+          direction: "ascending",
+          cards,
+          correctOrder: ordered
+        }
+      }
+    };
+  }
+
+  if (normalizedSubcategory !== "identify-numbers") return null;
 
   let targets = [];
   let prompt = "Trace the dotted number and say it aloud.";
@@ -4679,6 +4923,248 @@ function buildDeterministicPayloadFromInteractiveApp(appType, app, desiredResult
   );
 }
 
+function buildAutoTimePayload(subcategory, difficulty) {
+  const normalizedSubcategory = String(subcategory || "digital").trim().toLowerCase();
+  const resolvedSubcategory = normalizedSubcategory === "mixed-by-hour"
+    ? (randomInt(0, 1) === 0 ? "analog-by-hour" : "digital-by-hour")
+    : normalizedSubcategory;
+  const normalizedDifficulty = String(difficulty || "medium").trim().toLowerCase();
+  const safeDifficulty = ["easy", "medium", "hard"].includes(normalizedDifficulty) ? normalizedDifficulty : "medium";
+  const isHourOnly = resolvedSubcategory === "analog-by-hour" || resolvedSubcategory === "digital-by-hour";
+  const timeFocus = isHourOnly ? "hour-only" : "exact-time";
+  const minuteStep = safeDifficulty === "easy" ? 15 : safeDifficulty === "medium" ? 5 : 1;
+  const hour = randomInt(1, 12);
+  const maxTicks = Math.floor(59 / minuteStep);
+  const minute = isHourOnly ? 0 : randomInt(0, maxTicks) * minuteStep;
+  const period = randomInt(0, 1) === 0 ? "AM" : "PM";
+  const formatted = formatTimeValue(hour, minute);
+
+  if (resolvedSubcategory === "analog" || resolvedSubcategory === "analog-by-hour") {
+    return {
+      question: buildDefaultTimeQuestionByMode("analog", hour, minute),
+      solution: buildDefaultTimeSolutionByMode("analog", hour, minute),
+      correctAnswer: formatted,
+      resultType: "short-answer",
+      interactiveApp: {
+        type: "time",
+        config: {
+          mode: "analog",
+          timeFocus,
+          allowCustomAnswer: true,
+          hour,
+          minute,
+          period: ""
+        }
+      }
+    };
+  }
+
+  if (resolvedSubcategory === "analog-to-digital") {
+    const correct = formatTimeValue(hour, minute);
+    const options = Array.from(new Set([
+      correct,
+      formatTimeValue(hour, (minute + minuteStep) % 60),
+      formatTimeValue(hour, (minute + 60 - minuteStep) % 60),
+      formatTimeValue(((hour % 12) + 1), minute)
+    ])).slice(0, 4);
+    while (options.length < 4) {
+      options.push(formatTimeValue(randomInt(1, 12), randomInt(0, 11) * 5));
+    }
+
+    return {
+      question: buildDefaultTimeQuestionByMode("analog-to-digital", hour, minute),
+      solution: buildDefaultTimeSolutionByMode("analog-to-digital", hour, minute),
+      options,
+      correctAnswer: correct,
+      resultType: "multiple-choice",
+      interactiveApp: {
+        type: "time",
+        config: {
+          mode: "analog-to-digital",
+          timeFocus,
+          allowCustomAnswer: true,
+          hour,
+          minute,
+          period: ""
+        }
+      }
+    };
+  }
+
+  const digitalChallenge = resolvedSubcategory === "digital-by-hour"
+    ? "words-to-12h"
+    : ["words-to-12h", "12h-to-24h", "24h-to-12h"][randomInt(0, 2)];
+  const correctAnswer = digitalChallenge === "12h-to-24h"
+    ? formatTime24Value(hour, minute, period)
+    : formatTimeValue(hour, minute, digitalChallenge === "24h-to-12h" ? period : "");
+
+  return {
+    question: buildDefaultTimeQuestionByMode("digital", hour, minute, period, digitalChallenge),
+    solution: buildDefaultTimeSolutionByMode("digital", hour, minute, period, digitalChallenge),
+    correctAnswer,
+    resultType: "short-answer",
+    interactiveApp: {
+      type: "time",
+      config: {
+        mode: "digital",
+        timeFocus,
+        allowCustomAnswer: true,
+        digitalChallenge,
+        hour,
+        minute,
+        period
+      }
+    }
+  };
+}
+
+function buildAutoCalendarPayload(subcategory, difficulty) {
+  const normalizedSubcategory = String(subcategory || "days").trim().toLowerCase();
+  const normalizedDifficulty = String(difficulty || "medium").trim().toLowerCase();
+  const safeDifficulty = ["easy", "medium", "hard"].includes(normalizedDifficulty)
+    ? normalizedDifficulty
+    : "medium";
+
+  const weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  if (normalizedSubcategory === "years") {
+    const baseYear = randomInt(1995, 2035);
+    const step = safeDifficulty === "easy" ? 1 : safeDifficulty === "medium" ? 2 : 3;
+    const question = `What year comes ${step === 1 ? "after" : `${step} years after`} ${baseYear}?`;
+    const answer = String(baseYear + step);
+    const values = Array.from({ length: 12 }, (_, index) => String(baseYear - 2 + index));
+    return {
+      question,
+      solution: `${baseYear} + ${step} = ${answer}.`,
+      correctAnswer: answer,
+      options: ["", "", "", ""],
+      resultType: "short-answer",
+      interactiveApp: {
+        type: "calendar-sequence",
+        config: {
+          mode: "years",
+          prompt: question,
+          current: String(baseYear),
+          step,
+          values
+        }
+      }
+    };
+  }
+
+  if (normalizedSubcategory === "months") {
+    const index = randomInt(0, months.length - 1);
+    const step = safeDifficulty === "easy" ? 1 : safeDifficulty === "medium" ? 2 : 3;
+    const answerIndex = (index + step) % months.length;
+    const question = step === 1
+      ? `If this month is ${months[index]}, what is the next month?`
+      : `If this month is ${months[index]}, what month is ${step} months later?`;
+    return {
+      question,
+      solution: `${step} month${step > 1 ? "s" : ""} after ${months[index]} is ${months[answerIndex]}.`,
+      correctAnswer: months[answerIndex],
+      options: ["", "", "", ""],
+      resultType: "short-answer",
+      interactiveApp: {
+        type: "calendar-sequence",
+        config: {
+          mode: "months",
+          prompt: question,
+          current: months[index],
+          step,
+          values: months
+        }
+      }
+    };
+  }
+
+  if (normalizedSubcategory === "dates") {
+    const baseYear = randomInt(2024, 2028);
+    const baseMonth = randomInt(1, 12);
+    const baseDay = randomInt(1, 28);
+    const start = new Date(baseYear, baseMonth - 1, baseDay);
+    const step = safeDifficulty === "easy" ? 1 : safeDifficulty === "medium" ? 2 : 3;
+    const answer = new Date(start);
+    answer.setDate(start.getDate() + step);
+    const startLabel = formatDateDdMmYyyy(start);
+    const answerLabel = formatDateDdMmYyyy(answer);
+    const values = Array.from({ length: 9 }, (_, index) => {
+      const item = new Date(start);
+      item.setDate(start.getDate() - 4 + index);
+      return formatDateDdMmYyyy(item);
+    });
+    const question = step === 1
+      ? `If today is ${startLabel}, what date is tomorrow? (DD/MM/YYYY)`
+      : `If today is ${startLabel}, what date is ${step} days later? (DD/MM/YYYY)`;
+    return {
+      question,
+      solution: `${startLabel} + ${step} day${step > 1 ? "s" : ""} = ${answerLabel}.`,
+      correctAnswer: answerLabel,
+      options: ["", "", "", ""],
+      resultType: "short-answer",
+      interactiveApp: {
+        type: "calendar-sequence",
+        config: {
+          mode: "dates",
+          prompt: question,
+          current: startLabel,
+          step,
+          values
+        }
+      }
+    };
+  }
+
+  const dayIndex = randomInt(0, weekDays.length - 1);
+  const dayStep = safeDifficulty === "easy" ? 1 : safeDifficulty === "medium" ? 2 : 3;
+  const dayAnswer = weekDays[(dayIndex + dayStep) % weekDays.length];
+  const dayQuestion = dayStep === 1
+    ? `If today is ${weekDays[dayIndex]}, what is the next day?`
+    : `If today is ${weekDays[dayIndex]}, what day is ${dayStep} days later?`;
+  return {
+    question: dayQuestion,
+    solution: `${dayStep} day${dayStep > 1 ? "s" : ""} after ${weekDays[dayIndex]} is ${dayAnswer}.`,
+    correctAnswer: dayAnswer,
+    options: ["", "", "", ""],
+    resultType: "short-answer",
+    interactiveApp: {
+      type: "calendar-sequence",
+      config: {
+        mode: "days",
+        prompt: dayQuestion,
+        current: weekDays[dayIndex],
+        step: dayStep,
+        values: weekDays
+      }
+    }
+  };
+}
+
+function ordinalSuffix(value) {
+  const n = Number.parseInt(value, 10);
+  if (!Number.isInteger(n)) return "th";
+  const mod100 = n % 100;
+  if (mod100 >= 11 && mod100 <= 13) return "th";
+  const mod10 = n % 10;
+  if (mod10 === 1) return "st";
+  if (mod10 === 2) return "nd";
+  if (mod10 === 3) return "rd";
+  return "th";
+}
+
+function formatDateDdMmYyyy(value) {
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) return "01/01/2000";
+  const dd = String(date.getDate()).padStart(2, "0");
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const yyyy = String(date.getFullYear());
+  return `${dd}/${mm}/${yyyy}`;
+}
+
 function buildAutoPayloadForCategory(category, subcategory, difficulty, resultTypeChoice = "auto", generationOptions = {}) {
   const appType = String(category || "cartesian-plane").trim();
   const normalizedSubcategory = String(subcategory || "").trim();
@@ -4717,6 +5203,33 @@ function buildAutoPayloadForCategory(category, subcategory, difficulty, resultTy
     const base = buildAutoIntroductionToNumbersPayload(subcategory, difficulty, generationOptions);
     if (!base) return null;
     return base;
+  }
+
+  if (appType === "calendar") {
+    const base = buildAutoCalendarPayload(subcategory, effectiveDifficulty);
+    if (!base) return null;
+    return base;
+  }
+
+  if (appType === "time") {
+    const base = buildAutoTimePayload(subcategory, effectiveDifficulty);
+    if (!base) return null;
+    const defaultResult = desired === "auto"
+      ? (String(subcategory || "").trim().toLowerCase() === "analog-to-digital" ? "multiple-choice" : "short-answer")
+      : desired;
+    return postProcessAutoPayload(
+      asResultTypePayload(
+        {
+          ...base,
+          _generation: {
+            answerPolicy: generationOptions.answerPolicy || "auto",
+            decimalPlaces: generationOptions.decimalPlaces
+          }
+        },
+        defaultResult
+      ),
+      processedOptions
+    );
   }
 
   if (appType === "cartesian-plane") {
@@ -5680,6 +6193,19 @@ function serializeMatrixRows(rows) {
 
 function buildDefaultInteractiveApp(type) {
   switch (type) {
+    case "time":
+      return {
+        type,
+        config: {
+          mode: "digital",
+          timeFocus: "exact-time",
+          allowCustomAnswer: false,
+          digitalChallenge: "words-to-12h",
+          hour: 3,
+          minute: 15,
+          period: ""
+        }
+      };
     case "number-tracing":
       return {
         type,
@@ -5688,6 +6214,37 @@ function buildDefaultInteractiveApp(type) {
           prompt: "Tap the matching number, then trace it.",
           prepMode: true,
           showQuantityDots: true
+        }
+      };
+    case "number-ordering":
+      return {
+        type,
+        config: {
+          prompt: "Order the number cards from smallest to largest.",
+          direction: "ascending",
+          cards: [7, 3, 9, 5],
+          correctOrder: [3, 5, 7, 9]
+        }
+      };
+    case "icon-count":
+      return {
+        type,
+        config: {
+          prompt: "How many icons are shown in total?",
+          totalCount: 8,
+          iconShape: "circle",
+          groups: [3, 2, 3]
+        }
+      };
+    case "calendar-sequence":
+      return {
+        type,
+        config: {
+          mode: "days",
+          prompt: "If today is Tuesday, what is the next day?",
+          current: "Tuesday",
+          step: 1,
+          values: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         }
       };
     case "arithmetic":
@@ -7119,6 +7676,46 @@ function buildArithmeticReasoningMarkup(config, { revealAnswer = false } = {}) {
 }
 
 function buildArithmeticPreviewMarkup(config) {
+  const visualMode = String(config && config.visualMode ? config.visualMode : "").trim().toLowerCase();
+  if (visualMode === "link-to-10") {
+    const operator = String(config && config.linkOperator ? config.linkOperator : "+").trim() === "-" ? "-" : "+";
+    const targetRaw = Number.parseInt(config && config.targetValue, 10);
+    const legacyTargetRaw = Number.parseInt(config && config.targetSum, 10);
+    const safeTarget = Number.isInteger(targetRaw)
+      ? targetRaw
+      : (Number.isInteger(legacyTargetRaw) ? legacyTargetRaw : 10);
+    const left = Array.isArray(config && config.leftNumbers)
+      ? config.leftNumbers.map((item) => Number.parseInt(item, 10)).filter((item) => Number.isInteger(item))
+      : [];
+    const right = Array.isArray(config && config.rightNumbers)
+      ? config.rightNumbers.map((item) => Number.parseInt(item, 10)).filter((item) => Number.isInteger(item))
+      : [];
+    const modeTitle = operator === "-" ? "Arithmetic (Subtraction Link)" : "Arithmetic (Addition Link)";
+    const helperText = operator === "-"
+      ? `Link cards so each pair satisfies A - B = ${escapeInteractiveHtml(String(safeTarget))}.`
+      : `Link cards so each pair equals ${escapeInteractiveHtml(String(safeTarget))}.`;
+    return `
+      <div class="simple-card">
+        <p class="bar-chart-title">${modeTitle}</p>
+        <p class="helper-text">${helperText}</p>
+        <div class="calendar-sequence-strip" style="justify-content:space-between;gap:18px;align-items:flex-start">
+          <div>
+            <p class="helper-text" style="margin:0 0 6px 0"><strong>Column A</strong></p>
+            <div class="number-ordering-stage" style="display:grid;gap:8px">
+              ${left.map((value) => `<span class="number-ordering-card">${escapeInteractiveHtml(String(value))}</span>`).join("")}
+            </div>
+          </div>
+          <div>
+            <p class="helper-text" style="margin:0 0 6px 0"><strong>Column B</strong></p>
+            <div class="number-ordering-stage" style="display:grid;gap:8px">
+              ${right.map((value) => `<span class="number-ordering-card">${escapeInteractiveHtml(String(value))}</span>`).join("")}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
   const rawLayout = String(config && config.layout ? config.layout : "horizontal").trim().toLowerCase();
   const layout = rawLayout === "vertical" ? "vertical" : rawLayout === "long" ? "long" : "horizontal";
   const operator = escapeInteractiveHtml(String(config && config.operator ? config.operator : "+"));
@@ -7158,11 +7755,411 @@ function buildNumberTracingPreviewMarkup(config) {
   `;
 }
 
+function parseNumberOrderingValues(value) {
+  return String(value || "")
+    .split(/[\s,]+/)
+    .map((item) => Number.parseInt(item, 10))
+    .filter((item) => Number.isInteger(item));
+}
+
+function normalizeNumberOrderingDirection(value) {
+  return String(value || "ascending").trim().toLowerCase() === "descending"
+    ? "descending"
+    : "ascending";
+}
+
+function buildNumberOrderingPreviewMarkup(config) {
+  const direction = normalizeNumberOrderingDirection(config && config.direction);
+  const cardsRaw = Array.isArray(config && config.cards) ? config.cards : [];
+  const cards = cardsRaw
+    .map((item) => Number.parseInt(item, 10))
+    .filter((item) => Number.isInteger(item));
+  const fallbackCards = [7, 3, 9, 5];
+  const safeCards = cards.length > 0 ? cards : fallbackCards;
+  const prompt = escapeInteractiveHtml(String(config && config.prompt ? config.prompt : "Order the number cards from smallest to largest."));
+  const correctRaw = Array.isArray(config && config.correctOrder) ? config.correctOrder : [];
+  const correctValues = correctRaw
+    .map((item) => Number.parseInt(item, 10))
+    .filter((item) => Number.isInteger(item));
+  const computed = safeCards.slice().sort((a, b) => a - b);
+  const fallbackOrder = direction === "descending" ? computed.reverse() : computed;
+  const safeCorrect = correctValues.length > 0 ? correctValues : fallbackOrder;
+
+  return `
+    <div class="simple-card number-ordering-card">
+      <p class="bar-chart-title">Number Ordering (${direction === "descending" ? "descending" : "ascending"})</p>
+      <p class="helper-text">${prompt}</p>
+      <div class="number-ordering-cards">
+        ${safeCards.map((value) => `<span class="number-ordering-item">${escapeInteractiveHtml(String(value))}</span>`).join("")}
+      </div>
+      <p class="helper-text">Correct order: <strong>${escapeInteractiveHtml(safeCorrect.join(", "))}</strong></p>
+    </div>
+  `;
+}
+
+function parseIconCountGroups(value) {
+  return String(value || "")
+    .split(/[\s,]+/)
+    .map((item) => Number.parseInt(item, 10))
+    .filter((item) => Number.isInteger(item) && item >= 0);
+}
+
+function normalizeIconCountShape(value) {
+  const shape = String(value || "circle").trim().toLowerCase();
+  return ["circle", "star", "apple"].includes(shape) ? shape : "circle";
+}
+
+function normalizeIconCountConfig(config) {
+  const totalRaw = Number.parseInt(config && config.totalCount, 10);
+  const totalCount = Number.isInteger(totalRaw) ? Math.max(0, Math.min(20, totalRaw)) : 8;
+  let groups = Array.isArray(config && config.groups)
+    ? config.groups.map((item) => Number.parseInt(item, 10)).filter((item) => Number.isInteger(item) && item >= 0)
+    : [];
+  if (groups.length === 0) {
+    groups = [totalCount];
+  }
+  const sum = groups.reduce((acc, value) => acc + value, 0);
+  if (sum !== totalCount) {
+    groups = [totalCount];
+  }
+  return {
+    prompt: String((config && config.prompt) || "How many icons are shown in total?").trim() || "How many icons are shown in total?",
+    totalCount,
+    iconShape: normalizeIconCountShape(config && config.iconShape),
+    groups
+  };
+}
+
+function buildIconCountPreviewMarkup(config) {
+  const normalized = normalizeIconCountConfig(config);
+  const iconGlyph = normalized.iconShape === "star"
+    ? "&#9733;"
+    : normalized.iconShape === "apple"
+      ? "&#127822;"
+      : "";
+  return `
+    <div class="simple-card icon-count-card">
+      <p class="bar-chart-title">Icon Count</p>
+      <p class="helper-text">${escapeInteractiveHtml(normalized.prompt)}</p>
+      <div class="icon-count-groups">
+        ${normalized.groups.map((group, groupIndex) => `
+          <div class="icon-count-group" aria-label="Group ${groupIndex + 1}: ${group} icons">
+            ${Array.from({ length: group }).map(() => `<span class='icon-count-dot icon-count-dot-${normalized.iconShape}'>${iconGlyph}</span>`).join("")}
+          </div>
+        `).join("")}
+      </div>
+      <p class="helper-text">Total shown: <strong>${escapeInteractiveHtml(String(normalized.totalCount))}</strong></p>
+    </div>
+  `;
+}
+
+function parseCalendarSequenceValues(value) {
+  return String(value || "")
+    .split(",")
+    .map((item) => String(item || "").trim())
+    .filter((item) => item !== "");
+}
+
+function normalizeCalendarSequenceMode(value) {
+  const mode = String(value || "days").trim().toLowerCase();
+  return ["days", "months", "dates", "years"].includes(mode) ? mode : "days";
+}
+
+function getDefaultCalendarSequenceValues(mode) {
+  const normalizedMode = normalizeCalendarSequenceMode(mode);
+  if (normalizedMode === "months") {
+    return [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+  }
+  if (normalizedMode === "dates") {
+    return Array.from({ length: 31 }, (_, index) => String(index + 1));
+  }
+  if (normalizedMode === "years") {
+    return Array.from({ length: 12 }, (_, index) => String(2020 + index));
+  }
+  return ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+}
+
+function normalizeCalendarSequenceConfig(config) {
+  const mode = normalizeCalendarSequenceMode(config && config.mode);
+  const defaults = getDefaultCalendarSequenceValues(mode);
+  let values = Array.isArray(config && config.values)
+    ? config.values.map((item) => String(item || "").trim()).filter((item) => item !== "")
+    : [];
+  if (values.length === 0) values = defaults;
+  const currentRaw = String((config && config.current) || "").trim();
+  const current = values.includes(currentRaw) ? currentRaw : values[0];
+  const stepRaw = Number.parseInt(config && config.step, 10);
+  const step = Number.isInteger(stepRaw) ? Math.max(1, Math.min(10, stepRaw)) : 1;
+  const promptDefault = mode === "months"
+    ? `If this month is ${current}, what is the next month?`
+    : mode === "years"
+      ? `What year comes after ${current}?`
+      : mode === "dates"
+        ? `If today is the ${current}${ordinalSuffix(current)}, what date is tomorrow?`
+        : `If today is ${current}, what is the next day?`;
+
+  return {
+    mode,
+    current,
+    step,
+    values,
+    prompt: String((config && config.prompt) || promptDefault).trim() || promptDefault
+  };
+}
+
+function buildCalendarSequencePreviewMarkup(config) {
+  const normalized = normalizeCalendarSequenceConfig(config);
+  return `
+    <div class="simple-card calendar-sequence-card">
+      <p class="bar-chart-title">Calendar Sequence (${escapeInteractiveHtml(normalized.mode)})</p>
+      <p class="helper-text">${escapeInteractiveHtml(normalized.prompt)}</p>
+      <div class="calendar-sequence-strip">
+        ${normalized.values.map((value) => `<span class="calendar-sequence-chip ${value === normalized.current ? "is-current" : ""}">${escapeInteractiveHtml(value)}</span>`).join("")}
+      </div>
+      <p class="helper-text">Step: +${escapeInteractiveHtml(String(normalized.step))}</p>
+    </div>
+  `;
+}
+
+function normalizeTimeMode(value) {
+  const mode = String(value || "digital").trim().toLowerCase();
+  if (["digital", "analog", "analog-to-digital"].includes(mode)) return mode;
+  return "digital";
+}
+
+function normalizeTimeHour(value) {
+  const hour = Number.parseInt(value, 10);
+  if (!Number.isInteger(hour)) return 3;
+  if (hour < 1) return 1;
+  if (hour > 12) return 12;
+  return hour;
+}
+
+function normalizeTimeMinute(value) {
+  const minute = Number.parseInt(value, 10);
+  if (!Number.isInteger(minute)) return 15;
+  if (minute < 0) return 0;
+  if (minute > 59) return 59;
+  return minute;
+}
+
+function normalizeTimePeriod(value) {
+  const period = String(value || "").trim().toUpperCase();
+  return period === "AM" || period === "PM" ? period : "";
+}
+
+function normalizeTimeDigitalChallenge(value) {
+  const challenge = String(value || "words-to-12h").trim().toLowerCase();
+  if (["words-to-12h", "12h-to-24h", "24h-to-12h"].includes(challenge)) return challenge;
+  return "words-to-12h";
+}
+
+function normalizeTimeFocus(value) {
+  const focus = String(value || "exact-time").trim().toLowerCase();
+  return focus === "hour-only" ? "hour-only" : "exact-time";
+}
+
+function formatTimeValue(hour, minute, period = "") {
+  const hh = normalizeTimeHour(hour);
+  const mm = String(normalizeTimeMinute(minute)).padStart(2, "0");
+  const suffix = normalizeTimePeriod(period);
+  return suffix ? `${hh}:${mm} ${suffix}` : `${hh}:${mm}`;
+}
+
+function formatTime24Value(hour, minute, period = "") {
+  const hh12 = normalizeTimeHour(hour);
+  const mm = String(normalizeTimeMinute(minute)).padStart(2, "0");
+  const suffix = normalizeTimePeriod(period);
+  let hh24 = hh12 % 12;
+  if (suffix === "PM") {
+    hh24 += 12;
+  }
+  const hh = String(hh24).padStart(2, "0");
+  return `${hh}:${mm}`;
+}
+
+function formatTime12ValueFrom24(hour24, minute) {
+  const safeHour24 = Math.max(0, Math.min(23, Number.parseInt(hour24, 10) || 0));
+  const safeMinute = normalizeTimeMinute(minute);
+  const period = safeHour24 >= 12 ? "PM" : "AM";
+  const hour12raw = safeHour24 % 12;
+  const hour12 = hour12raw === 0 ? 12 : hour12raw;
+  return formatTimeValue(hour12, safeMinute, period);
+}
+
+function buildTimePhrase(hour, minute) {
+  const safeHour = normalizeTimeHour(hour);
+  const safeMinute = normalizeTimeMinute(minute);
+  const nextHour = safeHour === 12 ? 1 : safeHour + 1;
+
+  if (safeMinute === 0) {
+    return `${safeHour} o'clock`;
+  }
+  if (safeMinute === 15) {
+    return `quarter past ${safeHour}`;
+  }
+  if (safeMinute === 30) {
+    return `half past ${safeHour}`;
+  }
+  if (safeMinute === 45) {
+    return `quarter to ${nextHour}`;
+  }
+  if (safeMinute < 30) {
+    return `${safeMinute} minute${safeMinute === 1 ? "" : "s"} past ${safeHour}`;
+  }
+  const remaining = 60 - safeMinute;
+  return `${remaining} minute${remaining === 1 ? "" : "s"} to ${nextHour}`;
+}
+
+function buildDefaultTimeQuestionByMode(mode, hour, minute, period = "", digitalChallenge = "words-to-12h") {
+  const safeMode = normalizeTimeMode(mode);
+  const target = formatTimeValue(hour, minute, period);
+  if (safeMode === "analog") {
+    return `Set the analog clock to ${target}.`;
+  }
+  if (safeMode === "analog-to-digital") {
+    return "Look at the analog clock and choose the correct digital time.";
+  }
+  const challenge = normalizeTimeDigitalChallenge(digitalChallenge);
+  if (challenge === "12h-to-24h") {
+    const sourcePeriod = normalizeTimePeriod(period) || "PM";
+    return `Convert ${formatTimeValue(hour, minute, sourcePeriod)} to 24-hour time.`;
+  }
+  if (challenge === "24h-to-12h") {
+    const sourcePeriod = normalizeTimePeriod(period) || "PM";
+    return `Convert ${formatTime24Value(hour, minute, sourcePeriod)} to 12-hour time.`;
+  }
+  return `Write the digital time for: ${buildTimePhrase(hour, minute)}.`;
+}
+
+function buildDefaultTimeSolutionByMode(mode, hour, minute, period = "", digitalChallenge = "words-to-12h") {
+  const safeMode = normalizeTimeMode(mode);
+  const target = formatTimeValue(hour, minute, period);
+  if (safeMode === "analog") {
+    return `Move the hour hand to ${normalizeTimeHour(hour)} and the minute hand to ${String(normalizeTimeMinute(minute)).padStart(2, "0")}.`;
+  }
+  if (safeMode === "analog-to-digital") {
+    return `Read the analog hands and match them to ${target}.`;
+  }
+  const challenge = normalizeTimeDigitalChallenge(digitalChallenge);
+  if (challenge === "12h-to-24h") {
+    const sourcePeriod = normalizeTimePeriod(period) || "PM";
+    return `${formatTimeValue(hour, minute, sourcePeriod)} in 24-hour time is ${formatTime24Value(hour, minute, sourcePeriod)}.`;
+  }
+  if (challenge === "24h-to-12h") {
+    const sourcePeriod = normalizeTimePeriod(period) || "PM";
+    return `${formatTime24Value(hour, minute, sourcePeriod)} in 12-hour time is ${formatTimeValue(hour, minute, sourcePeriod)}.`;
+  }
+  const twelveHour = formatTimeValue(hour, minute);
+  let twentyFourHour = formatTime24Value(hour, minute, "PM");
+  if (twentyFourHour === twelveHour) {
+    twentyFourHour = formatTime24Value(hour, minute, "AM");
+  }
+  return `${buildTimePhrase(hour, minute)} can be written as ${twelveHour} or ${twentyFourHour}.`;
+}
+
+function isLikelyDefaultTimeQuestion(value) {
+  const text = String(value || "").trim().toLowerCase();
+  if (!text) return true;
+  return text === "type the digital time shown."
+    || text.startsWith("set the analog clock to ")
+    || text === "look at the analog clock and choose the correct digital time."
+    || text.startsWith("write the digital time for:");
+}
+
+function isLikelyDefaultTimeSolution(value) {
+  const text = String(value || "").trim().toLowerCase();
+  if (!text) return true;
+  return text.startsWith("the displayed digital time is ")
+    || text.startsWith("move the hour hand to ")
+    || text.startsWith("the minute hand points to ")
+    || text.startsWith("read the analog hands and match them to ")
+    || text.includes("is written as ");
+}
+
+function buildAnalogToDigitalOptions(hour, minute) {
+  const safeHour = normalizeTimeHour(hour);
+  const safeMinute = normalizeTimeMinute(minute);
+  const deltas = [0, 5, -5, 10];
+  const options = [];
+
+  deltas.forEach((delta) => {
+    let h = safeHour;
+    let m = safeMinute + delta;
+    while (m < 0) {
+      m += 60;
+      h = h === 1 ? 12 : h - 1;
+    }
+    while (m >= 60) {
+      m -= 60;
+      h = h === 12 ? 1 : h + 1;
+    }
+    const candidate = formatTimeValue(h, m);
+    if (!options.includes(candidate)) {
+      options.push(candidate);
+    }
+  });
+
+  while (options.length < 4) {
+    const filler = formatTimeValue(((safeHour + options.length) % 12) + 1, (safeMinute + (options.length * 10)) % 60);
+    if (!options.includes(filler)) {
+      options.push(filler);
+    }
+  }
+
+  return options.slice(0, 4);
+}
+
+function buildTimeClockNumbersMarkup() {
+  return Array.from({ length: 12 }, (_, index) => {
+    const number = index + 1;
+    const angle = number * 30;
+    return `<span class="time-clock-number" style="--angle:${angle}deg">${number}</span>`;
+  }).join("");
+}
+
+function buildTimePreviewMarkup(config) {
+  const mode = normalizeTimeMode(config && config.mode);
+  const hour = normalizeTimeHour(config && config.hour);
+  const minute = normalizeTimeMinute(config && config.minute);
+  const period = normalizeTimePeriod(config && config.period);
+  const minuteAngle = minute * 6;
+  const hourAngle = (hour % 12) * 30;
+  const digital = formatTimeValue(hour, minute, period);
+  const modeText = mode === "analog-to-digital"
+    ? "Analog to Digital"
+    : mode.charAt(0).toUpperCase() + mode.slice(1);
+
+  return `
+    <div class="simple-card time-preview-card">
+      <p class="bar-chart-title">Time (${escapeInteractiveHtml(modeText)})</p>
+      <div class="time-analog-face" aria-hidden="true">
+        ${buildTimeClockNumbersMarkup()}
+        <span class="time-center-dot"></span>
+        <span class="time-hand hour" style="transform: translate(-50%, -100%) rotate(${hourAngle}deg);"></span>
+        <span class="time-hand minute" style="transform: translate(-50%, -100%) rotate(${minuteAngle}deg);"></span>
+      </div>
+      <p class="helper-text">Target time: <strong>${escapeInteractiveHtml(digital)}</strong></p>
+    </div>
+  `;
+}
+
 function buildInteractiveAppMarkup(app) {
   if (!app || !app.type) return "<p class='helper-text'>Choose a template to add an optional interactive math visual.</p>";
   switch (app.type) {
+    case "time":
+      return buildTimePreviewMarkup(app.config || {});
     case "number-tracing":
       return buildNumberTracingPreviewMarkup(app.config || {});
+    case "number-ordering":
+      return buildNumberOrderingPreviewMarkup(app.config || {});
+    case "icon-count":
+      return buildIconCountPreviewMarkup(app.config || {});
+    case "calendar-sequence":
+      return buildCalendarSequencePreviewMarkup(app.config || {});
     case "arithmetic":
       return buildArithmeticPreviewMarkup(app.config || {});
     case "number-line":
@@ -7263,48 +8260,36 @@ function renderInteractiveAppPreview(app) {
 }
 
 function setInteractiveAppConfigVisibility(type) {
-  ["arithmeticConfig", "numberTracingConfig", "numberLineConfig", "cartesianPlaneConfig", "cartesianPlotConfig", "barChartConfig", "histogramConfig", "boxPlotConfig", "scatterPlotConfig", "probabilityTreeConfig", "distributionCurveConfig", "fractionsConfig", "networkGraphConfig", "matrixConfig", "stemLeafConfig", "geometryShapesConfig", "pythagorasConfig", "trigonometryConfig"]
-    .forEach((id) => {
-      const element = document.getElementById(id);
-      if (element) {
-        const matches = id === "arithmeticConfig"
-          ? type === "arithmetic"
-          : id === "numberTracingConfig"
-            ? type === "number-tracing"
-          : id === "numberLineConfig"
-            ? type === "number-line"
-          : id === "cartesianPlaneConfig"
-            ? type === "cartesian-plane"
-          : id === "cartesianPlotConfig"
-            ? type === "cartesian-plane-plot"
-            : id === "barChartConfig"
-              ? type === "bar-chart"
-              : id === "histogramConfig"
-                ? type === "histogram"
-                : id === "boxPlotConfig"
-                  ? type === "box-plot"
-                  : id === "scatterPlotConfig"
-                    ? type === "scatter-plot"
-                    : id === "probabilityTreeConfig"
-                      ? type === "probability-tree"
-                      : id === "distributionCurveConfig"
-                        ? type === "distribution-curve"
-                        : id === "fractionsConfig"
-                          ? type === "fractions"
-                        : id === "networkGraphConfig"
-                            ? type === "network-graph"
-            : id === "matrixConfig"
-              ? type === "matrix"
-            : id === "stemLeafConfig"
-              ? type === "stem-and-leaf"
-              : id === "geometryShapesConfig"
-                ? type === "geometry-shapes"
-              : id === "pythagorasConfig"
-                ? type === "pythagoras"
-                : type === "trigonometry";
-        element.classList.toggle("hidden", !matches);
-      }
-    });
+  const configVisibilityMap = {
+    timeConfig: "time",
+    arithmeticConfig: "arithmetic",
+    numberTracingConfig: "number-tracing",
+    numberOrderingConfig: "number-ordering",
+    iconCountConfig: "icon-count",
+    calendarSequenceConfig: "calendar-sequence",
+    numberLineConfig: "number-line",
+    cartesianPlaneConfig: "cartesian-plane",
+    cartesianPlotConfig: "cartesian-plane-plot",
+    barChartConfig: "bar-chart",
+    histogramConfig: "histogram",
+    boxPlotConfig: "box-plot",
+    scatterPlotConfig: "scatter-plot",
+    probabilityTreeConfig: "probability-tree",
+    distributionCurveConfig: "distribution-curve",
+    fractionsConfig: "fractions",
+    networkGraphConfig: "network-graph",
+    matrixConfig: "matrix",
+    stemLeafConfig: "stem-and-leaf",
+    geometryShapesConfig: "geometry-shapes",
+    pythagorasConfig: "pythagoras",
+    trigonometryConfig: "trigonometry"
+  };
+
+  Object.keys(configVisibilityMap).forEach((id) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+    element.classList.toggle("hidden", configVisibilityMap[id] !== type);
+  });
 }
 
 function readInteractiveAppFromForm() {
@@ -7312,6 +8297,28 @@ function readInteractiveAppFromForm() {
   if (!type) return null;
 
   switch (type) {
+    case "time": {
+      const mode = normalizeTimeMode(document.getElementById("timeMode").value);
+      const timeFocus = normalizeTimeFocus(document.getElementById("timeFocus").value);
+      const allowCustomAnswer = Boolean(document.getElementById("timeAllowCustomAnswer").checked);
+      const digitalChallenge = normalizeTimeDigitalChallenge(document.getElementById("timeDigitalChallenge").value);
+      const hour = normalizeTimeHour(document.getElementById("timeHour").value);
+      const minuteRaw = normalizeTimeMinute(document.getElementById("timeMinute").value);
+      const minute = timeFocus === "hour-only" ? 0 : minuteRaw;
+      const period = normalizeTimePeriod(document.getElementById("timePeriod").value);
+      return {
+        type,
+        config: {
+          mode,
+          timeFocus,
+          allowCustomAnswer,
+          digitalChallenge,
+          hour,
+          minute,
+          period
+        }
+      };
+    }
     case "number-tracing": {
       const targetNumber = Number.parseInt(document.getElementById("ntTargetNumber").value, 10);
       const prompt = String(document.getElementById("ntPrompt").value || "").trim();
@@ -7324,6 +8331,68 @@ function readInteractiveAppFromForm() {
           prompt: prompt || (prepMode ? "Tap the matching number, then trace it." : "Trace the dotted number and say it aloud."),
           prepMode,
           showQuantityDots
+        }
+      };
+    }
+    case "number-ordering": {
+      const prompt = String(document.getElementById("noPrompt").value || "").trim();
+      const direction = normalizeNumberOrderingDirection(document.getElementById("noDirection").value);
+      const cards = parseNumberOrderingValues(document.getElementById("noCards").value).slice(0, 8);
+      const safeCards = cards.length > 0 ? cards : [7, 3, 9, 5];
+      const explicitCorrectOrder = parseNumberOrderingValues(document.getElementById("noCorrectOrder").value).slice(0, 8);
+      const computed = safeCards.slice().sort((a, b) => a - b);
+      const fallbackCorrectOrder = direction === "descending" ? computed.reverse() : computed;
+      const correctOrder = explicitCorrectOrder.length > 0 ? explicitCorrectOrder : fallbackCorrectOrder;
+      return {
+        type,
+        config: {
+          prompt: prompt || "Order the number cards from smallest to largest.",
+          direction,
+          cards: safeCards,
+          correctOrder
+        }
+      };
+    }
+    case "icon-count": {
+      const prompt = String(document.getElementById("icPrompt").value || "").trim();
+      const totalCountRaw = Number.parseInt(document.getElementById("icTotalCount").value, 10);
+      const totalCount = Number.isInteger(totalCountRaw) ? Math.max(0, Math.min(20, totalCountRaw)) : 8;
+      const iconShape = normalizeIconCountShape(document.getElementById("icIconShape").value);
+      let groups = parseIconCountGroups(document.getElementById("icGroups").value).slice(0, 8);
+      if (groups.length === 0) groups = [totalCount];
+      const sum = groups.reduce((acc, value) => acc + value, 0);
+      if (sum !== totalCount) groups = [totalCount];
+      return {
+        type,
+        config: {
+          prompt: prompt || "How many icons are shown in total?",
+          totalCount,
+          iconShape,
+          groups
+        }
+      };
+    }
+    case "calendar-sequence": {
+      const mode = normalizeCalendarSequenceMode(document.getElementById("csMode").value);
+      const current = String(document.getElementById("csCurrent").value || "").trim();
+      const stepRaw = Number.parseInt(document.getElementById("csStep").value, 10);
+      const step = Number.isInteger(stepRaw) ? Math.max(1, Math.min(10, stepRaw)) : 1;
+      const values = parseCalendarSequenceValues(document.getElementById("csValues").value);
+      const normalized = normalizeCalendarSequenceConfig({
+        mode,
+        current,
+        step,
+        values,
+        prompt: String(document.getElementById("csPrompt").value || "").trim()
+      });
+      return {
+        type,
+        config: {
+          mode: normalized.mode,
+          prompt: normalized.prompt,
+          current: normalized.current,
+          step: normalized.step,
+          values: normalized.values
         }
       };
     }
@@ -7587,6 +8656,19 @@ function populateInteractiveAppForm(app) {
   const numberLineConfig = (type === "number-line" ? nextApp : buildDefaultInteractiveApp("number-line")).config;
   const arithmeticConfig = (type === "arithmetic" ? nextApp : buildDefaultInteractiveApp("arithmetic")).config;
   const numberTracingConfig = (type === "number-tracing" ? nextApp : buildDefaultInteractiveApp("number-tracing")).config;
+  const numberOrderingConfig = (type === "number-ordering" ? nextApp : buildDefaultInteractiveApp("number-ordering")).config;
+  const iconCountConfig = (type === "icon-count" ? nextApp : buildDefaultInteractiveApp("icon-count")).config;
+  const calendarSequenceConfig = (type === "calendar-sequence" ? nextApp : buildDefaultInteractiveApp("calendar-sequence")).config;
+  const timeConfig = (type === "time" ? nextApp : buildDefaultInteractiveApp("time")).config;
+
+  document.getElementById("timeMode").value = normalizeTimeMode(timeConfig.mode);
+  document.getElementById("timeFocus").value = normalizeTimeFocus(timeConfig.timeFocus);
+  document.getElementById("timeAllowCustomAnswer").checked = Boolean(timeConfig.allowCustomAnswer);
+  document.getElementById("timeDigitalChallenge").value = normalizeTimeDigitalChallenge(timeConfig.digitalChallenge);
+  document.getElementById("timeHour").value = normalizeTimeHour(timeConfig.hour);
+  document.getElementById("timeMinute").value = normalizeTimeMinute(timeConfig.minute);
+  document.getElementById("timePeriod").value = normalizeTimePeriod(timeConfig.period);
+
   const savedLayout = String(arithmeticConfig.layout || "horizontal").trim().toLowerCase();
   document.getElementById("arithLayout").value = savedLayout === "vertical" ? "vertical" : savedLayout === "long" ? "long" : "horizontal";
   document.getElementById("arithOperator").value = String(arithmeticConfig.operator || "+").trim() || "+";
@@ -7599,6 +8681,36 @@ function populateInteractiveAppForm(app) {
   document.getElementById("ntPrompt").value = String(numberTracingConfig.prompt || "Tap the matching number, then trace it.");
   document.getElementById("ntPrepMode").checked = Boolean(numberTracingConfig.prepMode);
   document.getElementById("ntShowQuantityDots").checked = Boolean(numberTracingConfig.showQuantityDots);
+
+  const orderingDirection = normalizeNumberOrderingDirection(numberOrderingConfig.direction);
+  const orderingCards = Array.isArray(numberOrderingConfig.cards)
+    ? numberOrderingConfig.cards.map((item) => Number.parseInt(item, 10)).filter((item) => Number.isInteger(item))
+    : [];
+  const orderingCorrect = Array.isArray(numberOrderingConfig.correctOrder)
+    ? numberOrderingConfig.correctOrder.map((item) => Number.parseInt(item, 10)).filter((item) => Number.isInteger(item))
+    : [];
+  const safeOrderingCards = orderingCards.length > 0 ? orderingCards : [7, 3, 9, 5];
+  const computedOrdering = safeOrderingCards.slice().sort((a, b) => a - b);
+  const safeOrderingCorrect = orderingCorrect.length > 0
+    ? orderingCorrect
+    : (orderingDirection === "descending" ? computedOrdering.reverse() : computedOrdering);
+  document.getElementById("noPrompt").value = String(numberOrderingConfig.prompt || "Order the number cards from smallest to largest.");
+  document.getElementById("noDirection").value = orderingDirection;
+  document.getElementById("noCards").value = safeOrderingCards.join(", ");
+  document.getElementById("noCorrectOrder").value = safeOrderingCorrect.join(", ");
+
+  const normalizedIconCount = normalizeIconCountConfig(iconCountConfig);
+  document.getElementById("icPrompt").value = normalizedIconCount.prompt;
+  document.getElementById("icTotalCount").value = String(normalizedIconCount.totalCount);
+  document.getElementById("icIconShape").value = normalizedIconCount.iconShape;
+  document.getElementById("icGroups").value = normalizedIconCount.groups.join(", ");
+
+  const normalizedCalendarSequence = normalizeCalendarSequenceConfig(calendarSequenceConfig);
+  document.getElementById("csPrompt").value = normalizedCalendarSequence.prompt;
+  document.getElementById("csMode").value = normalizedCalendarSequence.mode;
+  document.getElementById("csCurrent").value = normalizedCalendarSequence.current;
+  document.getElementById("csStep").value = String(normalizedCalendarSequence.step);
+  document.getElementById("csValues").value = normalizedCalendarSequence.values.join(", ");
 
   document.getElementById("nlMin").value = numberLineConfig.min ?? -10;
   document.getElementById("nlMax").value = numberLineConfig.max ?? 10;
@@ -7745,6 +8857,8 @@ function refreshCorrectAnswerSelect(question) {
 
   if (resultType === "short-answer") {
     hint.textContent = "Enter the expected answer text.";
+  } else if (resultType === "date") {
+    hint.textContent = "Enter date as DD/MM/YYYY.";
   } else if (resultType === "plot") {
     hint.textContent = "Use this for plotting tasks. For Cartesian Plane - Plot, grading uses answer points.";
   } else if (resultType === "checkbox") {
@@ -7970,6 +9084,9 @@ function getQuizData() {
         resultType: item.resultType || "multiple-choice",
         options: Array.isArray(item.options) ? item.options : ["", "", "", ""],
         correctAnswer: item.correctAnswer || "",
+        category: item.category || "",
+        subcategory: item.subcategory || "",
+        learningOutcome: item.learningOutcome || "",
         notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
         image: item.image || "",
         solution: item.solution || "",
@@ -8123,6 +9240,22 @@ function closeQuizSettingsModal() {
   modal.classList.add("hidden");
   modal.setAttribute("aria-hidden", "true");
   modal.dataset.quizId = "";
+  document.body.classList.remove("modal-open");
+}
+
+function openImportModal() {
+  const modal = document.getElementById("importModal");
+  if (!(modal instanceof HTMLElement)) return;
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeImportModal() {
+  const modal = document.getElementById("importModal");
+  if (!(modal instanceof HTMLElement)) return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
 }
 
@@ -8405,6 +9538,79 @@ function updateQuestionFromForm() {
   ];
   question.interactiveApp = readInteractiveAppFromForm();
 
+  if (question.interactiveApp && question.interactiveApp.type === "time") {
+    const timeMode = normalizeTimeMode(question.interactiveApp.config && question.interactiveApp.config.mode);
+    const timeConfig = question.interactiveApp.config || {};
+    const timeFocus = normalizeTimeFocus(timeConfig.timeFocus);
+    const allowCustomAnswer = Boolean(timeConfig.allowCustomAnswer);
+    const digitalChallenge = normalizeTimeDigitalChallenge(timeConfig.digitalChallenge);
+    const targetHour = normalizeTimeHour(timeConfig.hour);
+    const targetMinuteRaw = normalizeTimeMinute(timeConfig.minute);
+    const targetMinute = timeFocus === "hour-only" ? 0 : targetMinuteRaw;
+    question.interactiveApp.config.timeFocus = timeFocus;
+    question.interactiveApp.config.minute = targetMinute;
+    const minuteInput = document.getElementById("timeMinute");
+    if (minuteInput instanceof HTMLInputElement && timeFocus === "hour-only") {
+      minuteInput.value = "0";
+    }
+    let targetPeriod = normalizeTimePeriod(timeConfig.period);
+    if (timeMode === "digital" && ["12h-to-24h", "24h-to-12h"].includes(digitalChallenge) && !targetPeriod) {
+      targetPeriod = "PM";
+      question.interactiveApp.config.period = targetPeriod;
+      const periodSelect = document.getElementById("timePeriod");
+      if (periodSelect) periodSelect.value = targetPeriod;
+    }
+    const targetText = formatTimeValue(targetHour, targetMinute, targetPeriod);
+    const normalizedPeriodForConversion = targetPeriod || "PM";
+    const autoQuestion = buildDefaultTimeQuestionByMode(timeMode, targetHour, targetMinute, targetPeriod, digitalChallenge);
+    const autoSolution = buildDefaultTimeSolutionByMode(timeMode, targetHour, targetMinute, targetPeriod, digitalChallenge);
+    if (!allowCustomAnswer) {
+      const resultTypeSelect = document.getElementById("resultType");
+      if (timeMode === "analog-to-digital") {
+        question.resultType = "multiple-choice";
+        if (resultTypeSelect) resultTypeSelect.value = "multiple-choice";
+        const generatedOptions = buildAnalogToDigitalOptions(targetHour, targetMinute);
+        question.options = generatedOptions;
+        question.correctAnswer = targetText;
+        document.getElementById("option1").value = generatedOptions[0] || "";
+        document.getElementById("option2").value = generatedOptions[1] || "";
+        document.getElementById("option3").value = generatedOptions[2] || "";
+        document.getElementById("option4").value = generatedOptions[3] || "";
+        document.getElementById("correctAnswer").value = question.correctAnswer;
+      } else {
+        question.resultType = "short-answer";
+        if (resultTypeSelect) resultTypeSelect.value = "short-answer";
+        if (timeMode === "digital" && digitalChallenge === "12h-to-24h") {
+          question.correctAnswer = formatTime24Value(targetHour, targetMinute, normalizedPeriodForConversion);
+        } else if (timeMode === "digital" && digitalChallenge === "24h-to-12h") {
+          question.correctAnswer = formatTimeValue(targetHour, targetMinute, normalizedPeriodForConversion);
+        } else {
+          question.correctAnswer = targetText;
+        }
+        document.getElementById("correctAnswer").value = question.correctAnswer;
+      }
+    }
+
+    const questionInput = document.getElementById("questionText");
+    const solutionInput = document.getElementById("solutionText");
+    const existingQuestionText = questionInput ? String(questionInput.value || "").trim() : String(question.question || "").trim();
+    const existingSolutionText = solutionInput ? String(solutionInput.value || "").trim() : String(question.solution || "").trim();
+
+    if (isLikelyDefaultTimeQuestion(existingQuestionText)) {
+      question.question = autoQuestion;
+      if (questionInput) {
+        questionInput.value = autoQuestion;
+      }
+    }
+
+    if (isLikelyDefaultTimeSolution(existingSolutionText)) {
+      question.solution = autoSolution;
+      if (solutionInput) {
+        solutionInput.value = autoSolution;
+      }
+    }
+  }
+
   toggleOptionsBlock(question);
   updateNotesPreview(question.notesAttachments);
   updateSolutionAttachmentsPreview(question.solutionAttachments);
@@ -8429,25 +9635,26 @@ function updateImagePreview(src) {
   }
 }
 
-function buildPersistedQuizPayload() {
-  const selectedQuiz = activeQuiz();
-  const category = activeCategory();
-  if (!selectedQuiz || !category) {
+function buildPersistedQuizPayloadFrom(quiz, category) {
+  if (!quiz || !category) {
     return null;
   }
 
   return {
-    id: selectedQuiz.id || slugify(selectedQuiz.title || "quiz"),
-    title: selectedQuiz.title || "Untitled Quiz",
-    description: normalizeQuizDescription(selectedQuiz.description),
-    settings: normalizeQuizSettings(selectedQuiz.settings),
+    id: quiz.id || slugify(quiz.title || "quiz"),
+    title: quiz.title || "Untitled Quiz",
+    description: normalizeQuizDescription(quiz.description),
+    settings: normalizeQuizSettings(quiz.settings),
     category: category.name || "General",
-    questions: (selectedQuiz.questions || []).map((item) => {
+    questions: (quiz.questions || []).map((item) => {
       const question = {
         question: item.question || "",
         resultType: item.resultType || "multiple-choice",
         options: Array.isArray(item.options) ? item.options : ["", "", "", ""],
         correctAnswer: item.correctAnswer || "",
+        category: item.category || "",
+        subcategory: item.subcategory || "",
+        learningOutcome: item.learningOutcome || "",
         notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
         image: item.image || "",
         solution: item.solution || "",
@@ -8461,6 +9668,12 @@ function buildPersistedQuizPayload() {
       return question;
     })
   };
+}
+
+function buildPersistedQuizPayload() {
+  const selectedQuiz = activeQuiz();
+  const category = activeCategory();
+  return buildPersistedQuizPayloadFrom(selectedQuiz, category);
 }
 
 function resolveQuizRelativePath(quiz, category) {
@@ -8486,8 +9699,7 @@ async function writeSelectedQuizToDisk(options = {}) {
   const { allowPrompt = true, notify = true } = options;
   const quiz = activeQuiz();
   const category = activeCategory();
-  const payload = buildPersistedQuizPayload();
-  if (!quiz || !category || !payload) {
+  if (!quiz || !category) {
     if (notify) {
       showToast("Select a quiz first.", "warning");
     }
@@ -8507,7 +9719,31 @@ async function writeSelectedQuizToDisk(options = {}) {
     if (!configuredRoot) {
       return false;
     }
-    const relativePath = await resolveWritableQuizRelativePath(configuredRoot, quiz, category);
+    return await writeQuizToDiskWithRoot(configuredRoot, quiz, category, { notify });
+  } catch (error) {
+    if (error && error.name === "AbortError") {
+      if (notify) {
+        showToast("Save canceled.", "info");
+      }
+      return false;
+    }
+
+    if (notify) {
+      showToast("Could not save to local folder.", "warning");
+    }
+    return false;
+  }
+}
+
+async function writeQuizToDiskWithRoot(rootHandle, quiz, category, options = {}) {
+  const { notify = true } = options;
+  const payload = buildPersistedQuizPayloadFrom(quiz, category);
+  if (!rootHandle || !quiz || !category || !payload) {
+    return false;
+  }
+
+  try {
+    const relativePath = await resolveWritableQuizRelativePath(rootHandle, quiz, category);
     const parts = relativePath.split("/").filter((item) => item !== "");
     if (parts.length === 0) {
       if (notify) {
@@ -8524,7 +9760,7 @@ async function writeSelectedQuizToDisk(options = {}) {
       return false;
     }
 
-    let directoryHandle = configuredRoot;
+    let directoryHandle = rootHandle;
     for (const segment of parts) {
       directoryHandle = await directoryHandle.getDirectoryHandle(segment, { create: true });
     }
@@ -8561,6 +9797,61 @@ async function writeSelectedQuizToDisk(options = {}) {
     }
     return false;
   }
+}
+
+async function persistImportedQuizzesToDisk(importedTargets, allowPrompt = true) {
+  if (!supportsFolderDeletion()) {
+    return { total: 0, saved: 0, skipped: 0, prompted: false };
+  }
+
+  const targets = Array.isArray(importedTargets) ? importedTargets : [];
+  if (targets.length === 0) {
+    return { total: 0, saved: 0, skipped: 0, prompted: false };
+  }
+
+  const configuredRoot = await getConfiguredRootHandle({
+    create: true,
+    allowPrompt,
+    promptForPermission: allowPrompt
+  });
+  if (!configuredRoot) {
+    return null;
+  }
+
+  const uniqueKeys = new Set();
+  let saved = 0;
+  let skipped = 0;
+
+  for (const item of targets) {
+    const category = state.categories.find((cat) => cat && cat.id === item.categoryId);
+    const quiz = category && Array.isArray(category.quizzes)
+      ? category.quizzes.find((q) => q && q.id === item.quizId)
+      : null;
+    if (!category || !quiz) {
+      skipped += 1;
+      continue;
+    }
+
+    const key = `${category.id}::${quiz.id}`;
+    if (uniqueKeys.has(key)) {
+      continue;
+    }
+    uniqueKeys.add(key);
+
+    const ok = await writeQuizToDiskWithRoot(configuredRoot, quiz, category, { notify: false });
+    if (ok) {
+      saved += 1;
+    } else {
+      skipped += 1;
+    }
+  }
+
+  return {
+    total: uniqueKeys.size,
+    saved,
+    skipped,
+    prompted: Boolean(allowPrompt)
+  };
 }
 
 async function persistSelectedQuizAfterMutation(scopeLabel = "Quiz") {
@@ -9136,7 +10427,7 @@ document.getElementById("validateGeneratedQuestionBtn").addEventListener("click"
   showToast(`Validation found ${issues.length} issue(s).`, "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "arithLayout", "arithOperator", "arithOperandA", "arithOperandB", "arithAnswer", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "cppXMin", "cppXMax", "cppYMin", "cppYMax", "cppTolerance", "cppPoints", "cppVceTemplate", "cppPresetType", "cppPresetExpression", "cppPresetXValues", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxDatasetCount", "boxDatasets", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
+["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "timeMode", "timeFocus", "timeAllowCustomAnswer", "timeDigitalChallenge", "timeHour", "timeMinute", "timePeriod", "arithLayout", "arithOperator", "arithOperandA", "arithOperandB", "arithAnswer", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "cppXMin", "cppXMax", "cppYMin", "cppYMax", "cppTolerance", "cppPoints", "cppVceTemplate", "cppPresetType", "cppPresetExpression", "cppPresetXValues", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxDatasetCount", "boxDatasets", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);
@@ -9259,6 +10550,63 @@ document.getElementById("connectRootBtn").addEventListener("click", async () => 
   await connectRootDirectoryHandle();
 });
 
+document.getElementById("importTableBtn").addEventListener("click", () => {
+  openImportModal();
+});
+
+document.getElementById("selectImportFileBtn").addEventListener("click", () => {
+  const input = document.getElementById("importTableInput");
+  if (!(input instanceof HTMLInputElement)) return;
+  input.click();
+});
+
+document.getElementById("exportValidationBtn").addEventListener("click", () => {
+  downloadImportValidationCsv();
+});
+
+document.getElementById("importValidationBody").addEventListener("click", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLElement)) return;
+  const row = target.closest("tr[data-row-index]");
+  if (!(row instanceof HTMLElement)) return;
+  const rowIndex = Number.parseInt(row.dataset.rowIndex || "", 10);
+  if (!Number.isInteger(rowIndex) || rowIndex < 0) return;
+  focusImportPreviewRow(rowIndex);
+});
+
+document.getElementById("importTableInput").addEventListener("change", async (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return;
+  const file = target.files && target.files[0] ? target.files[0] : null;
+  await handleTableImportSelection(file);
+  target.value = "";
+});
+
+document.getElementById("applyImportBtn").addEventListener("click", async () => {
+  if (pendingImportValidation && pendingImportValidation.errors > 0) {
+    showToast(`Fix validation errors before applying import. Current errors: ${pendingImportValidation.errors}.`, "warning");
+    return;
+  }
+  await applyPendingImportToMaker();
+  closeImportModal();
+});
+
+document.getElementById("clearImportPreviewBtn").addEventListener("click", () => {
+  pendingImportRows = [];
+  pendingImportSourceName = "";
+  pendingImportValidation = null;
+  renderImportPreview([], "spreadsheet");
+  showToast("Import preview cleared.", "info");
+});
+
+document.getElementById("closeImportModalBtn").addEventListener("click", () => {
+  closeImportModal();
+});
+
+document.querySelector("[data-close-import-modal='true']").addEventListener("click", () => {
+  closeImportModal();
+});
+
 document.getElementById("downloadQuizBtn").addEventListener("click", () => {
   downloadSelectedQuizJson();
 });
@@ -9378,6 +10726,9 @@ function normalizeQuestion(item) {
     resultType,
     options,
     correctAnswer: correctAnswerValue,
+    category: item.category || "",
+    subcategory: item.subcategory || "",
+    learningOutcome: item.learningOutcome || "",
     notesAttachments: buildNotesAttachments(splitNotesAttachments(Array.isArray(item.notesAttachments) ? item.notesAttachments : [])),
     image: item.image || "",
     solution: item.solution || "",
@@ -9446,6 +10797,846 @@ function loadImportedData(data) {
   throw new Error("Invalid quiz file");
 }
 
+function normalizeImportHeader(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+}
+
+function normalizeImportGradeName(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+
+  const direct = ALLOWED_IMPORT_GRADE_CATEGORIES.find((item) => normalizeText(item) === normalizeText(raw));
+  if (direct) return direct;
+
+  const lowered = raw.toLowerCase();
+  const compact = lowered.replace(/[^a-z0-9]/g, "");
+  const aliased = IMPORT_GRADE_ALIASES[compact];
+  if (aliased) return aliased;
+
+  if (/(^|\b)(prep|preprimary|kindergarten|kindy)(\b|$)/i.test(raw)) {
+    return "Prep";
+  }
+
+  // Accept variants like "1", "01", "g1", "grade-1", "year 1", "class 1".
+  const numberMatch = lowered.match(/(?:grade|g|year|class)?\s*[-:]?\s*0*([1-6])\b/);
+  if (numberMatch) {
+    return `Grade ${numberMatch[1]}`;
+  }
+
+  const wordMap = {
+    one: "Grade 1",
+    two: "Grade 2",
+    three: "Grade 3",
+    four: "Grade 4",
+    five: "Grade 5",
+    six: "Grade 6"
+  };
+  for (const [word, label] of Object.entries(wordMap)) {
+    if (new RegExp(`(^|\\b)${word}(\\b|$)`, "i").test(raw)) {
+      return label;
+    }
+  }
+
+  return "";
+}
+
+function resolveImportColumnKey(normalizedHeader) {
+  const map = {
+    grade: "grade",
+    year: "grade",
+    module: "module",
+    lessonpart: "lessonPart",
+    lessonname: "lessonName",
+    lesson: "lessonName",
+    category: "category",
+    questioncategory: "category",
+    subcategory: "subcategory",
+    questionsubcategory: "subcategory",
+    qno: "qNo",
+    questionno: "qNo",
+    questionnumber: "qNo",
+    questiontype: "questionType",
+    type: "questionType",
+    question: "question",
+    options: "options",
+    learningoutcome: "learningOutcome",
+    outcome: "learningOutcome"
+  };
+  return map[normalizedHeader] || "";
+}
+
+function parseImportOptions(value) {
+  const raw = String(value || "").trim();
+  if (!raw || raw.toLowerCase() === "n/a") {
+    return [];
+  }
+  return raw.split(",").map((item) => item.trim()).filter((item) => item !== "");
+}
+
+function countEmojiGlyphs(value) {
+  const text = String(value || "");
+  const matches = text.match(/\p{Extended_Pictographic}/gu);
+  return Array.isArray(matches) ? matches.length : 0;
+}
+
+function firstNumberInText(value) {
+  const match = String(value || "").match(/(?<!\.)\b\d+\b/);
+  return match ? Number.parseInt(match[0], 10) : null;
+}
+
+function inferResultTypeFromImport(questionType) {
+  const normalized = String(questionType || "").trim().toLowerCase();
+  if (normalized.includes("multi select") || normalized.includes("multiselect")) return "checkbox";
+  if (normalized.includes("multiple choice")) return "multiple-choice";
+  if (normalized.includes("true") && normalized.includes("false")) return "true-false";
+  return "short-answer";
+}
+
+function inferAnswerFromImportRow(row) {
+  const question = String(row.question || "").trim();
+  const qLower = question.toLowerCase();
+  const options = Array.isArray(row.options) ? row.options : [];
+  const baseResultType = inferResultTypeFromImport(row.questionType);
+
+  const nextMatch = question.match(/what comes next\?\s*(\d+)\s*,\s*(\d+)\s*,\s*__/i);
+  if (nextMatch) {
+    return { resultType: baseResultType, correctAnswer: String(Number.parseInt(nextMatch[2], 10) + 1) };
+  }
+
+  const whichNumberMatch = question.match(/which number is\s*(\d+)/i);
+  if (whichNumberMatch) {
+    return { resultType: baseResultType, correctAnswer: whichNumberMatch[1] };
+  }
+
+  const selectNumberMatch = question.match(/select the number\s*(\d+)/i);
+  if (selectNumberMatch) {
+    return { resultType: baseResultType, correctAnswer: selectNumberMatch[1] };
+  }
+
+  if (qLower.includes("means none") || qLower.includes("empty") || qLower.includes("no ")) {
+    return { resultType: baseResultType, correctAnswer: "0" };
+  }
+
+  if (qLower.includes("means one")) {
+    return { resultType: baseResultType, correctAnswer: "1" };
+  }
+
+  if (qLower.includes("select all")) {
+    const targetMatch = question.match(/select all the\s*(\d+)s?/i);
+    if (targetMatch) {
+      const target = targetMatch[1];
+      const hits = options.filter((item) => String(item).trim() === target);
+      return { resultType: "checkbox", correctAnswer: hits.length > 0 ? hits.join(", ") : target };
+    }
+    const nums = options.filter((item) => /^\d+$/.test(String(item).trim()));
+    return { resultType: "checkbox", correctAnswer: nums.join(", ") };
+  }
+
+  if (qLower.includes("how many") || qLower.includes("which number matches")) {
+    const emojiCount = countEmojiGlyphs(question);
+    if (emojiCount > 0) {
+      return { resultType: baseResultType, correctAnswer: String(emojiCount) };
+    }
+    const extractedNumber = firstNumberInText(question);
+    if (Number.isInteger(extractedNumber)) {
+      return { resultType: baseResultType, correctAnswer: String(extractedNumber) };
+    }
+  }
+
+  if (qLower.includes("trace") || qLower.includes("draw") || qLower.includes("write")) {
+    const extractedNumber = firstNumberInText(question);
+    return {
+      resultType: "short-answer",
+      correctAnswer: Number.isInteger(extractedNumber) ? String(extractedNumber) : ""
+    };
+  }
+
+  if (baseResultType === "multiple-choice") {
+    const firstNumeric = options.find((item) => /^\d+$/.test(String(item).trim()));
+    if (firstNumeric) {
+      return { resultType: baseResultType, correctAnswer: String(firstNumeric).trim() };
+    }
+  }
+
+  const fallbackNumber = firstNumberInText(question);
+  if (Number.isInteger(fallbackNumber)) {
+    return { resultType: baseResultType, correctAnswer: String(fallbackNumber) };
+  }
+
+  return { resultType: baseResultType, correctAnswer: options.length > 0 ? String(options[0]).trim() : "" };
+}
+
+function inferSolutionFromImport(question, answer) {
+  const q = String(question || "").trim();
+  const a = String(answer || "").trim();
+  if (!a) return "Read the question carefully and use the lesson concept to complete it.";
+  if (/select all/i.test(q)) return `Select every correct option. The correct selection is: ${a}.`;
+  if (/what comes next/i.test(q)) return `Continue the counting pattern by 1. The next number is ${a}.`;
+  if (/how many|which number matches/i.test(q)) return `Count the objects shown and match the quantity. The answer is ${a}.`;
+  if (/trace|draw|write/i.test(q)) return `The target numeral is ${a}. Complete the tracing/writing step using that number.`;
+  return `The correct answer is ${a}.`;
+}
+
+function summarizeModuleLearningOutcomes(rows) {
+  const outcomes = Array.from(new Set(
+    (Array.isArray(rows) ? rows : [])
+      .map((row) => String(row && row.learningOutcome ? row.learningOutcome : "").trim())
+      .filter((item) => item !== "")
+  ));
+  if (outcomes.length === 0) {
+    return "";
+  }
+  return outcomes.join(" | ");
+}
+
+function buildInteractiveAppFromImport(row, answer) {
+  const question = String(row.question || "").trim();
+  const qLower = question.toLowerCase();
+  const numericAnswer = Number.parseInt(String(answer || ""), 10);
+
+  if ((qLower.includes("trace") || qLower.includes("draw") || qLower.includes("write")) && Number.isInteger(numericAnswer)) {
+    return {
+      type: "number-tracing",
+      config: {
+        targetNumber: Math.max(0, Math.min(100, numericAnswer)),
+        prompt: question,
+        prepMode: true,
+        showQuantityDots: true,
+        showInstructions: false
+      }
+    };
+  }
+
+  const nextMatch = question.match(/what comes next\?\s*(\d+)\s*,\s*(\d+)\s*,\s*__/i);
+  if (nextMatch) {
+    const left = Number.parseInt(nextMatch[1], 10);
+    const right = Number.parseInt(nextMatch[2], 10);
+    const cards = [left, right, right + 1, right + 2];
+    return {
+      type: "number-ordering",
+      config: {
+        prompt: question,
+        direction: "ascending",
+        cards,
+        correctOrder: cards.slice().sort((a, b) => a - b)
+      }
+    };
+  }
+
+  if ((qLower.includes("how many") || qLower.includes("which number matches")) && Number.isInteger(numericAnswer)) {
+    return {
+      type: "icon-count",
+      config: {
+        prompt: question,
+        totalCount: Math.max(0, Math.min(20, numericAnswer)),
+        iconShape: "circle",
+        groups: [Math.max(0, Math.min(20, numericAnswer))]
+      }
+    };
+  }
+
+  return null;
+}
+
+function normalizeImportedRows(rawRows) {
+  const normalized = [];
+  rawRows.forEach((sourceRow, idx) => {
+    if (!sourceRow || typeof sourceRow !== "object") return;
+
+    const mapped = {
+      grade: "",
+      module: "",
+      lessonPart: "",
+      lessonName: "",
+      category: "",
+      subcategory: "",
+      qNo: idx + 1,
+      questionType: "",
+      question: "",
+      learningOutcome: "",
+      options: []
+    };
+
+    Object.keys(sourceRow).forEach((rawKey) => {
+      const mappedKey = resolveImportColumnKey(normalizeImportHeader(rawKey));
+      if (!mappedKey) return;
+      const rawValue = sourceRow[rawKey];
+      if (mappedKey === "options") {
+        mapped.options = parseImportOptions(rawValue);
+      } else if (mappedKey === "qNo") {
+        const parsed = Number.parseInt(String(rawValue || "").trim(), 10);
+        mapped.qNo = Number.isInteger(parsed) ? parsed : mapped.qNo;
+      } else {
+        mapped[mappedKey] = String(rawValue || "").trim();
+      }
+    });
+
+    mapped.grade = normalizeImportGradeName(mapped.grade);
+
+    if (!mapped.grade || !mapped.lessonPart || !mapped.question) return;
+    normalized.push(mapped);
+  });
+  return normalized;
+}
+
+function scoreImportHeaderRow(cells) {
+  if (!Array.isArray(cells) || cells.length === 0) {
+    return { score: 0, mappedKeys: [] };
+  }
+
+  const mappedKeys = cells
+    .map((cell) => resolveImportColumnKey(normalizeImportHeader(cell)))
+    .filter((key) => key !== "");
+  const uniqueMapped = Array.from(new Set(mappedKeys));
+  const required = ["grade", "lessonPart", "question"];
+  const hasAllRequired = required.every((key) => uniqueMapped.includes(key));
+
+  return {
+    score: uniqueMapped.length + (hasAllRequired ? 10 : 0),
+    mappedKeys: uniqueMapped
+  };
+}
+
+function buildObjectsFromAoa(aoa, headerRowIndex) {
+  const rows = [];
+  const headerCells = Array.isArray(aoa[headerRowIndex]) ? aoa[headerRowIndex] : [];
+  const headerMap = headerCells.map((cell) => String(cell || "").trim());
+
+  for (let rowIndex = headerRowIndex + 1; rowIndex < aoa.length; rowIndex += 1) {
+    const row = Array.isArray(aoa[rowIndex]) ? aoa[rowIndex] : [];
+    const item = {};
+    let hasValue = false;
+
+    for (let col = 0; col < headerMap.length; col += 1) {
+      const key = headerMap[col];
+      if (!key) continue;
+      const value = String(row[col] || "").trim();
+      item[key] = value;
+      if (value !== "") hasValue = true;
+    }
+
+    if (hasValue) {
+      rows.push(item);
+    }
+  }
+
+  return rows;
+}
+
+function findBestImportTable(workbook) {
+  const sheetNames = Array.isArray(workbook && workbook.SheetNames) ? workbook.SheetNames : [];
+  let bestCandidate = null;
+
+  sheetNames.forEach((sheetName) => {
+    const sheet = workbook.Sheets[sheetName];
+    if (!sheet) return;
+
+    const aoa = window.XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "", raw: false, blankrows: false });
+    if (!Array.isArray(aoa) || aoa.length === 0) return;
+
+    const scanLimit = Math.min(aoa.length, 40);
+    for (let i = 0; i < scanLimit; i += 1) {
+      const cells = Array.isArray(aoa[i]) ? aoa[i] : [];
+      const scored = scoreImportHeaderRow(cells);
+      if (!bestCandidate || scored.score > bestCandidate.score) {
+        bestCandidate = {
+          score: scored.score,
+          mappedKeys: scored.mappedKeys,
+          headerRowIndex: i,
+          sheetName,
+          aoa
+        };
+      }
+    }
+  });
+
+  return bestCandidate;
+}
+
+function parseImportFileToRows(file, workbook) {
+  const best = findBestImportTable(workbook);
+  if (!best) throw new Error("No sheet found in workbook.");
+
+  const { aoa, sheetName, headerRowIndex, mappedKeys } = best;
+  const rawRows = buildObjectsFromAoa(aoa, headerRowIndex);
+  if (!Array.isArray(rawRows) || rawRows.length === 0) {
+    throw new Error(`No data rows found in ${file.name} (sheet: ${sheetName}).`);
+  }
+
+  const normalizedRows = normalizeImportedRows(rawRows);
+  if (normalizedRows.length > 0) {
+    return normalizedRows;
+  }
+
+  const firstRow = rawRows[0] && typeof rawRows[0] === "object" ? rawRows[0] : {};
+  const headerKeys = Object.keys(firstRow);
+  const expected = "Grade, Module, Lesson Part, Lesson Name, Q No, Question Type, Question";
+  const detectedHeaders = headerKeys.length > 0 ? headerKeys.join(", ") : "(none)";
+  const detectedMapped = mappedKeys.length > 0 ? mappedKeys.join(", ") : "(none)";
+
+  throw new Error(
+    `No valid import rows after normalization. Expected columns include: ${expected}. Detected headers: ${detectedHeaders}. Mapped fields: ${detectedMapped}. Sheet: ${sheetName}. Header row: ${headerRowIndex + 1}.`
+  );
+}
+
+async function readSpreadsheetRows(file) {
+  if (!file) throw new Error("No file selected.");
+  if (!window.XLSX) throw new Error("Spreadsheet parser not loaded. Refresh and try again.");
+  const lowerName = String(file.name || "").toLowerCase();
+
+  if (lowerName.endsWith(".csv")) {
+    const text = await file.text();
+    const workbook = window.XLSX.read(text, { type: "string" });
+    return parseImportFileToRows(file, workbook);
+  }
+
+  if (lowerName.endsWith(".xlsx") || lowerName.endsWith(".xls")) {
+    const buffer = await file.arrayBuffer();
+    const workbook = window.XLSX.read(buffer, { type: "array" });
+    return parseImportFileToRows(file, workbook);
+  }
+
+  throw new Error("Unsupported file type. Use .xlsx, .xls, or .csv.");
+}
+
+function validateImportedRows(rows) {
+  const issues = [];
+  if (!Array.isArray(rows) || rows.length === 0) {
+    return {
+      errors: 0,
+      warnings: 0,
+      issues: []
+    };
+  }
+
+  const seenQNoByModule = new Map();
+  const qNoFirstRowByModule = new Map();
+  const seenQuestionByModule = new Map();
+  const qNoListByModule = new Map();
+  const firstRowByModule = new Map();
+
+  rows.forEach((row, rowIndex) => {
+    const grade = String(row.grade || "").trim();
+    const lessonPart = String(row.lessonPart || "").trim();
+    const qNo = Number.parseInt(String(row.qNo || ""), 10);
+    const question = String(row.question || "").trim();
+    const questionType = String(row.questionType || "").trim().toLowerCase();
+    const options = Array.isArray(row.options) ? row.options.filter((item) => String(item || "").trim() !== "") : [];
+    const moduleKey = `${grade}::${lessonPart}`;
+
+    if (!firstRowByModule.has(moduleKey)) {
+      firstRowByModule.set(moduleKey, rowIndex);
+    }
+
+    if (!Number.isInteger(qNo) || qNo <= 0) {
+      issues.push({ level: "error", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "Q No must be a positive whole number." });
+    }
+
+    if (question === "") {
+      issues.push({ level: "error", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "Question text is required." });
+    }
+
+    if (!String(row.lessonName || "").trim()) {
+      issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "Lesson Name is blank." });
+    }
+
+    if (!String(row.learningOutcome || "").trim()) {
+      issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "Learning Outcome is blank." });
+    }
+
+    if (!String(row.category || "").trim()) {
+      issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "Category is blank." });
+    }
+
+    if (!String(row.subcategory || "").trim()) {
+      issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "Subcategory is blank." });
+    }
+
+    const inferredType = inferResultTypeFromImport(questionType);
+    const knownType = ["multiple-choice", "checkbox", "true-false", "short-answer", "matching", "ordering"].includes(inferredType);
+    if (!knownType) {
+      issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: `Unknown question type: ${row.questionType || "(blank)"}.` });
+    }
+
+    if (["multiple-choice", "checkbox"].includes(inferredType) && options.length < 2) {
+      issues.push({ level: "error", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "At least 2 options are required for multiple-choice or checkbox questions." });
+    }
+
+    if (Number.isInteger(qNo) && qNo > 0) {
+      if (!seenQNoByModule.has(moduleKey)) {
+        seenQNoByModule.set(moduleKey, new Map());
+      }
+      if (!qNoFirstRowByModule.has(moduleKey)) {
+        qNoFirstRowByModule.set(moduleKey, new Map());
+      }
+      const qNoMap = seenQNoByModule.get(moduleKey);
+      const qNoFirstMap = qNoFirstRowByModule.get(moduleKey);
+      const existingCount = qNoMap.get(qNo) || 0;
+      qNoMap.set(qNo, existingCount + 1);
+      if (!qNoFirstMap.has(qNo)) {
+        qNoFirstMap.set(qNo, rowIndex);
+      }
+
+      if (!qNoListByModule.has(moduleKey)) {
+        qNoListByModule.set(moduleKey, []);
+      }
+      qNoListByModule.get(moduleKey).push(qNo);
+    }
+
+    const questionKey = normalizeWhitespace(question).toLowerCase();
+    if (questionKey) {
+      if (!seenQuestionByModule.has(moduleKey)) {
+        seenQuestionByModule.set(moduleKey, new Set());
+      }
+      const set = seenQuestionByModule.get(moduleKey);
+      if (set.has(questionKey)) {
+        issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "Duplicate question text in the same module." });
+      } else {
+        set.add(questionKey);
+      }
+    }
+  });
+
+  seenQNoByModule.forEach((qNoMap, moduleKey) => {
+    const [grade, lessonPart] = moduleKey.split("::");
+    const qNoFirstMap = qNoFirstRowByModule.get(moduleKey) || new Map();
+    qNoMap.forEach((count, qNo) => {
+      if (count > 1) {
+        issues.push({
+          level: "error",
+          grade,
+          lessonPart,
+          qNo,
+          rowIndex: qNoFirstMap.has(qNo) ? qNoFirstMap.get(qNo) : -1,
+          message: `Duplicate Q No ${qNo} in the same module.`
+        });
+      }
+    });
+  });
+
+  qNoListByModule.forEach((list, moduleKey) => {
+    const uniqueSorted = Array.from(new Set(list)).sort((a, b) => a - b);
+    if (uniqueSorted.length <= 1) return;
+    const [grade, lessonPart] = moduleKey.split("::");
+    for (let i = 1; i < uniqueSorted.length; i += 1) {
+      if (uniqueSorted[i] !== uniqueSorted[i - 1] + 1) {
+        issues.push({
+          level: "warning",
+          grade,
+          lessonPart,
+          qNo: "",
+          rowIndex: firstRowByModule.has(moduleKey) ? firstRowByModule.get(moduleKey) : -1,
+          message: "Q No sequence has gaps."
+        });
+        break;
+      }
+    }
+  });
+
+  const errors = issues.filter((item) => item.level === "error").length;
+  const warnings = issues.filter((item) => item.level === "warning").length;
+  return { errors, warnings, issues };
+}
+
+function focusImportPreviewRow(rowIndex) {
+  const previewBody = document.getElementById("importPreviewBody");
+  if (!(previewBody instanceof HTMLElement)) return;
+
+  const target = previewBody.querySelector(`tr[data-row-index="${rowIndex}"]`);
+  if (!(target instanceof HTMLElement)) {
+    showToast("Could not locate that preview row.", "warning");
+    return;
+  }
+
+  previewBody.querySelectorAll("tr[data-row-index]").forEach((row) => {
+    if (row instanceof HTMLElement) {
+      row.style.outline = "";
+      row.style.background = "";
+    }
+  });
+
+  target.scrollIntoView({ behavior: "smooth", block: "center" });
+  target.style.outline = "2px solid #1f6feb";
+  target.style.background = "#eaf3ff";
+
+  window.setTimeout(() => {
+    target.style.outline = "";
+    target.style.background = "";
+  }, 2400);
+}
+
+function renderImportValidation(validation) {
+  const meta = document.getElementById("importValidationMeta");
+  const body = document.getElementById("importValidationBody");
+  const applyBtn = document.getElementById("applyImportBtn");
+  const exportBtn = document.getElementById("exportValidationBtn");
+  if (!(meta instanceof HTMLElement)
+    || !(body instanceof HTMLElement)
+    || !(applyBtn instanceof HTMLButtonElement)
+    || !(exportBtn instanceof HTMLButtonElement)) return;
+
+  if (!validation) {
+    meta.textContent = "No validation run yet.";
+    body.innerHTML = '<tr><td colspan="5" style="padding:8px;">No issues detected.</td></tr>';
+    applyBtn.disabled = true;
+    exportBtn.disabled = true;
+    return;
+  }
+
+  const issues = Array.isArray(validation.issues) ? validation.issues : [];
+  const errors = Number(validation.errors || 0);
+  const warnings = Number(validation.warnings || 0);
+
+  if (errors === 0 && warnings === 0) {
+    meta.textContent = "Validation passed. No issues found. You can apply import.";
+    body.innerHTML = '<tr><td colspan="5" style="padding:8px;">No issues detected.</td></tr>';
+  } else {
+    meta.textContent = `Validation found ${errors} error(s) and ${warnings} warning(s). Apply is blocked when errors exist.`;
+    const previewIssues = issues.slice(0, 200);
+    body.innerHTML = previewIssues.map((item) => `
+      <tr${Number.isInteger(item.rowIndex) && item.rowIndex >= 0 ? ` data-row-index="${item.rowIndex}" style="cursor:pointer;" title="Click to jump to this row in preview"` : ""}>
+        <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(String(item.level || "").toUpperCase())}</td>
+        <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(item.grade || "")}</td>
+        <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(item.lessonPart || "")}</td>
+        <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(String(item.qNo || ""))}</td>
+        <td style="padding:8px; border-bottom:1px solid #f0f4f8; white-space:normal;">${escapeInteractiveHtml(item.message || "")}</td>
+      </tr>
+    `).join("");
+  }
+
+  // Keep Apply clickable when there are validation errors so user gets a clear toast reason.
+  applyBtn.disabled = pendingImportRows.length === 0;
+  exportBtn.disabled = pendingImportRows.length === 0;
+}
+
+function escapeCsvCell(value) {
+  const text = String(value == null ? "" : value);
+  if (!/[",\r\n]/.test(text)) return text;
+  return `"${text.replace(/"/g, '""')}"`;
+}
+
+function downloadImportValidationCsv() {
+  if (!pendingImportValidation || !Array.isArray(pendingImportValidation.issues) || pendingImportRows.length === 0) {
+    showToast("No import validation data to export.", "warning");
+    return;
+  }
+
+  const now = new Date();
+  const yyyy = String(now.getFullYear());
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  const hh = String(now.getHours()).padStart(2, "0");
+  const mi = String(now.getMinutes()).padStart(2, "0");
+  const ss = String(now.getSeconds()).padStart(2, "0");
+  const stamp = `${yyyy}${mm}${dd}-${hh}${mi}${ss}`;
+
+  const issues = pendingImportValidation.issues;
+  const header = ["Level", "Grade", "Lesson Part", "Q No", "Issue"];
+  const rows = issues.map((item) => [
+    String(item.level || "").toUpperCase(),
+    item.grade || "",
+    item.lessonPart || "",
+    String(item.qNo || ""),
+    item.message || ""
+  ]);
+
+  const summaryRow = [
+    "SUMMARY",
+    "",
+    "",
+    "",
+    `Rows=${pendingImportRows.length}; Errors=${pendingImportValidation.errors || 0}; Warnings=${pendingImportValidation.warnings || 0}`
+  ];
+
+  const allRows = [header, ...rows, summaryRow];
+  const csv = allRows.map((row) => row.map((cell) => escapeCsvCell(cell)).join(",")).join("\r\n");
+  const blob = new Blob(["\uFEFF", csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  const sourceName = slugify(pendingImportSourceName || "spreadsheet");
+
+  link.href = url;
+  link.download = `import-validation-${sourceName}-${stamp}.csv`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+
+  showToast("Validation report downloaded.", "success");
+}
+
+function renderImportPreview(rows, sourceName) {
+  const meta = document.getElementById("importPreviewMeta");
+  const body = document.getElementById("importPreviewBody");
+  if (!(meta instanceof HTMLElement) || !(body instanceof HTMLElement)) return;
+
+  if (!Array.isArray(rows) || rows.length === 0) {
+    meta.textContent = "No valid rows detected from spreadsheet.";
+    body.innerHTML = '<tr><td colspan="11" style="padding:8px;">No rows loaded.</td></tr>';
+    pendingImportValidation = null;
+    renderImportValidation(pendingImportValidation);
+    return;
+  }
+
+  const previewRows = rows;
+  const categoryCount = new Set(rows.map((item) => item.grade)).size;
+  const moduleCount = new Set(rows.map((item) => `${item.grade}::${item.lessonPart}`)).size;
+  meta.textContent = `${sourceName}: ${rows.length} rows detected | ${categoryCount} categories | ${moduleCount} modules. Showing all rows.`;
+  body.innerHTML = previewRows.map((row, rowIndex) => `
+    <tr data-row-index="${rowIndex}">
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(row.grade)}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(row.module)}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(row.lessonPart)}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(row.lessonName)}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(row.category)}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(row.subcategory)}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(String(row.qNo || ""))}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(row.questionType)}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:340px; white-space:normal;">${escapeInteractiveHtml(row.question)}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:280px; white-space:normal;">${escapeInteractiveHtml((row.options || []).join(", "))}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:280px; white-space:normal;">${escapeInteractiveHtml(row.learningOutcome)}</td>
+    </tr>
+  `).join("");
+
+  pendingImportValidation = validateImportedRows(rows);
+  renderImportValidation(pendingImportValidation);
+}
+
+function findCategoryByName(name) {
+  const normalized = normalizeText(name);
+  return state.categories.find((category) => normalizeText(category.name) === normalized) || null;
+}
+
+function findQuizByTitle(category, title) {
+  if (!category || !Array.isArray(category.quizzes)) return null;
+  const normalized = normalizeText(title);
+  return category.quizzes.find((quiz) => normalizeText(quiz.title) === normalized) || null;
+}
+
+async function applyPendingImportToMaker() {
+  if (!Array.isArray(pendingImportRows) || pendingImportRows.length === 0) {
+    showToast("No preview data to import.", "warning");
+    return;
+  }
+
+  const importedTargets = [];
+
+  const groupedByCategory = new Map();
+  pendingImportRows.forEach((row) => {
+    if (!groupedByCategory.has(row.grade)) groupedByCategory.set(row.grade, []);
+    groupedByCategory.get(row.grade).push(row);
+  });
+
+  groupedByCategory.forEach((rowsInCategory, categoryName) => {
+    let category = findCategoryByName(categoryName);
+    if (!category) {
+      category = createCategory(categoryName);
+      state.categories.push(category);
+    }
+
+    const groupedByModule = new Map();
+    rowsInCategory.forEach((row) => {
+      const moduleKey = String(row.lessonPart || "").trim();
+      if (!groupedByModule.has(moduleKey)) groupedByModule.set(moduleKey, []);
+      groupedByModule.get(moduleKey).push(row);
+    });
+
+    groupedByModule.forEach((moduleRows, moduleKey) => {
+      const lessonPart = moduleKey;
+      const representative = moduleRows[0] || {};
+      const lessonName = String(representative.lessonName || representative.module || "Imported Module").trim();
+      const moduleNumber = String(representative.module || "").trim();
+      const quizTitle = moduleNumber ? `${moduleNumber}.${lessonPart} - ${lessonName}` : `${lessonPart} - ${lessonName}`;
+      const sortedRows = moduleRows.slice().sort((left, right) => {
+        const l = Number.isInteger(left.qNo) ? left.qNo : 0;
+        const r = Number.isInteger(right.qNo) ? right.qNo : 0;
+        return l - r;
+      });
+
+      let quiz = findQuizByTitle(category, quizTitle);
+      if (!quiz) {
+        quiz = createQuiz(quizTitle);
+        category.quizzes.push(quiz);
+      }
+
+      const outcomesSummary = summarizeModuleLearningOutcomes(sortedRows);
+      quiz.description = outcomesSummary
+        ? `Imported from spreadsheet (${pendingImportSourceName || "table"}). Learning outcomes: ${outcomesSummary}`
+        : `Imported from spreadsheet (${pendingImportSourceName || "table"}).`;
+      quiz.settings = normalizeQuizSettings({ questionOrder: "ordered", questionLimit: sortedRows.length });
+
+      quiz.questions = sortedRows.map((row) => {
+        const inferred = inferAnswerFromImportRow(row);
+        const interactiveApp = buildInteractiveAppFromImport(row, inferred.correctAnswer);
+        const payload = {
+          question: row.question,
+          resultType: inferred.resultType,
+          options: row.options.length > 0 ? row.options : ["", "", "", ""],
+          correctAnswer: inferred.correctAnswer,
+          category: row.category || "",
+          subcategory: row.subcategory || "",
+          learningOutcome: row.learningOutcome || "",
+          notesAttachments: [],
+          image: "",
+          solution: inferSolutionFromImport(row.question, inferred.correctAnswer),
+          solutionAttachments: []
+        };
+        if (interactiveApp) payload.interactiveApp = interactiveApp;
+        return normalizeQuestion(payload);
+      });
+
+      quiz.fileName = buildUniqueQuizFileName(`lesson-part-${lessonPart}-${lessonName}`, quiz.id);
+      importedTargets.push({ categoryId: category.id, quizId: quiz.id });
+    });
+  });
+
+  const orderedCategories = sortCategoriesForDisplay(state.categories);
+  state.categories = orderedCategories;
+  const selection = pickInitialSelection(orderedCategories);
+  state.selectedCategoryId = selection.categoryId;
+  state.selectedQuizId = selection.quizId;
+  state.selectedQuestionIndex = selection.questionIndex;
+  ensureQuizFileNames();
+  renderAll();
+
+  const saveResult = await persistImportedQuizzesToDisk(importedTargets, true);
+  if (saveResult === null) {
+    showToast("Import applied in Maker, but files were not saved. Connect/select root folder, then save quizzes.", "warning");
+    return;
+  }
+
+  if (saveResult.saved === saveResult.total) {
+    showToast(`Spreadsheet import applied and saved ${saveResult.saved} file(s) to disk.`, "success");
+    return;
+  }
+
+  showToast(`Import applied. Saved ${saveResult.saved}/${saveResult.total} file(s); ${saveResult.skipped} not saved.`, "warning");
+}
+
+async function handleTableImportSelection(file) {
+  if (!file) return;
+  try {
+    openImportModal();
+    const importedRows = await readSpreadsheetRows(file);
+    pendingImportRows = importedRows;
+    pendingImportSourceName = file.name || "spreadsheet";
+    renderImportPreview(importedRows, pendingImportSourceName);
+    if (importedRows.length === 0) {
+      showToast("No valid rows found. Allowed Grade values: Prep, Grade 1, Grade 2, Grade 3, Grade 4, Grade 5, Grade 6.", "warning");
+      return;
+    }
+    showToast(`Imported preview ready: ${importedRows.length} row(s). Click Apply Import.`, "success");
+  } catch (error) {
+    pendingImportRows = [];
+    pendingImportSourceName = "";
+    renderImportPreview([], file && file.name ? file.name : "spreadsheet");
+    showToast(String(error && error.message ? error.message : "Could not import spreadsheet."), "warning");
+  }
+}
+
 async function initialize() {
   await restoreRootDirectoryHandle({ promptForPermission: false });
   updateLocalFolderRowVisibility();
@@ -9478,6 +11669,10 @@ async function initialize() {
 }
 
 window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeImportModal();
+  }
+
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {
     event.preventDefault();
     document.getElementById("saveQuizBtn").click();
@@ -9513,6 +11708,7 @@ window.addEventListener("load", () => {
     versionBadge.textContent = `v${APP_VERSION}`;
   }
   initializeInteractiveAppTypePicker();
+  renderImportValidation(null);
   initialize();
 });
 
