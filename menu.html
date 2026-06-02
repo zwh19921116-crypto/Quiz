@@ -522,6 +522,31 @@
       const alnumCollator  = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
       const quizDescriptionCache = new Map();
 
+      function buildHistoryState(view, categoryIndex = null) {
+        if (view === "quizzes" && Number.isInteger(categoryIndex)) {
+          return { menuLayer: "quizzes", categoryIndex };
+        }
+        return { menuLayer: "categories" };
+      }
+
+      function updateMenuHistory(view, categoryIndex, replace = false) {
+        const nextState = buildHistoryState(view, categoryIndex);
+        if (replace) {
+          window.history.replaceState(nextState, "", window.location.href);
+          return;
+        }
+
+        const current = window.history.state;
+        if (
+          current
+          && current.menuLayer === nextState.menuLayer
+          && current.categoryIndex === nextState.categoryIndex
+        ) {
+          return;
+        }
+        window.history.pushState(nextState, "", window.location.href);
+      }
+
       // Category icons (cycles through if more categories than icons)
       const CATEGORY_ICONS = ["📚", "🔬", "🌍", "⏰", "🔢", "🎨", "🏅", "💡", "📐", "🌐"];
 
@@ -694,11 +719,14 @@
       }
 
       // ── Category panel ──────────────────────────────────────
-      function showCategories() {
+      function showCategories(shouldPushHistory = true) {
         currentCategoryIndex = -1;
         renderBreadcrumb(null);
         showPanel("categories");
         renderCategories();
+        if (shouldPushHistory) {
+          updateMenuHistory("categories", null, false);
+        }
       }
 
       async function renderCategories() {
@@ -779,10 +807,13 @@
       }
 
       // ── Quiz panel ──────────────────────────────────────────
-      async function openCategory(index) {
+      async function openCategory(index, shouldPushHistory = true) {
         const categories = (indexData && Array.isArray(indexData.categories)) ? indexData.categories : [];
         const cat = categories[index];
-        if (!cat) return;
+        if (!cat) {
+          showCategories(false);
+          return;
+        }
 
         currentCategoryIndex = index;
         const catName = String(cat.name || "Category");
@@ -830,6 +861,9 @@
         });
 
         showPanel("quizzes");
+        if (shouldPushHistory) {
+          updateMenuHistory("quizzes", index, false);
+        }
       }
 
       function launchQuiz(file) {
@@ -861,6 +895,15 @@
           renderCategories();
         });
       }
+
+      window.addEventListener("popstate", (event) => {
+        const state = event && event.state ? event.state : null;
+        if (state && state.menuLayer === "quizzes" && Number.isInteger(state.categoryIndex)) {
+          openCategory(state.categoryIndex, false);
+          return;
+        }
+        showCategories(false);
+      });
 
       // ── Probe quiz files and filter unreachable ones ────────
       async function probeFile(path) {
@@ -916,7 +959,14 @@
               String((indexData && indexData.root) || "quizzes")
             )
           });
-          await renderCategories();
+
+          const existingState = window.history.state;
+          if (existingState && existingState.menuLayer === "quizzes" && Number.isInteger(existingState.categoryIndex)) {
+            await openCategory(existingState.categoryIndex, false);
+          } else {
+            await renderCategories();
+            updateMenuHistory("categories", null, true);
+          }
         } catch (err) {
           setStatus(
             "Could not load quiz library. Make sure the app is served over HTTP. (" + err.message + ")",
