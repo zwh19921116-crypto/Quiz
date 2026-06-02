@@ -1,5 +1,5 @@
 {
-  "id": "quiz-5",
+  "id": "quiz-2",
   "title": "Numbers.1.02 - Number 0",
   "description": "Imported from spreadsheet (Import.xlsx). Learning outcomes: Recognise 0 | Understand zero | Write 0 | Count 0 objects | Match quantity | Apply zero | Review zero | Mastery of zero",
   "settings": {
@@ -241,7 +241,7 @@
       }
     },
     {
-      "question": "No cars. How many cars?",
+      "question": "If Tom does not own a car, how many cars does Tom have?",
       "resultType": "short-answer",
       "options": [
         "0",
@@ -270,7 +270,7 @@
       }
     },
     {
-      "question": "No dogs. How many dogs?",
+      "question": "Jessie does not own any dogs. How many dogs does Jessie have?",
       "resultType": "short-answer",
       "options": [
         "0",
@@ -357,25 +357,7 @@
       }
     },
     {
-      "question": "Which group has 0 objects?",
-      "resultType": "multiple-choice",
-      "options": [
-        "Empty Box",
-        "🍎",
-        "🍎🍎",
-        "🍎🍎🍎"
-      ],
-      "correctAnswer": "0",
-      "category": "Matching",
-      "subcategory": "Quantity Matching",
-      "learningOutcome": "Match quantity",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 0.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "Tom has 0 apples. How many apples does Tom have?",
+      "question": "James has 2 apples and 1 pear. How many oranges does James have?",
       "resultType": "multiple-choice",
       "options": [
         "0",
@@ -404,7 +386,7 @@
       }
     },
     {
-      "question": "Sara has no balloons. How many balloons does she have?",
+      "question": "Sara accidentally pop all of her balloons. How many ballons does Sara still have?",
       "resultType": "multiple-choice",
       "options": [
         "0",

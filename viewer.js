@@ -869,8 +869,27 @@ function applySingleQuiz(quiz) {
     }
   }
 
-  if (!Array.isArray(quizData.questions) || quizData.questions.length === 0) {
-    renderPrestartIntroScreen();
+  if (isValidationEmbedMode()) {
+    quizStarted = true;
+    const quizContainer = document.getElementById("quizContainer");
+    if (quizContainer instanceof HTMLElement) {
+      quizContainer.classList.remove("prestart-mode");
+    }
+    setViewerProgressChromeVisible(true);
+    document.getElementById("checkAnswerBtn").style.display = "inline-block";
+    document.getElementById("nextQuestionBtn").style.display = "inline-block";
+    document.getElementById("notesViewerBtn").style.display = "inline-block";
+
+    if (!Array.isArray(quizData.questions) || quizData.questions.length === 0) {
+      document.getElementById("quizContainer").innerHTML = "<p>This quiz has no questions yet.</p>";
+      document.getElementById("checkAnswerBtn").style.display = "none";
+      document.getElementById("nextQuestionBtn").style.display = "none";
+      document.getElementById("notesViewerBtn").style.display = "none";
+      document.getElementById("progressText").textContent = "Question 0 of 0";
+      document.getElementById("scoreText").textContent = "Score: 0";
+    } else {
+      renderQuestion();
+    }
   } else {
     renderPrestartIntroScreen();
   }
@@ -898,6 +917,51 @@ function getRequestedFile() {
   const params = new URLSearchParams(window.location.search);
   const requested = params.get("file");
   return requested ? requested.trim() : "quiz-database.json";
+}
+
+function isValidationEmbedMode() {
+  const params = new URLSearchParams(window.location.search);
+  return String(params.get("mode") || "").trim().toLowerCase() === "validation";
+}
+
+function waitForValidationEmbedQuizPayload(timeoutMs = 8000) {
+  return new Promise((resolve, reject) => {
+    let done = false;
+
+    const finish = (value, error) => {
+      if (done) return;
+      done = true;
+      window.removeEventListener("message", onMessage);
+      if (timerId) {
+        window.clearTimeout(timerId);
+      }
+      if (error) {
+        reject(error);
+      } else {
+        resolve(value);
+      }
+    };
+
+    const onMessage = (event) => {
+      const data = event && event.data ? event.data : null;
+      if (!data || data.type !== "validation-preview-quiz") return;
+      finish(data.payload || null, null);
+    };
+
+    const timerId = window.setTimeout(() => {
+      finish(null, new Error("Validation preview payload was not received in time."));
+    }, timeoutMs);
+
+    window.addEventListener("message", onMessage);
+
+    try {
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ type: "validation-preview-ready" }, "*");
+      }
+    } catch (error) {
+      // Parent handshake is optional.
+    }
+  });
 }
 
 function flattenQuizIndexEntries(indexPayload) {
@@ -1506,21 +1570,38 @@ function updateHeader() {
 }
 
 function getExpectedAnswers(question) {
+  const availableOptions = Array.isArray(question && question.options)
+    ? question.options.map((item) => String(item).trim()).filter((item) => item !== "")
+    : [];
+  const availableLookup = new Set(availableOptions.map((item) => item.toLowerCase()));
+
+  const clampToAvailableOptions = (items) => {
+    const list = Array.isArray(items) ? items : [];
+    const cleaned = list.map((item) => String(item).trim()).filter((item) => item !== "");
+    if ((question && question.resultType) !== "checkbox") {
+      return cleaned;
+    }
+
+    const filtered = cleaned.filter((item) => availableLookup.has(item.toLowerCase()));
+    // Fallback to original values only when options are not provided at all.
+    return availableOptions.length > 0 ? filtered : cleaned;
+  };
+
   const raw = question.correctAnswer;
 
   if (Array.isArray(raw)) {
-    return raw.map((item) => String(item).trim()).filter((item) => item !== "");
+    return clampToAvailableOptions(raw);
   }
 
   if (Number.isInteger(raw) && question.options[raw]) {
-    return [String(question.options[raw]).trim()];
+    return clampToAvailableOptions([String(question.options[raw]).trim()]);
   }
 
   if (typeof raw === "string") {
     if (question.resultType === "checkbox") {
-      return raw.split(",").map((item) => item.trim()).filter((item) => item !== "");
+      return clampToAvailableOptions(raw.split(","));
     }
-    return [raw.trim()].filter((item) => item !== "");
+    return clampToAvailableOptions([raw.trim()]);
   }
 
   return [];
@@ -10283,6 +10364,20 @@ function goNext() {
 }
 
 async function loadQuiz() {
+  if (isValidationEmbedMode()) {
+    try {
+      const payload = await waitForValidationEmbedQuizPayload();
+      if (!payload || typeof payload !== "object") {
+        throw new Error("Validation preview payload is empty.");
+      }
+      const parsedQuiz = parseQuizPayload(payload);
+      applySingleQuiz(parsedQuiz);
+    } catch (error) {
+      setError(`Could not load quiz: ${error.message}`);
+    }
+    return;
+  }
+
   const requestedFile = getRequestedFile();
   try {
     const response = await fetch(requestedFile, { cache: "no-store" });

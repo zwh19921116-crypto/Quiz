@@ -1,5 +1,5 @@
 {
-  "id": "quiz-4",
+  "id": "quiz-1",
   "title": "Numbers.1.01 - What Are Numbers?",
   "description": "Imported from spreadsheet (Import.xlsx). Learning outcomes: Recognise numbers | Count objects | Match quantity | Number order | Apply learning",
   "settings": {
@@ -71,13 +71,13 @@
         "2",
         "Dog"
       ],
-      "correctAnswer": "1, 2, 3",
+      "correctAnswer": "1, 2",
       "category": "Recognition",
       "subcategory": "Select Numbers",
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 1, 2, 3.",
+      "solution": "Select every correct option. The correct selection is: 1, 2.",
       "solutionAttachments": []
     },
     {

@@ -147,6 +147,10 @@ const state = {
 let pendingImportRows = [];
 let pendingImportSourceName = "";
 let pendingImportValidation = null;
+let pendingResultValidation = null;
+let pendingResultValidationSelectedIndex = -1;
+let pendingResultValidationFilter = "all";
+let pendingResultValidationIssueFilter = "all";
 
 const ALLOWED_IMPORT_GRADE_CATEGORIES = [
   "Prep",
@@ -9259,6 +9263,28 @@ function closeImportModal() {
   document.body.classList.remove("modal-open");
 }
 
+function openResultValidationModal() {
+  const quiz = activeQuiz();
+  if (!quiz) {
+    showToast("Select a module (quiz) first.", "warning");
+    return;
+  }
+
+  const modal = document.getElementById("resultValidationModal");
+  if (!(modal instanceof HTMLElement)) return;
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeResultValidationModal() {
+  const modal = document.getElementById("resultValidationModal");
+  if (!(modal instanceof HTMLElement)) return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
 function saveQuizSettingsFromModal() {
   const modal = document.getElementById("quizSettingsModal");
   if (!(modal instanceof HTMLElement)) return;
@@ -10609,6 +10635,114 @@ document.getElementById("importTableBtn").addEventListener("click", () => {
   openImportModal();
 });
 
+document.getElementById("openResultValidationBtn").addEventListener("click", () => {
+  openResultValidationModal();
+  runResultValidation(false);
+});
+
+document.getElementById("runResultValidationBtn").addEventListener("click", () => {
+  runResultValidation(false);
+});
+
+document.getElementById("runAiResultValidationBtn").addEventListener("click", () => {
+  runResultValidation(true);
+});
+
+document.getElementById("exportResultValidationBtn").addEventListener("click", () => {
+  downloadResultValidationCsv();
+});
+
+document.getElementById("resultValidationBody").addEventListener("click", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLElement)) return;
+  const row = target.closest("tr[data-question-index]");
+  if (!(row instanceof HTMLElement)) return;
+  const questionIndex = Number.parseInt(row.dataset.questionIndex || "", 10);
+  if (!Number.isInteger(questionIndex) || questionIndex < 0) return;
+  focusResultValidationQuestion(questionIndex);
+  renderResultValidationDetail(questionIndex);
+  if (pendingResultValidation) {
+    renderResultValidation(pendingResultValidation);
+  }
+});
+
+document.getElementById("resultValidationStatusFilter").addEventListener("change", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLSelectElement)) return;
+  pendingResultValidationFilter = normalizeResultValidationFilter(target.value);
+  if (pendingResultValidation) {
+    renderResultValidation(pendingResultValidation);
+  }
+});
+
+document.getElementById("resultValidationSummary").addEventListener("click", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLElement)) return;
+  const card = target.closest("[data-summary-filter]");
+  if (!(card instanceof HTMLElement)) return;
+  const requested = normalizeResultValidationIssueFilter(card.dataset.summaryFilter || "all");
+  const current = normalizeResultValidationIssueFilter(pendingResultValidationIssueFilter);
+  pendingResultValidationIssueFilter = current === requested ? "all" : requested;
+
+  if (pendingResultValidation) {
+    renderResultValidation(pendingResultValidation);
+  }
+});
+
+document.getElementById("applyResultValidationFixBtn").addEventListener("click", async () => {
+  const button = document.getElementById("applyResultValidationFixBtn");
+  if (!(button instanceof HTMLButtonElement)) return;
+  const questionIndex = Number.parseInt(button.dataset.questionIndex || "", 10);
+  if (!Number.isInteger(questionIndex) || questionIndex < 0) {
+    showToast("Select a row first.", "warning");
+    return;
+  }
+
+  const changed = await applyResultValidationFixForQuestion(questionIndex, { confirmApply: true });
+  if (!changed) return;
+
+  renderAll();
+  await persistSelectedQuizAfterMutation("Validation update");
+  runResultValidation(Boolean(pendingResultValidation && pendingResultValidation.aiMode));
+  renderResultValidationDetail(questionIndex);
+  showToast("Proposed update applied.", "success");
+});
+
+document.getElementById("applyBulkResultValidationFixBtn").addEventListener("click", async () => {
+  await applyBulkResultValidationFixes();
+});
+
+document.getElementById("closeResultValidationModalBtn").addEventListener("click", () => {
+  closeResultValidationModal();
+});
+
+window.addEventListener("message", (event) => {
+  const data = event && event.data ? event.data : null;
+  if (!data || data.type !== "validation-preview-ready") return;
+  const sourceWindow = event.source;
+  if (!sourceWindow || !pendingResultValidation || !Array.isArray(pendingResultValidation.rows)) return;
+  const questionIndex = pendingResultValidationSelectedIndex;
+  if (!Number.isInteger(questionIndex) || questionIndex < 0) return;
+
+  const quiz = activeQuiz();
+  const question = quiz && Array.isArray(quiz.questions) ? quiz.questions[questionIndex] : null;
+  if (!question || !question.interactiveApp || typeof question.interactiveApp !== "object") return;
+
+  const payload = buildResultValidationViewerPayload(question, questionIndex);
+  if (!payload || typeof payload !== "object") return;
+  sourceWindow.postMessage({
+    type: "validation-preview-quiz",
+    payload
+  }, "*");
+});
+
+const resultValidationBackdrop = document.querySelector("[data-close-result-validation-modal='true']");
+if (resultValidationBackdrop instanceof HTMLElement) {
+  resultValidationBackdrop.addEventListener("click", () => {
+    closeResultValidationModal();
+  });
+}
+
 document.getElementById("selectImportFileBtn").addEventListener("click", () => {
   const input = document.getElementById("importTableInput");
   if (!(input instanceof HTMLInputElement)) return;
@@ -11423,6 +11557,1063 @@ function focusImportPreviewRow(rowIndex) {
   }, 2400);
 }
 
+function splitAnswerTokens(value) {
+  return String(value || "")
+    .split(",")
+    .map((item) => item.trim())
+    .filter((item) => item !== "");
+}
+
+function normalizeResultValidationFilter(value) {
+  const filter = String(value || "all").trim().toLowerCase();
+  if (filter === "red" || filter === "green") return filter;
+  return "all";
+}
+
+function normalizeResultValidationIssueFilter(value) {
+  const filter = String(value || "all").trim().toLowerCase();
+  if (["missing-solutions", "answer-mismatches", "option-type-issues", "interactive-issues"].includes(filter)) {
+    return filter;
+  }
+  return "all";
+}
+
+function classifyResultValidationIssueType(message) {
+  const text = String(message || "").toLowerCase();
+  if (text.includes("solution text is empty") || text.includes("solution mismatch")) {
+    return "missing-solutions";
+  }
+  if (text.includes("computed answer mismatch") || text.includes("stored answer differs") || text.includes("correct answer")) {
+    return "answer-mismatches";
+  }
+  if (text.includes("option") || text.includes("result type") || text.includes("checkbox") || text.includes("contradict") || text.includes("wording")) {
+    return "option-type-issues";
+  }
+  if (text.includes("interactive") || text.includes("cartesian") || text.includes("plot payload") || text.includes("verification failed")) {
+    return "interactive-issues";
+  }
+  return "other";
+}
+
+function normalizeNounStem(value) {
+  const text = String(value || "").trim().toLowerCase();
+  if (!text) return "";
+  if (text.endsWith("ies") && text.length > 3) return `${text.slice(0, -3)}y`;
+  if (text.endsWith("es") && text.length > 2) return text.slice(0, -2);
+  if (text.endsWith("s") && text.length > 1) return text.slice(0, -1);
+  return text;
+}
+
+function getQuestionSenseIssues(question) {
+  const issues = [];
+  const questionText = normalizeWhitespace(String(question && question.question || "")).toLowerCase();
+  if (!questionText) return issues;
+
+  const countPromptMatch = questionText.match(/how\s+many\s+([a-z][a-z\s-]{0,30}?)(?:\?|\.|,|$)/i);
+  const noStatementMatches = Array.from(questionText.matchAll(/\bno\s+([a-z][a-z\s-]{0,30}?)(?:\.|,|;|\?|$)/gi));
+
+  if (countPromptMatch && noStatementMatches.length > 0) {
+    const askedObject = normalizeNounStem(countPromptMatch[1]);
+    const contradicts = noStatementMatches.some((match) => {
+      const statedObject = normalizeNounStem(match[1]);
+      return statedObject && askedObject && (statedObject === askedObject || askedObject.includes(statedObject) || statedObject.includes(askedObject));
+    });
+
+    if (contradicts) {
+      const answerValue = String(question && question.correctAnswer || "").trim();
+      const answerNumber = Number.parseFloat(answerValue);
+      if (Number.isFinite(answerNumber) && answerNumber !== 0) {
+        issues.push("Question may not make sense: it says there are no items, but answer is not 0.");
+      } else {
+        issues.push("Question wording may be contradictory: it says no items, then asks to count the same items.");
+      }
+    }
+  }
+
+  return issues;
+}
+
+function normalizeGradeCategoryFromName(value) {
+  const raw = String(value || "").trim().toLowerCase();
+  if (!raw) return "";
+  if (raw === "prep") return "prep";
+  const gradeMatch = raw.match(/grade\s*([1-6])/i);
+  if (gradeMatch) {
+    return `grade-${gradeMatch[1]}`;
+  }
+  return "";
+}
+
+function getGradeLanguageIssues(question, categoryName) {
+  const issues = [];
+  const gradeKey = normalizeGradeCategoryFromName(categoryName);
+  const text = normalizeWhitespace(String(question && question.question || "")).toLowerCase();
+  if (!text || !gradeKey) return issues;
+
+  const restrictedWordsByGrade = {
+    prep: ["estimate", "determine", "evaluate", "approximate", "justify", "infer", "analyze"],
+    "grade-1": ["determine", "evaluate", "approximate", "justify", "analyze"],
+    "grade-2": ["evaluate", "approximate", "justify", "analyze"]
+  };
+
+  const restrictedWords = restrictedWordsByGrade[gradeKey] || [];
+  if (restrictedWords.length === 0) return issues;
+
+  const hits = restrictedWords.filter((word) => new RegExp(`\\b${word}\\b`, "i").test(text));
+  if (hits.length > 0) {
+    issues.push(`Grade language may be too advanced for ${String(categoryName || gradeKey)}: ${hits.join(", ")}.`);
+  }
+
+  return issues;
+}
+
+function rowMatchesResultValidationIssueFilter(row, issueFilter) {
+  const normalizedFilter = normalizeResultValidationIssueFilter(issueFilter);
+  if (normalizedFilter === "all") return true;
+  const issues = Array.isArray(row && row.issues) ? row.issues : [];
+  return issues.some((message) => classifyResultValidationIssueType(message) === normalizedFilter);
+}
+
+function getFilteredResultValidationRows(validation) {
+  if (!validation || !Array.isArray(validation.rows)) return [];
+  const statusFilter = normalizeResultValidationFilter(pendingResultValidationFilter);
+  const issueFilter = normalizeResultValidationIssueFilter(pendingResultValidationIssueFilter);
+
+  const statusFiltered = validation.rows.filter((row) => {
+    if (statusFilter === "red") {
+      return !row.isValid;
+    }
+    if (statusFilter === "green") {
+      return row.isValid;
+    }
+    return true;
+  });
+
+  if (issueFilter === "all") {
+    return statusFiltered;
+  }
+
+  return statusFiltered.filter((row) => rowMatchesResultValidationIssueFilter(row, issueFilter));
+}
+
+function buildResultValidationIssueSummary(validation) {
+  const summary = {
+    missingSolutions: 0,
+    answerMismatches: 0,
+    optionTypeIssues: 0,
+    interactiveIssues: 0
+  };
+
+  const rows = validation && Array.isArray(validation.rows) ? validation.rows : [];
+  rows.forEach((row) => {
+    const issues = Array.isArray(row && row.issues) ? row.issues : [];
+    issues.forEach((message) => {
+      const issueType = classifyResultValidationIssueType(message);
+      if (issueType === "missing-solutions") {
+        summary.missingSolutions += 1;
+      }
+      if (issueType === "answer-mismatches") {
+        summary.answerMismatches += 1;
+      }
+      if (issueType === "option-type-issues") {
+        summary.optionTypeIssues += 1;
+      }
+      if (issueType === "interactive-issues") {
+        summary.interactiveIssues += 1;
+      }
+    });
+  });
+
+  return summary;
+}
+
+function renderResultValidationSummary(validation) {
+  const missing = document.getElementById("summaryMissingSolutions");
+  const mismatches = document.getElementById("summaryAnswerMismatches");
+  const optionType = document.getElementById("summaryOptionTypeIssues");
+  const interactive = document.getElementById("summaryInteractiveIssues");
+  if (!(missing instanceof HTMLElement)
+    || !(mismatches instanceof HTMLElement)
+    || !(optionType instanceof HTMLElement)
+    || !(interactive instanceof HTMLElement)) return;
+
+  const summary = buildResultValidationIssueSummary(validation);
+  missing.textContent = String(summary.missingSolutions);
+  mismatches.textContent = String(summary.answerMismatches);
+  optionType.textContent = String(summary.optionTypeIssues);
+  interactive.textContent = String(summary.interactiveIssues);
+
+  const cardMap = [
+    { id: "summaryCardMissingSolutions", filter: "missing-solutions" },
+    { id: "summaryCardAnswerMismatches", filter: "answer-mismatches" },
+    { id: "summaryCardOptionTypeIssues", filter: "option-type-issues" },
+    { id: "summaryCardInteractiveIssues", filter: "interactive-issues" }
+  ];
+
+  const activeFilter = normalizeResultValidationIssueFilter(pendingResultValidationIssueFilter);
+  cardMap.forEach((item) => {
+    const card = document.getElementById(item.id);
+    if (!(card instanceof HTMLElement)) return;
+    const isActive = activeFilter === item.filter;
+    card.style.boxShadow = isActive ? "inset 0 0 0 2px #1f6feb" : "";
+    card.style.background = isActive ? "#eaf3ff" : "#fff";
+  });
+}
+
+function compareAnswersForResultType(resultType, actualValue, expectedValue) {
+  const normalizedType = normalizeResultType(resultType || "short-answer");
+  const actual = String(actualValue || "").trim();
+  const expected = String(expectedValue || "").trim();
+
+  if (!expected) {
+    return false;
+  }
+
+  if (normalizedType === "checkbox") {
+    const actualSet = new Set(splitAnswerTokens(actual).map((item) => normalizeText(item)));
+    const expectedSet = new Set(splitAnswerTokens(expected).map((item) => normalizeText(item)));
+    if (actualSet.size !== expectedSet.size) return false;
+    for (const token of expectedSet) {
+      if (!actualSet.has(token)) return false;
+    }
+    return true;
+  }
+
+  return normalizeText(actual) === normalizeText(expected);
+}
+
+function computeExpectedAnswerForQuestion(question) {
+  if (!question || typeof question !== "object") {
+    return { value: "", source: "none" };
+  }
+
+  const app = question.interactiveApp;
+  if (app && typeof app === "object" && app.type) {
+    const computed = buildDeterministicPayloadFromInteractiveApp(
+      String(app.type || "").trim(),
+      app,
+      question.resultType || "short-answer",
+      { answerPolicy: "auto", decimalPlaces: 2 }
+    );
+    if (computed && String(computed.correctAnswer || "").trim()) {
+      return {
+        value: String(computed.correctAnswer || "").trim(),
+        source: "interactive-app"
+      };
+    }
+  }
+
+  if (normalizeResultType(question.resultType) === "short-answer") {
+    const arithmeticExpected = extractArithmeticExpectedAnswer(question.question || "");
+    if (Number.isFinite(arithmeticExpected)) {
+      return {
+        value: String(roundTo(arithmeticExpected, 2)),
+        source: "question-compute"
+      };
+    }
+  }
+
+  return { value: "", source: "none" };
+}
+
+function extractDeclaredAnswerFromSolution(solutionText) {
+  const raw = String(solutionText || "").trim();
+  if (!raw) return "";
+
+  const patterns = [
+    /correct\s+selection\s+is\s*:?\s*([^.!\n\r]+)/i,
+    /correct\s+answer\s+is\s*:?\s*([^.!\n\r]+)/i,
+    /answer\s+is\s*:?\s*([^.!\n\r]+)/i
+  ];
+
+  for (const pattern of patterns) {
+    const match = raw.match(pattern);
+    if (match && match[1]) {
+      return String(match[1]).trim();
+    }
+  }
+
+  return "";
+}
+
+function buildResultValidationViewerPayload(question, questionIndex) {
+  if (!question || typeof question !== "object") return "";
+  const quiz = activeQuiz();
+  const safeQuestion = JSON.parse(JSON.stringify(question));
+  return {
+    title: `Validation Preview (Q${questionIndex + 1})`,
+    description: "Learner runtime preview from Result Validation.",
+    settings: quiz && quiz.settings && typeof quiz.settings === "object"
+      ? JSON.parse(JSON.stringify(quiz.settings))
+      : {},
+    questions: [safeQuestion]
+  };
+}
+
+function renderResultValidationDetail(questionIndex) {
+  const meta = document.getElementById("resultValidationPreviewMeta");
+  const card = document.getElementById("resultValidationPreviewCard");
+  const fixMeta = document.getElementById("resultValidationFixMeta");
+  const fixList = document.getElementById("resultValidationFixList");
+  const applyBtn = document.getElementById("applyResultValidationFixBtn");
+  if (!(meta instanceof HTMLElement)
+    || !(card instanceof HTMLElement)
+    || !(fixMeta instanceof HTMLElement)
+    || !(fixList instanceof HTMLElement)
+    || !(applyBtn instanceof HTMLButtonElement)) return;
+
+  if (!pendingResultValidation || !Array.isArray(pendingResultValidation.rows)) {
+    meta.textContent = "Select a row to preview the question.";
+    card.innerHTML = "";
+    fixMeta.textContent = "No fix proposal yet.";
+    fixList.innerHTML = "";
+    applyBtn.disabled = true;
+    applyBtn.dataset.questionIndex = "";
+    applyBtn.textContent = "Yes, Apply Proposed Update";
+    return;
+  }
+
+  const row = pendingResultValidation.rows.find((item) => item.index === questionIndex) || null;
+  const quiz = activeQuiz();
+  const question = quiz && Array.isArray(quiz.questions) ? (quiz.questions[questionIndex] || null) : null;
+  if (!row || !question) {
+    meta.textContent = "Select a row to preview the question.";
+    card.innerHTML = "";
+    fixMeta.textContent = "No fix proposal yet.";
+    fixList.innerHTML = "";
+    applyBtn.disabled = true;
+    applyBtn.dataset.questionIndex = "";
+    applyBtn.textContent = "Yes, Apply Proposed Update";
+    pendingResultValidationSelectedIndex = -1;
+    return;
+  }
+
+  pendingResultValidationSelectedIndex = questionIndex;
+  const statusText = row.isValid ? "GREEN (valid)" : "RED (issue found)";
+  const options = Array.isArray(question.options)
+    ? question.options.map((item) => String(item || "").trim()).filter((item) => item !== "")
+    : [];
+  const app = question && question.interactiveApp && typeof question.interactiveApp === "object"
+    ? question.interactiveApp
+    : null;
+  const appType = app && app.type ? String(app.type) : "None";
+  const interactiveMarkup = app ? buildInteractiveAppMarkup(app) : "";
+  const viewerRuntimePayload = app ? buildResultValidationViewerPayload(question, questionIndex) : null;
+  const solutionAttachments = normalizeSolutionAttachments(question && question.solutionAttachments);
+  const questionImage = String(question && question.image || "").trim();
+  const resultFeedback = row.isValid
+    ? "Answer, solution, and structure are consistent."
+    : row.issues.join(" | ");
+
+  const optionListMarkup = options.length > 0
+    ? `<div style="display:grid; gap:6px; margin-top:6px;">${options.map((optionText, index) => {
+      const isMatch = compareAnswersForResultType(row.resultType, optionText, row.correctAnswer);
+      return `<div style="display:flex; align-items:center; gap:8px; padding:6px 8px; border:1px solid #e5eaf3; border-radius:8px; background:${isMatch ? "#f0fdf4" : "#fff"};"><span style="font-size:0.85rem; color:#64748b;">${index + 1}.</span><span>${escapeInteractiveHtml(optionText)}</span></div>`;
+    }).join("")}</div>`
+    : "<p class='helper-text' style='margin:6px 0 0 0;'>No fixed options (free input question).</p>";
+
+  const solutionAttachmentMarkup = solutionAttachments.length > 0
+    ? `<div style="display:grid; gap:6px; margin-top:6px;">${solutionAttachments.map((item) => {
+      const url = String(item.url || "").trim();
+      const name = String(item.name || "Attachment").trim() || "Attachment";
+      const isImage = /\.(png|jpe?g|gif|webp|svg)$/i.test(url) || /^data:image\//i.test(url);
+      if (isImage) {
+        return `<figure style="margin:0; border:1px solid #e5eaf3; border-radius:8px; padding:8px; background:#fff;"><figcaption style="font-size:0.85rem; color:#334155; margin-bottom:6px;">${escapeInteractiveHtml(name)}</figcaption><img src="${escapeInteractiveHtml(url)}" alt="${escapeInteractiveHtml(name)}" style="max-width:100%; border-radius:6px;" /></figure>`;
+      }
+      return `<a href="${escapeInteractiveHtml(url)}" target="_blank" rel="noopener noreferrer" style="display:block; padding:8px; border:1px solid #e5eaf3; border-radius:8px; text-decoration:none; color:#0f172a; background:#fff;">${escapeInteractiveHtml(name)}</a>`;
+    }).join("")}</div>`
+    : "<p class='helper-text' style='margin:6px 0 0 0;'>No solution attachments.</p>";
+
+  card.innerHTML = `
+    <div style="margin-bottom:8px;"><strong>Status:</strong> ${escapeInteractiveHtml(statusText)}</div>
+    <div style="border:1px solid #e5eaf3; border-radius:10px; padding:10px; margin-bottom:10px; background:#fff;">
+      <p style="margin:0 0 6px 0; font-weight:700; color:#1e293b;">Learner Question View</p>
+      <div style="margin-bottom:8px;"><strong>Question:</strong><br>${escapeInteractiveHtml(String(question.question || "")).replace(/\n/g, "<br>")}</div>
+      ${questionImage ? `<div style="margin-bottom:8px;"><img src="${escapeInteractiveHtml(questionImage)}" alt="Question visual" style="max-width:100%; border-radius:8px; border:1px solid #e5eaf3;" /></div>` : ""}
+      ${optionListMarkup}
+      ${interactiveMarkup ? `<div style="margin-top:8px;"><strong>${escapeInteractiveHtml(appType === "None" ? "Interactive" : `Interactive: ${appType}`)}</strong><div style="margin-top:6px; border:1px solid #e5eaf3; border-radius:8px; padding:8px; background:#fff;">${interactiveMarkup}</div></div>` : ""}
+      ${viewerRuntimePayload ? `
+        <div style="margin-top:10px; border:1px solid #d9e3f0; border-radius:10px; padding:8px; background:#f8fbff;">
+          <p style="margin:0 0 8px 0; font-weight:700; color:#1e293b;">Learner Runtime (Live Interactive)</p>
+          <p class="helper-text" style="margin:0 0 8px 0;">This runs the same viewer runtime as learners. Use Check Answer inside the frame.</p>
+          <iframe
+            src="viewer.html?mode=validation"
+            data-role="result-validation-viewer"
+            title="Learner runtime preview"
+            style="width:100%; min-height:560px; border:1px solid #dbe5f1; border-radius:8px; background:#fff;"
+          ></iframe>
+        </div>
+      ` : ""}
+    </div>
+    <div style="border:1px solid #e5eaf3; border-radius:10px; padding:10px; margin-bottom:10px; background:${row.isValid ? "#ecfdf3" : "#fff1f1"};">
+      <p style="margin:0 0 6px 0; font-weight:700; color:#1e293b;">Learner Result View</p>
+      <div style="margin-bottom:6px;"><strong>Your Answer:</strong> ${escapeInteractiveHtml(String(row.correctAnswer || "(empty)"))}</div>
+      <div style="margin-bottom:6px;"><strong>Expected/Computed:</strong> ${escapeInteractiveHtml(String(row.computedAnswer || "-"))}</div>
+      <div><strong>Feedback:</strong> ${escapeInteractiveHtml(resultFeedback)}</div>
+    </div>
+    <div style="border:1px solid #e5eaf3; border-radius:10px; padding:10px; background:#fff;">
+      <p style="margin:0 0 6px 0; font-weight:700; color:#1e293b;">Learner Solution View</p>
+      <div style="margin-bottom:8px;"><strong>Solution:</strong><br>${escapeInteractiveHtml(String(row.solution || "")).replace(/\n/g, "<br>")}</div>
+      <div><strong>Solution Attachments:</strong>${solutionAttachmentMarkup}</div>
+    </div>
+  `;
+
+  if (viewerRuntimePayload) {
+    const frame = card.querySelector("iframe[data-role='result-validation-viewer']");
+    if (frame instanceof HTMLIFrameElement) {
+      const postPayload = () => {
+        if (!frame.contentWindow) return;
+        frame.contentWindow.postMessage({
+          type: "validation-preview-quiz",
+          payload: viewerRuntimePayload
+        }, "*");
+      };
+      frame.addEventListener("load", postPayload, { once: true });
+      window.setTimeout(postPayload, 200);
+    }
+  }
+
+  const plan = buildResultValidationFixPlan(question, row);
+  const renderFixCards = (items, { editable = false } = {}) => (Array.isArray(items) ? items : []).map((change) => {
+    const label = escapeInteractiveHtml(change.label || change.field || "Update");
+    const before = escapeInteractiveHtml(change.before || "(empty)");
+    const after = escapeInteractiveHtml(change.after || "(empty)");
+    const field = escapeInteractiveHtml(change.field || "");
+    if (!editable) {
+      return `
+        <div style="border:1px solid #e5eaf3; border-radius:8px; padding:8px; margin-bottom:8px; background:#f8fafc;">
+          <div style="font-weight:600; margin-bottom:4px;">${label}</div>
+          <div style="font-size:0.9rem; margin-bottom:4px;"><strong>Current:</strong> ${before}</div>
+          <div style="font-size:0.9rem;"><strong>Proposed:</strong> ${after}</div>
+        </div>
+      `;
+    }
+    return `
+      <div style="border:1px solid #e5eaf3; border-radius:8px; padding:8px; margin-bottom:8px; background:#fffaf2;">
+        <div style="font-weight:600; margin-bottom:4px;">${label}</div>
+        <div style="font-size:0.9rem; margin-bottom:6px;"><strong>Current:</strong> ${before}</div>
+        <label style="display:block; font-size:0.85rem; color:#6b7280; margin-bottom:4px;">Edit proposed value</label>
+        <textarea
+          data-manual-proposal-field="${field}"
+          style="width:100%; min-height:64px; border:1px solid #cbd5e1; border-radius:8px; padding:8px; font:inherit; box-sizing:border-box;"
+        >${after}</textarea>
+      </div>
+    `;
+  }).join("");
+
+  if (!plan.canApply) {
+    const hasManualProposals = Array.isArray(plan.proposals) && plan.proposals.length > 0;
+    fixMeta.textContent = row.isValid
+      ? "No update needed for this row."
+      : hasManualProposals
+        ? "Automatic update is not safe here. You can edit the manual proposals below, then click Yes to apply."
+        : "No safe automatic update available. Fix manually in editor.";
+    const noteList = plan.notes.length > 0
+      ? `<ul style="margin:8px 0 0 0; padding-left:18px;">${plan.notes.map((item) => `<li>${escapeInteractiveHtml(item)}</li>`).join("")}</ul>`
+      : "";
+    fixList.innerHTML = `${renderFixCards(plan.proposals, { editable: true })}${noteList}`;
+    applyBtn.disabled = !hasManualProposals;
+    applyBtn.dataset.questionIndex = String(questionIndex);
+    const manualCount = Array.isArray(plan.proposals) ? plan.proposals.length : 0;
+    applyBtn.textContent = manualCount > 0
+      ? `Yes, Apply Proposed Update (${manualCount})`
+      : "Yes, Apply Proposed Update";
+    return;
+  }
+
+  fixMeta.textContent = "Proposed update is ready. Click Yes to apply.";
+  const changeCards = renderFixCards(plan.changes);
+  const manualCards = renderFixCards(plan.proposals);
+  const noteList = plan.notes.length > 0
+    ? `<ul style="margin:8px 0 0 0; padding-left:18px;">${plan.notes.map((item) => `<li>${escapeInteractiveHtml(item)}</li>`).join("")}</ul>`
+    : "";
+  fixList.innerHTML = `${changeCards}${manualCards}${noteList}`;
+  applyBtn.disabled = false;
+  applyBtn.dataset.questionIndex = String(questionIndex);
+  const changeCount = Array.isArray(plan.changes) ? plan.changes.length : 0;
+  applyBtn.textContent = changeCount > 0
+    ? `Yes, Apply Proposed Update (${changeCount})`
+    : "Yes, Apply Proposed Update";
+}
+
+function getResultValidationManualProposalEdits(questionIndex) {
+  const button = document.getElementById("applyResultValidationFixBtn");
+  if (!(button instanceof HTMLButtonElement)) return [];
+  const selectedIndex = Number.parseInt(button.dataset.questionIndex || "", 10);
+  if (!Number.isInteger(selectedIndex) || selectedIndex !== questionIndex) return [];
+
+  const fixList = document.getElementById("resultValidationFixList");
+  if (!(fixList instanceof HTMLElement)) return [];
+
+  const editors = Array.from(fixList.querySelectorAll("textarea[data-manual-proposal-field]"));
+  return editors
+    .map((editor) => {
+      if (!(editor instanceof HTMLTextAreaElement)) return null;
+      const field = String(editor.dataset.manualProposalField || "").trim();
+      const value = String(editor.value || "").trim();
+      if (!field) return null;
+      return { field, value };
+    })
+    .filter((item) => item !== null);
+}
+
+function buildResultValidationFixPlan(question, row) {
+  const notes = [];
+  const updates = {};
+  const changes = [];
+  const proposals = [];
+  const resultType = normalizeResultType(question && question.resultType);
+  const choiceOptions = getChoiceOptions(question);
+  let nextAnswer = String(question && question.correctAnswer || "").trim();
+
+  const trackChange = (field, label, beforeValue, afterValue) => {
+    const beforeText = String(beforeValue == null ? "" : beforeValue).trim();
+    const afterText = String(afterValue == null ? "" : afterValue).trim();
+    if (normalizeWhitespace(beforeText) === normalizeWhitespace(afterText)) {
+      return;
+    }
+    changes.push({
+      field,
+      label,
+      before: beforeText,
+      after: afterText
+    });
+  };
+
+  const trackProposal = (field, label, beforeValue, afterValue, noteText) => {
+    const beforeText = String(beforeValue == null ? "" : beforeValue).trim();
+    const afterText = String(afterValue == null ? "" : afterValue).trim();
+    if (!afterText || normalizeWhitespace(beforeText) === normalizeWhitespace(afterText)) {
+      return;
+    }
+    const duplicate = proposals.some((item) => item.field === field
+      && normalizeWhitespace(String(item.after || "")) === normalizeWhitespace(afterText));
+    if (duplicate) return;
+    proposals.push({
+      field,
+      label,
+      before: beforeText,
+      after: afterText
+    });
+    if (noteText) {
+      notes.push(noteText);
+    }
+  };
+
+  const simplifyQuestionForLowerGrades = (text) => {
+    const source = String(text || "").trim();
+    if (!source) return "";
+    const replacements = [
+      [/\bestimate\b/gi, "find"],
+      [/\bdetermine\b/gi, "find"],
+      [/\bevaluate\b/gi, "work out"],
+      [/\bapproximate\b/gi, "about"],
+      [/\bjustify\b/gi, "explain"],
+      [/\binfer\b/gi, "figure out"],
+      [/\banalyze\b/gi, "look at"]
+    ];
+    let next = source;
+    replacements.forEach(([pattern, replacement]) => {
+      next = next.replace(pattern, replacement);
+    });
+    return normalizeWhitespace(next);
+  };
+
+  const suggestContradictionRewrite = (text, answerValue) => {
+    const source = normalizeWhitespace(String(text || ""));
+    if (!source) return "";
+    const match = source.match(/how\s+many\s+([a-z][a-z\s-]{0,30}?)(?:\?|\.|,|$)/i);
+    const objectName = match ? normalizeWhitespace(match[1]) : "items";
+    const answerText = String(answerValue || "").trim();
+    if (answerText && normalizeText(answerText) !== "0") {
+      return `There are ${answerText} ${objectName}. How many ${objectName} are there?`;
+    }
+    return `There are no ${objectName}. How many ${objectName} are there?`;
+  };
+
+  if (row && row.computedAnswer && !compareAnswersForResultType(resultType, nextAnswer, row.computedAnswer)) {
+    updates.correctAnswer = String(row.computedAnswer || "").trim();
+    trackChange("correctAnswer", "Correct Answer", question && question.correctAnswer, updates.correctAnswer);
+    nextAnswer = updates.correctAnswer;
+    notes.push(`Update correct answer to computed value: ${nextAnswer}`);
+  }
+
+  if (["multiple-choice", "true-false"].includes(resultType) && choiceOptions.length > 0) {
+    const canonical = choiceOptions.find((item) => normalizeText(item) === normalizeText(nextAnswer));
+    if (!canonical) {
+      updates.correctAnswer = choiceOptions[0];
+      trackChange("correctAnswer", "Correct Answer", question && question.correctAnswer, updates.correctAnswer);
+      nextAnswer = updates.correctAnswer;
+      notes.push(`Normalize answer to a valid option: ${updates.correctAnswer}`);
+    } else if (canonical !== nextAnswer) {
+      updates.correctAnswer = canonical;
+      trackChange("correctAnswer", "Correct Answer", question && question.correctAnswer, updates.correctAnswer);
+      nextAnswer = updates.correctAnswer;
+      notes.push(`Align answer text with option value: ${updates.correctAnswer}`);
+    }
+  }
+
+  if (resultType === "checkbox" && choiceOptions.length > 0) {
+    const baseTokens = splitAnswerTokens(nextAnswer);
+    const normalizedMap = new Map(choiceOptions.map((item) => [normalizeText(item), item]));
+    const validTokens = [];
+    baseTokens.forEach((token) => {
+      const canonical = normalizedMap.get(normalizeText(token));
+      if (canonical && !validTokens.some((item) => normalizeText(item) === normalizeText(canonical))) {
+        validTokens.push(canonical);
+      }
+    });
+
+    if (validTokens.length === 0 && row && row.computedAnswer) {
+      splitAnswerTokens(row.computedAnswer).forEach((token) => {
+        const canonical = normalizedMap.get(normalizeText(token));
+        if (canonical && !validTokens.some((item) => normalizeText(item) === normalizeText(canonical))) {
+          validTokens.push(canonical);
+        }
+      });
+    }
+
+    if (validTokens.length === 0 && choiceOptions[0]) {
+      validTokens.push(choiceOptions[0]);
+    }
+
+    const normalizedCheckboxAnswer = validTokens.join(", ");
+    if (normalizedCheckboxAnswer && normalizeWhitespace(normalizedCheckboxAnswer) !== normalizeWhitespace(nextAnswer)) {
+      updates.correctAnswer = normalizedCheckboxAnswer;
+      trackChange("correctAnswer", "Correct Answer", question && question.correctAnswer, updates.correctAnswer);
+      nextAnswer = updates.correctAnswer;
+      notes.push(`Normalize checkbox answer list: ${updates.correctAnswer}`);
+    }
+  }
+
+  const currentSolution = String(question && question.solution || "").trim();
+  const declaredAnswer = extractDeclaredAnswerFromSolution(currentSolution);
+  const shouldRegenerateSolution = !currentSolution
+    || (declaredAnswer && !compareAnswersForResultType(resultType, nextAnswer, declaredAnswer));
+
+  if (shouldRegenerateSolution) {
+    updates.solution = inferSolutionFromImport(question && question.question, nextAnswer);
+    trackChange("solution", "Solution Text", question && question.solution, updates.solution);
+    notes.push(currentSolution
+      ? "Regenerate solution so it matches the updated/stored answer."
+      : "Generate a default solution from question and answer.");
+  }
+
+  const issueList = Array.isArray(row && row.issues) ? row.issues : [];
+  if (issueList.some((item) => /grade language may be too advanced/i.test(String(item || "")))) {
+    const simplifiedQuestion = simplifyQuestionForLowerGrades(question && question.question);
+    trackProposal(
+      "question",
+      "Question Text (manual)",
+      question && question.question,
+      simplifiedQuestion,
+      "Proposed a simpler wording for lower-grade vocabulary."
+    );
+  }
+
+  if (issueList.some((item) => /question wording may be contradictory|question may not make sense/i.test(String(item || "")))) {
+    const rewrittenQuestion = suggestContradictionRewrite(question && question.question, row && row.computedAnswer ? row.computedAnswer : nextAnswer);
+    trackProposal(
+      "question",
+      "Question Text (manual)",
+      question && question.question,
+      rewrittenQuestion,
+      "Proposed question rewrite to remove wording contradiction."
+    );
+
+    if (String(nextAnswer || "").trim() && normalizeText(nextAnswer) !== "0") {
+      trackProposal(
+        "correctAnswer",
+        "Correct Answer (manual)",
+        question && question.correctAnswer,
+        "0",
+        "If you keep 'no items' in the question, set result to 0."
+      );
+    }
+  }
+
+  if (changes.length === 0 && row && !row.isValid) {
+    if (row && row.computedAnswer) {
+      trackProposal(
+        "correctAnswer",
+        "Correct Answer (manual)",
+        question && question.correctAnswer,
+        row.computedAnswer,
+        "Proposed aligning result with computed answer."
+      );
+    }
+
+    const fallbackSolution = inferSolutionFromImport(question && question.question, row && row.computedAnswer ? row.computedAnswer : nextAnswer);
+    trackProposal(
+      "solution",
+      "Solution Text (manual)",
+      question && question.solution,
+      fallbackSolution,
+      "Proposed a clearer solution text aligned with the expected result."
+    );
+  }
+
+  if (notes.length === 0 && row && !row.isValid) {
+    notes.push("Issue detected. No safe automatic update, but manual proposals are provided below.");
+  }
+
+  return {
+    canApply: changes.length > 0,
+    updates,
+    notes,
+    changes,
+    proposals
+  };
+}
+
+function getAiHeuristicIssues(question, computedAnswer) {
+  const issues = [];
+  const resultType = normalizeResultType(question && question.resultType);
+  const questionText = String(question && question.question || "").trim().toLowerCase();
+  const answerText = String(question && question.correctAnswer || "").trim();
+  const solutionText = String(question && question.solution || "").trim().toLowerCase();
+
+  if (questionText.includes("select all") && resultType !== "checkbox") {
+    issues.push("AI heuristic: question wording suggests checkbox result type.");
+  }
+
+  if (resultType === "checkbox") {
+    const answerCount = splitAnswerTokens(answerText).length;
+    if (answerCount === 1 && questionText.includes("all")) {
+      issues.push("AI heuristic: checkbox question appears to expect multiple answers.");
+    }
+  }
+
+  if (solutionText && answerText && answerText.length <= 24 && !solutionText.includes(answerText.toLowerCase())) {
+    issues.push("AI heuristic: solution may not explicitly mention the final answer.");
+  }
+
+  if (computedAnswer && !compareAnswersForResultType(resultType, answerText, computedAnswer)) {
+    issues.push("AI heuristic: stored answer differs from computed answer.");
+  }
+
+  return issues;
+}
+
+function buildResultValidationForActiveQuiz(aiMode = false) {
+  const category = activeCategory();
+  const quiz = activeQuiz();
+  if (!quiz) return null;
+  const categoryName = category ? String(category.name || "") : "";
+
+  const rows = (Array.isArray(quiz.questions) ? quiz.questions : []).map((question, index) => {
+    const questionIssues = getQuestionValidationIssues(question || {});
+    questionIssues.push(...getQuestionSenseIssues(question || {}));
+    questionIssues.push(...getGradeLanguageIssues(question || {}, categoryName));
+    const solutionText = String(question && question.solution || "").trim();
+    const actualAnswer = String(question && question.correctAnswer || "").trim();
+    if (!solutionText) {
+      questionIssues.push("Solution text is empty.");
+    }
+
+    const declaredAnswer = extractDeclaredAnswerFromSolution(solutionText);
+    if (declaredAnswer && !compareAnswersForResultType(question && question.resultType, actualAnswer, declaredAnswer)) {
+      questionIssues.push(`Solution mismatch: solution says \"${declaredAnswer}\" but stored answer is \"${actualAnswer || "(empty)"}\".`);
+    }
+
+    const computed = computeExpectedAnswerForQuestion(question);
+    if (computed.value && !compareAnswersForResultType(question && question.resultType, actualAnswer, computed.value)) {
+      questionIssues.push(`Computed answer mismatch: expected \"${computed.value}\" but found \"${actualAnswer || "(empty)"}\".`);
+    }
+
+    if (aiMode) {
+      questionIssues.push(...getAiHeuristicIssues(question || {}, computed.value));
+    }
+
+    return {
+      index,
+      question: String(question && question.question || "").trim(),
+      resultType: normalizeResultType(question && question.resultType),
+      options: Array.isArray(question && question.options)
+        ? question.options.map((item) => String(item || "").trim()).filter((item) => item !== "")
+        : [],
+      correctAnswer: actualAnswer,
+      computedAnswer: computed.value,
+      solution: solutionText,
+      issues: questionIssues,
+      isValid: questionIssues.length === 0
+    };
+  });
+
+  const errors = rows.filter((row) => !row.isValid).length;
+  const valid = rows.length - errors;
+
+  return {
+    categoryName: category ? String(category.name || "") : "",
+    quizTitle: String(quiz.title || "Untitled Quiz"),
+    total: rows.length,
+    valid,
+    errors,
+    aiMode,
+    rows
+  };
+}
+
+function renderResultValidation(validation) {
+  const meta = document.getElementById("resultValidationMeta");
+  const body = document.getElementById("resultValidationBody");
+  const exportBtn = document.getElementById("exportResultValidationBtn");
+  const filterSelect = document.getElementById("resultValidationStatusFilter");
+  const bulkBtn = document.getElementById("applyBulkResultValidationFixBtn");
+  if (!(meta instanceof HTMLElement)
+    || !(body instanceof HTMLElement)
+    || !(exportBtn instanceof HTMLButtonElement)
+    || !(filterSelect instanceof HTMLSelectElement)
+    || !(bulkBtn instanceof HTMLButtonElement)) return;
+
+  filterSelect.value = normalizeResultValidationFilter(pendingResultValidationFilter);
+
+  if (!validation) {
+    meta.textContent = "Select a quiz/module and run validation.";
+    body.innerHTML = '<tr><td colspan="7" style="padding:8px;">No validation run yet.</td></tr>';
+    exportBtn.disabled = true;
+    bulkBtn.disabled = true;
+    pendingResultValidationIssueFilter = "all";
+    renderResultValidationSummary(null);
+    renderResultValidationDetail(-1);
+    return;
+  }
+
+  renderResultValidationSummary(validation);
+
+  const visibleRows = getFilteredResultValidationRows(validation);
+  const redVisible = visibleRows.filter((row) => !row.isValid).length;
+
+  const issueFilterText = normalizeResultValidationIssueFilter(pendingResultValidationIssueFilter) !== "all"
+    ? ` Issue filter: ${normalizeResultValidationIssueFilter(pendingResultValidationIssueFilter)}.`
+    : "";
+  meta.textContent = `${validation.categoryName} / ${validation.quizTitle}: ${validation.valid}/${validation.total} green (correct), ${validation.errors}/${validation.total} red (incorrect). Showing ${visibleRows.length} row(s).${issueFilterText} ${validation.aiMode ? "AI heuristic mode enabled." : "Deterministic mode."}`;
+  exportBtn.disabled = validation.total === 0;
+  bulkBtn.disabled = redVisible === 0;
+
+  if (!Array.isArray(validation.rows) || validation.rows.length === 0) {
+    body.innerHTML = '<tr><td colspan="7" style="padding:8px;">This module has no questions.</td></tr>';
+    renderResultValidationDetail(-1);
+    return;
+  }
+
+  if (visibleRows.length === 0) {
+    body.innerHTML = '<tr><td colspan="7" style="padding:8px;">No rows match this filter.</td></tr>';
+    renderResultValidationDetail(-1);
+    return;
+  }
+
+  body.innerHTML = visibleRows.map((row) => {
+    const rowBg = row.isValid ? "#ecfdf3" : "#fff1f1";
+    const rowOutline = row.index === pendingResultValidationSelectedIndex
+      ? "box-shadow:inset 0 0 0 2px #1f6feb;"
+      : "";
+    const issueText = row.isValid
+      ? "OK"
+      : row.issues.map((item) => escapeInteractiveHtml(item)).join("<br>");
+    return `
+      <tr data-question-index="${row.index}" style="cursor:pointer; background:${rowBg}; ${rowOutline}">
+        <td style="padding:8px; border-bottom:1px solid #eef2f8;">${row.index + 1}</td>
+        <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:360px; white-space:normal;">${escapeInteractiveHtml(row.question || "")}</td>
+        <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.resultType || "")}</td>
+        <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:200px; white-space:normal;">${escapeInteractiveHtml(row.correctAnswer || "")}</td>
+        <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:200px; white-space:normal;">${escapeInteractiveHtml(row.computedAnswer || "-")}</td>
+        <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:320px; white-space:normal;">${escapeInteractiveHtml(row.solution || "")}</td>
+        <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:380px; white-space:normal;">${issueText}</td>
+      </tr>
+    `;
+  }).join("");
+
+  const selectedStillVisible = visibleRows.some((row) => row.index === pendingResultValidationSelectedIndex);
+  const defaultIndex = selectedStillVisible ? pendingResultValidationSelectedIndex : visibleRows[0].index;
+  renderResultValidationDetail(defaultIndex);
+}
+
+function focusResultValidationQuestion(questionIndex) {
+  const quiz = activeQuiz();
+  if (!quiz || !Array.isArray(quiz.questions)) return;
+  if (!Number.isInteger(questionIndex) || questionIndex < 0 || questionIndex >= quiz.questions.length) return;
+  state.selectedQuestionIndex = questionIndex;
+  renderAll();
+}
+
+function runResultValidation(aiMode = false) {
+  if (activeQuestion()) {
+    updateQuestionFromForm();
+  }
+
+  const result = buildResultValidationForActiveQuiz(aiMode);
+  if (!result) {
+    showToast("Select a module (quiz) first.", "warning");
+    return;
+  }
+
+  pendingResultValidation = result;
+  renderResultValidation(result);
+  showToast(`Validation complete: ${result.valid}/${result.total} correct, ${result.errors} incorrect.`, result.errors > 0 ? "warning" : "success");
+}
+
+async function applyResultValidationFixForQuestion(questionIndex, { confirmApply = true } = {}) {
+  const quiz = activeQuiz();
+  if (!quiz || !Array.isArray(quiz.questions)) return false;
+  if (!Number.isInteger(questionIndex) || questionIndex < 0 || questionIndex >= quiz.questions.length) return false;
+  if (!pendingResultValidation || !Array.isArray(pendingResultValidation.rows)) return false;
+
+  const row = pendingResultValidation.rows.find((item) => item.index === questionIndex) || null;
+  const question = quiz.questions[questionIndex] || null;
+  if (!row || !question) return false;
+
+  const plan = buildResultValidationFixPlan(question, row);
+  if (!plan.canApply) {
+    const manualEdits = getResultValidationManualProposalEdits(questionIndex);
+    if (manualEdits.length === 0) {
+      const hasManualProposals = Array.isArray(plan.proposals) && plan.proposals.length > 0;
+      showToast(hasManualProposals
+        ? "Automatic update is not safe. Review manual proposals in the fix panel."
+        : "No safe automatic update for this row.", "warning");
+      return false;
+    }
+
+    if (confirmApply) {
+      const proceedManual = confirm("Apply edited manual proposal to this question?");
+      if (!proceedManual) return false;
+    }
+
+    let changed = false;
+    manualEdits.forEach((edit) => {
+      if (!edit || !edit.field) return;
+      const nextValue = String(edit.value || "").trim();
+      if (edit.field === "question") {
+        const current = String(question.question || "").trim();
+        if (normalizeWhitespace(current) !== normalizeWhitespace(nextValue)) {
+          question.question = nextValue;
+          changed = true;
+        }
+      } else if (edit.field === "correctAnswer") {
+        const current = String(question.correctAnswer || "").trim();
+        if (normalizeWhitespace(current) !== normalizeWhitespace(nextValue)) {
+          question.correctAnswer = nextValue;
+          changed = true;
+        }
+      } else if (edit.field === "solution") {
+        const current = String(question.solution || "").trim();
+        if (normalizeWhitespace(current) !== normalizeWhitespace(nextValue)) {
+          question.solution = nextValue;
+          changed = true;
+        }
+      }
+    });
+
+    if (!changed) {
+      showToast("No manual changes to apply.", "info");
+      return false;
+    }
+
+    state.selectedQuestionIndex = questionIndex;
+    return true;
+  }
+
+  if (confirmApply) {
+    const proceed = confirm("Apply proposed update to this question?");
+    if (!proceed) return false;
+  }
+
+  if (Object.prototype.hasOwnProperty.call(plan.updates, "correctAnswer")) {
+    question.correctAnswer = String(plan.updates.correctAnswer || "").trim();
+  }
+  if (Object.prototype.hasOwnProperty.call(plan.updates, "solution")) {
+    question.solution = String(plan.updates.solution || "").trim();
+  }
+
+  state.selectedQuestionIndex = questionIndex;
+  return true;
+}
+
+async function applyBulkResultValidationFixes() {
+  if (!pendingResultValidation || !Array.isArray(pendingResultValidation.rows)) {
+    showToast("Run validation first.", "warning");
+    return;
+  }
+
+  const targets = pendingResultValidation.rows.filter((row) => !row.isValid);
+  if (targets.length === 0) {
+    showToast("No red rows to update.", "info");
+    return;
+  }
+
+  const proceed = confirm(`Apply proposed updates to ${targets.length} red question(s)?`);
+  if (!proceed) return;
+
+  let applied = 0;
+  for (const row of targets) {
+    const changed = await applyResultValidationFixForQuestion(row.index, { confirmApply: false });
+    if (changed) applied += 1;
+  }
+
+  if (applied === 0) {
+    showToast("No automatic updates could be applied.", "warning");
+    return;
+  }
+
+  renderAll();
+  await persistSelectedQuizAfterMutation("Bulk validation updates");
+  runResultValidation(Boolean(pendingResultValidation && pendingResultValidation.aiMode));
+  showToast(`Applied updates to ${applied} question(s).`, "success");
+}
+
+function downloadResultValidationCsv() {
+  if (!pendingResultValidation || !Array.isArray(pendingResultValidation.rows) || pendingResultValidation.rows.length === 0) {
+    showToast("No result validation data to export.", "warning");
+    return;
+  }
+
+  const now = new Date();
+  const yyyy = String(now.getFullYear());
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  const hh = String(now.getHours()).padStart(2, "0");
+  const mi = String(now.getMinutes()).padStart(2, "0");
+  const ss = String(now.getSeconds()).padStart(2, "0");
+  const stamp = `${yyyy}${mm}${dd}-${hh}${mi}${ss}`;
+
+  const header = ["Q No", "Question", "Result Type", "Correct Answer", "Computed Answer", "Solution", "Status", "Issues"];
+  const rows = pendingResultValidation.rows.map((item) => [
+    String(item.index + 1),
+    item.question || "",
+    item.resultType || "",
+    item.correctAnswer || "",
+    item.computedAnswer || "",
+    item.solution || "",
+    item.isValid ? "GREEN" : "RED",
+    item.isValid ? "" : item.issues.join(" | ")
+  ]);
+
+  const summary = [
+    "SUMMARY",
+    `${pendingResultValidation.categoryName} / ${pendingResultValidation.quizTitle}`,
+    "",
+    "",
+    "",
+    "",
+    "",
+    `Total=${pendingResultValidation.total}; Valid=${pendingResultValidation.valid}; Invalid=${pendingResultValidation.errors}; Mode=${pendingResultValidation.aiMode ? "ai" : "deterministic"}`
+  ];
+
+  const csv = [header, ...rows, summary]
+    .map((row) => row.map((cell) => escapeCsvCell(cell)).join(","))
+    .join("\r\n");
+  const blob = new Blob(["\uFEFF", csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `result-validation-${slugify(pendingResultValidation.quizTitle || "module")}-${stamp}.csv`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+  showToast("Result validation report downloaded.", "success");
+}
+
 function renderImportValidation(validation) {
   const meta = document.getElementById("importValidationMeta");
   const body = document.getElementById("importValidationBody");
@@ -11726,6 +12917,7 @@ async function initialize() {
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeImportModal();
+    closeResultValidationModal();
   }
 
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {
@@ -11764,6 +12956,7 @@ window.addEventListener("load", () => {
   }
   initializeInteractiveAppTypePicker();
   renderImportValidation(null);
+  renderResultValidation(null);
   initialize();
 });
 
