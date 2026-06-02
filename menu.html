@@ -337,12 +337,11 @@
       box-shadow: 0 8px 16px rgba(15, 23, 42, 0.18);
     }
 
-    .quiz-item-icon-label {
+    .quiz-item-icon-glyph {
       color: #ffffff;
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-size: 1.25rem;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.35));
     }
 
     .quiz-item-body {
@@ -686,6 +685,19 @@
         return root + "/" + f;
       }
 
+      function getQuizIconGlyph(title, index) {
+        const text = String(title || "").toLowerCase();
+        if (text.includes("time") || text.includes("clock")) return "⏰";
+        if (text.includes("number") || text.includes("math") || text.includes("count")) return "🔢";
+        if (text.includes("shape") || text.includes("geometry")) return "📐";
+        if (text.includes("fraction")) return "➗";
+        if (text.includes("intro") || text.includes("start")) return "🌟";
+        if (text.includes("test") || text.includes("quiz")) return "📝";
+
+        const fallbackGlyphs = ["📝", "📘", "🧠", "🎯", "📊", "🔍", "🧩", "📗"];
+        return fallbackGlyphs[index % fallbackGlyphs.length];
+      }
+
       async function resolveQuizDescription(quiz) {
         const inlineDescription = String(
           (quiz && (quiz.description || quiz.summary || quiz.details || quiz.detail)) || ""
@@ -885,16 +897,11 @@
           const title = escapeHtml(quiz.title || quiz.file || "Untitled Quiz");
           const file  = escapeHtml(resolveQuizFilePath(quiz.file || ""));
           const desc = escapeHtml(descriptions[i] || "");
-          const moduleBadge = String(quiz && quiz.title ? quiz.title : "Quiz")
-            .split(/\s+/)
-            .filter(Boolean)
-            .slice(0, 2)
-            .map((part) => part.charAt(0).toUpperCase())
-            .join("") || "QZ";
+          const moduleGlyph = escapeHtml(getQuizIconGlyph(quiz && quiz.title ? quiz.title : "", i));
           const descMarkup = desc ? '<p class="quiz-item-description">' + desc + '</p>' : '';
           return (
             '<div class="quiz-item" data-file="' + file + '" tabindex="0" role="button" aria-label="Start ' + title + '">' +
-            '  <div class="quiz-item-icon"><span class="quiz-item-icon-label">' + escapeHtml(moduleBadge) + '</span></div>' +
+            '  <div class="quiz-item-icon"><span class="quiz-item-icon-glyph">' + moduleGlyph + '</span></div>' +
             '  <div class="quiz-item-body">' +
             '    <p class="quiz-item-title">' + title + "</p>" +
             '    <p class="quiz-item-meta">' + escapeHtml(catName) + "</p>" +
