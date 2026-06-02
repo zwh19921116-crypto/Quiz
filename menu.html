@@ -442,13 +442,13 @@
         <span class="breadcrumb-current" id="breadcrumbHome">All Categories</span>
       </nav>
 
-      <div class="menu-toolbar" role="search" aria-label="Quiz menu search">
+      <div id="menuToolbar" class="menu-toolbar" role="search" aria-label="Year filter and sort">
         <div class="menu-toolbar-row">
           <input
             id="menuSearchInput"
             class="menu-search-input"
             type="text"
-            placeholder="Search year or quiz title"
+            placeholder="Filter years"
             autocomplete="off"
           />
           <select id="categorySortSelect" class="menu-sort-select" aria-label="Sort years">
@@ -457,7 +457,7 @@
           </select>
           <button class="btn secondary" id="clearSearchBtn" type="button">Clear</button>
         </div>
-        <p class="menu-search-meta" id="menuSearchMeta">Showing all available years</p>
+        <p class="menu-search-meta" id="menuSearchMeta">Showing all years</p>
       </div>
 
       <!-- Loading / error state -->
@@ -494,6 +494,7 @@
       const quizList       = document.getElementById("quizList");
       const quizListLabel  = document.getElementById("quizListLabel");
       const breadcrumb     = document.getElementById("breadcrumb");
+      const menuToolbar    = document.getElementById("menuToolbar");
       const backBtn        = document.getElementById("backToCategories");
       const searchInput    = document.getElementById("menuSearchInput");
       const sortSelect     = document.getElementById("categorySortSelect");
@@ -510,6 +511,9 @@
         activeView = name;
         panelCats.classList.toggle("active", name === "categories");
         panelQuizzes.classList.toggle("active", name === "quizzes");
+        if (menuToolbar instanceof HTMLElement) {
+          menuToolbar.style.display = name === "categories" ? "grid" : "none";
+        }
       }
 
       function setStatus(message, isError) {
@@ -655,10 +659,7 @@
           .map((cat, sourceIndex) => ({ cat, sourceIndex }))
           .filter((entry) => {
             if (!query) return true;
-            const nameMatch = normalizeSearchQuery(entry.cat && entry.cat.name).includes(query);
-            if (nameMatch) return true;
-            const quizzes = Array.isArray(entry.cat && entry.cat.quizzes) ? entry.cat.quizzes : [];
-            return quizzes.some((quiz) => normalizeSearchQuery(quiz && quiz.title).includes(query));
+            return normalizeSearchQuery(entry.cat && entry.cat.name).includes(query);
           })
           .sort((left, right) => {
             const dir = getSortMode() === "desc" ? -1 : 1;
@@ -685,7 +686,8 @@
           return;
         }
 
-        setSearchMeta(query ? `${categoryEntries.length} year(s) matched` : `${categoryEntries.length} year(s) available`);
+        const sortLabel = getSortMode() === "desc" ? "Z-A" : "A-Z";
+        setSearchMeta(query ? `${categoryEntries.length} year match${categoryEntries.length === 1 ? "" : "es"} • ${sortLabel}` : `${categoryEntries.length} years • ${sortLabel}`);
 
         categoryGrid.innerHTML = categoryEntries.map((entry, i) => {
           const cat = entry.cat;
@@ -738,21 +740,14 @@
         quizListLabel.textContent = catName;
 
         const quizzes = Array.isArray(cat.quizzes) ? cat.quizzes : [];
-        const query = getSearchQuery();
-        const filteredQuizzes = quizzes.filter((quiz) => {
-          if (!query) return true;
-          return normalizeSearchQuery(quiz && quiz.title).includes(query);
-        });
 
-        setSearchMeta(query ? `${filteredQuizzes.length} quiz(es) matched in ${catName}` : `${quizzes.length} quiz(es) in ${catName}`);
-
-        if (filteredQuizzes.length === 0) {
-          quizList.innerHTML = '<div class="menu-empty">No quiz matched your search in this year.</div>';
+        if (quizzes.length === 0) {
+          quizList.innerHTML = '<div class="menu-empty">No quizzes in this year yet.</div>';
           showPanel("quizzes");
           return;
         }
 
-        quizList.innerHTML = filteredQuizzes.map(function (quiz) {
+        quizList.innerHTML = quizzes.map(function (quiz) {
           const title = escapeHtml(quiz.title || quiz.file || "Untitled Quiz");
           const file  = escapeHtml(resolveQuizFilePath(quiz.file || ""));
           return (
@@ -792,10 +787,6 @@
 
       if (searchInput instanceof HTMLInputElement) {
         searchInput.addEventListener("input", () => {
-          if (activeView === "quizzes" && currentCategoryIndex >= 0) {
-            openCategory(currentCategoryIndex);
-            return;
-          }
           renderCategories();
         });
       }
@@ -811,10 +802,6 @@
           if (searchInput instanceof HTMLInputElement) {
             searchInput.value = "";
             searchInput.focus();
-          }
-          if (activeView === "quizzes" && currentCategoryIndex >= 0) {
-            openCategory(currentCategoryIndex);
-            return;
           }
           renderCategories();
         });
