@@ -9695,6 +9695,58 @@ function resolveQuizRelativePath(quiz, category) {
   return `${slugify(category.name || "category")}/${normalizeQuizFileName(quiz.fileName || quiz.title || "quiz")}`;
 }
 
+function resolveManifestQuizFilePath(quiz, category) {
+  const rootFolder = normalizeRootFolder(state.rootFolder);
+  const rawSourcePath = String(quiz && quiz.sourcePath ? quiz.sourcePath : "").replace(/\\/g, "/").replace(/^\/+/, "");
+  if (rawSourcePath) {
+    const prefix = `${rootFolder}/`;
+    if (rawSourcePath.startsWith(prefix)) {
+      return rawSourcePath.slice(prefix.length);
+    }
+    return rawSourcePath;
+  }
+
+  const fileName = normalizeQuizFileName(quiz && (quiz.fileName || quiz.title) ? (quiz.fileName || quiz.title) : "quiz");
+  return `${slugify(category && category.name ? category.name : "category")}/${fileName}`;
+}
+
+function buildIndexManifestFromState() {
+  const categories = Array.isArray(state.categories) ? state.categories : [];
+  return {
+    categories: categories.map((category) => ({
+      name: String(category && category.name ? category.name : "Category"),
+      quizzes: Array.isArray(category && category.quizzes)
+        ? category.quizzes.map((quiz) => ({
+          title: String(quiz && quiz.title ? quiz.title : "Untitled Quiz"),
+          file: resolveManifestQuizFilePath(quiz, category)
+        }))
+        : []
+    }))
+  };
+}
+
+async function writeIndexManifestToDisk(rootHandle, options = {}) {
+  const { notify = false } = options;
+  if (!rootHandle) return false;
+
+  try {
+    const manifest = buildIndexManifestFromState();
+    const indexHandle = await rootHandle.getFileHandle("index.json", { create: true });
+    const writable = await indexHandle.createWritable();
+    await writable.write(`${JSON.stringify(manifest, null, 2)}\n`);
+    await writable.close();
+    if (notify) {
+      showToast("Updated index.json", "success");
+    }
+    return true;
+  } catch (error) {
+    if (notify) {
+      showToast("Could not update index.json", "warning");
+    }
+    return false;
+  }
+}
+
 async function writeSelectedQuizToDisk(options = {}) {
   const { allowPrompt = true, notify = true } = options;
   const quiz = activeQuiz();
@@ -9736,7 +9788,7 @@ async function writeSelectedQuizToDisk(options = {}) {
 }
 
 async function writeQuizToDiskWithRoot(rootHandle, quiz, category, options = {}) {
-  const { notify = true } = options;
+  const { notify = true, updateIndex = true } = options;
   const payload = buildPersistedQuizPayloadFrom(quiz, category);
   if (!rootHandle || !quiz || !category || !payload) {
     return false;
@@ -9780,6 +9832,9 @@ async function writeQuizToDiskWithRoot(rootHandle, quiz, category, options = {})
 
     updateGeneratedJson();
     saveDraft();
+    if (updateIndex) {
+      await writeIndexManifestToDisk(rootHandle, { notify: false });
+    }
     if (notify) {
       showToast(`Saved ${[...parts, fileName].join("/")}`, "success");
     }
