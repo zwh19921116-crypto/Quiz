@@ -1,31 +1,31 @@
 {
-  "root": "quizzes",
-  "categories": [
-    {
-      "name": "Time",
-      "quizzes": [
-        {
-          "title": "Time Basics",
-          "file": "time/time-basics.json"
-        }
-      ]
-    },
-    {
-      "name": "Prep",
-      "quizzes": [
-        {
-          "title": "Prep - Introduction to Numbers",
-          "file": "prep/prep-introduction-to-numbers.json"
-        },
-        {
-          "title": "Quiz 3",
-          "file": "prep/quiz-3.json"
-        },
-        {
-          "title": "TEST",
-          "file": "prep/test.json"
-        }
-      ]
-    }
-  ]
+    "root":  "quizzes",
+    "categories":  [
+                       {
+                           "name":  "Time",
+                           "quizzes":  [
+                                           {
+                                               "title":  "Time Basics",
+                                               "file":  "time/time-basics.json"
+                                           }
+                                       ]
+                       },
+                       {
+                           "name":  "Prep",
+                           "quizzes":  [
+                                           {
+                                               "title":  "1.01 - What Are Numbers?",
+                                               "file":  "Prep/lesson-part-1-01.json"
+                                           },
+                                           {
+                                               "title":  "1.02 - Number 0",
+                                               "file":  "Prep/lesson-part-1-02.json"
+                                           },
+                                           {
+                                               "title":  "1.03 - Number 1",
+                                               "file":  "Prep/lesson-part-1-03.json"
+                                           }
+                                       ]
+                       }
+                   ]
 }
