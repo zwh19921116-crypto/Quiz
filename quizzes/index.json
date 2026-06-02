@@ -6,27 +6,27 @@
             "quizzes": [
                 {
                     "title": "Numbers.1.01 - What Are Numbers?",
-                    "file": "Prep/lesson-part-1-01-what-are-numbers.json"
+                    "file": "prep/lesson-part-1-01-what-are-numbers.json"
                 },
                 {
                     "title": "Numbers.1.02 - Number 0",
-                    "file": "Prep/lesson-part-1-02-number-0.json"
+                    "file": "prep/lesson-part-1-02-number-0.json"
                 },
                 {
                     "title": "Numbers.1.03 - Number 1",
-                    "file": "Prep/lesson-part-1-03-number-1.json"
+                    "file": "prep/lesson-part-1-03-number-1.json"
                 },
                 {
                     "title": "Prep - Introduction to Numbers",
-                    "file": "Prep/prep-introduction-to-numbers.json"
+                    "file": "prep/prep-introduction-to-numbers.json"
                 },
                 {
                     "title": "Quiz 3",
-                    "file": "Prep/quiz-3.json"
+                    "file": "prep/quiz-3.json"
                 },
                 {
                     "title": "TEST",
-                    "file": "Prep/test.json"
+                    "file": "prep/test.json"
                 }
             ]
         }
