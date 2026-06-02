@@ -758,6 +758,30 @@
         return key ? `${root}/images/${key}.webp` : "";
       }
 
+      function getCategoryFallbackStyle(category, index) {
+        const categoryName = String(category && category.name ? category.name : "").toLowerCase();
+        const curated = [
+          "linear-gradient(140deg, #0f766e 0%, #0284c7 100%)",
+          "linear-gradient(140deg, #7c3aed 0%, #2563eb 100%)",
+          "linear-gradient(140deg, #be123c 0%, #fb7185 100%)",
+          "linear-gradient(140deg, #166534 0%, #22c55e 100%)",
+          "linear-gradient(140deg, #b45309 0%, #f59e0b 100%)",
+          "linear-gradient(140deg, #0f172a 0%, #334155 100%)"
+        ];
+
+        if (categoryName.includes("prep") || categoryName.includes("foundation")) {
+          return "linear-gradient(140deg, #7c3aed 0%, #a78bfa 100%)";
+        }
+        if (categoryName.includes("time") || categoryName.includes("clock")) {
+          return "linear-gradient(140deg, #0f766e 0%, #34d399 100%)";
+        }
+        if (categoryName.includes("number") || categoryName.includes("math")) {
+          return "linear-gradient(140deg, #b45309 0%, #f59e0b 100%)";
+        }
+
+        return curated[index % curated.length];
+      }
+
       // ── Breadcrumb ──────────────────────────────────────────
       function renderBreadcrumb(categoryName) {
         if (!categoryName) {
@@ -831,10 +855,11 @@
             .join("") || "YR";
           const label = count === 1 ? "1 quiz" : count + " quizzes";
           const imagePath = getCategoryImagePath(cat);
+          const fallbackStyle = getCategoryFallbackStyle(cat, i);
           const iconMarkup = imagePath
             ? '<img class="category-icon-image" src="' + escapeHtml(imagePath) + '" alt="' + name + ' image" loading="lazy" onerror="this.style.display=\'none\'; if (this.nextElementSibling) this.nextElementSibling.style.display=\'inline-flex\';" />' +
-              '<span class="category-icon-fallback" style="display:none">' + escapeHtml(badge) + '</span>'
-            : '<span class="category-icon-fallback">' + escapeHtml(badge) + '</span>';
+              '<span class="category-icon-fallback" style="display:none; background:' + escapeHtml(fallbackStyle) + '">' + escapeHtml(badge) + '</span>'
+            : '<span class="category-icon-fallback" style="background:' + escapeHtml(fallbackStyle) + '">' + escapeHtml(badge) + '</span>';
           const iconClass = imagePath ? 'category-icon has-image' : 'category-icon';
 
           return (
