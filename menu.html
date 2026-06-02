@@ -670,38 +670,17 @@
         return slugify(category && category.name ? category.name : "");
       }
 
-      function getCategoryImageCandidates(category) {
+      function getCategoryImagePath(category) {
         const root = String((indexData && indexData.root) || "quizzes").replace(/\/+$/, "");
         const explicit = String(category && category.image ? category.image : "").trim();
         const folderKey = getCategoryFolderKey(category);
         const nameSlug = slugify(category && category.name ? category.name : "");
-        const keys = [folderKey, nameSlug].filter(Boolean);
-        const exts = ["webp", "png", "jpg", "jpeg"];
-        const candidates = [];
-
         if (explicit) {
-          candidates.push(explicit);
+          return explicit;
         }
 
-        keys.forEach((key) => {
-          exts.forEach((ext) => {
-            candidates.push(`${root}/images/${key}.${ext}`);
-            candidates.push(`images/${key}.${ext}`);
-          });
-        });
-
-        return Array.from(new Set(candidates));
-      }
-
-      async function resolveCategoryImage(category) {
-        const candidates = getCategoryImageCandidates(category);
-        for (let i = 0; i < candidates.length; i += 1) {
-          const candidate = candidates[i];
-          if (await probeFile(candidate)) {
-            return candidate;
-          }
-        }
-        return "";
+        const key = folderKey || nameSlug;
+        return key ? `${root}/images/${key}.webp` : "";
       }
 
       // ── Breadcrumb ──────────────────────────────────────────
@@ -729,7 +708,7 @@
         }
       }
 
-      async function renderCategories() {
+      function renderCategories() {
         const categories = (indexData && Array.isArray(indexData.categories)) ? indexData.categories : [];
         const query = getSearchQuery();
 
@@ -755,8 +734,6 @@
 
         setStatus("", false);
 
-        const imagePaths = await Promise.all(categoryEntries.map((entry) => resolveCategoryImage(entry.cat)));
-
         if (categoryEntries.length === 0) {
           categoryGrid.innerHTML = '<div class="menu-empty">No year matched your search.</div>';
           setSearchMeta('No year matches for "' + (searchInput ? searchInput.value.trim() : "") + '"');
@@ -773,9 +750,10 @@
           const count = Array.isArray(cat.quizzes) ? cat.quizzes.length : 0;
           const icon  = CATEGORY_ICONS[i % CATEGORY_ICONS.length];
           const label = count === 1 ? "1 quiz" : count + " quizzes";
-          const imagePath = imagePaths[i] || "";
+          const imagePath = getCategoryImagePath(cat);
           const iconMarkup = imagePath
-            ? '<img class="category-icon-image" src="' + escapeHtml(imagePath) + '" alt="' + name + ' image" loading="lazy" />'
+            ? '<img class="category-icon-image" src="' + escapeHtml(imagePath) + '" alt="' + name + ' image" loading="lazy" onerror="this.style.display=\'none\'; if (this.nextElementSibling) this.nextElementSibling.style.display=\'inline-flex\';" />' +
+              '<span class="category-icon-fallback" style="display:none">' + icon + '</span>'
             : '<span class="category-icon-fallback">' + icon + '</span>';
           const iconClass = imagePath ? 'category-icon has-image' : 'category-icon';
 
@@ -905,46 +883,6 @@
         showCategories(false);
       });
 
-      // ── Probe quiz files and filter unreachable ones ────────
-      async function probeFile(path) {
-        try {
-          const res = await fetch(path, { method: "HEAD", cache: "no-store" });
-          return res.ok;
-        } catch (e) {
-          return false;
-        }
-      }
-
-      async function filterAvailableCategories(categories, root) {
-        const checks = [];
-        categories.forEach(function (cat) {
-          (Array.isArray(cat.quizzes) ? cat.quizzes : []).forEach(function (quiz) {
-            checks.push({
-              cat: cat,
-              quiz: quiz,
-              path: resolveQuizFilePath(quiz.file || "")
-            });
-          });
-        });
-
-        const results = await Promise.all(
-          checks.map(function (c) { return probeFile(c.path).then(function (ok) { return { c, ok }; }); })
-        );
-
-        const validFiles = new Set();
-        results.forEach(function (r) { if (r.ok) validFiles.add(r.c.quiz.file); });
-
-        return categories
-          .map(function (cat) {
-            return Object.assign({}, cat, {
-              quizzes: (Array.isArray(cat.quizzes) ? cat.quizzes : []).filter(function (q) {
-                return validFiles.has(q.file);
-              })
-            });
-          })
-          .filter(function (cat) { return cat.quizzes.length > 0; });
-      }
-
       // ── Boot ────────────────────────────────────────────────
       async function loadIndex() {
         try {
@@ -953,18 +891,12 @@
             throw new Error("Could not load quiz index (" + response.status + ").");
           }
           indexData = await response.json();
-          indexData = Object.assign({}, indexData, {
-            categories: await filterAvailableCategories(
-              Array.isArray(indexData.categories) ? indexData.categories : [],
-              String((indexData && indexData.root) || "quizzes")
-            )
-          });
 
           const existingState = window.history.state;
           if (existingState && existingState.menuLayer === "quizzes" && Number.isInteger(existingState.categoryIndex)) {
             await openCategory(existingState.categoryIndex, false);
           } else {
-            await renderCategories();
+            renderCategories();
             updateMenuHistory("categories", null, true);
           }
         } catch (err) {
