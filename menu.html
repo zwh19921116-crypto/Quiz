@@ -155,8 +155,8 @@
     /* Category grid */
     .category-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 18px;
     }
 
     .category-card {
@@ -164,16 +164,15 @@
       border: 1px solid var(--line);
       border-radius: 16px;
       box-shadow: var(--shadow);
-      padding: 16px;
+      padding: 12px;
       cursor: pointer;
       transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
       user-select: none;
       position: relative;
       overflow: hidden;
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      align-items: center;
-      gap: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .category-card:hover {
@@ -196,16 +195,16 @@
     }
 
     .category-icon {
-      width: 56px;
-      height: 56px;
+      width: 100%;
+      height: 132px;
       border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+      background: linear-gradient(140deg, #0f766e 0%, #155e75 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      font-size: 1rem;
       overflow: hidden;
-      box-shadow: 0 6px 14px rgba(15, 118, 110, 0.24);
+      box-shadow: 0 10px 22px rgba(15, 118, 110, 0.24);
     }
 
     .category-icon.has-image {
@@ -227,6 +226,16 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      background: linear-gradient(135deg, #0f766e 0%, #0ea5e9 100%);
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .category-body {
+      padding: 0 4px 4px;
     }
 
     .category-name {
@@ -238,9 +247,11 @@
 
     .category-count {
       margin: 0;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--muted);
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
     }
 
     /* Quiz list */
@@ -286,15 +297,24 @@
     }
 
     .quiz-item-icon {
-      width: 40px;
-      height: 40px;
+      width: 54px;
+      height: 54px;
       border-radius: 10px;
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      background: linear-gradient(140deg, #0f766e 0%, #0ea5e9 100%);
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 8px 16px rgba(15, 23, 42, 0.18);
+    }
+
+    .quiz-item-icon-label {
+      color: #ffffff;
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .quiz-item-body {
@@ -314,9 +334,11 @@
 
     .quiz-item-meta {
       margin: 0;
-      font-size: 0.8rem;
+      font-size: 0.74rem;
       color: var(--muted);
-      font-weight: 600;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
     .quiz-item-description {
@@ -423,12 +445,11 @@
       }
 
       .category-card {
-        grid-template-columns: 50px 1fr;
+        padding: 10px;
       }
 
       .category-icon {
-        width: 50px;
-        height: 50px;
+        height: 116px;
       }
     }
   </style>
@@ -548,8 +569,6 @@
       }
 
       // Category icons (cycles through if more categories than icons)
-      const CATEGORY_ICONS = ["📚", "🔬", "🌍", "⏰", "🔢", "🎨", "🏅", "💡", "📐", "🌐"];
-
       // ── Utilities ───────────────────────────────────────────
       function showPanel(name) {
         activeView = name;
@@ -748,19 +767,24 @@
           const cat = entry.cat;
           const name  = escapeHtml(cat.name || "Unnamed Category");
           const count = Array.isArray(cat.quizzes) ? cat.quizzes.length : 0;
-          const icon  = CATEGORY_ICONS[i % CATEGORY_ICONS.length];
+          const badge = String(cat && cat.name ? cat.name : "Year")
+            .split(/\s+/)
+            .filter(Boolean)
+            .slice(0, 2)
+            .map((part) => part.charAt(0).toUpperCase())
+            .join("") || "YR";
           const label = count === 1 ? "1 quiz" : count + " quizzes";
           const imagePath = getCategoryImagePath(cat);
           const iconMarkup = imagePath
             ? '<img class="category-icon-image" src="' + escapeHtml(imagePath) + '" alt="' + name + ' image" loading="lazy" onerror="this.style.display=\'none\'; if (this.nextElementSibling) this.nextElementSibling.style.display=\'inline-flex\';" />' +
-              '<span class="category-icon-fallback" style="display:none">' + icon + '</span>'
-            : '<span class="category-icon-fallback">' + icon + '</span>';
+              '<span class="category-icon-fallback" style="display:none">' + escapeHtml(badge) + '</span>'
+            : '<span class="category-icon-fallback">' + escapeHtml(badge) + '</span>';
           const iconClass = imagePath ? 'category-icon has-image' : 'category-icon';
 
           return (
             '<div class="category-card" data-source-index="' + entry.sourceIndex + '" tabindex="0" role="button" aria-label="Open ' + name + '">' +
             '  <div class="' + iconClass + '">' + iconMarkup + "</div>" +
-            '  <div>' +
+            '  <div class="category-body">' +
             '    <p class="category-name">' + name + "</p>" +
             '    <p class="category-count">' + label + "</p>" +
             '  </div>' +
@@ -815,7 +839,7 @@
           const descMarkup = desc ? '<p class="quiz-item-description">' + desc + '</p>' : '';
           return (
             '<div class="quiz-item" data-file="' + file + '" tabindex="0" role="button" aria-label="Start ' + title + '">' +
-            '  <div class="quiz-item-icon">📝</div>' +
+            '  <div class="quiz-item-icon"><span class="quiz-item-icon-label">Quiz</span></div>' +
             '  <div class="quiz-item-body">' +
             '    <p class="quiz-item-title">' + title + "</p>" +
             '    <p class="quiz-item-meta">' + escapeHtml(catName) + "</p>" +
