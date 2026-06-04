@@ -9722,6 +9722,11 @@ function collectUserAnswer(question) {
   if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
     return cartesianPlotUserPoints.slice();
   }
+  if (question.interactiveApp && question.interactiveApp.type === "icon-count") {
+    const container = document.getElementById("quizContainer");
+    const input = container && container.querySelector("#shortAnswerInput");
+    return input instanceof HTMLInputElement ? String(input.value || "").trim() : "";
+  }
   if (question.interactiveApp && question.interactiveApp.type === "fractions") {
     const container = document.getElementById("quizContainer");
     const numInput = container && container.querySelector("[data-role='fraction-answer-num']");
@@ -10090,6 +10095,9 @@ function validateAnswer(question, userAnswer) {
   }
   if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
     return Array.isArray(userAnswer) && userAnswer.length > 0;
+  }
+  if (question.interactiveApp && question.interactiveApp.type === "icon-count") {
+    return String(userAnswer || "").trim() !== "";
   }
   if (question.resultType === "checkbox") {
     return Array.isArray(userAnswer) && userAnswer.length > 0;
