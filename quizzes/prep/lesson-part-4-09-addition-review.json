@@ -1,0 +1,405 @@
+{
+  "id": "quiz-43",
+  "title": "Prep 4.09",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Add objects | Read number sentences | Find missing addend | Recall doubles facts | Apply addition | Consolidate addition skills",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "🍎 + 🍎 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "1",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "⭐⭐ + ⭐ = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🚗🚗 + 🚗🚗 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐶🐶🐶 + 🐶 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐟🐟 + 🐟🐟🐟 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Number Sentences",
+      "subcategory": "Complete Addition",
+      "learningOutcome": "Read number sentences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Number Sentences",
+      "subcategory": "Complete Addition",
+      "learningOutcome": "Read number sentences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 + 3 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "6",
+      "category": "Number Sentences",
+      "subcategory": "Complete Addition",
+      "learningOutcome": "Read number sentences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 + 4 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "7",
+      "category": "Number Sentences",
+      "subcategory": "Complete Addition",
+      "learningOutcome": "Read number sentences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 + 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "8",
+      "category": "Number Sentences",
+      "subcategory": "Complete Addition",
+      "learningOutcome": "Read number sentences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 + __ = 5",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "1",
+      "category": "Missing Addends",
+      "subcategory": "Find Missing Number",
+      "learningOutcome": "Find missing addend",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "__ + 2 = 6",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Missing Addends",
+      "subcategory": "Find Missing Number",
+      "learningOutcome": "Find missing addend",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 + __ = 8",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "1",
+      "category": "Missing Addends",
+      "subcategory": "Find Missing Number",
+      "learningOutcome": "Find missing addend",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 + 4 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "6",
+      "category": "Addition Facts",
+      "subcategory": "Doubles",
+      "learningOutcome": "Recall doubles facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 + 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "8",
+      "category": "Addition Facts",
+      "subcategory": "Doubles",
+      "learningOutcome": "Recall doubles facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia has 3 apples and gets 4 more. How many apples now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "3",
+      "category": "Application",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Mia has 3 apples and gets 4 more. How many apples now?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sam has 2 balloons and gets 5 more. How many balloons now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "2",
+      "category": "Application",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sam has 2 balloons and gets 5 more. How many balloons now?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "Ava has 4 stars and gets 4 more. How many stars now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "4",
+      "category": "Application",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Ava has 4 stars and gets 4 more. How many stars now?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "6 + 3 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "7",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate addition skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "7 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "7",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate addition skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    }
+  ]
+}

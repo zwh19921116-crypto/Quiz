@@ -1,0 +1,427 @@
+{
+  "id": "quiz-80",
+  "title": "Prep 8.06",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Count on 1 | Count on 2 | Counting strategy | Counting on | Add fluently",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Start at 4 and count on 1: 4 + 1 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Counting On",
+      "subcategory": "Plus 1 Strategy",
+      "learningOutcome": "Count on 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Start at 6 and count on 1: 6 + 1 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "08",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Counting On",
+      "subcategory": "Plus 1 Strategy",
+      "learningOutcome": "Count on 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Start at 9 and count on 1: 9 + 1 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "10",
+        "2011",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Counting On",
+      "subcategory": "Plus 1 Strategy",
+      "learningOutcome": "Count on 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Start at 3 and count on 2: 3 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Counting On",
+      "subcategory": "Plus 2 Strategy",
+      "learningOutcome": "Count on 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Start at 5 and count on 2: 5 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "08",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Counting On",
+      "subcategory": "Plus 2 Strategy",
+      "learningOutcome": "Count on 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Start at 7 and count on 2: 7 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "2010",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Counting On",
+      "subcategory": "Plus 2 Strategy",
+      "learningOutcome": "Count on 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 + 1 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Counting On",
+      "subcategory": "Mixed",
+      "learningOutcome": "Counting strategy",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Counting On",
+      "subcategory": "Mixed",
+      "learningOutcome": "Counting strategy",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 + 1 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "08",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Counting On",
+      "subcategory": "Mixed",
+      "learningOutcome": "Counting strategy",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "10",
+        "2011",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Counting On",
+      "subcategory": "Mixed",
+      "learningOutcome": "Counting strategy",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "You start with 3 toys and add 1 more. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Word Problems",
+      "subcategory": "Simple",
+      "learningOutcome": "Counting on",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You start with 3 toys and add 1 more. How many?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "You start with 5 apples and add 2 more. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Word Problems",
+      "subcategory": "Simple",
+      "learningOutcome": "Counting on",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You start with 5 apples and add 2 more. How many?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "You start with 1 car and add 2 more. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Word Problems",
+      "subcategory": "Simple",
+      "learningOutcome": "Counting on",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You start with 1 car and add 2 more. How many?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "You start with 7 blocks and add 1 more. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Word Problems",
+      "subcategory": "Simple",
+      "learningOutcome": "Counting on",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You start with 7 blocks and add 1 more. How many?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "You start with 4 stars and add 2 more. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Word Problems",
+      "subcategory": "Simple",
+      "learningOutcome": "Counting on",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You start with 4 stars and add 2 more. How many?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "5 + 1 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Mixed Review",
+      "subcategory": "Fluency",
+      "learningOutcome": "Add fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 + 3 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Mixed Review",
+      "subcategory": "Fluency",
+      "learningOutcome": "Add fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "09",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Mixed Review",
+      "subcategory": "Fluency",
+      "learningOutcome": "Add fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "9 + 1 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "10",
+        "2011",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Mixed Review",
+      "subcategory": "Fluency",
+      "learningOutcome": "Add fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 + 2 + 1 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Mixed Review",
+      "subcategory": "Fluency",
+      "learningOutcome": "Add fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    }
+  ]
+}

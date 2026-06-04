@@ -1,0 +1,372 @@
+{
+  "id": "quiz-72",
+  "title": "Prep 7.08",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Compare capacity | Identify greatest capacity | Identify smallest capacity | Compare multiple containers | Apply capacity concepts | Consolidate capacity concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which holds more water: bucket or cup?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bucket",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Capacity Comparison",
+      "subcategory": "More and Less",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less water: bucket or cup?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Cup",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Cup",
+      "category": "Capacity Comparison",
+      "subcategory": "More and Less",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Cup.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more water: bathtub or bottle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bathtub",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bathtub",
+      "category": "Capacity Comparison",
+      "subcategory": "More and Less",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bathtub.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less water: bathtub or bottle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bottle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bottle",
+      "category": "Capacity Comparison",
+      "subcategory": "More and Less",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bottle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more juice: jug or cup?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Jug",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Jug",
+      "category": "Capacity Comparison",
+      "subcategory": "More and Less",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Jug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds the most: cup, bucket, swimming pool?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Swimming Pool",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Swimming Pool",
+      "category": "Most and Least",
+      "subcategory": "Most Capacity",
+      "learningOutcome": "Identify greatest capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Swimming Pool.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds the least: cup, bucket, swimming pool?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Cup",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Cup",
+      "category": "Most and Least",
+      "subcategory": "Least Capacity",
+      "learningOutcome": "Identify smallest capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Cup.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds the most: spoon, mug, jug?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Jug",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Jug",
+      "category": "Most and Least",
+      "subcategory": "Most Capacity",
+      "learningOutcome": "Identify greatest capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Jug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds the least: spoon, mug, jug?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Spoon",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Spoon",
+      "category": "Most and Least",
+      "subcategory": "Least Capacity",
+      "learningOutcome": "Identify smallest capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Spoon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds the most: bottle, bucket, bathtub?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bathtub",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bathtub",
+      "category": "Most and Least",
+      "subcategory": "Most Capacity",
+      "learningOutcome": "Identify greatest capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bathtub.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bucket holds more than a cup. A bathtub holds more than a bucket. Which holds the most?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bathtub",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bathtub",
+      "category": "Compare Three Containers",
+      "subcategory": "Ordering",
+      "learningOutcome": "Compare multiple containers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bathtub.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A spoon holds less than a mug. A mug holds less than a jug. Which holds the least?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Spoon",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Spoon",
+      "category": "Compare Three Containers",
+      "subcategory": "Ordering",
+      "learningOutcome": "Compare multiple containers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Spoon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A fish tank holds more than a bucket. Which holds less?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bucket",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Compare Three Containers",
+      "subcategory": "Ordering",
+      "learningOutcome": "Compare multiple containers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bottle holds less than a bucket. Which holds more?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bucket",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Compare Three Containers",
+      "subcategory": "Ordering",
+      "learningOutcome": "Compare multiple containers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A jug holds more than a mug. Which holds less?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Mug",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Mug",
+      "category": "Compare Three Containers",
+      "subcategory": "Ordering",
+      "learningOutcome": "Compare multiple containers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Mug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would usually hold more water: fish tank or cup?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Fish Tank",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Fish Tank",
+      "category": "Application",
+      "subcategory": "Everyday Capacity",
+      "learningOutcome": "Apply capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Fish Tank.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would usually hold less drink: spoon or mug?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Spoon",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Spoon",
+      "category": "Application",
+      "subcategory": "Everyday Capacity",
+      "learningOutcome": "Apply capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Spoon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would usually hold more: watering can or bottle cap?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Watering Can",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Watering Can",
+      "category": "Application",
+      "subcategory": "Everyday Capacity",
+      "learningOutcome": "Apply capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Watering Can.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means holds the greatest amount?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Most",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Most",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Most.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means holds the smallest amount?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Least",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Least",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Least.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "id": "quiz-81",
+  "title": "Prep 8.07",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Add within 20 | Find missing number | Word addition | Add fluently",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "10 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "12",
+        "13",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Addition Skills",
+      "subcategory": "Counting On",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8 + 3 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Addition Skills",
+      "subcategory": "Counting On",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "7 + 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "12",
+        "13",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Addition Skills",
+      "subcategory": "Counting On",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 + 4 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Addition Skills",
+      "subcategory": "Counting On",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "9 + 6 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Addition Skills",
+      "subcategory": "Counting On",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "11 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "12",
+        "13",
+        "14",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Addition Skills",
+      "subcategory": "Counting On",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "12 + 4 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "16",
+        "17",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Addition Skills",
+      "subcategory": "Counting On",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "13 + 3 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "16",
+        "17",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Addition Skills",
+      "subcategory": "Counting On",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "14 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "16",
+        "17",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Addition Skills",
+      "subcategory": "Counting On",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "15 + 3 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "17",
+        "18",
+        "19",
+        ""
+      ],
+      "correctAnswer": "17",
+      "category": "Addition Skills",
+      "subcategory": "Counting On",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 17.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 + ? = 15",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Number Bonds",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8 + ? = 12",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Number Bonds",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 + ? = 11",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number Bonds",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 7 = 14",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number Bonds",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 5 = 13",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number Bonds",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "You have 9 apples and get 4 more. How many total?",
+      "resultType": "multiple-choice",
+      "options": [
+        "12",
+        "13",
+        "14",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Word Problems",
+      "subcategory": "Simple Stories",
+      "learningOutcome": "Word addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You have 9 apples and get 4 more. How many total?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "7 birds sit and 5 more come. Total birds?",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "12",
+        "13",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Word Problems",
+      "subcategory": "Simple Stories",
+      "learningOutcome": "Word addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8 cars + 6 cars = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "13",
+        "14",
+        "15",
+        ""
+      ],
+      "correctAnswer": "13",
+      "category": "Word Problems",
+      "subcategory": "Simple Stories",
+      "learningOutcome": "Word addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 13.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 + 7 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "12",
+        "13",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Mixed Review",
+      "subcategory": "Fluency",
+      "learningOutcome": "Add fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "9 + 9 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "17",
+        "18",
+        "19",
+        ""
+      ],
+      "correctAnswer": "17",
+      "category": "Mixed Review",
+      "subcategory": "Fluency",
+      "learningOutcome": "Add fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 17.",
+      "solutionAttachments": []
+    }
+  ]
+}

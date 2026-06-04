@@ -1,0 +1,405 @@
+{
+  "id": "quiz-53",
+  "title": "Prep 5.09",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Subtract objects | Read subtraction sentences | Find missing number | Recall subtraction facts | Apply subtraction | Consolidate subtraction skills",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "🍎🍎🍎 take away 🍎 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "⭐⭐⭐⭐ take away ⭐⭐ = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🚗🚗🚗🚗 take away 🚗 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐶🐶🐶🐶🐶 take away 🐶🐶 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐟🐟🐟🐟 take away 🐟🐟 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 - 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Number Sentences",
+      "subcategory": "Complete Subtraction",
+      "learningOutcome": "Read subtraction sentences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 - 3 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Number Sentences",
+      "subcategory": "Complete Subtraction",
+      "learningOutcome": "Read subtraction sentences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8 - 4 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number Sentences",
+      "subcategory": "Complete Subtraction",
+      "learningOutcome": "Read subtraction sentences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 - 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number Sentences",
+      "subcategory": "Complete Subtraction",
+      "learningOutcome": "Read subtraction sentences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "7 - 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number Sentences",
+      "subcategory": "Complete Subtraction",
+      "learningOutcome": "Read subtraction sentences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 - __ = 3",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Subtrahend",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8 - 3 = __",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Result",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "__ - 2 = 4",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Starting Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "__ - 3 = 5",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Starting Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "9 - 4 = __",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Subtraction Facts",
+      "subcategory": "Facts to 10",
+      "learningOutcome": "Recall subtraction facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia has 8 apples. She eats 3. How many are left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Application",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Mia has 8 apples. She eats 3. How many are left?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sam has 10 balloons. He loses 4. How many are left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Application",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sam has 10 balloons. He loses 4. How many are left?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "Ava has 7 stars. She gives away 2. How many are left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Application",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Ava has 7 stars. She gives away 2. How many are left?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "10 - __ = 4",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate subtraction skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "__ - 5 = 5",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate subtraction skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,405 @@
+{
+  "id": "quiz-47",
+  "title": "Prep 5.03",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Subtract objects to 10 | Count remaining | Apply subtraction | Mastery",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "🍎🍎🍎🍎🍎 take away 🍎🍎 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "⭐⭐⭐⭐⭐⭐ take away ⭐⭐ = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🚗🚗🚗🚗🚗🚗 take away 🚗🚗🚗 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐶🐶🐶🐶🐶🐶🐶 take away 🐶🐶 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐟🐟🐟🐟🐟🐟🐟🐟 take away 🐟🐟🐟 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍎🍎🍎🍎🍎🍎🍎 take away 🍎🍎 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "⭐⭐⭐⭐⭐⭐⭐⭐ take away ⭐⭐⭐ = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🚗🚗🚗🚗🚗🚗🚗🚗🚗 take away 🚗🚗🚗 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "5",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐶🐶🐶🐶🐶🐶 take away 🐶🐶🐶🐶 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "1",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐟🐟🐟🐟🐟🐟🐟 take away 🐟🐟 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Subtraction",
+      "subcategory": "Take Away Objects",
+      "learningOutcome": "Subtract objects to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8 take away 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Count Remaining",
+      "learningOutcome": "Count remaining",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "9 take away 3 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Count Remaining",
+      "learningOutcome": "Count remaining",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 take away 4 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Count Remaining",
+      "learningOutcome": "Count remaining",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "7 take away 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Recognition",
+      "subcategory": "Count Remaining",
+      "learningOutcome": "Count remaining",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 take away 3 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Recognition",
+      "subcategory": "Count Remaining",
+      "learningOutcome": "Count remaining",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia has 8 apples. She eats 3 apples. How many are left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "8",
+      "category": "Application",
+      "subcategory": "Real World Take Away",
+      "learningOutcome": "Apply subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Mia has 8 apples. She eats 3 apples. How many are left?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sam has 9 balloons. He gives away 4 balloons. How many are left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "9",
+      "category": "Application",
+      "subcategory": "Real World Take Away",
+      "learningOutcome": "Apply subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sam has 9 balloons. He gives away 4 balloons. How many are left?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "Ava has 10 stars. She gives away 3 stars. How many are left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "10",
+      "category": "Application",
+      "subcategory": "Real World Take Away",
+      "learningOutcome": "Apply subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Ava has 10 stars. She gives away 3 stars. How many are left?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "10 take away 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "9 take away 6 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "1",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    }
+  ]
+}

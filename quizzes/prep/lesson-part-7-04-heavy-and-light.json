@@ -1,0 +1,372 @@
+{
+  "id": "quiz-68",
+  "title": "Prep 7.04",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Compare weight | Compare weights | Apply weight concepts | Consolidate weight concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which is heavier: elephant or mouse?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Elephant",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Elephant",
+      "category": "Weight",
+      "subcategory": "Identify Heavy",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Elephant.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: brick or feather?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Brick",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Brick",
+      "category": "Weight",
+      "subcategory": "Identify Heavy",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Brick.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: school bag or pencil?",
+      "resultType": "multiple-choice",
+      "options": [
+        "School Bag",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "School Bag",
+      "category": "Weight",
+      "subcategory": "Identify Heavy",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is School Bag.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: table or book?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Table",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Table",
+      "category": "Weight",
+      "subcategory": "Identify Heavy",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Table.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: car or bicycle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Car",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Car",
+      "category": "Weight",
+      "subcategory": "Identify Heavy",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Car.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: elephant or mouse?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Mouse",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Mouse",
+      "category": "Weight",
+      "subcategory": "Identify Light",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Mouse.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: brick or feather?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Feather",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Feather",
+      "category": "Weight",
+      "subcategory": "Identify Light",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Feather.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: school bag or pencil?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Pencil",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Pencil",
+      "category": "Weight",
+      "subcategory": "Identify Light",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Pencil.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: table or book?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Book",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Book",
+      "category": "Weight",
+      "subcategory": "Identify Light",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Book.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: car or bicycle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bicycle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bicycle",
+      "category": "Weight",
+      "subcategory": "Identify Light",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bicycle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A brick is heavier than a feather. Which is heavier?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Brick",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Brick",
+      "category": "Weight Comparison",
+      "subcategory": "Compare Weights",
+      "learningOutcome": "Compare weights",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Brick.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A mouse is lighter than a cat. Which is lighter?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Mouse",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Mouse",
+      "category": "Weight Comparison",
+      "subcategory": "Compare Weights",
+      "learningOutcome": "Compare weights",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Mouse.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A table is heavier than a chair. Which is heavier?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Table",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Table",
+      "category": "Weight Comparison",
+      "subcategory": "Compare Weights",
+      "learningOutcome": "Compare weights",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Table.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A pencil is lighter than a book. Which is lighter?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Pencil",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Pencil",
+      "category": "Weight Comparison",
+      "subcategory": "Compare Weights",
+      "learningOutcome": "Compare weights",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Pencil.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A truck is heavier than a bicycle. Which is heavier?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Truck",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Truck",
+      "category": "Weight Comparison",
+      "subcategory": "Compare Weights",
+      "learningOutcome": "Compare weights",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Truck.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would usually be heavier: watermelon or grape?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Watermelon",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Watermelon",
+      "category": "Application",
+      "subcategory": "Everyday Weight",
+      "learningOutcome": "Apply weight concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Watermelon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would usually be lighter: refrigerator or pencil?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Pencil",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Pencil",
+      "category": "Application",
+      "subcategory": "Everyday Weight",
+      "learningOutcome": "Apply weight concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Pencil.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would usually be heavier: dog or ant?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Dog",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Dog",
+      "category": "Application",
+      "subcategory": "Everyday Weight",
+      "learningOutcome": "Apply weight concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Dog.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word describes an elephant compared to a mouse?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Heavy",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Heavy",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate weight concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Heavy.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word describes a feather compared to a brick?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Light",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Light",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate weight concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Light.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,394 @@
+{
+  "id": "quiz-98",
+  "title": "Prep 10.04",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Count in 5s | Understand groups | Group counting | Repeated addition | Equal groups",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "✋✋ → How many fingers in total?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "2010",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "✋✋ → How many fingers in total?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "✋ ✋ ✋ → Total fingers?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "15",
+        "20",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "✋ ✋ ✋ ✋ → Total fingers?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍎🍎🍎🍎🍎 + 🍎🍎🍎🍎🍎 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "10",
+        "2015",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍪🍪🍪🍪🍪 + 🍪🍪🍪🍪🍪 + 🍪🍪🍪🍪🍪 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "15",
+        "20",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "⭐⭐⭐⭐⭐ + ⭐⭐⭐⭐⭐ + ⭐⭐⭐⭐⭐ + ⭐⭐⭐⭐⭐ = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "👟👟👟👟👟 → How many in 1 group?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Understand groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "👟👟👟👟👟 → How many in 1 group?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "2 groups of 5 apples = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "2010",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 groups of 5 stars = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "15",
+        "20",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 groups of 5 balls = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 stickers in each pack. 2 packs = ? stickers",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "2012",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "Simple Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 apples in each bag. 3 bags = ? apples",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "15",
+        "20",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Word Problems",
+      "subcategory": "Simple Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 cars in each row. 4 rows = ? cars",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Word Problems",
+      "subcategory": "Simple Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 ducks in each pond. 2 ponds = ? ducks",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "2012",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "Simple Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 books per shelf. 5 shelves = ? books",
+      "resultType": "multiple-choice",
+      "options": [
+        "20",
+        "25",
+        "30",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Word Problems",
+      "subcategory": "Simple Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 + 5 + 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "15",
+        "20",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Repeated addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 + 5 + 5 + 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Repeated addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 groups of 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "2010",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 groups of 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "15",
+        "20",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 groups of 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    }
+  ]
+}

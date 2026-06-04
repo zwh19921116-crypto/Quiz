@@ -1,0 +1,372 @@
+{
+  "id": "quiz-26",
+  "title": "Prep 3.02",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Identify equal quantities | Compare quantities | Match equal groups | Recognise equal numbers | Compare numbers | Apply equality | Mastery",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Do these groups have the same number? 🍎🍎 and 🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Comparing",
+      "subcategory": "Same Quantity",
+      "learningOutcome": "Identify equal quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Do these groups have the same number? ⭐⭐⭐ and ⭐⭐⭐",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Comparing",
+      "subcategory": "Same Quantity",
+      "learningOutcome": "Identify equal quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Do these groups have the same number? 🚗🚗 and 🚗🚗🚗",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Comparing",
+      "subcategory": "Same Quantity",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Do these groups have the same number? 🐶🐶🐶🐶 and 🐶🐶🐶🐶",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Comparing",
+      "subcategory": "Same Quantity",
+      "learningOutcome": "Identify equal quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Do these groups have the same number? 🐟🐟🐟 and 🐟🐟",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Comparing",
+      "subcategory": "Same Quantity",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the same number as 🍎🍎🍎?",
+      "resultType": "multiple-choice",
+      "options": [
+        "🍎🍎",
+        "🍎🍎🍎",
+        "🍎🍎🍎🍎",
+        ""
+      ],
+      "correctAnswer": "🍎🍎",
+      "category": "Comparing",
+      "subcategory": "Match Equal Groups",
+      "learningOutcome": "Match equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 🍎🍎.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the same number as ⭐⭐⭐⭐?",
+      "resultType": "multiple-choice",
+      "options": [
+        "⭐⭐⭐",
+        "⭐⭐⭐⭐",
+        "⭐⭐⭐⭐⭐",
+        ""
+      ],
+      "correctAnswer": "⭐⭐⭐",
+      "category": "Comparing",
+      "subcategory": "Match Equal Groups",
+      "learningOutcome": "Match equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is ⭐⭐⭐.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the same number as 🚗🚗?",
+      "resultType": "multiple-choice",
+      "options": [
+        "🚗",
+        "🚗🚗",
+        "🚗🚗🚗",
+        ""
+      ],
+      "correctAnswer": "🚗",
+      "category": "Comparing",
+      "subcategory": "Match Equal Groups",
+      "learningOutcome": "Match equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 🚗.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the same number as 🐶🐶🐶🐶🐶?",
+      "resultType": "multiple-choice",
+      "options": [
+        "🐶🐶🐶🐶",
+        "🐶🐶🐶🐶🐶",
+        "🐶🐶🐶",
+        ""
+      ],
+      "correctAnswer": "🐶🐶🐶🐶",
+      "category": "Comparing",
+      "subcategory": "Match Equal Groups",
+      "learningOutcome": "Match equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 🐶🐶🐶🐶.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the same number as 🐟🐟🐟🐟?",
+      "resultType": "multiple-choice",
+      "options": [
+        "🐟🐟🐟",
+        "🐟🐟🐟🐟",
+        "🐟🐟",
+        ""
+      ],
+      "correctAnswer": "🐟🐟🐟",
+      "category": "Comparing",
+      "subcategory": "Match Equal Groups",
+      "learningOutcome": "Match equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 🐟🐟🐟.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is the same as 4?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Recognition",
+      "subcategory": "Equal Numbers",
+      "learningOutcome": "Recognise equal numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is the same as 7?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "8",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Recognition",
+      "subcategory": "Equal Numbers",
+      "learningOutcome": "Recognise equal numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is the same as 10?",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Recognition",
+      "subcategory": "Equal Numbers",
+      "learningOutcome": "Recognise equal numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Are 5 and 5 the same?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Recognition",
+      "subcategory": "Equal Numbers",
+      "learningOutcome": "Recognise equal numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Are 8 and 7 the same?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Recognition",
+      "subcategory": "Equal Numbers",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia has 3 apples. Tom has 3 apples. Do they have the same amount?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Application",
+      "subcategory": "Real World Equality",
+      "learningOutcome": "Apply equality",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Sam has 5 balloons. Ben has 4 balloons. Do they have the same amount?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Application",
+      "subcategory": "Real World Equality",
+      "learningOutcome": "Apply equality",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Ava has 6 stars. Leo has 6 stars. Do they have the same amount?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Application",
+      "subcategory": "Real World Equality",
+      "learningOutcome": "Apply equality",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the same number as 🍎🍎🍎🍎?",
+      "resultType": "multiple-choice",
+      "options": [
+        "🍎🍎🍎",
+        "🍎🍎🍎🍎",
+        "🍎🍎🍎🍎🍎",
+        ""
+      ],
+      "correctAnswer": "🍎🍎🍎",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 🍎🍎🍎.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Are 9 and 9 the same?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    }
+  ]
+}

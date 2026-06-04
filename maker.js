@@ -162,6 +162,20 @@ const ALLOWED_IMPORT_GRADE_CATEGORIES = [
   "Grade 6"
 ];
 
+const IMPORT_TEMPLATE_HEADERS = [
+  "Grade",
+  "Module",
+  "Lesson Part",
+  "Lesson Name",
+  "Category",
+  "Subcategory",
+  "Q No",
+  "Question Type",
+  "Question",
+  "Options",
+  "Learning Outcome"
+];
+
 const IMPORT_GRADE_ALIASES = {
   prep: "Prep",
   preprimary: "Prep",
@@ -221,7 +235,7 @@ function showToast(message, variant = "info") {
     window.setTimeout(() => {
       toast.remove();
     }, 220);
-  }, 2200);
+  }, 3500);
 }
 
 function isTypingInField(target) {
@@ -7834,17 +7848,29 @@ function normalizeIconCountConfig(config) {
   };
 }
 
-function buildIconCountPreviewMarkup(config) {
+function normalizeIconCountPromptForComparison(value) {
+  return String(value || "")
+    .replace(/[\u2600-\u27BF\u{1F300}-\u{1FAFF}]/gu, "")
+    .replace(/[?!.:,;]+/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function buildIconCountPreviewMarkup(config, context = {}) {
   const normalized = normalizeIconCountConfig(config);
   const iconGlyph = normalized.iconShape === "star"
     ? "&#9733;"
     : normalized.iconShape === "apple"
       ? "&#127822;"
       : "";
+  const questionPrompt = String(context.questionText || "").trim();
+  const isDuplicatePrompt = normalizeIconCountPromptForComparison(normalized.prompt) !== ""
+    && normalizeIconCountPromptForComparison(normalized.prompt) === normalizeIconCountPromptForComparison(questionPrompt);
   return `
     <div class="simple-card icon-count-card">
       <p class="bar-chart-title">Icon Count</p>
-      <p class="helper-text">${escapeInteractiveHtml(normalized.prompt)}</p>
+      ${isDuplicatePrompt ? "" : `<p class="helper-text">${escapeInteractiveHtml(normalized.prompt)}</p>`}
       <div class="icon-count-groups">
         ${normalized.groups.map((group, groupIndex) => `
           <div class="icon-count-group" aria-label="Group ${groupIndex + 1}: ${group} icons">
@@ -8151,7 +8177,7 @@ function buildTimePreviewMarkup(config) {
   `;
 }
 
-function buildInteractiveAppMarkup(app) {
+function buildInteractiveAppMarkup(app, context = {}) {
   if (!app || !app.type) return "<p class='helper-text'>Choose a template to add an optional interactive math visual.</p>";
   switch (app.type) {
     case "time":
@@ -8161,7 +8187,7 @@ function buildInteractiveAppMarkup(app) {
     case "number-ordering":
       return buildNumberOrderingPreviewMarkup(app.config || {});
     case "icon-count":
-      return buildIconCountPreviewMarkup(app.config || {});
+      return buildIconCountPreviewMarkup(app.config || {}, context);
     case "calendar-sequence":
       return buildCalendarSequencePreviewMarkup(app.config || {});
     case "arithmetic":
@@ -9263,6 +9289,101 @@ function closeImportModal() {
   document.body.classList.remove("modal-open");
 }
 
+function setResultValidationFullscreen(enabled) {
+  const modal = document.getElementById("resultValidationModal");
+  const toggleBtn = document.getElementById("toggleResultValidationFullscreenBtn");
+  if (!(modal instanceof HTMLElement) || !(toggleBtn instanceof HTMLButtonElement)) return;
+
+  const next = Boolean(enabled);
+  modal.classList.toggle("result-validation-fullscreen", next);
+  toggleBtn.textContent = next ? "Exit Full Screen" : "Full Screen";
+  toggleBtn.setAttribute("aria-pressed", next ? "true" : "false");
+  window.requestAnimationFrame(() => {
+    refreshResultValidationFullscreenLayout();
+  });
+}
+
+function toggleResultValidationFullscreen() {
+  const modal = document.getElementById("resultValidationModal");
+  if (!(modal instanceof HTMLElement)) return;
+  const active = modal.classList.contains("result-validation-fullscreen");
+  setResultValidationFullscreen(!active);
+}
+
+function refreshResultValidationFullscreenLayout() {
+  const modal = document.getElementById("resultValidationModal");
+  const dialog = modal ? modal.querySelector(".viewer-modal-dialog") : null;
+  const tableContainer = document.getElementById("resultValidationTableContainer");
+  const detailGrid = document.getElementById("resultValidationDetailGrid");
+  if (!(modal instanceof HTMLElement)
+    || !(dialog instanceof HTMLElement)
+    || !(tableContainer instanceof HTMLElement)
+    || !(detailGrid instanceof HTMLElement)) {
+    return;
+  }
+
+  const inFullscreen = modal.classList.contains("result-validation-fullscreen") && !modal.classList.contains("hidden");
+  if (!inFullscreen) {
+    const defaultMaxHeight = String(tableContainer.dataset.normalMaxHeight || "520px");
+    tableContainer.style.height = "";
+    tableContainer.style.maxHeight = defaultMaxHeight;
+    detailGrid.style.height = "";
+    return;
+  }
+
+  const dialogRect = dialog.getBoundingClientRect();
+  const tableTop = tableContainer.getBoundingClientRect().top;
+  const tip = document.getElementById("resultValidationTip");
+  const tipHeight = tip instanceof HTMLElement ? tip.getBoundingClientRect().height : 0;
+  const tableBottomPadding = 14;
+  const maxTableHeight = Math.max(240, Math.floor(dialogRect.bottom - tableTop - tipHeight - tableBottomPadding));
+  tableContainer.style.height = `${maxTableHeight}px`;
+  tableContainer.style.maxHeight = `${maxTableHeight}px`;
+
+  const detailTop = detailGrid.getBoundingClientRect().top;
+  const detailBottomPadding = 12;
+  const maxDetailHeight = Math.max(220, Math.floor(dialogRect.bottom - detailTop - detailBottomPadding));
+  detailGrid.style.height = `${maxDetailHeight}px`;
+}
+
+function setupResultValidationTableContainerScrollControls() {
+  const modal = document.getElementById("resultValidationModal");
+  const tableContainer = document.getElementById("resultValidationTableContainer");
+  if (!(modal instanceof HTMLElement) || !(tableContainer instanceof HTMLElement)) return;
+
+  tableContainer.addEventListener("wheel", (event) => {
+    if (!modal.classList.contains("result-validation-fullscreen")) return;
+    const canScroll = tableContainer.scrollHeight > tableContainer.clientHeight;
+    if (!canScroll) return;
+    event.preventDefault();
+    tableContainer.scrollTop += event.deltaY;
+  }, { passive: false });
+
+  tableContainer.addEventListener("keydown", (event) => {
+    if (!modal.classList.contains("result-validation-fullscreen")) return;
+    const page = Math.max(120, Math.floor(tableContainer.clientHeight * 0.85));
+    if (event.key === "PageDown") {
+      event.preventDefault();
+      tableContainer.scrollTop += page;
+      return;
+    }
+    if (event.key === "PageUp") {
+      event.preventDefault();
+      tableContainer.scrollTop -= page;
+      return;
+    }
+    if (event.key === "Home") {
+      event.preventDefault();
+      tableContainer.scrollTop = 0;
+      return;
+    }
+    if (event.key === "End") {
+      event.preventDefault();
+      tableContainer.scrollTop = tableContainer.scrollHeight;
+    }
+  });
+}
+
 function openResultValidationModal() {
   const quiz = activeQuiz();
   if (!quiz) {
@@ -9272,14 +9393,20 @@ function openResultValidationModal() {
 
   const modal = document.getElementById("resultValidationModal");
   if (!(modal instanceof HTMLElement)) return;
+  setResultValidationFullscreen(false);
   modal.classList.remove("hidden");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
+  window.requestAnimationFrame(() => {
+    refreshResultValidationFullscreenLayout();
+  });
 }
 
 function closeResultValidationModal() {
   const modal = document.getElementById("resultValidationModal");
   if (!(modal instanceof HTMLElement)) return;
+  setResultValidationFullscreen(false);
+  refreshResultValidationFullscreenLayout();
   modal.classList.add("hidden");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
@@ -10640,6 +10767,10 @@ document.getElementById("openResultValidationBtn").addEventListener("click", () 
   runResultValidation(false);
 });
 
+document.getElementById("downloadImportTemplateBtn").addEventListener("click", () => {
+  downloadImportTemplateCsv();
+});
+
 document.getElementById("runResultValidationBtn").addEventListener("click", () => {
   runResultValidation(false);
 });
@@ -10708,6 +10839,93 @@ document.getElementById("applyResultValidationFixBtn").addEventListener("click",
   showToast("Proposed update applied.", "success");
 });
 
+document.getElementById("saveResultValidationQuestionBtn").addEventListener("click", async () => {
+  const button = document.getElementById("saveResultValidationQuestionBtn");
+  const editor = document.getElementById("resultValidationQuestionEditor");
+  const quiz = activeQuiz();
+  if (!(button instanceof HTMLButtonElement)
+    || !(editor instanceof HTMLTextAreaElement)
+    || !quiz
+    || !Array.isArray(quiz.questions)) {
+    return;
+  }
+
+  if (String(button.dataset.editing || "") !== "true") {
+    showToast("Click Edit Question first.", "info");
+    return;
+  }
+
+  const questionIndex = Number.parseInt(button.dataset.questionIndex || "", 10);
+  if (!Number.isInteger(questionIndex) || questionIndex < 0 || questionIndex >= quiz.questions.length) {
+    showToast("Select a row first.", "warning");
+    return;
+  }
+
+  const nextQuestionText = String(editor.value || "").trim();
+  if (!nextQuestionText) {
+    showToast("Question text cannot be empty.", "warning");
+    return;
+  }
+
+  const currentQuestion = quiz.questions[questionIndex];
+  const previousText = String(currentQuestion && currentQuestion.question || "").trim();
+  if (normalizeWhitespace(previousText) === normalizeWhitespace(nextQuestionText)) {
+    showToast("No question changes to save.", "info");
+    return;
+  }
+
+  currentQuestion.question = nextQuestionText;
+  state.selectedQuestionIndex = questionIndex;
+
+  renderAll();
+  await persistSelectedQuizAfterMutation("Question edit from validator");
+  runResultValidation(Boolean(pendingResultValidation && pendingResultValidation.aiMode));
+  renderResultValidationDetail(questionIndex);
+  showToast("Question updated from validator.", "success");
+});
+
+document.getElementById("resultValidationPreviewCard").addEventListener("click", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLElement)) return;
+  const actionButton = target.closest("button[data-validator-edit-action]");
+  if (!(actionButton instanceof HTMLButtonElement)) return;
+
+  const action = String(actionButton.dataset.validatorEditAction || "").trim().toLowerCase();
+  const editor = document.getElementById("resultValidationQuestionEditor");
+  const saveBtn = document.getElementById("saveResultValidationQuestionBtn");
+  const startBtn = document.querySelector("button[data-validator-edit-action='start']");
+  const cancelBtn = document.querySelector("button[data-validator-edit-action='cancel']");
+  if (!(editor instanceof HTMLTextAreaElement)
+    || !(saveBtn instanceof HTMLButtonElement)
+    || !(startBtn instanceof HTMLButtonElement)
+    || !(cancelBtn instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  if (action === "start") {
+    editor.readOnly = false;
+    editor.style.background = "#ffffff";
+    editor.style.borderColor = "#1f6feb";
+    saveBtn.disabled = false;
+    saveBtn.dataset.editing = "true";
+    startBtn.style.display = "none";
+    cancelBtn.style.display = "inline-flex";
+    editor.focus();
+    return;
+  }
+
+  if (action === "cancel") {
+    editor.value = String(editor.dataset.originalQuestion || "");
+    editor.readOnly = true;
+    editor.style.background = "#f8fafc";
+    editor.style.borderColor = "#cbd5e1";
+    saveBtn.disabled = true;
+    saveBtn.dataset.editing = "false";
+    startBtn.style.display = "inline-flex";
+    cancelBtn.style.display = "none";
+  }
+});
+
 document.getElementById("applyBulkResultValidationFixBtn").addEventListener("click", async () => {
   await applyBulkResultValidationFixes();
 });
@@ -10715,6 +10933,16 @@ document.getElementById("applyBulkResultValidationFixBtn").addEventListener("cli
 document.getElementById("closeResultValidationModalBtn").addEventListener("click", () => {
   closeResultValidationModal();
 });
+
+document.getElementById("toggleResultValidationFullscreenBtn").addEventListener("click", () => {
+  toggleResultValidationFullscreen();
+});
+
+window.addEventListener("resize", () => {
+  refreshResultValidationFullscreenLayout();
+});
+
+setupResultValidationTableContainerScrollControls();
 
 window.addEventListener("message", (event) => {
   const data = event && event.data ? event.data : null;
@@ -10734,6 +10962,11 @@ window.addEventListener("message", (event) => {
     type: "validation-preview-quiz",
     payload
   }, "*");
+  window.setTimeout(() => {
+    sourceWindow.postMessage({
+      type: "validation-preview-open-solution"
+    }, "*");
+  }, 260);
 });
 
 const resultValidationBackdrop = document.querySelector("[data-close-result-validation-modal='true']");
@@ -10773,8 +11006,11 @@ document.getElementById("importTableInput").addEventListener("change", async (ev
 
 document.getElementById("applyImportBtn").addEventListener("click", async () => {
   if (pendingImportValidation && pendingImportValidation.errors > 0) {
-    showToast(`Fix validation errors before applying import. Current errors: ${pendingImportValidation.errors}.`, "warning");
-    return;
+    const proceed = confirm(`Validation found ${pendingImportValidation.errors} error(s). Import now anyway and fix in Result Validation?`);
+    if (!proceed) {
+      showToast("Import canceled. Run validation cleanup first if needed.", "info");
+      return;
+    }
   }
   await applyPendingImportToMaker();
   closeImportModal();
@@ -11076,19 +11312,120 @@ function firstNumberInText(value) {
   return match ? Number.parseInt(match[0], 10) : null;
 }
 
-function inferResultTypeFromImport(questionType) {
+function inferResultTypeFromImport(questionType, options = [], question = "", templateType = "") {
   const normalized = String(questionType || "").trim().toLowerCase();
+  const questionText = String(question || "").trim().toLowerCase();
+  const normalizedTemplateType = String(templateType || "").trim().toLowerCase();
+  const optionList = Array.isArray(options) ? options.filter((item) => String(item || "").trim() !== "") : [];
+  const hasSelectionCue = /\b(select|choose|pick|which of the following|choose the correct|select the correct)\b/.test(questionText);
+  const hasOpenResponseCue = /\b(how many|what is|find|work out|calculate|solve|trace|draw|write|complete)\b/.test(questionText);
+
+  if (
+    normalized.includes("plot")
+    || normalized.includes("graph")
+    || normalizedTemplateType === "cartesian-plane"
+    || normalizedTemplateType === "cartesian-plane-plot"
+    || /\bplot\b.*\bpoint\b/.test(questionText)
+    || /\bgraph\b/.test(questionText)
+  ) {
+    return "plot";
+  }
+
   if (normalized.includes("multi select") || normalized.includes("multiselect")) return "checkbox";
+  if (/\bselect all\b/.test(questionText)) return "checkbox";
   if (normalized.includes("multiple choice")) return "multiple-choice";
-  if (normalized.includes("true") && normalized.includes("false")) return "true-false";
+
+  if (
+    normalized.includes("true") && normalized.includes("false")
+    || /\btrue\s*\/\s*false\b/.test(questionText)
+    || /\btrue or false\b/.test(questionText)
+  ) {
+    return "true-false";
+  }
+
+  if (/\btrace\b|\bdraw\b|\bwrite\b/.test(questionText) || normalizedTemplateType === "number-tracing") {
+    return "short-answer";
+  }
+
+  if (optionList.length >= 2 && hasSelectionCue && !hasOpenResponseCue) return "multiple-choice";
   return "short-answer";
+}
+
+function inferTemplateTypeFromImportRow(row) {
+  const question = String(row && row.question ? row.question : "").trim();
+  const questionType = String(row && row.questionType ? row.questionType : "").trim();
+  const category = String(row && row.category ? row.category : "").trim();
+  const subcategory = String(row && row.subcategory ? row.subcategory : "").trim();
+  const lessonPart = String(row && row.lessonPart ? row.lessonPart : "").trim();
+  const lessonName = String(row && row.lessonName ? row.lessonName : "").trim();
+  const module = String(row && row.module ? row.module : "").trim();
+
+  const combined = [question, questionType, category, subcategory, lessonPart, lessonName, module]
+    .join(" ")
+    .toLowerCase();
+
+  const hasCartesianKeyword =
+    combined.includes("cartesian")
+    || combined.includes("coordinate plane")
+    || combined.includes("coordinate grid")
+    || combined.includes("x-axis")
+    || combined.includes("x axis")
+    || combined.includes("y-axis")
+    || combined.includes("y axis")
+    || combined.includes("quadrant")
+    || combined.includes("ordered pair")
+    || combined.includes("plot point")
+    || combined.includes("point on")
+    || /\((-?\d+)\s*,\s*(-?\d+)\)/.test(question);
+
+  if (hasCartesianKeyword) {
+    return "cartesian-plane";
+  }
+
+  if (/\btrace\b|\bdraw\b|\bwrite\b/i.test(question)) {
+    return "number-tracing";
+  }
+
+  if (/what comes next\?/i.test(question)) {
+    return "number-ordering";
+  }
+
+  if (/how many|which number matches/i.test(question)) {
+    return "icon-count";
+  }
+
+  return "";
+}
+
+function inferImportCategoryFromTemplateType(templateType) {
+  const normalized = String(templateType || "").trim().toLowerCase();
+  if (normalized === "cartesian-plane" || normalized === "cartesian-plane-plot") {
+    return "cartesian-plane";
+  }
+  return "";
+}
+
+function extractCartesianPointsFromQuestionText(questionText) {
+  const points = [];
+  const text = String(questionText || "");
+  const regex = /\((-?\d+)\s*,\s*(-?\d+)\)/g;
+  let match = regex.exec(text);
+  while (match) {
+    const x = Number.parseInt(match[1], 10);
+    const y = Number.parseInt(match[2], 10);
+    if (Number.isInteger(x) && Number.isInteger(y)) {
+      points.push({ x, y, label: points.length === 0 ? "P" : `P${points.length + 1}`, color: "#2563eb" });
+    }
+    match = regex.exec(text);
+  }
+  return points;
 }
 
 function inferAnswerFromImportRow(row) {
   const question = String(row.question || "").trim();
   const qLower = question.toLowerCase();
   const options = Array.isArray(row.options) ? row.options : [];
-  const baseResultType = inferResultTypeFromImport(row.questionType);
+  const baseResultType = inferResultTypeFromImport(row.questionType, options);
 
   const nextMatch = question.match(/what comes next\?\s*(\d+)\s*,\s*(\d+)\s*,\s*__/i);
   if (nextMatch) {
@@ -11181,10 +11518,27 @@ function summarizeModuleLearningOutcomes(rows) {
   return outcomes.join(" | ");
 }
 
-function buildInteractiveAppFromImport(row, answer) {
+function buildInteractiveAppFromImport(row, answer, templateType = "") {
   const question = String(row.question || "").trim();
   const qLower = question.toLowerCase();
   const numericAnswer = Number.parseInt(String(answer || ""), 10);
+  const normalizedTemplateType = String(templateType || "").trim().toLowerCase();
+
+  if (normalizedTemplateType === "cartesian-plane" || normalizedTemplateType === "cartesian-plane-plot") {
+    const base = buildDefaultInteractiveApp("cartesian-plane");
+    const app = {
+      type: "cartesian-plane",
+      config: base && base.config ? { ...base.config } : {}
+    };
+    const points = extractCartesianPointsFromQuestionText(question);
+    if (points.length > 0) {
+      app.config.points = points;
+      app.config.segments = [];
+      app.config.parabolas = [];
+      app.config.functions = [];
+    }
+    return app;
+  }
 
   if ((qLower.includes("trace") || qLower.includes("draw") || qLower.includes("write")) && Number.isInteger(numericAnswer)) {
     return {
@@ -11444,7 +11798,7 @@ function validateImportedRows(rows) {
       issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "Subcategory is blank." });
     }
 
-    const inferredType = inferResultTypeFromImport(questionType);
+    const inferredType = inferResultTypeFromImport(questionType, options);
     const knownType = ["multiple-choice", "checkbox", "true-false", "short-answer", "matching", "ordering"].includes(inferredType);
     if (!knownType) {
       issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: `Unknown question type: ${row.questionType || "(blank)"}.` });
@@ -11813,7 +12167,118 @@ function computeExpectedAnswerForQuestion(question) {
     }
   }
 
+  // Fallback heuristic for imported content when no deterministic app compute exists.
+  const importLikeRow = {
+    question: String(question.question || "").trim(),
+    questionType: String(question.resultType || "").trim(),
+    options: Array.isArray(question.options) ? question.options.slice() : [],
+    category: String(question.category || "").trim(),
+    subcategory: String(question.subcategory || "").trim(),
+    lessonPart: "",
+    lessonName: "",
+    module: ""
+  };
+  const detectedTemplateType = inferTemplateTypeFromImportRow(importLikeRow);
+  const inferred = inferAnswerFromImportRow(importLikeRow, detectedTemplateType);
+  if (inferred && String(inferred.correctAnswer || "").trim()) {
+    return {
+      value: String(inferred.correctAnswer || "").trim(),
+      source: "heuristic-text"
+    };
+  }
+
   return { value: "", source: "none" };
+}
+
+function inferImportSubcategoryFromTemplateType(templateType, questionText = "") {
+  const normalized = String(templateType || "").trim().toLowerCase();
+  const q = String(questionText || "").trim().toLowerCase();
+
+  if (normalized === "cartesian-plane" || normalized === "cartesian-plane-plot") {
+    if (q.includes("quadrant")) return "quadrant-identification";
+    if (q.includes("point") || /\((-?\d+)\s*,\s*(-?\d+)\)/.test(q)) return "point-on-axes";
+    return "linear";
+  }
+  if (normalized === "number-line") return "linear";
+  if (normalized === "time") {
+    if (q.includes("analog")) return "analog";
+    if (q.includes("digital")) return "digital";
+    return "digital";
+  }
+  if (normalized === "fractions") return "fractions";
+  if (normalized === "number-tracing") return "number-tracing";
+  if (normalized === "number-ordering") return "ordering";
+  if (normalized === "icon-count") return "counting";
+  return "";
+}
+
+function inferValidationCategorySubcategory(question) {
+  const rowLike = {
+    question: String(question && question.question || "").trim(),
+    questionType: String(question && question.resultType || "").trim(),
+    category: String(question && question.category || "").trim(),
+    subcategory: String(question && question.subcategory || "").trim(),
+    lessonPart: "",
+    lessonName: "",
+    module: ""
+  };
+
+  const templateType = inferTemplateTypeFromImportRow(rowLike);
+  const suggestedCategory = inferImportCategoryFromTemplateType(templateType);
+  const suggestedSubcategory = inferImportSubcategoryFromTemplateType(templateType, rowLike.question);
+
+  return {
+    templateType,
+    suggestedCategory,
+    suggestedSubcategory
+  };
+}
+
+function inferValidationTemplateTypeFromQuestion(question) {
+  const categoryText = String(question && question.category || "").trim().toLowerCase();
+  const subcategoryText = String(question && question.subcategory || "").trim().toLowerCase();
+  const combined = `${categoryText} ${subcategoryText}`;
+
+  if (combined.includes("number-tracing") || combined.includes("tracing") || combined.includes("trace")) {
+    return "number-tracing";
+  }
+  if (combined.includes("number-ordering") || combined.includes("ordering")) {
+    return "number-ordering";
+  }
+  if (combined.includes("icon-count") || combined.includes("counting")) {
+    return "icon-count";
+  }
+  if (combined.includes("cartesian") || combined.includes("coordinate") || combined.includes("quadrant")) {
+    return "cartesian-plane";
+  }
+
+  return "";
+}
+
+function buildValidationInteractiveApp(question) {
+  if (question && question.interactiveApp && typeof question.interactiveApp === "object" && question.interactiveApp.type) {
+    return JSON.parse(JSON.stringify(question.interactiveApp));
+  }
+
+  const importLikeRow = {
+    question: String(question && question.question || "").trim(),
+    questionType: String(question && question.resultType || "").trim(),
+    category: String(question && question.category || "").trim(),
+    subcategory: String(question && question.subcategory || "").trim(),
+    lessonPart: "",
+    lessonName: "",
+    module: "",
+    options: Array.isArray(question && question.options) ? question.options : []
+  };
+
+  const inferredFromQuestion = inferTemplateTypeFromImportRow(importLikeRow);
+  const inferredFromMetadata = inferValidationTemplateTypeFromQuestion(question || {});
+  const templateType = inferredFromQuestion || inferredFromMetadata;
+  if (!templateType) return null;
+
+  const answer = String(question && question.correctAnswer || "").trim();
+  const app = buildInteractiveAppFromImport(importLikeRow, answer, templateType);
+  return app && typeof app === "object" ? app : null;
 }
 
 function extractDeclaredAnswerFromSolution(solutionText) {
@@ -11836,10 +12301,13 @@ function extractDeclaredAnswerFromSolution(solutionText) {
   return "";
 }
 
-function buildResultValidationViewerPayload(question, questionIndex) {
+function buildResultValidationViewerPayload(question, questionIndex, interactiveAppOverride = null) {
   if (!question || typeof question !== "object") return "";
   const quiz = activeQuiz();
   const safeQuestion = JSON.parse(JSON.stringify(question));
+  if (interactiveAppOverride && typeof interactiveAppOverride === "object") {
+    safeQuestion.interactiveApp = JSON.parse(JSON.stringify(interactiveAppOverride));
+  }
   return {
     title: `Validation Preview (Q${questionIndex + 1})`,
     description: "Learner runtime preview from Result Validation.",
@@ -11856,11 +12324,13 @@ function renderResultValidationDetail(questionIndex) {
   const fixMeta = document.getElementById("resultValidationFixMeta");
   const fixList = document.getElementById("resultValidationFixList");
   const applyBtn = document.getElementById("applyResultValidationFixBtn");
+  const saveQuestionBtn = document.getElementById("saveResultValidationQuestionBtn");
   if (!(meta instanceof HTMLElement)
     || !(card instanceof HTMLElement)
     || !(fixMeta instanceof HTMLElement)
     || !(fixList instanceof HTMLElement)
-    || !(applyBtn instanceof HTMLButtonElement)) return;
+    || !(applyBtn instanceof HTMLButtonElement)
+    || !(saveQuestionBtn instanceof HTMLButtonElement)) return;
 
   if (!pendingResultValidation || !Array.isArray(pendingResultValidation.rows)) {
     meta.textContent = "Select a row to preview the question.";
@@ -11870,6 +12340,8 @@ function renderResultValidationDetail(questionIndex) {
     applyBtn.disabled = true;
     applyBtn.dataset.questionIndex = "";
     applyBtn.textContent = "Yes, Apply Proposed Update";
+    saveQuestionBtn.disabled = true;
+    saveQuestionBtn.dataset.questionIndex = "";
     return;
   }
 
@@ -11884,6 +12356,8 @@ function renderResultValidationDetail(questionIndex) {
     applyBtn.disabled = true;
     applyBtn.dataset.questionIndex = "";
     applyBtn.textContent = "Yes, Apply Proposed Update";
+    saveQuestionBtn.disabled = true;
+    saveQuestionBtn.dataset.questionIndex = "";
     pendingResultValidationSelectedIndex = -1;
     return;
   }
@@ -11893,13 +12367,12 @@ function renderResultValidationDetail(questionIndex) {
   const options = Array.isArray(question.options)
     ? question.options.map((item) => String(item || "").trim()).filter((item) => item !== "")
     : [];
-  const app = question && question.interactiveApp && typeof question.interactiveApp === "object"
-    ? question.interactiveApp
-    : null;
+  const app = buildValidationInteractiveApp(question);
   const appType = app && app.type ? String(app.type) : "None";
-  const interactiveMarkup = app ? buildInteractiveAppMarkup(app) : "";
-  const viewerRuntimePayload = app ? buildResultValidationViewerPayload(question, questionIndex) : null;
+  const interactiveMarkup = app ? buildInteractiveAppMarkup(app, { questionText: String(question && question.question || "") }) : "";
+  const viewerRuntimePayload = app ? buildResultValidationViewerPayload(question, questionIndex, app) : null;
   const solutionAttachments = normalizeSolutionAttachments(question && question.solutionAttachments);
+  const currentSolutionText = String(question && question.solution || "").trim();
   const questionImage = String(question && question.image || "").trim();
   const resultFeedback = row.isValid
     ? "Answer, solution, and structure are consistent."
@@ -11929,6 +12402,14 @@ function renderResultValidationDetail(questionIndex) {
     <div style="border:1px solid #e5eaf3; border-radius:10px; padding:10px; margin-bottom:10px; background:#fff;">
       <p style="margin:0 0 6px 0; font-weight:700; color:#1e293b;">Learner Question View</p>
       <div style="margin-bottom:8px;"><strong>Question:</strong><br>${escapeInteractiveHtml(String(question.question || "")).replace(/\n/g, "<br>")}</div>
+      <div style="margin-bottom:8px; border:1px solid #e5eaf3; border-radius:8px; padding:8px; background:#f8fbff;">
+        <p style="margin:0 0 6px 0; font-weight:700; color:#1e293b;">Edit Question (Inline)</p>
+        <div style="display:flex; gap:8px; align-items:center; margin-bottom:6px;">
+          <button class="btn secondary small" type="button" data-validator-edit-action="start">Edit Question</button>
+          <button class="btn secondary small" type="button" data-validator-edit-action="cancel" style="display:none;">Cancel</button>
+        </div>
+        <textarea id="resultValidationQuestionEditor" data-original-question="${escapeInteractiveHtml(String(question.question || ""))}" readonly style="width:100%; min-height:84px; border:1px solid #cbd5e1; border-radius:8px; padding:8px; font:inherit; box-sizing:border-box; background:#f8fafc;">${escapeInteractiveHtml(String(question.question || ""))}</textarea>
+      </div>
       ${questionImage ? `<div style="margin-bottom:8px;"><img src="${escapeInteractiveHtml(questionImage)}" alt="Question visual" style="max-width:100%; border-radius:8px; border:1px solid #e5eaf3;" /></div>` : ""}
       ${optionListMarkup}
       ${interactiveMarkup ? `<div style="margin-top:8px;"><strong>${escapeInteractiveHtml(appType === "None" ? "Interactive" : `Interactive: ${appType}`)}</strong><div style="margin-top:6px; border:1px solid #e5eaf3; border-radius:8px; padding:8px; background:#fff;">${interactiveMarkup}</div></div>` : ""}
@@ -11952,8 +12433,9 @@ function renderResultValidationDetail(questionIndex) {
       <div><strong>Feedback:</strong> ${escapeInteractiveHtml(resultFeedback)}</div>
     </div>
     <div style="border:1px solid #e5eaf3; border-radius:10px; padding:10px; background:#fff;">
-      <p style="margin:0 0 6px 0; font-weight:700; color:#1e293b;">Learner Solution View</p>
-      <div style="margin-bottom:8px;"><strong>Solution:</strong><br>${escapeInteractiveHtml(String(row.solution || "")).replace(/\n/g, "<br>")}</div>
+      <p style="margin:0 0 6px 0; font-weight:700; color:#1e293b;">Stored Solution Text</p>
+      <p class="helper-text" style="margin:0 0 8px 0;">Type-specific live solution rendering is shown in the Viewer runtime above.</p>
+      <div style="margin-bottom:8px;"><strong>Solution:</strong><br>${escapeInteractiveHtml(currentSolutionText).replace(/\n/g, "<br>")}</div>
       <div><strong>Solution Attachments:</strong>${solutionAttachmentMarkup}</div>
     </div>
   `;
@@ -11967,11 +12449,21 @@ function renderResultValidationDetail(questionIndex) {
           type: "validation-preview-quiz",
           payload: viewerRuntimePayload
         }, "*");
+        window.setTimeout(() => {
+          if (!frame.contentWindow) return;
+          frame.contentWindow.postMessage({
+            type: "validation-preview-open-solution"
+          }, "*");
+        }, 260);
       };
       frame.addEventListener("load", postPayload, { once: true });
       window.setTimeout(postPayload, 200);
     }
   }
+
+  saveQuestionBtn.disabled = true;
+  saveQuestionBtn.dataset.questionIndex = String(questionIndex);
+  saveQuestionBtn.dataset.editing = "false";
 
   const plan = buildResultValidationFixPlan(question, row);
   const renderFixCards = (items, { editable = false } = {}) => (Array.isArray(items) ? items : []).map((change) => {
@@ -12057,12 +12549,127 @@ function getResultValidationManualProposalEdits(questionIndex) {
     .filter((item) => item !== null);
 }
 
+function detectResultTypeFromValidationContext(question, contextRow = {}) {
+  const questionText = String(question && question.question || "").trim();
+  const questionLower = questionText.toLowerCase();
+  const hasSelectionCue = /\b(select|choose|pick|which of the following|choose the correct|select the correct)\b/.test(questionLower);
+  const hasOpenResponseCue = /\b(how many|what is|find|work out|calculate|solve|trace|draw|write|complete)\b/.test(questionLower);
+  const options = getChoiceOptions(question);
+  const answerValue = String(contextRow && contextRow.correctAnswer != null ? contextRow.correctAnswer : (question && question.correctAnswer) || "").trim();
+  const computedValue = String(contextRow && contextRow.computedAnswer != null ? contextRow.computedAnswer : "").trim();
+  const moduleType = String(contextRow && contextRow.moduleType || "").trim().toLowerCase();
+  const importedCategory = String(contextRow && contextRow.importedCategory || "").trim().toLowerCase();
+  const importedSubcategory = String(contextRow && contextRow.importedSubcategory || "").trim().toLowerCase();
+  const suggestedCategory = String(contextRow && contextRow.suggestedCategory || "").trim().toLowerCase();
+  const suggestedSubcategory = String(contextRow && contextRow.suggestedSubcategory || "").trim().toLowerCase();
+
+  const tokenPool = [moduleType, importedCategory, importedSubcategory, suggestedCategory, suggestedSubcategory, questionLower].join(" ");
+  const scores = {
+    "multiple-choice": 0,
+    "checkbox": 0,
+    "true-false": 0,
+    "short-answer": 0,
+    "plot": 0
+  };
+
+  const addScore = (type, value) => {
+    if (!Object.prototype.hasOwnProperty.call(scores, type)) return;
+    scores[type] += Number(value) || 0;
+  };
+
+  if (tokenPool.includes("cartesian-plane-plot") || /\bplot\b/.test(questionLower)) addScore("plot", 1.2);
+  if (tokenPool.includes("number-tracing") || /\btrace|draw|write\b/.test(questionLower)) addScore("short-answer", 1.1);
+  if (/\bselect all\b/.test(questionLower)) addScore("checkbox", 1.2);
+  if (/\btrue\s*\/\s*false\b|\btrue or false\b/.test(questionLower)) addScore("true-false", 1.1);
+
+  if (options.length >= 2) {
+    addScore("multiple-choice", 0.12);
+    if (hasSelectionCue && !hasOpenResponseCue) addScore("multiple-choice", 0.65);
+    const answerMatchesChoice = options.some((item) => normalizeText(item) === normalizeText(answerValue));
+    if (answerMatchesChoice && hasSelectionCue && !hasOpenResponseCue) addScore("multiple-choice", 0.4);
+    if (hasOpenResponseCue && !hasSelectionCue) addScore("short-answer", 0.65);
+
+    const tfOptions = options.map((item) => normalizeText(item));
+    if (tfOptions.includes("true") && tfOptions.includes("false")) addScore("true-false", 0.5);
+  } else {
+    addScore("short-answer", 0.55);
+  }
+
+  if (answerValue.includes(",") && options.length >= 2) {
+    const answerParts = splitAnswerTokens(answerValue);
+    const validMulti = answerParts.length >= 2
+      && answerParts.every((item) => options.some((option) => normalizeText(option) === normalizeText(item)));
+    if (validMulti) addScore("checkbox", 0.95);
+  }
+
+  if (computedValue) {
+    const computedLooksAtomic = !computedValue.includes(",") && computedValue.length <= 64;
+    const computedMatchesChoice = options.some((item) => normalizeText(item) === normalizeText(computedValue));
+    if (computedLooksAtomic && !computedMatchesChoice && !hasSelectionCue) {
+      addScore("short-answer", 0.4);
+    }
+  }
+
+  if (/\b(how many|find|work out|calculate|solve|what is)\b/.test(questionLower)) {
+    addScore("short-answer", 0.45);
+  }
+
+  const ranked = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  const best = ranked[0] || ["short-answer", 0];
+  const second = ranked[1] || ["short-answer", 0];
+  const margin = Number(best[1]) - Number(second[1]);
+
+  let confidence = Math.min(1, Math.max(0, Number(best[1]) / 1.6));
+  if (margin < 0.2) confidence *= 0.68;
+  else if (margin < 0.35) confidence *= 0.82;
+
+  return {
+    type: String(best[0] || "short-answer"),
+    confidence: Number(confidence.toFixed(2))
+  };
+}
+
+function suggestValidationResultTypeCorrection(question, row) {
+  const currentResultType = normalizeResultType(question && question.resultType);
+  const expectedFromRow = normalizeResultType(row && row.suggestedResultType);
+  const confidence = Number(row && row.suggestedResultTypeConfidence || 0);
+  if (expectedFromRow && expectedFromRow !== currentResultType && confidence >= 0.85) {
+    return expectedFromRow;
+  }
+
+  if (!["multiple-choice", "true-false"].includes(currentResultType)) return "";
+
+  const issueList = Array.isArray(row && row.issues) ? row.issues : [];
+  const hasOptionMismatchIssue = issueList.some((item) => /correct answer must match one option exactly/i.test(String(item || "")));
+  if (!hasOptionMismatchIssue) return "";
+
+  const questionText = String(question && question.question || "").trim();
+  const questionLower = questionText.toLowerCase();
+  const answerValue = String(question && question.correctAnswer || "").trim();
+  const choiceOptions = getChoiceOptions(question);
+  const answerMatchesChoice = choiceOptions.some((item) => normalizeText(item) === normalizeText(answerValue));
+  if (answerMatchesChoice) return "";
+
+  const hasSelectionCue = /\b(select|choose|pick|which of the following|true\s*or\s*false)\b/.test(questionLower);
+  const looksWordedMath = /\b(how many|what is|find|work out|calculate|solve|write|trace|draw|complete)\b/.test(questionLower);
+  const hasInteractiveApp = Boolean(question && question.interactiveApp && question.interactiveApp.type);
+  const inferredStructure = inferValidationCategorySubcategory(question || {});
+  const inferredResultType = inferResultTypeFromImport(currentResultType, choiceOptions, questionText, inferredStructure.templateType);
+
+  if (!hasSelectionCue && (looksWordedMath || hasInteractiveApp || inferredResultType === "short-answer")) {
+    return "short-answer";
+  }
+
+  return "";
+}
+
 function buildResultValidationFixPlan(question, row) {
   const notes = [];
   const updates = {};
   const changes = [];
   const proposals = [];
   const resultType = normalizeResultType(question && question.resultType);
+  let nextResultType = resultType;
   const choiceOptions = getChoiceOptions(question);
   let nextAnswer = String(question && question.correctAnswer || "").trim();
 
@@ -12131,14 +12738,26 @@ function buildResultValidationFixPlan(question, row) {
     return `There are no ${objectName}. How many ${objectName} are there?`;
   };
 
-  if (row && row.computedAnswer && !compareAnswersForResultType(resultType, nextAnswer, row.computedAnswer)) {
+  const suggestedResultType = suggestValidationResultTypeCorrection(question, row);
+  if (suggestedResultType && suggestedResultType !== resultType) {
+    updates.resultType = suggestedResultType;
+    trackChange("resultType", "Result Type", question && question.resultType, suggestedResultType);
+    nextResultType = suggestedResultType;
+    notes.push(`Switch result type to ${suggestedResultType} (question appears worded/open response).`);
+  } else if (row && row.suggestedResultType
+    && normalizeResultType(row.suggestedResultType) !== resultType
+    && Number(row.suggestedResultTypeConfidence || 0) > 0) {
+    notes.push(`Detected possible result type "${normalizeResultType(row.suggestedResultType)}" at ${Math.round(Number(row.suggestedResultTypeConfidence || 0) * 100)}% confidence. Auto-update requires 85%+ confidence.`);
+  }
+
+  if (row && row.computedAnswer && !compareAnswersForResultType(nextResultType, nextAnswer, row.computedAnswer)) {
     updates.correctAnswer = String(row.computedAnswer || "").trim();
     trackChange("correctAnswer", "Correct Answer", question && question.correctAnswer, updates.correctAnswer);
     nextAnswer = updates.correctAnswer;
     notes.push(`Update correct answer to computed value: ${nextAnswer}`);
   }
 
-  if (["multiple-choice", "true-false"].includes(resultType) && choiceOptions.length > 0) {
+  if (["multiple-choice", "true-false"].includes(nextResultType) && choiceOptions.length > 0) {
     const canonical = choiceOptions.find((item) => normalizeText(item) === normalizeText(nextAnswer));
     if (!canonical) {
       updates.correctAnswer = choiceOptions[0];
@@ -12153,7 +12772,7 @@ function buildResultValidationFixPlan(question, row) {
     }
   }
 
-  if (resultType === "checkbox" && choiceOptions.length > 0) {
+  if (nextResultType === "checkbox" && choiceOptions.length > 0) {
     const baseTokens = splitAnswerTokens(nextAnswer);
     const normalizedMap = new Map(choiceOptions.map((item) => [normalizeText(item), item]));
     const validTokens = [];
@@ -12189,7 +12808,7 @@ function buildResultValidationFixPlan(question, row) {
   const currentSolution = String(question && question.solution || "").trim();
   const declaredAnswer = extractDeclaredAnswerFromSolution(currentSolution);
   const shouldRegenerateSolution = !currentSolution
-    || (declaredAnswer && !compareAnswersForResultType(resultType, nextAnswer, declaredAnswer));
+    || (declaredAnswer && !compareAnswersForResultType(nextResultType, nextAnswer, declaredAnswer));
 
   if (shouldRegenerateSolution) {
     updates.solution = inferSolutionFromImport(question && question.question, nextAnswer);
@@ -12255,6 +12874,24 @@ function buildResultValidationFixPlan(question, row) {
 
   if (notes.length === 0 && row && !row.isValid) {
     notes.push("Issue detected. No safe automatic update, but manual proposals are provided below.");
+  }
+
+  if (row && row.suggestedCategory) {
+    const currentCategory = String(question && question.category || "").trim();
+    if (!currentCategory) {
+      updates.category = String(row.suggestedCategory || "").trim();
+      trackChange("category", "Category", currentCategory, updates.category);
+      notes.push(`Set missing category to ${updates.category}.`);
+    }
+  }
+
+  if (row && row.suggestedSubcategory) {
+    const currentSubcategory = String(question && question.subcategory || "").trim();
+    if (!currentSubcategory) {
+      updates.subcategory = String(row.suggestedSubcategory || "").trim();
+      trackChange("subcategory", "Subcategory", currentSubcategory, updates.subcategory);
+      notes.push(`Set missing subcategory to ${updates.subcategory}.`);
+    }
   }
 
   return {
@@ -12325,10 +12962,53 @@ function buildResultValidationForActiveQuiz(aiMode = false) {
       questionIssues.push(...getAiHeuristicIssues(question || {}, computed.value));
     }
 
+    const appType = question && question.interactiveApp && question.interactiveApp.type
+      ? String(question.interactiveApp.type || "").trim()
+      : "";
+    const categoryType = String(question && question.category || "").trim();
+    const subcategoryType = String(question && question.subcategory || "").trim();
+    const currentResultType = normalizeResultType(question && question.resultType);
+    const moduleType = appType || categoryType || "standard";
+    const inferredStructure = inferValidationCategorySubcategory(question || {});
+    const inferredTemplateHint = inferValidationTemplateTypeFromQuestion(question || {});
+    const detection = detectResultTypeFromValidationContext(question || {}, {
+      moduleType,
+      importedCategory: categoryType,
+      importedSubcategory: subcategoryType,
+      suggestedCategory: inferredStructure.suggestedCategory,
+      suggestedSubcategory: inferredStructure.suggestedSubcategory,
+      correctAnswer: actualAnswer,
+      computedAnswer: computed.value
+    });
+    const expectedResultType = normalizeResultType(detection.type);
+    const expectedResultTypeConfidence = Number(detection.confidence || 0);
+
+    if (expectedResultType && expectedResultType !== currentResultType && expectedResultTypeConfidence >= 0.65) {
+      questionIssues.push(`Result type mismatch: detected "${expectedResultType}" (${Math.round(expectedResultTypeConfidence * 100)}% confidence) from table context but current type is "${currentResultType}".`);
+    }
+
+    if (!appType && inferredTemplateHint) {
+      questionIssues.push(`Interactive configuration missing: metadata suggests "${inferredTemplateHint}" but interactiveApp is empty.`);
+    }
+
+    if (!categoryType && inferredStructure.suggestedCategory) {
+      questionIssues.push(`Category is missing. Suggested category: "${inferredStructure.suggestedCategory}".`);
+    }
+    if (!String(question && question.subcategory || "").trim() && inferredStructure.suggestedSubcategory) {
+      questionIssues.push(`Subcategory is missing. Suggested subcategory: "${inferredStructure.suggestedSubcategory}".`);
+    }
+
     return {
       index,
       question: String(question && question.question || "").trim(),
-      resultType: normalizeResultType(question && question.resultType),
+      resultType: currentResultType,
+      suggestedResultType: expectedResultType,
+      suggestedResultTypeConfidence: expectedResultTypeConfidence,
+      moduleType,
+      importedCategory: categoryType,
+      importedSubcategory: subcategoryType,
+      suggestedCategory: inferredStructure.suggestedCategory,
+      suggestedSubcategory: inferredStructure.suggestedSubcategory,
       options: Array.isArray(question && question.options)
         ? question.options.map((item) => String(item || "").trim()).filter((item) => item !== "")
         : [],
@@ -12370,7 +13050,7 @@ function renderResultValidation(validation) {
 
   if (!validation) {
     meta.textContent = "Select a quiz/module and run validation.";
-    body.innerHTML = '<tr><td colspan="7" style="padding:8px;">No validation run yet.</td></tr>';
+    body.innerHTML = '<tr><td colspan="12" style="padding:8px; border:1px solid #e5edf8;">No validation run yet.</td></tr>';
     exportBtn.disabled = true;
     bulkBtn.disabled = true;
     pendingResultValidationIssueFilter = "all";
@@ -12392,13 +13072,13 @@ function renderResultValidation(validation) {
   bulkBtn.disabled = redVisible === 0;
 
   if (!Array.isArray(validation.rows) || validation.rows.length === 0) {
-    body.innerHTML = '<tr><td colspan="7" style="padding:8px;">This module has no questions.</td></tr>';
+    body.innerHTML = '<tr><td colspan="12" style="padding:8px; border:1px solid #e5edf8;">This module has no questions.</td></tr>';
     renderResultValidationDetail(-1);
     return;
   }
 
   if (visibleRows.length === 0) {
-    body.innerHTML = '<tr><td colspan="7" style="padding:8px;">No rows match this filter.</td></tr>';
+    body.innerHTML = '<tr><td colspan="12" style="padding:8px; border:1px solid #e5edf8;">No rows match this filter.</td></tr>';
     renderResultValidationDetail(-1);
     return;
   }
@@ -12409,17 +13089,22 @@ function renderResultValidation(validation) {
       ? "box-shadow:inset 0 0 0 2px #1f6feb;"
       : "";
     const issueText = row.isValid
-      ? "OK"
-      : row.issues.map((item) => escapeInteractiveHtml(item)).join("<br>");
+      ? "No"
+      : `Yes (${row.issues.length})<br>${row.issues.map((item) => escapeInteractiveHtml(item)).join("<br>")}`;
     return `
       <tr data-question-index="${row.index}" style="cursor:pointer; background:${rowBg}; ${rowOutline}">
-        <td style="padding:8px; border-bottom:1px solid #eef2f8;">${row.index + 1}</td>
-        <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:360px; white-space:normal;">${escapeInteractiveHtml(row.question || "")}</td>
-        <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.resultType || "")}</td>
-        <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:200px; white-space:normal;">${escapeInteractiveHtml(row.correctAnswer || "")}</td>
-        <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:200px; white-space:normal;">${escapeInteractiveHtml(row.computedAnswer || "-")}</td>
-        <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:320px; white-space:normal;">${escapeInteractiveHtml(row.solution || "")}</td>
-        <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:380px; white-space:normal;">${issueText}</td>
+        <td style="padding:8px; border:1px solid #e5edf8;">${row.index + 1}</td>
+        <td style="padding:8px; border:1px solid #e5edf8; max-width:360px; white-space:normal;">${escapeInteractiveHtml(row.question || "")}</td>
+        <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.resultType || "")}</td>
+        <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.moduleType || "standard")}</td>
+        <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.importedCategory || "-")}</td>
+        <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.importedSubcategory || "-")}</td>
+        <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.suggestedCategory || "-")}</td>
+        <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.suggestedSubcategory || "-")}</td>
+        <td style="padding:8px; border:1px solid #e5edf8; max-width:200px; white-space:normal;">${escapeInteractiveHtml(row.correctAnswer || "")}</td>
+        <td style="padding:8px; border:1px solid #e5edf8; max-width:200px; white-space:normal;">${escapeInteractiveHtml(row.computedAnswer || "-")}</td>
+        <td style="padding:8px; border:1px solid #e5edf8; max-width:320px; white-space:normal;">${escapeInteractiveHtml(row.solution || "")}</td>
+        <td style="padding:8px; border:1px solid #e5edf8; max-width:380px; white-space:normal;">${issueText}</td>
       </tr>
     `;
   }).join("");
@@ -12521,8 +13206,17 @@ async function applyResultValidationFixForQuestion(questionIndex, { confirmApply
   if (Object.prototype.hasOwnProperty.call(plan.updates, "correctAnswer")) {
     question.correctAnswer = String(plan.updates.correctAnswer || "").trim();
   }
+  if (Object.prototype.hasOwnProperty.call(plan.updates, "resultType")) {
+    question.resultType = normalizeResultType(plan.updates.resultType);
+  }
   if (Object.prototype.hasOwnProperty.call(plan.updates, "solution")) {
     question.solution = String(plan.updates.solution || "").trim();
+  }
+  if (Object.prototype.hasOwnProperty.call(plan.updates, "category")) {
+    question.category = String(plan.updates.category || "").trim();
+  }
+  if (Object.prototype.hasOwnProperty.call(plan.updates, "subcategory")) {
+    question.subcategory = String(plan.updates.subcategory || "").trim();
   }
 
   state.selectedQuestionIndex = questionIndex;
@@ -12640,7 +13334,7 @@ function renderImportValidation(validation) {
     meta.textContent = "Validation passed. No issues found. You can apply import.";
     body.innerHTML = '<tr><td colspan="5" style="padding:8px;">No issues detected.</td></tr>';
   } else {
-    meta.textContent = `Validation found ${errors} error(s) and ${warnings} warning(s). Apply is blocked when errors exist.`;
+    meta.textContent = `Validation found ${errors} error(s) and ${warnings} warning(s). You can still apply import and clean up in Result Validation.`;
     const previewIssues = issues.slice(0, 200);
     body.innerHTML = previewIssues.map((item) => `
       <tr${Number.isInteger(item.rowIndex) && item.rowIndex >= 0 ? ` data-row-index="${item.rowIndex}" style="cursor:pointer;" title="Click to jump to this row in preview"` : ""}>
@@ -12653,7 +13347,7 @@ function renderImportValidation(validation) {
     `).join("");
   }
 
-  // Keep Apply clickable when there are validation errors so user gets a clear toast reason.
+  // Keep Apply clickable so users can import first and clean up via Result Validation.
   applyBtn.disabled = pendingImportRows.length === 0;
   exportBtn.disabled = pendingImportRows.length === 0;
 }
@@ -12712,6 +13406,32 @@ function downloadImportValidationCsv() {
   URL.revokeObjectURL(url);
 
   showToast("Validation report downloaded.", "success");
+}
+
+function downloadImportTemplateCsv() {
+  const now = new Date();
+  const yyyy = String(now.getFullYear());
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  const hh = String(now.getHours()).padStart(2, "0");
+  const mi = String(now.getMinutes()).padStart(2, "0");
+  const ss = String(now.getSeconds()).padStart(2, "0");
+  const stamp = `${yyyy}${mm}${dd}-${hh}${mi}${ss}`;
+
+  const headerRow = IMPORT_TEMPLATE_HEADERS.map((cell) => escapeCsvCell(cell)).join(",");
+  const csv = `${headerRow}\r\n`;
+  const blob = new Blob(["\uFEFF", csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = `import-template-${stamp}.csv`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+
+  showToast("Import template downloaded.", "success");
 }
 
 function renderImportPreview(rows, sourceName) {
@@ -12794,8 +13514,7 @@ async function applyPendingImportToMaker() {
       const lessonPart = moduleKey;
       const representative = moduleRows[0] || {};
       const lessonName = String(representative.lessonName || representative.module || "Imported Module").trim();
-      const moduleNumber = String(representative.module || "").trim();
-      const quizTitle = moduleNumber ? `${moduleNumber}.${lessonPart} - ${lessonName}` : `${lessonPart} - ${lessonName}`;
+      const quizTitle = `${categoryName} ${lessonPart}`;
       const sortedRows = moduleRows.slice().sort((left, right) => {
         const l = Number.isInteger(left.qNo) ? left.qNo : 0;
         const r = Number.isInteger(right.qNo) ? right.qNo : 0;
@@ -12815,14 +13534,16 @@ async function applyPendingImportToMaker() {
       quiz.settings = normalizeQuizSettings({ questionOrder: "ordered", questionLimit: sortedRows.length });
 
       quiz.questions = sortedRows.map((row) => {
-        const inferred = inferAnswerFromImportRow(row);
-        const interactiveApp = buildInteractiveAppFromImport(row, inferred.correctAnswer);
+        const templateType = inferTemplateTypeFromImportRow(row);
+        const inferred = inferAnswerFromImportRow(row, templateType);
+        const interactiveApp = buildInteractiveAppFromImport(row, inferred.correctAnswer, templateType);
+        const inferredCategory = inferImportCategoryFromTemplateType(templateType);
         const payload = {
           question: row.question,
           resultType: inferred.resultType,
           options: row.options.length > 0 ? row.options : ["", "", "", ""],
           correctAnswer: inferred.correctAnswer,
-          category: row.category || "",
+          category: row.category || inferredCategory,
           subcategory: row.subcategory || "",
           learningOutcome: row.learningOutcome || "",
           notesAttachments: [],

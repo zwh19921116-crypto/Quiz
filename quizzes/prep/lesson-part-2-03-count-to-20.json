@@ -1,0 +1,583 @@
+{
+  "id": "quiz-17",
+  "title": "Prep 2.03",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Count to 20 | Connect quantity to number | Match quantity | Count different objects | Count forward | Count forward beyond 20 | Apply counting | Mastery",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "There are 11 apples. How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "correctAnswer": "11",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count to 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 11.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 11 apples. How many apples are there?",
+          "totalCount": 11,
+          "iconShape": "circle",
+          "groups": [
+            11
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 12 apples. How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "correctAnswer": "12",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count to 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 12 apples. How many apples are there?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 13 apples. How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "13",
+        "14",
+        "15"
+      ],
+      "correctAnswer": "13",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count to 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 13.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 13 apples. How many apples are there?",
+          "totalCount": 13,
+          "iconShape": "circle",
+          "groups": [
+            13
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 14 apples. How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "correctAnswer": "14",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count to 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 14.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 14 apples. How many apples are there?",
+          "totalCount": 14,
+          "iconShape": "circle",
+          "groups": [
+            14
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 15 apples. How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        "17"
+      ],
+      "correctAnswer": "15",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count to 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 15 apples. How many apples are there?",
+          "totalCount": 15,
+          "iconShape": "circle",
+          "groups": [
+            15
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches 16 apples?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "16",
+        "17",
+        "18"
+      ],
+      "correctAnswer": "16",
+      "category": "Recognition",
+      "subcategory": "Number Recognition",
+      "learningOutcome": "Connect quantity to number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 16 apples?",
+          "totalCount": 16,
+          "iconShape": "circle",
+          "groups": [
+            16
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches 18 apples?",
+      "resultType": "multiple-choice",
+      "options": [
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "correctAnswer": "18",
+      "category": "Recognition",
+      "subcategory": "Number Recognition",
+      "learningOutcome": "Connect quantity to number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 18 apples?",
+          "totalCount": 18,
+          "iconShape": "circle",
+          "groups": [
+            18
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which group has 17 objects?",
+      "resultType": "multiple-choice",
+      "options": [
+        "16",
+        "17",
+        "18",
+        "19"
+      ],
+      "correctAnswer": "16",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 16.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has 20 objects?",
+      "resultType": "multiple-choice",
+      "options": [
+        "18",
+        "19",
+        "20",
+        "21"
+      ],
+      "correctAnswer": "18",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 18.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "There are 11 stars. How many stars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "correctAnswer": "11",
+      "category": "Counting",
+      "subcategory": "Mixed Objects",
+      "learningOutcome": "Count different objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 11.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 11 stars. How many stars are there?",
+          "totalCount": 11,
+          "iconShape": "circle",
+          "groups": [
+            11
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 15 cars. How many cars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        "17"
+      ],
+      "correctAnswer": "15",
+      "category": "Counting",
+      "subcategory": "Mixed Objects",
+      "learningOutcome": "Count different objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 15 cars. How many cars are there?",
+          "totalCount": 15,
+          "iconShape": "circle",
+          "groups": [
+            15
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 19 dogs. How many dogs are there?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "19",
+        "20",
+        "21"
+      ],
+      "correctAnswer": "19",
+      "category": "Counting",
+      "subcategory": "Mixed Objects",
+      "learningOutcome": "Count different objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 19.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 19 dogs. How many dogs are there?",
+          "totalCount": 19,
+          "iconShape": "circle",
+          "groups": [
+            19
+          ]
+        }
+      }
+    },
+    {
+      "question": "What comes next? 10,11,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "correctAnswer": "12",
+      "category": "Sequencing",
+      "subcategory": "Counting Forward",
+      "learningOutcome": "Count forward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Continue the counting pattern by 1. The next number is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-ordering",
+        "config": {
+          "prompt": "What comes next? 10,11,__",
+          "direction": "ascending",
+          "cards": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "correctOrder": [
+            10,
+            11,
+            12,
+            13
+          ]
+        }
+      }
+    },
+    {
+      "question": "What comes next? 14,15,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "16",
+        "17",
+        "18"
+      ],
+      "correctAnswer": "16",
+      "category": "Sequencing",
+      "subcategory": "Counting Forward",
+      "learningOutcome": "Count forward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Continue the counting pattern by 1. The next number is 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-ordering",
+        "config": {
+          "prompt": "What comes next? 14,15,__",
+          "direction": "ascending",
+          "cards": [
+            14,
+            15,
+            16,
+            17
+          ],
+          "correctOrder": [
+            14,
+            15,
+            16,
+            17
+          ]
+        }
+      }
+    },
+    {
+      "question": "What comes next? 19,20,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "20",
+        "21",
+        "22",
+        "23"
+      ],
+      "correctAnswer": "21",
+      "category": "Sequencing",
+      "subcategory": "Counting Forward",
+      "learningOutcome": "Count forward beyond 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Continue the counting pattern by 1. The next number is 21.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-ordering",
+        "config": {
+          "prompt": "What comes next? 19,20,__",
+          "direction": "ascending",
+          "cards": [
+            19,
+            20,
+            21,
+            22
+          ],
+          "correctOrder": [
+            19,
+            20,
+            21,
+            22
+          ]
+        }
+      }
+    },
+    {
+      "question": "Mia has 12 balloons. How many balloons does she have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "correctAnswer": "12",
+      "category": "Application",
+      "subcategory": "Real World Counting",
+      "learningOutcome": "Apply counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Mia has 12 balloons. How many balloons does she have?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "Tom has 17 apples. How many apples does Tom have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "16",
+        "17",
+        "18",
+        "19"
+      ],
+      "correctAnswer": "17",
+      "category": "Application",
+      "subcategory": "Real World Counting",
+      "learningOutcome": "Apply counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 17.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom has 17 apples. How many apples does Tom have?",
+          "totalCount": 17,
+          "iconShape": "circle",
+          "groups": [
+            17
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 20 fish in a tank. How many fish are there?",
+      "resultType": "multiple-choice",
+      "options": [
+        "18",
+        "19",
+        "20",
+        "21"
+      ],
+      "correctAnswer": "20",
+      "category": "Application",
+      "subcategory": "Real World Counting",
+      "learningOutcome": "Apply counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 20 fish in a tank. How many fish are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches 14 stars?",
+      "resultType": "multiple-choice",
+      "options": [
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "correctAnswer": "14",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 14.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 14 stars?",
+          "totalCount": 14,
+          "iconShape": "circle",
+          "groups": [
+            14
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which is the largest number?",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "15",
+        "18",
+        "20"
+      ],
+      "correctAnswer": "11",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 11.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "id": "quiz-1",
-  "title": "Numbers.1.01 - What Are Numbers?",
-  "description": "Imported from spreadsheet (Import.xlsx). Learning outcomes: Recognise numbers | Count objects | Match quantity | Number order | Apply learning",
+  "title": "Prep 1.01",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Recognise numbers | Count objects | Match quantity | Number order | Apply learning",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -71,13 +71,13 @@
         "2",
         "Dog"
       ],
-      "correctAnswer": "1, 2",
+      "correctAnswer": "1, 2, 3",
       "category": "Recognition",
       "subcategory": "Select Numbers",
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 1, 2.",
+      "solution": "Select every correct option. The correct selection is: 1, 2, 3.",
       "solutionAttachments": []
     },
     {
@@ -510,7 +510,7 @@
       ],
       "correctAnswer": "1",
       "category": "Mixed Review",
-      "subcategory": "Number Order",
+      "subcategory": "19",
       "learningOutcome": "Apply learning",
       "notesAttachments": [],
       "image": "",
@@ -528,7 +528,7 @@
       ],
       "correctAnswer": "1",
       "category": "Mixed Review",
-      "subcategory": "Number Order",
+      "subcategory": "20",
       "learningOutcome": "Apply learning",
       "notesAttachments": [],
       "image": "",

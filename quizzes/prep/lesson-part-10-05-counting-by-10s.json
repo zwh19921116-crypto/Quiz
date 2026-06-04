@@ -1,0 +1,383 @@
+{
+  "id": "quiz-99",
+  "title": "Prep 10.05",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Count in 10s | Understand base 10 | Group counting | Repeated addition | Equal groups",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "🔟 🔟 → How many in total?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "20",
+        "30",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🔟 🔟 → How many in total?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "🔟 🔟 🔟 → Total?",
+      "resultType": "multiple-choice",
+      "options": [
+        "20",
+        "30",
+        "40",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🔟 🔟 🔟 🔟 → Total?",
+      "resultType": "multiple-choice",
+      "options": [
+        "30",
+        "40",
+        "50",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 + 10 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "20",
+        "30",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 + 10 + 10 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "20",
+        "30",
+        "40",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 + 10 + 10 + 10 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "30",
+        "40",
+        "50",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🧃🧃🧃 (each pack = 10) total?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "20",
+        "30",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Understand base 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 bundles of 10 pencils = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "20",
+        "30",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 bundles of 10 sticks = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "20",
+        "30",
+        "40",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 bundles of 10 blocks = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "30",
+        "40",
+        "50",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Each box has 10 apples. 2 boxes = ? apples",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "20",
+        "30",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Word Problems",
+      "subcategory": "Simple Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Each pack has 10 cookies. 3 packs = ? cookies",
+      "resultType": "multiple-choice",
+      "options": [
+        "20",
+        "30",
+        "40",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Word Problems",
+      "subcategory": "Simple Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Each row has 10 cars. 4 rows = ? cars",
+      "resultType": "multiple-choice",
+      "options": [
+        "30",
+        "40",
+        "50",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Word Problems",
+      "subcategory": "Simple Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 bags of 10 marbles = ? marbles",
+      "resultType": "multiple-choice",
+      "options": [
+        "40",
+        "50",
+        "60",
+        ""
+      ],
+      "correctAnswer": "40",
+      "category": "Word Problems",
+      "subcategory": "Simple Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 40.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 groups of 10 pencils = ? pencils",
+      "resultType": "multiple-choice",
+      "options": [
+        "50",
+        "60",
+        "70",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Word Problems",
+      "subcategory": "Simple Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 50.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 + 10 + 10 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "20",
+        "30",
+        "40",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Repeated addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 groups of 10 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "20",
+        "30",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 groups of 10 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "20",
+        "30",
+        "40",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 groups of 10 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "30",
+        "40",
+        "50",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 groups of 10 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "40",
+        "50",
+        "60",
+        ""
+      ],
+      "correctAnswer": "40",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 40.",
+      "solutionAttachments": []
+    }
+  ]
+}

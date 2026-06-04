@@ -5,6 +5,7 @@ let score = 0;
 let answerChecked = false;
 let solutionShownForCurrentQuestion = false;
 let quizStarted = false;
+let pendingValidationPreviewShowSolution = false;
 let prestartTermsRequestId = 0;
 let cartesianPlotUserPoints = [];
 let currentDifficulty = 5;
@@ -889,6 +890,11 @@ function applySingleQuiz(quiz) {
       document.getElementById("scoreText").textContent = "Score: 0";
     } else {
       renderQuestion();
+      if (pendingValidationPreviewShowSolution) {
+        window.setTimeout(() => {
+          openValidationPreviewSolutionIfReady();
+        }, 80);
+      }
     }
   } else {
     renderPrestartIntroScreen();
@@ -962,6 +968,19 @@ function waitForValidationEmbedQuizPayload(timeoutMs = 8000) {
       // Parent handshake is optional.
     }
   });
+}
+
+function openValidationPreviewSolutionIfReady() {
+  if (!isValidationEmbedMode()) return;
+  if (!quizData || !Array.isArray(quizData.questions) || quizData.questions.length === 0) {
+    pendingValidationPreviewShowSolution = true;
+    return;
+  }
+  if (!answerChecked) {
+    checkAnswer();
+  }
+  openSolutionModal();
+  pendingValidationPreviewShowSolution = false;
 }
 
 function flattenQuizIndexEntries(indexPayload) {
@@ -6087,9 +6106,9 @@ function buildNumberOrderingMarkup(config = {}) {
 
 function normalizeIconCountConfig(config = {}) {
   const totalRaw = Number.parseInt(config.totalCount, 10);
-  const totalCount = Number.isInteger(totalRaw) ? Math.max(0, Math.min(20, totalRaw)) : 8;
+  const totalCount = Number.isInteger(totalRaw) ? Math.max(0, Math.min(20, totalRaw)) : 1;
   const iconShapeRaw = String(config.iconShape || "circle").trim().toLowerCase();
-  const iconShape = ["circle", "star", "apple"].includes(iconShapeRaw) ? iconShapeRaw : "circle";
+  let iconShape = ["circle", "star", "apple"].includes(iconShapeRaw) ? iconShapeRaw : "circle";
   let groups = Array.isArray(config.groups)
     ? config.groups.map((item) => Number.parseInt(item, 10)).filter((item) => Number.isInteger(item) && item >= 0)
     : [];
@@ -6101,6 +6120,13 @@ function normalizeIconCountConfig(config = {}) {
     groups = [totalCount];
   }
   const prompt = String(config.prompt || "How many icons are shown in total?").trim() || "How many icons are shown in total?";
+  if (iconShape === "circle") {
+    if (prompt.includes("🍎") || /\bapple(s)?\b/i.test(prompt)) {
+      iconShape = "apple";
+    } else if (prompt.includes("⭐") || prompt.includes("★") || /\bstar(s)?\b/i.test(prompt)) {
+      iconShape = "star";
+    }
+  }
   return {
     totalCount,
     groups,
@@ -6109,20 +6135,40 @@ function normalizeIconCountConfig(config = {}) {
   };
 }
 
-function buildIconCountMarkup(config = {}) {
+function normalizePromptForComparison(value) {
+  return String(value || "")
+    .replace(/[\u2600-\u27BF\u{1F300}-\u{1FAFF}]/gu, "")
+    .replace(/[?!.:,;]+/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function buildIconCountMarkup(config = {}, context = {}) {
   const normalized = normalizeIconCountConfig(config);
   const iconGlyph = normalized.iconShape === "star"
     ? "&#9733;"
     : normalized.iconShape === "apple"
       ? "&#127822;"
       : "";
+  const questionPrompt = String(context.questionText || "").trim();
+  const showCountMarkers = Boolean(context.showCountMarkers);
+  const isDuplicatePrompt = normalizePromptForComparison(normalized.prompt) !== ""
+    && normalizePromptForComparison(normalized.prompt) === normalizePromptForComparison(questionPrompt);
+  let runningIndex = 0;
   return `
     <div class="icon-count-card">
-      <p class="helper-text icon-count-prompt">${escapeHtml(normalized.prompt)}</p>
+      ${isDuplicatePrompt ? "" : `<p class="helper-text icon-count-prompt">${escapeHtml(normalized.prompt)}</p>`}
       <div class="icon-count-groups" aria-label="Icon groups for counting">
         ${normalized.groups.map((group, groupIndex) => `
           <div class="icon-count-group" aria-label="Group ${groupIndex + 1} with ${group} icons">
-            ${Array.from({ length: group }).map(() => `<span class='icon-count-dot icon-count-dot-${normalized.iconShape}'>${iconGlyph}</span>`).join("")}
+            ${Array.from({ length: group }).map(() => {
+              runningIndex += 1;
+              if (!showCountMarkers) {
+                return `<span class='icon-count-dot icon-count-dot-${normalized.iconShape}'>${iconGlyph}</span>`;
+              }
+              return `<span style="display:inline-flex; flex-direction:column; align-items:center; justify-content:flex-end; min-width:24px; margin:0 2px;"><span style="font-size:0.72rem; line-height:1; color:#475569; margin-bottom:2px;">${runningIndex}</span><span class='icon-count-dot icon-count-dot-${normalized.iconShape}'>${iconGlyph}</span></span>`;
+            }).join("")}
           </div>
         `).join("")}
       </div>
@@ -6307,7 +6353,10 @@ function updateInteractivePreview(preview, app, options = {}) {
   } else if (app.type === "number-ordering") {
     content = buildNumberOrderingMarkup(app.config || {});
   } else if (app.type === "icon-count") {
-    content = buildIconCountMarkup(app.config || {});
+    content = buildIconCountMarkup(app.config || {}, {
+      questionText: options && typeof options.questionText === "string" ? options.questionText : "",
+      showCountMarkers: Boolean(options && options.showCountMarkers)
+    });
   } else if (app.type === "time") {
     content = buildTimeClockMarkup(app.config || {}, { withReadout: true });
   } else if (app.type === "number-line") {
@@ -8456,7 +8505,10 @@ function mountInteractiveApp(host, app, options = {}) {
       <div class="interactive-app-preview"></div>
     `;
     const preview = host.querySelector(".interactive-app-preview");
-    updateInteractivePreview(preview, app);
+    updateInteractivePreview(preview, app, {
+      questionText: options && typeof options.questionText === "string" ? options.questionText : "",
+      showCountMarkers: Boolean(options && options.showCountMarkers)
+    });
     return;
   }
 
@@ -8553,11 +8605,11 @@ function buildInteractiveAppMarkup(app) {
   </div>`;
 }
 
-function wireInteractiveAppModal(modalBody, app) {
+function wireInteractiveAppModal(modalBody, app, options = {}) {
   if (!modalBody || !app || !app.type) return;
   const host = modalBody.querySelector(".interactive-app-host");
   if (!host) return;
-  mountInteractiveApp(host, cloneInteractiveApp(app));
+  mountInteractiveApp(host, cloneInteractiveApp(app), options);
 }
 // ── End Interactive App renderer ──────────────────────────────────────────
 
@@ -9456,7 +9508,9 @@ function renderQuestion() {
   if (question.interactiveApp && question.interactiveApp.type === "icon-count") {
     const iconCountHost = quizContainer.querySelector("[data-role='icon-count-host']");
     if (iconCountHost instanceof HTMLElement) {
-      mountInteractiveApp(iconCountHost, cloneInteractiveApp(question.interactiveApp));
+      mountInteractiveApp(iconCountHost, cloneInteractiveApp(question.interactiveApp), {
+        questionText: promptText
+      });
     }
   }
 
@@ -10159,7 +10213,12 @@ function prepareSolutionModal(question, expectedAnswers) {
     ${pdfPreviewsMarkup}
   `;
 
-  if (!isFractionsApp && !isMatrixApp) wireInteractiveAppModal(modalBody, solutionInteractiveApp || null);
+  if (!isFractionsApp && !isMatrixApp) {
+    wireInteractiveAppModal(modalBody, solutionInteractiveApp || null, {
+      questionText: String(question && question.question || ""),
+      showCountMarkers: Boolean(solutionInteractiveApp && solutionInteractiveApp.type === "icon-count")
+    });
+  }
 }
 
 function openSolutionModal() {
@@ -10416,6 +10475,11 @@ document.getElementById("solutionModal").addEventListener("click", (event) => {
   if (target instanceof HTMLElement && target.dataset.closeSolution === "true") {
     closeSolutionModal();
   }
+});
+window.addEventListener("message", (event) => {
+  const data = event && event.data ? event.data : null;
+  if (!data || data.type !== "validation-preview-open-solution") return;
+  openValidationPreviewSolutionIfReady();
 });
 window.addEventListener("keydown", (event) => {
   if (event.key === "ArrowDown" || event.key === "ArrowUp") {

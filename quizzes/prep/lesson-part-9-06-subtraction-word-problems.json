@@ -1,0 +1,526 @@
+{
+  "id": "quiz-90",
+  "title": "Prep 9.06",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Subtract within 20 | Two-step reasoning | Subtract fluently",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "You have 15 apples and eat 4. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Word Problems",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You have 15 apples and eat 4. How many left?",
+          "totalCount": 15,
+          "iconShape": "circle",
+          "groups": [
+            15
+          ]
+        }
+      }
+    },
+    {
+      "question": "18 birds, 6 fly away. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "12",
+        "13",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Word Problems",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "18 birds, 6 fly away. How many left?",
+          "totalCount": 18,
+          "iconShape": "circle",
+          "groups": [
+            18
+          ]
+        }
+      }
+    },
+    {
+      "question": "12 toys, you lose 3. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Word Problems",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "12 toys, you lose 3. How many left?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "20 balloons, 5 pop. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Word Problems",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "20 balloons, 5 pop. How many left?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "14 cars, 4 drive away. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Word Problems",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 14.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "14 cars, 4 drive away. How many left?",
+          "totalCount": 14,
+          "iconShape": "circle",
+          "groups": [
+            14
+          ]
+        }
+      }
+    },
+    {
+      "question": "16 apples, 7 are eaten. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Word Problems",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "16 apples, 7 are eaten. How many left?",
+          "totalCount": 16,
+          "iconShape": "circle",
+          "groups": [
+            16
+          ]
+        }
+      }
+    },
+    {
+      "question": "19 pencils, 9 are used. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "19",
+      "category": "Word Problems",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 19.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "19 pencils, 9 are used. How many left?",
+          "totalCount": 19,
+          "iconShape": "circle",
+          "groups": [
+            19
+          ]
+        }
+      }
+    },
+    {
+      "question": "17 blocks, 8 are removed. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "17",
+      "category": "Word Problems",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 17.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "17 blocks, 8 are removed. How many left?",
+          "totalCount": 17,
+          "iconShape": "circle",
+          "groups": [
+            17
+          ]
+        }
+      }
+    },
+    {
+      "question": "13 books, 2 are taken. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "13",
+      "category": "Word Problems",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 13.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "13 books, 2 are taken. How many left?",
+          "totalCount": 13,
+          "iconShape": "circle",
+          "groups": [
+            13
+          ]
+        }
+      }
+    },
+    {
+      "question": "11 cookies, 4 are eaten. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Word Problems",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 11.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "11 cookies, 4 are eaten. How many left?",
+          "totalCount": 11,
+          "iconShape": "circle",
+          "groups": [
+            11
+          ]
+        }
+      }
+    },
+    {
+      "question": "You have 10 toys, get 5 more, then lose 3. How many now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "12",
+        "13",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Word Problems",
+      "subcategory": "Multi-Step",
+      "learningOutcome": "Two-step reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You have 10 toys, get 5 more, then lose 3. How many now?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "14 apples, give away 4, then get 2 more. Total?",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "12",
+        "13",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Word Problems",
+      "subcategory": "Multi-Step",
+      "learningOutcome": "Two-step reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "18 birds, 6 fly away, 2 return. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "12",
+        "13",
+        "14",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Word Problems",
+      "subcategory": "Multi-Step",
+      "learningOutcome": "Two-step reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "18 birds, 6 fly away, 2 return. How many?",
+          "totalCount": 18,
+          "iconShape": "circle",
+          "groups": [
+            18
+          ]
+        }
+      }
+    },
+    {
+      "question": "20 cars, 5 leave, 3 return. How many now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "16",
+        "17",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Word Problems",
+      "subcategory": "Multi-Step",
+      "learningOutcome": "Two-step reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "20 cars, 5 leave, 3 return. How many now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "16 toys, 7 lost, 2 found. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Word Problems",
+      "subcategory": "Multi-Step",
+      "learningOutcome": "Two-step reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "16 toys, 7 lost, 2 found. How many?",
+          "totalCount": 16,
+          "iconShape": "circle",
+          "groups": [
+            16
+          ]
+        }
+      }
+    },
+    {
+      "question": "15 − 6 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Subtract fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "18 − 7 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Subtract fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20 − 9 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Subtract fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "17 − 8 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Subtract fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "14 − 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Subtract fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    }
+  ]
+}

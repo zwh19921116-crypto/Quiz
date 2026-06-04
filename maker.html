@@ -929,7 +929,7 @@
         <h2 id="importModalTitle">Spreadsheet Import</h2>
         <button class="icon-btn" id="closeImportModalBtn" type="button" aria-label="Close import dialog">x</button>
       </div>
-      <div class="viewer-modal-body">
+      <div class="viewer-modal-body result-validation-modal-body">
         <div class="panel-head" style="margin-bottom:8px;">
           <h2 style="margin:0;">Import Preview</h2>
           <div class="panel-head-actions">
@@ -994,7 +994,7 @@
         <h2 id="quizSettingsModalTitle">Quiz Settings</h2>
         <button class="icon-btn" id="closeQuizSettingsBtn" type="button" aria-label="Close quiz settings">x</button>
       </div>
-      <div class="viewer-modal-body">
+      <div class="viewer-modal-body result-validation-modal-body">
         <div class="quiz-settings-form">
           <label for="quizSettingsTitle">Quiz Name</label>
           <input id="quizSettingsTitle" type="text" placeholder="Quiz title" />
@@ -1025,7 +1025,10 @@
     <div class="viewer-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="resultValidationModalTitle" style="max-width:min(1260px,96vw); width:96vw;">
       <div class="viewer-modal-header">
         <h2 id="resultValidationModalTitle">Module Result Validation</h2>
-        <button class="icon-btn" id="closeResultValidationModalBtn" type="button" aria-label="Close result validation dialog">x</button>
+        <div class="viewer-modal-header-actions">
+          <button class="btn secondary small" id="toggleResultValidationFullscreenBtn" type="button" aria-label="Toggle fullscreen validation view">Full Screen</button>
+          <button class="icon-btn" id="closeResultValidationModalBtn" type="button" aria-label="Close result validation dialog">x</button>
+        </div>
       </div>
       <div class="viewer-modal-body">
         <div class="panel-head" style="margin-bottom:8px;">
@@ -1037,6 +1040,7 @@
               <option value="red">Red Only</option>
               <option value="green">Green Only</option>
             </select>
+            <button class="btn secondary" id="downloadImportTemplateBtn" type="button">Download Import Template</button>
             <button class="btn secondary" id="runResultValidationBtn" type="button">Run Validation</button>
             <button class="btn secondary" id="runAiResultValidationBtn" type="button">AI Detect (Heuristic)</button>
             <button class="btn" id="applyBulkResultValidationFixBtn" type="button" disabled>Bulk Update Red</button>
@@ -1062,36 +1066,42 @@
             <p id="summaryInteractiveIssues" style="margin:4px 0 0 0; font-size:1.1rem; font-weight:700;">0</p>
           </button>
         </div>
-        <div style="overflow:auto; border:1px solid #dbe3ee; border-radius:10px; background:#fff; max-height:520px;">
-          <table id="resultValidationTable" style="width:100%; border-collapse:collapse; min-width:1100px;">
+        <div id="resultValidationTableContainer" tabindex="0" data-normal-max-height="520px" style="overflow:auto; border:1px solid #dbe3ee; border-radius:10px; background:#fff; max-height:520px;">
+          <table id="resultValidationTable" style="width:100%; border-collapse:collapse; min-width:1320px;">
             <thead>
               <tr>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Q No</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Question</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Result Type</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Correct Answer</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Computed Answer</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Solution</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Issues</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Q No</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Question</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Result Type</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Module Type</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Category (Imported)</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Subcategory (Imported)</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Category (Auto)</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Subcategory (Auto)</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Correct Answer</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Computed Answer</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Solution</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Issues</th>
               </tr>
             </thead>
             <tbody id="resultValidationBody">
-              <tr><td colspan="7" style="padding:8px;">No validation run yet.</td></tr>
+              <tr><td colspan="12" style="padding:8px; border:1px solid #e5edf8;">No validation run yet.</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="helper-text">Tip: click any row to preview details. Red rows include proposed fixes you can apply.</p>
-        <div style="margin-top:10px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-          <div style="border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:10px;">
+        <p class="helper-text" id="resultValidationTip">Tip: click any row to preview details. Red rows include proposed fixes you can apply.</p>
+        <div id="resultValidationDetailGrid" style="margin-top:10px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div id="resultValidationPreviewPane" style="border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:10px;">
             <h3 style="margin:0 0 6px 0; font-size:1rem;">Question Preview</h3>
             <p class="helper-text" id="resultValidationPreviewMeta">Select a row to preview the question.</p>
             <div id="resultValidationPreviewCard" style="font-size:0.95rem; line-height:1.45;"></div>
           </div>
-          <div style="border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:10px;">
+          <div id="resultValidationFixPane" style="border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:10px;">
             <h3 style="margin:0 0 6px 0; font-size:1rem;">Proposed Update</h3>
             <p class="helper-text" id="resultValidationFixMeta">No fix proposal yet.</p>
             <div id="resultValidationFixList" style="font-size:0.95rem; line-height:1.45; margin-bottom:10px;"></div>
             <button class="btn" id="applyResultValidationFixBtn" type="button" disabled>Yes, Apply Proposed Update</button>
+            <button class="btn secondary" id="saveResultValidationQuestionBtn" type="button" disabled style="margin-top:8px;">Save Question Edit</button>
           </div>
         </div>
       </div>

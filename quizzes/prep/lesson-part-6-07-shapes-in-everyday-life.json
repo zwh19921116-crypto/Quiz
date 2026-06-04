@@ -1,0 +1,372 @@
+{
+  "id": "quiz-61",
+  "title": "Prep 6.07",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Identify shapes in real life | Apply shape recognition | Consolidate shape knowledge",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "What shape is a coin?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Everyday Shapes",
+      "subcategory": "Circle Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a plate?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Everyday Shapes",
+      "subcategory": "Circle Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a wheel?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Everyday Shapes",
+      "subcategory": "Circle Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a clock face?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Everyday Shapes",
+      "subcategory": "Circle Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a sticky note?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Square",
+      "category": "Everyday Shapes",
+      "subcategory": "Square Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a square floor tile?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Square",
+      "category": "Everyday Shapes",
+      "subcategory": "Square Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a checkerboard square?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Square",
+      "category": "Everyday Shapes",
+      "subcategory": "Square Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a square picture frame?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Square",
+      "category": "Everyday Shapes",
+      "subcategory": "Square Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a pizza slice?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Everyday Shapes",
+      "subcategory": "Triangle Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a nacho chip?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Everyday Shapes",
+      "subcategory": "Triangle Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a pennant flag?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Everyday Shapes",
+      "subcategory": "Triangle Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a watermelon slice?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Everyday Shapes",
+      "subcategory": "Triangle Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a door?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Everyday Shapes",
+      "subcategory": "Rectangle Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a book?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Everyday Shapes",
+      "subcategory": "Rectangle Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a ruler?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Everyday Shapes",
+      "subcategory": "Rectangle Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a television screen?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Everyday Shapes",
+      "subcategory": "Rectangle Objects",
+      "learningOutcome": "Identify shapes in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is a coin: Circle or Rectangle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Application",
+      "subcategory": "Mixed Objects",
+      "learningOutcome": "Apply shape recognition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is a pizza slice: Triangle or Square?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Application",
+      "subcategory": "Mixed Objects",
+      "learningOutcome": "Apply shape recognition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is a door: Rectangle or Circle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate shape knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is a plate: Circle or Triangle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate shape knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    }
+  ]
+}

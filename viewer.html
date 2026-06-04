@@ -55,6 +55,25 @@
     </div>
   </div>
 
+  <button class="question-nav-tab hidden" id="questionNavTab" type="button" aria-controls="questionNavPanel" aria-expanded="false">Questions</button>
+  <aside class="question-nav-panel hidden" id="questionNavPanel" aria-hidden="true">
+    <div class="question-nav-header">
+      <h3>Question Navigator</h3>
+      <button class="icon-btn" id="closeQuestionNavBtn" type="button" aria-label="Close question navigator">×</button>
+    </div>
+    <div class="question-nav-tabs" id="questionNavFilters">
+      <button class="question-nav-filter is-active" data-filter="all" type="button">All</button>
+      <button class="question-nav-filter" data-filter="unanswered" type="button">Unanswered</button>
+      <button class="question-nav-filter" data-filter="answered" type="button">Answered</button>
+    </div>
+    <p class="question-nav-meta" id="questionNavMeta">No questions loaded.</p>
+    <div class="question-nav-list" id="questionNavList"></div>
+    <div class="question-nav-footer">
+      <button class="btn secondary small" id="questionNavPrevBtn" type="button">Previous</button>
+      <button class="btn secondary small" id="questionNavNextBtn" type="button">Next</button>
+    </div>
+  </aside>
+
   <div id="solutionModal" class="viewer-modal hidden" aria-hidden="true">
     <div class="viewer-modal-backdrop" data-close-solution="true"></div>
     <div class="viewer-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="solutionModalTitle">

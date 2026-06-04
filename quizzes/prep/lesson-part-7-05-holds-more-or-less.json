@@ -1,0 +1,372 @@
+{
+  "id": "quiz-69",
+  "title": "Prep 7.05",
+  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Compare capacity | Compare containers | Apply capacity concepts | Consolidate capacity concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which holds more water: bucket or cup?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bucket",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Capacity",
+      "subcategory": "Holds More",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more water: bathtub or bottle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bathtub",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bathtub",
+      "category": "Capacity",
+      "subcategory": "Holds More",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bathtub.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more water: swimming pool or bucket?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Swimming Pool",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Swimming Pool",
+      "category": "Capacity",
+      "subcategory": "Holds More",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Swimming Pool.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more juice: jug or cup?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Jug",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Jug",
+      "category": "Capacity",
+      "subcategory": "Holds More",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Jug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more: watering can or mug?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Watering Can",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Watering Can",
+      "category": "Capacity",
+      "subcategory": "Holds More",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Watering Can.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less water: bucket or cup?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Cup",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Cup",
+      "category": "Capacity",
+      "subcategory": "Holds Less",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Cup.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less water: bathtub or bottle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bottle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bottle",
+      "category": "Capacity",
+      "subcategory": "Holds Less",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bottle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less water: swimming pool or bucket?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bucket",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Capacity",
+      "subcategory": "Holds Less",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less juice: jug or cup?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Cup",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Cup",
+      "category": "Capacity",
+      "subcategory": "Holds Less",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Cup.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less: watering can or mug?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Mug",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Mug",
+      "category": "Capacity",
+      "subcategory": "Holds Less",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Mug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bucket holds more than a cup. Which holds more?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bucket",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Capacity Comparison",
+      "subcategory": "Compare Containers",
+      "learningOutcome": "Compare containers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bottle holds less than a bathtub. Which holds less?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bottle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bottle",
+      "category": "Capacity Comparison",
+      "subcategory": "Compare Containers",
+      "learningOutcome": "Compare containers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bottle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A jug holds more than a mug. Which holds more?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Jug",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Jug",
+      "category": "Capacity Comparison",
+      "subcategory": "Compare Containers",
+      "learningOutcome": "Compare containers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Jug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A cup holds less than a bucket. Which holds less?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Cup",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Cup",
+      "category": "Capacity Comparison",
+      "subcategory": "Compare Containers",
+      "learningOutcome": "Compare containers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Cup.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A swimming pool holds more than a bath. Which holds more?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Swimming Pool",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Swimming Pool",
+      "category": "Capacity Comparison",
+      "subcategory": "Compare Containers",
+      "learningOutcome": "Compare containers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Swimming Pool.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would hold more water: fish tank or cup?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Fish Tank",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Fish Tank",
+      "category": "Application",
+      "subcategory": "Everyday Capacity",
+      "learningOutcome": "Apply capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Fish Tank.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would hold less drink: mug or bucket?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Mug",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Mug",
+      "category": "Application",
+      "subcategory": "Everyday Capacity",
+      "learningOutcome": "Apply capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Mug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would hold more: watering can or spoon?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Watering Can",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Watering Can",
+      "category": "Application",
+      "subcategory": "Everyday Capacity",
+      "learningOutcome": "Apply capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Watering Can.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word describes a bucket compared to a cup?",
+      "resultType": "multiple-choice",
+      "options": [
+        "More",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "More",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is More.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word describes a cup compared to a bathtub?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Less",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Less",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Less.",
+      "solutionAttachments": []
+    }
+  ]
+}
