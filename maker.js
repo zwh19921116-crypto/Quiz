@@ -1957,7 +1957,11 @@ function getSelectedQuizFileName() {
 
 function getQuestionValidationIssues(question) {
   const issues = [];
-  const resultType = question.resultType || "multiple-choice";
+  const resultType = normalizeResultType(question.resultType || "multiple-choice");
+  const interactiveType = String(question && question.interactiveApp && question.interactiveApp.type || "").trim().toLowerCase();
+  const interactiveConfig = question && question.interactiveApp && question.interactiveApp.config && typeof question.interactiveApp.config === "object"
+    ? question.interactiveApp.config
+    : {};
   const isCartesianPlotQuestion = Boolean(
     question
     && question.interactiveApp
@@ -1969,6 +1973,50 @@ function getQuestionValidationIssues(question) {
 
   if (!String(question.question || "").trim()) {
     issues.push("Question text is required.");
+  }
+
+  if (interactiveType) {
+    const supportedInteractiveTypes = new Set([
+      "cartesian-plane-plot",
+      "cartesian-plane",
+      "time",
+      "arithmetic",
+      "fractions",
+      "number-tracing",
+      "number-ordering",
+      "icon-count",
+      "matrix"
+    ]);
+    if (!supportedInteractiveTypes.has(interactiveType)) {
+      issues.push(`Interactive app type "${interactiveType}" is not supported by viewer answer validation.`);
+    }
+
+    const requiresShortAnswerTypes = new Set([
+      "icon-count",
+      "number-ordering",
+      "number-tracing",
+      "arithmetic",
+      "fractions",
+      "matrix"
+    ]);
+    if (requiresShortAnswerTypes.has(interactiveType) && resultType !== "short-answer") {
+      issues.push(`Result type should be short-answer for interactive type "${interactiveType}".`);
+    }
+
+    if (interactiveType === "time") {
+      const timeMode = String(interactiveConfig.mode || "").trim().toLowerCase();
+      if (timeMode === "analog-to-digital") {
+        if (!["multiple-choice", "checkbox", "true-false"].includes(resultType)) {
+          issues.push("Time mode analog-to-digital requires a choice result type (multiple-choice, checkbox, or true-false).");
+        }
+      } else if (["multiple-choice", "checkbox", "true-false"].includes(resultType)) {
+        issues.push("Time analog/digital mode should use short-answer result type.");
+      }
+    }
+
+    if (interactiveType === "cartesian-plane-plot" && resultType !== "plot") {
+      issues.push("Result type should be plot for Cartesian Plane - Plot questions.");
+    }
   }
 
   if (!isCartesianPlotQuestion && ["multiple-choice", "checkbox", "true-false"].includes(resultType) && choiceOptions.length < 2) {
