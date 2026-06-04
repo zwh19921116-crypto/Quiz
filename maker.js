@@ -11317,7 +11317,8 @@ function inferResultTypeFromImport(questionType, options = [], question = "", te
   const questionText = String(question || "").trim().toLowerCase();
   const normalizedTemplateType = String(templateType || "").trim().toLowerCase();
   const optionList = Array.isArray(options) ? options.filter((item) => String(item || "").trim() !== "") : [];
-  const hasSelectionCue = /\b(select|choose|pick|which of the following|choose the correct|select the correct)\b/.test(questionText);
+  const hasWhichNumberMatchesCue = /\bwhich number matches\b/.test(questionText);
+  const hasSelectionCue = /\b(select|choose|pick|which of the following|choose the correct|select the correct)\b/.test(questionText) || hasWhichNumberMatchesCue;
   const hasOpenResponseCue = /\b(how many|what is|find|work out|calculate|solve|trace|draw|write|complete)\b/.test(questionText);
 
   if (
@@ -11345,6 +11346,12 @@ function inferResultTypeFromImport(questionType, options = [], question = "", te
 
   if (/\btrace\b|\bdraw\b|\bwrite\b/.test(questionText) || normalizedTemplateType === "number-tracing") {
     return "short-answer";
+  }
+
+  // "Which number matches ..." is typically a choose-from-options prompt.
+  // Keep it short-answer only when there are no options to choose from.
+  if (hasWhichNumberMatchesCue) {
+    return optionList.length >= 2 ? "multiple-choice" : "short-answer";
   }
 
   if (optionList.length >= 2 && hasSelectionCue && !hasOpenResponseCue) return "multiple-choice";
@@ -12552,7 +12559,8 @@ function getResultValidationManualProposalEdits(questionIndex) {
 function detectResultTypeFromValidationContext(question, contextRow = {}) {
   const questionText = String(question && question.question || "").trim();
   const questionLower = questionText.toLowerCase();
-  const hasSelectionCue = /\b(select|choose|pick|which of the following|choose the correct|select the correct)\b/.test(questionLower);
+  const hasWhichNumberMatchesCue = /\bwhich number matches\b/.test(questionLower);
+  const hasSelectionCue = /\b(select|choose|pick|which of the following|choose the correct|select the correct)\b/.test(questionLower) || hasWhichNumberMatchesCue;
   const hasOpenResponseCue = /\b(how many|what is|find|work out|calculate|solve|trace|draw|write|complete)\b/.test(questionLower);
   const options = getChoiceOptions(question);
   const answerValue = String(contextRow && contextRow.correctAnswer != null ? contextRow.correctAnswer : (question && question.correctAnswer) || "").trim();
@@ -12585,6 +12593,7 @@ function detectResultTypeFromValidationContext(question, contextRow = {}) {
   if (options.length >= 2) {
     addScore("multiple-choice", 0.12);
     if (hasSelectionCue && !hasOpenResponseCue) addScore("multiple-choice", 0.65);
+    if (hasWhichNumberMatchesCue) addScore("multiple-choice", 0.9);
     const answerMatchesChoice = options.some((item) => normalizeText(item) === normalizeText(answerValue));
     if (answerMatchesChoice && hasSelectionCue && !hasOpenResponseCue) addScore("multiple-choice", 0.4);
     if (hasOpenResponseCue && !hasSelectionCue) addScore("short-answer", 0.65);
@@ -12593,6 +12602,7 @@ function detectResultTypeFromValidationContext(question, contextRow = {}) {
     if (tfOptions.includes("true") && tfOptions.includes("false")) addScore("true-false", 0.5);
   } else {
     addScore("short-answer", 0.55);
+    if (hasWhichNumberMatchesCue) addScore("short-answer", 0.3);
   }
 
   if (answerValue.includes(",") && options.length >= 2) {
@@ -12650,7 +12660,7 @@ function suggestValidationResultTypeCorrection(question, row) {
   const answerMatchesChoice = choiceOptions.some((item) => normalizeText(item) === normalizeText(answerValue));
   if (answerMatchesChoice) return "";
 
-  const hasSelectionCue = /\b(select|choose|pick|which of the following|true\s*or\s*false)\b/.test(questionLower);
+  const hasSelectionCue = /\b(select|choose|pick|which of the following|which number matches|true\s*or\s*false)\b/.test(questionLower);
   const looksWordedMath = /\b(how many|what is|find|work out|calculate|solve|write|trace|draw|complete)\b/.test(questionLower);
   const hasInteractiveApp = Boolean(question && question.interactiveApp && question.interactiveApp.type);
   const inferredStructure = inferValidationCategorySubcategory(question || {});
