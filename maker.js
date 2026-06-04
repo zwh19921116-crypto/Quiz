@@ -1988,7 +1988,7 @@ function getQuestionValidationIssues(question) {
       "matrix"
     ]);
     if (!supportedInteractiveTypes.has(interactiveType)) {
-      issues.push(`Interactive app type "${interactiveType}" is not supported by viewer answer validation.`);
+      issues.push(`Viewer compatibility: interactive app type "${interactiveType}" is not supported by viewer answer validation.`);
     }
 
     const requiresShortAnswerTypes = new Set([
@@ -2000,22 +2000,22 @@ function getQuestionValidationIssues(question) {
       "matrix"
     ]);
     if (requiresShortAnswerTypes.has(interactiveType) && resultType !== "short-answer") {
-      issues.push(`Result type should be short-answer for interactive type "${interactiveType}".`);
+      issues.push(`Viewer compatibility: result type should be short-answer for interactive type "${interactiveType}".`);
     }
 
     if (interactiveType === "time") {
       const timeMode = String(interactiveConfig.mode || "").trim().toLowerCase();
       if (timeMode === "analog-to-digital") {
         if (!["multiple-choice", "checkbox", "true-false"].includes(resultType)) {
-          issues.push("Time mode analog-to-digital requires a choice result type (multiple-choice, checkbox, or true-false).");
+          issues.push("Viewer compatibility: time mode analog-to-digital requires a choice result type (multiple-choice, checkbox, or true-false).");
         }
       } else if (["multiple-choice", "checkbox", "true-false"].includes(resultType)) {
-        issues.push("Time analog/digital mode should use short-answer result type.");
+        issues.push("Viewer compatibility: time analog/digital mode should use short-answer result type.");
       }
     }
 
     if (interactiveType === "cartesian-plane-plot" && resultType !== "plot") {
-      issues.push("Result type should be plot for Cartesian Plane - Plot questions.");
+      issues.push("Viewer compatibility: result type should be plot for Cartesian Plane - Plot questions.");
     }
   }
 
@@ -11987,6 +11987,11 @@ function normalizeResultValidationIssueFilter(value) {
   return "all";
 }
 
+function isViewerCompatibilityIssue(message) {
+  const text = String(message || "").toLowerCase();
+  return text.startsWith("viewer compatibility:") || text.includes("viewer answer validation");
+}
+
 function classifyResultValidationIssueType(message) {
   const text = String(message || "").toLowerCase();
   if (text.includes("solution text is empty") || text.includes("solution mismatch")) {
@@ -12419,6 +12424,9 @@ function renderResultValidationDetail(questionIndex) {
 
   pendingResultValidationSelectedIndex = questionIndex;
   const statusText = row.isValid ? "GREEN (valid)" : "RED (issue found)";
+  const viewerCompatibilityText = row.hasViewerCompatibilityIssue
+    ? `Needs fix (${row.viewerCompatibilityIssueCount} issue${row.viewerCompatibilityIssueCount === 1 ? "" : "s"})`
+    : "Compatible";
   const options = Array.isArray(question.options)
     ? question.options.map((item) => String(item || "").trim()).filter((item) => item !== "")
     : [];
@@ -12485,6 +12493,7 @@ function renderResultValidationDetail(questionIndex) {
       <p style="margin:0 0 6px 0; font-weight:700; color:#1e293b;">Learner Result View</p>
       <div style="margin-bottom:6px;"><strong>Your Answer:</strong> ${escapeInteractiveHtml(String(row.correctAnswer || "(empty)"))}</div>
       <div style="margin-bottom:6px;"><strong>Expected/Computed:</strong> ${escapeInteractiveHtml(String(row.computedAnswer || "-"))}</div>
+      <div style="margin-bottom:6px;"><strong>Viewer Compatibility:</strong> ${escapeInteractiveHtml(viewerCompatibilityText)}</div>
       <div><strong>Feedback:</strong> ${escapeInteractiveHtml(resultFeedback)}</div>
     </div>
     <div style="border:1px solid #e5eaf3; border-radius:10px; padding:10px; background:#fff;">
@@ -13056,6 +13065,8 @@ function buildResultValidationForActiveQuiz(aiMode = false) {
       questionIssues.push(`Subcategory is missing. Suggested subcategory: "${inferredStructure.suggestedSubcategory}".`);
     }
 
+    const viewerCompatibilityIssues = questionIssues.filter((item) => isViewerCompatibilityIssue(item));
+
     return {
       index,
       question: String(question && question.question || "").trim(),
@@ -13073,6 +13084,8 @@ function buildResultValidationForActiveQuiz(aiMode = false) {
       correctAnswer: actualAnswer,
       computedAnswer: computed.value,
       solution: solutionText,
+      viewerCompatibilityIssueCount: viewerCompatibilityIssues.length,
+      hasViewerCompatibilityIssue: viewerCompatibilityIssues.length > 0,
       issues: questionIssues,
       isValid: questionIssues.length === 0
     };
@@ -13108,7 +13121,7 @@ function renderResultValidation(validation) {
 
   if (!validation) {
     meta.textContent = "Select a quiz/module and run validation.";
-    body.innerHTML = '<tr><td colspan="12" style="padding:8px; border:1px solid #e5edf8;">No validation run yet.</td></tr>';
+    body.innerHTML = '<tr><td colspan="13" style="padding:8px; border:1px solid #e5edf8;">No validation run yet.</td></tr>';
     exportBtn.disabled = true;
     bulkBtn.disabled = true;
     pendingResultValidationIssueFilter = "all";
@@ -13130,13 +13143,13 @@ function renderResultValidation(validation) {
   bulkBtn.disabled = redVisible === 0;
 
   if (!Array.isArray(validation.rows) || validation.rows.length === 0) {
-    body.innerHTML = '<tr><td colspan="12" style="padding:8px; border:1px solid #e5edf8;">This module has no questions.</td></tr>';
+    body.innerHTML = '<tr><td colspan="13" style="padding:8px; border:1px solid #e5edf8;">This module has no questions.</td></tr>';
     renderResultValidationDetail(-1);
     return;
   }
 
   if (visibleRows.length === 0) {
-    body.innerHTML = '<tr><td colspan="12" style="padding:8px; border:1px solid #e5edf8;">No rows match this filter.</td></tr>';
+    body.innerHTML = '<tr><td colspan="13" style="padding:8px; border:1px solid #e5edf8;">No rows match this filter.</td></tr>';
     renderResultValidationDetail(-1);
     return;
   }
@@ -13149,12 +13162,16 @@ function renderResultValidation(validation) {
     const issueText = row.isValid
       ? "No"
       : `Yes (${row.issues.length})<br>${row.issues.map((item) => escapeInteractiveHtml(item)).join("<br>")}`;
+    const compatibilityTag = row.hasViewerCompatibilityIssue
+      ? `<span style="display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:999px; border:1px solid #f59e0b; background:#fff7ed; color:#9a3412; font-weight:700; font-size:0.78rem;">Needs fix (${row.viewerCompatibilityIssueCount})</span>`
+      : `<span style="display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:999px; border:1px solid #86efac; background:#ecfdf3; color:#166534; font-weight:700; font-size:0.78rem;">Compatible</span>`;
     return `
       <tr data-question-index="${row.index}" style="cursor:pointer; background:${rowBg}; ${rowOutline}">
         <td style="padding:8px; border:1px solid #e5edf8;">${row.index + 1}</td>
         <td style="padding:8px; border:1px solid #e5edf8; max-width:360px; white-space:normal;">${escapeInteractiveHtml(row.question || "")}</td>
         <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.resultType || "")}</td>
         <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.moduleType || "standard")}</td>
+        <td style="padding:8px; border:1px solid #e5edf8;">${compatibilityTag}</td>
         <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.importedCategory || "-")}</td>
         <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.importedSubcategory || "-")}</td>
         <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.suggestedCategory || "-")}</td>
@@ -13328,11 +13345,12 @@ function downloadResultValidationCsv() {
   const ss = String(now.getSeconds()).padStart(2, "0");
   const stamp = `${yyyy}${mm}${dd}-${hh}${mi}${ss}`;
 
-  const header = ["Q No", "Question", "Result Type", "Correct Answer", "Computed Answer", "Solution", "Status", "Issues"];
+  const header = ["Q No", "Question", "Result Type", "Viewer Compatibility", "Correct Answer", "Computed Answer", "Solution", "Status", "Issues"];
   const rows = pendingResultValidation.rows.map((item) => [
     String(item.index + 1),
     item.question || "",
     item.resultType || "",
+    item.hasViewerCompatibilityIssue ? `Needs fix (${item.viewerCompatibilityIssueCount || 0})` : "Compatible",
     item.correctAnswer || "",
     item.computedAnswer || "",
     item.solution || "",
@@ -13343,6 +13361,7 @@ function downloadResultValidationCsv() {
   const summary = [
     "SUMMARY",
     `${pendingResultValidation.categoryName} / ${pendingResultValidation.quizTitle}`,
+    "",
     "",
     "",
     "",
