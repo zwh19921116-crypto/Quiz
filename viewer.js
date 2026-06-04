@@ -11,6 +11,9 @@ let cartesianPlotUserPoints = [];
 let currentDifficulty = 5;
 let difficultyAdjustmentPending = false;
 let quizAnswerLog = [];
+let questionNavOpen = false;
+let questionNavFilter = "all";
+let answeredQuestionMap = {};
 const numberTracingCompletionByQuestion = {};
 const numberTracingSnapshotByQuestion = {};
 const DEFAULT_TERMS_CONDITIONS_TXT_PATH = "terms-and-conditions.txt";
@@ -694,6 +697,9 @@ function resetRuntimeForLoadedQuiz() {
   currentIndex = 0;
   score = 0;
   quizAnswerLog = [];
+  answeredQuestionMap = {};
+  questionNavOpen = false;
+  questionNavFilter = "all";
   answerChecked = false;
   quizStarted = false;
   document.getElementById("checkAnswerBtn").style.display = "inline-block";
@@ -703,6 +709,145 @@ function resetRuntimeForLoadedQuiz() {
   document.getElementById("resultBox").textContent = "";
   document.getElementById("resultBox").className = "";
   closeSolutionModal();
+  syncQuestionNavigatorVisibility();
+}
+
+function getQuestionNavigatorElements() {
+  return {
+    tab: document.getElementById("questionNavTab"),
+    panel: document.getElementById("questionNavPanel"),
+    list: document.getElementById("questionNavList"),
+    meta: document.getElementById("questionNavMeta"),
+    filters: document.getElementById("questionNavFilters"),
+    prevBtn: document.getElementById("questionNavPrevBtn"),
+    nextBtn: document.getElementById("questionNavNextBtn")
+  };
+}
+
+function getQuestionCount() {
+  return quizData && Array.isArray(quizData.questions) ? quizData.questions.length : 0;
+}
+
+function isQuestionAnswered(index) {
+  return Boolean(answeredQuestionMap[index]);
+}
+
+function closeQuestionNavigator() {
+  const { tab, panel } = getQuestionNavigatorElements();
+  questionNavOpen = false;
+  if (tab instanceof HTMLElement) {
+    tab.setAttribute("aria-expanded", "false");
+  }
+  if (panel instanceof HTMLElement) {
+    panel.classList.remove("is-open");
+    panel.setAttribute("aria-hidden", "true");
+  }
+}
+
+function openQuestionNavigator() {
+  const { tab, panel } = getQuestionNavigatorElements();
+  questionNavOpen = true;
+  if (tab instanceof HTMLElement) {
+    tab.setAttribute("aria-expanded", "true");
+  }
+  if (panel instanceof HTMLElement) {
+    panel.classList.remove("hidden");
+    panel.classList.add("is-open");
+    panel.setAttribute("aria-hidden", "false");
+  }
+  renderQuestionNavigator();
+}
+
+function syncQuestionNavigatorVisibility() {
+  const { tab, panel } = getQuestionNavigatorElements();
+  const hasQuestions = getQuestionCount() > 0;
+  const shouldShow = Boolean(quizStarted && hasQuestions);
+
+  if (tab instanceof HTMLElement) {
+    tab.classList.toggle("hidden", !shouldShow);
+    tab.setAttribute("aria-expanded", questionNavOpen && shouldShow ? "true" : "false");
+  }
+
+  if (panel instanceof HTMLElement) {
+    panel.classList.toggle("hidden", !shouldShow && !questionNavOpen);
+    if (!shouldShow) {
+      panel.classList.remove("is-open");
+      panel.setAttribute("aria-hidden", "true");
+      questionNavOpen = false;
+    }
+  }
+
+  if (shouldShow) {
+    renderQuestionNavigator();
+  }
+}
+
+function renderQuestionNavigator() {
+  const { list, meta, filters, prevBtn, nextBtn } = getQuestionNavigatorElements();
+  const total = getQuestionCount();
+  if (!(list instanceof HTMLElement) || !(meta instanceof HTMLElement)) return;
+
+  if (!quizStarted || total === 0) {
+    meta.textContent = "No questions loaded.";
+    list.innerHTML = "";
+    return;
+  }
+
+  const answeredCount = Object.keys(answeredQuestionMap).filter((key) => answeredQuestionMap[key]).length;
+  const unansweredCount = Math.max(0, total - answeredCount);
+  meta.textContent = `${answeredCount} answered | ${unansweredCount} unanswered | ${total} total`;
+
+  const indices = [];
+  for (let i = 0; i < total; i += 1) {
+    const answered = isQuestionAnswered(i);
+    if (questionNavFilter === "answered" && !answered) continue;
+    if (questionNavFilter === "unanswered" && answered) continue;
+    indices.push(i);
+  }
+
+  if (indices.length === 0) {
+    list.innerHTML = '<div class="menu-empty">No questions in this filter.</div>';
+  } else {
+    list.innerHTML = indices.map((idx) => {
+      const answered = isQuestionAnswered(idx);
+      const currentClass = idx === currentIndex ? " is-current" : "";
+      const stateClass = answered ? "answered" : "unanswered";
+      const stateText = answered ? "Answered" : "Unanswered";
+      return (
+        `<div class="question-nav-item${currentClass}">` +
+        `<button class="jump-btn" type="button" data-question-index="${idx}">Question ${idx + 1}</button>` +
+        `<span class="question-nav-state ${stateClass}">${stateText}</span>` +
+        `</div>`
+      );
+    }).join("");
+  }
+
+  list.querySelectorAll(".jump-btn").forEach((button) => {
+    if (!(button instanceof HTMLButtonElement)) return;
+    button.addEventListener("click", () => {
+      const targetIndex = Number.parseInt(button.dataset.questionIndex || "", 10);
+      if (!Number.isInteger(targetIndex)) return;
+      const count = getQuestionCount();
+      if (targetIndex < 0 || targetIndex >= count) return;
+      currentIndex = targetIndex;
+      renderQuestion();
+    });
+  });
+
+  if (filters instanceof HTMLElement) {
+    filters.querySelectorAll(".question-nav-filter").forEach((filterBtn) => {
+      if (!(filterBtn instanceof HTMLButtonElement)) return;
+      const value = String(filterBtn.dataset.filter || "all").toLowerCase();
+      filterBtn.classList.toggle("is-active", value === questionNavFilter);
+    });
+  }
+
+  if (prevBtn instanceof HTMLButtonElement) {
+    prevBtn.disabled = currentIndex <= 0;
+  }
+  if (nextBtn instanceof HTMLButtonElement) {
+    nextBtn.disabled = currentIndex >= total - 1;
+  }
 }
 
 function buildDefaultPrestartIntro() {
@@ -798,6 +943,7 @@ function renderPrestartIntroScreen() {
   document.getElementById("showSolutionBtn").classList.add("hidden");
   document.getElementById("resultBox").textContent = "";
   document.getElementById("resultBox").className = "";
+  syncQuestionNavigatorVisibility();
 
   const startAcceptTerms = document.getElementById("startAcceptTerms");
   const syncStartButtonState = () => {
@@ -836,6 +982,7 @@ function renderPrestartIntroScreen() {
         document.getElementById("notesViewerBtn").style.display = "none";
         document.getElementById("progressText").textContent = "Question 0 of 0";
         document.getElementById("scoreText").textContent = "Score: 0";
+        syncQuestionNavigatorVisibility();
         return;
       }
 
@@ -9518,6 +9665,7 @@ function renderQuestion() {
 
   renderNotesPanel(question);
   updateHeader();
+  syncQuestionNavigatorVisibility();
 }
 
 function collectUserAnswer(question) {
@@ -10047,6 +10195,7 @@ function checkAnswer() {
     document.getElementById("showSolutionBtn").classList.remove("hidden");
   }
   answerChecked = true;
+  answeredQuestionMap[currentIndex] = true;
   updateNextQuestionButtonState();
   if (isNumberTracingQuestion(question) && !hasCompletedTracingForCurrentQuestion()) {
     showToast("Trace the number to unlock Next Question.", "info");
@@ -10061,6 +10210,7 @@ function checkAnswer() {
   }
 
   updateHeader();
+  renderQuestionNavigator();
 }
 
 function shouldHandleQuestionEnterHotkey(event) {
@@ -10353,6 +10503,8 @@ function goNext() {
   document.getElementById("progressText").textContent = "Complete";
   document.getElementById("scoreText").textContent = `Final Score: ${score} / ${total}`;
   document.getElementById("viewerProgressFill").style.width = "100%";
+  closeQuestionNavigator();
+  syncQuestionNavigatorVisibility();
 
   wireReviewInteractivePreviews(reviewedAttempts);
 
@@ -10418,6 +10570,7 @@ function goNext() {
     document.getElementById("nextQuestionBtn").style.display = "inline-block";
     document.getElementById("notesViewerBtn").style.display = "inline-block";
     document.getElementById("showSolutionBtn").classList.add("hidden");
+    answeredQuestionMap = {};
     renderQuestion();
   });
 }
@@ -10476,6 +10629,49 @@ document.getElementById("solutionModal").addEventListener("click", (event) => {
     closeSolutionModal();
   }
 });
+document.getElementById("questionNavTab").addEventListener("click", () => {
+  if (questionNavOpen) {
+    closeQuestionNavigator();
+    return;
+  }
+  openQuestionNavigator();
+});
+document.getElementById("closeQuestionNavBtn").addEventListener("click", () => {
+  closeQuestionNavigator();
+});
+document.getElementById("questionNavFilters").addEventListener("click", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLElement)) return;
+  const button = target.closest(".question-nav-filter");
+  if (!(button instanceof HTMLButtonElement)) return;
+  questionNavFilter = String(button.dataset.filter || "all").toLowerCase();
+  if (!["all", "answered", "unanswered"].includes(questionNavFilter)) {
+    questionNavFilter = "all";
+  }
+  renderQuestionNavigator();
+});
+document.getElementById("questionNavPrevBtn").addEventListener("click", () => {
+  if (currentIndex <= 0) return;
+  currentIndex -= 1;
+  renderQuestion();
+});
+document.getElementById("questionNavNextBtn").addEventListener("click", () => {
+  const total = getQuestionCount();
+  if (currentIndex >= total - 1) return;
+  currentIndex += 1;
+  renderQuestion();
+});
+document.addEventListener("click", (event) => {
+  if (!questionNavOpen) return;
+  const target = event.target;
+  if (!(target instanceof Node)) return;
+  const { panel, tab } = getQuestionNavigatorElements();
+  const clickedInsidePanel = panel instanceof HTMLElement && panel.contains(target);
+  const clickedTab = tab instanceof HTMLElement && tab.contains(target);
+  if (!clickedInsidePanel && !clickedTab) {
+    closeQuestionNavigator();
+  }
+});
 window.addEventListener("message", (event) => {
   const data = event && event.data ? event.data : null;
   if (!data || data.type !== "validation-preview-open-solution") return;
@@ -10492,6 +10688,10 @@ window.addEventListener("keydown", (event) => {
     return;
   }
   if (event.key === "Escape") {
+    if (questionNavOpen) {
+      closeQuestionNavigator();
+      return;
+    }
     closeSolutionModal();
   }
 });
