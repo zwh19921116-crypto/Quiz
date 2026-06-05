@@ -1331,13 +1331,21 @@ textarea {
   width: 30px;
   height: 30px;
   padding: 0;
-  border-radius: 999px;
-  font-size: 0.9rem;
+  border-radius: 7px;
+  border-color: #991b1b;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 0.95rem;
   font-weight: 900;
   line-height: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.report-icon-btn:hover {
+  background: #b91c1c;
+  border-color: #7f1d1d;
 }
 
 .table-scroll-wrap {

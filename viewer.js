@@ -148,7 +148,7 @@ function syncReportQuestionButton(question) {
   if (!shouldShow) return;
 
   reportBtn.classList.toggle("is-flagged", alreadyFlagged);
-  reportBtn.textContent = "!";
+  reportBtn.textContent = "⚑";
   const reportLabel = alreadyFlagged
     ? "Question already flagged"
     : "Report incorrect answer";
@@ -189,7 +189,7 @@ function ensureReportQuestionButtonExists() {
   reportBtn.className = "btn secondary report-icon-btn";
   reportBtn.id = "reportQuestionBtn";
   reportBtn.type = "button";
-  reportBtn.textContent = "!";
+  reportBtn.textContent = "⚑";
   reportBtn.setAttribute("aria-label", "Report incorrect answer");
   reportBtn.setAttribute("title", "Report incorrect answer");
 
