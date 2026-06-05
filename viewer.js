@@ -696,14 +696,23 @@ function shouldRenderNumberOrderingInteractive(question) {
       : ""
   );
   const combined = `${questionText} ${promptText}`.toLowerCase();
-  const hasOrderingCue = /\b(move|drag|arrange|reorder|put)\b.*\b(order|sequence|ascending|descending)\b|\b(order|sequence)\b.*\b(move|drag|arrange|reorder|put)\b|\bmove the numbers in order\b/i.test(combined);
-  const isSimpleNextPrompt = /\bwhat comes next\b/i.test(combined)
+  const questionLower = questionText.toLowerCase();
+  const promptLower = promptText.toLowerCase();
+  const orderingCuePattern = /\b(move|drag|arrange|reorder|put)\b.*\b(order|sequence|ascending|descending)\b|\b(order|sequence)\b.*\b(move|drag|arrange|reorder|put)\b|\bmove the numbers in order\b/i;
+  const hasOrderingCueInQuestion = orderingCuePattern.test(questionLower);
+  const hasOrderingCueInPrompt = orderingCuePattern.test(promptLower);
+  const hasOrderingCue = hasOrderingCueInQuestion || hasOrderingCueInPrompt;
+  const isSimpleNextPrompt = /\bwhat comes next\b|\bnext number\b|\bwhich number is missing\b|\bmissing number\b|\bfill in the blank\b/i.test(combined)
     || /_+/.test(questionText)
-    || /\bnext number\b/i.test(combined);
+    || /_+/.test(promptText);
 
   // Legacy imported rows may store number-ordering app for plain next-number prompts.
   // In that case viewer should use normal short-answer flow.
-  return !(isSimpleNextPrompt && !hasOrderingCue);
+  if (isSimpleNextPrompt && !hasOrderingCueInQuestion) {
+    return false;
+  }
+
+  return !isSimpleNextPrompt || hasOrderingCue;
 }
 
 function getEffectiveResultType(question) {
