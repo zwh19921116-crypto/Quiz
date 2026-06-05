@@ -251,6 +251,22 @@ function autoFixQuestionIssues(question) {
     changed = normalizeCheckboxCorrectAnswers(question, choiceOptions) || changed;
   }
 
+  const questionText = String(question.question || "").trim();
+  const lowerQuestionText = questionText.toLowerCase();
+  const appType = String(question && question.interactiveApp && question.interactiveApp.type || "").trim().toLowerCase();
+  if (appType === "number-ordering") {
+    const hasExplicitOrderingCue = /\b(move|drag|arrange|reorder|put)\b.*\b(order|sequence|ascending|descending)\b|\b(order|sequence)\b.*\b(move|drag|arrange|reorder|put)\b|\bmove the numbers in order\b/i.test(lowerQuestionText);
+    const isSimpleNextPattern = /\bwhat comes next\b/i.test(lowerQuestionText) || /_+/.test(questionText);
+    if (isSimpleNextPattern && !hasExplicitOrderingCue) {
+      question.interactiveApp = null;
+      if (question.resultType !== "short-answer") {
+        question.resultType = "short-answer";
+      }
+      normalizedType = "short-answer";
+      changed = true;
+    }
+  }
+
   const computedAnswer = computeExpectedAnswerForQuestion(question);
   const computedValue = String(computedAnswer && computedAnswer.value ? computedAnswer.value : "").trim();
   if (computedValue) {
@@ -10341,22 +10357,23 @@ function buildPersistedQuizPayloadFrom(quiz, category) {
     settings: normalizeQuizSettings(quiz.settings),
     category: category.name || "General",
     questions: (quiz.questions || []).map((item) => {
+      const normalizedItem = normalizeQuestion(item || {});
       const question = {
-        question: item.question || "",
-        resultType: item.resultType || "multiple-choice",
-        options: Array.isArray(item.options) ? item.options : ["", "", "", ""],
-        correctAnswer: item.correctAnswer || "",
-        category: item.category || "",
-        subcategory: item.subcategory || "",
-        learningOutcome: item.learningOutcome || "",
-        notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
-        image: item.image || "",
-        solution: item.solution || "",
-        solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)
+        question: normalizedItem.question || "",
+        resultType: normalizedItem.resultType || "multiple-choice",
+        options: Array.isArray(normalizedItem.options) ? normalizedItem.options : ["", "", "", ""],
+        correctAnswer: normalizedItem.correctAnswer || "",
+        category: normalizedItem.category || "",
+        subcategory: normalizedItem.subcategory || "",
+        learningOutcome: normalizedItem.learningOutcome || "",
+        notesAttachments: Array.isArray(normalizedItem.notesAttachments) ? normalizedItem.notesAttachments : [],
+        image: normalizedItem.image || "",
+        solution: normalizedItem.solution || "",
+        solutionAttachments: normalizeSolutionAttachments(normalizedItem.solutionAttachments)
       };
 
-      if (item.interactiveApp) {
-        question.interactiveApp = item.interactiveApp;
+      if (normalizedItem.interactiveApp) {
+        question.interactiveApp = normalizedItem.interactiveApp;
       }
 
       return question;
@@ -11776,8 +11793,45 @@ function normalizeQuestion(item) {
     solution: item.solution || "",
     solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)
   };
-  if (item.interactiveApp) normalized.interactiveApp = item.interactiveApp;
+
+  const inferredInteractiveApp = inferLegacyTracingInteractiveApp(normalized);
+  if (item.interactiveApp) {
+    normalized.interactiveApp = item.interactiveApp;
+  } else if (inferredInteractiveApp) {
+    normalized.interactiveApp = inferredInteractiveApp;
+    normalized.resultType = "short-answer";
+  }
   return normalized;
+}
+
+function inferLegacyTracingInteractiveApp(question) {
+  if (!question || question.interactiveApp) return null;
+
+  const questionText = String(question.question || "").trim();
+  if (!questionText) return null;
+
+  const looksLikeTracingPrompt = /(trace|draw|write)\s+(the\s+)?number\b/i.test(questionText);
+  if (!looksLikeTracingPrompt) return null;
+
+  const numberFromPromptMatch = questionText.match(/\b(\d{1,3})\b/);
+  const numberFromPrompt = numberFromPromptMatch ? Number.parseInt(numberFromPromptMatch[1], 10) : Number.NaN;
+  const numberFromAnswer = Number.parseInt(String(question.correctAnswer || "").trim(), 10);
+  const target = Number.isInteger(numberFromPrompt)
+    ? numberFromPrompt
+    : (Number.isInteger(numberFromAnswer) ? numberFromAnswer : Number.NaN);
+
+  if (!Number.isInteger(target)) return null;
+
+  return {
+    type: "number-tracing",
+    config: {
+      targetNumber: Math.max(0, Math.min(100, target)),
+      prompt: questionText,
+      prepMode: true,
+      showQuantityDots: true,
+      showInstructions: false
+    }
+  };
 }
 
 function loadImportedData(data) {
