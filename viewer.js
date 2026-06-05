@@ -142,11 +142,11 @@ function syncReportQuestionButton(question) {
   const reportBtn = document.getElementById("reportQuestionBtn");
   if (!(reportBtn instanceof HTMLButtonElement)) return;
 
-  const shouldShow = Boolean(question) && !isIntroductionQuestion(question);
+  const alreadyFlagged = Boolean(question) && isQuestionAlreadyFlagged(question);
+  const shouldShow = Boolean(question) && !isIntroductionQuestion(question) && !alreadyFlagged;
   reportBtn.style.display = shouldShow ? "inline-block" : "none";
   if (!shouldShow) return;
 
-  const alreadyFlagged = isQuestionAlreadyFlagged(question);
   reportBtn.classList.toggle("is-flagged", alreadyFlagged);
   reportBtn.textContent = "!";
   const reportLabel = alreadyFlagged
@@ -175,6 +175,7 @@ function ensureReportQuestionButtonExists() {
   if (existing instanceof HTMLButtonElement) return existing;
 
   const shareBtn = document.getElementById("shareQuizLinkBtn");
+  const actionsHost = document.querySelector(".progress-row-actions");
   const progressRow = document.querySelector(".progress-row");
   if (!(progressRow instanceof HTMLElement)) return null;
 
@@ -186,7 +187,11 @@ function ensureReportQuestionButtonExists() {
   reportBtn.setAttribute("aria-label", "Report incorrect answer");
   reportBtn.setAttribute("title", "Report incorrect answer");
 
-  if (shareBtn && shareBtn.parentElement === progressRow) {
+  if (shareBtn && shareBtn.parentElement === actionsHost && actionsHost instanceof HTMLElement) {
+    actionsHost.insertBefore(reportBtn, shareBtn);
+  } else if (actionsHost instanceof HTMLElement) {
+    actionsHost.appendChild(reportBtn);
+  } else if (shareBtn && shareBtn.parentElement === progressRow) {
     progressRow.insertBefore(reportBtn, shareBtn);
   } else {
     progressRow.appendChild(reportBtn);
