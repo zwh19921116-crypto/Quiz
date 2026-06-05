@@ -1,5 +1,5 @@
 {
-  "id": "quiz-18",
+  "id": "quiz-28",
   "title": "Prep 2.04",
   "description": "Learning Outcomes for Prep: Count forward | Complete sequence | Understand order | Find missing number | Use number line | Extend sequence",
   "settings": {
@@ -12,10 +12,10 @@
       "question": "What comes after 0?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
+        "3",
         "1",
-        "2",
-        "3"
+        "0",
+        "2"
       ],
       "correctAnswer": "1",
       "category": "Sequencing",
@@ -30,9 +30,9 @@
       "question": "What comes after 1?",
       "resultType": "multiple-choice",
       "options": [
+        "3",
         "1",
         "2",
-        "3",
         "4"
       ],
       "correctAnswer": "2",
@@ -48,10 +48,10 @@
       "question": "What comes after 2?",
       "resultType": "multiple-choice",
       "options": [
+        "5",
         "2",
         "3",
-        "4",
-        "5"
+        "4"
       ],
       "correctAnswer": "3",
       "category": "Sequencing",
@@ -66,10 +66,10 @@
       "question": "What comes after 3?",
       "resultType": "multiple-choice",
       "options": [
-        "3",
-        "4",
         "5",
-        "6"
+        "3",
+        "6",
+        "4"
       ],
       "correctAnswer": "4",
       "category": "Sequencing",
@@ -84,10 +84,10 @@
       "question": "What comes after 4?",
       "resultType": "multiple-choice",
       "options": [
-        "4",
+        "7",
         "5",
-        "6",
-        "7"
+        "4",
+        "6"
       ],
       "correctAnswer": "5",
       "category": "Sequencing",
@@ -102,10 +102,10 @@
       "question": "0,1,__",
       "resultType": "multiple-choice",
       "options": [
-        "1",
-        "2",
         "3",
-        "4"
+        "1",
+        "4",
+        "2"
       ],
       "correctAnswer": "2",
       "category": "Sequencing",
@@ -120,10 +120,10 @@
       "question": "0,1,2,__",
       "resultType": "multiple-choice",
       "options": [
-        "2",
         "3",
-        "4",
-        "5"
+        "2",
+        "5",
+        "4"
       ],
       "correctAnswer": "3",
       "category": "Sequencing",
@@ -139,9 +139,9 @@
       "resultType": "multiple-choice",
       "options": [
         "3",
+        "6",
         "4",
-        "5",
-        "6"
+        "5"
       ],
       "correctAnswer": "4",
       "category": "Sequencing",
@@ -156,10 +156,10 @@
       "question": "0,1,2,3,4,__",
       "resultType": "multiple-choice",
       "options": [
-        "4",
-        "5",
         "6",
-        "7"
+        "4",
+        "7",
+        "5"
       ],
       "correctAnswer": "5",
       "category": "Sequencing",
@@ -174,9 +174,9 @@
       "question": "0,1,2,3,4,5,__",
       "resultType": "multiple-choice",
       "options": [
-        "5",
-        "6",
         "7",
+        "6",
+        "5",
         "8"
       ],
       "correctAnswer": "6",
@@ -192,10 +192,10 @@
       "question": "Which number comes before 4?",
       "resultType": "multiple-choice",
       "options": [
-        "2",
+        "5",
         "3",
         "4",
-        "5"
+        "2"
       ],
       "correctAnswer": "3",
       "category": "Recognition",
@@ -210,10 +210,10 @@
       "question": "Which number comes before 7?",
       "resultType": "multiple-choice",
       "options": [
-        "5",
-        "6",
         "7",
-        "8"
+        "5",
+        "8",
+        "6"
       ],
       "correctAnswer": "6",
       "category": "Recognition",
@@ -228,10 +228,10 @@
       "question": "0,__ ,2",
       "resultType": "multiple-choice",
       "options": [
-        "0",
-        "1",
         "2",
-        "3"
+        "3",
+        "1",
+        "0"
       ],
       "correctAnswer": "1",
       "category": "Sequencing",
@@ -264,10 +264,10 @@
       "question": "6,__ ,8",
       "resultType": "multiple-choice",
       "options": [
-        "5",
-        "6",
         "7",
-        "8"
+        "8",
+        "6",
+        "5"
       ],
       "correctAnswer": "7",
       "category": "Sequencing",
@@ -282,10 +282,10 @@
       "question": "Start at 0 and move forward 1 step. Where are you?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
-        "1",
         "2",
-        "3"
+        "0",
+        "3",
+        "1"
       ],
       "correctAnswer": "0",
       "category": "Application",
@@ -300,10 +300,10 @@
       "question": "Start at 0 and move forward 3 steps. Where are you?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "2",
-        "3",
-        "4"
+        "1",
+        "4",
+        "3"
       ],
       "correctAnswer": "3",
       "category": "Application",
@@ -318,10 +318,10 @@
       "question": "Start at 0 and move forward 5 steps. Where are you?",
       "resultType": "multiple-choice",
       "options": [
+        "6",
         "3",
-        "4",
         "5",
-        "6"
+        "4"
       ],
       "correctAnswer": "5",
       "category": "Application",
@@ -354,10 +354,10 @@
       "question": "What comes next? 9,10,__",
       "resultType": "multiple-choice",
       "options": [
-        "10",
-        "11",
         "12",
-        "13"
+        "10",
+        "13",
+        "11"
       ],
       "correctAnswer": "11",
       "category": "Mastery",

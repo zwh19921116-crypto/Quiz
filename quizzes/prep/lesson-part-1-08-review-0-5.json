@@ -1,5 +1,5 @@
 {
-  "id": "quiz-5",
+  "id": "quiz-7",
   "title": "Prep 1.08",
   "description": "Learning Outcomes for Prep: Recognise 0 | Recognise 1 | Recognise 2 | Recognise 3 | Recognise 4 | Recognise 5 | Write 0 | Write 3 | Write 5 | Count objects | Match quantity | Number sequence | Apply counting | Review 0-5 | Mastery 0-5",
   "settings": {
@@ -131,7 +131,7 @@
       "learningOutcome": "Write 0",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is -5. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 0. Trace it while saying 0 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -159,7 +159,7 @@
       "learningOutcome": "Write 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is -5. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 3. Trace it while saying 3 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -187,7 +187,7 @@
       "learningOutcome": "Write 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is -5. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 5. Trace it while saying 5 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -215,11 +215,11 @@
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -5.",
+      "solution": "Count the objects shown and match the quantity. The answer is 2.",
       "solutionAttachments": []
     },
     {
-      "question": "⭐⭐⭐⭐ How many stars are there?",
+      "question": "How many stars are there? ⭐⭐⭐⭐",
       "resultType": "multiple-choice",
       "options": [
         "2",
@@ -233,7 +233,7 @@
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -5.",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -251,7 +251,7 @@
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -5.",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -269,7 +269,7 @@
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -5.",
+      "solution": "Count the objects shown and match the quantity. The answer is 1.",
       "solutionAttachments": []
     },
     {
@@ -287,7 +287,7 @@
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -5.",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -305,7 +305,7 @@
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -5.",
+      "solution": "Compute the operation: 0 - 5 = -5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -335,7 +335,7 @@
       "learningOutcome": "Number sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is -5.",
+      "solution": "Continue the counting pattern by 1. The next number is 3.",
       "solutionAttachments": []
     },
     {
@@ -353,7 +353,7 @@
       "learningOutcome": "Number sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is -5.",
+      "solution": "Continue the counting pattern by 1. The next number is 5.",
       "solutionAttachments": []
     },
     {
@@ -371,7 +371,7 @@
       "learningOutcome": "Apply counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -5.",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -389,7 +389,7 @@
       "learningOutcome": "Review 0-5",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -5.",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
       "solutionAttachments": []
     },
     {

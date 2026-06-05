@@ -211,6 +211,98 @@ function normalizeCheckboxCorrectAnswers(question, choiceOptions) {
   return true;
 }
 
+function normalizeChoiceOptionOrder(question) {
+  if (!question || typeof question !== "object") return false;
+
+  const resultType = normalizeResultType(question.resultType || "multiple-choice");
+  if (![
+    "multiple-choice",
+    "checkbox"
+  ].includes(resultType)) {
+    return false;
+  }
+
+  const options = getChoiceOptions(question);
+  if (options.length < 2) return false;
+
+  const answerValue = String(question.correctAnswer || "").trim();
+  if (!answerValue) return false;
+
+  let anchorToken = "";
+  if (resultType === "checkbox") {
+    const tokens = answerValue
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item !== "");
+    if (tokens.length === 0) return false;
+    const matched = tokens.find((token) => options.some((item) => normalizeText(item) === normalizeText(token)));
+    if (!matched) return false;
+    anchorToken = matched;
+  } else {
+    anchorToken = answerValue;
+  }
+
+  const currentIndex = options.findIndex((item) => normalizeText(item) === normalizeText(anchorToken));
+  if (currentIndex < 0) return false;
+
+  const shuffle = (items) => {
+    const next = items.slice();
+    for (let i = next.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = next[i];
+      next[i] = next[j];
+      next[j] = temp;
+    }
+    return next;
+  };
+
+  let mixed = options.slice();
+  let attempts = 0;
+  while (attempts < 10) {
+    const candidate = shuffle(options);
+    const nextIndex = candidate.findIndex((item) => normalizeText(item) === normalizeText(anchorToken));
+    if (nextIndex !== currentIndex || options.length <= 1) {
+      mixed = candidate;
+      break;
+    }
+    attempts += 1;
+  }
+
+  if (JSON.stringify(mixed) === JSON.stringify(options)) {
+    return false;
+  }
+
+  const minLength = Math.max(4, Array.isArray(question.options) ? question.options.length : 4);
+  question.options = [
+    ...mixed,
+    ...Array(Math.max(0, minLength - mixed.length)).fill("")
+  ];
+
+  return true;
+}
+
+function buildExpectedSolutionForAutoFix(question) {
+  if (!question || typeof question !== "object") return "";
+  const answerText = String(question.correctAnswer || "").trim();
+  if (!answerText) return "";
+
+  const appType = String(question && question.interactiveApp && question.interactiveApp.type || "").trim();
+  if (appType) {
+    const computed = buildDeterministicPayloadFromInteractiveApp(
+      appType,
+      question.interactiveApp,
+      question.resultType || "short-answer",
+      { answerPolicy: "auto", decimalPlaces: 2 }
+    );
+    const deterministicSolution = String(computed && computed.solution || "").trim();
+    if (deterministicSolution) {
+      return deterministicSolution;
+    }
+  }
+
+  return inferSolutionFromImport(question.question, answerText);
+}
+
 function autoFixQuestionIssues(question) {
   if (!question || typeof question !== "object") {
     return { changed: false, before: 0, after: 0 };
@@ -381,6 +473,10 @@ function autoFixQuestionIssues(question) {
     }
   }
 
+  if (normalizeChoiceOptionOrder(question)) {
+    changed = true;
+  }
+
   if (normalizedType === "date") {
     const raw = String(question.correctAnswer || "").trim();
     const isoMatch = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
@@ -406,6 +502,15 @@ function autoFixQuestionIssues(question) {
   });
   if (metadataBefore !== metadataAfter) {
     changed = true;
+  }
+
+  const expectedSolution = buildExpectedSolutionForAutoFix(question);
+  if (expectedSolution) {
+    const existingSolution = String(question.solution || "").trim();
+    if (normalizeWhitespace(existingSolution) !== normalizeWhitespace(expectedSolution)) {
+      question.solution = expectedSolution;
+      changed = true;
+    }
   }
 
   const after = getQuestionValidationIssues(question).length;
