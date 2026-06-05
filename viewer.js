@@ -164,15 +164,21 @@ function reportCurrentQuestion() {
   const result = registerQuestionReport(question);
   syncReportQuestionButton(question);
   if (result.alreadyFlagged) {
-    showToast("Thank you. We are aware and working on it.", "info");
+    showToast("Thank you for reporting. We are aware and working on it.", "info");
     return;
   }
-  showToast("Thank you for your report. We are aware and working on it.", "success");
+  showToast("Thank you for reporting. We are aware and working on it.", "success");
 }
 
 function ensureReportQuestionButtonExists() {
   const existing = document.getElementById("reportQuestionBtn");
-  if (existing instanceof HTMLButtonElement) return existing;
+  if (existing instanceof HTMLButtonElement) {
+    if (existing.dataset.reportBound !== "1") {
+      existing.addEventListener("click", reportCurrentQuestion);
+      existing.dataset.reportBound = "1";
+    }
+    return existing;
+  }
 
   const shareBtn = document.getElementById("shareQuizLinkBtn");
   const actionsHost = document.querySelector(".progress-row-actions");
@@ -198,6 +204,7 @@ function ensureReportQuestionButtonExists() {
   }
 
   reportBtn.addEventListener("click", reportCurrentQuestion);
+  reportBtn.dataset.reportBound = "1";
   return reportBtn;
 }
 
