@@ -14149,8 +14149,8 @@ async function applyPendingImportToMaker() {
 
       const outcomesSummary = summarizeModuleLearningOutcomes(sortedRows);
       quiz.description = outcomesSummary
-        ? `Learning Outcomes: ${outcomesSummary}`
-        : "Learning Outcomes: Not specified.";
+        ? `Learning Outcomes for ${categoryName}: ${outcomesSummary}`
+        : `Learning Outcomes for ${categoryName}: Not specified.`;
       quiz.settings = normalizeQuizSettings({ questionOrder: "ordered", questionLimit: sortedRows.length });
 
       quiz.questions = sortedRows.map((row) => {

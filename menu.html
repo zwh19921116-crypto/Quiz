@@ -387,6 +387,25 @@
       justify-content: center;
     }
 
+    .quiz-item-right {
+      margin-left: auto;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .quiz-item-updated {
+      margin: 0;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #64748b;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
     /* Back button */
     .back-btn {
       display: inline-flex;
@@ -569,7 +588,7 @@
       const searchMeta     = document.getElementById("menuSearchMeta");
       let activeView       = "categories";
       const alnumCollator  = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
-      const quizDescriptionCache = new Map();
+      const quizMetaCache = new Map();
 
       function buildHistoryState(view, categoryIndex = null) {
         if (view === "quizzes" && Number.isInteger(categoryIndex)) {
@@ -729,6 +748,19 @@
           .replace(/\b\w/g, (ch) => ch.toUpperCase());
       }
 
+      function formatQuizLastModified(value) {
+        if (!value) return "Unknown";
+        const parsed = new Date(value);
+        if (Number.isNaN(parsed.getTime())) return "Unknown";
+        return parsed.toLocaleString(undefined, {
+          year: "numeric",
+          month: "short",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+      }
+
       function buildIndexDataFromSelectedLocalFiles(fileList) {
         const files = Array.from(fileList || []);
         if (files.length === 0) {
@@ -761,7 +793,10 @@
 
           categoriesByKey.get(categoryKey).quizzes.push({
             title: prettifyQuizTitle(quizFile),
-            file: relativeQuizPath
+            file: relativeQuizPath,
+            lastModified: Number.isFinite(Number(file.lastModified))
+              ? new Date(Number(file.lastModified)).toISOString()
+              : ""
           });
         });
 
@@ -813,7 +848,7 @@
         pickerInput.addEventListener("change", () => {
           try {
             indexData = buildIndexDataFromSelectedLocalFiles(pickerInput.files);
-            quizDescriptionCache.clear();
+            quizMetaCache.clear();
             renderCategories();
             updateMenuHistory("categories", null, true);
             setStatus("Loaded local quizzes from selected folder.", false);
@@ -925,34 +960,52 @@
         return fallbackGlyphs[index % fallbackGlyphs.length];
       }
 
-      async function resolveQuizDescription(quiz) {
+      async function resolveQuizMeta(quiz) {
         const inlineDescription = String(
           (quiz && (quiz.description || quiz.summary || quiz.details || quiz.detail)) || ""
         ).trim();
-        if (inlineDescription) return inlineDescription;
+        const inlineLastModified = String((quiz && (quiz.lastModified || quiz.updatedAt || quiz.modifiedAt)) || "").trim();
 
         const filePath = String(quiz && quiz.file ? resolveQuizFilePath(quiz.file) : "").trim();
-        if (!filePath) return "";
-        if (quizDescriptionCache.has(filePath)) {
-          return quizDescriptionCache.get(filePath);
+        if (!filePath) {
+          return {
+            description: inlineDescription,
+            lastModified: inlineLastModified
+          };
+        }
+        if (quizMetaCache.has(filePath)) {
+          return quizMetaCache.get(filePath);
         }
 
         try {
           const response = await fetch(filePath, { cache: "no-store" });
           if (!response.ok) {
-            quizDescriptionCache.set(filePath, "");
-            return "";
+            const fallbackMeta = {
+              description: inlineDescription,
+              lastModified: inlineLastModified
+            };
+            quizMetaCache.set(filePath, fallbackMeta);
+            return fallbackMeta;
           }
 
           const payload = await response.json();
           const fromQuizFile = String(
             payload && (payload.description || payload.summary || payload.details || payload.detail || "")
           ).trim();
-          quizDescriptionCache.set(filePath, fromQuizFile);
-          return fromQuizFile;
+          const headerLastModified = String(response.headers.get("Last-Modified") || "").trim();
+          const resolvedMeta = {
+            description: inlineDescription || fromQuizFile,
+            lastModified: inlineLastModified || headerLastModified
+          };
+          quizMetaCache.set(filePath, resolvedMeta);
+          return resolvedMeta;
         } catch (error) {
-          quizDescriptionCache.set(filePath, "");
-          return "";
+          const fallbackMeta = {
+            description: inlineDescription,
+            lastModified: inlineLastModified
+          };
+          quizMetaCache.set(filePath, fallbackMeta);
+          return fallbackMeta;
         }
       }
 
@@ -1135,12 +1188,14 @@
           return;
         }
 
-        const descriptions = await Promise.all(quizzes.map((quiz) => resolveQuizDescription(quiz)));
+        const quizMetaList = await Promise.all(quizzes.map((quiz) => resolveQuizMeta(quiz)));
 
         quizList.innerHTML = quizzes.map(function (quiz, i) {
           const title = escapeHtml(quiz.title || quiz.file || "Untitled Quiz");
           const file  = escapeHtml(resolveQuizFilePath(quiz.file || ""));
-          const desc = escapeHtml(descriptions[i] || "");
+          const meta = quizMetaList[i] && typeof quizMetaList[i] === "object" ? quizMetaList[i] : {};
+          const desc = escapeHtml(meta.description || "");
+          const lastModifiedText = escapeHtml(formatQuizLastModified(meta.lastModified));
           const moduleGlyph = escapeHtml(getQuizIconGlyph(quiz && quiz.title ? quiz.title : "", i));
           const descMarkup = desc ? '<p class="quiz-item-description">' + desc + '</p>' : '';
           return (
@@ -1151,7 +1206,10 @@
             '    <p class="quiz-item-meta">' + escapeHtml(catName) + "</p>" +
             '    ' + descMarkup +
             "  </div>" +
-            '  <span class="quiz-item-arrow">›</span>' +
+            '  <div class="quiz-item-right">' +
+            '    <p class="quiz-item-updated">Updated ' + lastModifiedText + '</p>' +
+            '    <span class="quiz-item-arrow">›</span>' +
+            '  </div>' +
             "</div>"
           );
         }).join("");
