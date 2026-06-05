@@ -1,7 +1,7 @@
 {
   "id": "quiz-78",
   "title": "Prep 8.04",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Add 1 | Add 2 | Add small numbers | Word addition | Add fluently",
+  "description": "Learning Outcomes: Add 1 | Add 2 | Add small numbers | Word addition | Add fluently",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Addition Skills",
       "subcategory": "Add 1",
       "learningOutcome": "Add 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Addition Skills",
       "subcategory": "Add 1",
       "learningOutcome": "Add 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "2009",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "8",
       "category": "Addition Skills",
       "subcategory": "Add 1",
       "learningOutcome": "Add 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +71,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Addition Skills",
       "subcategory": "Add 1",
       "learningOutcome": "Add 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Addition Skills",
       "subcategory": "Add 1",
       "learningOutcome": "Add 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -105,24 +105,6 @@
         "4",
         "5",
         "2006",
-        ""
-      ],
-      "correctAnswer": "4",
-      "category": "Addition Skills",
-      "subcategory": "Add 2",
-      "learningOutcome": "Add 2",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 4.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "4 + 2 = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "5",
-        "6",
-        "2007",
         ""
       ],
       "correctAnswer": "5",
@@ -135,6 +117,24 @@
       "solutionAttachments": []
     },
     {
+      "question": "4 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Addition Skills",
+      "subcategory": "Add 2",
+      "learningOutcome": "Add 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
       "question": "6 + 2 = ?",
       "resultType": "multiple-choice",
       "options": [
@@ -143,13 +143,13 @@
         "2009",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "8",
       "category": "Addition Skills",
       "subcategory": "Add 2",
       "learningOutcome": "Add 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +161,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Addition Skills",
       "subcategory": "Add 2",
       "learningOutcome": "Add 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -179,13 +179,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Addition Skills",
       "subcategory": "Add 2",
       "learningOutcome": "Add 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +197,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Addition Skills",
       "subcategory": "Mixed",
       "learningOutcome": "Add small numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -215,13 +215,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "category": "Addition Skills",
       "subcategory": "Mixed",
       "learningOutcome": "Add small numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -233,13 +233,13 @@
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "9",
       "category": "Addition Skills",
       "subcategory": "Mixed",
       "learningOutcome": "Add small numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -251,13 +251,13 @@
         "12",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "11",
       "category": "Addition Skills",
       "subcategory": "Mixed",
       "learningOutcome": "Add small numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 11.",
       "solutionAttachments": []
     },
     {
@@ -269,13 +269,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Addition Skills",
       "subcategory": "Mixed",
       "learningOutcome": "Add small numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -287,22 +287,22 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Word Problems",
       "subcategory": "Simple Stories",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 2 apples and get 1 more. How many?",
-          "totalCount": 2,
+          "totalCount": 3,
           "iconShape": "circle",
           "groups": [
-            2
+            3
           ]
         }
       }
@@ -316,13 +316,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Word Problems",
       "subcategory": "Simple Stories",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -334,13 +334,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "category": "Word Problems",
       "subcategory": "Simple Stories",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -352,13 +352,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Mixed Review",
       "subcategory": "Fluency",
       "learningOutcome": "Add fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -370,13 +370,13 @@
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "9",
       "category": "Mixed Review",
       "subcategory": "Fluency",
       "learningOutcome": "Add fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     }
   ]

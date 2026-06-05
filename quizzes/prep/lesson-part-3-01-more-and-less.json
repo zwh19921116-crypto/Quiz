@@ -1,7 +1,7 @@
 {
   "id": "quiz-25",
   "title": "Prep 3.01",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Compare quantities | Compare numbers | Apply comparison | Mastery",
+  "description": "Learning Outcomes: Compare quantities | Compare numbers | Apply comparison | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "Right",
       "category": "Comparing",
       "subcategory": "More Objects",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "The correct answer is Right.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "Right",
       "category": "Comparing",
       "subcategory": "More Objects",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "The correct answer is Right.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "Right",
       "category": "Comparing",
       "subcategory": "More Objects",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "The correct answer is Right.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +125,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "Right",
       "category": "Comparing",
       "subcategory": "Less Objects",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "The correct answer is Right.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +197,13 @@
         "",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "5",
       "category": "Recognition",
       "subcategory": "Bigger Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -269,13 +269,13 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "5",
       "category": "Recognition",
       "subcategory": "Smaller Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -287,13 +287,13 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Smaller Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -305,13 +305,13 @@
         "",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "Tom",
       "category": "Application",
       "subcategory": "Real World Comparison",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is Tom.",
       "solutionAttachments": []
     },
     {
@@ -323,13 +323,13 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "Ben",
       "category": "Application",
       "subcategory": "Real World Comparison",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is Ben.",
       "solutionAttachments": []
     },
     {
@@ -341,13 +341,13 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "Leo",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is Leo.",
       "solutionAttachments": []
     },
     {

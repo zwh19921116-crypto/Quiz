@@ -1,7 +1,7 @@
 {
   "id": "quiz-35",
   "title": "Prep 4.01",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Combine groups | Count combined groups | Apply addition | Mastery",
+  "description": "Learning Outcomes: Combine groups | Count combined groups | Apply addition | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -162,13 +162,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Addition",
       "subcategory": "Combine Groups",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -180,13 +180,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Addition",
       "subcategory": "Combine Groups",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -198,13 +198,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Addition",
       "subcategory": "Combine Groups",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -216,13 +216,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Addition",
       "subcategory": "Combine Groups",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -234,13 +234,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Addition",
       "subcategory": "Combine Groups",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -252,13 +252,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Count Altogether",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -270,13 +270,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Count Altogether",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -288,13 +288,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Count Altogether",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -306,13 +306,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Count Altogether",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -324,13 +324,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Count Altogether",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -342,22 +342,22 @@
         "3",
         "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Application",
       "subcategory": "Real World Addition",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solution": "Count the objects shown and match the quantity. The answer is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Mia has 1 apple. Tom gives her 1 more apple. How many apples does she have now?",
-          "totalCount": 1,
+          "totalCount": 2,
           "iconShape": "circle",
           "groups": [
-            1
+            2
           ]
         }
       }
@@ -371,22 +371,22 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Application",
       "subcategory": "Real World Addition",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Sam has 2 balloons. He gets 1 more balloon. How many balloons now?",
-          "totalCount": 2,
+          "totalCount": 3,
           "iconShape": "circle",
           "groups": [
-            2
+            3
           ]
         }
       }
@@ -400,22 +400,22 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Application",
       "subcategory": "Real World Addition",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Ava has 2 stars. She gets 2 more stars. How many stars now?",
-          "totalCount": 2,
+          "totalCount": 4,
           "iconShape": "circle",
           "groups": [
-            2
+            4
           ]
         }
       }
@@ -429,13 +429,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -447,13 +447,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     }
   ]

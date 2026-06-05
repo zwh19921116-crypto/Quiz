@@ -1,7 +1,7 @@
 {
   "id": "quiz-43",
   "title": "Prep 4.09",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Add objects | Read number sentences | Find missing addend | Recall doubles facts | Apply addition | Consolidate addition skills",
+  "description": "Learning Outcomes: Add objects | Read number sentences | Find missing addend | Recall doubles facts | Apply addition | Consolidate addition skills",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "3",
         "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Addition",
       "subcategory": "Add Objects",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Addition",
       "subcategory": "Add Objects",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Addition",
       "subcategory": "Add Objects",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +71,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Addition",
       "subcategory": "Add Objects",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "6",
         "7"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Addition",
       "subcategory": "Add Objects",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +107,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +125,13 @@
         "6",
         "7"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -143,13 +143,13 @@
         "8",
         "9"
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +161,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "9",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -179,13 +179,13 @@
         "10",
         "11"
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +197,13 @@
         "3",
         "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Missing Addends",
       "subcategory": "Find Missing Number",
       "learningOutcome": "Find missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -215,13 +215,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Missing Addends",
       "subcategory": "Find Missing Number",
       "learningOutcome": "Find missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -233,13 +233,13 @@
         "3",
         "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "3",
       "category": "Missing Addends",
       "subcategory": "Find Missing Number",
       "learningOutcome": "Find missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -251,13 +251,13 @@
         "8",
         "9"
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "8",
       "category": "Addition Facts",
       "subcategory": "Doubles",
       "learningOutcome": "Recall doubles facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -269,13 +269,13 @@
         "10",
         "11"
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Addition Facts",
       "subcategory": "Doubles",
       "learningOutcome": "Recall doubles facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -287,22 +287,22 @@
         "7",
         "8"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "7",
       "category": "Application",
       "subcategory": "Word Problems",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count the objects shown and match the quantity. The answer is 7.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Mia has 3 apples and gets 4 more. How many apples now?",
-          "totalCount": 3,
+          "totalCount": 7,
           "iconShape": "circle",
           "groups": [
-            3
+            7
           ]
         }
       }
@@ -316,22 +316,22 @@
         "7",
         "8"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "7",
       "category": "Application",
       "subcategory": "Word Problems",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count the objects shown and match the quantity. The answer is 7.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Sam has 2 balloons and gets 5 more. How many balloons now?",
-          "totalCount": 2,
+          "totalCount": 7,
           "iconShape": "circle",
           "groups": [
-            2
+            7
           ]
         }
       }
@@ -345,22 +345,22 @@
         "8",
         "9"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "8",
       "category": "Application",
       "subcategory": "Word Problems",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count the objects shown and match the quantity. The answer is 8.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Ava has 4 stars and gets 4 more. How many stars now?",
-          "totalCount": 4,
+          "totalCount": 8,
           "iconShape": "circle",
           "groups": [
-            4
+            8
           ]
         }
       }
@@ -374,13 +374,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "9",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Consolidate addition skills",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -392,13 +392,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "9",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Consolidate addition skills",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     }
   ]

@@ -1,7 +1,7 @@
 {
   "id": "quiz-13",
   "title": "Prep 1.13",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Recognise 10 | Understand quantity 10 | Write 10 | Count 10 objects | Match quantity | Apply quantity 10 | Review number 10 | Mastery of number 10",
+  "description": "Learning Outcomes: Recognise 10 | Understand quantity 10 | Write 10 | Count 10 objects | Match quantity | Apply quantity 10 | Review number 10 | Mastery of number 10",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "10",
         "11"
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Recognition",
       "subcategory": "Identify Number 10",
       "learningOutcome": "Understand quantity 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -107,24 +107,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 10",
       "learningOutcome": "Write 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 10. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 10,
-          "prompt": "Trace the number 10",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Trace the number 10 again",
@@ -135,24 +125,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 10",
       "learningOutcome": "Write 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 10. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 10,
-          "prompt": "Trace the number 10 again",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Draw the number 10",
@@ -163,24 +143,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "Completed",
       "category": "Writing",
       "subcategory": "Draw Number 10",
       "learningOutcome": "Write 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 10. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 10,
-          "prompt": "Draw the number 10",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎 How many apples are there?",
@@ -365,13 +335,13 @@
         "🍎🍎🍎🍎🍎🍎🍎🍎",
         "🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎"
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -470,13 +440,13 @@
         "10",
         "11"
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review number 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {

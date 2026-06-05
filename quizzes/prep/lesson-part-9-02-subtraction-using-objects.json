@@ -1,7 +1,7 @@
 {
   "id": "quiz-86",
   "title": "Prep 9.02",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Subtract objects | Word subtraction | Subtract fluently",
+  "description": "Learning Outcomes: Subtract objects | Word subtraction | Subtract fluently",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "2003",
         ""
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +107,13 @@
         "2003",
         ""
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -123,42 +123,6 @@
         "2",
         "3",
         "2004",
-        ""
-      ],
-      "correctAnswer": "2",
-      "category": "Subtraction Concepts",
-      "subcategory": "Take Away",
-      "learningOutcome": "Subtract objects",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 2.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "⚽⚽⚽⚽⚽ − ⚽⚽ = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "2",
-        "3",
-        "2004",
-        ""
-      ],
-      "correctAnswer": "2",
-      "category": "Subtraction Concepts",
-      "subcategory": "Take Away",
-      "learningOutcome": "Subtract objects",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 2.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "🍎🍎🍎🍎🍎 − 🍎 = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "3",
-        "4",
-        "2005",
         ""
       ],
       "correctAnswer": "3",
@@ -171,6 +135,42 @@
       "solutionAttachments": []
     },
     {
+      "question": "⚽⚽⚽⚽⚽ − ⚽⚽ = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Subtraction Concepts",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍎🍎🍎🍎🍎 − 🍎 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Subtraction Concepts",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
       "question": "🚗🚗🚗🚗 − 🚗 = ?",
       "resultType": "multiple-choice",
       "options": [
@@ -179,13 +179,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -197,22 +197,22 @@
         "2004",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "3",
       "category": "Word Problems",
       "subcategory": "Simple Take Away",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 5 apples and eat 2. How many left?",
-          "totalCount": 5,
+          "totalCount": 3,
           "iconShape": "circle",
           "groups": [
-            5
+            3
           ]
         }
       }
@@ -226,22 +226,22 @@
         "2006",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "5",
       "category": "Word Problems",
       "subcategory": "Simple Take Away",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "6 birds, 1 flies away. How many left?",
-          "totalCount": 6,
+          "totalCount": 5,
           "iconShape": "circle",
           "groups": [
-            6
+            5
           ]
         }
       }
@@ -255,22 +255,22 @@
         "2005",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "4",
       "category": "Word Problems",
       "subcategory": "Simple Take Away",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 7.",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "7 toys, you lose 3. How many left?",
-          "totalCount": 7,
+          "totalCount": 4,
           "iconShape": "circle",
           "groups": [
-            7
+            4
           ]
         }
       }
@@ -284,22 +284,22 @@
         "2007",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "6",
       "category": "Word Problems",
       "subcategory": "Simple Take Away",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 8.",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "8 cars, 2 drive away. How many left?",
-          "totalCount": 8,
+          "totalCount": 6,
           "iconShape": "circle",
           "groups": [
-            8
+            6
           ]
         }
       }
@@ -313,22 +313,22 @@
         "2007",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "6",
       "category": "Word Problems",
       "subcategory": "Simple Take Away",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "10 balloons, 4 pop. How many left?",
-          "totalCount": 10,
+          "totalCount": 6,
           "iconShape": "circle",
           "groups": [
-            10
+            6
           ]
         }
       }
@@ -342,13 +342,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -360,13 +360,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -378,13 +378,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -396,13 +396,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -414,13 +414,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     }
   ]

@@ -1,7 +1,7 @@
 {
   "id": "quiz-83",
   "title": "Prep 8.09",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Add within 10 | Make 10 | Add within 20 | Word addition | Counting on | Missing addend | Add fluently | Double addition | Multi-step addition",
+  "description": "Learning Outcomes: Add within 10 | Make 10 | Add within 20 | Word addition | Counting on | Missing addend | Add fluently | Double addition | Multi-step addition",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "9",
       "category": "Addition Skills",
       "subcategory": "Counting On",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "9",
       "category": "Addition Skills",
       "subcategory": "Counting On",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +71,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "16",
         ""
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "15",
       "category": "Addition Skills",
       "subcategory": "Within 20",
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 14.",
+      "solution": "The correct answer is 15.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +107,13 @@
         "16",
         ""
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "15",
       "category": "Addition Skills",
       "subcategory": "Within 20",
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 14.",
+      "solution": "The correct answer is 15.",
       "solutionAttachments": []
     },
     {
@@ -125,22 +125,22 @@
         "10",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "9",
       "category": "Word Problems",
       "subcategory": "Simple Context",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solution": "Count the objects shown and match the quantity. The answer is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 5 apples and get 4 more. How many?",
-          "totalCount": 5,
+          "totalCount": 9,
           "iconShape": "circle",
           "groups": [
-            5
+            9
           ]
         }
       }
@@ -154,13 +154,13 @@
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "9",
       "category": "Word Problems",
       "subcategory": "Simple Context",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -172,13 +172,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Addition Skills",
       "subcategory": "Counting On",
       "learningOutcome": "Counting on",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -190,13 +190,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Number Bonds",
       "subcategory": "Missing Number",
       "learningOutcome": "Missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -208,13 +208,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Add fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -226,13 +226,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Add fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -244,13 +244,13 @@
         "16",
         ""
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "15",
       "category": "Within 20",
       "subcategory": "Mixed",
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 14.",
+      "solution": "The correct answer is 15.",
       "solutionAttachments": []
     },
     {
@@ -262,13 +262,13 @@
         "17",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "16",
       "category": "Within 20",
       "subcategory": "Mixed",
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "The correct answer is 16.",
       "solutionAttachments": []
     },
     {
@@ -280,13 +280,13 @@
         "12",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "11",
       "category": "Word Problems",
       "subcategory": "Mixed Context",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 11.",
       "solutionAttachments": []
     },
     {
@@ -298,13 +298,13 @@
         "17",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "16",
       "category": "Word Problems",
       "subcategory": "Mixed Context",
       "learningOutcome": "Double addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "The correct answer is 16.",
       "solutionAttachments": []
     },
     {
@@ -314,24 +314,6 @@
         "8",
         "9",
         "10",
-        ""
-      ],
-      "correctAnswer": "8",
-      "category": "Mixed Skills",
-      "subcategory": "Multi-step",
-      "learningOutcome": "Multi-step addition",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "5 + 2 + 3 = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "9",
-        "10",
-        "11",
         ""
       ],
       "correctAnswer": "9",
@@ -344,6 +326,24 @@
       "solutionAttachments": []
     },
     {
+      "question": "5 + 2 + 3 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Skills",
+      "subcategory": "Multi-step",
+      "learningOutcome": "Multi-step addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
       "question": "9 + ? = 10",
       "resultType": "multiple-choice",
       "options": [
@@ -352,13 +352,13 @@
         "2",
         ""
       ],
-      "correctAnswer": "2000",
+      "correctAnswer": "1",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2000.",
+      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     },
     {
@@ -370,13 +370,13 @@
         "14",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "13",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
+      "solution": "The correct answer is 13.",
       "solutionAttachments": []
     }
   ]

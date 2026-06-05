@@ -1,7 +1,7 @@
 {
   "id": "quiz-82",
   "title": "Prep 8.08",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Add within 10 | Add within 20 | Multi-step addition",
+  "description": "Learning Outcomes: Add within 10 | Add within 20 | Multi-step addition",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,22 +17,22 @@
         "2006",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "5",
       "category": "Word Problems",
       "subcategory": "Objects",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 3 apples and get 2 more. How many?",
-          "totalCount": 3,
+          "totalCount": 5,
           "iconShape": "circle",
           "groups": [
-            3
+            5
           ]
         }
       }
@@ -46,13 +46,13 @@
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "9",
       "category": "Word Problems",
       "subcategory": "Objects",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -62,78 +62,6 @@
         "8",
         "9",
         "10",
-        ""
-      ],
-      "correctAnswer": "8",
-      "category": "Word Problems",
-      "subcategory": "Objects",
-      "learningOutcome": "Add within 10",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "7 cars + 2 cars = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "8",
-        "9",
-        "10",
-        ""
-      ],
-      "correctAnswer": "8",
-      "category": "Word Problems",
-      "subcategory": "Objects",
-      "learningOutcome": "Add within 10",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "8 balls + 1 ball = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "8",
-        "9",
-        "10",
-        ""
-      ],
-      "correctAnswer": "8",
-      "category": "Word Problems",
-      "subcategory": "Objects",
-      "learningOutcome": "Add within 10",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "4 ducks + 3 ducks = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "6",
-        "7",
-        "2008",
-        ""
-      ],
-      "correctAnswer": "6",
-      "category": "Word Problems",
-      "subcategory": "Objects",
-      "learningOutcome": "Add within 10",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "9 cats + 1 cat = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "9",
-        "10",
-        "11",
         ""
       ],
       "correctAnswer": "9",
@@ -146,25 +74,7 @@
       "solutionAttachments": []
     },
     {
-      "question": "2 pencils + 5 pencils = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "6",
-        "7",
-        "2008",
-        ""
-      ],
-      "correctAnswer": "6",
-      "category": "Word Problems",
-      "subcategory": "Objects",
-      "learningOutcome": "Add within 10",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "3 blocks + 6 blocks = ?",
+      "question": "7 cars + 2 cars = ?",
       "resultType": "multiple-choice",
       "options": [
         "8",
@@ -172,22 +82,40 @@
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "9",
       "category": "Word Problems",
       "subcategory": "Objects",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
-      "question": "1 cookie + 7 cookies = ?",
+      "question": "8 balls + 1 ball = ?",
       "resultType": "multiple-choice",
       "options": [
-        "7",
         "8",
-        "2009",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 ducks + 3 ducks = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "2008",
         ""
       ],
       "correctAnswer": "7",
@@ -200,66 +128,84 @@
       "solutionAttachments": []
     },
     {
+      "question": "9 cats + 1 cat = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 pencils + 5 pencils = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 blocks + 6 blocks = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1 cookie + 7 cookies = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
       "question": "10 apples + 5 apples = ?",
       "resultType": "multiple-choice",
       "options": [
         "14",
         "15",
         "16",
-        ""
-      ],
-      "correctAnswer": "14",
-      "category": "Word Problems",
-      "subcategory": "Mixed Context",
-      "learningOutcome": "Add within 20",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 14.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "8 + 7 = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "14",
-        "15",
-        "16",
-        ""
-      ],
-      "correctAnswer": "14",
-      "category": "Word Problems",
-      "subcategory": "Mixed Context",
-      "learningOutcome": "Add within 20",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 14.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "6 + 9 = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "14",
-        "15",
-        "16",
-        ""
-      ],
-      "correctAnswer": "14",
-      "category": "Word Problems",
-      "subcategory": "Mixed Context",
-      "learningOutcome": "Add within 20",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 14.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "12 + 4 = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "15",
-        "16",
-        "17",
         ""
       ],
       "correctAnswer": "15",
@@ -272,6 +218,60 @@
       "solutionAttachments": []
     },
     {
+      "question": "8 + 7 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Word Problems",
+      "subcategory": "Mixed Context",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 + 9 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Word Problems",
+      "subcategory": "Mixed Context",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "12 + 4 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "16",
+        "17",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Word Problems",
+      "subcategory": "Mixed Context",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 16.",
+      "solutionAttachments": []
+    },
+    {
       "question": "11 + 3 = ?",
       "resultType": "multiple-choice",
       "options": [
@@ -280,13 +280,13 @@
         "15",
         ""
       ],
-      "correctAnswer": "13",
+      "correctAnswer": "14",
       "category": "Word Problems",
       "subcategory": "Mixed Context",
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 13.",
+      "solution": "The correct answer is 14.",
       "solutionAttachments": []
     },
     {
@@ -298,13 +298,13 @@
         "16",
         ""
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "15",
       "category": "Word Problems",
       "subcategory": "Mixed Context",
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 14.",
+      "solution": "The correct answer is 15.",
       "solutionAttachments": []
     },
     {
@@ -316,13 +316,13 @@
         "16",
         ""
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "15",
       "category": "Word Problems",
       "subcategory": "Mixed Context",
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 14.",
+      "solution": "The correct answer is 15.",
       "solutionAttachments": []
     },
     {
@@ -334,13 +334,13 @@
         "16",
         ""
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "15",
       "category": "Word Problems",
       "subcategory": "Mixed Context",
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 14.",
+      "solution": "The correct answer is 15.",
       "solutionAttachments": []
     },
     {
@@ -352,13 +352,13 @@
         "13",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "12",
       "category": "Word Problems",
       "subcategory": "Mixed Review",
       "learningOutcome": "Multi-step addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
+      "solution": "The correct answer is 12.",
       "solutionAttachments": []
     },
     {
@@ -370,13 +370,13 @@
         "16",
         ""
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "15",
       "category": "Word Problems",
       "subcategory": "Mixed Review",
       "learningOutcome": "Multi-step addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 14.",
+      "solution": "The correct answer is 15.",
       "solutionAttachments": []
     }
   ]

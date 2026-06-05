@@ -1,7 +1,7 @@
 {
   "id": "quiz-62",
   "title": "Prep 6.08",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Recognise circles | Recognise squares | Recognise triangles | Recognise rectangles | Recall shape properties | Compare shapes | Identify shapes in real life | Consolidate shape knowledge",
+  "description": "Learning Outcomes: Recognise circles | Recognise squares | Recognise triangles | Recognise rectangles | Recall shape properties | Compare shapes | Identify shapes in real life | Consolidate shape knowledge",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "Which shape is round?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "Which shape has no corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "Which shape has 4 equal sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Which shape looks like a sticky note?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "Which shape has 3 sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "question": "Which shape looks like a pizza slice?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -118,7 +118,7 @@
     },
     {
       "question": "Which shape looks like a door?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -136,7 +136,7 @@
     },
     {
       "question": "Which shape looks like a ruler?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -154,7 +154,7 @@
     },
     {
       "question": "How many sides does a triangle have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "3",
         "",
@@ -183,7 +183,7 @@
     },
     {
       "question": "How many sides does a square have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "",
@@ -212,7 +212,7 @@
     },
     {
       "question": "How many corners does a rectangle have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "",
@@ -241,7 +241,7 @@
     },
     {
       "question": "How many corners does a circle have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "0",
         "",
@@ -270,7 +270,7 @@
     },
     {
       "question": "Which has more sides: Triangle or Square?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -288,7 +288,7 @@
     },
     {
       "question": "Which has fewer corners: Circle or Rectangle?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -306,7 +306,7 @@
     },
     {
       "question": "What shape is a coin?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -324,7 +324,7 @@
     },
     {
       "question": "What shape is a book?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -342,7 +342,7 @@
     },
     {
       "question": "What shape is a watermelon slice?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -360,7 +360,7 @@
     },
     {
       "question": "What shape is a floor tile?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -378,7 +378,7 @@
     },
     {
       "question": "Which shape has 4 sides and 4 corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -396,7 +396,7 @@
     },
     {
       "question": "Which shape has no sides and no corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",

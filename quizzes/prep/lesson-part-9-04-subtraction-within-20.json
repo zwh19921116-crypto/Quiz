@@ -1,7 +1,7 @@
 {
   "id": "quiz-88",
   "title": "Prep 9.04",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Subtract within 20 | Word subtraction | Subtract fluently",
+  "description": "Learning Outcomes: Subtract within 20 | Word subtraction | Subtract fluently",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "12",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "11",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 11.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +71,13 @@
         "12",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "12",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 12.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "13",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "12",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
+      "solution": "The correct answer is 12.",
       "solutionAttachments": []
     },
     {
@@ -105,60 +105,6 @@
         "14",
         "15",
         "16",
-        ""
-      ],
-      "correctAnswer": "14",
-      "category": "Subtraction Skills",
-      "subcategory": "Take Away",
-      "learningOutcome": "Subtract within 20",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 14.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "13 − 1 = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "11",
-        "12",
-        "13",
-        ""
-      ],
-      "correctAnswer": "11",
-      "category": "Subtraction Skills",
-      "subcategory": "Take Away",
-      "learningOutcome": "Subtract within 20",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 11.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "17 − 2 = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "14",
-        "15",
-        "16",
-        ""
-      ],
-      "correctAnswer": "14",
-      "category": "Subtraction Skills",
-      "subcategory": "Take Away",
-      "learningOutcome": "Subtract within 20",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 14.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "19 − 3 = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "15",
-        "16",
-        "17",
         ""
       ],
       "correctAnswer": "15",
@@ -171,6 +117,60 @@
       "solutionAttachments": []
     },
     {
+      "question": "13 − 1 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "12",
+        "13",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Subtraction Skills",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "17 − 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Subtraction Skills",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "19 − 3 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "16",
+        "17",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Subtraction Skills",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 16.",
+      "solutionAttachments": []
+    },
+    {
       "question": "11 − 4 = ?",
       "resultType": "multiple-choice",
       "options": [
@@ -179,13 +179,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -197,22 +197,22 @@
         "12",
         ""
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "11",
       "category": "Word Problems",
       "subcategory": "Simple Context",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 14.",
+      "solution": "Count the objects shown and match the quantity. The answer is 11.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 14 apples and eat 3. How many left?",
-          "totalCount": 14,
+          "totalCount": 11,
           "iconShape": "circle",
           "groups": [
-            14
+            11
           ]
         }
       }
@@ -226,22 +226,22 @@
         "12",
         ""
       ],
-      "correctAnswer": "16",
+      "correctAnswer": "11",
       "category": "Word Problems",
       "subcategory": "Simple Context",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 16.",
+      "solution": "Count the objects shown and match the quantity. The answer is 11.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "There are 16 birds, 5 fly away. How many left?",
-          "totalCount": 16,
+          "totalCount": 11,
           "iconShape": "circle",
           "groups": [
-            16
+            11
           ]
         }
       }
@@ -255,22 +255,22 @@
         "15",
         ""
       ],
-      "correctAnswer": "18",
+      "correctAnswer": "14",
       "category": "Word Problems",
       "subcategory": "Simple Context",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 18.",
+      "solution": "Count the objects shown and match the quantity. The answer is 14.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 18 toys, lose 4. How many left?",
-          "totalCount": 18,
+          "totalCount": 14,
           "iconShape": "circle",
           "groups": [
-            18
+            14
           ]
         }
       }
@@ -284,22 +284,22 @@
         "15",
         ""
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "14",
       "category": "Word Problems",
       "subcategory": "Simple Context",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 20.",
+      "solution": "Count the objects shown and match the quantity. The answer is 14.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "20 balloons, 6 pop. How many left?",
-          "totalCount": 20,
+          "totalCount": 14,
           "iconShape": "circle",
           "groups": [
-            20
+            14
           ]
         }
       }
@@ -313,22 +313,22 @@
         "14",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "13",
       "category": "Word Problems",
       "subcategory": "Simple Context",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 15.",
+      "solution": "Count the objects shown and match the quantity. The answer is 13.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "15 cars, 2 drive away. How many left?",
-          "totalCount": 15,
+          "totalCount": 13,
           "iconShape": "circle",
           "groups": [
-            15
+            13
           ]
         }
       }
@@ -342,13 +342,13 @@
         "2009",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "8",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -358,24 +358,6 @@
         "9",
         "10",
         "11",
-        ""
-      ],
-      "correctAnswer": "9",
-      "category": "Mixed Skills",
-      "subcategory": "Fluency",
-      "learningOutcome": "Subtract fluently",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 9.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "19 − 8 = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "10",
-        "11",
-        "12",
         ""
       ],
       "correctAnswer": "10",
@@ -388,6 +370,24 @@
       "solutionAttachments": []
     },
     {
+      "question": "19 − 8 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Subtract fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 11.",
+      "solutionAttachments": []
+    },
+    {
       "question": "16 − 6 = ?",
       "resultType": "multiple-choice",
       "options": [
@@ -396,13 +396,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -414,13 +414,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     }
   ]

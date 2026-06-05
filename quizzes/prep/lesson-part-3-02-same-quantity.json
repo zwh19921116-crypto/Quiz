@@ -1,7 +1,7 @@
 {
   "id": "quiz-26",
   "title": "Prep 3.02",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Identify equal quantities | Compare quantities | Match equal groups | Recognise equal numbers | Compare numbers | Apply equality | Mastery",
+  "description": "Learning Outcomes: Identify equal quantities | Compare quantities | Match equal groups | Recognise equal numbers | Compare numbers | Apply equality | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "No",
       "category": "Comparing",
       "subcategory": "Same Quantity",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "The correct answer is No.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "No",
       "category": "Comparing",
       "subcategory": "Same Quantity",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "The correct answer is No.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +107,13 @@
         "🍎🍎🍎🍎",
         ""
       ],
-      "correctAnswer": "🍎🍎",
+      "correctAnswer": "🍎🍎🍎",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🍎🍎.",
+      "solution": "The correct answer is 🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +125,13 @@
         "⭐⭐⭐⭐⭐",
         ""
       ],
-      "correctAnswer": "⭐⭐⭐",
+      "correctAnswer": "⭐⭐⭐⭐",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is ⭐⭐⭐.",
+      "solution": "The correct answer is ⭐⭐⭐⭐.",
       "solutionAttachments": []
     },
     {
@@ -143,13 +143,13 @@
         "🚗🚗🚗",
         ""
       ],
-      "correctAnswer": "🚗",
+      "correctAnswer": "🚗🚗",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🚗.",
+      "solution": "The correct answer is 🚗🚗.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +161,13 @@
         "🐶🐶🐶",
         ""
       ],
-      "correctAnswer": "🐶🐶🐶🐶",
+      "correctAnswer": "🐶🐶🐶🐶🐶",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🐶🐶🐶🐶.",
+      "solution": "The correct answer is 🐶🐶🐶🐶🐶.",
       "solutionAttachments": []
     },
     {
@@ -179,13 +179,13 @@
         "🐟🐟",
         ""
       ],
-      "correctAnswer": "🐟🐟🐟",
+      "correctAnswer": "🐟🐟🐟🐟",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🐟🐟🐟.",
+      "solution": "The correct answer is 🐟🐟🐟🐟.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +197,13 @@
         "5",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -215,13 +215,13 @@
         "8",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -233,13 +233,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -251,13 +251,13 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is Yes.",
       "solutionAttachments": []
     },
     {
@@ -269,13 +269,13 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "No",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is No.",
       "solutionAttachments": []
     },
     {
@@ -287,13 +287,13 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "Yes",
       "category": "Application",
       "subcategory": "Real World Equality",
       "learningOutcome": "Apply equality",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is Yes.",
       "solutionAttachments": []
     },
     {
@@ -305,13 +305,13 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "No",
       "category": "Application",
       "subcategory": "Real World Equality",
       "learningOutcome": "Apply equality",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is No.",
       "solutionAttachments": []
     },
     {
@@ -323,13 +323,13 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "Yes",
       "category": "Application",
       "subcategory": "Real World Equality",
       "learningOutcome": "Apply equality",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is Yes.",
       "solutionAttachments": []
     },
     {
@@ -341,13 +341,13 @@
         "🍎🍎🍎🍎🍎",
         ""
       ],
-      "correctAnswer": "🍎🍎🍎",
+      "correctAnswer": "🍎🍎🍎🍎",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🍎🍎🍎.",
+      "solution": "The correct answer is 🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -359,13 +359,13 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "Yes",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is Yes.",
       "solutionAttachments": []
     }
   ]

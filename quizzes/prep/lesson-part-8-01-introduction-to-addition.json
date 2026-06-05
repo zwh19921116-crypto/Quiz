@@ -1,7 +1,7 @@
 {
   "id": "quiz-75",
   "title": "Prep 8.01",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Understand addition | Simple addition | Visual addition | Multi-step addition | Worded addition | Addition fluency",
+  "description": "Learning Outcomes: Understand addition | Simple addition | Visual addition | Multi-step addition | Worded addition | Addition fluency",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,22 +17,22 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "learningOutcome": "Understand addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 2 apples and get 1 more. How many in total?",
-          "totalCount": 2,
+          "totalCount": 3,
           "iconShape": "circle",
           "groups": [
-            2
+            3
           ]
         }
       }
@@ -46,13 +46,13 @@
         "2003",
         ""
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -64,13 +64,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -82,13 +82,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "learningOutcome": "Understand addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -100,13 +100,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -118,13 +118,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -136,13 +136,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "learningOutcome": "Understand addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -154,13 +154,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -172,13 +172,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -190,13 +190,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "learningOutcome": "Understand addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -206,24 +206,6 @@
         "4",
         "5",
         "2006",
-        ""
-      ],
-      "correctAnswer": "4",
-      "category": "Addition Concepts",
-      "subcategory": "Visual Addition",
-      "learningOutcome": "Visual addition",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 4.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "4 blocks + 2 blocks equals?",
-      "resultType": "multiple-choice",
-      "options": [
-        "5",
-        "6",
-        "2007",
         ""
       ],
       "correctAnswer": "5",
@@ -236,6 +218,24 @@
       "solutionAttachments": []
     },
     {
+      "question": "4 blocks + 2 blocks equals?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Addition Concepts",
+      "subcategory": "Visual Addition",
+      "learningOutcome": "Visual addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
       "question": "1 + 4 equals what?",
       "resultType": "multiple-choice",
       "options": [
@@ -244,13 +244,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Addition Concepts",
       "subcategory": "Visual Addition",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -262,13 +262,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Addition Concepts",
       "subcategory": "Visual Addition",
       "learningOutcome": "Multi-step addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -280,13 +280,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "category": "Addition Concepts",
       "subcategory": "Visual Addition",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -298,22 +298,22 @@
         "2006",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "5",
       "category": "Addition Concepts",
       "subcategory": "Word Problems",
       "learningOutcome": "Worded addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 2 apples, buy 3 more. How many?",
-          "totalCount": 2,
+          "totalCount": 5,
           "iconShape": "circle",
           "groups": [
-            2
+            5
           ]
         }
       }
@@ -327,13 +327,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Addition Concepts",
       "subcategory": "Word Problems",
       "learningOutcome": "Worded addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -345,13 +345,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Addition Concepts",
       "subcategory": "Word Problems",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -363,13 +363,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Addition Concepts",
       "subcategory": "Mixed Review",
       "learningOutcome": "Addition fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -381,13 +381,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "category": "Addition Concepts",
       "subcategory": "Mixed Review",
       "learningOutcome": "Addition fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     }
   ]

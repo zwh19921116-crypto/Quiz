@@ -1,7 +1,7 @@
 {
   "id": "quiz-14",
   "title": "Prep 1.14",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Recognise 0 | Recognise 2 | Recognise 5 | Recognise 8 | Recognise 10 | Recognise 3 | Recognise 7 | Write 4 | Write 9 | Write 6 | Count objects | Match quantity | Number sequence | Apply counting | Mastery 0-10",
+  "description": "Learning Outcomes: Recognise 0 | Recognise 2 | Recognise 5 | Recognise 8 | Recognise 10 | Recognise 3 | Recognise 7 | Write 4 | Write 9 | Write 6 | Count objects | Match quantity | Number sequence | Apply counting | Mastery 0-10",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -143,24 +143,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Numbers",
       "learningOutcome": "Write 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 4. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 4,
-          "prompt": "Trace the number 4",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Trace the number 9",
@@ -171,24 +161,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Numbers",
       "learningOutcome": "Write 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 9. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 9,
-          "prompt": "Trace the number 9",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Draw the number 6",
@@ -199,24 +179,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "Completed",
       "category": "Writing",
       "subcategory": "Draw Numbers",
       "learningOutcome": "Write 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 6. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 6,
-          "prompt": "Draw the number 6",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "🍎🍎🍎🍎 How many apples are there?",
@@ -401,13 +371,13 @@
         "8",
         "9"
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "category": "Sequencing",
       "subcategory": "Number Order",
       "learningOutcome": "Number sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 6.",
+      "solution": "Continue the counting pattern by 1. The next number is 7.",
       "solutionAttachments": []
     },
     {
@@ -419,13 +389,13 @@
         "10",
         "11"
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Sequencing",
       "subcategory": "Number Order",
       "learningOutcome": "Number sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 8.",
+      "solution": "Continue the counting pattern by 1. The next number is 10.",
       "solutionAttachments": []
     },
     {
@@ -466,13 +436,13 @@
         "8",
         "10"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "10",
       "category": "Mastery",
       "subcategory": "Mixed Assessment",
       "learningOutcome": "Mastery 0-10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     }
   ]

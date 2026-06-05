@@ -1,7 +1,7 @@
 {
   "id": "quiz-9",
   "title": "Prep 1.09",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Recognise 6 | Understand quantity 6 | Write 6 | Count 6 objects | Match quantity | Apply quantity 6 | Review number 6 | Mastery of number 6",
+  "description": "Learning Outcomes: Recognise 6 | Understand quantity 6 | Write 6 | Count 6 objects | Match quantity | Apply quantity 6 | Review number 6 | Mastery of number 6",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "6",
         "7"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Recognition",
       "subcategory": "Identify Number 6",
       "learningOutcome": "Understand quantity 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -107,24 +107,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 6",
       "learningOutcome": "Write 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 6. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 6,
-          "prompt": "Trace the number 6",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Trace the number 6 again",
@@ -135,24 +125,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 6",
       "learningOutcome": "Write 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 6. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 6,
-          "prompt": "Trace the number 6 again",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Draw the number 6",
@@ -163,24 +143,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "Completed",
       "category": "Writing",
       "subcategory": "Draw Number 6",
       "learningOutcome": "Write 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 6. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 6,
-          "prompt": "Draw the number 6",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "🍎🍎🍎🍎🍎🍎 How many apples are there?",
@@ -365,13 +335,13 @@
         "🍎🍎🍎🍎",
         "🍎🍎🍎🍎🍎🍎🍎"
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "🍎🍎🍎🍎🍎🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 🍎🍎🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -470,13 +440,13 @@
         "6",
         "7"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review number 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {

@@ -1,7 +1,7 @@
 {
   "id": "quiz-2",
   "title": "Prep 1.02",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Recognise 0 | Understand zero | Write 0 | Count 0 objects | Match quantity | Apply zero | Review zero | Mastery of zero",
+  "description": "Learning Outcomes: Recognise 0 | Understand zero | Write 0 | Count 0 objects | Match quantity | Apply zero | Review zero | Mastery of zero",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -107,24 +107,14 @@
         "",
         ""
       ],
-      "correctAnswer": "0",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 0",
       "learningOutcome": "Write 0",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 0. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 0,
-          "prompt": "Trace the number 0",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Trace the number 0 again",
@@ -135,24 +125,14 @@
         "",
         ""
       ],
-      "correctAnswer": "0",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 0",
       "learningOutcome": "Write 0",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 0. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 0,
-          "prompt": "Trace the number 0 again",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Draw the number 0",
@@ -163,24 +143,14 @@
         "",
         ""
       ],
-      "correctAnswer": "0",
+      "correctAnswer": "Completed",
       "category": "Writing",
       "subcategory": "Draw Number 0",
       "learningOutcome": "Write 0",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 0. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 0,
-          "prompt": "Draw the number 0",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Empty basket. How many apples?",
@@ -365,13 +335,13 @@
         "🍎🍎",
         "🍎🍎🍎"
       ],
-      "correctAnswer": "0",
+      "correctAnswer": "Empty Box",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
+      "solution": "The correct answer is Empty Box.",
       "solutionAttachments": []
     },
     {

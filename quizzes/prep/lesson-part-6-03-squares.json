@@ -1,7 +1,7 @@
 {
   "id": "quiz-57",
   "title": "Prep 6.03",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Identify squares | Recognise squares | Match objects to squares | Recognise square properties | Compare shapes | Apply shape recognition | Consolidate square recognition",
+  "description": "Learning Outcomes: Identify squares | Recognise squares | Match objects to squares | Recognise square properties | Compare shapes | Apply shape recognition | Consolidate square recognition",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "Which shape is a square?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "Does a square have 4 sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "Does a square have 4 corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Are all sides of a square the same length?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "Does a square roll?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "No",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "question": "What shape is a sticky note?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -118,7 +118,7 @@
     },
     {
       "question": "What shape is a checkerboard square?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -136,7 +136,7 @@
     },
     {
       "question": "What shape is a floor tile (square tile)?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -154,7 +154,7 @@
     },
     {
       "question": "What shape is a square picture frame?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -172,7 +172,7 @@
     },
     {
       "question": "What shape is a square biscuit?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -190,7 +190,7 @@
     },
     {
       "question": "How many sides does a square have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "",
@@ -219,7 +219,7 @@
     },
     {
       "question": "How many corners does a square have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "",
@@ -248,7 +248,7 @@
     },
     {
       "question": "Does a square have more sides than a triangle?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -266,7 +266,7 @@
     },
     {
       "question": "Is a square round?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "No",
         "",
@@ -284,7 +284,7 @@
     },
     {
       "question": "Can a square have 3 corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "No",
         "",
@@ -302,7 +302,7 @@
     },
     {
       "question": "Which object is a square: sticky note or coin?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Sticky Note",
         "",
@@ -320,7 +320,7 @@
     },
     {
       "question": "Which object is a square: tile or wheel?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Tile",
         "",
@@ -338,7 +338,7 @@
     },
     {
       "question": "Which object is a square: checkerboard square or plate?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Checkerboard Square",
         "",
@@ -356,7 +356,7 @@
     },
     {
       "question": "Which shape has 4 equal sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -374,7 +374,7 @@
     },
     {
       "question": "Which shape has 4 corners and 4 sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",

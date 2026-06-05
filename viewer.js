@@ -670,6 +670,37 @@ function normalizeResultType(value) {
   return "multiple-choice";
 }
 
+function getQuestionOptionList(question) {
+  return Array.isArray(question && question.options)
+    ? question.options.map((item) => String(item).trim()).filter((item) => item !== "")
+    : [];
+}
+
+function getEffectiveResultType(question) {
+  const normalized = normalizeResultType(question && question.resultType);
+  if (question && question.interactiveApp) return normalized;
+
+  const options = getQuestionOptionList(question);
+  if (options.length === 0) return normalized;
+  if (normalized !== "short-answer") return normalized;
+
+  const rawAnswer = question && question.correctAnswer;
+  if (Array.isArray(rawAnswer)) {
+    return rawAnswer.length > 1 ? "checkbox" : "multiple-choice";
+  }
+
+  if (typeof rawAnswer === "string") {
+    const tokens = rawAnswer.split(",").map((item) => item.trim()).filter((item) => item !== "");
+    return tokens.length > 1 ? "checkbox" : "multiple-choice";
+  }
+
+  if (Number.isInteger(rawAnswer) && options[rawAnswer]) {
+    return "multiple-choice";
+  }
+
+  return "multiple-choice";
+}
+
 function parseDdMmYyyyDate(text) {
   const raw = String(text || "").trim();
   const match = raw.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
@@ -1736,15 +1767,14 @@ function updateHeader() {
 }
 
 function getExpectedAnswers(question) {
-  const availableOptions = Array.isArray(question && question.options)
-    ? question.options.map((item) => String(item).trim()).filter((item) => item !== "")
-    : [];
+  const availableOptions = getQuestionOptionList(question);
   const availableLookup = new Set(availableOptions.map((item) => item.toLowerCase()));
+  const effectiveResultType = getEffectiveResultType(question);
 
   const clampToAvailableOptions = (items) => {
     const list = Array.isArray(items) ? items : [];
     const cleaned = list.map((item) => String(item).trim()).filter((item) => item !== "");
-    if ((question && question.resultType) !== "checkbox") {
+    if (effectiveResultType !== "checkbox") {
       return cleaned;
     }
 
@@ -8878,6 +8908,8 @@ function renderPdfAttachmentPreviews(attachments) {
 }
 
 function renderAnswerInput(question) {
+  const effectiveResultType = getEffectiveResultType(question);
+
   // Cartesian Plane - Plot: the interactive IS the answer input
   if (question.interactiveApp && question.interactiveApp.type === "cartesian-plane-plot") {
     const config = question.interactiveApp.config || {};
@@ -8912,9 +8944,9 @@ function renderAnswerInput(question) {
     }
 
     if (mode === "analog-to-digital") {
-      const type = question.resultType === "checkbox" ? "checkbox" : "radio";
-      const inputName = question.resultType === "checkbox" ? "activeQuestionCheck" : "activeQuestion";
-      const options = question.options || [];
+      const type = effectiveResultType === "checkbox" ? "checkbox" : "radio";
+      const inputName = effectiveResultType === "checkbox" ? "activeQuestionCheck" : "activeQuestion";
+      const options = getQuestionOptionList(question);
       return `
         <div class="time-answer-panel">
           ${buildTimeClockMarkup(config, { withReadout: false })}
@@ -9097,7 +9129,7 @@ function renderAnswerInput(question) {
     `;
   }
 
-  if (question.resultType === "short-answer" || question.resultType === "plot") {
+  if (effectiveResultType === "short-answer" || effectiveResultType === "plot") {
     return `
       <div class="short-answer-box">
         <label for="shortAnswerInput">Your answer</label>
@@ -9106,7 +9138,7 @@ function renderAnswerInput(question) {
     `;
   }
 
-  if (question.resultType === "date") {
+  if (effectiveResultType === "date") {
     return `
       <div class="short-answer-box date-answer-box">
         <label>Date answer (DD/MM/YYYY)</label>
@@ -9121,9 +9153,9 @@ function renderAnswerInput(question) {
     `;
   }
 
-  const type = question.resultType === "checkbox" ? "checkbox" : "radio";
-  const inputName = question.resultType === "checkbox" ? "activeQuestionCheck" : "activeQuestion";
-  const options = question.options || [];
+  const type = effectiveResultType === "checkbox" ? "checkbox" : "radio";
+  const inputName = effectiveResultType === "checkbox" ? "activeQuestionCheck" : "activeQuestion";
+  const options = getQuestionOptionList(question);
   const safeOptions = options.length > 0
     ? options
     : (question.resultType === "true-false" ? ["True", "False"] : []);
@@ -9174,9 +9206,10 @@ function syncOptionSelectionState() {
 
 function wireOptionSelectionUI(question) {
   if (question.interactiveApp && question.interactiveApp.type === "arithmetic") return;
-  if (question.resultType === "short-answer" || question.resultType === "plot" || question.resultType === "date") return;
+  const effectiveResultType = getEffectiveResultType(question);
+  if (effectiveResultType === "short-answer" || effectiveResultType === "plot" || effectiveResultType === "date") return;
 
-  const selector = question.resultType === "checkbox"
+  const selector = effectiveResultType === "checkbox"
     ? "input[name='activeQuestionCheck']"
     : "input[name='activeQuestion']";
   const inputs = document.querySelectorAll(selector);
@@ -9669,6 +9702,8 @@ function renderQuestion() {
 }
 
 function collectUserAnswer(question) {
+  const effectiveResultType = getEffectiveResultType(question);
+
   if (isIntroductionQuestion(question)) {
     const termsInput = document.getElementById("introAcceptTerms");
     const supportInput = document.getElementById("introAcknowledgeSupport");
@@ -9749,7 +9784,7 @@ function collectUserAnswer(question) {
     return d === "1" ? n : `${n}/${d}`;
   }
   if (
-    question.resultType === "short-answer"
+    effectiveResultType === "short-answer"
     && question.interactiveApp
     && question.interactiveApp.type === "matrix"
   ) {
@@ -9768,7 +9803,7 @@ function collectUserAnswer(question) {
     if (!rows || !cols) return "";
     return `${rows} x ${cols}`;
   }
-  if (question.resultType === "date") {
+  if (effectiveResultType === "date") {
     const container = document.getElementById("quizContainer");
     const dayInput = container && container.querySelector("[data-role='date-day']");
     const monthInput = container && container.querySelector("[data-role='date-month']");
@@ -9779,12 +9814,12 @@ function collectUserAnswer(question) {
     if (!day || !month || !year) return "";
     return `${day.padStart(2, "0")}/${month.padStart(2, "0")}/${year.padStart(4, "0")}`;
   }
-  if (question.resultType === "short-answer" || question.resultType === "plot") {
+  if (effectiveResultType === "short-answer" || effectiveResultType === "plot") {
     const input = document.getElementById("shortAnswerInput");
     return input ? input.value.trim() : "";
   }
 
-  if (question.resultType === "checkbox") {
+  if (effectiveResultType === "checkbox") {
     return Array.from(document.querySelectorAll("input[name='activeQuestionCheck']:checked"))
       .map((node) => node.value);
   }
@@ -9846,6 +9881,8 @@ function parseAnswerFraction(value) {
 }
 
 function answersMatch(question, userAnswer) {
+  const effectiveResultType = getEffectiveResultType(question);
+
   if (isIntroductionQuestion(question)) {
     const answerObj = userAnswer && typeof userAnswer === "object" ? userAnswer : {};
     return Boolean(answerObj.acceptedTerms) && Boolean(answerObj.acknowledgedSupport);
@@ -9926,7 +9963,7 @@ function answersMatch(question, userAnswer) {
   }
   const expected = getExpectedAnswers(question).map(norm);
 
-  if (question.resultType === "checkbox") {
+  if (effectiveResultType === "checkbox") {
     const picked = Array.isArray(userAnswer) ? userAnswer.map(norm).filter((x) => x !== "") : [];
     if (picked.length === 0 || expected.length === 0) return false;
 
@@ -9935,7 +9972,7 @@ function answersMatch(question, userAnswer) {
     return uniquePicked.length === uniqueExpected.length && uniquePicked.every((item, idx) => item === uniqueExpected[idx]);
   }
 
-  if (question.resultType === "date") {
+  if (effectiveResultType === "date") {
     const userDate = parseDdMmYyyyDate(userAnswer);
     if (!userDate) return false;
     const expectedDates = getExpectedAnswers(question)
@@ -10031,7 +10068,7 @@ function answersMatch(question, userAnswer) {
   const value = normalizeForMatch(userAnswer);
   if (!value || expected.length === 0) return false;
 
-  if (question.resultType === "short-answer") {
+  if (effectiveResultType === "short-answer") {
     if (isMatrix) {
       const userDim = normalizeMatrixDimension(userAnswer);
       const expectedDims = expected
@@ -10419,7 +10456,9 @@ function closeSolutionModal() {
 }
 
 function highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswers) {
-  if (question.resultType === "multiple-choice" || question.resultType === "true-false") {
+  const effectiveResultType = getEffectiveResultType(question);
+
+  if (effectiveResultType === "multiple-choice" || effectiveResultType === "true-false") {
     const options = document.querySelectorAll(".option-item");
     options.forEach((option) => {
       const input = option.querySelector("input");
@@ -10438,7 +10477,7 @@ function highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswer
         option.classList.add("feedback-correct");
       }
     });
-  } else if (question.resultType === "checkbox") {
+  } else if (effectiveResultType === "checkbox") {
     const checkboxes = document.querySelectorAll("input[name='activeQuestionCheck']");
     checkboxes.forEach((checkbox) => {
       const option = checkbox.closest(".option-item");

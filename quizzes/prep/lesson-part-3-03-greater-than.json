@@ -1,7 +1,7 @@
 {
   "id": "quiz-27",
   "title": "Prep 3.03",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Compare quantities | Compare numbers | Compare groups | Apply comparison | Mastery",
+  "description": "Learning Outcomes: Compare quantities | Compare numbers | Compare groups | Apply comparison | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "Right",
       "category": "Comparing",
       "subcategory": "Greater Quantity",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "The correct answer is Right.",
       "solutionAttachments": []
     },
     {
@@ -233,13 +233,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "Right",
       "category": "Comparing",
       "subcategory": "Find Greater Group",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "The correct answer is Right.",
       "solutionAttachments": []
     },
     {
@@ -287,13 +287,13 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "Mia",
       "category": "Application",
       "subcategory": "Real World Comparison",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is Mia.",
       "solutionAttachments": []
     },
     {
@@ -305,13 +305,13 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "Sam",
       "category": "Application",
       "subcategory": "Real World Comparison",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is Sam.",
       "solutionAttachments": []
     },
     {
@@ -323,13 +323,13 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "Leo",
       "category": "Application",
       "subcategory": "Real World Comparison",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is Leo.",
       "solutionAttachments": []
     },
     {
@@ -341,13 +341,13 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -359,13 +359,13 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "9",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     }
   ]

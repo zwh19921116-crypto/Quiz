@@ -1,7 +1,7 @@
 {
   "id": "quiz-58",
   "title": "Prep 6.04",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Identify triangles | Recognise triangles | Match objects to triangles | Recognise triangle properties | Compare shapes | Apply shape recognition | Consolidate triangle recognition",
+  "description": "Learning Outcomes: Identify triangles | Recognise triangles | Match objects to triangles | Recognise triangle properties | Compare shapes | Apply shape recognition | Consolidate triangle recognition",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "Which shape is a triangle?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "Does a triangle have 3 sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "Does a triangle have 3 corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Is a triangle round?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "No",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "Can a triangle roll easily?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "No",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "question": "What shape is a slice of pizza?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -118,7 +118,7 @@
     },
     {
       "question": "What shape is a nacho chip?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -136,7 +136,7 @@
     },
     {
       "question": "What shape is a yield sign (simplified)?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -154,7 +154,7 @@
     },
     {
       "question": "What shape is a pennant flag?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -172,7 +172,7 @@
     },
     {
       "question": "What shape is a watermelon slice?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -190,7 +190,7 @@
     },
     {
       "question": "How many sides does a triangle have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "3",
         "",
@@ -219,7 +219,7 @@
     },
     {
       "question": "How many corners does a triangle have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "3",
         "",
@@ -248,7 +248,7 @@
     },
     {
       "question": "Does a triangle have fewer sides than a square?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -266,7 +266,7 @@
     },
     {
       "question": "Does a triangle have more corners than a square?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "No",
         "",
@@ -284,7 +284,7 @@
     },
     {
       "question": "Can a triangle have 4 sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "No",
         "",
@@ -302,7 +302,7 @@
     },
     {
       "question": "Which object is a triangle: pizza slice or coin?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Pizza Slice",
         "",
@@ -320,7 +320,7 @@
     },
     {
       "question": "Which object is a triangle: plate or nacho chip?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Nacho Chip",
         "",
@@ -338,7 +338,7 @@
     },
     {
       "question": "Which object is a triangle: ruler or pennant flag?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Pennant Flag",
         "",
@@ -356,7 +356,7 @@
     },
     {
       "question": "Which shape has 3 sides and 3 corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -374,7 +374,7 @@
     },
     {
       "question": "Which shape looks like a pizza slice?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",

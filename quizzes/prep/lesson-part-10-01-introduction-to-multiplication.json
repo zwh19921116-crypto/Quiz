@@ -1,7 +1,7 @@
 {
   "id": "quiz-95",
   "title": "Prep 10.01",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Understand grouping | Repeated addition | Equal groups | Identify groups | Word grouping",
+  "description": "Learning Outcomes: Understand grouping | Repeated addition | Equal groups | Identify groups | Word grouping",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,22 +17,22 @@
         "2007",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "6",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Understand grouping",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "There are 3 groups with 2 apples each. How many apples in total?",
-          "totalCount": 3,
+          "totalCount": 6,
           "iconShape": "circle",
           "groups": [
-            3
+            6
           ]
         }
       }
@@ -46,13 +46,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -64,13 +64,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Understand grouping",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -82,13 +82,13 @@
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -100,13 +100,13 @@
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "9",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -118,13 +118,13 @@
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -136,13 +136,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Identify groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -154,13 +154,13 @@
         "12",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "12",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 12.",
       "solutionAttachments": []
     },
     {
@@ -172,13 +172,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "8",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -190,13 +190,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "8",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -208,13 +208,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Word grouping",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -226,13 +226,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Word grouping",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -244,13 +244,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Word grouping",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -262,13 +262,13 @@
         "2009",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "8",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Word grouping",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -280,13 +280,13 @@
         "12",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "12",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Word grouping",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 12.",
       "solutionAttachments": []
     },
     {
@@ -298,13 +298,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "8",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -316,13 +316,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -334,13 +334,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -352,13 +352,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -370,13 +370,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     }
   ]

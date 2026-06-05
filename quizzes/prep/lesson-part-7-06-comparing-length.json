@@ -1,7 +1,7 @@
 {
   "id": "quiz-70",
   "title": "Prep 7.06",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Compare lengths | Identify longest object | Identify shortest object | Compare multiple objects | Apply length concepts | Consolidate length concepts",
+  "description": "Learning Outcomes: Compare lengths | Identify longest object | Identify shortest object | Compare multiple objects | Apply length concepts | Consolidate length concepts",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "Which is longer: ruler or pencil?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Ruler",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "Which is shorter: ruler or pencil?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Pencil",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "Which is longer: rope or shoelace?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rope",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Which is shorter: rope or shoelace?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Shoelace",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "Which is longer: train or toy car?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Train",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "question": "Which is longest: pencil, ruler, paper clip?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Ruler",
         "",
@@ -118,7 +118,7 @@
     },
     {
       "question": "Which is shortest: pencil, ruler, paper clip?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Paper Clip",
         "",
@@ -136,7 +136,7 @@
     },
     {
       "question": "Which is longest: worm, snake, caterpillar?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Snake",
         "",
@@ -154,7 +154,7 @@
     },
     {
       "question": "Which is shortest: worm, snake, caterpillar?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Caterpillar",
         "",
@@ -172,7 +172,7 @@
     },
     {
       "question": "Which is longest: crayon, marker, pencil?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Pencil",
         "",
@@ -190,7 +190,7 @@
     },
     {
       "question": "A rope is longer than a ruler. A ruler is longer than a pencil. Which is longest?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rope",
         "",
@@ -208,7 +208,7 @@
     },
     {
       "question": "A pencil is longer than a crayon. A crayon is longer than a paper clip. Which is shortest?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Paper Clip",
         "",
@@ -226,7 +226,7 @@
     },
     {
       "question": "A snake is longer than a worm. Which is shorter?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Worm",
         "",
@@ -244,7 +244,7 @@
     },
     {
       "question": "A ruler is longer than a pencil. Which is longer?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Ruler",
         "",
@@ -262,7 +262,7 @@
     },
     {
       "question": "A train is longer than a bus. Which is shorter?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Bus",
         "",
@@ -280,7 +280,7 @@
     },
     {
       "question": "Which would usually be longer: road or driveway?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Road",
         "",
@@ -298,7 +298,7 @@
     },
     {
       "question": "Which would usually be shorter: pencil or broom?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Pencil",
         "",
@@ -316,7 +316,7 @@
     },
     {
       "question": "Which would usually be longer: garden hose or shoelace?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Garden Hose",
         "",
@@ -334,7 +334,7 @@
     },
     {
       "question": "Which word means not short?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Long",
         "",
@@ -352,7 +352,7 @@
     },
     {
       "question": "Which word describes a paper clip compared to a ruler?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Shorter",
         "",

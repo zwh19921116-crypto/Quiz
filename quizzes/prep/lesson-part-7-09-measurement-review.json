@@ -1,7 +1,7 @@
 {
   "id": "quiz-73",
   "title": "Prep 7.09",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Compare length | Compare height | Compare weight | Compare capacity | Compare multiple objects | Apply length concepts | Apply height concepts | Apply weight concepts | Apply capacity concepts | Use measurement vocabulary | Consolidate measurement concepts",
+  "description": "Learning Outcomes: Compare length | Compare height | Compare weight | Compare capacity | Compare multiple objects | Apply length concepts | Apply height concepts | Apply weight concepts | Apply capacity concepts | Use measurement vocabulary | Consolidate measurement concepts",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "Which is longer: ruler or pencil?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Ruler",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "Which is shorter: ruler or pencil?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Pencil",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "Which is taller: giraffe or dog?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Giraffe",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Which is shorter: adult or baby?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Baby",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "Which is heavier: brick or feather?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Brick",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "question": "Which is lighter: brick or feather?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Feather",
         "",
@@ -118,7 +118,7 @@
     },
     {
       "question": "Which holds more water: bucket or cup?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Bucket",
         "",
@@ -136,7 +136,7 @@
     },
     {
       "question": "Which holds less water: bucket or cup?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Cup",
         "",
@@ -154,7 +154,7 @@
     },
     {
       "question": "Which is longest: ruler, pencil, paper clip?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Ruler",
         "",
@@ -172,7 +172,7 @@
     },
     {
       "question": "Which is tallest: tree, flower, bush?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Tree",
         "",
@@ -190,7 +190,7 @@
     },
     {
       "question": "Which is heaviest: feather, book, table?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Table",
         "",
@@ -208,7 +208,7 @@
     },
     {
       "question": "Which holds the most: cup, bucket, swimming pool?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Swimming Pool",
         "",
@@ -226,7 +226,7 @@
     },
     {
       "question": "Which would usually be longer: road or driveway?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Road",
         "",
@@ -244,7 +244,7 @@
     },
     {
       "question": "Which would usually be taller: building or chair?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Building",
         "",
@@ -262,7 +262,7 @@
     },
     {
       "question": "Which would usually be heavier: horse or rabbit?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Horse",
         "",
@@ -280,7 +280,7 @@
     },
     {
       "question": "Which would usually hold more: fish tank or cup?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Fish Tank",
         "",
@@ -298,7 +298,7 @@
     },
     {
       "question": "Which word means not heavy?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Light",
         "",
@@ -316,7 +316,7 @@
     },
     {
       "question": "Which word means not short?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Tall",
         "",
@@ -334,7 +334,7 @@
     },
     {
       "question": "Which word describes a feather compared to a brick?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Lighter",
         "",
@@ -352,7 +352,7 @@
     },
     {
       "question": "Which word describes a bucket compared to a cup?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "More",
         "",

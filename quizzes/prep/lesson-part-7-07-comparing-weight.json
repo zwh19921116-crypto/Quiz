@@ -1,7 +1,7 @@
 {
   "id": "quiz-71",
   "title": "Prep 7.07",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Compare weights | Identify heaviest object | Identify lightest object | Compare multiple objects | Apply weight concepts | Consolidate weight concepts",
+  "description": "Learning Outcomes: Compare weights | Identify heaviest object | Identify lightest object | Compare multiple objects | Apply weight concepts | Consolidate weight concepts",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "Which is heavier: brick or feather?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Brick",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "Which is lighter: brick or feather?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Feather",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "Which is heavier: elephant or dog?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Elephant",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Which is lighter: elephant or dog?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Dog",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "Which is heavier: table or chair?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Table",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "question": "Which is heaviest: feather, book, table?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Table",
         "",
@@ -118,7 +118,7 @@
     },
     {
       "question": "Which is lightest: feather, book, table?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Feather",
         "",
@@ -136,7 +136,7 @@
     },
     {
       "question": "Which is heaviest: mouse, cat, elephant?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Elephant",
         "",
@@ -154,7 +154,7 @@
     },
     {
       "question": "Which is lightest: mouse, cat, elephant?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Mouse",
         "",
@@ -172,7 +172,7 @@
     },
     {
       "question": "Which is heaviest: pencil, book, school bag?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "School Bag",
         "",
@@ -190,7 +190,7 @@
     },
     {
       "question": "A truck is heavier than a car. A car is heavier than a bicycle. Which is heaviest?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Truck",
         "",
@@ -208,7 +208,7 @@
     },
     {
       "question": "A feather is lighter than a pencil. A pencil is lighter than a book. Which is lightest?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Feather",
         "",
@@ -226,7 +226,7 @@
     },
     {
       "question": "A dog is heavier than a cat. Which is lighter?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Cat",
         "",
@@ -244,7 +244,7 @@
     },
     {
       "question": "A table is heavier than a chair. Which is heavier?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Table",
         "",
@@ -262,7 +262,7 @@
     },
     {
       "question": "A school bag is heavier than a pencil case. Which is lighter?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Pencil Case",
         "",
@@ -280,7 +280,7 @@
     },
     {
       "question": "Which would usually be heavier: watermelon or apple?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Watermelon",
         "",
@@ -298,7 +298,7 @@
     },
     {
       "question": "Which would usually be lighter: refrigerator or spoon?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Spoon",
         "",
@@ -316,7 +316,7 @@
     },
     {
       "question": "Which would usually be heavier: horse or rabbit?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Horse",
         "",
@@ -334,7 +334,7 @@
     },
     {
       "question": "Which word means not heavy?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Light",
         "",
@@ -352,7 +352,7 @@
     },
     {
       "question": "Which word describes a feather compared to a brick?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Lighter",
         "",

@@ -1,7 +1,7 @@
 {
   "id": "quiz-16",
   "title": "Prep 2.02",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Count to 10 | Connect quantity to number | Match quantity | Count different objects | Count forward | Apply counting | Mastery",
+  "description": "Learning Outcomes: Count to 10 | Connect quantity to number | Match quantity | Count different objects | Count forward | Apply counting | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -220,13 +220,13 @@
         "8 apples",
         "9 apples"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "7 apples",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 7 apples.",
       "solutionAttachments": []
     },
     {
@@ -238,13 +238,13 @@
         "7 stars",
         "10 stars"
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "9 stars",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 9 stars.",
       "solutionAttachments": []
     },
     {
@@ -570,13 +570,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "10",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     }
   ]

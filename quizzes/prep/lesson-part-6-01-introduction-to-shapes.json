@@ -1,7 +1,7 @@
 {
   "id": "quiz-55",
   "title": "Prep 6.01",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Recognise circles | Recognise squares | Recognise triangles | Recognise rectangles | Identify shapes | Match objects to shapes | Recognise shapes in life | Consolidate shape recognition",
+  "description": "Learning Outcomes: Recognise circles | Recognise squares | Recognise triangles | Recognise rectangles | Identify shapes | Match objects to shapes | Recognise shapes in life | Consolidate shape recognition",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "What shape is a clock face?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "What shape is a coin?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "What shape is a checkerboard square?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "What shape is a sticky note?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "What shape is a slice of pizza?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "question": "What shape is a road warning sign (simplified)?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -118,7 +118,7 @@
     },
     {
       "question": "What shape is a door?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -136,7 +136,7 @@
     },
     {
       "question": "What shape is a book?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -154,7 +154,7 @@
     },
     {
       "question": "Which shape is round?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -172,7 +172,7 @@
     },
     {
       "question": "Which shape has 3 sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -190,7 +190,7 @@
     },
     {
       "question": "Which shape has 4 equal sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -208,7 +208,7 @@
     },
     {
       "question": "Which shape looks like a door?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -226,7 +226,7 @@
     },
     {
       "question": "A wheel is a ______.",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -244,7 +244,7 @@
     },
     {
       "question": "A window is usually a ______.",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -262,7 +262,7 @@
     },
     {
       "question": "A ruler is usually a ______.",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -280,7 +280,7 @@
     },
     {
       "question": "What shape is a soccer ball pattern panel (simplified)?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Pentagon",
         "",
@@ -298,7 +298,7 @@
     },
     {
       "question": "What shape is a slice of watermelon?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -316,7 +316,7 @@
     },
     {
       "question": "What shape is a picture frame?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -334,7 +334,7 @@
     },
     {
       "question": "Which shape has no corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -352,7 +352,7 @@
     },
     {
       "question": "Which shape has 4 sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",

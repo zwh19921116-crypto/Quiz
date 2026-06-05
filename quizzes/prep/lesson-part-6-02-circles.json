@@ -1,7 +1,7 @@
 {
   "id": "quiz-56",
   "title": "Prep 6.02",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Identify circles | Recognise circles | Recognise circle properties | Match objects to circles | Apply shape recognition | Consolidate circle recognition",
+  "description": "Learning Outcomes: Identify circles | Recognise circles | Recognise circle properties | Match objects to circles | Apply shape recognition | Consolidate circle recognition",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "Which shape is a circle?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "A circle is round. True or False?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "TRUE",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "Does a circle have corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "No",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Does a circle have sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "No",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "Which shape rolls easily?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "question": "What shape is a coin?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -118,7 +118,7 @@
     },
     {
       "question": "What shape is a clock face?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -136,7 +136,7 @@
     },
     {
       "question": "What shape is a plate?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -154,7 +154,7 @@
     },
     {
       "question": "What shape is a wheel?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -172,7 +172,7 @@
     },
     {
       "question": "What shape is a button?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -190,7 +190,7 @@
     },
     {
       "question": "Which shape has no corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -208,7 +208,7 @@
     },
     {
       "question": "Which shape is completely round?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -226,7 +226,7 @@
     },
     {
       "question": "Can a circle roll?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -244,7 +244,7 @@
     },
     {
       "question": "Does a circle have straight edges?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "No",
         "",
@@ -262,7 +262,7 @@
     },
     {
       "question": "Is a ball shape based on a circle?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -280,7 +280,7 @@
     },
     {
       "question": "Which object is a circle: coin or door?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Coin",
         "",
@@ -298,7 +298,7 @@
     },
     {
       "question": "Which object is a circle: plate or book?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Plate",
         "",
@@ -316,7 +316,7 @@
     },
     {
       "question": "Which object is a circle: wheel or ruler?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Wheel",
         "",
@@ -334,7 +334,7 @@
     },
     {
       "question": "Name a shape with no corners.",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -352,7 +352,7 @@
     },
     {
       "question": "What shape is a clock?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",

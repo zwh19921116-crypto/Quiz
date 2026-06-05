@@ -141,8 +141,188 @@ const state = {
   selectedCategoryId: null,
   selectedQuizId: null,
   selectedQuestionIndex: -1,
-  draggingQuestionIndex: -1
+  draggingQuestionIndex: -1,
+  quizScanEnabled: false
 };
+
+function getQuizValidationIssueCount(quiz) {
+  if (!quiz || !Array.isArray(quiz.questions) || quiz.questions.length === 0) {
+    return 0;
+  }
+
+  return quiz.questions.reduce((total, question) => total + getQuestionValidationIssues(question).length, 0);
+}
+
+function normalizeCheckboxCorrectAnswers(question, choiceOptions) {
+  if (!question) return false;
+  const options = Array.isArray(choiceOptions) ? choiceOptions : [];
+  const rawTokens = String(question.correctAnswer || "")
+    .split(",")
+    .map((item) => item.trim())
+    .filter((item) => item !== "");
+
+  const normalized = [];
+  rawTokens.forEach((token) => {
+    const matchedOption = options.find((option) => normalizeText(option) === normalizeText(token));
+    if (matchedOption) {
+      normalized.push(matchedOption);
+      return;
+    }
+
+    const numberMatch = token.match(/^\d+$/);
+    if (numberMatch) {
+      const numeric = Number.parseInt(token, 10);
+      const oneBased = options[numeric - 1];
+      const zeroBased = options[numeric];
+      if (oneBased) {
+        normalized.push(oneBased);
+        return;
+      }
+      if (zeroBased) {
+        normalized.push(zeroBased);
+        return;
+      }
+    }
+
+    const letterMatch = token.match(/^[a-z]$/i);
+    if (letterMatch) {
+      const idx = letterMatch[0].toUpperCase().charCodeAt(0) - 65;
+      if (idx >= 0 && idx < options.length) {
+        normalized.push(options[idx]);
+      }
+    }
+  });
+
+  const deduped = [];
+  normalized.forEach((item) => {
+    if (!deduped.some((existing) => normalizeText(existing) === normalizeText(item))) {
+      deduped.push(item);
+    }
+  });
+
+  const fallback = deduped.length > 0 ? deduped : (options[0] ? [options[0]] : []);
+  const nextValue = fallback.join(", ");
+  if (String(question.correctAnswer || "").trim() === nextValue) {
+    return false;
+  }
+
+  question.correctAnswer = nextValue;
+  return true;
+}
+
+function autoFixQuestionIssues(question) {
+  if (!question || typeof question !== "object") {
+    return { changed: false, before: 0, after: 0 };
+  }
+
+  const before = getQuestionValidationIssues(question).length;
+  let changed = false;
+
+  let normalizedType = normalizeResultType(question.resultType || "multiple-choice");
+  if (question.resultType !== normalizedType) {
+    question.resultType = normalizedType;
+    changed = true;
+  }
+
+  if (!Array.isArray(question.options)) {
+    question.options = ["", "", "", ""];
+    changed = true;
+  }
+
+  if (normalizedType === "true-false") {
+    const beforeOptions = JSON.stringify(question.options);
+    ensureTrueFalseOptions(question);
+    if (beforeOptions !== JSON.stringify(question.options)) {
+      changed = true;
+    }
+  }
+
+  let choiceOptions = getChoiceOptions(question);
+  if (["multiple-choice", "checkbox", "true-false"].includes(normalizedType) && choiceOptions.length < 2) {
+    normalizedType = "short-answer";
+    if (question.resultType !== "short-answer") {
+      question.resultType = "short-answer";
+      changed = true;
+    }
+  }
+
+  choiceOptions = getChoiceOptions(question);
+  if (normalizedType === "checkbox") {
+    changed = normalizeCheckboxCorrectAnswers(question, choiceOptions) || changed;
+  }
+
+  if (["multiple-choice", "true-false"].includes(normalizedType)) {
+    const beforeAnswer = String(question.correctAnswer || "");
+    ensureDefaultCorrectAnswer(question);
+    if (beforeAnswer !== String(question.correctAnswer || "")) {
+      changed = true;
+    }
+  }
+
+  if (normalizedType === "date") {
+    const raw = String(question.correctAnswer || "").trim();
+    const isoMatch = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (isoMatch) {
+      const converted = `${isoMatch[3]}/${isoMatch[2]}/${isoMatch[1]}`;
+      if (converted !== raw) {
+        question.correctAnswer = converted;
+        changed = true;
+      }
+    }
+  }
+
+  const metadataBefore = JSON.stringify({
+    category: question.category || "",
+    subcategory: question.subcategory || "",
+    learningOutcome: question.learningOutcome || ""
+  });
+  applyDetectedQuestionMetadata(question);
+  const metadataAfter = JSON.stringify({
+    category: question.category || "",
+    subcategory: question.subcategory || "",
+    learningOutcome: question.learningOutcome || ""
+  });
+  if (metadataBefore !== metadataAfter) {
+    changed = true;
+  }
+
+  const after = getQuestionValidationIssues(question).length;
+  return { changed, before, after };
+}
+
+function autoFixActiveQuizIssues() {
+  const quiz = activeQuiz();
+  if (!quiz || !Array.isArray(quiz.questions) || quiz.questions.length === 0) {
+    showToast("Select a quiz with questions first.", "warning");
+    return;
+  }
+
+  let changedCount = 0;
+  let improvedCount = 0;
+  let unresolvedCount = 0;
+
+  quiz.questions.forEach((question) => {
+    const result = autoFixQuestionIssues(question);
+    if (result.changed) changedCount += 1;
+    if (result.after < result.before) improvedCount += 1;
+    if (result.after > 0) unresolvedCount += 1;
+  });
+
+  renderAll();
+  scheduleSilentDiskSave();
+
+  if (improvedCount > 0) {
+    showToast(`Auto-fix updated ${changedCount} question(s). Remaining with issues: ${unresolvedCount}.`, unresolvedCount > 0 ? "warning" : "success");
+    return;
+  }
+
+  if (changedCount > 0) {
+    showToast(`Auto-fix normalized ${changedCount} question(s).`, "success");
+    return;
+  }
+
+  showToast("No auto-fixable issues found.", "info");
+}
 
 let pendingImportRows = [];
 let pendingImportSourceName = "";
@@ -173,6 +353,7 @@ const IMPORT_TEMPLATE_HEADERS = [
   "Question Type",
   "Question",
   "Options",
+  "Compute",
   "Learning Outcome"
 ];
 
@@ -436,6 +617,142 @@ function normalizeResultType(value) {
 
 function normalizeQuizDescription(value) {
   return String(value || "").trim();
+}
+
+function normalizeQuestionFieldValue(value) {
+  return String(value || "").trim();
+}
+
+function extractQuestionNumber(value) {
+  const match = String(value || "").match(/\b(\d+)\b/);
+  return match ? match[1] : "";
+}
+
+function formatMetadataLabel(value) {
+  return String(value || "")
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function inferQuestionMetadata(question) {
+  const app = question && question.interactiveApp && typeof question.interactiveApp === "object"
+    ? question.interactiveApp
+    : null;
+  const appType = String(app && app.type || "").trim().toLowerCase();
+  const appConfig = app && app.config && typeof app.config === "object" ? app.config : {};
+  const questionText = normalizeWhitespace(String(question && question.question || ""));
+  const lowerText = questionText.toLowerCase();
+  const targetNumber = String(appConfig.targetNumber || extractQuestionNumber(questionText) || question && question.correctAnswer || "").trim();
+
+  let category = normalizeQuestionFieldValue(question && question.category);
+  let subcategory = normalizeQuestionFieldValue(question && question.subcategory);
+  let learningOutcome = normalizeQuestionFieldValue(question && question.learningOutcome);
+  let detectedSource = appType ? formatMetadataLabel(appType) : "Question text";
+
+  if (appType === "number-tracing") {
+    category = category || "Writing";
+    subcategory = subcategory || (targetNumber ? `Draw Number ${targetNumber}` : "Draw Number");
+    learningOutcome = learningOutcome || (targetNumber ? `Write ${targetNumber}` : "Write numeral");
+    detectedSource = "Number Tracing";
+  } else if (appType === "time") {
+    const mode = formatMetadataLabel(normalizeTimeMode(appConfig.mode));
+    category = category || "Time";
+    subcategory = subcategory || (mode || "Time");
+    learningOutcome = learningOutcome || "Read and represent time";
+    detectedSource = "Time";
+  } else if (appType === "number-ordering") {
+    category = category || "Number Order";
+    subcategory = subcategory || "Sequence";
+    learningOutcome = learningOutcome || "Order numbers";
+    detectedSource = "Number Ordering";
+  } else if (appType === "icon-count") {
+    category = category || "Counting";
+    subcategory = subcategory || "Icon Count";
+    learningOutcome = learningOutcome || "Count objects";
+    detectedSource = "Icon Count";
+  } else if (appType === "calendar-sequence") {
+    category = category || "Calendar";
+    subcategory = subcategory || "Sequence";
+    learningOutcome = learningOutcome || "Order calendar events";
+    detectedSource = "Calendar Sequence";
+  } else if (appType === "arithmetic") {
+    const operation = formatMetadataLabel(appConfig.operation || appConfig.visualMode || "Result");
+    category = category || "Arithmetic";
+    subcategory = subcategory || operation;
+    learningOutcome = learningOutcome || "Solve the arithmetic question";
+    detectedSource = "Arithmetic";
+  } else if (appType === "fractions") {
+    const operation = formatMetadataLabel(normalizeFractionOperation(appConfig.operation || "operation-result"));
+    category = category || "Fractions";
+    subcategory = subcategory || operation;
+    learningOutcome = learningOutcome || "Solve the fraction question";
+    detectedSource = "Fractions";
+  } else if (appType === "matrix") {
+    const operation = formatMetadataLabel(normalizeMatrixOperation(appConfig.operation || "dimensions"));
+    category = category || "Matrices";
+    subcategory = subcategory || operation;
+    learningOutcome = learningOutcome || "Solve the matrix question";
+    detectedSource = "Matrices";
+  } else if (appType === "cartesian-plane-plot") {
+    const preset = formatMetadataLabel(appConfig.presetType || "Plot");
+    category = category || "Cartesian Plane";
+    subcategory = subcategory || preset;
+    learningOutcome = learningOutcome || "Plot the points";
+    detectedSource = "Cartesian Plane - Plot";
+  } else if (appType === "cartesian-plane") {
+    category = category || "Cartesian Plane";
+    subcategory = subcategory || "Graphing";
+    learningOutcome = learningOutcome || "Interpret the graph";
+    detectedSource = "Cartesian Plane";
+  } else if (appType === "bar-chart" || appType === "histogram" || appType === "box-plot" || appType === "scatter-plot") {
+    category = category || formatMetadataLabel(appType);
+    subcategory = subcategory || "Data Interpretation";
+    learningOutcome = learningOutcome || "Interpret the data display";
+    detectedSource = formatMetadataLabel(appType);
+  } else if (appType === "probability-tree" || appType === "distribution-curve" || appType === "network-graph" || appType === "stem-and-leaf" || appType === "geometry-shapes" || appType === "pythagoras" || appType === "trigonometry") {
+    category = category || formatMetadataLabel(appType);
+    subcategory = subcategory || "Concept Check";
+    learningOutcome = learningOutcome || "Apply the concept";
+    detectedSource = formatMetadataLabel(appType);
+  }
+
+  if (!appType) {
+    if (/\b(draw|trace|write)\s+the\s+number\s+\d+\b/i.test(lowerText)) {
+      category = category || "Writing";
+      subcategory = subcategory || `Draw Number ${targetNumber || extractQuestionNumber(questionText)}`.trim();
+      learningOutcome = learningOutcome || (targetNumber ? `Write ${targetNumber}` : "Write numeral");
+      detectedSource = "Writing";
+    } else if (/\b(select|choose)\s+the\s+correct\s+answer\b/i.test(lowerText)) {
+      detectedSource = "Multiple Choice";
+    }
+  }
+
+  return {
+    category,
+    subcategory,
+    learningOutcome,
+    detectedSource,
+    appTypeLabel: appType ? formatMetadataLabel(appType) : "Text question"
+  };
+}
+
+function applyDetectedQuestionMetadata(question) {
+  if (!question) return inferQuestionMetadata(question);
+  const detected = inferQuestionMetadata(question);
+
+  if (!normalizeQuestionFieldValue(question.category) && detected.category) {
+    question.category = detected.category;
+  }
+  if (!normalizeQuestionFieldValue(question.subcategory) && detected.subcategory) {
+    question.subcategory = detected.subcategory;
+  }
+  if (!normalizeQuestionFieldValue(question.learningOutcome) && detected.learningOutcome) {
+    question.learningOutcome = detected.learningOutcome;
+  }
+
+  return detected;
 }
 
 function normalizeQuizQuestionOrder(value) {
@@ -2170,10 +2487,16 @@ function renderQuizList() {
   }
 
   filtered.forEach((quiz) => {
+    const issueCount = getQuizValidationIssueCount(quiz);
+    const isIssueHighlight = state.quizScanEnabled && issueCount > 0;
     const row = document.createElement("div");
-    row.className = `list-item ${quiz.id === state.selectedQuizId ? "active" : ""}`;
+    row.className = `list-item ${quiz.id === state.selectedQuizId ? "active" : ""} ${isIssueHighlight ? "issue-scan-hit" : ""}`.trim();
+    const scanBadge = state.quizScanEnabled
+      ? `<span class="status-chip ${issueCount === 0 ? "ok" : "warn"}">${issueCount === 0 ? "No issues" : `${issueCount} issue${issueCount === 1 ? "" : "s"}`}</span>`
+      : "";
     row.innerHTML = `
       <button class="list-main" data-id="${quiz.id}" type="button">${quiz.title}</button>
+      ${scanBadge}
       <button class="icon-btn secondary" data-action="settings" data-id="${quiz.id}" type="button">Settings</button>
       <button class="icon-btn secondary" data-action="replicate" data-id="${quiz.id}" type="button">Replicate</button>
       <button class="icon-btn secondary" data-action="auto" data-id="${quiz.id}" type="button">Auto</button>
@@ -2283,9 +2606,11 @@ function renderQuestionsList() {
     const badgeClass = issues.length === 0 ? "status-chip ok" : "status-chip warn";
     const badgeText = issues.length === 0 ? "Ready" : `${issues.length} issue${issues.length === 1 ? "" : "s"}`;
     const row = document.createElement("div");
-    row.className = `list-item ${index === state.selectedQuestionIndex ? "active" : ""}`;
+    const isIssueHighlight = state.quizScanEnabled && issues.length > 0;
+    row.className = `list-item ${index === state.selectedQuestionIndex ? "active" : ""} ${isIssueHighlight ? "issue-scan-hit" : ""}`.trim();
     row.draggable = true;
     row.dataset.dragIndex = String(index);
+    row.dataset.questionIndex = String(index);
     row.innerHTML = `
       <button class="list-main" data-index="${index}" type="button">Q${index + 1}: ${title}</button>
       <span class="${badgeClass}">${badgeText}</span>
@@ -2299,8 +2624,16 @@ function renderQuestionsList() {
   }
 }
 
+function renderQuizScanToggle() {
+  const btn = document.getElementById("toggleQuizScanBtn");
+  if (!(btn instanceof HTMLButtonElement)) return;
+
+  btn.classList.toggle("is-active", state.quizScanEnabled);
+  btn.setAttribute("aria-pressed", state.quizScanEnabled ? "true" : "false");
+}
+
 function toggleOptionsBlock(question) {
-  const isChoiceType = question && ["multiple-choice", "checkbox"].includes(question.resultType);
+  const isChoiceType = question && ["multiple-choice", "checkbox", "true-false"].includes(getEditorResultType(question));
   document.getElementById("optionsBlock").style.display = isChoiceType ? "block" : "none";
 }
 
@@ -2314,6 +2647,15 @@ function getChoiceOptions(question) {
   if (!question) return [];
   const options = Array.isArray(question.options) ? question.options : [];
   return options.map((item) => String(item || "").trim()).filter((item) => item !== "");
+}
+
+function getEditorResultType(question) {
+  const resultType = normalizeResultType(question && question.resultType);
+  const choiceOptions = getChoiceOptions(question);
+  if (resultType === "short-answer" && choiceOptions.length > 0) {
+    return String(question && question.correctAnswer || "").includes(",") ? "checkbox" : "multiple-choice";
+  }
+  return resultType;
 }
 
 function ensureDefaultCorrectAnswer(question) {
@@ -8924,7 +9266,7 @@ function refreshCorrectAnswerSelect(question) {
     return;
   }
 
-  const resultType = question ? (question.resultType || "multiple-choice") : "multiple-choice";
+  const resultType = question ? getEditorResultType(question) : "multiple-choice";
   const choiceOptions = getChoiceOptions(question);
 
   const useSelect = ["multiple-choice", "true-false"].includes(resultType);
@@ -9063,8 +9405,10 @@ function updateSolutionAttachmentsPreview(attachments) {
 
 function renderEditor() {
   const hint = document.getElementById("editorHint");
+  const selectedQuestionSummary = document.getElementById("selectedQuestionSummary");
   const editorContent = document.getElementById("questionEditorContent");
   const editorEmptyState = document.getElementById("questionEditorEmptyState");
+  const metadataSummary = document.getElementById("questionMetadataSummary");
   const question = activeQuestion();
   const quiz = activeQuiz();
   const attachImageBtn = document.getElementById("attachImageBtn");
@@ -9086,7 +9430,13 @@ function renderEditor() {
 
   if (!question) {
     hint.textContent = quiz ? "Preparing question editor..." : "Select a question to edit details.";
+    if (selectedQuestionSummary) {
+      selectedQuestionSummary.textContent = "No question selected.";
+    }
     document.getElementById("questionText").value = "";
+    document.getElementById("questionCategory").value = "";
+    document.getElementById("questionSubcategory").value = "";
+    document.getElementById("questionLearningOutcome").value = "";
     document.getElementById("resultType").value = "multiple-choice";
     document.getElementById("option1").value = "";
     document.getElementById("option2").value = "";
@@ -9110,6 +9460,9 @@ function renderEditor() {
     notesPdfHint.textContent = "Select a question first to attach notes PDF.";
     updateNotesPreview([]);
     updateSolutionAttachmentsPreview([]);
+    if (metadataSummary) {
+      metadataSummary.textContent = "Metadata is detected from the selected question and interactive app.";
+    }
     toggleOptionsBlock({ resultType: "multiple-choice" });
     refreshCorrectAnswerSelect({ resultType: "multiple-choice", options: ["", "", "", ""], correctAnswer: "" });
     renderValidationBox(null);
@@ -9117,10 +9470,18 @@ function renderEditor() {
     return;
   }
 
+  const questionLabel = String(question.question || "").trim() || `Untitled Question ${state.selectedQuestionIndex + 1}`;
   hint.textContent = `Editing question ${state.selectedQuestionIndex + 1}`;
+  if (selectedQuestionSummary) {
+    selectedQuestionSummary.textContent = `Selected: ${questionLabel}`;
+  }
+  const detectedMetadata = applyDetectedQuestionMetadata(question);
   ensureTrueFalseOptions(question);
   document.getElementById("questionText").value = question.question || "";
-  document.getElementById("resultType").value = question.resultType || "multiple-choice";
+  document.getElementById("questionCategory").value = question.category || "";
+  document.getElementById("questionSubcategory").value = question.subcategory || "";
+  document.getElementById("questionLearningOutcome").value = question.learningOutcome || "";
+  document.getElementById("resultType").value = getEditorResultType(question) || "multiple-choice";
   document.getElementById("option1").value = question.options[0] || "";
   document.getElementById("option2").value = question.options[1] || "";
   document.getElementById("option3").value = question.options[2] || "";
@@ -9146,6 +9507,15 @@ function renderEditor() {
     : "Paste PDF URLs above or attach PDF files to embed them in quiz JSON.";
   updateNotesPreview(question.notesAttachments || []);
   updateSolutionAttachmentsPreview(question.solutionAttachments || []);
+  if (metadataSummary) {
+    const lines = [
+      `Detected from: ${detectedMetadata.appTypeLabel || "Text question"}`,
+      `Category: ${question.category || detectedMetadata.category || "N/A"}`,
+      `Subcategory: ${question.subcategory || detectedMetadata.subcategory || "N/A"}`,
+      `Learning Outcome: ${question.learningOutcome || detectedMetadata.learningOutcome || "N/A"}`
+    ];
+    metadataSummary.textContent = lines.join(" | ");
+  }
   toggleOptionsBlock(question);
   refreshCorrectAnswerSelect(question);
   renderValidationBox(question);
@@ -9204,6 +9574,7 @@ function updateGeneratedJson() {
 
 function renderAll() {
   ensureSelection();
+  renderQuizScanToggle();
   renderCategoryList();
   renderQuizList();
   renderQuestionsList();
@@ -9324,6 +9695,7 @@ function closeQuizSettingsModal() {
 function openImportModal() {
   const modal = document.getElementById("importModal");
   if (!(modal instanceof HTMLElement)) return;
+  setImportModalFullscreen(false);
   modal.classList.remove("hidden");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
@@ -9332,9 +9704,28 @@ function openImportModal() {
 function closeImportModal() {
   const modal = document.getElementById("importModal");
   if (!(modal instanceof HTMLElement)) return;
+  setImportModalFullscreen(false);
   modal.classList.add("hidden");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
+}
+
+function setImportModalFullscreen(enabled) {
+  const modal = document.getElementById("importModal");
+  const toggleBtn = document.getElementById("toggleImportFullscreenBtn");
+  if (!(modal instanceof HTMLElement) || !(toggleBtn instanceof HTMLButtonElement)) return;
+
+  const next = Boolean(enabled);
+  modal.classList.toggle("import-fullscreen", next);
+  toggleBtn.textContent = next ? "Exit Full Screen" : "Full Screen";
+  toggleBtn.setAttribute("aria-pressed", next ? "true" : "false");
+}
+
+function toggleImportModalFullscreen() {
+  const modal = document.getElementById("importModal");
+  if (!(modal instanceof HTMLElement)) return;
+  const active = modal.classList.contains("import-fullscreen");
+  setImportModalFullscreen(!active);
 }
 
 function setResultValidationFullscreen(enabled) {
@@ -9672,6 +10063,9 @@ function updateQuestionFromForm() {
   const previousNotesParts = splitNotesAttachments(question.notesAttachments || []);
 
   question.question = document.getElementById("questionText").value.trim();
+  question.category = document.getElementById("questionCategory").value.trim();
+  question.subcategory = document.getElementById("questionSubcategory").value.trim();
+  question.learningOutcome = document.getElementById("questionLearningOutcome").value.trim();
   question.resultType = normalizeResultType(document.getElementById("resultType").value);
   question.options = [
     document.getElementById("option1").value.trim(),
@@ -9738,6 +10132,8 @@ function updateQuestionFromForm() {
     ...normalizeSolutionAttachments(question.solutionAttachments).filter((item) => item.embedded)
   ];
   question.interactiveApp = readInteractiveAppFromForm();
+  applyDetectedQuestionMetadata(question);
+  document.getElementById("resultType").value = getEditorResultType(question) || "multiple-choice";
 
   if (question.interactiveApp && question.interactiveApp.type === "time") {
     const timeMode = normalizeTimeMode(question.interactiveApp.config && question.interactiveApp.config.mode);
@@ -9813,6 +10209,16 @@ function updateQuestionFromForm() {
   }
 
   toggleOptionsBlock(question);
+  const metadataSummary = document.getElementById("questionMetadataSummary");
+  if (metadataSummary) {
+    const detected = inferQuestionMetadata(question);
+    metadataSummary.textContent = [
+      `Detected from: ${detected.appTypeLabel || "Text question"}`,
+      `Category: ${question.category || detected.category || "N/A"}`,
+      `Subcategory: ${question.subcategory || detected.subcategory || "N/A"}`,
+      `Learning Outcome: ${question.learningOutcome || detected.learningOutcome || "N/A"}`
+    ].join(" | ");
+  }
   updateNotesPreview(question.notesAttachments);
   updateSolutionAttachmentsPreview(question.solutionAttachments);
   updateImagePreview(question.image);
@@ -10297,6 +10703,18 @@ function setSolutionPanelCollapsed(collapsed) {
   button.setAttribute("aria-expanded", collapsed ? "false" : "true");
 }
 
+function setAutoQuestionMakerOpen(open) {
+  const panel = document.getElementById("autoQuestionMakerPanel");
+  const openButton = document.getElementById("toggleAutoQuestionMakerBtn");
+  if (!(panel instanceof HTMLElement) || !(openButton instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  panel.classList.toggle("hidden", !open);
+  openButton.textContent = open ? "Hide Auto Question Maker" : "Open Auto Question Maker";
+  openButton.setAttribute("aria-expanded", open ? "true" : "false");
+}
+
 document.getElementById("addCategoryBtn").addEventListener("click", addCategory);
 document.getElementById("addQuizBtn").addEventListener("click", addQuiz);
 document.getElementById("openQuizSettingsBtn").addEventListener("click", () => {
@@ -10305,6 +10723,27 @@ document.getElementById("openQuizSettingsBtn").addEventListener("click", () => {
 document.getElementById("addQuestionBtn").addEventListener("click", addQuestion);
 document.getElementById("clearQuestionBtn").addEventListener("click", () => {
   void clearQuizQuestions();
+});
+
+document.getElementById("autoFixQuizIssuesBtn").addEventListener("click", () => {
+  autoFixActiveQuizIssues();
+});
+
+document.getElementById("toggleQuizScanBtn").addEventListener("click", () => {
+  state.quizScanEnabled = !state.quizScanEnabled;
+  renderQuizScanToggle();
+  renderQuizList();
+  renderQuestionsList();
+});
+
+document.getElementById("toggleAutoQuestionMakerBtn").addEventListener("click", () => {
+  const panel = document.getElementById("autoQuestionMakerPanel");
+  const isOpen = panel instanceof HTMLElement && !panel.classList.contains("hidden");
+  setAutoQuestionMakerOpen(!isOpen);
+});
+
+document.getElementById("closeAutoQuestionMakerBtn").addEventListener("click", () => {
+  setAutoQuestionMakerOpen(false);
 });
 
 document.getElementById("categorySearch").addEventListener("input", renderCategoryList);
@@ -10420,7 +10859,10 @@ document.getElementById("questionsList").addEventListener("click", (event) => {
   const target = event.target;
   if (!(target instanceof HTMLElement)) return;
 
-  const indexValue = target.dataset.index;
+  const row = target.closest(".list-item");
+  if (!(row instanceof HTMLElement)) return;
+
+  const indexValue = target.dataset.index || row.dataset.questionIndex || row.dataset.dragIndex;
   if (typeof indexValue === "undefined") return;
   const index = Number.parseInt(indexValue, 10);
   if (Number.isNaN(index)) return;
@@ -10683,7 +11125,7 @@ document.getElementById("validateGeneratedQuestionBtn").addEventListener("click"
   showToast(`Validation found ${issues.length} issue(s).`, "warning");
 });
 
-["questionText", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "timeMode", "timeFocus", "timeAllowCustomAnswer", "timeDigitalChallenge", "timeHour", "timeMinute", "timePeriod", "arithLayout", "arithOperator", "arithOperandA", "arithOperandB", "arithAnswer", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "cppXMin", "cppXMax", "cppYMin", "cppYMax", "cppTolerance", "cppPoints", "cppVceTemplate", "cppPresetType", "cppPresetExpression", "cppPresetXValues", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxDatasetCount", "boxDatasets", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
+["questionText", "questionCategory", "questionSubcategory", "questionLearningOutcome", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "timeMode", "timeFocus", "timeAllowCustomAnswer", "timeDigitalChallenge", "timeHour", "timeMinute", "timePeriod", "arithLayout", "arithOperator", "arithOperandA", "arithOperandB", "arithAnswer", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "cppXMin", "cppXMax", "cppYMin", "cppYMax", "cppTolerance", "cppPoints", "cppVceTemplate", "cppPresetType", "cppPresetExpression", "cppPresetXValues", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxDatasetCount", "boxDatasets", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);
@@ -11076,6 +11518,10 @@ document.getElementById("closeImportModalBtn").addEventListener("click", () => {
   closeImportModal();
 });
 
+document.getElementById("toggleImportFullscreenBtn").addEventListener("click", () => {
+  toggleImportModalFullscreen();
+});
+
 document.querySelector("[data-close-import-modal='true']").addEventListener("click", () => {
   closeImportModal();
 });
@@ -11335,6 +11781,11 @@ function resolveImportColumnKey(normalizedHeader) {
     type: "questionType",
     question: "question",
     options: "options",
+    compute: "compute",
+    computed: "compute",
+    computedanswer: "compute",
+    answer: "compute",
+    correctanswer: "compute",
     learningoutcome: "learningOutcome",
     outcome: "learningOutcome"
   };
@@ -11380,16 +11831,20 @@ function inferResultTypeFromImport(questionType, options = [], question = "", te
     return "plot";
   }
 
-  if (normalized.includes("multi select") || normalized.includes("multiselect")) return "checkbox";
+  if (normalized.includes("multi select") || normalized.includes("multiselect")) {
+    return optionList.length >= 2 ? "checkbox" : "short-answer";
+  }
   if (/\bselect all\b/.test(questionText)) return "checkbox";
-  if (normalized.includes("multiple choice")) return "multiple-choice";
+  if (normalized.includes("multiple choice")) {
+    return optionList.length >= 2 ? "multiple-choice" : "short-answer";
+  }
 
   if (
     normalized.includes("true") && normalized.includes("false")
     || /\btrue\s*\/\s*false\b/.test(questionText)
     || /\btrue or false\b/.test(questionText)
   ) {
-    return "true-false";
+    return optionList.length >= 2 ? "true-false" : "short-answer";
   }
 
   if (/\btrace\b|\bdraw\b|\bwrite\b/.test(questionText) || normalizedTemplateType === "number-tracing") {
@@ -11476,15 +11931,87 @@ function extractCartesianPointsFromQuestionText(questionText) {
   return points;
 }
 
+function extractIntegersFromText(text) {
+  const matches = String(text || "").match(/-?\d+/g);
+  if (!Array.isArray(matches)) return [];
+  return matches
+    .map((item) => Number.parseInt(item, 10))
+    .filter((value) => Number.isInteger(value));
+}
+
+function inferExpectedNumericAnswerFromQuestion(questionText) {
+  const question = String(questionText || "").trim();
+  const lower = question.toLowerCase();
+  const numbers = extractIntegersFromText(question);
+
+  if (numbers.length === 0) {
+    return null;
+  }
+
+  if ((lower.includes("comes before") || /\bbefore\b/.test(lower)) && numbers.length >= 1) {
+    return numbers[0] - 1;
+  }
+
+  if ((lower.includes("comes after") || /\bafter\b/.test(lower)) && numbers.length >= 1) {
+    return numbers[0] + 1;
+  }
+
+  const middleMissingMatch = question.match(/(-?\d+)\s*,\s*_+\s*,\s*(-?\d+)/);
+  if (middleMissingMatch) {
+    const left = Number.parseInt(middleMissingMatch[1], 10);
+    const right = Number.parseInt(middleMissingMatch[2], 10);
+    const mid = (left + right) / 2;
+    if (Number.isInteger(mid)) {
+      return mid;
+    }
+  }
+
+  if (/_+/.test(question) && numbers.length >= 2) {
+    const diffs = [];
+    for (let i = 1; i < numbers.length; i += 1) {
+      diffs.push(numbers[i] - numbers[i - 1]);
+    }
+    const firstDiff = diffs[0];
+    const isConsistent = diffs.every((value) => value === firstDiff);
+    if (isConsistent) {
+      return numbers[numbers.length - 1] + firstDiff;
+    }
+  }
+
+  if (/what comes next\?/i.test(question) && numbers.length >= 2) {
+    const diff = numbers[1] - numbers[0];
+    return numbers[numbers.length - 1] + diff;
+  }
+
+  return null;
+}
+
 function inferAnswerFromImportRow(row) {
   const question = String(row.question || "").trim();
   const qLower = question.toLowerCase();
   const options = Array.isArray(row.options) ? row.options : [];
   const baseResultType = inferResultTypeFromImport(row.questionType, options);
+  const computeValue = String(row && row.compute ? row.compute : "").trim();
 
-  const nextMatch = question.match(/what comes next\?\s*(\d+)\s*,\s*(\d+)\s*,\s*__/i);
-  if (nextMatch) {
-    return { resultType: baseResultType, correctAnswer: String(Number.parseInt(nextMatch[2], 10) + 1) };
+  if (computeValue && normalizeText(computeValue) !== "n/a") {
+    if (["multiple-choice", "true-false"].includes(baseResultType)) {
+      const matched = options.find((item) => normalizeText(item) === normalizeText(computeValue));
+      return { resultType: baseResultType, correctAnswer: matched ? String(matched).trim() : computeValue };
+    }
+
+    if (baseResultType === "checkbox") {
+      const requested = computeValue
+        .split(",")
+        .map((item) => item.trim())
+        .filter((item) => item !== "");
+      const resolved = requested.map((token) => {
+        const hit = options.find((item) => normalizeText(item) === normalizeText(token));
+        return hit ? String(hit).trim() : token;
+      });
+      return { resultType: baseResultType, correctAnswer: resolved.join(", ") };
+    }
+
+    return { resultType: baseResultType, correctAnswer: computeValue };
   }
 
   const whichNumberMatch = question.match(/which number is\s*(\d+)/i);
@@ -11533,6 +12060,13 @@ function inferAnswerFromImportRow(row) {
       resultType: "short-answer",
       correctAnswer: Number.isInteger(extractedNumber) ? String(extractedNumber) : ""
     };
+  }
+
+  const expectedNumeric = inferExpectedNumericAnswerFromQuestion(question);
+  if (Number.isInteger(expectedNumeric)) {
+    const expectedText = String(expectedNumeric);
+    const matchedOption = options.find((item) => normalizeText(item) === normalizeText(expectedText));
+    return { resultType: baseResultType, correctAnswer: matchedOption ? String(matchedOption).trim() : expectedText };
   }
 
   if (baseResultType === "multiple-choice") {
@@ -11654,6 +12188,7 @@ function normalizeImportedRows(rawRows) {
       qNo: idx + 1,
       questionType: "",
       question: "",
+      compute: "",
       learningOutcome: "",
       options: []
     };
@@ -12973,9 +13508,16 @@ function buildResultValidationFixPlan(question, row) {
 function getAiHeuristicIssues(question, computedAnswer) {
   const issues = [];
   const resultType = normalizeResultType(question && question.resultType);
+  const options = Array.isArray(question && question.options)
+    ? question.options.map((item) => String(item || "").trim()).filter((item) => item !== "")
+    : [];
   const questionText = String(question && question.question || "").trim().toLowerCase();
   const answerText = String(question && question.correctAnswer || "").trim();
   const solutionText = String(question && question.solution || "").trim().toLowerCase();
+
+  if (resultType === "short-answer" && options.length > 0) {
+    issues.push("AI heuristic: question has answer options but is saved as short-answer.");
+  }
 
   if (questionText.includes("select all") && resultType !== "checkbox") {
     issues.push("AI heuristic: question wording suggests checkbox result type.");
@@ -13518,7 +14060,7 @@ function renderImportPreview(rows, sourceName) {
 
   if (!Array.isArray(rows) || rows.length === 0) {
     meta.textContent = "No valid rows detected from spreadsheet.";
-    body.innerHTML = '<tr><td colspan="11" style="padding:8px;">No rows loaded.</td></tr>';
+    body.innerHTML = '<tr><td colspan="12" style="padding:8px;">No rows loaded.</td></tr>';
     pendingImportValidation = null;
     renderImportValidation(pendingImportValidation);
     return;
@@ -13540,6 +14082,7 @@ function renderImportPreview(rows, sourceName) {
       <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(row.questionType)}</td>
       <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:340px; white-space:normal;">${escapeInteractiveHtml(row.question)}</td>
       <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:280px; white-space:normal;">${escapeInteractiveHtml((row.options || []).join(", "))}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:160px; white-space:normal;">${escapeInteractiveHtml(row.compute || "")}</td>
       <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:280px; white-space:normal;">${escapeInteractiveHtml(row.learningOutcome)}</td>
     </tr>
   `).join("");
@@ -13606,8 +14149,8 @@ async function applyPendingImportToMaker() {
 
       const outcomesSummary = summarizeModuleLearningOutcomes(sortedRows);
       quiz.description = outcomesSummary
-        ? `Imported from spreadsheet (${pendingImportSourceName || "table"}). Learning outcomes: ${outcomesSummary}`
-        : `Imported from spreadsheet (${pendingImportSourceName || "table"}).`;
+        ? `Learning Outcomes: ${outcomesSummary}`
+        : "Learning Outcomes: Not specified.";
       quiz.settings = normalizeQuizSettings({ questionOrder: "ordered", questionLimit: sortedRows.length });
 
       quiz.questions = sortedRows.map((row) => {

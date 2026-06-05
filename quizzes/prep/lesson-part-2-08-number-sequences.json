@@ -1,7 +1,7 @@
 {
   "id": "quiz-22",
   "title": "Prep 2.08",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Continue counting sequence | Recognise sequence pattern | Complete sequence | Mastery",
+  "description": "Learning Outcomes: Continue counting sequence | Recognise sequence pattern | Complete sequence | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "6",
         "7"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +71,13 @@
         "7",
         "8"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "8",
         "9"
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +107,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "8",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +125,13 @@
         "10",
         "11"
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "9",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -143,13 +143,13 @@
         "11",
         "12"
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +161,13 @@
         "12",
         "13"
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "11",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 11.",
       "solutionAttachments": []
     },
     {
@@ -179,13 +179,13 @@
         "13",
         "14"
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "12",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
+      "solution": "The correct answer is 12.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +197,13 @@
         "13",
         "14"
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "13",
       "category": "Recognition",
       "subcategory": "Identify Pattern",
       "learningOutcome": "Recognise sequence pattern",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
+      "solution": "The correct answer is 13.",
       "solutionAttachments": []
     },
     {
@@ -215,13 +215,13 @@
         "16",
         "17"
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "16",
       "category": "Recognition",
       "subcategory": "Identify Pattern",
       "learningOutcome": "Recognise sequence pattern",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 14.",
+      "solution": "The correct answer is 16.",
       "solutionAttachments": []
     },
     {
@@ -233,13 +233,13 @@
         "19",
         "20"
       ],
-      "correctAnswer": "17",
+      "correctAnswer": "19",
       "category": "Recognition",
       "subcategory": "Identify Pattern",
       "learningOutcome": "Recognise sequence pattern",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 17.",
+      "solution": "The correct answer is 19.",
       "solutionAttachments": []
     },
     {
@@ -251,13 +251,13 @@
         "8",
         "9"
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "7",
       "category": "Recognition",
       "subcategory": "Identify Pattern",
       "learningOutcome": "Recognise sequence pattern",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -269,13 +269,13 @@
         "14",
         "15"
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "13",
       "category": "Recognition",
       "subcategory": "Identify Pattern",
       "learningOutcome": "Recognise sequence pattern",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
+      "solution": "The correct answer is 13.",
       "solutionAttachments": []
     },
     {
@@ -287,13 +287,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Application",
       "subcategory": "Complete Sequence",
       "learningOutcome": "Complete sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -305,13 +305,13 @@
         "10",
         "11"
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Application",
       "subcategory": "Complete Sequence",
       "learningOutcome": "Complete sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -323,13 +323,13 @@
         "17",
         "18"
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "17",
       "category": "Application",
       "subcategory": "Complete Sequence",
       "learningOutcome": "Complete sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "The correct answer is 17.",
       "solutionAttachments": []
     },
     {
@@ -341,13 +341,13 @@
         "20",
         "21"
       ],
-      "correctAnswer": "18",
+      "correctAnswer": "20",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 18.",
+      "solution": "Continue the counting pattern by 1. The next number is 20.",
       "solutionAttachments": []
     },
     {
@@ -359,13 +359,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "9",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 7.",
+      "solution": "Continue the counting pattern by 1. The next number is 9.",
       "solutionAttachments": []
     }
   ]

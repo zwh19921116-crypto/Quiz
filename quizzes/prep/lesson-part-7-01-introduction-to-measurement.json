@@ -1,7 +1,7 @@
 {
   "id": "quiz-65",
   "title": "Prep 7.01",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Compare length | Compare height | Compare weight | Compare capacity | Understand length | Understand height | Understand weight | Understand capacity | Learn measurement words | Apply measurement concepts | Consolidate measurement concepts",
+  "description": "Learning Outcomes: Compare length | Compare height | Compare weight | Compare capacity | Understand length | Understand height | Understand weight | Understand capacity | Learn measurement words | Apply measurement concepts | Consolidate measurement concepts",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "Which pencil is longer?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Longer Pencil",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "Which tower is taller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Taller Tower",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "Which rock is heavier?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Heavier Rock",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Which bucket holds more water?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Larger Bucket",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "Which ribbon is shorter?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Shorter Ribbon",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "question": "A snake is usually long or short?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Long",
         "",
@@ -118,7 +118,7 @@
     },
     {
       "question": "A crayon is usually shorter than a ruler. True or False?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "TRUE",
         "",
@@ -136,7 +136,7 @@
     },
     {
       "question": "Is a giraffe usually taller than a dog?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -154,7 +154,7 @@
     },
     {
       "question": "Is a child usually shorter than a tree?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -172,7 +172,7 @@
     },
     {
       "question": "Which is heavier: feather or brick?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Brick",
         "",
@@ -190,7 +190,7 @@
     },
     {
       "question": "Which is lighter: elephant or mouse?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Mouse",
         "",
@@ -208,7 +208,7 @@
     },
     {
       "question": "Which holds more water: cup or bucket?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Bucket",
         "",
@@ -226,7 +226,7 @@
     },
     {
       "question": "Which holds less water: bathtub or cup?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Cup",
         "",
@@ -244,7 +244,7 @@
     },
     {
       "question": "Which word means not heavy?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Light",
         "",
@@ -262,7 +262,7 @@
     },
     {
       "question": "Which word means not short?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Tall",
         "",
@@ -280,7 +280,7 @@
     },
     {
       "question": "Which is longer: pencil or eraser?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Pencil",
         "",
@@ -298,7 +298,7 @@
     },
     {
       "question": "Which is taller: house or toy block?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "House",
         "",
@@ -316,7 +316,7 @@
     },
     {
       "question": "Which is heavier: school bag or paper clip?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "School Bag",
         "",
@@ -334,7 +334,7 @@
     },
     {
       "question": "Which holds more: bottle or swimming pool?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Swimming Pool",
         "",
@@ -352,7 +352,7 @@
     },
     {
       "question": "Which is lighter: basketball or feather?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Feather",
         "",

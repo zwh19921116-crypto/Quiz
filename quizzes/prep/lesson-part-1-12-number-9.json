@@ -1,7 +1,7 @@
 {
   "id": "quiz-12",
   "title": "Prep 1.12",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Recognise 9 | Understand quantity 9 | Write 9 | Count 9 objects | Match quantity | Apply quantity 9 | Review number 9 | Mastery of number 9",
+  "description": "Learning Outcomes: Recognise 9 | Understand quantity 9 | Write 9 | Count 9 objects | Match quantity | Apply quantity 9 | Review number 9 | Mastery of number 9",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "9",
       "category": "Recognition",
       "subcategory": "Identify Number 9",
       "learningOutcome": "Understand quantity 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -107,24 +107,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 9",
       "learningOutcome": "Write 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 9. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 9,
-          "prompt": "Trace the number 9",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Trace the number 9 again",
@@ -135,24 +125,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 9",
       "learningOutcome": "Write 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 9. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 9,
-          "prompt": "Trace the number 9 again",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Draw the number 9",
@@ -163,24 +143,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "Completed",
       "category": "Writing",
       "subcategory": "Draw Number 9",
       "learningOutcome": "Write 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 9. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 9,
-          "prompt": "Draw the number 9",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "🍎🍎🍎🍎🍎🍎🍎🍎🍎 How many apples are there?",
@@ -365,13 +335,13 @@
         "🍎🍎🍎🍎🍎🍎🍎",
         "🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎"
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "🍎🍎🍎🍎🍎🍎🍎🍎🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 🍎🍎🍎🍎🍎🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -470,13 +440,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "9",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review number 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {

@@ -1,7 +1,7 @@
 {
   "id": "quiz-24",
   "title": "Prep 2.10",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Count objects | Match quantity | Count forward | Count backward | Missing numbers | Number order | Apply counting | Complete sequence | Mastery",
+  "description": "Learning Outcomes: Count objects | Match quantity | Count forward | Count backward | Missing numbers | Number order | Apply counting | Complete sequence | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -265,13 +265,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "8",
       "category": "Sequencing",
       "subcategory": "Count Backward",
       "learningOutcome": "Count backward",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -283,13 +283,13 @@
         "3",
         "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Sequencing",
       "subcategory": "Count Backward",
       "learningOutcome": "Count backward",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -301,13 +301,13 @@
         "6",
         "7"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Sequencing",
       "subcategory": "Missing Numbers",
       "learningOutcome": "Missing numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -319,13 +319,13 @@
         "12",
         "13"
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "12",
       "category": "Sequencing",
       "subcategory": "Missing Numbers",
       "learningOutcome": "Missing numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 12.",
       "solutionAttachments": []
     },
     {
@@ -337,13 +337,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "9",
       "category": "Recognition",
       "subcategory": "Number Order",
       "learningOutcome": "Number order",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -355,13 +355,13 @@
         "17",
         "18"
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "17",
       "category": "Recognition",
       "subcategory": "Number Order",
       "learningOutcome": "Number order",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "The correct answer is 17.",
       "solutionAttachments": []
     },
     {
@@ -373,13 +373,13 @@
         "7",
         "8"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "7",
       "category": "Application",
       "subcategory": "Number Line",
       "learningOutcome": "Apply counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -391,13 +391,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "8",
       "category": "Application",
       "subcategory": "Number Line",
       "learningOutcome": "Apply counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -409,13 +409,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "9",
       "category": "Application",
       "subcategory": "Complete Sequence",
       "learningOutcome": "Complete sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -427,13 +427,13 @@
         "20",
         "21"
       ],
-      "correctAnswer": "18",
+      "correctAnswer": "20",
       "category": "Application",
       "subcategory": "Complete Sequence",
       "learningOutcome": "Complete sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 18.",
+      "solution": "The correct answer is 20.",
       "solutionAttachments": []
     },
     {
@@ -445,13 +445,13 @@
         "19",
         "20"
       ],
-      "correctAnswer": "17",
+      "correctAnswer": "19",
       "category": "Mastery",
       "subcategory": "Mixed Assessment",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 17.",
+      "solution": "The correct answer is 19.",
       "solutionAttachments": []
     },
     {
@@ -463,13 +463,13 @@
         "15",
         "20"
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "20",
       "category": "Mastery",
       "subcategory": "Mixed Assessment",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 20.",
       "solutionAttachments": []
     }
   ]

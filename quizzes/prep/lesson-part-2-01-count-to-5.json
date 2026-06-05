@@ -1,7 +1,7 @@
 {
   "id": "quiz-15",
   "title": "Prep 2.01",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Count to 5 | Connect counting to numbers | Match quantity | Count different objects | Count forward | Apply counting | Mastery",
+  "description": "Learning Outcomes: Count to 5 | Connect counting to numbers | Match quantity | Count different objects | Count forward | Apply counting | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -220,13 +220,13 @@
         "🍎🍎🍎",
         "🍎🍎🍎🍎"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "🍎🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -238,13 +238,13 @@
         "🍎🍎",
         "🍎"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "🍎🍎🍎🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -570,13 +570,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "5",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     }
   ]

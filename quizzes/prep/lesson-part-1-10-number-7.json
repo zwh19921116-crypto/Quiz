@@ -1,7 +1,7 @@
 {
   "id": "quiz-10",
   "title": "Prep 1.10",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Recognise 7 | Understand quantity 7 | Write 7 | Count 7 objects | Match quantity | Apply quantity 7 | Review number 7 | Mastery of number 7",
+  "description": "Learning Outcomes: Recognise 7 | Understand quantity 7 | Write 7 | Count 7 objects | Match quantity | Apply quantity 7 | Review number 7 | Mastery of number 7",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "7",
         "8"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "7",
       "category": "Recognition",
       "subcategory": "Identify Number 7",
       "learningOutcome": "Understand quantity 7",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -107,24 +107,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 7",
       "learningOutcome": "Write 7",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 7. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 7,
-          "prompt": "Trace the number 7",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Trace the number 7 again",
@@ -135,24 +125,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 7",
       "learningOutcome": "Write 7",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 7. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 7,
-          "prompt": "Trace the number 7 again",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Draw the number 7",
@@ -163,24 +143,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "Completed",
       "category": "Writing",
       "subcategory": "Draw Number 7",
       "learningOutcome": "Write 7",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 7. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 7,
-          "prompt": "Draw the number 7",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "🍎🍎🍎🍎🍎🍎🍎 How many apples are there?",
@@ -365,13 +335,13 @@
         "🍎🍎🍎🍎🍎",
         "🍎🍎🍎🍎🍎🍎🍎🍎"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "🍎🍎🍎🍎🍎🍎🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 🍎🍎🍎🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -470,13 +440,13 @@
         "7",
         "8"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "7",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review number 7",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {

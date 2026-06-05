@@ -1,7 +1,7 @@
 {
   "id": "quiz-97",
   "title": "Prep 10.03",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Count in 2s | Group counting | Repeated addition | Equal groups",
+  "description": "Learning Outcomes: Count in 2s | Group counting | Repeated addition | Equal groups",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -46,13 +46,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -64,13 +64,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "8",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -82,13 +82,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -100,13 +100,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -118,13 +118,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -136,13 +136,13 @@
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -154,13 +154,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -172,13 +172,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "8",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -190,13 +190,13 @@
         "2010",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -208,13 +208,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -226,13 +226,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -244,13 +244,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "8",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -262,13 +262,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -280,13 +280,13 @@
         "12",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -296,24 +296,6 @@
         "4",
         "6",
         "2008",
-        ""
-      ],
-      "correctAnswer": "4",
-      "category": "Mixed Skills",
-      "subcategory": "Fluency",
-      "learningOutcome": "Repeated addition",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 4.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "2 + 2 + 2 + 2 = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "6",
-        "8",
-        "10",
         ""
       ],
       "correctAnswer": "6",
@@ -326,12 +308,12 @@
       "solutionAttachments": []
     },
     {
-      "question": "2 + 2 + 2 + 2 + 2 = ?",
+      "question": "2 + 2 + 2 + 2 = ?",
       "resultType": "multiple-choice",
       "options": [
+        "6",
         "8",
         "10",
-        "12",
         ""
       ],
       "correctAnswer": "8",
@@ -344,6 +326,24 @@
       "solutionAttachments": []
     },
     {
+      "question": "2 + 2 + 2 + 2 + 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Repeated addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
       "question": "2 groups of 2 = ?",
       "resultType": "multiple-choice",
       "options": [
@@ -352,13 +352,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -370,13 +370,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     }
   ]

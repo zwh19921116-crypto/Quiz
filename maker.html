@@ -6,7 +6,7 @@
   <title>Quiz Maker</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="maker-page">
   <div class="app-shell">
     <div class="container">
       <div class="page-header">
@@ -80,6 +80,10 @@
             <div class="panel-head">
               <h2>Select Quiz</h2>
               <div class="panel-head-actions">
+                <button class="btn secondary small scan-toggle-btn" id="toggleQuizScanBtn" type="button" aria-pressed="false" title="Scan quizzes and questions for issues">
+                  <span aria-hidden="true">&#128269;</span> Scan
+                </button>
+                <button class="btn secondary small" id="autoFixQuizIssuesBtn" type="button" title="Auto-fix common issues in this quiz">Auto Fix</button>
                 <button class="btn secondary small" id="openQuizSettingsBtn" type="button">Settings</button>
                 <button class="btn small" id="addQuizBtn">Add</button>
               </div>
@@ -104,13 +108,21 @@
           <section class="panel-column question-editor-column">
             <h2>Question Config</h2>
             <p class="helper-text" id="editorHint">Select a question to edit details.</p>
+            <p class="helper-text" id="selectedQuestionSummary">No question selected.</p>
             <p id="questionEditorEmptyState" class="helper-text">Select or create a category and quiz to edit questions.</p>
 
             <div id="questionEditorContent" class="hidden">
             <div id="questionValidationBox" class="validation-box"></div>
 
-            <section class="editor-subpanel" aria-label="Question configuration">
-              <h3>Question Configuration</h3>
+            <div class="panel-head-actions auto-maker-launch">
+              <button class="btn secondary small" id="toggleAutoQuestionMakerBtn" type="button" aria-expanded="false" aria-controls="autoQuestionMakerPanel">Open Auto Question Maker</button>
+            </div>
+
+            <section class="editor-subpanel auto-maker-subpanel hidden" id="autoQuestionMakerPanel" aria-label="Auto question maker tools">
+              <div class="solution-panel-head">
+                <h3>Auto Question Maker</h3>
+                <button class="btn secondary small" id="closeAutoQuestionMakerBtn" type="button">Close</button>
+              </div>
 
               <div class="nl-range-row">
                 <div>
@@ -187,6 +199,8 @@
               </div>
 
               <div class="nl-range-row">
+                <div>
+                  <label for="autoQuizGrade">Auto Quiz: Grade / Course</label>
                   <select id="autoQuizGrade" class="nl-range-input">
                     <option value="prep">Prep</option>
                     <option value="year-1">Year 1</option>
@@ -227,9 +241,29 @@
               </div>
               <p class="helper-text">Auto Create fills question text, solution, and interactive app config using deterministic templates (no AI). Entire Quiz mode builds VCAA-aligned quizzes for the selected category, subcategory, grade/course, and number of questions.</p>
               <p class="helper-text">For Time questions: Auto Create is editable. Open Interactive App > Time and tick/untick "Use custom answer/options (do not auto-overwrite)" to control whether Maker updates or preserves your manual answer fields.</p>
+            </section>
+
+            <section class="editor-subpanel" aria-label="Question configuration">
+              <h3>Question Configuration</h3>
 
               <label for="questionText">1) Question</label>
               <textarea id="questionText" rows="2" placeholder="Enter question"></textarea>
+
+              <div class="nl-range-row">
+                <div>
+                  <label for="questionCategory">Category</label>
+                  <input type="text" id="questionCategory" placeholder="e.g. Writing" />
+                </div>
+                <div>
+                  <label for="questionSubcategory">Subcategory</label>
+                  <input type="text" id="questionSubcategory" placeholder="e.g. Draw Number 8" />
+                </div>
+                <div>
+                  <label for="questionLearningOutcome">Learning Outcome</label>
+                  <input type="text" id="questionLearningOutcome" placeholder="e.g. Write 8" />
+                </div>
+              </div>
+              <p class="helper-text" id="questionMetadataSummary">Metadata is detected from the selected question and interactive app.</p>
 
               <label for="resultType">2) Result Type</label>
               <select id="resultType">
@@ -927,7 +961,10 @@
     <div class="viewer-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="importModalTitle" style="max-width:min(1200px,96vw); width:96vw;">
       <div class="viewer-modal-header">
         <h2 id="importModalTitle">Spreadsheet Import</h2>
-        <button class="icon-btn" id="closeImportModalBtn" type="button" aria-label="Close import dialog">x</button>
+        <div class="viewer-modal-header-actions">
+          <button class="btn secondary small" id="toggleImportFullscreenBtn" type="button" aria-label="Toggle fullscreen import view" aria-pressed="false">Full Screen</button>
+          <button class="icon-btn" id="closeImportModalBtn" type="button" aria-label="Close import dialog">x</button>
+        </div>
       </div>
       <div class="viewer-modal-body result-validation-modal-body">
         <div class="panel-head" style="margin-bottom:8px;">
@@ -941,7 +978,7 @@
         </div>
         <p class="helper-text">Choose file, review preview and validation, then click Apply Import.</p>
         <p class="helper-text" id="importPreviewMeta">No spreadsheet loaded.</p>
-        <div style="overflow:auto; border:1px solid #dbe3ee; border-radius:10px; background:#fff; max-height:360px;">
+        <div id="importPreviewTableContainer" style="overflow:auto; border:1px solid #dbe3ee; border-radius:10px; background:#fff; max-height:360px;">
           <table id="importPreviewTable" style="width:100%; border-collapse:collapse; min-width:900px;">
             <thead>
               <tr>
@@ -955,18 +992,19 @@
                 <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Question Type</th>
                 <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Question</th>
                 <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Options</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Compute</th>
                 <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Learning Outcome</th>
               </tr>
             </thead>
             <tbody id="importPreviewBody">
-              <tr><td colspan="11" style="padding:8px;">No rows loaded.</td></tr>
+              <tr><td colspan="12" style="padding:8px;">No rows loaded.</td></tr>
             </tbody>
           </table>
         </div>
         <div id="importValidationCard" style="margin-top:10px; border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:10px;">
           <h3 style="margin:0 0 6px 0; font-size:1rem;">Validation</h3>
           <p class="helper-text" id="importValidationMeta">No validation run yet.</p>
-          <div style="overflow:auto; border:1px solid #eef2f8; border-radius:8px; max-height:220px;">
+          <div id="importValidationTableContainer" style="overflow:auto; border:1px solid #eef2f8; border-radius:8px; max-height:220px;">
             <table style="width:100%; border-collapse:collapse; min-width:720px;">
               <thead>
                 <tr>

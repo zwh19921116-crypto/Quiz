@@ -1,7 +1,7 @@
 {
   "id": "quiz-3",
   "title": "Prep 1.03",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Recognise 1 | Understand quantity 1 | Write 1 | Count 1 object | Match quantity | Apply quantity 1 | Review number 1 | Mastery of number 1",
+  "description": "Learning Outcomes: Recognise 1 | Understand quantity 1 | Write 1 | Count 1 object | Match quantity | Apply quantity 1 | Review number 1 | Mastery of number 1",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -107,24 +107,14 @@
         "",
         ""
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 1",
       "learningOutcome": "Write 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 1. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 1,
-          "prompt": "Trace the number 1",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Trace the number 1 again",
@@ -135,24 +125,14 @@
         "",
         ""
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 1",
       "learningOutcome": "Write 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 1. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 1,
-          "prompt": "Trace the number 1 again",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Draw the number 1",
@@ -163,24 +143,14 @@
         "",
         ""
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "Completed",
       "category": "Writing",
       "subcategory": "Draw Number 1",
       "learningOutcome": "Write 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 1. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 1,
-          "prompt": "Draw the number 1",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "🍎 How many apples are there?",
@@ -365,13 +335,13 @@
         "🍎🍎",
         "🍎🍎🍎🍎"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 🍎.",
       "solutionAttachments": []
     },
     {

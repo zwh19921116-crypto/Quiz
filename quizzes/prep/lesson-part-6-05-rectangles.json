@@ -1,7 +1,7 @@
 {
   "id": "quiz-59",
   "title": "Prep 6.05",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Identify rectangles | Recognise rectangles | Match objects to rectangles | Recognise rectangle properties | Compare shapes | Apply shape recognition | Consolidate rectangle recognition",
+  "description": "Learning Outcomes: Identify rectangles | Recognise rectangles | Match objects to rectangles | Recognise rectangle properties | Compare shapes | Apply shape recognition | Consolidate rectangle recognition",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "Which shape is a rectangle?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "Does a rectangle have 4 sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "Does a rectangle have 4 corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Is a rectangle round?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "No",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "Can a rectangle roll easily?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "No",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "question": "What shape is a door?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -118,7 +118,7 @@
     },
     {
       "question": "What shape is a book?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -136,7 +136,7 @@
     },
     {
       "question": "What shape is a ruler?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -154,7 +154,7 @@
     },
     {
       "question": "What shape is a television screen?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -172,7 +172,7 @@
     },
     {
       "question": "What shape is a phone screen?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -190,7 +190,7 @@
     },
     {
       "question": "How many sides does a rectangle have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "",
@@ -219,7 +219,7 @@
     },
     {
       "question": "How many corners does a rectangle have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "",
@@ -248,7 +248,7 @@
     },
     {
       "question": "Does a rectangle have more sides than a triangle?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -266,7 +266,7 @@
     },
     {
       "question": "Does a rectangle have the same number of corners as a square?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "",
@@ -284,7 +284,7 @@
     },
     {
       "question": "Can a rectangle have 3 sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "No",
         "",
@@ -302,7 +302,7 @@
     },
     {
       "question": "Which object is a rectangle: door or coin?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Door",
         "",
@@ -320,7 +320,7 @@
     },
     {
       "question": "Which object is a rectangle: ruler or plate?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Ruler",
         "",
@@ -338,7 +338,7 @@
     },
     {
       "question": "Which object is a rectangle: book or wheel?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Book",
         "",
@@ -356,7 +356,7 @@
     },
     {
       "question": "Which shape looks like a door?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -374,7 +374,7 @@
     },
     {
       "question": "Which shape has 4 sides and 4 corners but is not always a square?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",

@@ -1,7 +1,7 @@
 {
   "id": "quiz-101",
   "title": "Prep 10.07",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Count equal groups | Understand equal groups | Repeated counting",
+  "description": "Learning Outcomes: Count equal groups | Understand equal groups | Repeated counting",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Grouping Concepts",
       "subcategory": "Visual Groups",
       "learningOutcome": "Count equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -33,60 +33,6 @@
         "6",
         "7",
         "2008",
-        ""
-      ],
-      "correctAnswer": "6",
-      "category": "Grouping Concepts",
-      "subcategory": "Visual Groups",
-      "learningOutcome": "Count equal groups",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "🧸🧸 🧸🧸 🧸🧸 → Total toys?",
-      "resultType": "multiple-choice",
-      "options": [
-        "4",
-        "6",
-        "2008",
-        ""
-      ],
-      "correctAnswer": "4",
-      "category": "Grouping Concepts",
-      "subcategory": "Visual Groups",
-      "learningOutcome": "Count equal groups",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 4.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "🚗🚗 🚗🚗 🚗🚗 🚗🚗 → Total cars?",
-      "resultType": "multiple-choice",
-      "options": [
-        "6",
-        "8",
-        "2010",
-        ""
-      ],
-      "correctAnswer": "6",
-      "category": "Grouping Concepts",
-      "subcategory": "Visual Groups",
-      "learningOutcome": "Count equal groups",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "🍌🍌 🍌🍌 🍌🍌 🍌🍌 🍌🍌 → Total bananas?",
-      "resultType": "multiple-choice",
-      "options": [
-        "8",
-        "10",
-        "2012",
         ""
       ],
       "correctAnswer": "8",
@@ -99,30 +45,12 @@
       "solutionAttachments": []
     },
     {
-      "question": "👟👟 👟👟 👟👟 → Total shoes?",
+      "question": "🧸🧸 🧸🧸 🧸🧸 → Total toys?",
       "resultType": "multiple-choice",
       "options": [
         "4",
-        "5",
-        "2006",
-        ""
-      ],
-      "correctAnswer": "4",
-      "category": "Grouping Concepts",
-      "subcategory": "Visual Groups",
-      "learningOutcome": "Count equal groups",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 4.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "✏️✏️ ✏️✏️ ✏️✏️ ✏️✏️ → Total pencils?",
-      "resultType": "multiple-choice",
-      "options": [
         "6",
-        "8",
-        "2010",
+        "2008",
         ""
       ],
       "correctAnswer": "6",
@@ -135,6 +63,78 @@
       "solutionAttachments": []
     },
     {
+      "question": "🚗🚗 🚗🚗 🚗🚗 🚗🚗 → Total cars?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "8",
+        "2010",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Grouping Concepts",
+      "subcategory": "Visual Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍌🍌 🍌🍌 🍌🍌 🍌🍌 🍌🍌 → Total bananas?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "2012",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Grouping Concepts",
+      "subcategory": "Visual Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "👟👟 👟👟 👟👟 → Total shoes?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Grouping Concepts",
+      "subcategory": "Visual Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "✏️✏️ ✏️✏️ ✏️✏️ ✏️✏️ → Total pencils?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "8",
+        "2010",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Grouping Concepts",
+      "subcategory": "Visual Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
       "question": "🧃🧃 🧃🧃 🧃🧃 → Total juice boxes?",
       "resultType": "multiple-choice",
       "options": [
@@ -143,13 +143,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Grouping Concepts",
       "subcategory": "Visual Groups",
       "learningOutcome": "Count equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -161,22 +161,22 @@
         "2006",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "6",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Understand equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "3 bags with 2 apples each. How many apples?",
-          "totalCount": 3,
+          "totalCount": 6,
           "iconShape": "circle",
           "groups": [
-            3
+            6
           ]
         }
       }
@@ -190,13 +190,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Understand equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -208,13 +208,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Understand equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -226,13 +226,13 @@
         "2012",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Understand equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -244,13 +244,13 @@
         "2010",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "9",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Understand equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -262,13 +262,13 @@
         "2012",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Understand equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -280,13 +280,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Understand equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -298,13 +298,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -316,13 +316,13 @@
         "2009",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "9",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -332,24 +332,6 @@
         "6",
         "7",
         "2008",
-        ""
-      ],
-      "correctAnswer": "6",
-      "category": "Mixed Skills",
-      "subcategory": "Fluency",
-      "learningOutcome": "Repeated counting",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "5 + 5 = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "8",
-        "10",
-        "2012",
         ""
       ],
       "correctAnswer": "8",
@@ -362,6 +344,24 @@
       "solutionAttachments": []
     },
     {
+      "question": "5 + 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "2012",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Repeated counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
       "question": "2 + 2 + 2 + 2 = ?",
       "resultType": "multiple-choice",
       "options": [
@@ -370,13 +370,13 @@
         "2010",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "8",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     }
   ]

@@ -1,7 +1,7 @@
 {
   "id": "quiz-1",
   "title": "Prep 1.01",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Recognise numbers | Count objects | Match quantity | Number order | Apply learning",
+  "description": "Learning Outcomes: Recognise numbers | Count objects | Match quantity | Number order | Apply learning",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -508,13 +508,13 @@
         "",
         ""
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "Medium",
       "category": "Mixed Review",
       "subcategory": "19",
       "learningOutcome": "Apply learning",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is Medium.",
       "solutionAttachments": []
     },
     {
@@ -526,13 +526,13 @@
         "",
         ""
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "Medium",
       "category": "Mixed Review",
       "subcategory": "20",
       "learningOutcome": "Apply learning",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is Medium.",
       "solutionAttachments": []
     }
   ]

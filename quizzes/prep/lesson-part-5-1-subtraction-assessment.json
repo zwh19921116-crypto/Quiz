@@ -1,7 +1,7 @@
 {
   "id": "quiz-54",
   "title": "Prep 5.1",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Subtract objects | Read subtraction sentences | Find missing number | Recall subtraction facts | Apply subtraction | Consolidate subtraction skills",
+  "description": "Learning Outcomes: Subtract objects | Read subtraction sentences | Find missing number | Recall subtraction facts | Apply subtraction | Consolidate subtraction skills",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "🍎🍎🍎 take away 🍎 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "2",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "⭐⭐⭐⭐ take away ⭐⭐ = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "2",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "🚗🚗🚗🚗 take away 🚗 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "3",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "🐶🐶🐶🐶🐶 take away 🐶🐶 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "3",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "🐟🐟🐟🐟 take away 🐟🐟 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "2",
         "",
@@ -100,92 +100,92 @@
     },
     {
       "question": "5 - 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "3",
         "",
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "5",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
       "question": "6 - 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "3",
         "",
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "6",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
       "question": "8 - 4 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "",
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "8",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
       "question": "10 - 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "5",
         "",
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "10",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
       "question": "7 - 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "5",
         "",
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "7",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +197,13 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "1",
       "category": "Missing Numbers",
       "subcategory": "Missing Subtrahend",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     },
     {
@@ -215,13 +215,13 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "-2",
       "category": "Missing Numbers",
       "subcategory": "Missing Result",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is -2.",
       "solutionAttachments": []
     },
     {
@@ -233,13 +233,13 @@
         "",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "6",
       "category": "Missing Numbers",
       "subcategory": "Missing Starting Number",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -251,13 +251,13 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "7",
       "category": "Missing Numbers",
       "subcategory": "Missing Starting Number",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -269,18 +269,18 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "-1",
       "category": "Subtraction Facts",
       "subcategory": "Facts to 10",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is -1.",
       "solutionAttachments": []
     },
     {
       "question": "Mia has 8 apples. She eats 3. How many are left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "5",
         "",
@@ -309,7 +309,7 @@
     },
     {
       "question": "Sam has 10 balloons. He loses 4. How many are left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "6",
         "",
@@ -338,7 +338,7 @@
     },
     {
       "question": "Ava has 7 stars. She gives away 2. How many are left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "5",
         "",
@@ -374,13 +374,13 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "-2",
       "category": "Mastery",
       "subcategory": "Mixed Assessment",
       "learningOutcome": "Consolidate subtraction skills",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is -2.",
       "solutionAttachments": []
     },
     {

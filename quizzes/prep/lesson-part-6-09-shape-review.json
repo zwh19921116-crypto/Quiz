@@ -1,7 +1,7 @@
 {
   "id": "quiz-63",
   "title": "Prep 6.09",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Identify circles | Identify squares | Identify triangles | Identify rectangles | Compare shapes | Recall shape properties | Identify real-world shapes | Consolidate shape knowledge",
+  "description": "Learning Outcomes: Identify circles | Identify squares | Identify triangles | Identify rectangles | Compare shapes | Recall shape properties | Identify real-world shapes | Consolidate shape knowledge",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "Which shape is round?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "Which shape has 4 equal sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "Which shape has 3 sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Which shape looks like a door?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "Which shape has no corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "question": "Which shape has 4 corners and 4 sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -118,7 +118,7 @@
     },
     {
       "question": "How many sides does a triangle have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "3",
         "",
@@ -147,7 +147,7 @@
     },
     {
       "question": "How many sides does a square have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "",
@@ -176,7 +176,7 @@
     },
     {
       "question": "How many corners does a rectangle have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "",
@@ -205,7 +205,7 @@
     },
     {
       "question": "How many corners does a circle have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "0",
         "",
@@ -234,7 +234,7 @@
     },
     {
       "question": "Which shape has more sides: triangle or rectangle?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -252,7 +252,7 @@
     },
     {
       "question": "Which shape has fewer corners: circle or square?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -270,7 +270,7 @@
     },
     {
       "question": "Which two shapes have 4 corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square and Rectangle",
         "",
@@ -288,7 +288,7 @@
     },
     {
       "question": "Which shape is completely round?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -306,7 +306,7 @@
     },
     {
       "question": "What shape is a coin?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",
@@ -324,7 +324,7 @@
     },
     {
       "question": "What shape is a pizza slice?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -342,7 +342,7 @@
     },
     {
       "question": "What shape is a sticky note?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
         "",
@@ -360,7 +360,7 @@
     },
     {
       "question": "What shape is a book?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
         "",
@@ -378,7 +378,7 @@
     },
     {
       "question": "Which shape has 3 sides and 3 corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Triangle",
         "",
@@ -396,7 +396,7 @@
     },
     {
       "question": "Which shape has no sides and no corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
         "",

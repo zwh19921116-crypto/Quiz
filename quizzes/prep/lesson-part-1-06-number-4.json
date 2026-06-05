@@ -1,7 +1,7 @@
 {
   "id": "quiz-6",
   "title": "Prep 1.06",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Recognise 4 | Understand quantity 4 | Write 4 | Count 4 objects | Match quantity | Apply quantity 4 | Review number 4 | Mastery of number 4",
+  "description": "Learning Outcomes: Recognise 4 | Understand quantity 4 | Write 4 | Count 4 objects | Match quantity | Apply quantity 4 | Review number 4 | Mastery of number 4",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Identify Number 4",
       "learningOutcome": "Understand quantity 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -107,24 +107,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 4",
       "learningOutcome": "Write 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 4. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 4,
-          "prompt": "Trace the number 4",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Trace the number 4 again",
@@ -135,24 +125,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "Completed",
       "category": "Tracing",
       "subcategory": "Trace Number 4",
       "learningOutcome": "Write 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 4. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 4,
-          "prompt": "Trace the number 4 again",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "Draw the number 4",
@@ -163,24 +143,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "Completed",
       "category": "Writing",
       "subcategory": "Draw Number 4",
       "learningOutcome": "Write 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is 4. Complete the tracing/writing step using that number.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 4,
-          "prompt": "Draw the number 4",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
     },
     {
       "question": "🍎🍎🍎🍎 How many apples are there?",
@@ -365,13 +335,13 @@
         "🍎🍎",
         "🍎🍎🍎🍎🍎"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "🍎🍎🍎🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -470,13 +440,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review number 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {

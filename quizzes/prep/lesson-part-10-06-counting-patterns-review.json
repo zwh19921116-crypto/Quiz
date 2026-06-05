@@ -1,7 +1,7 @@
 {
   "id": "quiz-100",
   "title": "Prep 10.06",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Count in 2s | Count in 5s | Count in 10s | Count groups | Group counting | Repeated counting",
+  "description": "Learning Outcomes: Count in 2s | Count in 5s | Count in 10s | Count groups | Group counting | Repeated counting",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Number Patterns",
       "subcategory": "Count by 2 (Visual)",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Number Patterns",
       "subcategory": "Count by 2 (Visual)",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "20",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "15",
       "category": "Number Patterns",
       "subcategory": "Count by 5 (Visual)",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 15.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "30",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "20",
       "category": "Number Patterns",
       "subcategory": "Count by 10 (Visual)",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 20.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +107,13 @@
         "40",
         ""
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "30",
       "category": "Number Patterns",
       "subcategory": "Count by 10 (Visual)",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
+      "solution": "The correct answer is 30.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +125,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Number Patterns",
       "subcategory": "Mixed Visual",
       "learningOutcome": "Count groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -143,13 +143,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Number Patterns",
       "subcategory": "Mixed Visual",
       "learningOutcome": "Count groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +161,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Number Patterns",
       "subcategory": "Mixed Visual",
       "learningOutcome": "Count groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -179,13 +179,13 @@
         "2012",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Number Patterns",
       "subcategory": "Mixed Visual",
       "learningOutcome": "Count groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -195,60 +195,6 @@
         "4",
         "5",
         "2006",
-        ""
-      ],
-      "correctAnswer": "4",
-      "category": "Word Problems",
-      "subcategory": "Simple Groups",
-      "learningOutcome": "Group counting",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 4.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "5 stickers per pack, 2 packs = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "8",
-        "10",
-        "2012",
-        ""
-      ],
-      "correctAnswer": "8",
-      "category": "Word Problems",
-      "subcategory": "Simple Groups",
-      "learningOutcome": "Group counting",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "10 pencils per box, 3 boxes = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "20",
-        "30",
-        "40",
-        ""
-      ],
-      "correctAnswer": "20",
-      "category": "Word Problems",
-      "subcategory": "Simple Groups",
-      "learningOutcome": "Group counting",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 20.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "2 shoes per pair, 4 pairs = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "6",
-        "8",
-        "2010",
         ""
       ],
       "correctAnswer": "6",
@@ -261,6 +207,60 @@
       "solutionAttachments": []
     },
     {
+      "question": "5 stickers per pack, 2 packs = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "2012",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Word Problems",
+      "subcategory": "Simple Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 pencils per box, 3 boxes = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "20",
+        "30",
+        "40",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Word Problems",
+      "subcategory": "Simple Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 shoes per pair, 4 pairs = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "8",
+        "2010",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "Simple Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
       "question": "1 toy per box, 6 boxes = ?",
       "resultType": "multiple-choice",
       "options": [
@@ -269,13 +269,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -287,13 +287,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -303,24 +303,6 @@
         "8",
         "10",
         "2012",
-        ""
-      ],
-      "correctAnswer": "8",
-      "category": "Mixed Skills",
-      "subcategory": "Fluency",
-      "learningOutcome": "Repeated counting",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "10 + 10 = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "10",
-        "20",
-        "30",
         ""
       ],
       "correctAnswer": "10",
@@ -333,6 +315,24 @@
       "solutionAttachments": []
     },
     {
+      "question": "10 + 10 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "20",
+        "30",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Repeated counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 20.",
+      "solutionAttachments": []
+    },
+    {
       "question": "3 + 3 + 3 = ?",
       "resultType": "multiple-choice",
       "options": [
@@ -341,13 +341,13 @@
         "2009",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "9",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -359,13 +359,13 @@
         "2012",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "12",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 12.",
       "solutionAttachments": []
     }
   ]

@@ -1,7 +1,7 @@
 {
   "id": "quiz-66",
   "title": "Prep 7.02",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Compare length | Compare objects | Apply length concepts | Consolidate length concepts",
+  "description": "Learning Outcomes: Compare length | Compare objects | Apply length concepts | Consolidate length concepts",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "Which is longer: pencil or eraser?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Pencil",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "Which is longer: snake or worm?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Snake",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "Which is longer: ruler or paper clip?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Ruler",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Which is longer: train or toy car?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Train",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "Which is longer: scarf or sock?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Scarf",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "question": "Which is shorter: pencil or ruler?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Pencil",
         "",
@@ -118,7 +118,7 @@
     },
     {
       "question": "Which is shorter: worm or snake?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Worm",
         "",
@@ -136,7 +136,7 @@
     },
     {
       "question": "Which is shorter: paper clip or ruler?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Paper Clip",
         "",
@@ -154,7 +154,7 @@
     },
     {
       "question": "Which is shorter: toy car or train?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Toy Car",
         "",
@@ -172,7 +172,7 @@
     },
     {
       "question": "Which is shorter: sock or scarf?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Sock",
         "",
@@ -190,7 +190,7 @@
     },
     {
       "question": "A ribbon is longer than a crayon. Which is longer?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Ribbon",
         "",
@@ -208,7 +208,7 @@
     },
     {
       "question": "A rope is shorter than a hose. Which is longer?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Hose",
         "",
@@ -226,7 +226,7 @@
     },
     {
       "question": "A ruler is longer than a pencil. Which is shorter?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Pencil",
         "",
@@ -244,7 +244,7 @@
     },
     {
       "question": "A snake is longer than a worm. Which is shorter?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Worm",
         "",
@@ -262,7 +262,7 @@
     },
     {
       "question": "A train is longer than a bus. Which is longer?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Train",
         "",
@@ -280,7 +280,7 @@
     },
     {
       "question": "Which would be longer: a jump rope or a pencil?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Jump Rope",
         "",
@@ -298,7 +298,7 @@
     },
     {
       "question": "Which would be shorter: a crayon or a ruler?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Crayon",
         "",
@@ -316,7 +316,7 @@
     },
     {
       "question": "Which would be longer: a road or a driveway?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Road",
         "",
@@ -334,7 +334,7 @@
     },
     {
       "question": "Which word describes a snake: long or short?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Long",
         "",
@@ -352,7 +352,7 @@
     },
     {
       "question": "Which word describes a paper clip compared to a ruler: short or long?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Short",
         "",

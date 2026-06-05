@@ -1,7 +1,7 @@
 {
   "id": "quiz-77",
   "title": "Prep 8.03",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Make 10 | Find missing number | Add to 10 | Subtraction idea | Missing addend | Number bonds",
+  "description": "Learning Outcomes: Make 10 | Find missing number | Add to 10 | Subtraction idea | Missing addend | Number bonds",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +71,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +107,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +125,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -143,13 +143,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +161,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -179,13 +179,13 @@
         "11",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -195,6 +195,24 @@
         "3",
         "4",
         "2005",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number Bonds",
+      "subcategory": "Missing Addend",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 = 7 + ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "2004",
         ""
       ],
       "correctAnswer": "3",
@@ -207,12 +225,12 @@
       "solutionAttachments": []
     },
     {
-      "question": "10 = 7 + ?",
+      "question": "10 = 8 + ?",
       "resultType": "multiple-choice",
       "options": [
+        "1",
         "2",
-        "3",
-        "2004",
+        "2003",
         ""
       ],
       "correctAnswer": "2",
@@ -222,24 +240,6 @@
       "notesAttachments": [],
       "image": "",
       "solution": "The correct answer is 2.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "10 = 8 + ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "1",
-        "2",
-        "2003",
-        ""
-      ],
-      "correctAnswer": "1",
-      "category": "Number Bonds",
-      "subcategory": "Missing Addend",
-      "learningOutcome": "Find missing number",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     },
     {
@@ -269,13 +269,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Number Bonds",
       "subcategory": "Missing Addend",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -287,22 +287,22 @@
         "2008",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "7",
       "category": "Number Bonds",
       "subcategory": "Word Problems",
       "learningOutcome": "Add to 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count the objects shown and match the quantity. The answer is 7.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 3 apples and need 10 total. How many more?",
-          "totalCount": 3,
+          "totalCount": 7,
           "iconShape": "circle",
           "groups": [
-            3
+            7
           ]
         }
       }
@@ -316,22 +316,22 @@
         "2007",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "6",
       "category": "Number Bonds",
       "subcategory": "Word Problems",
       "learningOutcome": "Subtraction idea",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "10 birds sit, 4 fly away. How many left?",
-          "totalCount": 10,
+          "totalCount": 6,
           "iconShape": "circle",
           "groups": [
-            10
+            6
           ]
         }
       }
@@ -345,13 +345,13 @@
         "2009",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "8",
       "category": "Number Bonds",
       "subcategory": "Word Problems",
       "learningOutcome": "Missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -363,13 +363,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Number Bonds",
       "subcategory": "Mixed Review",
       "learningOutcome": "Number bonds",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -381,13 +381,13 @@
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "9",
       "category": "Number Bonds",
       "subcategory": "Mixed Review",
       "learningOutcome": "Number bonds",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     }
   ]

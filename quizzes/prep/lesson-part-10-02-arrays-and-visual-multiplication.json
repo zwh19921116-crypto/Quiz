@@ -1,7 +1,7 @@
 {
   "id": "quiz-96",
   "title": "Prep 10.02",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Understand arrays | Count arrays | Identify arrays | Use arrays | Arrays fluency",
+  "description": "Learning Outcomes: Understand arrays | Count arrays | Identify arrays | Use arrays | Arrays fluency",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
       "learningOutcome": "Understand arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
       "learningOutcome": "Understand arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "2009",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "8",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +71,13 @@
         "2010",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -105,6 +105,60 @@
         "8",
         "9",
         "2010",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Multiplication Concepts",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1 row of 7 dots = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Multiplication Concepts",
+      "subcategory": "Arrays",
+      "learningOutcome": "Identify arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 rows of 3 dots = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "12",
+        "2013",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Multiplication Concepts",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 rows of 4 dots = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "2009",
         ""
       ],
       "correctAnswer": "8",
@@ -117,60 +171,6 @@
       "solutionAttachments": []
     },
     {
-      "question": "1 row of 7 dots = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "6",
-        "7",
-        "2008",
-        ""
-      ],
-      "correctAnswer": "6",
-      "category": "Multiplication Concepts",
-      "subcategory": "Arrays",
-      "learningOutcome": "Identify arrays",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "4 rows of 3 dots = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "11",
-        "12",
-        "2013",
-        ""
-      ],
-      "correctAnswer": "11",
-      "category": "Multiplication Concepts",
-      "subcategory": "Arrays",
-      "learningOutcome": "Count arrays",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 11.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "2 rows of 4 dots = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "7",
-        "8",
-        "2009",
-        ""
-      ],
-      "correctAnswer": "7",
-      "category": "Multiplication Concepts",
-      "subcategory": "Arrays",
-      "learningOutcome": "Count arrays",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 7.",
-      "solutionAttachments": []
-    },
-    {
       "question": "3 rows of 5 dots = ?",
       "resultType": "multiple-choice",
       "options": [
@@ -179,13 +179,13 @@
         "16",
         ""
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "15",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 14.",
+      "solution": "The correct answer is 15.",
       "solutionAttachments": []
     },
     {
@@ -197,22 +197,22 @@
         "2005",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Word Problems",
       "subcategory": "Arrays in Context",
       "learningOutcome": "Use arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "2 rows of 2 apples. How many apples?",
-          "totalCount": 2,
+          "totalCount": 4,
           "iconShape": "circle",
           "groups": [
-            2
+            4
           ]
         }
       }
@@ -226,13 +226,13 @@
         "2012",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "12",
       "category": "Word Problems",
       "subcategory": "Arrays in Context",
       "learningOutcome": "Use arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 12.",
       "solutionAttachments": []
     },
     {
@@ -244,13 +244,13 @@
         "2009",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "8",
       "category": "Word Problems",
       "subcategory": "Arrays in Context",
       "learningOutcome": "Use arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -262,13 +262,13 @@
         "2011",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Word Problems",
       "subcategory": "Arrays in Context",
       "learningOutcome": "Use arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -280,13 +280,13 @@
         "2013",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "12",
       "category": "Word Problems",
       "subcategory": "Arrays in Context",
       "learningOutcome": "Use arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
+      "solution": "The correct answer is 12.",
       "solutionAttachments": []
     },
     {
@@ -298,13 +298,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -316,13 +316,13 @@
         "2007",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -334,13 +334,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -352,13 +352,13 @@
         "2010",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "9",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -370,13 +370,13 @@
         "2011",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     }
   ]

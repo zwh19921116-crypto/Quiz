@@ -1,7 +1,7 @@
 {
   "id": "quiz-104",
   "title": "Prep 10.1",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Count in 2s | Identify shapes | Count in 5s | Count in 10s | Count groups | Group counting | Sort shapes | Count sides | Repeated counting | Count corners | Identify properties | Real world shapes | Equal groups | Understand properties",
+  "description": "Learning Outcomes: Count in 2s | Identify shapes | Count in 5s | Count in 10s | Count groups | Group counting | Sort shapes | Count sides | Repeated counting | Count corners | Identify properties | Real world shapes | Equal groups | Understand properties",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 40
@@ -17,13 +17,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Number Patterns",
       "subcategory": "Count by 2",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "20",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "15",
       "category": "Number Patterns",
       "subcategory": "Count by 5",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 15.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +71,13 @@
         "Triangle",
         ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "Square",
       "category": "Geometry",
       "subcategory": "Visual Recognition",
       "learningOutcome": "Identify shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "The correct answer is Square.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "30",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "20",
       "category": "Number Patterns",
       "subcategory": "Count by 10",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 20.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +107,13 @@
         "Triangle",
         ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "Triangle",
       "category": "Geometry",
       "subcategory": "Visual Recognition",
       "learningOutcome": "Identify shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "The correct answer is Triangle.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +125,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Number Patterns",
       "subcategory": "Mixed",
       "learningOutcome": "Count groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +161,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Number Patterns",
       "subcategory": "Mixed",
       "learningOutcome": "Count groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +197,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Word Problems",
       "subcategory": "Equal Groups",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -215,13 +215,13 @@
         "□□□",
         ""
       ],
-      "correctAnswer": "○○○",
+      "correctAnswer": "Circles",
       "category": "Geometry",
       "subcategory": "Sorting",
       "learningOutcome": "Sort shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is ○○○.",
+      "solution": "The correct answer is Circles.",
       "solutionAttachments": []
     },
     {
@@ -233,13 +233,13 @@
         "2012",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Word Problems",
       "subcategory": "Equal Groups",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -251,13 +251,13 @@
         "□□□",
         ""
       ],
-      "correctAnswer": "△△△",
+      "correctAnswer": "Triangles",
       "category": "Geometry",
       "subcategory": "Sorting",
       "learningOutcome": "Sort shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is △△△.",
+      "solution": "The correct answer is Triangles.",
       "solutionAttachments": []
     },
     {
@@ -269,13 +269,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Word Problems",
       "subcategory": "Equal Groups",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -287,13 +287,13 @@
         "△△△",
         ""
       ],
-      "correctAnswer": "□□□",
+      "correctAnswer": "Squares",
       "category": "Geometry",
       "subcategory": "Sorting",
       "learningOutcome": "Sort shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is □□□.",
+      "solution": "The correct answer is Squares.",
       "solutionAttachments": []
     },
     {
@@ -305,13 +305,13 @@
         "2012",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Word Problems",
       "subcategory": "Equal Groups",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -323,22 +323,22 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Geometry",
       "subcategory": "Properties",
       "learningOutcome": "Count sides",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "How many sides does a triangle have?",
-          "totalCount": 2,
+          "totalCount": 3,
           "iconShape": "circle",
           "groups": [
-            2
+            3
           ]
         }
       }
@@ -352,13 +352,13 @@
         "2010",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "9",
       "category": "Word Problems",
       "subcategory": "Equal Groups",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -370,22 +370,22 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Geometry",
       "subcategory": "Properties",
       "learningOutcome": "Count sides",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "How many sides does a square have?",
-          "totalCount": 3,
+          "totalCount": 4,
           "iconShape": "circle",
           "groups": [
-            3
+            4
           ]
         }
       }
@@ -399,13 +399,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -417,22 +417,22 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Geometry",
       "subcategory": "Properties",
       "learningOutcome": "Count corners",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "How many corners does a rectangle have?",
-          "totalCount": 3,
+          "totalCount": 4,
           "iconShape": "circle",
           "groups": [
-            3
+            4
           ]
         }
       }
@@ -446,13 +446,13 @@
         "2012",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -464,22 +464,22 @@
         "2000",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "0",
       "category": "Geometry",
       "subcategory": "Properties",
       "learningOutcome": "Identify properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count the objects shown and match the quantity. The answer is 0.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "How many sides does a circle have?",
-          "totalCount": 2,
+          "totalCount": 0,
           "iconShape": "circle",
           "groups": [
-            2
+            0
           ]
         }
       }
@@ -493,13 +493,13 @@
         "30",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "20",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 20.",
       "solutionAttachments": []
     },
     {
@@ -529,13 +529,13 @@
         "2009",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "9",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     },
     {
@@ -565,13 +565,13 @@
         "2012",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "12",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 12.",
       "solutionAttachments": []
     },
     {
@@ -601,13 +601,13 @@
         "2012",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -637,13 +637,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -673,13 +673,13 @@
         "2010",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "8",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -709,13 +709,13 @@
         "2012",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -727,13 +727,13 @@
         "Triangle",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "Square",
       "category": "Geometry",
       "subcategory": "Mixed",
       "learningOutcome": "Identify shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is Square.",
       "solutionAttachments": []
     },
     {
@@ -745,13 +745,13 @@
         "2012",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -763,13 +763,13 @@
         "Square",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "Triangle",
       "category": "Geometry",
       "subcategory": "Mixed",
       "learningOutcome": "Identify shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is Triangle.",
       "solutionAttachments": []
     }
   ]

@@ -1,7 +1,7 @@
 {
   "id": "quiz-72",
   "title": "Prep 7.08",
-  "description": "Imported from spreadsheet (Prep.xlsx). Learning outcomes: Compare capacity | Identify greatest capacity | Identify smallest capacity | Compare multiple containers | Apply capacity concepts | Consolidate capacity concepts",
+  "description": "Learning Outcomes: Compare capacity | Identify greatest capacity | Identify smallest capacity | Compare multiple containers | Apply capacity concepts | Consolidate capacity concepts",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "Which holds more water: bucket or cup?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Bucket",
         "",
@@ -28,7 +28,7 @@
     },
     {
       "question": "Which holds less water: bucket or cup?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Cup",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "question": "Which holds more water: bathtub or bottle?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Bathtub",
         "",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Which holds less water: bathtub or bottle?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Bottle",
         "",
@@ -82,7 +82,7 @@
     },
     {
       "question": "Which holds more juice: jug or cup?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Jug",
         "",
@@ -100,7 +100,7 @@
     },
     {
       "question": "Which holds the most: cup, bucket, swimming pool?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Swimming Pool",
         "",
@@ -118,7 +118,7 @@
     },
     {
       "question": "Which holds the least: cup, bucket, swimming pool?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Cup",
         "",
@@ -136,7 +136,7 @@
     },
     {
       "question": "Which holds the most: spoon, mug, jug?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Jug",
         "",
@@ -154,7 +154,7 @@
     },
     {
       "question": "Which holds the least: spoon, mug, jug?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Spoon",
         "",
@@ -172,7 +172,7 @@
     },
     {
       "question": "Which holds the most: bottle, bucket, bathtub?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Bathtub",
         "",
@@ -190,7 +190,7 @@
     },
     {
       "question": "A bucket holds more than a cup. A bathtub holds more than a bucket. Which holds the most?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Bathtub",
         "",
@@ -208,7 +208,7 @@
     },
     {
       "question": "A spoon holds less than a mug. A mug holds less than a jug. Which holds the least?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Spoon",
         "",
@@ -226,7 +226,7 @@
     },
     {
       "question": "A fish tank holds more than a bucket. Which holds less?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Bucket",
         "",
@@ -244,7 +244,7 @@
     },
     {
       "question": "A bottle holds less than a bucket. Which holds more?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Bucket",
         "",
@@ -262,7 +262,7 @@
     },
     {
       "question": "A jug holds more than a mug. Which holds less?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Mug",
         "",
@@ -280,7 +280,7 @@
     },
     {
       "question": "Which would usually hold more water: fish tank or cup?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Fish Tank",
         "",
@@ -298,7 +298,7 @@
     },
     {
       "question": "Which would usually hold less drink: spoon or mug?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Spoon",
         "",
@@ -316,7 +316,7 @@
     },
     {
       "question": "Which would usually hold more: watering can or bottle cap?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Watering Can",
         "",
@@ -334,7 +334,7 @@
     },
     {
       "question": "Which word means holds the greatest amount?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Most",
         "",
@@ -352,7 +352,7 @@
     },
     {
       "question": "Which word means holds the smallest amount?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Least",
         "",
