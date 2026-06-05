@@ -677,9 +677,39 @@ function getQuestionOptionList(question) {
     : [];
 }
 
+function shouldRenderNumberOrderingInteractive(question) {
+  if (!(question && question.interactiveApp && question.interactiveApp.type === "number-ordering")) {
+    return false;
+  }
+
+  const questionText = String(question.question || "");
+  const promptText = String(
+    question.interactiveApp
+    && question.interactiveApp.config
+    && typeof question.interactiveApp.config === "object"
+    && question.interactiveApp.config.prompt
+      ? question.interactiveApp.config.prompt
+      : ""
+  );
+  const combined = `${questionText} ${promptText}`.toLowerCase();
+  const hasOrderingCue = /\b(move|drag|arrange|reorder|put)\b.*\b(order|sequence|ascending|descending)\b|\b(order|sequence)\b.*\b(move|drag|arrange|reorder|put)\b|\bmove the numbers in order\b/i.test(combined);
+  const isSimpleNextPrompt = /\bwhat comes next\b/i.test(combined)
+    || /_+/.test(questionText)
+    || /\bnext number\b/i.test(combined);
+
+  // Legacy imported rows may store number-ordering app for plain next-number prompts.
+  // In that case viewer should use normal short-answer flow.
+  return !(isSimpleNextPrompt && !hasOrderingCue);
+}
+
 function getEffectiveResultType(question) {
   const normalized = normalizeResultType(question && question.resultType);
-  if (question && question.interactiveApp) return normalized;
+  if (question && question.interactiveApp) {
+    if (question.interactiveApp.type === "number-ordering" && !shouldRenderNumberOrderingInteractive(question)) {
+      return "short-answer";
+    }
+    return normalized;
+  }
 
   const options = getQuestionOptionList(question);
   if (options.length === 0) return normalized;
@@ -9078,7 +9108,7 @@ function renderAnswerInput(question) {
     `;
   }
 
-  if (question.interactiveApp && question.interactiveApp.type === "number-ordering") {
+  if (question.interactiveApp && question.interactiveApp.type === "number-ordering" && shouldRenderNumberOrderingInteractive(question)) {
     return `
       <div class="interactive-app-host" data-role="number-ordering-host"></div>
       <input type="hidden" data-role="number-ordering-answer" value="" />
@@ -9669,7 +9699,7 @@ function renderQuestion() {
       });
     }
   }
-  if (question.interactiveApp && question.interactiveApp.type === "number-ordering") {
+  if (question.interactiveApp && question.interactiveApp.type === "number-ordering" && shouldRenderNumberOrderingInteractive(question)) {
     const orderingHost = quizContainer.querySelector("[data-role='number-ordering-host']");
     const orderingAnswerInput = quizContainer.querySelector("[data-role='number-ordering-answer']");
     if (orderingHost instanceof HTMLElement) {
@@ -9744,7 +9774,7 @@ function collectUserAnswer(question) {
       : "";
   }
 
-  if (question.interactiveApp && question.interactiveApp.type === "number-ordering") {
+  if (question.interactiveApp && question.interactiveApp.type === "number-ordering" && shouldRenderNumberOrderingInteractive(question)) {
     const container = document.getElementById("quizContainer");
     const answerInput = container && container.querySelector("[data-role='number-ordering-answer']");
     const raw = answerInput instanceof HTMLInputElement
@@ -9917,7 +9947,7 @@ function answersMatch(question, userAnswer) {
     return hasCompletedTracingForCurrentQuestion();
   }
 
-  if (question.interactiveApp && question.interactiveApp.type === "number-ordering") {
+  if (question.interactiveApp && question.interactiveApp.type === "number-ordering" && shouldRenderNumberOrderingInteractive(question)) {
     const expectedFromConfig = getNumberOrderingConfig(question.interactiveApp).correctOrder;
     const expectedFromAnswer = parseNumberOrderingValues(getExpectedAnswers(question)[0] || "");
     const expected = expectedFromAnswer.length > 0 ? expectedFromAnswer : expectedFromConfig;
