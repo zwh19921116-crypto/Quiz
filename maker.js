@@ -255,6 +255,55 @@ function autoFixQuestionIssues(question) {
   const questionText = String(question.question || "").trim();
   const lowerQuestionText = questionText.toLowerCase();
   const appType = String(question && question.interactiveApp && question.interactiveApp.type || "").trim().toLowerCase();
+
+  const hasTraceOrDrawCue = /\b(trace|draw)\b/i.test(lowerQuestionText);
+  if (hasTraceOrDrawCue) {
+    const extractedFromQuestion = firstNumberInText(questionText);
+    const extractedFromAnswer = Number.parseInt(String(question.correctAnswer || "").trim(), 10);
+    const targetNumber = Number.isInteger(extractedFromQuestion)
+      ? extractedFromQuestion
+      : (Number.isInteger(extractedFromAnswer) ? extractedFromAnswer : null);
+
+    if (Number.isInteger(targetNumber)) {
+      const clampedTarget = Math.max(0, Math.min(100, targetNumber));
+      const currentType = String(question && question.interactiveApp && question.interactiveApp.type || "").trim().toLowerCase();
+      const currentConfig = question && question.interactiveApp && question.interactiveApp.config && typeof question.interactiveApp.config === "object"
+        ? question.interactiveApp.config
+        : {};
+      const expectedPrompt = questionText || `Trace the number ${clampedTarget}`;
+
+      if (
+        currentType !== "number-tracing"
+        || Number.parseInt(currentConfig.targetNumber, 10) !== clampedTarget
+        || String(currentConfig.prompt || "") !== expectedPrompt
+      ) {
+        question.interactiveApp = {
+          type: "number-tracing",
+          config: {
+            targetNumber: clampedTarget,
+            prompt: expectedPrompt,
+            prepMode: true,
+            showQuantityDots: true,
+            showInstructions: false
+          }
+        };
+        changed = true;
+      }
+
+      if (question.resultType !== "short-answer") {
+        question.resultType = "short-answer";
+        normalizedType = "short-answer";
+        changed = true;
+      }
+
+      const expectedAnswer = String(clampedTarget);
+      if (!compareAnswersForResultType("short-answer", String(question.correctAnswer || ""), expectedAnswer)) {
+        question.correctAnswer = expectedAnswer;
+        changed = true;
+      }
+    }
+  }
+
   if (appType === "arithmetic") {
     const hasArithmeticCue = /[\d\s]+[+\-x*/÷][\d\s]+|\b(calculate|solve|add|subtract|minus|plus|sum|difference|product|quotient|equation)\b/i.test(lowerQuestionText);
     const hasRecognitionCue = /\b(which number|how many|what comes next|select the|select all|which of these)\b/i.test(lowerQuestionText);
@@ -12377,7 +12426,7 @@ function inferTemplateTypeFromImportRow(row) {
     return arithmeticStructure.isLongDivision ? "arithmetic-long-division" : "arithmetic";
   }
 
-  if (/\btrace\b|\bdraw\b|\bwrite\b/i.test(question)) {
+  if (/\btrace\b|\bdraw\b/i.test(question)) {
     return "number-tracing";
   }
 
@@ -12562,7 +12611,7 @@ function inferAnswerFromImportRow(row, templateType = "") {
     }
   }
 
-  if (qLower.includes("trace") || qLower.includes("draw") || qLower.includes("write")) {
+  if (qLower.includes("trace") || qLower.includes("draw")) {
     const extractedNumber = firstNumberInText(question);
     return {
       resultType: "short-answer",
@@ -12674,7 +12723,7 @@ function buildInteractiveAppFromImport(row, answer, templateType = "") {
     }
   }
 
-  if ((qLower.includes("trace") || qLower.includes("draw") || qLower.includes("write")) && Number.isInteger(numericAnswer)) {
+  if ((qLower.includes("trace") || qLower.includes("draw")) && Number.isInteger(numericAnswer)) {
     return {
       type: "number-tracing",
       config: {
