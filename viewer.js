@@ -579,12 +579,45 @@ function normalizeQuestion(item) {
     normalized.interactiveApp = interactiveApp;
   }
 
+  const inferredTracingApp = inferLegacyNumberTracingApp(normalized);
+  if (inferredTracingApp && !normalized.interactiveApp) {
+    normalized.interactiveApp = inferredTracingApp;
+    normalized.resultType = "short-answer";
+  }
+
   if (normalized.interactiveApp && normalized.interactiveApp.type === "number-ordering" && !shouldRenderNumberOrderingInteractive(normalized)) {
     delete normalized.interactiveApp;
     normalized.resultType = "short-answer";
   }
 
   return normalized;
+}
+
+function inferLegacyNumberTracingApp(question) {
+  if (!question || question.interactiveApp) return null;
+
+  const questionText = String(question.question || "").trim();
+  if (!questionText) return null;
+
+  const looksLikeTracingPrompt = /(trace|draw|write)\s+(the\s+)?number\b/i.test(questionText);
+  if (!looksLikeTracingPrompt) return null;
+
+  const numberFromPromptMatch = questionText.match(/\b(\d{1,3})\b/);
+  const numberFromPrompt = numberFromPromptMatch ? Number.parseInt(numberFromPromptMatch[1], 10) : Number.NaN;
+  const numberFromAnswer = Number.parseInt(String(question.correctAnswer || "").trim(), 10);
+  const target = Number.isInteger(numberFromPrompt)
+    ? numberFromPrompt
+    : (Number.isInteger(numberFromAnswer) ? numberFromAnswer : Number.NaN);
+
+  if (!Number.isInteger(target)) return null;
+
+  return {
+    type: "number-tracing",
+    config: {
+      targetNumber: Math.max(0, Math.min(100, target)),
+      prompt: questionText
+    }
+  };
 }
 
 function isIntroductionQuestion(question) {
