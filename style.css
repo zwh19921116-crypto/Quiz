@@ -1326,6 +1326,20 @@ textarea {
   color: #92400e;
 }
 
+.report-icon-btn {
+  min-width: 30px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 900;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .table-scroll-wrap {
   overflow-x: auto;
 }

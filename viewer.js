@@ -148,9 +148,12 @@ function syncReportQuestionButton(question) {
 
   const alreadyFlagged = isQuestionAlreadyFlagged(question);
   reportBtn.classList.toggle("is-flagged", alreadyFlagged);
-  reportBtn.textContent = alreadyFlagged
-    ? "Report Incorrect Answer (Flagged)"
-    : "Report Incorrect Answer";
+  reportBtn.textContent = "!";
+  const reportLabel = alreadyFlagged
+    ? "Question already flagged"
+    : "Report incorrect answer";
+  reportBtn.setAttribute("title", reportLabel);
+  reportBtn.setAttribute("aria-label", reportLabel);
 }
 
 function reportCurrentQuestion() {
@@ -171,20 +174,22 @@ function ensureReportQuestionButtonExists() {
   const existing = document.getElementById("reportQuestionBtn");
   if (existing instanceof HTMLButtonElement) return existing;
 
-  const actionBar = document.getElementById("viewerActionBar");
-  if (!(actionBar instanceof HTMLElement)) return null;
+  const shareBtn = document.getElementById("shareQuizLinkBtn");
+  const progressRow = document.querySelector(".progress-row");
+  if (!(progressRow instanceof HTMLElement)) return null;
 
   const reportBtn = document.createElement("button");
-  reportBtn.className = "btn secondary";
+  reportBtn.className = "btn secondary report-icon-btn";
   reportBtn.id = "reportQuestionBtn";
   reportBtn.type = "button";
-  reportBtn.textContent = "Report Incorrect Answer";
+  reportBtn.textContent = "!";
+  reportBtn.setAttribute("aria-label", "Report incorrect answer");
+  reportBtn.setAttribute("title", "Report incorrect answer");
 
-  const nextBtn = document.getElementById("nextQuestionBtn");
-  if (nextBtn && nextBtn.parentElement === actionBar) {
-    actionBar.insertBefore(reportBtn, nextBtn);
+  if (shareBtn && shareBtn.parentElement === progressRow) {
+    progressRow.insertBefore(reportBtn, shareBtn);
   } else {
-    actionBar.appendChild(reportBtn);
+    progressRow.appendChild(reportBtn);
   }
 
   reportBtn.addEventListener("click", reportCurrentQuestion);
