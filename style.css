@@ -1326,7 +1326,7 @@ textarea {
   color: #92400e;
 }
 
-.report-icon-btn {
+.btn.secondary.report-icon-btn {
   min-width: 30px;
   width: 30px;
   height: 30px;
@@ -1341,11 +1341,37 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
-.report-icon-btn:hover {
+.btn.secondary.report-icon-btn:hover {
   background: #b91c1c;
   border-color: #7f1d1d;
+}
+
+.btn.secondary.report-icon-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: #111827;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease;
+  z-index: 20;
+}
+
+.btn.secondary.report-icon-btn:hover::after,
+.btn.secondary.report-icon-btn:focus-visible::after {
+  opacity: 1;
 }
 
 .table-scroll-wrap {

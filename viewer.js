@@ -151,9 +151,10 @@ function syncReportQuestionButton(question) {
   reportBtn.textContent = "⚑";
   const reportLabel = alreadyFlagged
     ? "Question already flagged"
-    : "Report incorrect answer";
+    : "Report Incorrect Answer";
   reportBtn.setAttribute("title", reportLabel);
   reportBtn.setAttribute("aria-label", reportLabel);
+  reportBtn.setAttribute("data-tooltip", reportLabel);
 }
 
 function reportCurrentQuestion() {
@@ -190,8 +191,9 @@ function ensureReportQuestionButtonExists() {
   reportBtn.id = "reportQuestionBtn";
   reportBtn.type = "button";
   reportBtn.textContent = "⚑";
-  reportBtn.setAttribute("aria-label", "Report incorrect answer");
-  reportBtn.setAttribute("title", "Report incorrect answer");
+  reportBtn.setAttribute("aria-label", "Report Incorrect Answer");
+  reportBtn.setAttribute("title", "Report Incorrect Answer");
+  reportBtn.setAttribute("data-tooltip", "Report Incorrect Answer");
 
   if (shareBtn && shareBtn.parentElement === actionsHost && actionsHost instanceof HTMLElement) {
     actionsHost.insertBefore(reportBtn, shareBtn);
