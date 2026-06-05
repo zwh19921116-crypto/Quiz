@@ -579,6 +579,10 @@ function normalizeQuestion(item) {
     normalized.interactiveApp = interactiveApp;
   }
 
+  if (normalized.interactiveApp && normalized.interactiveApp.type === "number-ordering" && !shouldRenderNumberOrderingInteractive(normalized)) {
+    delete normalized.interactiveApp;
+  }
+
   return normalized;
 }
 
