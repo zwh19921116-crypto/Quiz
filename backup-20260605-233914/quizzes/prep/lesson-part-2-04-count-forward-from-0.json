@@ -1,0 +1,372 @@
+{
+  "id": "quiz-18",
+  "title": "Prep 2.04",
+  "description": "Learning Outcomes for Prep: Count forward | Complete sequence | Understand order | Find missing number | Use number line | Extend sequence",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "What comes after 0?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Sequencing",
+      "subcategory": "Count Forward",
+      "learningOutcome": "Count forward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes after 1?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "2",
+      "category": "Sequencing",
+      "subcategory": "Count Forward",
+      "learningOutcome": "Count forward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes after 2?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "3",
+      "category": "Sequencing",
+      "subcategory": "Count Forward",
+      "learningOutcome": "Count forward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes after 3?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "4",
+      "category": "Sequencing",
+      "subcategory": "Count Forward",
+      "learningOutcome": "Count forward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes after 4?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "5",
+      "category": "Sequencing",
+      "subcategory": "Count Forward",
+      "learningOutcome": "Count forward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0,1,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "2",
+      "category": "Sequencing",
+      "subcategory": "Complete Sequence",
+      "learningOutcome": "Complete sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0,1,2,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "3",
+      "category": "Sequencing",
+      "subcategory": "Complete Sequence",
+      "learningOutcome": "Complete sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0,1,2,3,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "4",
+      "category": "Sequencing",
+      "subcategory": "Complete Sequence",
+      "learningOutcome": "Complete sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0,1,2,3,4,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "5",
+      "category": "Sequencing",
+      "subcategory": "Complete Sequence",
+      "learningOutcome": "Complete sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0,1,2,3,4,5,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "6",
+      "category": "Sequencing",
+      "subcategory": "Complete Sequence",
+      "learningOutcome": "Complete sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes before 4?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "3",
+      "category": "Recognition",
+      "subcategory": "Number Order",
+      "learningOutcome": "Understand order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes before 7?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "6",
+      "category": "Recognition",
+      "subcategory": "Number Order",
+      "learningOutcome": "Understand order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0,__ ,2",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Sequencing",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3,__ ,5",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Sequencing",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6,__ ,8",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "7",
+      "category": "Sequencing",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Start at 0 and move forward 1 step. Where are you?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Application",
+      "subcategory": "Number Line",
+      "learningOutcome": "Use number line",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Start at 0 and move forward 3 steps. Where are you?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "3",
+      "category": "Application",
+      "subcategory": "Number Line",
+      "learningOutcome": "Use number line",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Start at 0 and move forward 5 steps. Where are you?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "5",
+      "category": "Application",
+      "subcategory": "Number Line",
+      "learningOutcome": "Use number line",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 7,8,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "9",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Count forward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Continue the counting pattern by 1. The next number is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 9,10,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "correctAnswer": "11",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Extend sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Continue the counting pattern by 1. The next number is 11.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,405 @@
+{
+  "id": "quiz-36",
+  "title": "Prep 4.02",
+  "description": "Learning Outcomes for Prep: Add objects to 5 | Count combined groups | Apply addition | Mastery",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "🍎 + 🍎 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "1",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects to 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "⭐ + ⭐⭐ = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects to 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🚗 + 🚗🚗🚗 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects to 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐶🐶 + 🐶🐶 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects to 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐟🐟 + 🐟🐟🐟 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects to 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍎🍎 + 🍎 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects to 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "⭐⭐⭐ + ⭐ = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects to 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🚗🚗 + 🚗🚗🚗 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects to 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐶 + 🐶🐶🐶 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects to 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐟🐟 + 🐟 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Addition",
+      "subcategory": "Add Objects",
+      "learningOutcome": "Add objects to 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍎🍎 + 🍎🍎🍎 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Count Altogether",
+      "learningOutcome": "Count combined groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "⭐ + ⭐⭐⭐⭐ = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Count Altogether",
+      "learningOutcome": "Count combined groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🚗🚗🚗 + 🚗🚗 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Count Altogether",
+      "learningOutcome": "Count combined groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐶🐶 + 🐶🐶🐶 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Count Altogether",
+      "learningOutcome": "Count combined groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🐟 + 🐟🐟🐟🐟 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Count Altogether",
+      "learningOutcome": "Count combined groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia has 2 apples. She gets 2 more. How many apples now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Application",
+      "subcategory": "Real World Addition",
+      "learningOutcome": "Apply addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Mia has 2 apples. She gets 2 more. How many apples now?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sam has 1 balloon. He gets 3 more balloons. How many balloons now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Application",
+      "subcategory": "Real World Addition",
+      "learningOutcome": "Apply addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sam has 1 balloon. He gets 3 more balloons. How many balloons now?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Ava has 3 stars. She gets 2 more stars. How many stars now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Application",
+      "subcategory": "Real World Addition",
+      "learningOutcome": "Apply addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Ava has 3 stars. She gets 2 more stars. How many stars now?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "🍎🍎🍎 + 🍎🍎 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "⭐⭐ + ⭐⭐⭐ = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    }
+  ]
+}

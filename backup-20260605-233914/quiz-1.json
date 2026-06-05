@@ -1,0 +1,50 @@
+{
+  "id": "quiz-3",
+  "title": "Quiz 1",
+  "fileName": "quiz-1.json",
+  "category": "General",
+  "questions": [
+    {
+      "question": "1+1=",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": ""
+    },
+    {
+      "question": "2+2=",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "hi"
+    },
+    {
+      "question": "how are you feeling",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "fantastic",
+      "notesAttachments": [],
+      "image": "",
+      "solution": ""
+    }
+  ]
+}

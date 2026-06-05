@@ -38,6 +38,133 @@ const ENCOURAGING_INCORRECT_MESSAGES = [
   "Well done for staying engaged."
 ];
 let lastEncouragingMessageIndex = -1;
+const QUESTION_REPORTS_STORAGE_KEY = "quiz_question_reports_v1";
+
+function normalizeReportKeyPart(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
+
+function normalizeQuestionReportsPayload(payload) {
+  const items = payload && Array.isArray(payload.items) ? payload.items : [];
+  return {
+    version: 1,
+    items: items
+      .filter((item) => item && typeof item === "object" && String(item.key || "").trim() !== "")
+      .map((item) => ({
+        ...item,
+        key: String(item.key).trim(),
+        status: String(item.status || "flagged").trim().toLowerCase() === "resolved" ? "resolved" : "flagged",
+        reportCount: Math.max(1, Number.parseInt(item.reportCount, 10) || 1)
+      }))
+  };
+}
+
+function loadQuestionReportsPayload() {
+  try {
+    const raw = localStorage.getItem(QUESTION_REPORTS_STORAGE_KEY);
+    if (!raw) return normalizeQuestionReportsPayload({ items: [] });
+    const parsed = JSON.parse(raw);
+    return normalizeQuestionReportsPayload(parsed);
+  } catch (_error) {
+    return normalizeQuestionReportsPayload({ items: [] });
+  }
+}
+
+function saveQuestionReportsPayload(payload) {
+  try {
+    const normalized = normalizeQuestionReportsPayload(payload);
+    localStorage.setItem(QUESTION_REPORTS_STORAGE_KEY, JSON.stringify(normalized));
+  } catch (_error) {
+    // Ignore storage write failures so quiz flow is not blocked.
+  }
+}
+
+function buildQuestionReportKey(question) {
+  const sourceFile = normalizeReportKeyPart(getRequestedFile());
+  const quizTitle = normalizeReportKeyPart(quizData && quizData.title ? quizData.title : "");
+  const category = normalizeReportKeyPart(question && question.category ? question.category : "");
+  const prompt = normalizeReportKeyPart(question && question.question ? question.question : "");
+  return [sourceFile, quizTitle, category, prompt].join("||");
+}
+
+function buildQuestionReportRecord(question, key) {
+  const now = new Date().toISOString();
+  return {
+    key,
+    status: "flagged",
+    firstReportedAt: now,
+    lastReportedAt: now,
+    reportCount: 1,
+    sourceFile: getRequestedFile(),
+    quizTitle: String((quizData && quizData.title) || "Quiz Viewer"),
+    category: String((question && question.category) || "").trim(),
+    subcategory: String((question && question.subcategory) || "").trim(),
+    learningOutcome: String((question && question.learningOutcome) || "").trim(),
+    questionText: String((question && question.question) || "").trim(),
+    resultType: String((question && question.resultType) || "").trim(),
+    interactiveType: String((question && question.interactiveApp && question.interactiveApp.type) || "").trim(),
+    correctAnswer: formatAnswerForReport(question ? question.correctAnswer : ""),
+    solution: String((question && question.solution) || "").trim()
+  };
+}
+
+function isQuestionAlreadyFlagged(question) {
+  if (!question) return false;
+  const key = buildQuestionReportKey(question);
+  const payload = loadQuestionReportsPayload();
+  return payload.items.some((item) => item.key === key && item.status === "flagged");
+}
+
+function registerQuestionReport(question) {
+  if (!question) return { alreadyFlagged: false, saved: false };
+  const key = buildQuestionReportKey(question);
+  const payload = loadQuestionReportsPayload();
+  const existing = payload.items.find((item) => item.key === key);
+
+  if (existing) {
+    existing.status = "flagged";
+    existing.lastReportedAt = new Date().toISOString();
+    existing.reportCount = Math.max(1, Number.parseInt(existing.reportCount, 10) || 1) + 1;
+    saveQuestionReportsPayload(payload);
+    return { alreadyFlagged: true, saved: true };
+  }
+
+  payload.items.push(buildQuestionReportRecord(question, key));
+  saveQuestionReportsPayload(payload);
+  return { alreadyFlagged: false, saved: true };
+}
+
+function syncReportQuestionButton(question) {
+  const reportBtn = document.getElementById("reportQuestionBtn");
+  if (!(reportBtn instanceof HTMLButtonElement)) return;
+
+  const shouldShow = Boolean(question) && !isIntroductionQuestion(question);
+  reportBtn.style.display = shouldShow ? "inline-block" : "none";
+  if (!shouldShow) return;
+
+  const alreadyFlagged = isQuestionAlreadyFlagged(question);
+  reportBtn.classList.toggle("is-flagged", alreadyFlagged);
+  reportBtn.textContent = alreadyFlagged
+    ? "Report Incorrect Answer (Flagged)"
+    : "Report Incorrect Answer";
+}
+
+function reportCurrentQuestion() {
+  if (!quizData || !Array.isArray(quizData.questions)) return;
+  const question = quizData.questions[currentIndex];
+  if (!question || isIntroductionQuestion(question)) return;
+
+  const result = registerQuestionReport(question);
+  syncReportQuestionButton(question);
+  if (result.alreadyFlagged) {
+    showToast("Thank you. We are aware and working on it.", "info");
+    return;
+  }
+  showToast("Thank you for your report. We are aware and working on it.", "success");
+}
 
 function isNumberTracingQuestion(question) {
   return Boolean(question && question.interactiveApp && question.interactiveApp.type === "number-tracing");
@@ -815,6 +942,7 @@ function resetRuntimeForLoadedQuiz() {
   document.getElementById("checkAnswerBtn").style.display = "inline-block";
   document.getElementById("nextQuestionBtn").style.display = "inline-block";
   document.getElementById("notesViewerBtn").style.display = "inline-block";
+  document.getElementById("reportQuestionBtn").style.display = "inline-block";
   document.getElementById("showSolutionBtn").classList.add("hidden");
   document.getElementById("resultBox").textContent = "";
   document.getElementById("resultBox").className = "";
@@ -1050,6 +1178,7 @@ function renderPrestartIntroScreen() {
   document.getElementById("checkAnswerBtn").style.display = "none";
   document.getElementById("nextQuestionBtn").style.display = "none";
   document.getElementById("notesViewerBtn").style.display = "none";
+  document.getElementById("reportQuestionBtn").style.display = "none";
   document.getElementById("showSolutionBtn").classList.add("hidden");
   document.getElementById("resultBox").textContent = "";
   document.getElementById("resultBox").className = "";
@@ -1090,6 +1219,7 @@ function renderPrestartIntroScreen() {
         document.getElementById("checkAnswerBtn").style.display = "none";
         document.getElementById("nextQuestionBtn").style.display = "none";
         document.getElementById("notesViewerBtn").style.display = "none";
+        document.getElementById("reportQuestionBtn").style.display = "none";
         document.getElementById("progressText").textContent = "Question 0 of 0";
         document.getElementById("scoreText").textContent = "Score: 0";
         syncQuestionNavigatorVisibility();
@@ -1143,6 +1273,7 @@ function applySingleQuiz(quiz) {
       document.getElementById("checkAnswerBtn").style.display = "none";
       document.getElementById("nextQuestionBtn").style.display = "none";
       document.getElementById("notesViewerBtn").style.display = "none";
+      document.getElementById("reportQuestionBtn").style.display = "none";
       document.getElementById("progressText").textContent = "Question 0 of 0";
       document.getElementById("scoreText").textContent = "Score: 0";
     } else {
@@ -1775,6 +1906,7 @@ function setError(message) {
   document.getElementById("checkAnswerBtn").style.display = "none";
   document.getElementById("nextQuestionBtn").style.display = "none";
   document.getElementById("notesViewerBtn").style.display = "none";
+  document.getElementById("reportQuestionBtn").style.display = "none";
   document.getElementById("showSolutionBtn").classList.add("hidden");
 }
 
@@ -9611,6 +9743,7 @@ function renderQuestion() {
   const nextBtn = document.getElementById("nextQuestionBtn");
   const showSolutionBtn = document.getElementById("showSolutionBtn");
   const checkBtn = document.getElementById("checkAnswerBtn");
+  const reportBtn = document.getElementById("reportQuestionBtn");
 
   answerChecked = false;
   solutionShownForCurrentQuestion = false;
@@ -9630,6 +9763,10 @@ function renderQuestion() {
       ? "none"
       : "inline-block";
   }
+  if (reportBtn instanceof HTMLButtonElement) {
+    reportBtn.disabled = false;
+  }
+  syncReportQuestionButton(question);
 
   const imageMarkup = question.image
     ? `<img class="question-image" src="${escapeHtml(question.image)}" alt="Question visual" />`
@@ -9644,6 +9781,7 @@ function renderQuestion() {
     wireAnswerInputVisualState(quizContainer);
     renderNotesPanel(question);
     updateHeader();
+    syncReportQuestionButton(null);
     return;
   }
 
@@ -10652,6 +10790,7 @@ function goNext() {
   document.getElementById("checkAnswerBtn").style.display = "none";
   document.getElementById("nextQuestionBtn").style.display = "none";
   document.getElementById("notesViewerBtn").style.display = "none";
+  document.getElementById("reportQuestionBtn").style.display = "none";
   document.getElementById("showSolutionBtn").classList.add("hidden");
   document.getElementById("notesViewerPanel").classList.add("hidden");
   document.getElementById("notesViewerPanel").innerHTML = "";
@@ -10761,6 +10900,7 @@ async function loadQuiz() {
 }
 
 document.getElementById("checkAnswerBtn").addEventListener("click", checkAnswer);
+document.getElementById("reportQuestionBtn").addEventListener("click", reportCurrentQuestion);
 document.getElementById("showSolutionBtn").addEventListener("click", openSolutionModal);
 document.getElementById("nextQuestionBtn").addEventListener("click", goNext);
 document.getElementById("shareQuizLinkBtn").addEventListener("click", () => {

@@ -1,0 +1,592 @@
+{
+  "id": "quiz-41",
+  "title": "Prep 4.07",
+  "description": "Learning Outcomes for Prep: Solve addition problems | Apply addition | Mastery",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Mia has 1 apple. She gets 1 more apple. How many apples does she have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "1",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Mia has 1 apple. She gets 1 more apple. How many apples does she have?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "Tom has 2 apples. He gets 1 more apple. How many apples does he have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom has 2 apples. He gets 1 more apple. How many apples does he have?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "Ava has 2 stars. She gets 2 more stars. How many stars does she have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Ava has 2 stars. She gets 2 more stars. How many stars does she have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Ben has 3 balloons. He gets 1 more balloon. How many balloons does he have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Ben has 3 balloons. He gets 1 more balloon. How many balloons does he have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sam has 2 toy cars. He gets 3 more toy cars. How many toy cars does he have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "5",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sam has 2 toy cars. He gets 3 more toy cars. How many toy cars does he have?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 2 dogs in a park. 1 more dog arrives. How many dogs are there now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Word Problems",
+      "subcategory": "Animals",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 2 dogs in a park. 1 more dog arrives. How many dogs are there now?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 3 fish in a tank. 2 more fish are added. How many fish are there now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "5",
+      "category": "Word Problems",
+      "subcategory": "Animals",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 3 fish in a tank. 2 more fish are added. How many fish are there now?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 4 birds on a tree. 1 more bird lands. How many birds are there now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Word Problems",
+      "subcategory": "Animals",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 4 birds on a tree. 1 more bird lands. How many birds are there now?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 5 ducks in a pond. 2 more ducks arrive. How many ducks are there now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "7",
+      "category": "Word Problems",
+      "subcategory": "Animals",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 5 ducks in a pond. 2 more ducks arrive. How many ducks are there now?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 3 cats. 3 more cats join. How many cats are there now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "6",
+      "category": "Word Problems",
+      "subcategory": "Animals",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 3 cats. 3 more cats join. How many cats are there now?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Lily has 4 pencils. Her friend gives her 2 more pencils. How many pencils does she have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "6",
+      "category": "Word Problems",
+      "subcategory": "School",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Lily has 4 pencils. Her friend gives her 2 more pencils. How many pencils does she have?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Jack has 5 books. He gets 3 more books. How many books does he have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "School",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Jack has 5 books. He gets 3 more books. How many books does he have?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Emma has 6 stickers. She gets 2 more stickers. How many stickers does she have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "School",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Emma has 6 stickers. She gets 2 more stickers. How many stickers does she have?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Noah has 4 crayons. He gets 4 more crayons. How many crayons does he have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "School",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Noah has 4 crayons. He gets 4 more crayons. How many crayons does he have?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Zoe has 3 markers. She gets 5 more markers. How many markers does she have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "School",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Zoe has 3 markers. She gets 5 more markers. How many markers does she have?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 5 children playing. 4 more children join. How many children are playing now?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "9",
+      "category": "Application",
+      "subcategory": "Everyday Situations",
+      "learningOutcome": "Apply addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 5 children playing. 4 more children join. How many children are playing now?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "A basket has 6 apples. 3 more apples are added. How many apples are in the basket?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "9",
+      "category": "Application",
+      "subcategory": "Everyday Situations",
+      "learningOutcome": "Apply addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A basket has 6 apples. 3 more apples are added. How many apples are in the basket?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "A toy box has 4 toys. 5 more toys are added. How many toys are in the box?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "9",
+      "category": "Application",
+      "subcategory": "Everyday Situations",
+      "learningOutcome": "Apply addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A toy box has 4 toys. 5 more toys are added. How many toys are in the box?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "Mia has 7 apples and gets 2 more apples. How many apples does she have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "7",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Mia has 7 apples and gets 2 more apples. How many apples does she have?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "Ben has 5 balloons and gets 5 more balloons. How many balloons does he have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Ben has 5 balloons and gets 5 more balloons. How many balloons does he have?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    }
+  ]
+}

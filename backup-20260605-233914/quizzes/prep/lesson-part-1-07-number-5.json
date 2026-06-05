@@ -1,0 +1,471 @@
+{
+  "id": "quiz-7",
+  "title": "Prep 1.07",
+  "description": "Learning Outcomes for Prep: Recognise 5 | Understand quantity 5 | Write 5 | Count 5 objects | Match quantity | Apply quantity 5 | Review number 5 | Mastery of number 5",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which number is 5?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "5",
+      "category": "Recognition",
+      "subcategory": "Identify Number 5",
+      "learningOutcome": "Recognise 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select the number 5",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "5",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "5",
+      "category": "Recognition",
+      "subcategory": "Identify Number 5",
+      "learningOutcome": "Recognise 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number means five?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Recognition",
+      "subcategory": "Identify Number 5",
+      "learningOutcome": "Understand quantity 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 5s",
+      "resultType": "checkbox",
+      "options": [
+        "5",
+        "1",
+        "5",
+        "2"
+      ],
+      "correctAnswer": "5",
+      "category": "Recognition",
+      "subcategory": "Select Number 5",
+      "learningOutcome": "Recognise 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 5, 5, 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 5s",
+      "resultType": "checkbox",
+      "options": [
+        "6",
+        "5",
+        "7",
+        "5"
+      ],
+      "correctAnswer": "5",
+      "category": "Recognition",
+      "subcategory": "Select Number 5",
+      "learningOutcome": "Recognise 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 5, 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Trace the number 5",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Tracing",
+      "subcategory": "Trace Number 5",
+      "learningOutcome": "Write 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Trace the number 5 again",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Tracing",
+      "subcategory": "Trace Number 5",
+      "learningOutcome": "Write 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Draw the number 5",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Writing",
+      "subcategory": "Draw Number 5",
+      "learningOutcome": "Write 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍎🍎🍎🍎🍎 How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "5",
+      "category": "Counting",
+      "subcategory": "Count Five Objects",
+      "learningOutcome": "Count 5 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🍎🍎🍎🍎🍎 How many apples are there?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "⭐⭐⭐⭐⭐ How many stars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "5",
+      "category": "Counting",
+      "subcategory": "Count Five Objects",
+      "learningOutcome": "Count 5 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "⭐⭐⭐⭐⭐ How many stars are there?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "🚗🚗🚗🚗🚗 How many cars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "5",
+      "category": "Counting",
+      "subcategory": "Count Five Objects",
+      "learningOutcome": "Count 5 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🚗🚗🚗🚗🚗 How many cars are there?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "🐶🐶🐶🐶🐶 How many dogs are there?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "5",
+      "category": "Counting",
+      "subcategory": "Count Five Objects",
+      "learningOutcome": "Count 5 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🐶🐶🐶🐶🐶 How many dogs are there?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches 🍎🍎🍎🍎🍎 ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "5",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 🍎🍎🍎🍎🍎 ?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches ⭐⭐⭐⭐⭐ ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "5",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches ⭐⭐⭐⭐⭐ ?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which group has 5 objects?",
+      "resultType": "multiple-choice",
+      "options": [
+        "🍎🍎🍎🍎",
+        "🍎🍎🍎🍎🍎",
+        "🍎🍎🍎",
+        "🍎🍎🍎🍎🍎🍎"
+      ],
+      "correctAnswer": "🍎🍎🍎🍎🍎",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 🍎🍎🍎🍎🍎.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tom has 5 apples. How many apples does Tom have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "5",
+      "category": "Application",
+      "subcategory": "Understanding Five",
+      "learningOutcome": "Apply quantity 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom has 5 apples. How many apples does Tom have?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sara has 5 balloons. How many balloons does she have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "5",
+      "category": "Application",
+      "subcategory": "Understanding Five",
+      "learningOutcome": "Apply quantity 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sara has 5 balloons. How many balloons does she have?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 5 fish in the tank. How many fish are there?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "5",
+      "category": "Application",
+      "subcategory": "Understanding Five",
+      "learningOutcome": "Apply quantity 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 5 fish in the tank. How many fish are there?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number means five?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Review number 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select the number 5",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "5",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery of number 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "id": "quiz-73",
+  "title": "Prep 7.09",
+  "description": "Learning Outcomes for Prep: Compare length | Compare height | Compare weight | Compare capacity | Compare multiple objects | Apply length concepts | Apply height concepts | Apply weight concepts | Apply capacity concepts | Use measurement vocabulary | Consolidate measurement concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which is longer: ruler or pencil?",
+      "resultType": "short-answer",
+      "options": [
+        "Ruler",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Ruler",
+      "category": "Length",
+      "subcategory": "Long and Short",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Ruler.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter: ruler or pencil?",
+      "resultType": "short-answer",
+      "options": [
+        "Pencil",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Pencil",
+      "category": "Length",
+      "subcategory": "Long and Short",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Pencil.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is taller: giraffe or dog?",
+      "resultType": "short-answer",
+      "options": [
+        "Giraffe",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Giraffe",
+      "category": "Height",
+      "subcategory": "Tall and Short",
+      "learningOutcome": "Compare height",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Giraffe.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter: adult or baby?",
+      "resultType": "short-answer",
+      "options": [
+        "Baby",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Baby",
+      "category": "Height",
+      "subcategory": "Tall and Short",
+      "learningOutcome": "Compare height",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Baby.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: brick or feather?",
+      "resultType": "short-answer",
+      "options": [
+        "Brick",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Brick",
+      "category": "Weight",
+      "subcategory": "Heavy and Light",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Brick.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: brick or feather?",
+      "resultType": "short-answer",
+      "options": [
+        "Feather",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Feather",
+      "category": "Weight",
+      "subcategory": "Heavy and Light",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Feather.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more water: bucket or cup?",
+      "resultType": "short-answer",
+      "options": [
+        "Bucket",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Capacity",
+      "subcategory": "More and Less",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less water: bucket or cup?",
+      "resultType": "short-answer",
+      "options": [
+        "Cup",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Cup",
+      "category": "Capacity",
+      "subcategory": "More and Less",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Cup.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longest: ruler, pencil, paper clip?",
+      "resultType": "short-answer",
+      "options": [
+        "Ruler",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Ruler",
+      "category": "Length Comparison",
+      "subcategory": "Compare Objects",
+      "learningOutcome": "Compare multiple objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Ruler.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is tallest: tree, flower, bush?",
+      "resultType": "short-answer",
+      "options": [
+        "Tree",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Tree",
+      "category": "Height Comparison",
+      "subcategory": "Compare Objects",
+      "learningOutcome": "Compare multiple objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Tree.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heaviest: feather, book, table?",
+      "resultType": "short-answer",
+      "options": [
+        "Table",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Table",
+      "category": "Weight Comparison",
+      "subcategory": "Compare Objects",
+      "learningOutcome": "Compare multiple objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Table.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds the most: cup, bucket, swimming pool?",
+      "resultType": "short-answer",
+      "options": [
+        "Swimming Pool",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Swimming Pool",
+      "category": "Capacity Comparison",
+      "subcategory": "Compare Objects",
+      "learningOutcome": "Compare multiple objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Swimming Pool.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would usually be longer: road or driveway?",
+      "resultType": "short-answer",
+      "options": [
+        "Road",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Road",
+      "category": "Application",
+      "subcategory": "Everyday Length",
+      "learningOutcome": "Apply length concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Road.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would usually be taller: building or chair?",
+      "resultType": "short-answer",
+      "options": [
+        "Building",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Building",
+      "category": "Application",
+      "subcategory": "Everyday Height",
+      "learningOutcome": "Apply height concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Building.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would usually be heavier: horse or rabbit?",
+      "resultType": "short-answer",
+      "options": [
+        "Horse",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Horse",
+      "category": "Application",
+      "subcategory": "Everyday Weight",
+      "learningOutcome": "Apply weight concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Horse.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would usually hold more: fish tank or cup?",
+      "resultType": "short-answer",
+      "options": [
+        "Fish Tank",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Fish Tank",
+      "category": "Application",
+      "subcategory": "Everyday Capacity",
+      "learningOutcome": "Apply capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Fish Tank.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means not heavy?",
+      "resultType": "short-answer",
+      "options": [
+        "Light",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Light",
+      "category": "Measurement Vocabulary",
+      "subcategory": "Vocabulary",
+      "learningOutcome": "Use measurement vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Light.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means not short?",
+      "resultType": "short-answer",
+      "options": [
+        "Tall",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Tall",
+      "category": "Measurement Vocabulary",
+      "subcategory": "Vocabulary",
+      "learningOutcome": "Use measurement vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Tall.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word describes a feather compared to a brick?",
+      "resultType": "short-answer",
+      "options": [
+        "Lighter",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Lighter",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate measurement concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Lighter.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word describes a bucket compared to a cup?",
+      "resultType": "short-answer",
+      "options": [
+        "More",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "More",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate measurement concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is More.",
+      "solutionAttachments": []
+    }
+  ]
+}

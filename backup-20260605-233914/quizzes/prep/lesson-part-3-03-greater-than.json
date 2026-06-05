@@ -1,0 +1,372 @@
+{
+  "id": "quiz-27",
+  "title": "Prep 3.03",
+  "description": "Learning Outcomes for Prep: Compare quantities | Compare numbers | Compare groups | Apply comparison | Mastery",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which group is greater? 🍎🍎🍎 or 🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Greater Quantity",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group is greater? ⭐⭐⭐⭐⭐ or ⭐⭐⭐",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Greater Quantity",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group is greater? 🚗🚗 or 🚗🚗🚗🚗",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Greater Quantity",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group is greater? 🐶🐶🐶🐶 or 🐶🐶",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Greater Quantity",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group is greater? 🐟🐟🐟🐟🐟 or 🐟🐟🐟",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Greater Quantity",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater? 5 or 2",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "2",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Recognition",
+      "subcategory": "Greater Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater? 8 or 4",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "4",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Recognition",
+      "subcategory": "Greater Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater? 10 or 7",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "7",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Recognition",
+      "subcategory": "Greater Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater? 9 or 3",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "3",
+        "",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Recognition",
+      "subcategory": "Greater Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater? 6 or 1",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "1",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Recognition",
+      "subcategory": "Greater Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has more stars? ⭐⭐⭐⭐ or ⭐⭐",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Find Greater Group",
+      "learningOutcome": "Compare groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has more apples? 🍎🍎🍎🍎🍎 or 🍎🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Find Greater Group",
+      "learningOutcome": "Compare groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has more cars? 🚗🚗🚗 or 🚗🚗🚗🚗",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Find Greater Group",
+      "learningOutcome": "Compare groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has more dogs? 🐶🐶🐶🐶🐶 or 🐶🐶🐶",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Find Greater Group",
+      "learningOutcome": "Compare groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has more fish? 🐟🐟🐟🐟 or 🐟🐟",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Find Greater Group",
+      "learningOutcome": "Compare groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia has 6 apples. Tom has 4 apples. Who has more apples?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Mia",
+        "Tom",
+        "",
+        ""
+      ],
+      "correctAnswer": "Mia",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Mia.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Sam has 8 balloons. Ben has 5 balloons. Who has more balloons?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Sam",
+        "Ben",
+        "",
+        ""
+      ],
+      "correctAnswer": "Sam",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Sam.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Ava has 7 stars. Leo has 9 stars. Who has more stars?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Ava",
+        "Leo",
+        "",
+        ""
+      ],
+      "correctAnswer": "Leo",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Leo.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater? 8 or 10",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater? 3 or 9",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "9",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,612 @@
+{
+  "id": "quiz-14",
+  "title": "Prep 1.14",
+  "description": "Learning Outcomes for Prep: Recognise 0 | Recognise 2 | Recognise 5 | Recognise 8 | Recognise 10 | Recognise 3 | Recognise 7 | Write 4 | Write 9 | Write 6 | Count objects | Match quantity | Number sequence | Apply counting | Mastery 0-10",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which number is 0?",
+      "resultType": "short-answer",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "-10",
+      "category": "Recognition",
+      "subcategory": "Identify Numbers",
+      "learningOutcome": "Recognise 0",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which number is 2?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "-10",
+      "category": "Recognition",
+      "subcategory": "Identify Numbers",
+      "learningOutcome": "Recognise 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which number is 5?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "-10",
+      "category": "Recognition",
+      "subcategory": "Identify Numbers",
+      "learningOutcome": "Recognise 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which number is 8?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "-10",
+      "category": "Recognition",
+      "subcategory": "Identify Numbers",
+      "learningOutcome": "Recognise 8",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which number is 10?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "-10",
+      "category": "Recognition",
+      "subcategory": "Identify Numbers",
+      "learningOutcome": "Recognise 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Select all the 3s",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "1",
+        "3",
+        "2"
+      ],
+      "correctAnswer": "-10",
+      "category": "Recognition",
+      "subcategory": "Select Numbers",
+      "learningOutcome": "Recognise 3",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Select all the 7s",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "5",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "-10",
+      "category": "Recognition",
+      "subcategory": "Select Numbers",
+      "learningOutcome": "Recognise 7",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Trace the number 4",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "-10",
+      "category": "Tracing",
+      "subcategory": "Trace Numbers",
+      "learningOutcome": "Write 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is -10. Complete the tracing/writing step using that number.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Trace the number 9",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "-10",
+      "category": "Tracing",
+      "subcategory": "Trace Numbers",
+      "learningOutcome": "Write 9",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is -10. Complete the tracing/writing step using that number.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Draw the number 6",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "-10",
+      "category": "Writing",
+      "subcategory": "Draw Numbers",
+      "learningOutcome": "Write 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is -10. Complete the tracing/writing step using that number.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "🍎🍎🍎🍎 How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "-10",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "⭐⭐⭐⭐⭐⭐ How many stars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "-10",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "🚗🚗🚗🚗🚗🚗🚗🚗 How many cars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "-10",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶 How many dogs are there?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "-10",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which number matches 🍎🍎🍎 ?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "-10",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which number matches ⭐⭐⭐⭐⭐⭐⭐ ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "-10",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "What comes next? 4,5,6,__",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "-10",
+      "category": "Sequencing",
+      "subcategory": "Number Order",
+      "learningOutcome": "Number sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Continue the counting pattern by 1. The next number is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "What comes next? 7,8,9,__",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "-10",
+      "category": "Sequencing",
+      "subcategory": "Number Order",
+      "learningOutcome": "Number sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Continue the counting pattern by 1. The next number is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Mia has 8 balloons. How many balloons does she have?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "-10",
+      "category": "Application",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Apply counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which is the largest number?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "5",
+        "8",
+        "10"
+      ],
+      "correctAnswer": "-10",
+      "category": "Mastery",
+      "subcategory": "Mixed Assessment",
+      "learningOutcome": "Mastery 0-10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    }
+  ]
+}

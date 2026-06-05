@@ -1,0 +1,427 @@
+{
+  "id": "quiz-92",
+  "title": "Prep 9.08",
+  "description": "Learning Outcomes for Prep: Subtract within 20 | Find missing number | Word subtraction | Subtract fluently | Subtract within 10",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "12 − 3 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Mixed Skills",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "18 − 6 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Mixed Skills",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "15 − ? = 9",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number Bonds",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20 − ? = 13",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number Bonds",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "You have 14 apples, eat 4. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Word Problems",
+      "subcategory": "Simple",
+      "learningOutcome": "Word subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You have 14 apples, eat 4. How many left?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "16 birds, 5 fly away. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Word Problems",
+      "subcategory": "Simple",
+      "learningOutcome": "Word subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 11.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "16 birds, 5 fly away. How many left?",
+          "totalCount": 11,
+          "iconShape": "circle",
+          "groups": [
+            11
+          ]
+        }
+      }
+    },
+    {
+      "question": "17 − 7 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Subtract fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "19 − 8 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Subtract fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 − 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Mixed Skills",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "13 − 4 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Mixed Skills",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "11 toys, lose 3. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "Mixed",
+      "learningOutcome": "Word subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "11 toys, lose 3. How many left?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "9 cookies, eat 2. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Word Problems",
+      "subcategory": "Mixed",
+      "learningOutcome": "Word subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "9 cookies, eat 2. How many left?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "14 − 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Subtract fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "15 − 6 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Subtract fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "16 − 7 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Subtract fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "18 − ? = 10",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number Bonds",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "17 − ? = 11",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number Bonds",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20 cars, 6 leave. How many left?",
+      "resultType": "multiple-choice",
+      "options": [
+        "13",
+        "14",
+        "15",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Word Problems",
+      "subcategory": "Mixed",
+      "learningOutcome": "Word subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 14.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "20 cars, 6 leave. How many left?",
+          "totalCount": 14,
+          "iconShape": "circle",
+          "groups": [
+            14
+          ]
+        }
+      }
+    },
+    {
+      "question": "12 − 9 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Subtract fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "11 − 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Subtract fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    }
+  ]
+}

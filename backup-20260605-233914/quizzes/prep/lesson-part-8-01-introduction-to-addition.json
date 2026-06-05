@@ -1,0 +1,526 @@
+{
+  "id": "quiz-75",
+  "title": "Prep 8.01",
+  "description": "Learning Outcomes for Prep: Understand addition | Simple addition | Visual addition | Multi-step addition | Worded addition | Addition fluency",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "You have 2 apples and get 1 more. How many in total?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Addition Concepts",
+      "subcategory": "Joining Groups",
+      "learningOutcome": "Understand addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You have 2 apples and get 1 more. How many in total?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "1 + 1 equals what?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Addition Concepts",
+      "subcategory": "Joining Groups",
+      "learningOutcome": "Simple addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 1 + 1 = 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 1,
+          "operandB": 1,
+          "answer": "2",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3 + 1 equals what?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Addition Concepts",
+      "subcategory": "Joining Groups",
+      "learningOutcome": "Simple addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 3 + 1 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3,
+          "operandB": 1,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "You have 4 blocks and add 1 more. Total?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Addition Concepts",
+      "subcategory": "Joining Groups",
+      "learningOutcome": "Understand addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 + 2 equals what?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Addition Concepts",
+      "subcategory": "Joining Groups",
+      "learningOutcome": "Simple addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5 + 1 equals what?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Addition Concepts",
+      "subcategory": "Joining Groups",
+      "learningOutcome": "Simple addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 5 + 1 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 1,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "You have 3 toys and get 2 more. Total?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Addition Concepts",
+      "subcategory": "Joining Groups",
+      "learningOutcome": "Understand addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 + 3 equals what?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Addition Concepts",
+      "subcategory": "Joining Groups",
+      "learningOutcome": "Simple addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 2 + 3 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 3,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "4 + 1 equals what?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Addition Concepts",
+      "subcategory": "Joining Groups",
+      "learningOutcome": "Simple addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 4 + 1 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 1,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "You have 1 ball and get 3 more. Total?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Addition Concepts",
+      "subcategory": "Joining Groups",
+      "learningOutcome": "Understand addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 apples + 2 apples equals?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Addition Concepts",
+      "subcategory": "Visual Addition",
+      "learningOutcome": "Visual addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 blocks + 2 blocks equals?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Addition Concepts",
+      "subcategory": "Visual Addition",
+      "learningOutcome": "Visual addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1 + 4 equals what?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Addition Concepts",
+      "subcategory": "Visual Addition",
+      "learningOutcome": "Simple addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 1 + 4 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 1,
+          "operandB": 4,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "2 + 1 + 1 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Addition Concepts",
+      "subcategory": "Visual Addition",
+      "learningOutcome": "Multi-step addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 2 + 1 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 1,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5 + 2 equals what?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Addition Concepts",
+      "subcategory": "Visual Addition",
+      "learningOutcome": "Simple addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 5 + 2 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 2,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "You have 2 apples, buy 3 more. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Addition Concepts",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Worded addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You have 2 apples, buy 3 more. How many?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "1 bird sits, 2 more come. Total birds?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Addition Concepts",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Worded addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 cars + 3 cars equals?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Addition Concepts",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Simple addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 + 2 + 1 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Addition Concepts",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Addition fluency",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "4 + 3 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Addition Concepts",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Addition fluency",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 4 + 3 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 3,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    }
+  ]
+}

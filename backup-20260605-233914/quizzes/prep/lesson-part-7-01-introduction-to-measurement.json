@@ -1,0 +1,372 @@
+{
+  "id": "quiz-65",
+  "title": "Prep 7.01",
+  "description": "Learning Outcomes for Prep: Compare length | Compare height | Compare weight | Compare capacity | Understand length | Understand height | Understand weight | Understand capacity | Learn measurement words | Apply measurement concepts | Consolidate measurement concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which pencil is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "Longer Pencil",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Longer Pencil",
+      "category": "Measurement Concepts",
+      "subcategory": "Compare Objects",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Longer Pencil.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tower is taller?",
+      "resultType": "short-answer",
+      "options": [
+        "Taller Tower",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Taller Tower",
+      "category": "Measurement Concepts",
+      "subcategory": "Compare Objects",
+      "learningOutcome": "Compare height",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Taller Tower.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which rock is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "Heavier Rock",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Heavier Rock",
+      "category": "Measurement Concepts",
+      "subcategory": "Compare Objects",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Heavier Rock.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which bucket holds more water?",
+      "resultType": "short-answer",
+      "options": [
+        "Larger Bucket",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Larger Bucket",
+      "category": "Measurement Concepts",
+      "subcategory": "Compare Objects",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Larger Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which ribbon is shorter?",
+      "resultType": "short-answer",
+      "options": [
+        "Shorter Ribbon",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Shorter Ribbon",
+      "category": "Measurement Concepts",
+      "subcategory": "Compare Objects",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Shorter Ribbon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A snake is usually long or short?",
+      "resultType": "short-answer",
+      "options": [
+        "Long",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Long",
+      "category": "Length",
+      "subcategory": "Long and Short",
+      "learningOutcome": "Understand length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Long.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A crayon is usually shorter than a ruler. True or False?",
+      "resultType": "short-answer",
+      "options": [
+        "TRUE",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Length",
+      "subcategory": "Long and Short",
+      "learningOutcome": "Understand length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Is a giraffe usually taller than a dog?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Height",
+      "subcategory": "Tall and Short",
+      "learningOutcome": "Understand height",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Is a child usually shorter than a tree?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Height",
+      "subcategory": "Tall and Short",
+      "learningOutcome": "Understand height",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: feather or brick?",
+      "resultType": "short-answer",
+      "options": [
+        "Brick",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Brick",
+      "category": "Weight",
+      "subcategory": "Heavy and Light",
+      "learningOutcome": "Understand weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Brick.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: elephant or mouse?",
+      "resultType": "short-answer",
+      "options": [
+        "Mouse",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Mouse",
+      "category": "Weight",
+      "subcategory": "Heavy and Light",
+      "learningOutcome": "Understand weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Mouse.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more water: cup or bucket?",
+      "resultType": "short-answer",
+      "options": [
+        "Bucket",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Capacity",
+      "subcategory": "More and Less",
+      "learningOutcome": "Understand capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less water: bathtub or cup?",
+      "resultType": "short-answer",
+      "options": [
+        "Cup",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Cup",
+      "category": "Capacity",
+      "subcategory": "More and Less",
+      "learningOutcome": "Understand capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Cup.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means not heavy?",
+      "resultType": "short-answer",
+      "options": [
+        "Light",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Light",
+      "category": "Measurement Vocabulary",
+      "subcategory": "Vocabulary",
+      "learningOutcome": "Learn measurement words",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Light.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means not short?",
+      "resultType": "short-answer",
+      "options": [
+        "Tall",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Tall",
+      "category": "Measurement Vocabulary",
+      "subcategory": "Vocabulary",
+      "learningOutcome": "Learn measurement words",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Tall.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer: pencil or eraser?",
+      "resultType": "short-answer",
+      "options": [
+        "Pencil",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Pencil",
+      "category": "Application",
+      "subcategory": "Everyday Measurement",
+      "learningOutcome": "Apply measurement concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Pencil.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is taller: house or toy block?",
+      "resultType": "short-answer",
+      "options": [
+        "House",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "House",
+      "category": "Application",
+      "subcategory": "Everyday Measurement",
+      "learningOutcome": "Apply measurement concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is House.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: school bag or paper clip?",
+      "resultType": "short-answer",
+      "options": [
+        "School Bag",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "School Bag",
+      "category": "Application",
+      "subcategory": "Everyday Measurement",
+      "learningOutcome": "Apply measurement concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is School Bag.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more: bottle or swimming pool?",
+      "resultType": "short-answer",
+      "options": [
+        "Swimming Pool",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Swimming Pool",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate measurement concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Swimming Pool.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: basketball or feather?",
+      "resultType": "short-answer",
+      "options": [
+        "Feather",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Feather",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate measurement concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Feather.",
+      "solutionAttachments": []
+    }
+  ]
+}

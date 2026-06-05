@@ -1,0 +1,607 @@
+{
+  "id": "quiz-80",
+  "title": "Prep 8.06",
+  "description": "Learning Outcomes for Prep: Count on 1 | Count on 2 | Counting strategy | Counting on | Add fluently",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Start at 4 and count on 1: 4 + 1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Counting On",
+      "subcategory": "Plus 1 Strategy",
+      "learningOutcome": "Count on 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 4 + 1 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 1,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Start at 6 and count on 1: 6 + 1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "08",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Counting On",
+      "subcategory": "Plus 1 Strategy",
+      "learningOutcome": "Count on 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 6 + 1 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 1,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Start at 9 and count on 1: 9 + 1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "2011",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Counting On",
+      "subcategory": "Plus 1 Strategy",
+      "learningOutcome": "Count on 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 9 + 1 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 1,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Start at 3 and count on 2: 3 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Counting On",
+      "subcategory": "Plus 2 Strategy",
+      "learningOutcome": "Count on 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 3 + 2 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3,
+          "operandB": 2,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Start at 5 and count on 2: 5 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "08",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Counting On",
+      "subcategory": "Plus 2 Strategy",
+      "learningOutcome": "Count on 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 5 + 2 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 2,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Start at 7 and count on 2: 7 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "2010",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Counting On",
+      "subcategory": "Plus 2 Strategy",
+      "learningOutcome": "Count on 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 7 + 2 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7,
+          "operandB": 2,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "2 + 1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Counting On",
+      "subcategory": "Mixed",
+      "learningOutcome": "Counting strategy",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 2 + 1 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 1,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "4 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Counting On",
+      "subcategory": "Mixed",
+      "learningOutcome": "Counting strategy",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 4 + 2 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 2,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "6 + 1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "08",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Counting On",
+      "subcategory": "Mixed",
+      "learningOutcome": "Counting strategy",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 6 + 1 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 1,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "8 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "2011",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Counting On",
+      "subcategory": "Mixed",
+      "learningOutcome": "Counting strategy",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 8 + 2 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 8,
+          "operandB": 2,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "You start with 3 toys and add 1 more. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Word Problems",
+      "subcategory": "Simple",
+      "learningOutcome": "Counting on",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You start with 3 toys and add 1 more. How many?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "You start with 5 apples and add 2 more. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Word Problems",
+      "subcategory": "Simple",
+      "learningOutcome": "Counting on",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You start with 5 apples and add 2 more. How many?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "You start with 1 car and add 2 more. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Word Problems",
+      "subcategory": "Simple",
+      "learningOutcome": "Counting on",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You start with 1 car and add 2 more. How many?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "You start with 7 blocks and add 1 more. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Word Problems",
+      "subcategory": "Simple",
+      "learningOutcome": "Counting on",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You start with 7 blocks and add 1 more. How many?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "You start with 4 stars and add 2 more. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Word Problems",
+      "subcategory": "Simple",
+      "learningOutcome": "Counting on",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You start with 4 stars and add 2 more. How many?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "5 + 1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Mixed Review",
+      "subcategory": "Fluency",
+      "learningOutcome": "Add fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 5 + 1 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 1,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3 + 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Mixed Review",
+      "subcategory": "Fluency",
+      "learningOutcome": "Add fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 3 + 3 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3,
+          "operandB": 3,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "6 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "09",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Mixed Review",
+      "subcategory": "Fluency",
+      "learningOutcome": "Add fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 6 + 2 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 2,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "9 + 1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "2011",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Review",
+      "subcategory": "Fluency",
+      "learningOutcome": "Add fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 9 + 1 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 1,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "2 + 2 + 1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Mixed Review",
+      "subcategory": "Fluency",
+      "learningOutcome": "Add fluently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    }
+  ]
+}

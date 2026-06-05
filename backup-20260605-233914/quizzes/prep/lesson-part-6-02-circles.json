@@ -1,0 +1,372 @@
+{
+  "id": "quiz-56",
+  "title": "Prep 6.02",
+  "description": "Learning Outcomes for Prep: Identify circles | Recognise circles | Recognise circle properties | Match objects to circles | Apply shape recognition | Consolidate circle recognition",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which shape is a circle?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Shape Recognition",
+      "subcategory": "Identify Circles",
+      "learningOutcome": "Identify circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A circle is round. True or False?",
+      "resultType": "short-answer",
+      "options": [
+        "TRUE",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Shape Recognition",
+      "subcategory": "Identify Circles",
+      "learningOutcome": "Recognise circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Does a circle have corners?",
+      "resultType": "short-answer",
+      "options": [
+        "No",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "No",
+      "category": "Shape Recognition",
+      "subcategory": "Identify Circles",
+      "learningOutcome": "Recognise circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is No.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Does a circle have sides?",
+      "resultType": "short-answer",
+      "options": [
+        "No",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "No",
+      "category": "Shape Recognition",
+      "subcategory": "Identify Circles",
+      "learningOutcome": "Recognise circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is No.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape rolls easily?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Shape Recognition",
+      "subcategory": "Identify Circles",
+      "learningOutcome": "Recognise circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a coin?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Everyday Objects",
+      "subcategory": "Circle Objects",
+      "learningOutcome": "Match objects to circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a clock face?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Everyday Objects",
+      "subcategory": "Circle Objects",
+      "learningOutcome": "Match objects to circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a plate?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Everyday Objects",
+      "subcategory": "Circle Objects",
+      "learningOutcome": "Match objects to circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a wheel?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Everyday Objects",
+      "subcategory": "Circle Objects",
+      "learningOutcome": "Match objects to circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a button?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Everyday Objects",
+      "subcategory": "Circle Objects",
+      "learningOutcome": "Match objects to circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has no corners?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Circle Properties",
+      "subcategory": "Round Shapes",
+      "learningOutcome": "Recognise circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is completely round?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Circle Properties",
+      "subcategory": "Round Shapes",
+      "learningOutcome": "Recognise circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Can a circle roll?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Circle Properties",
+      "subcategory": "Round Shapes",
+      "learningOutcome": "Recognise circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Does a circle have straight edges?",
+      "resultType": "short-answer",
+      "options": [
+        "No",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "No",
+      "category": "Circle Properties",
+      "subcategory": "Round Shapes",
+      "learningOutcome": "Recognise circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is No.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Is a ball shape based on a circle?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Circle Properties",
+      "subcategory": "Round Shapes",
+      "learningOutcome": "Recognise circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is a circle: coin or door?",
+      "resultType": "short-answer",
+      "options": [
+        "Coin",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Coin",
+      "category": "Application",
+      "subcategory": "Find Circles",
+      "learningOutcome": "Apply shape recognition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Coin.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is a circle: plate or book?",
+      "resultType": "short-answer",
+      "options": [
+        "Plate",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Plate",
+      "category": "Application",
+      "subcategory": "Find Circles",
+      "learningOutcome": "Apply shape recognition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Plate.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is a circle: wheel or ruler?",
+      "resultType": "short-answer",
+      "options": [
+        "Wheel",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Wheel",
+      "category": "Application",
+      "subcategory": "Find Circles",
+      "learningOutcome": "Apply shape recognition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Wheel.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Name a shape with no corners.",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate circle recognition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a clock?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate circle recognition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    }
+  ]
+}

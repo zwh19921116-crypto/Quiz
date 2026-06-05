@@ -1,0 +1,471 @@
+{
+  "id": "quiz-13",
+  "title": "Prep 1.13",
+  "description": "Learning Outcomes for Prep: Recognise 10 | Understand quantity 10 | Write 10 | Count 10 objects | Match quantity | Apply quantity 10 | Review number 10 | Mastery of number 10",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which number is 10?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Recognition",
+      "subcategory": "Identify Number 10",
+      "learningOutcome": "Recognise 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select the number 10",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "10",
+        "9",
+        "8"
+      ],
+      "correctAnswer": "10",
+      "category": "Recognition",
+      "subcategory": "Identify Number 10",
+      "learningOutcome": "Recognise 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number means ten?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "8",
+      "category": "Recognition",
+      "subcategory": "Identify Number 10",
+      "learningOutcome": "Understand quantity 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 10s",
+      "resultType": "checkbox",
+      "options": [
+        "10",
+        "1",
+        "10",
+        "2"
+      ],
+      "correctAnswer": "10",
+      "category": "Recognition",
+      "subcategory": "Select Number 10",
+      "learningOutcome": "Recognise 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 10, 10, 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 10s",
+      "resultType": "checkbox",
+      "options": [
+        "11",
+        "10",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "10",
+      "category": "Recognition",
+      "subcategory": "Select Number 10",
+      "learningOutcome": "Recognise 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 10, 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Trace the number 10",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Tracing",
+      "subcategory": "Trace Number 10",
+      "learningOutcome": "Write 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Trace the number 10 again",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Tracing",
+      "subcategory": "Trace Number 10",
+      "learningOutcome": "Write 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Draw the number 10",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Writing",
+      "subcategory": "Draw Number 10",
+      "learningOutcome": "Write 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎 How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Counting",
+      "subcategory": "Count Ten Objects",
+      "learningOutcome": "Count 10 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎 How many apples are there?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ How many stars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Counting",
+      "subcategory": "Count Ten Objects",
+      "learningOutcome": "Count 10 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ How many stars are there?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗 How many cars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Counting",
+      "subcategory": "Count Ten Objects",
+      "learningOutcome": "Count 10 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗 How many cars are there?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶 How many dogs are there?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Counting",
+      "subcategory": "Count Ten Objects",
+      "learningOutcome": "Count 10 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶 How many dogs are there?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches 🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎 ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎 ?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ ?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which group has 10 objects?",
+      "resultType": "multiple-choice",
+      "options": [
+        "🍎🍎🍎🍎🍎🍎🍎🍎🍎",
+        "🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎",
+        "🍎🍎🍎🍎🍎🍎🍎🍎",
+        "🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎"
+      ],
+      "correctAnswer": "🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tom has 10 apples. How many apples does Tom have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Application",
+      "subcategory": "Understanding Ten",
+      "learningOutcome": "Apply quantity 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom has 10 apples. How many apples does Tom have?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sara has 10 balloons. How many balloons does she have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Application",
+      "subcategory": "Understanding Ten",
+      "learningOutcome": "Apply quantity 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sara has 10 balloons. How many balloons does she have?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 10 fish in the tank. How many fish are there?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Application",
+      "subcategory": "Understanding Ten",
+      "learningOutcome": "Apply quantity 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 10 fish in the tank. How many fish are there?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number means ten?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "8",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Review number 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select the number 10",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery of number 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    }
+  ]
+}

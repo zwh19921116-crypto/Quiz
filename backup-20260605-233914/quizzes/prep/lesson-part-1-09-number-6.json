@@ -1,0 +1,471 @@
+{
+  "id": "quiz-9",
+  "title": "Prep 1.09",
+  "description": "Learning Outcomes for Prep: Recognise 6 | Understand quantity 6 | Write 6 | Count 6 objects | Match quantity | Apply quantity 6 | Review number 6 | Mastery of number 6",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which number is 6?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Recognition",
+      "subcategory": "Identify Number 6",
+      "learningOutcome": "Recognise 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select the number 6",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "6",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "6",
+      "category": "Recognition",
+      "subcategory": "Identify Number 6",
+      "learningOutcome": "Recognise 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number means six?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Identify Number 6",
+      "learningOutcome": "Understand quantity 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 6s",
+      "resultType": "checkbox",
+      "options": [
+        "6",
+        "1",
+        "6",
+        "2"
+      ],
+      "correctAnswer": "6",
+      "category": "Recognition",
+      "subcategory": "Select Number 6",
+      "learningOutcome": "Recognise 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 6, 6, 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 6s",
+      "resultType": "checkbox",
+      "options": [
+        "7",
+        "6",
+        "8",
+        "6"
+      ],
+      "correctAnswer": "6",
+      "category": "Recognition",
+      "subcategory": "Select Number 6",
+      "learningOutcome": "Recognise 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 6, 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Trace the number 6",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Tracing",
+      "subcategory": "Trace Number 6",
+      "learningOutcome": "Write 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Trace the number 6 again",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Tracing",
+      "subcategory": "Trace Number 6",
+      "learningOutcome": "Write 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Draw the number 6",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Writing",
+      "subcategory": "Draw Number 6",
+      "learningOutcome": "Write 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍎🍎🍎🍎🍎🍎 How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Counting",
+      "subcategory": "Count Six Objects",
+      "learningOutcome": "Count 6 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🍎🍎🍎🍎🍎🍎 How many apples are there?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "⭐⭐⭐⭐⭐⭐ How many stars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Counting",
+      "subcategory": "Count Six Objects",
+      "learningOutcome": "Count 6 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "⭐⭐⭐⭐⭐⭐ How many stars are there?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "🚗🚗🚗🚗🚗🚗 How many cars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Counting",
+      "subcategory": "Count Six Objects",
+      "learningOutcome": "Count 6 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🚗🚗🚗🚗🚗🚗 How many cars are there?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "🐶🐶🐶🐶🐶🐶 How many dogs are there?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Counting",
+      "subcategory": "Count Six Objects",
+      "learningOutcome": "Count 6 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🐶🐶🐶🐶🐶🐶 How many dogs are there?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches 🍎🍎🍎🍎🍎🍎 ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 🍎🍎🍎🍎🍎🍎 ?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches ⭐⭐⭐⭐⭐⭐ ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches ⭐⭐⭐⭐⭐⭐ ?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which group has 6 objects?",
+      "resultType": "multiple-choice",
+      "options": [
+        "🍎🍎🍎🍎🍎",
+        "🍎🍎🍎🍎🍎🍎",
+        "🍎🍎🍎🍎",
+        "🍎🍎🍎🍎🍎🍎🍎"
+      ],
+      "correctAnswer": "🍎🍎🍎🍎🍎🍎",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 🍎🍎🍎🍎🍎🍎.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tom has 6 apples. How many apples does Tom have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Application",
+      "subcategory": "Understanding Six",
+      "learningOutcome": "Apply quantity 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom has 6 apples. How many apples does Tom have?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sara has 6 balloons. How many balloons does she have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Application",
+      "subcategory": "Understanding Six",
+      "learningOutcome": "Apply quantity 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sara has 6 balloons. How many balloons does she have?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 6 fish in the tank. How many fish are there?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Application",
+      "subcategory": "Understanding Six",
+      "learningOutcome": "Apply quantity 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 6 fish in the tank. How many fish are there?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number means six?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Review number 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select the number 6",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery of number 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    }
+  ]
+}

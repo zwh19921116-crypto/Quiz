@@ -1,0 +1,491 @@
+{
+  "id": "quiz-82",
+  "title": "Prep 8.08",
+  "description": "Learning Outcomes for Prep: Add within 10 | Add within 20 | Multi-step addition",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "You have 3 apples and get 2 more. How many?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "You have 3 apples and get 2 more. How many?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 6 birds and 3 more arrive. Total?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 toys + 4 toys = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "7 cars + 2 cars = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8 balls + 1 ball = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 ducks + 3 ducks = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "9 cats + 1 cat = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 pencils + 5 pencils = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 blocks + 6 blocks = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1 cookie + 7 cookies = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "Objects",
+      "learningOutcome": "Add within 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 apples + 5 apples = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Word Problems",
+      "subcategory": "Mixed Context",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8 + 7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Word Problems",
+      "subcategory": "Mixed Context",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 8 + 7 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 8,
+          "operandB": 7,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "6 + 9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Word Problems",
+      "subcategory": "Mixed Context",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 6 + 9 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 9,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "12 + 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "15",
+        "16",
+        "17",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Word Problems",
+      "subcategory": "Mixed Context",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 12 + 4 = 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 12,
+          "operandB": 4,
+          "answer": "16",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "11 + 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "13",
+        "14",
+        "15",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Word Problems",
+      "subcategory": "Mixed Context",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 11 + 3 = 14.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 11,
+          "operandB": 3,
+          "answer": "14",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "9 + 6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Word Problems",
+      "subcategory": "Mixed Context",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 9 + 6 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 6,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "7 + 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Word Problems",
+      "subcategory": "Mixed Context",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 7 + 8 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7,
+          "operandB": 8,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5 + 10 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Word Problems",
+      "subcategory": "Mixed Context",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 5 + 10 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 10,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "4 + 6 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "11",
+        "12",
+        "13",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Word Problems",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Multi-step addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 4 + 6 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 6,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3 + 7 + 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Word Problems",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Multi-step addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 3 + 7 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3,
+          "operandB": 7,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    }
+  ]
+}

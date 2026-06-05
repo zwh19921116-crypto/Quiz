@@ -1,0 +1,471 @@
+{
+  "id": "quiz-6",
+  "title": "Prep 1.06",
+  "description": "Learning Outcomes for Prep: Recognise 4 | Understand quantity 4 | Write 4 | Count 4 objects | Match quantity | Apply quantity 4 | Review number 4 | Mastery of number 4",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which number is 4?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Identify Number 4",
+      "learningOutcome": "Recognise 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select the number 4",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "4",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Identify Number 4",
+      "learningOutcome": "Recognise 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number means four?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Recognition",
+      "subcategory": "Identify Number 4",
+      "learningOutcome": "Understand quantity 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 4s",
+      "resultType": "checkbox",
+      "options": [
+        "4",
+        "1",
+        "4",
+        "2"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Select Number 4",
+      "learningOutcome": "Recognise 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 4, 4, 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 4s",
+      "resultType": "checkbox",
+      "options": [
+        "5",
+        "4",
+        "6",
+        "4"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Select Number 4",
+      "learningOutcome": "Recognise 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 4, 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Trace the number 4",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Tracing",
+      "subcategory": "Trace Number 4",
+      "learningOutcome": "Write 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Trace the number 4 again",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Tracing",
+      "subcategory": "Trace Number 4",
+      "learningOutcome": "Write 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Draw the number 4",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Writing",
+      "subcategory": "Draw Number 4",
+      "learningOutcome": "Write 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍎🍎🍎🍎 How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Counting",
+      "subcategory": "Count Four Objects",
+      "learningOutcome": "Count 4 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🍎🍎🍎🍎 How many apples are there?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "⭐⭐⭐⭐ How many stars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Counting",
+      "subcategory": "Count Four Objects",
+      "learningOutcome": "Count 4 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "⭐⭐⭐⭐ How many stars are there?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "🚗🚗🚗🚗 How many cars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Counting",
+      "subcategory": "Count Four Objects",
+      "learningOutcome": "Count 4 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🚗🚗🚗🚗 How many cars are there?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "🐶🐶🐶🐶 How many dogs are there?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Counting",
+      "subcategory": "Count Four Objects",
+      "learningOutcome": "Count 4 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🐶🐶🐶🐶 How many dogs are there?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches 🍎🍎🍎🍎 ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 🍎🍎🍎🍎 ?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches ⭐⭐⭐⭐ ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches ⭐⭐⭐⭐ ?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which group has 4 objects?",
+      "resultType": "multiple-choice",
+      "options": [
+        "🍎🍎🍎",
+        "🍎🍎🍎🍎",
+        "🍎🍎",
+        "🍎🍎🍎🍎🍎"
+      ],
+      "correctAnswer": "🍎🍎🍎🍎",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 🍎🍎🍎🍎.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tom has 4 apples. How many apples does Tom have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Application",
+      "subcategory": "Understanding Four",
+      "learningOutcome": "Apply quantity 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom has 4 apples. How many apples does Tom have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sara has 4 balloons. How many balloons does she have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Application",
+      "subcategory": "Understanding Four",
+      "learningOutcome": "Apply quantity 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sara has 4 balloons. How many balloons does she have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 4 fish in the tank. How many fish are there?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Application",
+      "subcategory": "Understanding Four",
+      "learningOutcome": "Apply quantity 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 4 fish in the tank. How many fish are there?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number means four?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "2",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Review number 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select the number 4",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery of number 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    }
+  ]
+}

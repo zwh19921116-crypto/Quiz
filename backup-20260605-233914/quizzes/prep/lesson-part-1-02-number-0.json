@@ -1,0 +1,471 @@
+{
+  "id": "quiz-2",
+  "title": "Prep 1.02",
+  "description": "Learning Outcomes for Prep: Recognise 0 | Understand zero | Write 0 | Count 0 objects | Match quantity | Apply zero | Review zero | Mastery of zero",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which number is 0?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Recognition",
+      "subcategory": "Identify Number 0",
+      "learningOutcome": "Recognise 0",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select the number 0",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "0",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Recognition",
+      "subcategory": "Identify Number 0",
+      "learningOutcome": "Recognise 0",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number means none?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Recognition",
+      "subcategory": "Identify Number 0",
+      "learningOutcome": "Understand zero",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 0s",
+      "resultType": "checkbox",
+      "options": [
+        "0",
+        "1",
+        "0",
+        "2"
+      ],
+      "correctAnswer": "0",
+      "category": "Recognition",
+      "subcategory": "Select Number 0",
+      "learningOutcome": "Recognise 0",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 0, 0, 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 0s",
+      "resultType": "checkbox",
+      "options": [
+        "3",
+        "0",
+        "4",
+        "0"
+      ],
+      "correctAnswer": "0",
+      "category": "Recognition",
+      "subcategory": "Select Number 0",
+      "learningOutcome": "Recognise 0",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 0, 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Trace the number 0",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Tracing",
+      "subcategory": "Trace Number 0",
+      "learningOutcome": "Write 0",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Trace the number 0 again",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Tracing",
+      "subcategory": "Trace Number 0",
+      "learningOutcome": "Write 0",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Draw the number 0",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Writing",
+      "subcategory": "Draw Number 0",
+      "learningOutcome": "Write 0",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Empty basket. How many apples?",
+      "resultType": "short-answer",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Counting",
+      "subcategory": "Zero Objects",
+      "learningOutcome": "Count 0 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Empty basket. How many apples?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "Empty sky. How many stars?",
+      "resultType": "short-answer",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Counting",
+      "subcategory": "Zero Objects",
+      "learningOutcome": "Count 0 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Empty sky. How many stars?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "No cars. How many cars?",
+      "resultType": "short-answer",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Counting",
+      "subcategory": "Zero Objects",
+      "learningOutcome": "Count 0 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "No cars. How many cars?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "No dogs. How many dogs?",
+      "resultType": "short-answer",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Counting",
+      "subcategory": "Zero Objects",
+      "learningOutcome": "Count 0 objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "No dogs. How many dogs?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches an empty box?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches an empty box?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches no apples?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches no apples?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which group has 0 objects?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Empty Box",
+        "🍎",
+        "🍎🍎",
+        "🍎🍎🍎"
+      ],
+      "correctAnswer": "Empty Box",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Empty Box.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tom has 0 apples. How many apples does Tom have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Application",
+      "subcategory": "Understanding Zero",
+      "learningOutcome": "Apply zero",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom has 0 apples. How many apples does Tom have?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sara has no balloons. How many balloons does she have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Application",
+      "subcategory": "Understanding Zero",
+      "learningOutcome": "Apply zero",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sara has no balloons. How many balloons does she have?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are no fish in the tank. How many fish are there?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Application",
+      "subcategory": "Understanding Zero",
+      "learningOutcome": "Apply zero",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are no fish in the tank. How many fish are there?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number means none?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Review zero",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select the number 0",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery of zero",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    }
+  ]
+}

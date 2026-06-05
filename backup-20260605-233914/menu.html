@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Menu</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Menu-specific layout ─────────────────────────────────── */
+    .menu-shell {
+      min-height: 100vh;
+      padding: 36px 16px 60px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% -10%, rgba(14, 116, 144, 0.18) 0%, rgba(14, 116, 144, 0) 42%),
+        radial-gradient(circle at 92% 8%, rgba(34, 197, 94, 0.16) 0%, rgba(34, 197, 94, 0) 36%);
+    }
+
+    .menu-container {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-toolbar {
+      margin: 6px 0 24px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid #d7e3f2;
+      border-radius: 14px;
+      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.1);
+      backdrop-filter: blur(6px);
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .menu-toolbar-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .menu-sort-select {
+      min-width: 132px;
+      border-radius: 10px;
+      border: 1px solid #c7d4e7;
+      background: #ffffff;
+      padding: 11px 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .menu-sort-select:focus {
+      border-color: #0f766e;
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+    }
+
+    .menu-search-input {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #c7d4e7;
+      background: #ffffff;
+      padding: 11px 12px;
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .menu-search-input:focus {
+      border-color: #0f766e;
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+    }
+
+    .menu-search-meta {
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .breadcrumb-item {
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--primary);
+      font: inherit;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .breadcrumb-item:hover {
+      color: var(--primary-2);
+    }
+
+    .breadcrumb-sep {
+      color: var(--line);
+      user-select: none;
+    }
+
+    .breadcrumb-current {
+      color: var(--ink);
+    }
+
+    /* Panels */
+    .menu-panel {
+      display: none;
+    }
+
+    .menu-panel.active {
+      display: block;
+      animation: panel-enter 220ms ease;
+    }
+
+    @keyframes panel-enter {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Section heading */
+    .menu-section-label {
+      margin: 0 0 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    /* Category grid */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .category-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 18px 34px rgba(15, 23, 42, 0.14);
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      min-height: 200px;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 52px rgba(15, 23, 42, 0.2);
+      border-color: var(--primary);
+    }
+
+    .category-card:active {
+      transform: translateY(0);
+    }
+
+    .category-icon {
+      width: 100%;
+      height: 200px;
+      border-radius: 0;
+      background: linear-gradient(140deg, #0f766e 0%, #155e75 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      overflow: hidden;
+      box-shadow: inset 0 -70px 90px rgba(15, 23, 42, 0.35);
+      position: relative;
+    }
+
+    .category-icon.has-image {
+      background: #ffffff;
+      border: 0;
+      box-shadow: inset 0 -70px 90px rgba(15, 23, 42, 0.35);
+    }
+
+    .category-icon-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.28s ease;
+    }
+
+    .category-card:hover .category-icon-image {
+      transform: scale(1.04);
+    }
+
+    .category-icon-fallback {
+      width: 100%;
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f766e 0%, #0ea5e9 100%);
+      transition: transform 0.2s ease;
+    }
+
+    .category-card:hover .category-icon-fallback {
+      transform: scale(1.03);
+    }
+
+    .category-media-overlay {
+      position: absolute;
+      inset: 0;
+      padding: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.12) 0%, rgba(15, 23, 42, 0.52) 100%);
+    }
+
+    .category-count-chip {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      color: #f8fafc;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 6px 10px;
+      backdrop-filter: blur(2px);
+    }
+
+    .category-title-center {
+      margin: 0;
+      font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+      font-weight: 900;
+      color: #ffffff;
+      text-align: center;
+      letter-spacing: 0.01em;
+      text-shadow: 0 4px 12px rgba(15, 23, 42, 0.5);
+    }
+
+    /* Quiz list */
+    .quiz-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .quiz-item {
+      background: linear-gradient(145deg, #ffffff 0%, #f6fbff 100%);
+      border: 1px solid #d8e5f4;
+      border-radius: 16px;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+      padding: 18px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quiz-item::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 3px;
+      background: linear-gradient(180deg, #0f766e 0%, #0ea5e9 100%);
+      opacity: 0.75;
+    }
+
+    .quiz-item:hover {
+      transform: translateX(6px);
+      border-color: var(--primary);
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.14);
+    }
+
+    .quiz-item:active {
+      transform: translateX(0);
+    }
+
+    .quiz-item-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 12px;
+      background: linear-gradient(140deg, #0f766e 0%, #0284c7 100%);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 8px 16px rgba(15, 23, 42, 0.18);
+    }
+
+    .quiz-item-icon-glyph {
+      color: #ffffff;
+      font-size: 1.25rem;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.35));
+    }
+
+    .quiz-item-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .quiz-item-title {
+      margin: 0 0 3px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .quiz-item-meta {
+      margin: 0;
+      font-size: 0.74rem;
+      color: var(--muted);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #eaf4ff;
+      border: 1px solid #d1e6fb;
+      border-radius: 999px;
+      padding: 4px 10px;
+      width: fit-content;
+    }
+
+    .quiz-item-description {
+      margin: 6px 0 0;
+      color: #334155;
+      font-size: 0.86rem;
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .quiz-item-arrow {
+      color: #0f766e;
+      font-size: 1.05rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: #e6f6f4;
+      border: 1px solid #ccebe6;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quiz-item-right {
+      margin-left: auto;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .quiz-item-updated {
+      margin: 0;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #64748b;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Back button */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 9px 16px;
+      font: inherit;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--muted);
+      cursor: pointer;
+      margin-bottom: 24px;
+      transition: border-color 0.12s, color 0.12s;
+    }
+
+    .back-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Error / loading states */
+    .menu-status {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .menu-empty {
+      text-align: center;
+      padding: 22px 16px;
+      border: 1px dashed #b9c9de;
+      border-radius: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .menu-status.error {
+      color: var(--danger);
+    }
+
+    /* Header nav link */
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .header-nav-link {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      transition: border-color 0.12s, color 0.12s;
+    }
+
+    .header-nav-link:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    @media (max-width: 600px) {
+      .menu-toolbar-row {
+        grid-template-columns: 1fr;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-card {
+        min-height: 188px;
+      }
+
+      .category-icon {
+        height: 188px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-shell">
+    <div class="menu-container">
+
+      <!-- Page header -->
+      <div class="page-header page-header-split" style="margin-bottom: 28px;">
+        <div class="page-header-main">
+          <p class="eyebrow">Learning Assessment</p>
+          <h1>Quiz Menu</h1>
+        </div>
+        <div class="logo-placeholder" aria-label="Logo placeholder">
+          <img
+            class="logo-image"
+            src="assets/logo.png"
+            alt="Quiz logo"
+            onload="this.style.display='block'; this.nextElementSibling.style.display='none'; this.parentElement.classList.remove('is-empty');"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex'; this.parentElement.classList.add('is-empty');"
+          />
+          <span class="logo-fallback">Add Logo</span>
+        </div>
+      </div>
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" id="breadcrumb" aria-label="Navigation breadcrumb">
+        <span class="breadcrumb-current" id="breadcrumbHome">All Categories</span>
+      </nav>
+
+      <div id="menuToolbar" class="menu-toolbar" role="search" aria-label="Year filter and sort">
+        <div class="menu-toolbar-row">
+          <input
+            id="menuSearchInput"
+            class="menu-search-input"
+            type="text"
+            placeholder="Filter years"
+            autocomplete="off"
+          />
+          <select id="categorySortSelect" class="menu-sort-select" aria-label="Sort years">
+            <option value="asc" selected>Sort: A-Z</option>
+            <option value="desc">Sort: Z-A</option>
+          </select>
+          <button class="btn secondary" id="clearSearchBtn" type="button">Clear</button>
+        </div>
+        <p class="menu-search-meta" id="menuSearchMeta">Showing all years</p>
+      </div>
+
+      <!-- Loading / error state -->
+      <div class="menu-status" id="menuStatus">Loading quiz library&hellip;</div>
+
+      <!-- Panel: Categories -->
+      <div class="menu-panel" id="panelCategories">
+        <p class="menu-section-label">SELECT YEAR</p>
+        <div class="category-grid" id="categoryGrid"></div>
+      </div>
+
+      <!-- Panel: Quizzes within a category -->
+      <div class="menu-panel" id="panelQuizzes">
+        <button class="back-btn" id="backToCategories" type="button">&#8592; All Categories</button>
+        <p class="menu-section-label" id="quizListLabel">Select a Quiz</p>
+        <div class="quiz-list" id="quizList"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const DEFAULT_ROOT = "quizzes";
+      const ALT_ROOT = "Quizzes";
+
+      let indexData = null;
+      let currentCategoryIndex = -1;
+
+      // ── DOM refs ────────────────────────────────────────────
+      const statusEl       = document.getElementById("menuStatus");
+      const panelCats      = document.getElementById("panelCategories");
+      const panelQuizzes   = document.getElementById("panelQuizzes");
+      const categoryGrid   = document.getElementById("categoryGrid");
+      const quizList       = document.getElementById("quizList");
+      const quizListLabel  = document.getElementById("quizListLabel");
+      const breadcrumb     = document.getElementById("breadcrumb");
+      const menuToolbar    = document.getElementById("menuToolbar");
+      const backBtn        = document.getElementById("backToCategories");
+      const searchInput    = document.getElementById("menuSearchInput");
+      const sortSelect     = document.getElementById("categorySortSelect");
+      const clearSearchBtn = document.getElementById("clearSearchBtn");
+      const searchMeta     = document.getElementById("menuSearchMeta");
+      let activeView       = "categories";
+      const alnumCollator  = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
+      const quizMetaCache = new Map();
+
+      function buildHistoryState(view, categoryIndex = null) {
+        if (view === "quizzes" && Number.isInteger(categoryIndex)) {
+          return { menuLayer: "quizzes", categoryIndex };
+        }
+        return { menuLayer: "categories" };
+      }
+
+      function updateMenuHistory(view, categoryIndex, replace = false) {
+        const nextState = buildHistoryState(view, categoryIndex);
+        if (replace) {
+          window.history.replaceState(nextState, "", window.location.href);
+          return;
+        }
+
+        const current = window.history.state;
+        if (
+          current
+          && current.menuLayer === nextState.menuLayer
+          && current.categoryIndex === nextState.categoryIndex
+        ) {
+          return;
+        }
+        window.history.pushState(nextState, "", window.location.href);
+      }
+
+      // Category icons (cycles through if more categories than icons)
+      // ── Utilities ───────────────────────────────────────────
+      function showPanel(name) {
+        activeView = name;
+        panelCats.classList.toggle("active", name === "categories");
+        panelQuizzes.classList.toggle("active", name === "quizzes");
+        if (menuToolbar instanceof HTMLElement) {
+          menuToolbar.style.display = name === "categories" ? "grid" : "none";
+        }
+      }
+
+      function setStatus(message, isError) {
+        statusEl.textContent = message;
+        statusEl.className   = "menu-status" + (isError ? " error" : "");
+        statusEl.style.display = message ? "block" : "none";
+      }
+
+      function escapeHtml(str) {
+        return String(str || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function slugify(value) {
+        return String(value || "")
+          .trim()
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-+|-+$/g, "");
+      }
+
+      function normalizeSearchQuery(value) {
+        return String(value || "").trim().toLowerCase();
+      }
+
+      function getSearchQuery() {
+        return normalizeSearchQuery(searchInput && searchInput.value);
+      }
+
+      function setSearchMeta(text) {
+        if (!(searchMeta instanceof HTMLElement)) return;
+        searchMeta.textContent = text;
+      }
+
+      function getSortMode() {
+        const value = String(sortSelect && sortSelect.value ? sortSelect.value : "asc").toLowerCase();
+        return value === "desc" ? "desc" : "asc";
+      }
+
+      function compareCategoryNamesAlnum(aName, bName) {
+        const left = String(aName || "").trim();
+        const right = String(bName || "").trim();
+        const leftStartsWithDigit = /^\d/.test(left);
+        const rightStartsWithDigit = /^\d/.test(right);
+
+        if (leftStartsWithDigit !== rightStartsWithDigit) {
+          return leftStartsWithDigit ? -1 : 1;
+        }
+
+        return alnumCollator.compare(left, right);
+      }
+
+      function resolveQuizFilePath(file) {
+        const root = String((indexData && indexData.root) || "quizzes").replace(/\/+$/, "");
+        const f    = String(file || "").replace(/^\/+/, "");
+        // Avoid double-prefixing if the file already starts with root/
+        if (f.startsWith(root + "/") || f.startsWith(root + "\\")) {
+          return f;
+        }
+        return root + "/" + f;
+      }
+
+      function isLikelyLocalRuntime() {
+        const host = String(window.location.hostname || "").toLowerCase();
+        return window.location.protocol === "file:" || host === "localhost" || host === "127.0.0.1";
+      }
+
+      function getRootCandidates() {
+        const host = String(window.location.hostname || "").toLowerCase();
+        const cloudflareHosted = host.endsWith("pages.dev") || host.includes("cloudflare");
+        const githubHosted = host.includes("github.io");
+        const preferUpper = cloudflareHosted || githubHosted;
+        return preferUpper ? [ALT_ROOT, DEFAULT_ROOT] : [DEFAULT_ROOT, ALT_ROOT];
+      }
+
+      async function tryLoadIndexFromRoot(root) {
+        const response = await fetch(root + "/index.json", { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error("Could not load quiz index (" + response.status + ") from " + root + "/index.json.");
+        }
+        const payload = await response.json();
+        if (!payload || !Array.isArray(payload.categories)) {
+          throw new Error("Quiz index at " + root + "/index.json is missing categories.");
+        }
+        if (!payload.root) {
+          payload.root = root;
+        }
+        return payload;
+      }
+
+      function parseDirectoryListingEntries(htmlText) {
+        const entries = [];
+        const source = String(htmlText || "");
+        const hrefRegex = /href\s*=\s*"([^"]+)"/gi;
+        let match = null;
+        while ((match = hrefRegex.exec(source)) !== null) {
+          const href = String(match[1] || "").trim();
+          if (!href || href === "../" || href.startsWith("?") || href.startsWith("#")) continue;
+          entries.push(href);
+        }
+        return entries;
+      }
+
+      function prettifyQuizTitle(fileName) {
+        return String(fileName || "")
+          .replace(/\.json$/i, "")
+          .replace(/[\-_]+/g, " ")
+          .replace(/\s+/g, " ")
+          .trim()
+          .replace(/\b\w/g, (ch) => ch.toUpperCase());
+      }
+
+      function prettifyCategoryTitle(folderName) {
+        return String(folderName || "")
+          .replace(/\/+$/, "")
+          .replace(/[\-_]+/g, " ")
+          .replace(/\s+/g, " ")
+          .trim()
+          .replace(/\b\w/g, (ch) => ch.toUpperCase());
+      }
+
+      function formatQuizLastModified(value) {
+        if (!value) return "Unknown";
+        const parsed = new Date(value);
+        if (Number.isNaN(parsed.getTime())) return "Unknown";
+        return parsed.toLocaleString(undefined, {
+          year: "numeric",
+          month: "short",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+      }
+
+      function buildIndexDataFromSelectedLocalFiles(fileList) {
+        const files = Array.from(fileList || []);
+        if (files.length === 0) {
+          throw new Error("No files were selected.");
+        }
+
+        const categoriesByKey = new Map();
+        files.forEach((file) => {
+          const relPath = String(file && (file.webkitRelativePath || file.name) ? (file.webkitRelativePath || file.name) : "")
+            .replace(/\\/g, "/")
+            .replace(/^\/+/, "");
+          if (!relPath || !/\.json$/i.test(relPath)) return;
+          if (/\/index\.json$/i.test(relPath)) return;
+          if (/\/images\//i.test(relPath)) return;
+
+          const parts = relPath.split("/").filter(Boolean);
+          if (parts.length < 2) return;
+
+          const categoryFolder = parts.length > 2 ? parts[1] : "General";
+          const quizFile = parts[parts.length - 1];
+          const categoryKey = categoryFolder.toLowerCase();
+          const relativeQuizPath = parts.length > 2 ? parts.slice(1).join("/") : quizFile;
+
+          if (!categoriesByKey.has(categoryKey)) {
+            categoriesByKey.set(categoryKey, {
+              name: prettifyCategoryTitle(categoryFolder),
+              quizzes: []
+            });
+          }
+
+          categoriesByKey.get(categoryKey).quizzes.push({
+            title: prettifyQuizTitle(quizFile),
+            file: relativeQuizPath,
+            lastModified: Number.isFinite(Number(file.lastModified))
+              ? new Date(Number(file.lastModified)).toISOString()
+              : ""
+          });
+        });
+
+        const categories = Array.from(categoriesByKey.values())
+          .map((category) => {
+            category.quizzes.sort((left, right) => compareCategoryNamesAlnum(left.title, right.title));
+            return category;
+          })
+          .sort((left, right) => compareCategoryNamesAlnum(left.name, right.name));
+
+        if (categories.length === 0) {
+          throw new Error("No quiz JSON files found in selected folder.");
+        }
+
+        return {
+          root: DEFAULT_ROOT,
+          categories
+        };
+      }
+
+      function showLocalFilePickerFallback(loadErrorMessage) {
+        setStatus("", false);
+        statusEl.className = "menu-status";
+        statusEl.style.display = "block";
+        statusEl.innerHTML =
+          '<div style="display:grid;gap:8px">' +
+          '  <div><strong>Local fetch is blocked by browser security.</strong></div>' +
+          '  <div>' + escapeHtml(loadErrorMessage) + '</div>' +
+          '  <div>Please choose your local quizzes folder to continue.</div>' +
+          '  <div><button class="btn" id="menuPickLocalFolderBtn" type="button">Choose Local Quizzes Folder</button></div>' +
+          '</div>';
+
+        const pickerInput = document.createElement("input");
+        pickerInput.type = "file";
+        pickerInput.multiple = true;
+        pickerInput.setAttribute("webkitdirectory", "");
+        pickerInput.setAttribute("directory", "");
+        pickerInput.style.display = "none";
+        document.body.appendChild(pickerInput);
+
+        const cleanup = () => {
+          try {
+            pickerInput.remove();
+          } catch (error) {
+            // Ignore removal failures.
+          }
+        };
+
+        pickerInput.addEventListener("change", () => {
+          try {
+            indexData = buildIndexDataFromSelectedLocalFiles(pickerInput.files);
+            quizMetaCache.clear();
+            renderCategories();
+            updateMenuHistory("categories", null, true);
+            setStatus("Loaded local quizzes from selected folder.", false);
+          } catch (error) {
+            const reason = error && error.message ? error.message : String(error);
+            setStatus("Could not load selected folder. (" + reason + ")", true);
+          } finally {
+            cleanup();
+          }
+        }, { once: true });
+
+        const pickBtn = document.getElementById("menuPickLocalFolderBtn");
+        if (pickBtn instanceof HTMLButtonElement) {
+          pickBtn.addEventListener("click", () => {
+            pickerInput.value = "";
+            pickerInput.click();
+          }, { once: true });
+        }
+      }
+
+      async function tryBuildIndexFromFolderListing(root) {
+        const rootResponse = await fetch(root + "/", { cache: "no-store" });
+        if (!rootResponse.ok) {
+          throw new Error("Could not list root folder " + root + "/ (" + rootResponse.status + ").");
+        }
+        const rootHtml = await rootResponse.text();
+        const rootEntries = parseDirectoryListingEntries(rootHtml);
+        const categoryFolders = rootEntries
+          .filter((href) => /\/$/.test(href))
+          .map((href) => decodeURIComponent(href).replace(/^\/+/, ""))
+          .filter((name) => name && name !== "images/" && name !== "_assets/");
+
+        const categories = [];
+
+        for (let i = 0; i < categoryFolders.length; i += 1) {
+          const folder = categoryFolders[i];
+          const categoryResponse = await fetch(root + "/" + folder, { cache: "no-store" });
+          if (!categoryResponse.ok) continue;
+          const categoryHtml = await categoryResponse.text();
+          const categoryEntries = parseDirectoryListingEntries(categoryHtml);
+          const quizFiles = categoryEntries
+            .map((href) => decodeURIComponent(href).replace(/^\/+/, ""))
+            .filter((name) => /\.json$/i.test(name) && !/index\.json$/i.test(name));
+
+          if (quizFiles.length === 0) continue;
+
+          const quizzes = quizFiles
+            .sort((a, b) => alnumCollator.compare(a, b))
+            .map((quizFile) => ({
+              title: prettifyQuizTitle(quizFile),
+              file: folder.replace(/\/+$/, "") + "/" + quizFile.replace(/^\/+/, "")
+            }));
+
+          categories.push({
+            name: prettifyCategoryTitle(folder),
+            quizzes
+          });
+        }
+
+        if (categories.length === 0) {
+          throw new Error("No category folders with quiz JSON files found under " + root + "/.");
+        }
+
+        categories.sort((a, b) => compareCategoryNamesAlnum(a && a.name, b && b.name));
+        return {
+          root,
+          categories
+        };
+      }
+
+      async function resolveIndexData() {
+        const roots = getRootCandidates();
+        const localRuntime = isLikelyLocalRuntime();
+        const errors = [];
+
+        if (localRuntime) {
+          for (let i = 0; i < roots.length; i += 1) {
+            const root = roots[i];
+            try {
+              return await tryBuildIndexFromFolderListing(root);
+            } catch (error) {
+              errors.push("folder scan " + root + ": " + error.message);
+            }
+          }
+        }
+
+        for (let i = 0; i < roots.length; i += 1) {
+          const root = roots[i];
+          try {
+            return await tryLoadIndexFromRoot(root);
+          } catch (error) {
+            errors.push("index " + root + ": " + error.message);
+          }
+        }
+
+        throw new Error(errors.join(" | "));
+      }
+
+      function getQuizIconGlyph(title, index) {
+        const text = String(title || "").toLowerCase();
+        if (text.includes("time") || text.includes("clock")) return "⏰";
+        if (text.includes("number") || text.includes("math") || text.includes("count")) return "🔢";
+        if (text.includes("shape") || text.includes("geometry")) return "📐";
+        if (text.includes("fraction")) return "➗";
+        if (text.includes("intro") || text.includes("start")) return "🌟";
+        if (text.includes("test") || text.includes("quiz")) return "📝";
+
+        const fallbackGlyphs = ["📝", "📘", "🧠", "🎯", "📊", "🔍", "🧩", "📗"];
+        return fallbackGlyphs[index % fallbackGlyphs.length];
+      }
+
+      async function resolveQuizMeta(quiz) {
+        const inlineDescription = String(
+          (quiz && (quiz.description || quiz.summary || quiz.details || quiz.detail)) || ""
+        ).trim();
+        const inlineLastModified = String((quiz && (quiz.lastModified || quiz.updatedAt || quiz.modifiedAt)) || "").trim();
+
+        const filePath = String(quiz && quiz.file ? resolveQuizFilePath(quiz.file) : "").trim();
+        if (!filePath) {
+          return {
+            description: inlineDescription,
+            lastModified: inlineLastModified
+          };
+        }
+        if (quizMetaCache.has(filePath)) {
+          return quizMetaCache.get(filePath);
+        }
+
+        try {
+          const response = await fetch(filePath, { cache: "no-store" });
+          if (!response.ok) {
+            const fallbackMeta = {
+              description: inlineDescription,
+              lastModified: inlineLastModified
+            };
+            quizMetaCache.set(filePath, fallbackMeta);
+            return fallbackMeta;
+          }
+
+          const payload = await response.json();
+          const fromQuizFile = String(
+            payload && (payload.description || payload.summary || payload.details || payload.detail || "")
+          ).trim();
+          const headerLastModified = String(response.headers.get("Last-Modified") || "").trim();
+          const resolvedMeta = {
+            description: inlineDescription || fromQuizFile,
+            lastModified: inlineLastModified || headerLastModified
+          };
+          quizMetaCache.set(filePath, resolvedMeta);
+          return resolvedMeta;
+        } catch (error) {
+          const fallbackMeta = {
+            description: inlineDescription,
+            lastModified: inlineLastModified
+          };
+          quizMetaCache.set(filePath, fallbackMeta);
+          return fallbackMeta;
+        }
+      }
+
+      function getCategoryFolderKey(category) {
+        const root = String((indexData && indexData.root) || "quizzes").replace(/\/+$/, "").toLowerCase();
+        const quizzes = Array.isArray(category && category.quizzes) ? category.quizzes : [];
+        for (let i = 0; i < quizzes.length; i += 1) {
+          const rawFile = String((quizzes[i] && quizzes[i].file) || "").replace(/\\/g, "/").replace(/^\/+/, "");
+          if (!rawFile) continue;
+          const parts = rawFile.split("/").filter(Boolean);
+          if (parts.length === 0) continue;
+          if (parts[0].toLowerCase() === root && parts.length > 1) {
+            return parts[1].toLowerCase();
+          }
+          return parts[0].toLowerCase();
+        }
+        return slugify(category && category.name ? category.name : "");
+      }
+
+      function getCategoryImagePath(category) {
+        const root = String((indexData && indexData.root) || "quizzes").replace(/\/+$/, "");
+        const explicit = String(category && category.image ? category.image : "").trim();
+        const folderKey = getCategoryFolderKey(category);
+        const nameSlug = slugify(category && category.name ? category.name : "");
+        if (explicit) {
+          return explicit;
+        }
+
+        const key = folderKey || nameSlug;
+        return key ? `${root}/images/${key}.webp` : "";
+      }
+
+      function getCategoryFallbackStyle(category, index) {
+        const categoryName = String(category && category.name ? category.name : "").toLowerCase();
+        const curated = [
+          "linear-gradient(140deg, #0f766e 0%, #0284c7 100%)",
+          "linear-gradient(140deg, #7c3aed 0%, #2563eb 100%)",
+          "linear-gradient(140deg, #be123c 0%, #fb7185 100%)",
+          "linear-gradient(140deg, #166534 0%, #22c55e 100%)",
+          "linear-gradient(140deg, #b45309 0%, #f59e0b 100%)",
+          "linear-gradient(140deg, #0f172a 0%, #334155 100%)"
+        ];
+
+        if (categoryName.includes("prep") || categoryName.includes("foundation")) {
+          return "linear-gradient(140deg, #7c3aed 0%, #a78bfa 100%)";
+        }
+        if (categoryName.includes("time") || categoryName.includes("clock")) {
+          return "linear-gradient(140deg, #0f766e 0%, #34d399 100%)";
+        }
+        if (categoryName.includes("number") || categoryName.includes("math")) {
+          return "linear-gradient(140deg, #b45309 0%, #f59e0b 100%)";
+        }
+
+        return curated[index % curated.length];
+      }
+
+      // ── Breadcrumb ──────────────────────────────────────────
+      function renderBreadcrumb(categoryName) {
+        if (!categoryName) {
+          breadcrumb.innerHTML = '<span class="breadcrumb-current" id="breadcrumbHome">All Categories</span>';
+          return;
+        }
+        breadcrumb.innerHTML =
+          '<button class="breadcrumb-item" id="breadcrumbHome" type="button">All Categories</button>' +
+          '<span class="breadcrumb-sep">›</span>' +
+          '<span class="breadcrumb-current">' + escapeHtml(categoryName) + "</span>";
+
+        document.getElementById("breadcrumbHome").addEventListener("click", showCategories);
+      }
+
+      // ── Category panel ──────────────────────────────────────
+      function showCategories(shouldPushHistory = true) {
+        currentCategoryIndex = -1;
+        renderBreadcrumb(null);
+        showPanel("categories");
+        renderCategories();
+        if (shouldPushHistory) {
+          updateMenuHistory("categories", null, false);
+        }
+      }
+
+      function renderCategories() {
+        const categories = (indexData && Array.isArray(indexData.categories)) ? indexData.categories : [];
+        const query = getSearchQuery();
+
+        const categoryEntries = categories
+          .map((cat, sourceIndex) => ({ cat, sourceIndex }))
+          .filter((entry) => {
+            if (!query) return true;
+            return normalizeSearchQuery(entry.cat && entry.cat.name).includes(query);
+          })
+          .sort((left, right) => {
+            const dir = getSortMode() === "desc" ? -1 : 1;
+            const base = compareCategoryNamesAlnum(
+              left && left.cat ? left.cat.name : "",
+              right && right.cat ? right.cat.name : ""
+            );
+            return base * dir;
+          });
+
+        if (categories.length === 0) {
+          setStatus("No categories found in the quiz library. Open the Maker to create some.", false);
+          return;
+        }
+
+        setStatus("", false);
+
+        if (categoryEntries.length === 0) {
+          categoryGrid.innerHTML = '<div class="menu-empty">No year matched your search.</div>';
+          setSearchMeta('No year matches for "' + (searchInput ? searchInput.value.trim() : "") + '"');
+          showPanel("categories");
+          return;
+        }
+
+        const sortLabel = getSortMode() === "desc" ? "Z-A" : "A-Z";
+        setSearchMeta(query ? `${categoryEntries.length} year match${categoryEntries.length === 1 ? "" : "es"} • ${sortLabel}` : `${categoryEntries.length} years • ${sortLabel}`);
+
+        categoryGrid.innerHTML = categoryEntries.map((entry, i) => {
+          const cat = entry.cat;
+          const name  = escapeHtml(cat.name || "Unnamed Category");
+          const count = Array.isArray(cat.quizzes) ? cat.quizzes.length : 0;
+          const badge = escapeHtml(String(cat && cat.name ? cat.name : "Year").trim() || "Year");
+          const label = count === 1 ? "1 quiz" : count + " quizzes";
+          const imagePath = getCategoryImagePath(cat);
+          const fallbackStyle = getCategoryFallbackStyle(cat, i);
+          const iconMarkup = imagePath
+            ? '<img class="category-icon-image" src="' + escapeHtml(imagePath) + '" alt="' + name + ' image" loading="lazy" onerror="this.style.display=\'none\'; if (this.nextElementSibling) this.nextElementSibling.style.display=\'inline-flex\';" />' +
+              '<span class="category-icon-fallback" style="display:none; background:' + escapeHtml(fallbackStyle) + '"></span>'
+            : '<span class="category-icon-fallback" style="background:' + escapeHtml(fallbackStyle) + '"></span>';
+          const iconClass = imagePath ? 'category-icon has-image' : 'category-icon';
+
+          return (
+            '<div class="category-card" data-source-index="' + entry.sourceIndex + '" tabindex="0" role="button" aria-label="Open ' + name + '">' +
+            '  <div class="' + iconClass + '">' +
+            '    ' + iconMarkup +
+            '    <div class="category-media-overlay">' +
+            '      <span class="category-count-chip">' + label + '</span>' +
+            '      <p class="category-title-center">' + name + "</p>" +
+            '    </div>' +
+            '  </div>' +
+            "</div>"
+          );
+        }).join("");
+
+        // Wire click + keyboard
+        categoryGrid.querySelectorAll(".category-card").forEach(function (card) {
+          card.addEventListener("click", function () {
+            openCategory(parseInt(card.dataset.sourceIndex, 10));
+          });
+          card.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openCategory(parseInt(card.dataset.sourceIndex, 10));
+            }
+          });
+        });
+
+        showPanel("categories");
+      }
+
+      // ── Quiz panel ──────────────────────────────────────────
+      async function openCategory(index, shouldPushHistory = true) {
+        const categories = (indexData && Array.isArray(indexData.categories)) ? indexData.categories : [];
+        const cat = categories[index];
+        if (!cat) {
+          showCategories(false);
+          return;
+        }
+
+        currentCategoryIndex = index;
+        const catName = String(cat.name || "Category");
+        renderBreadcrumb(catName);
+        quizListLabel.textContent = catName;
+
+        const quizzes = Array.isArray(cat.quizzes) ? cat.quizzes : [];
+
+        if (quizzes.length === 0) {
+          quizList.innerHTML = '<div class="menu-empty">No quizzes in this year yet.</div>';
+          showPanel("quizzes");
+          return;
+        }
+
+        const quizMetaList = await Promise.all(quizzes.map((quiz) => resolveQuizMeta(quiz)));
+
+        quizList.innerHTML = quizzes.map(function (quiz, i) {
+          const title = escapeHtml(quiz.title || quiz.file || "Untitled Quiz");
+          const file  = escapeHtml(resolveQuizFilePath(quiz.file || ""));
+          const meta = quizMetaList[i] && typeof quizMetaList[i] === "object" ? quizMetaList[i] : {};
+          const desc = escapeHtml(meta.description || "");
+          const lastModifiedText = escapeHtml(formatQuizLastModified(meta.lastModified));
+          const moduleGlyph = escapeHtml(getQuizIconGlyph(quiz && quiz.title ? quiz.title : "", i));
+          const descMarkup = desc ? '<p class="quiz-item-description">' + desc + '</p>' : '';
+          return (
+            '<div class="quiz-item" data-file="' + file + '" tabindex="0" role="button" aria-label="Start ' + title + '">' +
+            '  <div class="quiz-item-icon"><span class="quiz-item-icon-glyph">' + moduleGlyph + '</span></div>' +
+            '  <div class="quiz-item-body">' +
+            '    <p class="quiz-item-title">' + title + "</p>" +
+            '    <p class="quiz-item-meta">' + escapeHtml(catName) + "</p>" +
+            '    ' + descMarkup +
+            "  </div>" +
+            '  <div class="quiz-item-right">' +
+            '    <p class="quiz-item-updated">Updated ' + lastModifiedText + '</p>' +
+            '    <span class="quiz-item-arrow">›</span>' +
+            '  </div>' +
+            "</div>"
+          );
+        }).join("");
+
+        quizList.querySelectorAll(".quiz-item").forEach(function (item) {
+          item.addEventListener("click", function () {
+            launchQuiz(item.dataset.file);
+          });
+          item.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              launchQuiz(item.dataset.file);
+            }
+          });
+        });
+
+        showPanel("quizzes");
+        if (shouldPushHistory) {
+          updateMenuHistory("quizzes", index, false);
+        }
+      }
+
+      function launchQuiz(file) {
+        if (!file) return;
+        window.location.href = "viewer.html?file=" + encodeURIComponent(file);
+      }
+
+      // ── Back button ─────────────────────────────────────────
+      backBtn.addEventListener("click", showCategories);
+
+      if (searchInput instanceof HTMLInputElement) {
+        searchInput.addEventListener("input", () => {
+          renderCategories();
+        });
+      }
+
+      if (sortSelect instanceof HTMLSelectElement) {
+        sortSelect.addEventListener("change", () => {
+          renderCategories();
+        });
+      }
+
+      if (clearSearchBtn instanceof HTMLButtonElement) {
+        clearSearchBtn.addEventListener("click", () => {
+          if (searchInput instanceof HTMLInputElement) {
+            searchInput.value = "";
+            searchInput.focus();
+          }
+          renderCategories();
+        });
+      }
+
+      window.addEventListener("popstate", (event) => {
+        const state = event && event.state ? event.state : null;
+        if (state && state.menuLayer === "quizzes" && Number.isInteger(state.categoryIndex)) {
+          openCategory(state.categoryIndex, false);
+          return;
+        }
+        showCategories(false);
+      });
+
+      // ── Boot ────────────────────────────────────────────────
+      async function loadIndex() {
+        try {
+          indexData = await resolveIndexData();
+
+          const existingState = window.history.state;
+          if (existingState && existingState.menuLayer === "quizzes" && Number.isInteger(existingState.categoryIndex)) {
+            await openCategory(existingState.categoryIndex, false);
+          } else {
+            renderCategories();
+            updateMenuHistory("categories", null, true);
+          }
+        } catch (err) {
+          const reason = err && err.message ? err.message : String(err);
+          if (window.location.protocol === "file:") {
+            showLocalFilePickerFallback(reason);
+            return;
+          }
+          setStatus("Could not load quiz library. (" + reason + ")", true);
+        }
+      }
+
+      loadIndex();
+    })();
+  </script>
+</body>
+</html>
