@@ -13265,6 +13265,7 @@ function renderResultValidationDetail(questionIndex) {
     : [];
   const app = buildValidationInteractiveApp(question);
   const appType = app && app.type ? String(app.type) : "None";
+  const hasInteractiveAnswerMode = Boolean(app && app.type);
   const interactiveMarkup = app ? buildInteractiveAppMarkup(app, { questionText: String(question && question.question || "") }) : "";
   const viewerRuntimePayload = app ? buildResultValidationViewerPayload(question, questionIndex, app) : null;
   const solutionAttachments = normalizeSolutionAttachments(question && question.solutionAttachments);
@@ -13280,6 +13281,10 @@ function renderResultValidationDetail(questionIndex) {
       return `<div style="display:flex; align-items:center; gap:8px; padding:6px 8px; border:1px solid #e5eaf3; border-radius:8px; background:${isMatch ? "#f0fdf4" : "#fff"};"><span style="font-size:0.85rem; color:#64748b;">${index + 1}.</span><span>${escapeInteractiveHtml(optionText)}</span></div>`;
     }).join("")}</div>`
     : "<p class='helper-text' style='margin:6px 0 0 0;'>No fixed options (free input question).</p>";
+
+  const effectiveAnswerModeMarkup = hasInteractiveAnswerMode
+    ? "<p class='helper-text' style='margin:6px 0 0 0;'>Interactive answer mode is active for this question. The learner answers using the interactive panel below.</p>"
+    : optionListMarkup;
 
   const solutionAttachmentMarkup = solutionAttachments.length > 0
     ? `<div style="display:grid; gap:6px; margin-top:6px;">${solutionAttachments.map((item) => {
@@ -13307,7 +13312,7 @@ function renderResultValidationDetail(questionIndex) {
         <textarea id="resultValidationQuestionEditor" data-original-question="${escapeInteractiveHtml(String(question.question || ""))}" readonly style="width:100%; min-height:84px; border:1px solid #cbd5e1; border-radius:8px; padding:8px; font:inherit; box-sizing:border-box; background:#f8fafc;">${escapeInteractiveHtml(String(question.question || ""))}</textarea>
       </div>
       ${questionImage ? `<div style="margin-bottom:8px;"><img src="${escapeInteractiveHtml(questionImage)}" alt="Question visual" style="max-width:100%; border-radius:8px; border:1px solid #e5eaf3;" /></div>` : ""}
-      ${optionListMarkup}
+      ${effectiveAnswerModeMarkup}
       ${interactiveMarkup ? `<div style="margin-top:8px;"><strong>${escapeInteractiveHtml(appType === "None" ? "Interactive" : `Interactive: ${appType}`)}</strong><div style="margin-top:6px; border:1px solid #e5eaf3; border-radius:8px; padding:8px; background:#fff;">${interactiveMarkup}</div></div>` : ""}
       ${viewerRuntimePayload ? `
         <div style="margin-top:10px; border:1px solid #d9e3f0; border-radius:10px; padding:8px; background:#f8fbff;">
