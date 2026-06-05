@@ -14,6 +14,7 @@ let quizAnswerLog = [];
 let questionNavOpen = false;
 let questionNavFilter = "all";
 let answeredQuestionMap = {};
+let questionAttemptMap = {};
 const numberTracingCompletionByQuestion = {};
 const numberTracingSnapshotByQuestion = {};
 const DEFAULT_TERMS_CONDITIONS_TXT_PATH = "terms-and-conditions.txt";
@@ -729,6 +730,7 @@ function resetRuntimeForLoadedQuiz() {
   score = 0;
   quizAnswerLog = [];
   answeredQuestionMap = {};
+  questionAttemptMap = {};
   questionNavOpen = false;
   questionNavFilter = "all";
   answerChecked = false;
@@ -9546,6 +9548,7 @@ function renderQuestion() {
   closeSolutionModal();
 
   if (checkBtn instanceof HTMLButtonElement) {
+    checkBtn.disabled = false;
     checkBtn.style.display = question && question.interactiveApp && question.interactiveApp.type === "number-tracing"
       ? "none"
       : "inline-block";
@@ -9695,6 +9698,28 @@ function renderQuestion() {
   }
 
   wireAnswerInputVisualState(quizContainer);
+
+  const savedAttempt = questionAttemptMap[currentIndex];
+  if (savedAttempt) {
+    if (resultBox) {
+      resultBox.innerHTML = String(savedAttempt.resultHtml || "");
+      resultBox.className = String(savedAttempt.resultClass || (savedAttempt.isCorrect ? "result-correct" : "result-incorrect"));
+    }
+    applyAnswerInputResultState(Boolean(savedAttempt.isCorrect), quizContainer);
+    window.currentExpectedAnswers = Array.isArray(savedAttempt.expectedAnswers)
+      ? savedAttempt.expectedAnswers.slice()
+      : getExpectedAnswers(question);
+    if (checkBtn instanceof HTMLButtonElement) {
+      checkBtn.disabled = true;
+    }
+    if (isIntroductionQuestion(question)) {
+      showSolutionBtn.classList.add("hidden");
+    } else {
+      showSolutionBtn.classList.remove("hidden");
+    }
+    answerChecked = true;
+    updateNextQuestionButtonState();
+  }
 
   renderNotesPanel(question);
   updateHeader();
@@ -10224,6 +10249,13 @@ function checkAnswer() {
     }
     resultBox.className = isCorrect ? "result-correct" : "result-incorrect";
   }
+
+  questionAttemptMap[currentIndex] = {
+    isCorrect,
+    expectedAnswers: expectedAnswers.slice(),
+    resultClass: resultBox ? String(resultBox.className || "") : (isCorrect ? "result-correct" : "result-incorrect"),
+    resultHtml: resultBox ? String(resultBox.innerHTML || "") : ""
+  };
 
   // Visual feedback for selected options
   if (!isIntroductionQuestion(question)) {

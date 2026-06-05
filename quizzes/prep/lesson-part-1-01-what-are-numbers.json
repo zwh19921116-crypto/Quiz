@@ -500,40 +500,62 @@
       }
     },
     {
-      "question": "1,2,3,4",
-      "resultType": "short-answer",
+      "question": "Which number matches 🍎🍎 ?",
+      "resultType": "multiple-choice",
       "options": [
+        "1",
         "2",
-        "",
-        "",
-        ""
+        "3",
+        "4"
       ],
-      "correctAnswer": "Medium",
+      "correctAnswer": "2",
       "category": "Mixed Review",
-      "subcategory": "19",
+      "subcategory": "Quantity Matching",
       "learningOutcome": "Apply learning",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Medium.",
-      "solutionAttachments": []
+      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 🍎🍎 ?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
     },
     {
-      "question": "1,2,3,4",
-      "resultType": "short-answer",
+      "question": "Which number matches 🍎🍎🍎 ?",
+      "resultType": "multiple-choice",
       "options": [
+        "1",
+        "2",
         "3",
-        "",
-        "",
-        ""
+        "4"
       ],
-      "correctAnswer": "Medium",
+      "correctAnswer": "3",
       "category": "Mixed Review",
-      "subcategory": "20",
+      "subcategory": "Quantity Matching",
       "learningOutcome": "Apply learning",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Medium.",
-      "solutionAttachments": []
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 🍎🍎🍎 ?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
     }
   ]
 }
