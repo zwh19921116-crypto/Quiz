@@ -1,5 +1,5 @@
 {
-  "id": "quiz-2",
+  "id": "quiz-1",
   "title": "Prep 1.02",
   "description": "Learning Outcomes for Prep: Recognise 0 | Understand zero | Write 0 | Count 0 objects | Match quantity | Apply zero | Review zero | Mastery of zero",
   "settings": {
@@ -114,7 +114,17 @@
       "notesAttachments": [],
       "image": "",
       "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
-      "solutionAttachments": []
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 0,
+          "prompt": "Trace the number 0",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
     },
     {
       "question": "Trace the number 0 again",
@@ -132,7 +142,17 @@
       "notesAttachments": [],
       "image": "",
       "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
-      "solutionAttachments": []
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 0,
+          "prompt": "Trace the number 0 again",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
     },
     {
       "question": "Draw the number 0",
@@ -150,7 +170,17 @@
       "notesAttachments": [],
       "image": "",
       "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
-      "solutionAttachments": []
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 0,
+          "prompt": "Draw the number 0",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
     },
     {
       "question": "Empty basket. How many apples?",
@@ -465,6 +495,24 @@
       "notesAttachments": [],
       "image": "",
       "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "",
+      "resultType": "multiple-choice",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "",
+      "category": "",
+      "subcategory": "",
+      "learningOutcome": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "",
       "solutionAttachments": []
     }
   ]

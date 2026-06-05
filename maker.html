@@ -97,6 +97,9 @@
               <h2>Questions</h2>
               <div class="panel-head-actions">
                 <button class="btn small" id="addQuestionBtn">Add</button>
+                <button class="btn success small" id="scanInteractiveElementsBtn" type="button" title="Check for interactive elements beyond multiple-choice and short-answer" aria-label="Interactive Element scan">
+                  <span aria-hidden="true">&#9733;</span> I.E
+                </button>
                 <button class="btn secondary small" id="clearQuestionBtn" type="button">Clear Quiz Questions</button>
               </div>
             </div>
@@ -1116,6 +1119,7 @@
             </select>
             <button class="btn secondary" id="downloadImportTemplateBtn" type="button">Download Import Template</button>
             <button class="btn secondary" id="runResultValidationBtn" type="button">Run Validation</button>
+            <button class="btn secondary" id="runStrictResultValidationBtn" type="button">Strict Validation</button>
             <button class="btn secondary" id="runAiResultValidationBtn" type="button">AI Detect (Heuristic)</button>
             <button class="btn" id="applyBulkResultValidationFixBtn" type="button" disabled>Bulk Update Red</button>
             <button class="btn secondary" id="exportResultValidationBtn" type="button" disabled>Export Validation CSV</button>

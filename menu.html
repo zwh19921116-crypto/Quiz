@@ -273,6 +273,24 @@
       gap: 12px;
     }
 
+    .quiz-toolbar {
+      margin: 0 0 14px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #d7e3f2;
+      border-radius: 12px;
+      padding: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .quiz-search-meta {
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
     .quiz-item {
       background: linear-gradient(145deg, #ffffff 0%, #f6fbff 100%);
       border: 1px solid #d8e5f4;
@@ -564,6 +582,19 @@
       <div class="menu-panel" id="panelQuizzes">
         <button class="back-btn" id="backToCategories" type="button">&#8592; All Categories</button>
         <p class="menu-section-label" id="quizListLabel">Select a Quiz</p>
+        <div class="quiz-toolbar" role="search" aria-label="Quiz filter">
+          <div class="menu-toolbar-row">
+            <input
+              id="quizSearchInput"
+              class="menu-search-input"
+              type="text"
+              placeholder="Search quiz title or keyword"
+              autocomplete="off"
+            />
+            <button class="btn secondary" id="clearQuizSearchBtn" type="button">Clear</button>
+          </div>
+          <p class="quiz-search-meta" id="quizSearchMeta">Showing all quizzes</p>
+        </div>
         <div class="quiz-list" id="quizList"></div>
       </div>
 
@@ -585,6 +616,9 @@
       const categoryGrid   = document.getElementById("categoryGrid");
       const quizList       = document.getElementById("quizList");
       const quizListLabel  = document.getElementById("quizListLabel");
+      const quizSearchInput = document.getElementById("quizSearchInput");
+      const clearQuizSearchBtn = document.getElementById("clearQuizSearchBtn");
+      const quizSearchMeta = document.getElementById("quizSearchMeta");
       const breadcrumb     = document.getElementById("breadcrumb");
       const menuToolbar    = document.getElementById("menuToolbar");
       const backBtn        = document.getElementById("backToCategories");
@@ -595,6 +629,7 @@
       let activeView       = "categories";
       const alnumCollator  = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
       const quizMetaCache = new Map();
+      let currentQuizEntries = [];
 
       function buildHistoryState(view, categoryIndex = null) {
         if (view === "quizzes" && Number.isInteger(categoryIndex)) {
@@ -665,6 +700,15 @@
       function setSearchMeta(text) {
         if (!(searchMeta instanceof HTMLElement)) return;
         searchMeta.textContent = text;
+      }
+
+      function getQuizSearchQuery() {
+        return normalizeSearchQuery(quizSearchInput && quizSearchInput.value);
+      }
+
+      function setQuizSearchMeta(text) {
+        if (!(quizSearchMeta instanceof HTMLElement)) return;
+        quizSearchMeta.textContent = text;
       }
 
       function getSortMode() {
@@ -998,10 +1042,16 @@
           const fromQuizFile = String(
             payload && (payload.description || payload.summary || payload.details || payload.detail || "")
           ).trim();
+          const fromQuizKeywords = Array.isArray(payload && payload.keywords)
+            ? payload.keywords.map((item) => String(item || "").trim()).filter((item) => item !== "")
+            : Array.isArray(payload && payload.tags)
+              ? payload.tags.map((item) => String(item || "").trim()).filter((item) => item !== "")
+              : [];
           const headerLastModified = String(response.headers.get("Last-Modified") || "").trim();
           const resolvedMeta = {
             description: inlineDescription || fromQuizFile,
-            lastModified: inlineLastModified || headerLastModified
+            lastModified: inlineLastModified || headerLastModified,
+            keywords: fromQuizKeywords
           };
           quizMetaCache.set(filePath, resolvedMeta);
           return resolvedMeta;
@@ -1013,6 +1063,67 @@
           quizMetaCache.set(filePath, fallbackMeta);
           return fallbackMeta;
         }
+      }
+
+      function renderQuizList(catName) {
+        const quizQuery = getQuizSearchQuery();
+        const visibleEntries = currentQuizEntries.filter((entry) => {
+          if (!quizQuery) return true;
+          return normalizeSearchQuery(entry && entry.searchText).includes(quizQuery);
+        });
+
+        if (currentQuizEntries.length === 0) {
+          quizList.innerHTML = '<div class="menu-empty">No quizzes in this year yet.</div>';
+          setQuizSearchMeta("No quizzes available");
+          return;
+        }
+
+        if (visibleEntries.length === 0) {
+          quizList.innerHTML = '<div class="menu-empty">No quiz matched your search.</div>';
+          setQuizSearchMeta('No quiz matches for "' + (quizSearchInput ? quizSearchInput.value.trim() : "") + '"');
+          return;
+        }
+
+        setQuizSearchMeta(quizQuery
+          ? `${visibleEntries.length} quiz match${visibleEntries.length === 1 ? "" : "es"}`
+          : `${visibleEntries.length} quizzes`);
+
+        quizList.innerHTML = visibleEntries.map(function (entry, i) {
+          const quiz = entry.quiz;
+          const title = escapeHtml(quiz.title || quiz.file || "Untitled Quiz");
+          const file  = escapeHtml(resolveQuizFilePath(quiz.file || ""));
+          const meta = entry.meta && typeof entry.meta === "object" ? entry.meta : {};
+          const desc = escapeHtml(meta.description || "");
+          const lastModifiedText = escapeHtml(formatQuizLastModified(meta.lastModified));
+          const moduleGlyph = escapeHtml(getQuizIconGlyph(quiz && quiz.title ? quiz.title : "", i));
+          const descMarkup = desc ? '<p class="quiz-item-description">' + desc + '</p>' : '';
+          return (
+            '<div class="quiz-item" data-file="' + file + '" tabindex="0" role="button" aria-label="Start ' + title + '">' +
+            '  <div class="quiz-item-icon"><span class="quiz-item-icon-glyph">' + moduleGlyph + '</span></div>' +
+            '  <div class="quiz-item-body">' +
+            '    <p class="quiz-item-title">' + title + "</p>" +
+            '    <p class="quiz-item-meta">' + escapeHtml(catName) + "</p>" +
+            '    ' + descMarkup +
+            "  </div>" +
+            '  <div class="quiz-item-right">' +
+            '    <p class="quiz-item-updated">Updated ' + lastModifiedText + '</p>' +
+            '    <span class="quiz-item-arrow">›</span>' +
+            '  </div>' +
+            "</div>"
+          );
+        }).join("");
+
+        quizList.querySelectorAll(".quiz-item").forEach(function (item) {
+          item.addEventListener("click", function () {
+            launchQuiz(item.dataset.file);
+          });
+          item.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              launchQuiz(item.dataset.file);
+            }
+          });
+        });
       }
 
       function getCategoryFolderKey(category) {
@@ -1085,6 +1196,11 @@
       // ── Category panel ──────────────────────────────────────
       function showCategories(shouldPushHistory = true) {
         currentCategoryIndex = -1;
+        currentQuizEntries = [];
+        if (quizSearchInput instanceof HTMLInputElement) {
+          quizSearchInput.value = "";
+        }
+        setQuizSearchMeta("Showing all quizzes");
         renderBreadcrumb(null);
         showPanel("categories");
         renderCategories();
@@ -1187,50 +1303,33 @@
         quizListLabel.textContent = catName;
 
         const quizzes = Array.isArray(cat.quizzes) ? cat.quizzes : [];
-
-        if (quizzes.length === 0) {
-          quizList.innerHTML = '<div class="menu-empty">No quizzes in this year yet.</div>';
-          showPanel("quizzes");
-          return;
-        }
-
-        const quizMetaList = await Promise.all(quizzes.map((quiz) => resolveQuizMeta(quiz)));
-
-        quizList.innerHTML = quizzes.map(function (quiz, i) {
-          const title = escapeHtml(quiz.title || quiz.file || "Untitled Quiz");
-          const file  = escapeHtml(resolveQuizFilePath(quiz.file || ""));
-          const meta = quizMetaList[i] && typeof quizMetaList[i] === "object" ? quizMetaList[i] : {};
-          const desc = escapeHtml(meta.description || "");
-          const lastModifiedText = escapeHtml(formatQuizLastModified(meta.lastModified));
-          const moduleGlyph = escapeHtml(getQuizIconGlyph(quiz && quiz.title ? quiz.title : "", i));
-          const descMarkup = desc ? '<p class="quiz-item-description">' + desc + '</p>' : '';
-          return (
-            '<div class="quiz-item" data-file="' + file + '" tabindex="0" role="button" aria-label="Start ' + title + '">' +
-            '  <div class="quiz-item-icon"><span class="quiz-item-icon-glyph">' + moduleGlyph + '</span></div>' +
-            '  <div class="quiz-item-body">' +
-            '    <p class="quiz-item-title">' + title + "</p>" +
-            '    <p class="quiz-item-meta">' + escapeHtml(catName) + "</p>" +
-            '    ' + descMarkup +
-            "  </div>" +
-            '  <div class="quiz-item-right">' +
-            '    <p class="quiz-item-updated">Updated ' + lastModifiedText + '</p>' +
-            '    <span class="quiz-item-arrow">›</span>' +
-            '  </div>' +
-            "</div>"
-          );
-        }).join("");
-
-        quizList.querySelectorAll(".quiz-item").forEach(function (item) {
-          item.addEventListener("click", function () {
-            launchQuiz(item.dataset.file);
-          });
-          item.addEventListener("keydown", function (e) {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              launchQuiz(item.dataset.file);
-            }
-          });
+        const sortedQuizzes = quizzes.slice().sort((left, right) => {
+          const leftTitle = String((left && (left.title || left.file)) || "").trim();
+          const rightTitle = String((right && (right.title || right.file)) || "").trim();
+          return compareCategoryNamesAlnum(leftTitle, rightTitle);
         });
+
+        if (quizSearchInput instanceof HTMLInputElement) {
+          quizSearchInput.value = "";
+        }
+        setQuizSearchMeta("Showing all quizzes");
+
+        const quizMetaList = await Promise.all(sortedQuizzes.map((quiz) => resolveQuizMeta(quiz)));
+
+        currentQuizEntries = sortedQuizzes.map((quiz, i) => {
+          const meta = quizMetaList[i] && typeof quizMetaList[i] === "object" ? quizMetaList[i] : {};
+          const keywords = Array.isArray(meta.keywords)
+            ? meta.keywords.map((item) => String(item || "").trim()).filter((item) => item !== "")
+            : [];
+          const searchText = [
+            String(quiz && (quiz.title || quiz.file) || ""),
+            String(meta.description || ""),
+            keywords.join(" ")
+          ].join(" ");
+          return { quiz, meta, searchText };
+        });
+
+        renderQuizList(catName);
 
         showPanel("quizzes");
         if (shouldPushHistory) {
@@ -1266,6 +1365,26 @@
             searchInput.focus();
           }
           renderCategories();
+        });
+      }
+
+      if (quizSearchInput instanceof HTMLInputElement) {
+        quizSearchInput.addEventListener("input", () => {
+          const categories = (indexData && Array.isArray(indexData.categories)) ? indexData.categories : [];
+          const cat = categories[currentCategoryIndex];
+          renderQuizList(String(cat && cat.name || "Category"));
+        });
+      }
+
+      if (clearQuizSearchBtn instanceof HTMLButtonElement) {
+        clearQuizSearchBtn.addEventListener("click", () => {
+          if (quizSearchInput instanceof HTMLInputElement) {
+            quizSearchInput.value = "";
+            quizSearchInput.focus();
+          }
+          const categories = (indexData && Array.isArray(indexData.categories)) ? indexData.categories : [];
+          const cat = categories[currentCategoryIndex];
+          renderQuizList(String(cat && cat.name || "Category"));
         });
       }
 

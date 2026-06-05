@@ -142,7 +142,8 @@ const state = {
   selectedQuizId: null,
   selectedQuestionIndex: -1,
   draggingQuestionIndex: -1,
-  quizScanEnabled: false
+  quizScanEnabled: false,
+  interactiveElementScanEnabled: false
 };
 
 function getQuizValidationIssueCount(quiz) {
@@ -254,6 +255,24 @@ function autoFixQuestionIssues(question) {
   const questionText = String(question.question || "").trim();
   const lowerQuestionText = questionText.toLowerCase();
   const appType = String(question && question.interactiveApp && question.interactiveApp.type || "").trim().toLowerCase();
+  if (appType === "arithmetic") {
+    const hasArithmeticCue = /[\d\s]+[+\-x*/÷][\d\s]+|\b(calculate|solve|add|subtract|minus|plus|sum|difference|product|quotient|equation)\b/i.test(lowerQuestionText);
+    const hasRecognitionCue = /\b(which number|how many|what comes next|select the|select all|which of these)\b/i.test(lowerQuestionText);
+    if (!hasArithmeticCue && hasRecognitionCue) {
+      question.interactiveApp = null;
+      changed = true;
+
+      if (normalizedType === "short-answer" && choiceOptions.length >= 2) {
+        const inferredChoiceType = /\bselect all\b/i.test(lowerQuestionText) ? "checkbox" : "multiple-choice";
+        if (question.resultType !== inferredChoiceType) {
+          question.resultType = inferredChoiceType;
+          normalizedType = inferredChoiceType;
+          changed = true;
+        }
+      }
+    }
+  }
+
   if (appType === "number-ordering") {
     const hasExplicitOrderingCue = /\b(move|drag|arrange|reorder|put)\b.*\b(order|sequence|ascending|descending)\b|\b(order|sequence)\b.*\b(move|drag|arrange|reorder|put)\b|\bmove the numbers in order\b/i.test(lowerQuestionText);
     const isSimpleNextPattern = /\bwhat comes next\b/i.test(lowerQuestionText) || /_+/.test(questionText);
@@ -2583,13 +2602,18 @@ function renderQuizList() {
   const filtered = term
     ? category.quizzes.filter((quiz) => quiz.title.toLowerCase().includes(term))
     : category.quizzes;
+  const sortedQuizzes = filtered.slice().sort((left, right) => {
+    const leftTitle = String(left && left.title ? left.title : "").trim();
+    const rightTitle = String(right && right.title ? right.title : "").trim();
+    return leftTitle.localeCompare(rightTitle, undefined, { sensitivity: "base", numeric: true });
+  });
 
-  if (filtered.length === 0) {
+  if (sortedQuizzes.length === 0) {
     host.innerHTML = "<p class='helper-text'>No quizzes match.</p>";
     return;
   }
 
-  filtered.forEach((quiz) => {
+  sortedQuizzes.forEach((quiz) => {
     const issueCount = getQuizValidationIssueCount(quiz);
     const isIssueHighlight = state.quizScanEnabled && issueCount > 0;
     const row = document.createElement("div");
@@ -2712,7 +2736,12 @@ function renderQuestionsList() {
     const badgeText = issues.length === 0 ? "Ready" : `${issues.length} issue${issues.length === 1 ? "" : "s"}`;
     const row = document.createElement("div");
     const isIssueHighlight = state.quizScanEnabled && issues.length > 0;
-    row.className = `list-item ${index === state.selectedQuestionIndex ? "active" : ""} ${isIssueHighlight ? "issue-scan-hit" : ""}`.trim();
+    const resultType = normalizeResultType(item && item.resultType);
+    const appType = String(item && item.interactiveApp && item.interactiveApp.type || "").trim();
+    const hasAdvancedResultType = !["multiple-choice", "short-answer", "checkbox"].includes(resultType);
+    const hasInteractiveElement = hasAdvancedResultType || appType !== "";
+    const isInteractiveHighlight = state.interactiveElementScanEnabled && hasInteractiveElement;
+    row.className = `list-item ${index === state.selectedQuestionIndex ? "active" : ""} ${isIssueHighlight ? "issue-scan-hit" : ""} ${isInteractiveHighlight ? "interactive-element-hit" : ""}`.trim();
     row.draggable = true;
     row.dataset.dragIndex = String(index);
     row.dataset.questionIndex = String(index);
@@ -2735,6 +2764,14 @@ function renderQuizScanToggle() {
 
   btn.classList.toggle("is-active", state.quizScanEnabled);
   btn.setAttribute("aria-pressed", state.quizScanEnabled ? "true" : "false");
+}
+
+function renderInteractiveElementScanToggle() {
+  const btn = document.getElementById("scanInteractiveElementsBtn");
+  if (!(btn instanceof HTMLButtonElement)) return;
+
+  btn.classList.toggle("is-active", state.interactiveElementScanEnabled);
+  btn.setAttribute("aria-pressed", state.interactiveElementScanEnabled ? "true" : "false");
 }
 
 function toggleOptionsBlock(question) {
@@ -9680,6 +9717,7 @@ function updateGeneratedJson() {
 function renderAll() {
   ensureSelection();
   renderQuizScanToggle();
+  renderInteractiveElementScanToggle();
   renderCategoryList();
   renderQuizList();
   renderQuestionsList();
@@ -10821,12 +10859,73 @@ function setAutoQuestionMakerOpen(open) {
   openButton.setAttribute("aria-expanded", open ? "true" : "false");
 }
 
+function getInteractiveElementScanSummary(quiz) {
+  if (!quiz || !Array.isArray(quiz.questions)) {
+    return { total: 0, matches: [] };
+  }
+
+  const matches = quiz.questions
+    .map((question, index) => {
+      const resultType = normalizeResultType(question && question.resultType);
+      const appType = String(question && question.interactiveApp && question.interactiveApp.type || "").trim();
+      const hasAdvancedResultType = !["multiple-choice", "short-answer", "checkbox"].includes(resultType);
+      const hasInteractiveApp = appType !== "";
+
+      if (!hasAdvancedResultType && !hasInteractiveApp) {
+        return null;
+      }
+
+      const descriptor = hasInteractiveApp
+        ? `interactiveApp:${appType}`
+        : `resultType:${resultType}`;
+      return {
+        questionNo: index + 1,
+        descriptor
+      };
+    })
+    .filter((item) => item !== null);
+
+  return {
+    total: quiz.questions.length,
+    matches
+  };
+}
+
 document.getElementById("addCategoryBtn").addEventListener("click", addCategory);
 document.getElementById("addQuizBtn").addEventListener("click", addQuiz);
 document.getElementById("openQuizSettingsBtn").addEventListener("click", () => {
   openQuizSettingsModal();
 });
 document.getElementById("addQuestionBtn").addEventListener("click", addQuestion);
+document.getElementById("scanInteractiveElementsBtn").addEventListener("click", () => {
+  const quiz = activeQuiz();
+  if (!quiz) {
+    showToast("Select a quiz first.", "warning");
+    return;
+  }
+
+  state.interactiveElementScanEnabled = !state.interactiveElementScanEnabled;
+  renderInteractiveElementScanToggle();
+  renderQuestionsList();
+
+  const summary = getInteractiveElementScanSummary(quiz);
+  if (!state.interactiveElementScanEnabled) {
+    showToast("I.E highlight turned off.", "info");
+    return;
+  }
+
+  if (summary.matches.length === 0) {
+    showToast("No interactive elements found. All questions are multiple-choice or short-answer.", "info");
+    return;
+  }
+
+  const preview = summary.matches
+    .slice(0, 6)
+    .map((item) => `Q${item.questionNo} (${item.descriptor})`)
+    .join(", ");
+  const suffix = summary.matches.length > 6 ? ` +${summary.matches.length - 6} more` : "";
+  showToast(`Found ${summary.matches.length}/${summary.total} question(s) with interactive elements: ${preview}${suffix}`, "success");
+});
 document.getElementById("clearQuestionBtn").addEventListener("click", () => {
   void clearQuizQuestions();
 });
@@ -11360,7 +11459,7 @@ document.getElementById("importTableBtn").addEventListener("click", () => {
 
 document.getElementById("openResultValidationBtn").addEventListener("click", () => {
   openResultValidationModal();
-  runResultValidation(false);
+  runResultValidation(false, false);
 });
 
 document.getElementById("downloadImportTemplateBtn").addEventListener("click", () => {
@@ -11368,11 +11467,15 @@ document.getElementById("downloadImportTemplateBtn").addEventListener("click", (
 });
 
 document.getElementById("runResultValidationBtn").addEventListener("click", () => {
-  runResultValidation(false);
+  runResultValidation(false, false);
+});
+
+document.getElementById("runStrictResultValidationBtn").addEventListener("click", () => {
+  runResultValidation(false, true);
 });
 
 document.getElementById("runAiResultValidationBtn").addEventListener("click", () => {
-  runResultValidation(true);
+  runResultValidation(true, false);
 });
 
 document.getElementById("exportResultValidationBtn").addEventListener("click", () => {
@@ -11430,7 +11533,10 @@ document.getElementById("applyResultValidationFixBtn").addEventListener("click",
 
   renderAll();
   await persistSelectedQuizAfterMutation("Validation update");
-  runResultValidation(Boolean(pendingResultValidation && pendingResultValidation.aiMode));
+  runResultValidation(
+    Boolean(pendingResultValidation && pendingResultValidation.aiMode),
+    Boolean(pendingResultValidation && pendingResultValidation.strictMode)
+  );
   renderResultValidationDetail(questionIndex);
   showToast("Proposed update applied.", "success");
 });
@@ -11475,7 +11581,10 @@ document.getElementById("saveResultValidationQuestionBtn").addEventListener("cli
 
   renderAll();
   await persistSelectedQuizAfterMutation("Question edit from validator");
-  runResultValidation(Boolean(pendingResultValidation && pendingResultValidation.aiMode));
+  runResultValidation(
+    Boolean(pendingResultValidation && pendingResultValidation.aiMode),
+    Boolean(pendingResultValidation && pendingResultValidation.strictMode)
+  );
   renderResultValidationDetail(questionIndex);
   showToast("Question updated from validator.", "success");
 });
@@ -12877,8 +12986,14 @@ function classifyResultValidationIssueType(message) {
   if (text.includes("solution text is empty") || text.includes("solution mismatch")) {
     return "missing-solutions";
   }
-  if (text.includes("computed answer mismatch") || text.includes("stored answer differs") || text.includes("correct answer")) {
+  if (text.includes("strict mode") && text.includes("answer")) {
     return "answer-mismatches";
+  }
+  if (text.includes("computed answer mismatch") || text.includes("stored answer differs") || text.includes("correct answer") || text.includes("semantic mismatch")) {
+    return "answer-mismatches";
+  }
+  if (text.includes("strict mode")) {
+    return "option-type-issues";
   }
   if (text.includes("option") || text.includes("result type") || text.includes("checkbox") || text.includes("contradict") || text.includes("wording")) {
     return "option-type-issues";
@@ -12921,6 +13036,40 @@ function getQuestionSenseIssues(question) {
       } else {
         issues.push("Question wording may be contradictory: it says no items, then asks to count the same items.");
       }
+    }
+  }
+
+  return issues;
+}
+
+function getSemanticAnswerConsistencyIssues(question) {
+  const issues = [];
+  const resultType = normalizeResultType(question && question.resultType);
+  const questionText = normalizeWhitespace(String(question && question.question || "")).toLowerCase();
+  const options = Array.isArray(question && question.options)
+    ? question.options.map((item) => String(item || "").trim()).filter((item) => item !== "")
+    : [];
+  const answerText = String(question && question.correctAnswer || "").trim();
+
+  if (!questionText || options.length === 0) {
+    return issues;
+  }
+
+  const numericOptions = options.filter((item) => /^-?\d+(?:\.\d+)?$/.test(item));
+
+  const asksForOneNumber = /\bwhich(?:\s+of\s+these|\s+one)?\s+is\s+a\s+number\b|\bselect\s+the\s+number\b/.test(questionText);
+  if (asksForOneNumber && numericOptions.length === 1) {
+    const expected = numericOptions[0];
+    if (!compareAnswersForResultType(resultType, answerText, expected)) {
+      issues.push(`Semantic mismatch: question asks for a number; expected "${expected}" from options but found "${answerText || "(empty)"}".`);
+    }
+  }
+
+  const asksForAllNumbers = /\bselect\s+all\s+(?:the\s+)?numbers\b|\bwhich\s+(?:of\s+these\s+)?are\s+numbers\b/.test(questionText);
+  if ((asksForAllNumbers || (resultType === "checkbox" && /\bnumbers\b/.test(questionText))) && numericOptions.length > 0) {
+    const expectedList = numericOptions.join(", ");
+    if (!compareAnswersForResultType("checkbox", answerText, expectedList)) {
+      issues.push(`Semantic mismatch: numeric options imply "${expectedList}" but found "${answerText || "(empty)"}".`);
     }
   }
 
@@ -13076,6 +13225,50 @@ function compareAnswersForResultType(resultType, actualValue, expectedValue) {
   return normalizeText(actual) === normalizeText(expected);
 }
 
+function inferExpectedAnswerFromQuestionSemantics(question) {
+  if (!question || typeof question !== "object") {
+    return "";
+  }
+
+  const resultType = normalizeResultType(question.resultType || "multiple-choice");
+  const questionText = normalizeWhitespace(String(question.question || "")).toLowerCase();
+  const options = Array.isArray(question.options)
+    ? question.options.map((item) => String(item || "").trim()).filter((item) => item !== "")
+    : [];
+  if (options.length === 0) {
+    return "";
+  }
+
+  const numericOptions = options.filter((item) => /^-?\d+(?:\.\d+)?$/.test(item));
+  if (numericOptions.length === 0) {
+    return "";
+  }
+
+  const asksForOneNumber = /\bwhich(?:\s+of\s+these|\s+one)?\s+is\s+a\s+number\b|\bselect\s+the\s+number\b/.test(questionText);
+  const asksForAllNumbers = /\bselect\s+all\s+(?:the\s+)?numbers\b|\bwhich\s+(?:of\s+these\s+)?are\s+numbers\b/.test(questionText);
+
+  const explicitTargetMatch = questionText.match(/\bwhich\s+number\s+is\s+(-?\d+(?:\.\d+)?)\b/i);
+  if (explicitTargetMatch && explicitTargetMatch[1]) {
+    const target = String(explicitTargetMatch[1]).trim();
+    const matchedOption = options.find((item) => normalizeText(item) === normalizeText(target));
+    if (matchedOption) {
+      return matchedOption;
+    }
+  }
+
+  if (asksForAllNumbers || resultType === "checkbox") {
+    if ((asksForAllNumbers || /\bnumber\b/.test(questionText)) && numericOptions.length >= 1) {
+      return numericOptions.join(", ");
+    }
+  }
+
+  if (asksForOneNumber && numericOptions.length === 1) {
+    return numericOptions[0];
+  }
+
+  return "";
+}
+
 function computeExpectedAnswerForQuestion(question) {
   if (!question || typeof question !== "object") {
     return { value: "", source: "none" };
@@ -13105,6 +13298,14 @@ function computeExpectedAnswerForQuestion(question) {
         source: "question-compute"
       };
     }
+  }
+
+  const semanticExpected = inferExpectedAnswerFromQuestionSemantics(question);
+  if (semanticExpected) {
+    return {
+      value: semanticExpected,
+      source: "semantic-question"
+    };
   }
 
   // Fallback heuristic for imported content when no deterministic app compute exists.
@@ -13900,7 +14101,61 @@ function getAiHeuristicIssues(question, computedAnswer) {
   return issues;
 }
 
-function buildResultValidationForActiveQuiz(aiMode = false) {
+function getStrictValidationIssues(question, computed, declaredAnswer) {
+  const issues = [];
+  const resultType = normalizeResultType(question && question.resultType);
+  const options = Array.isArray(question && question.options)
+    ? question.options.map((item) => String(item || "").trim()).filter((item) => item !== "")
+    : [];
+  const answerText = String(question && question.correctAnswer || "").trim();
+  const solutionText = String(question && question.solution || "").trim();
+  const hasInteractiveApp = Boolean(question && question.interactiveApp && question.interactiveApp.type);
+  const computedValue = String(computed && computed.value || "").trim();
+  const computedSource = String(computed && computed.source || "none").trim().toLowerCase();
+
+  if (options.length > 1) {
+    const seen = new Set();
+    const duplicateKeys = new Set();
+    options.forEach((option) => {
+      const key = normalizeText(option);
+      if (seen.has(key)) {
+        duplicateKeys.add(key);
+      }
+      seen.add(key);
+    });
+    if (duplicateKeys.size > 0) {
+      issues.push("Strict mode: duplicate options found.");
+    }
+  }
+
+  if (resultType === "short-answer" && options.length > 0) {
+    issues.push("Strict mode: short-answer should not include fixed options.");
+  }
+
+  const hasDeterministicEvidence = Boolean(computedValue && ["interactive-app", "question-compute", "semantic-question"].includes(computedSource));
+  const hasWeakEvidence = Boolean(computedValue && computedSource === "heuristic-text");
+  const hasSolutionAnswer = Boolean(String(declaredAnswer || "").trim());
+
+  if (!hasInteractiveApp && !hasDeterministicEvidence) {
+    if (!hasWeakEvidence && !hasSolutionAnswer) {
+      issues.push("Strict mode: answer is not independently verifiable from question/app/solution.");
+    } else if (hasWeakEvidence && !hasSolutionAnswer) {
+      issues.push("Strict mode: answer relies on weak heuristic inference only; add explicit solution answer.");
+    }
+  }
+
+  if (!solutionText) {
+    issues.push("Strict mode: solution text is required.");
+  }
+
+  if (declaredAnswer && answerText && !compareAnswersForResultType(resultType, answerText, declaredAnswer)) {
+    issues.push(`Strict mode: solution-declared answer "${declaredAnswer}" does not match stored answer "${answerText}".`);
+  }
+
+  return issues;
+}
+
+function buildResultValidationForActiveQuiz(aiMode = false, strictMode = false) {
   const category = activeCategory();
   const quiz = activeQuiz();
   if (!quiz) return null;
@@ -13909,6 +14164,7 @@ function buildResultValidationForActiveQuiz(aiMode = false) {
   const rows = (Array.isArray(quiz.questions) ? quiz.questions : []).map((question, index) => {
     const questionIssues = getQuestionValidationIssues(question || {});
     questionIssues.push(...getQuestionSenseIssues(question || {}));
+    questionIssues.push(...getSemanticAnswerConsistencyIssues(question || {}));
     questionIssues.push(...getGradeLanguageIssues(question || {}, categoryName));
     const solutionText = String(question && question.solution || "").trim();
     const actualAnswer = String(question && question.correctAnswer || "").trim();
@@ -13924,6 +14180,10 @@ function buildResultValidationForActiveQuiz(aiMode = false) {
     const computed = computeExpectedAnswerForQuestion(question);
     if (computed.value && !compareAnswersForResultType(question && question.resultType, actualAnswer, computed.value)) {
       questionIssues.push(`Computed answer mismatch: expected \"${computed.value}\" but found \"${actualAnswer || "(empty)"}\".`);
+    }
+
+    if (strictMode) {
+      questionIssues.push(...getStrictValidationIssues(question || {}, computed, declaredAnswer));
     }
 
     if (aiMode) {
@@ -13984,6 +14244,7 @@ function buildResultValidationForActiveQuiz(aiMode = false) {
         : [],
       correctAnswer: actualAnswer,
       computedAnswer: computed.value,
+      computedSource: String(computed && computed.source || "none"),
       solution: solutionText,
       viewerCompatibilityIssueCount: viewerCompatibilityIssues.length,
       hasViewerCompatibilityIssue: viewerCompatibilityIssues.length > 0,
@@ -13995,15 +14256,42 @@ function buildResultValidationForActiveQuiz(aiMode = false) {
   const errors = rows.filter((row) => !row.isValid).length;
   const valid = rows.length - errors;
 
+  if (strictMode) {
+    const answersByQuestion = new Map();
+    rows.forEach((row) => {
+      const key = normalizeWhitespace(String(row && row.question || "")).toLowerCase();
+      const answer = normalizeWhitespace(String(row && row.correctAnswer || "")).toLowerCase();
+      if (!key || !answer) return;
+      if (!answersByQuestion.has(key)) {
+        answersByQuestion.set(key, new Set([answer]));
+        return;
+      }
+      answersByQuestion.get(key).add(answer);
+    });
+
+    rows.forEach((row) => {
+      const key = normalizeWhitespace(String(row && row.question || "")).toLowerCase();
+      const values = key && answersByQuestion.has(key) ? Array.from(answersByQuestion.get(key)) : [];
+      if (values.length > 1) {
+        row.issues.push("Strict mode: duplicate question text has conflicting answers in this quiz.");
+        row.isValid = false;
+      }
+    });
+  }
+
+  const finalErrors = rows.filter((row) => !row.isValid).length;
+  const finalValid = rows.length - finalErrors;
+
   return {
     categoryId: category ? String(category.id || "") : "",
     quizId: String(quiz.id || ""),
     categoryName: category ? String(category.name || "") : "",
     quizTitle: String(quiz.title || "Untitled Quiz"),
     total: rows.length,
-    valid,
-    errors,
+    valid: finalValid,
+    errors: finalErrors,
     aiMode,
+    strictMode,
     rows
   };
 }
@@ -14041,7 +14329,7 @@ function renderResultValidation(validation) {
   const issueFilterText = normalizeResultValidationIssueFilter(pendingResultValidationIssueFilter) !== "all"
     ? ` Issue filter: ${normalizeResultValidationIssueFilter(pendingResultValidationIssueFilter)}.`
     : "";
-  meta.textContent = `${validation.categoryName} / ${validation.quizTitle}: ${validation.valid}/${validation.total} green (correct), ${validation.errors}/${validation.total} red (incorrect). Showing ${visibleRows.length} row(s).${issueFilterText} ${validation.aiMode ? "AI heuristic mode enabled." : "Deterministic mode."}`;
+  meta.textContent = `${validation.categoryName} / ${validation.quizTitle}: ${validation.valid}/${validation.total} green (correct), ${validation.errors}/${validation.total} red (incorrect). Showing ${visibleRows.length} row(s).${issueFilterText}${validation.strictMode ? " Strict mode enabled." : ""} ${validation.aiMode ? "AI heuristic mode enabled." : validation.strictMode ? "" : "Deterministic mode."}`;
   exportBtn.disabled = validation.total === 0;
   bulkBtn.disabled = redVisible === 0;
 
@@ -14100,12 +14388,12 @@ function focusResultValidationQuestion(questionIndex) {
   renderAll();
 }
 
-function runResultValidation(aiMode = false) {
+function runResultValidation(aiMode = false, strictMode = false) {
   if (activeQuestion()) {
     updateQuestionFromForm();
   }
 
-  const result = buildResultValidationForActiveQuiz(aiMode);
+  const result = buildResultValidationForActiveQuiz(aiMode, strictMode);
   if (!result) {
     showToast("Select a module (quiz) first.", "warning");
     return;
@@ -14113,7 +14401,8 @@ function runResultValidation(aiMode = false) {
 
   pendingResultValidation = result;
   renderResultValidation(result);
-  showToast(`Validation complete: ${result.valid}/${result.total} correct, ${result.errors} incorrect.`, result.errors > 0 ? "warning" : "success");
+  const modeLabel = strictMode ? "Strict validation" : aiMode ? "AI heuristic validation" : "Validation";
+  showToast(`${modeLabel} complete: ${result.valid}/${result.total} correct, ${result.errors} incorrect.`, result.errors > 0 ? "warning" : "success");
 }
 
 async function applyResultValidationFixForQuestion(questionIndex, { confirmApply = true } = {}) {
@@ -14243,7 +14532,10 @@ async function applyBulkResultValidationFixes() {
 
   renderAll();
   await persistSelectedQuizAfterMutation("Bulk validation updates");
-  runResultValidation(Boolean(pendingResultValidation && pendingResultValidation.aiMode));
+  runResultValidation(
+    Boolean(pendingResultValidation && pendingResultValidation.aiMode),
+    Boolean(pendingResultValidation && pendingResultValidation.strictMode)
+  );
   showToast(`Applied updates to ${applied} question(s).`, "success");
 }
 
