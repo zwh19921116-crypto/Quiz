@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms and Conditions of Use</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&family=DM+Serif+Display:ital@0;1&display=swap");
+
+    :root {
+      --bg-a: #f6fbff;
+      --bg-b: #e7f1fb;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --accent: #0f766e;
+      --line: #d8e6f5;
+      --shadow: 0 22px 50px rgba(15, 23, 42, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Nunito", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 0 0, #ffffff 0%, var(--bg-a) 48%, var(--bg-b) 100%);
+      min-height: 100vh;
+      padding: 28px 14px;
+    }
+
+    .shell {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.8rem;
+    }
+
+    h1 {
+      margin: 8px 0 14px;
+      font-family: "DM Serif Display", Georgia, serif;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      font-weight: 400;
+    }
+
+    .content {
+      display: grid;
+      gap: 12px;
+      color: #1e293b;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+
+    .content p {
+      margin: 0;
+      padding: 10px 12px;
+      background: #f8fbff;
+      border: 1px solid #dce9f7;
+      border-radius: 10px;
+    }
+
+    .footer {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="card">
+      <p class="eyebrow">Legal</p>
+      <h1>Terms and Conditions of Use</h1>
+      <div id="legalContent" class="content"></div>
+      <p class="footer">This page is sourced from terms-and-conditions.txt so content can be updated at any time.</p>
+    </section>
+  </main>
+
+  <script>
+    async function loadTerms() {
+      const host = document.getElementById("legalContent");
+      const fallback = [
+        "By accessing and using this quiz, you agree to use it only for educational and lawful purposes.",
+        "You must not copy, redistribute, resell, or publish quiz content without permission.",
+        "If you find incorrect questions, answers, solutions, or feedback, contact support before relying on the content."
+      ];
+
+      try {
+        const response = await fetch("terms-and-conditions.txt", { cache: "no-store" });
+        if (!response.ok) throw new Error("Could not load terms file.");
+        const raw = await response.text();
+        const lines = raw
+          .split(/\r?\n\s*\r?\n/g)
+          .map((line) => line.trim())
+          .filter((line) => line !== "");
+        const content = lines.length > 0 ? lines : fallback;
+        host.innerHTML = content.map((line) => `<p>${line.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</p>`).join("");
+      } catch (error) {
+        host.innerHTML = fallback.map((line) => `<p>${line}</p>`).join("");
+      }
+    }
+
+    loadTerms();
+  </script>
+</body>
+</html>

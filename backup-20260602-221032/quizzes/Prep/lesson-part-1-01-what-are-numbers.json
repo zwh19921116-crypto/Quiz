@@ -1,0 +1,539 @@
+{
+  "id": "quiz-1",
+  "title": "Numbers.1.01 - What Are Numbers?",
+  "description": "Imported from spreadsheet (Import.xlsx). Learning outcomes: Recognise numbers | Count objects | Match quantity | Number order | Apply learning",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which of these is a number?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Dog",
+        "1",
+        "Apple",
+        "Star"
+      ],
+      "correctAnswer": "1",
+      "category": "Recognition",
+      "subcategory": "Identify Numbers",
+      "learningOutcome": "Recognise numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which of these is a number?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Cat",
+        "2",
+        "Ball",
+        "Tree"
+      ],
+      "correctAnswer": "2",
+      "category": "Recognition",
+      "subcategory": "Identify Numbers",
+      "learningOutcome": "Recognise numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which of these is a number?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Car",
+        "House",
+        "3",
+        "Fish"
+      ],
+      "correctAnswer": "3",
+      "category": "Recognition",
+      "subcategory": "Identify Numbers",
+      "learningOutcome": "Recognise numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the numbers",
+      "resultType": "checkbox",
+      "options": [
+        "1",
+        "Cat",
+        "2",
+        "Dog"
+      ],
+      "correctAnswer": "1, 2",
+      "category": "Recognition",
+      "subcategory": "Select Numbers",
+      "learningOutcome": "Recognise numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 1, 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is 3?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "3",
+      "category": "Recognition",
+      "subcategory": "Select Numbers",
+      "learningOutcome": "Recognise numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many apples are there? 🍎",
+      "resultType": "short-answer",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many apples are there? 🍎",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many apples are there? 🍎🍎",
+      "resultType": "short-answer",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "2",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many apples are there? 🍎🍎",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many apples are there? 🍎🍎🍎",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "3",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many apples are there? 🍎🍎🍎",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many stars are there? ⭐⭐",
+      "resultType": "short-answer",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "2",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many stars are there? ⭐⭐",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many cars are there? 🚗🚗🚗",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "3",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many cars are there? 🚗🚗🚗",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches 🍎 ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "1",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 🍎 ?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches 🍎🍎 ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "2",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 🍎🍎 ?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches 🍎🍎🍎 ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "3",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 🍎🍎🍎 ?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches ⭐⭐ ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "2",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches ⭐⭐ ?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches 🚗🚗🚗 ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "3",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 🚗🚗🚗 ?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "What comes next? 1,2,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "3",
+      "category": "Sequencing",
+      "subcategory": "Number Order",
+      "learningOutcome": "Number order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Continue the counting pattern by 1. The next number is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-ordering",
+        "config": {
+          "prompt": "What comes next? 1,2,__",
+          "direction": "ascending",
+          "cards": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "correctOrder": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "What comes next? 2,3,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Sequencing",
+      "subcategory": "Number Order",
+      "learningOutcome": "Number order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Continue the counting pattern by 1. The next number is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-ordering",
+        "config": {
+          "prompt": "What comes next? 2,3,__",
+          "direction": "ascending",
+          "cards": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "correctOrder": [
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "What comes next? 3,4,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "5",
+      "category": "Sequencing",
+      "subcategory": "Number Order",
+      "learningOutcome": "Number order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Continue the counting pattern by 1. The next number is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-ordering",
+        "config": {
+          "prompt": "What comes next? 3,4,__",
+          "direction": "ascending",
+          "cards": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "correctOrder": [
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "1,2,3,4",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Mixed Review",
+      "subcategory": "Number Order",
+      "learningOutcome": "Apply learning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1,2,3,4",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Mixed Review",
+      "subcategory": "Number Order",
+      "learningOutcome": "Apply learning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    }
+  ]
+}
