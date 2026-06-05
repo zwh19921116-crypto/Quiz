@@ -1,5 +1,5 @@
 {
-  "id": "quiz-6",
+  "id": "quiz-8",
   "title": "Prep 1.06",
   "description": "Learning Outcomes for Prep: Recognise 4 | Understand quantity 4 | Write 4 | Count 4 objects | Match quantity | Apply quantity 4 | Review number 4 | Mastery of number 4",
   "settings": {
@@ -12,10 +12,10 @@
       "question": "Which number is 4?",
       "resultType": "multiple-choice",
       "options": [
-        "2",
-        "3",
         "4",
-        "5"
+        "2",
+        "5",
+        "3"
       ],
       "correctAnswer": "4",
       "category": "Recognition",
@@ -30,10 +30,10 @@
       "question": "Select the number 4",
       "resultType": "multiple-choice",
       "options": [
+        "7",
         "5",
         "4",
-        "6",
-        "7"
+        "6"
       ],
       "correctAnswer": "4",
       "category": "Recognition",
@@ -48,10 +48,10 @@
       "question": "Which number means four?",
       "resultType": "multiple-choice",
       "options": [
+        "5",
         "2",
-        "3",
         "4",
-        "5"
+        "3"
       ],
       "correctAnswer": "2",
       "category": "Recognition",
@@ -66,27 +66,9 @@
       "question": "Select all the 4s",
       "resultType": "checkbox",
       "options": [
-        "4",
         "1",
+        "2",
         "4",
-        "2"
-      ],
-      "correctAnswer": "4",
-      "category": "Recognition",
-      "subcategory": "Select Number 4",
-      "learningOutcome": "Recognise 4",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Select every correct option. The correct selection is: 4, 4, 4.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "Select all the 4s",
-      "resultType": "checkbox",
-      "options": [
-        "5",
-        "4",
-        "6",
         "4"
       ],
       "correctAnswer": "4",
@@ -95,7 +77,25 @@
       "learningOutcome": "Recognise 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 4, 4.",
+      "solution": "Select every correct option. The correct selection is: 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 4s",
+      "resultType": "checkbox",
+      "options": [
+        "4",
+        "6",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Select Number 4",
+      "learningOutcome": "Recognise 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 4.",
       "solutionAttachments": []
     },
     {
@@ -113,7 +113,7 @@
       "learningOutcome": "Write 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 4. Trace it while saying 4 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -141,7 +141,7 @@
       "learningOutcome": "Write 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 4. Trace it while saying 4 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -169,7 +169,7 @@
       "learningOutcome": "Write 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 4. Trace it while saying 4 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -302,10 +302,10 @@
       "question": "Which number matches 🍎🍎🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
+        "5",
         "2",
         "3",
-        "4",
-        "5"
+        "4"
       ],
       "correctAnswer": "4",
       "category": "Matching",
@@ -332,9 +332,9 @@
       "resultType": "multiple-choice",
       "options": [
         "2",
+        "5",
         "3",
-        "4",
-        "5"
+        "4"
       ],
       "correctAnswer": "4",
       "category": "Matching",
@@ -360,10 +360,10 @@
       "question": "Which group has 4 objects?",
       "resultType": "multiple-choice",
       "options": [
-        "🍎🍎🍎",
-        "🍎🍎🍎🍎",
         "🍎🍎",
-        "🍎🍎🍎🍎🍎"
+        "🍎🍎🍎",
+        "🍎🍎🍎🍎🍎",
+        "🍎🍎🍎🍎"
       ],
       "correctAnswer": "🍎🍎🍎🍎",
       "category": "Matching",
@@ -378,10 +378,10 @@
       "question": "Tom has 4 apples. How many apples does Tom have?",
       "resultType": "multiple-choice",
       "options": [
-        "2",
-        "3",
+        "5",
         "4",
-        "5"
+        "2",
+        "3"
       ],
       "correctAnswer": "4",
       "category": "Application",
@@ -407,10 +407,10 @@
       "question": "Sara has 4 balloons. How many balloons does she have?",
       "resultType": "multiple-choice",
       "options": [
-        "2",
         "3",
-        "4",
-        "5"
+        "2",
+        "5",
+        "4"
       ],
       "correctAnswer": "4",
       "category": "Application",
@@ -436,9 +436,9 @@
       "question": "There are 4 fish in the tank. How many fish are there?",
       "resultType": "multiple-choice",
       "options": [
-        "2",
         "3",
         "4",
+        "2",
         "5"
       ],
       "correctAnswer": "4",
@@ -465,10 +465,10 @@
       "question": "Which number means four?",
       "resultType": "multiple-choice",
       "options": [
-        "2",
+        "5",
         "3",
         "4",
-        "5"
+        "2"
       ],
       "correctAnswer": "2",
       "category": "Mastery",
@@ -483,10 +483,10 @@
       "question": "Select the number 4",
       "resultType": "multiple-choice",
       "options": [
-        "2",
         "3",
         "4",
-        "5"
+        "5",
+        "2"
       ],
       "correctAnswer": "4",
       "category": "Mastery",

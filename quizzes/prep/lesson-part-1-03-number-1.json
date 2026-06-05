@@ -1,5 +1,5 @@
 {
-  "id": "quiz-3",
+  "id": "quiz-4",
   "title": "Prep 1.03",
   "description": "Learning Outcomes for Prep: Recognise 1 | Understand quantity 1 | Write 1 | Count 1 object | Match quantity | Apply quantity 1 | Review number 1 | Mastery of number 1",
   "settings": {
@@ -13,9 +13,9 @@
       "resultType": "multiple-choice",
       "options": [
         "0",
+        "3",
         "1",
-        "2",
-        "3"
+        "2"
       ],
       "correctAnswer": "1",
       "category": "Recognition",
@@ -30,10 +30,10 @@
       "question": "Select the number 1",
       "resultType": "multiple-choice",
       "options": [
+        "4",
         "2",
         "1",
-        "3",
-        "4"
+        "3"
       ],
       "correctAnswer": "1",
       "category": "Recognition",
@@ -48,10 +48,10 @@
       "question": "Which number means one?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
         "1",
-        "2",
-        "3"
+        "3",
+        "0",
+        "2"
       ],
       "correctAnswer": "1",
       "category": "Recognition",
@@ -66,27 +66,9 @@
       "question": "Select all the 1s",
       "resultType": "checkbox",
       "options": [
-        "1",
         "2",
+        "3",
         "1",
-        "3"
-      ],
-      "correctAnswer": "1",
-      "category": "Recognition",
-      "subcategory": "Select Number 1",
-      "learningOutcome": "Recognise 1",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Select every correct option. The correct selection is: 1, 1, 1.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "Select all the 1s",
-      "resultType": "checkbox",
-      "options": [
-        "4",
-        "1",
-        "5",
         "1"
       ],
       "correctAnswer": "1",
@@ -95,7 +77,25 @@
       "learningOutcome": "Recognise 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 1, 1.",
+      "solution": "Select every correct option. The correct selection is: 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 1s",
+      "resultType": "checkbox",
+      "options": [
+        "1",
+        "4",
+        "1",
+        "5"
+      ],
+      "correctAnswer": "1",
+      "category": "Recognition",
+      "subcategory": "Select Number 1",
+      "learningOutcome": "Recognise 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 1.",
       "solutionAttachments": []
     },
     {
@@ -113,7 +113,7 @@
       "learningOutcome": "Write 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 1. Trace it while saying 1 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -141,7 +141,7 @@
       "learningOutcome": "Write 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 1. Trace it while saying 1 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -169,7 +169,7 @@
       "learningOutcome": "Write 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 1. Trace it while saying 1 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -302,9 +302,9 @@
       "question": "Which number matches 🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
         "1",
         "2",
+        "0",
         "3"
       ],
       "correctAnswer": "1",
@@ -331,10 +331,10 @@
       "question": "Which number matches ⭐ ?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
         "1",
         "2",
-        "3"
+        "3",
+        "0"
       ],
       "correctAnswer": "1",
       "category": "Matching",
@@ -360,8 +360,8 @@
       "question": "Which group has 1 object?",
       "resultType": "multiple-choice",
       "options": [
-        "🍎",
         "🍎🍎",
+        "🍎",
         "🍎🍎",
         "🍎🍎🍎🍎"
       ],
@@ -378,10 +378,10 @@
       "question": "Tom has 1 apple. How many apples does Tom have?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
         "1",
+        "3",
         "2",
-        "3"
+        "0"
       ],
       "correctAnswer": "1",
       "category": "Application",
@@ -408,9 +408,9 @@
       "resultType": "multiple-choice",
       "options": [
         "0",
+        "3",
         "1",
-        "2",
-        "3"
+        "2"
       ],
       "correctAnswer": "1",
       "category": "Application",
@@ -436,10 +436,10 @@
       "question": "There is 1 fish in the tank. How many fish are there?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
-        "1",
+        "3",
         "2",
-        "3"
+        "0",
+        "1"
       ],
       "correctAnswer": "1",
       "category": "Application",
@@ -465,10 +465,10 @@
       "question": "Which number means one?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
         "1",
-        "2",
-        "3"
+        "3",
+        "0",
+        "2"
       ],
       "correctAnswer": "1",
       "category": "Mastery",
@@ -483,10 +483,10 @@
       "question": "Select the number 1",
       "resultType": "multiple-choice",
       "options": [
-        "0",
         "1",
         "2",
-        "3"
+        "3",
+        "0"
       ],
       "correctAnswer": "1",
       "category": "Mastery",

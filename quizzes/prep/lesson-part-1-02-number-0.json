@@ -1,5 +1,5 @@
 {
-  "id": "quiz-2",
+  "id": "quiz-3",
   "title": "Prep 1.02",
   "description": "Learning Outcomes for Prep: Recognise 0 | Understand zero | Write 0 | Count 0 objects | Match quantity | Apply zero | Review zero | Mastery of zero",
   "settings": {
@@ -12,9 +12,9 @@
       "question": "Which number is 0?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
         "1",
         "2",
+        "0",
         "3"
       ],
       "correctAnswer": "0",
@@ -30,9 +30,9 @@
       "question": "Select the number 0",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "0",
         "2",
+        "1",
         "3"
       ],
       "correctAnswer": "0",
@@ -48,10 +48,10 @@
       "question": "Which number means none?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
         "1",
         "2",
-        "3"
+        "3",
+        "0"
       ],
       "correctAnswer": "0",
       "category": "Recognition",
@@ -66,10 +66,10 @@
       "question": "Select all the 0s",
       "resultType": "checkbox",
       "options": [
-        "0",
         "1",
         "0",
-        "2"
+        "2",
+        "0"
       ],
       "correctAnswer": "0",
       "category": "Recognition",
@@ -77,15 +77,15 @@
       "learningOutcome": "Recognise 0",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 0, 0, 0.",
+      "solution": "Select every correct option. The correct selection is: 0.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 0s",
       "resultType": "checkbox",
       "options": [
-        "3",
         "0",
+        "3",
         "4",
         "0"
       ],
@@ -95,7 +95,7 @@
       "learningOutcome": "Recognise 0",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 0, 0.",
+      "solution": "Select every correct option. The correct selection is: 0.",
       "solutionAttachments": []
     },
     {
@@ -113,7 +113,7 @@
       "learningOutcome": "Write 0",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 0. Trace it while saying 0 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -141,7 +141,7 @@
       "learningOutcome": "Write 0",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 0. Trace it while saying 0 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -169,7 +169,7 @@
       "learningOutcome": "Write 0",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 0. Trace it while saying 0 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -302,10 +302,10 @@
       "question": "Which number matches an empty box?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
-        "1",
         "2",
-        "3"
+        "3",
+        "1",
+        "0"
       ],
       "correctAnswer": "0",
       "category": "Matching",
@@ -331,10 +331,10 @@
       "question": "Which number matches no apples?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
         "1",
-        "2",
-        "3"
+        "0",
+        "3",
+        "2"
       ],
       "correctAnswer": "0",
       "category": "Matching",
@@ -360,8 +360,8 @@
       "question": "Which group has 0 objects?",
       "resultType": "multiple-choice",
       "options": [
-        "Empty Box",
         "🍎",
+        "Empty Box",
         "🍎🍎",
         "🍎🍎🍎"
       ],
@@ -378,10 +378,10 @@
       "question": "Tom has 0 apples. How many apples does Tom have?",
       "resultType": "multiple-choice",
       "options": [
+        "3",
         "0",
         "1",
-        "2",
-        "3"
+        "2"
       ],
       "correctAnswer": "0",
       "category": "Application",
@@ -407,10 +407,10 @@
       "question": "Sara has no balloons. How many balloons does she have?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
         "1",
-        "2",
-        "3"
+        "0",
+        "3",
+        "2"
       ],
       "correctAnswer": "0",
       "category": "Application",
@@ -436,10 +436,10 @@
       "question": "There are no fish in the tank. How many fish are there?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
-        "1",
+        "3",
         "2",
-        "3"
+        "1",
+        "0"
       ],
       "correctAnswer": "0",
       "category": "Application",
@@ -465,10 +465,10 @@
       "question": "Which number means none?",
       "resultType": "multiple-choice",
       "options": [
-        "0",
-        "1",
         "2",
-        "3"
+        "0",
+        "3",
+        "1"
       ],
       "correctAnswer": "0",
       "category": "Mastery",
@@ -483,10 +483,10 @@
       "question": "Select the number 0",
       "resultType": "multiple-choice",
       "options": [
-        "0",
-        "1",
         "2",
-        "3"
+        "3",
+        "1",
+        "0"
       ],
       "correctAnswer": "0",
       "category": "Mastery",

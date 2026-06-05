@@ -12,10 +12,10 @@
       "question": "Which of these is a number?",
       "resultType": "multiple-choice",
       "options": [
-        "Dog",
+        "Star",
         "1",
-        "Apple",
-        "Star"
+        "Dog",
+        "Apple"
       ],
       "correctAnswer": "1",
       "category": "Recognition",
@@ -49,9 +49,9 @@
       "resultType": "multiple-choice",
       "options": [
         "Car",
-        "House",
         "3",
-        "Fish"
+        "Fish",
+        "House"
       ],
       "correctAnswer": "3",
       "category": "Recognition",
@@ -67,9 +67,9 @@
       "resultType": "checkbox",
       "options": [
         "1",
-        "Cat",
         "2",
-        "Dog"
+        "Dog",
+        "Cat"
       ],
       "correctAnswer": "1, 2",
       "category": "Recognition",
@@ -77,17 +77,17 @@
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 1, 2, 3.",
+      "solution": "Select every correct option. The correct selection is: 1, 2.",
       "solutionAttachments": []
     },
     {
       "question": "Which number is 3?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
-        "2",
+        "4",
         "3",
-        "4"
+        "2",
+        "1"
       ],
       "correctAnswer": "3",
       "category": "Recognition",
@@ -247,10 +247,10 @@
       "question": "Which number matches 🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "2",
-        "3",
-        "4"
+        "4",
+        "1",
+        "3"
       ],
       "correctAnswer": "1",
       "category": "Matching",
@@ -306,9 +306,9 @@
       "resultType": "multiple-choice",
       "options": [
         "1",
+        "4",
         "2",
-        "3",
-        "4"
+        "3"
       ],
       "correctAnswer": "3",
       "category": "Matching",
@@ -334,9 +334,9 @@
       "question": "Which number matches ⭐⭐ ?",
       "resultType": "multiple-choice",
       "options": [
+        "3",
         "1",
         "2",
-        "3",
         "4"
       ],
       "correctAnswer": "2",
@@ -363,10 +363,10 @@
       "question": "Which number matches 🚗🚗🚗 ?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "2",
-        "3",
-        "4"
+        "1",
+        "4",
+        "3"
       ],
       "correctAnswer": "3",
       "category": "Matching",
@@ -392,8 +392,8 @@
       "question": "What comes next? 1,2,__",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "2",
+        "1",
         "3",
         "4"
       ],
@@ -411,9 +411,9 @@
       "resultType": "multiple-choice",
       "options": [
         "2",
-        "3",
+        "5",
         "4",
-        "5"
+        "3"
       ],
       "correctAnswer": "4",
       "category": "Sequencing",
@@ -475,9 +475,9 @@
       "question": "Which number matches 🍎🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "2",
         "3",
+        "1",
         "4"
       ],
       "correctAnswer": "3",

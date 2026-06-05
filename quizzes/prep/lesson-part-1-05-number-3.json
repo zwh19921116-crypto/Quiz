@@ -1,5 +1,5 @@
 {
-  "id": "quiz-5",
+  "id": "quiz-2",
   "title": "Prep 1.05",
   "description": "Learning Outcomes for Prep: Recognise 3 | Understand quantity 3 | Write 3 | Count 3 objects | Match quantity | Apply quantity 3 | Review number 3 | Mastery of number 3",
   "settings": {
@@ -12,9 +12,9 @@
       "question": "Which number is 3?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "2",
         "3",
+        "1",
         "4"
       ],
       "correctAnswer": "3",
@@ -30,10 +30,10 @@
       "question": "Select the number 3",
       "resultType": "multiple-choice",
       "options": [
-        "4",
-        "3",
+        "6",
         "5",
-        "6"
+        "3",
+        "4"
       ],
       "correctAnswer": "3",
       "category": "Recognition",
@@ -48,9 +48,9 @@
       "question": "Which number means three?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "2",
         "3",
+        "1",
         "4"
       ],
       "correctAnswer": "1",
@@ -66,8 +66,8 @@
       "question": "Select all the 3s",
       "resultType": "checkbox",
       "options": [
-        "3",
         "1",
+        "3",
         "3",
         "2"
       ],
@@ -77,16 +77,16 @@
       "learningOutcome": "Recognise 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 3, 3, 3.",
+      "solution": "Select every correct option. The correct selection is: 3.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 3s",
       "resultType": "checkbox",
       "options": [
+        "5",
         "4",
         "3",
-        "5",
         "3"
       ],
       "correctAnswer": "3",
@@ -95,7 +95,7 @@
       "learningOutcome": "Recognise 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 3, 3.",
+      "solution": "Select every correct option. The correct selection is: 3.",
       "solutionAttachments": []
     },
     {
@@ -113,7 +113,7 @@
       "learningOutcome": "Write 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 3. Trace it while saying 3 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -141,7 +141,7 @@
       "learningOutcome": "Write 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 3. Trace it while saying 3 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -169,7 +169,7 @@
       "learningOutcome": "Write 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "The dotted numeral is 3. Trace it while saying 3 aloud.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -302,10 +302,10 @@
       "question": "Which number matches 🍎🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
-        "2",
         "3",
-        "4"
+        "1",
+        "4",
+        "2"
       ],
       "correctAnswer": "3",
       "category": "Matching",
@@ -331,9 +331,9 @@
       "question": "Which number matches ⭐⭐⭐ ?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "2",
         "3",
+        "1",
         "4"
       ],
       "correctAnswer": "3",
@@ -360,10 +360,10 @@
       "question": "Which group has 3 objects?",
       "resultType": "multiple-choice",
       "options": [
-        "🍎",
         "🍎🍎",
         "🍎🍎",
-        "🍎🍎🍎🍎"
+        "🍎🍎🍎🍎",
+        "🍎"
       ],
       "correctAnswer": "🍎",
       "category": "Matching",
@@ -371,16 +371,16 @@
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🍎🍎🍎.",
+      "solution": "The correct answer is 🍎.",
       "solutionAttachments": []
     },
     {
       "question": "Tom has 3 apples. How many apples does Tom have?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "2",
         "3",
+        "1",
         "4"
       ],
       "correctAnswer": "3",
@@ -407,10 +407,10 @@
       "question": "Sara has 3 balloons. How many balloons does she have?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
-        "2",
+        "4",
         "3",
-        "4"
+        "1",
+        "2"
       ],
       "correctAnswer": "3",
       "category": "Application",
@@ -436,10 +436,10 @@
       "question": "There are 3 fish in the tank. How many fish are there?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
-        "2",
+        "4",
         "3",
-        "4"
+        "2",
+        "1"
       ],
       "correctAnswer": "3",
       "category": "Application",
@@ -465,10 +465,10 @@
       "question": "Which number means three?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
-        "2",
         "3",
-        "4"
+        "4",
+        "1",
+        "2"
       ],
       "correctAnswer": "1",
       "category": "Mastery",
@@ -483,9 +483,9 @@
       "question": "Select the number 3",
       "resultType": "multiple-choice",
       "options": [
+        "3",
         "1",
         "2",
-        "3",
         "4"
       ],
       "correctAnswer": "3",

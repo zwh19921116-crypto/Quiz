@@ -605,11 +605,9 @@ function buildAutoFixFieldDiffs(beforeSnapshot, afterSnapshot) {
   }
 }
 
-function autoFixActiveQuizIssues() {
-  const quiz = activeQuiz();
+function autoFixQuizIssuesWithReport(quiz, reportTitle = "Untitled Quiz") {
   if (!quiz || !Array.isArray(quiz.questions) || quiz.questions.length === 0) {
-    showToast("Select a quiz with questions first.", "warning");
-    return;
+    return null;
   }
 
   let changedCount = 0;
@@ -634,6 +632,7 @@ function autoFixActiveQuizIssues() {
     reportRows.push({
       status,
       qNo: index + 1,
+      quizTitle: reportTitle,
       question: String(question && question.question || ""),
       beforeIssues: result.before,
       afterIssues: result.after,
@@ -650,32 +649,95 @@ function autoFixActiveQuizIssues() {
     if (result.after > 0) unresolvedCount += 1;
   });
 
-  pendingQuizAutoFixReport = {
+  return {
     rows: reportRows,
     fixedCount: reportRows.filter((item) => item.status === "fixed").length,
     improvedCount: reportRows.filter((item) => item.status === "improved").length,
     unresolvedCount: reportRows.filter((item) => item.status === "unresolved").length,
     changedCount: reportRows.filter((item) => item.status === "fixed" || item.status === "improved").length,
     total: reportRows.length,
-    quizTitle: String(quiz && quiz.title || "Untitled Quiz")
+    quizTitle: reportTitle,
+    rawChangedCount: changedCount,
+    rawImprovedCount: improvedCount,
+    rawUnresolvedCount: unresolvedCount
   };
+}
+
+function autoFixActiveQuizIssues() {
+  const quiz = activeQuiz();
+  if (!quiz || !Array.isArray(quiz.questions) || quiz.questions.length === 0) {
+    showToast("Select a quiz with questions first.", "warning");
+    return;
+  }
+
+  const report = autoFixQuizIssuesWithReport(quiz, String(quiz && quiz.title || "Untitled Quiz"));
+  if (!report) {
+    showToast("Select a quiz with questions first.", "warning");
+    return;
+  }
+
+  pendingQuizAutoFixReport = report;
 
   renderAll();
   scheduleSilentDiskSave();
 
   openQuizAutoFixReportModal();
 
-  if (improvedCount > 0) {
-    showToast(`Auto-fix updated ${changedCount} question(s). Remaining with issues: ${unresolvedCount}.`, unresolvedCount > 0 ? "warning" : "success");
+  if (report.rawImprovedCount > 0) {
+    showToast(`Auto-fix updated ${report.rawChangedCount} question(s). Remaining with issues: ${report.rawUnresolvedCount}.`, report.rawUnresolvedCount > 0 ? "warning" : "success");
     return;
   }
 
-  if (changedCount > 0) {
-    showToast(`Auto-fix normalized ${changedCount} question(s).`, "success");
+  if (report.rawChangedCount > 0) {
+    showToast(`Auto-fix normalized ${report.rawChangedCount} question(s).`, "success");
     return;
   }
 
   showToast("No auto-fixable issues found.", "info");
+}
+
+function autoFixAllQuizIssues() {
+  const categories = Array.isArray(state.categories) ? state.categories : [];
+  const quizzes = categories.flatMap((category) => Array.isArray(category && category.quizzes) ? category.quizzes : []);
+  if (quizzes.length === 0) {
+    showToast("No quizzes available to auto-fix.", "warning");
+    return;
+  }
+
+  const reports = quizzes
+    .map((quiz) => autoFixQuizIssuesWithReport(quiz, String(quiz && quiz.title || "Untitled Quiz")))
+    .filter((report) => report && Array.isArray(report.rows));
+
+  if (reports.length === 0) {
+    showToast("No quizzes with questions found.", "warning");
+    return;
+  }
+
+  pendingQuizAutoFixReport = {
+    rows: reports.flatMap((report) => report.rows.map((row) => ({
+      ...row,
+      qNo: `${report.quizTitle} #${row.qNo}`
+    }))),
+    fixedCount: reports.reduce((sum, report) => sum + report.fixedCount, 0),
+    improvedCount: reports.reduce((sum, report) => sum + report.improvedCount, 0),
+    unresolvedCount: reports.reduce((sum, report) => sum + report.unresolvedCount, 0),
+    changedCount: reports.reduce((sum, report) => sum + report.changedCount, 0),
+    total: reports.reduce((sum, report) => sum + report.total, 0),
+    quizTitle: "All Quizzes"
+  };
+
+  renderAll();
+  scheduleSilentDiskSave();
+  openQuizAutoFixReportModal();
+
+  const changedCount = reports.reduce((sum, report) => sum + report.rawChangedCount, 0);
+  const unresolvedCount = reports.reduce((sum, report) => sum + report.rawUnresolvedCount, 0);
+  if (changedCount > 0) {
+    showToast(`Auto-fix all updated ${changedCount} question(s). Remaining with issues: ${unresolvedCount}.`, unresolvedCount > 0 ? "warning" : "success");
+    return;
+  }
+
+  showToast("No auto-fixable issues found across all quizzes.", "info");
 }
 
 let pendingImportRows = [];
@@ -11166,6 +11228,10 @@ document.getElementById("clearQuestionBtn").addEventListener("click", () => {
 
 document.getElementById("autoFixQuizIssuesBtn").addEventListener("click", () => {
   autoFixActiveQuizIssues();
+});
+
+document.getElementById("autoFixAllQuizIssuesBtn").addEventListener("click", () => {
+  autoFixAllQuizIssues();
 });
 
 document.getElementById("toggleQuizScanBtn").addEventListener("click", () => {
