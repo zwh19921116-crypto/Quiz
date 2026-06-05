@@ -411,6 +411,46 @@ function describeImportAutoFixChanges(beforeSnapshot, afterSnapshot) {
   }
 }
 
+function buildAutoFixFieldDiffs(beforeSnapshot, afterSnapshot) {
+  try {
+    const before = beforeSnapshot ? JSON.parse(beforeSnapshot) : null;
+    const after = afterSnapshot ? JSON.parse(afterSnapshot) : null;
+    if (!before || !after) return [];
+
+    const pairs = [
+      ["resultType", "result type"],
+      ["options", "options"],
+      ["correctAnswer", "answer"],
+      ["category", "category"],
+      ["subcategory", "subcategory"],
+      ["learningOutcome", "learning outcome"],
+      ["solution", "solution"],
+      ["interactiveApp", "interactive app"]
+    ];
+
+    const limitText = (value) => {
+      const serialized = typeof value === "string" ? value : JSON.stringify(value);
+      const normalized = String(serialized == null ? "" : serialized).replace(/\s+/g, " ").trim();
+      if (normalized.length <= 140) return normalized;
+      return `${normalized.slice(0, 137)}...`;
+    };
+
+    const diffs = [];
+    pairs.forEach(([key, label]) => {
+      if (JSON.stringify(before[key]) === JSON.stringify(after[key])) return;
+      diffs.push({
+        field: label,
+        before: limitText(before[key]),
+        after: limitText(after[key])
+      });
+    });
+
+    return diffs;
+  } catch (_error) {
+    return [];
+  }
+}
+
 function autoFixActiveQuizIssues() {
   const quiz = activeQuiz();
   if (!quiz || !Array.isArray(quiz.questions) || quiz.questions.length === 0) {
@@ -421,16 +461,55 @@ function autoFixActiveQuizIssues() {
   let changedCount = 0;
   let improvedCount = 0;
   let unresolvedCount = 0;
+  const reportRows = [];
 
-  quiz.questions.forEach((question) => {
+  quiz.questions.forEach((question, index) => {
+    const beforeSnapshot = snapshotImportAutoFixFields(question);
     const result = autoFixQuestionIssues(question);
+    const afterSnapshot = snapshotImportAutoFixFields(question);
+    const changedFields = describeImportAutoFixChanges(beforeSnapshot, afterSnapshot);
+    const diffs = buildAutoFixFieldDiffs(beforeSnapshot, afterSnapshot);
+    const changesFrom = diffs.length > 0
+      ? diffs.map((item) => `${item.field}: ${item.before}`).join(" | ")
+      : "";
+    const changesTo = diffs.length > 0
+      ? diffs.map((item) => `${item.field}: ${item.after}`).join(" | ")
+      : "";
+    const status = getImportAutoFixStatus(result.before, result.after, result.changed);
+
+    reportRows.push({
+      status,
+      qNo: index + 1,
+      question: String(question && question.question || ""),
+      beforeIssues: result.before,
+      afterIssues: result.after,
+      changedFields,
+      changesFrom,
+      changesTo,
+      resultType: String(question && question.resultType || ""),
+      correctAnswer: String(question && question.correctAnswer || ""),
+      solution: String(question && question.solution || "")
+    });
+
     if (result.changed) changedCount += 1;
     if (result.after < result.before) improvedCount += 1;
     if (result.after > 0) unresolvedCount += 1;
   });
 
+  pendingQuizAutoFixReport = {
+    rows: reportRows,
+    fixedCount: reportRows.filter((item) => item.status === "fixed").length,
+    improvedCount: reportRows.filter((item) => item.status === "improved").length,
+    unresolvedCount: reportRows.filter((item) => item.status === "unresolved").length,
+    changedCount: reportRows.filter((item) => item.status === "fixed" || item.status === "improved").length,
+    total: reportRows.length,
+    quizTitle: String(quiz && quiz.title || "Untitled Quiz")
+  };
+
   renderAll();
   scheduleSilentDiskSave();
+
+  openQuizAutoFixReportModal();
 
   if (improvedCount > 0) {
     showToast(`Auto-fix updated ${changedCount} question(s). Remaining with issues: ${unresolvedCount}.`, unresolvedCount > 0 ? "warning" : "success");
@@ -449,6 +528,7 @@ let pendingImportRows = [];
 let pendingImportSourceName = "";
 let pendingImportValidation = null;
 let pendingImportAutoFixReport = null;
+let pendingQuizAutoFixReport = null;
 let pendingResultValidation = null;
 let pendingResultValidationSelectedIndex = -1;
 let pendingResultValidationFilter = "all";
@@ -11703,6 +11783,14 @@ document.getElementById("exportAutoFixReportBtn").addEventListener("click", () =
   downloadImportAutoFixReportCsv();
 });
 
+document.getElementById("closeQuizAutoFixReportModalBtn").addEventListener("click", () => {
+  closeQuizAutoFixReportModal();
+});
+
+document.getElementById("exportQuizAutoFixReportBtn").addEventListener("click", () => {
+  downloadQuizAutoFixReportCsv();
+});
+
 document.getElementById("importValidationBody").addEventListener("click", (event) => {
   const target = event.target;
   if (!(target instanceof HTMLElement)) return;
@@ -11770,6 +11858,13 @@ const importReportBackdrop = document.querySelector("[data-close-import-report-m
 if (importReportBackdrop instanceof HTMLElement) {
   importReportBackdrop.addEventListener("click", () => {
     closeImportReportModal();
+  });
+}
+
+const quizAutoFixReportBackdrop = document.querySelector("[data-close-quiz-autofix-report-modal='true']");
+if (quizAutoFixReportBackdrop instanceof HTMLElement) {
+  quizAutoFixReportBackdrop.addEventListener("click", () => {
+    closeQuizAutoFixReportModal();
   });
 }
 
@@ -13913,10 +14008,23 @@ function buildResultValidationFixPlan(question, row) {
   }
 
   if (row && row.computedAnswer && !compareAnswersForResultType(nextResultType, nextAnswer, row.computedAnswer)) {
-    updates.correctAnswer = String(row.computedAnswer || "").trim();
-    trackChange("correctAnswer", "Correct Answer", question && question.correctAnswer, updates.correctAnswer);
-    nextAnswer = updates.correctAnswer;
-    notes.push(`Update correct answer to computed value: ${nextAnswer}`);
+    const safeAutoApply = Boolean(row && row.autoApplySafe);
+    if (safeAutoApply) {
+      updates.correctAnswer = String(row.computedAnswer || "").trim();
+      trackChange("correctAnswer", "Correct Answer", question && question.correctAnswer, updates.correctAnswer);
+      nextAnswer = updates.correctAnswer;
+      notes.push(`Update correct answer to computed value: ${nextAnswer}`);
+    } else {
+      trackProposal(
+        "correctAnswer",
+        "Correct Answer (manual)",
+        question && question.correctAnswer,
+        String(row.computedAnswer || "").trim(),
+        row && row.autoApplyReason
+          ? `Auto-apply blocked: ${row.autoApplyReason}`
+          : "Auto-apply blocked due to low confidence."
+      );
+    }
   }
 
   if (["multiple-choice", "true-false"].includes(nextResultType) && choiceOptions.length > 0) {
@@ -14101,6 +14209,68 @@ function getAiHeuristicIssues(question, computedAnswer) {
   return issues;
 }
 
+function evaluateAutoApplySafety(question, context = {}) {
+  const resultType = normalizeResultType(question && question.resultType);
+  const questionText = String(question && question.question || "").trim().toLowerCase();
+  const appType = String(question && question.interactiveApp && question.interactiveApp.type || "").trim().toLowerCase();
+  const choiceOptions = Array.isArray(context.options) ? context.options : getChoiceOptions(question);
+  const computedValue = String(context.computedValue || "").trim();
+  const computedSource = String(context.computedSource || "none").trim().toLowerCase();
+  const issues = Array.isArray(context.issues) ? context.issues : [];
+
+  const sourceConfidenceMap = {
+    "interactive-app": 0.95,
+    "semantic-question": 0.9,
+    "question-compute": 0.85,
+    "heuristic-text": 0.35,
+    "none": 0
+  };
+
+  let confidence = Number(sourceConfidenceMap[computedSource] || 0);
+  const blockers = [];
+
+  if (!computedValue) {
+    blockers.push("No computed answer available.");
+    confidence = 0;
+  }
+
+  if (["multiple-choice", "true-false"].includes(resultType) && computedValue) {
+    const isInOptions = choiceOptions.some((item) => normalizeText(item) === normalizeText(computedValue));
+    if (!isInOptions) {
+      blockers.push("Computed answer is not one of the choice options.");
+      confidence = 0;
+    }
+  }
+
+  if (resultType === "short-answer" && choiceOptions.length >= 2) {
+    confidence = Math.min(confidence, 0.45);
+  }
+
+  const hasResultTypeMismatch = issues.some((item) => /result type mismatch/i.test(String(item || "")));
+  if (hasResultTypeMismatch) {
+    confidence = Math.max(0, confidence - 0.25);
+  }
+
+  const hasCompatibilityIssue = issues.some((item) => /^viewer compatibility:/i.test(String(item || "")));
+  if (hasCompatibilityIssue) {
+    confidence = Math.max(0, confidence - 0.2);
+  }
+
+  const hasRecognitionCue = /\b(which number|which of these is a number|select the number|how many|what comes next)\b/i.test(questionText);
+  const hasArithmeticCue = /[\d\s]+[+\-x*/÷][\d\s]+|\b(calculate|solve|add|subtract|minus|plus|sum|difference|product|quotient|equation)\b/i.test(questionText);
+  if (appType === "arithmetic" && hasRecognitionCue && !hasArithmeticCue) {
+    blockers.push("Arithmetic app conflicts with non-arithmetic question wording.");
+    confidence = 0;
+  }
+
+  const safe = blockers.length === 0 && confidence >= 0.8;
+  return {
+    confidence: Number(confidence.toFixed(2)),
+    safe,
+    reason: blockers.join(" ")
+  };
+}
+
 function getStrictValidationIssues(question, computed, declaredAnswer) {
   const issues = [];
   const resultType = normalizeResultType(question && question.resultType);
@@ -14227,6 +14397,18 @@ function buildResultValidationForActiveQuiz(aiMode = false, strictMode = false) 
     }
 
     const viewerCompatibilityIssues = questionIssues.filter((item) => isViewerCompatibilityIssue(item));
+    const autoApplySafety = evaluateAutoApplySafety(question || {}, {
+      computedValue: computed.value,
+      computedSource: computed.source,
+      options: Array.isArray(question && question.options)
+        ? question.options.map((item) => String(item || "").trim()).filter((item) => item !== "")
+        : [],
+      issues: questionIssues
+    });
+
+    if (!autoApplySafety.safe && autoApplySafety.reason) {
+      questionIssues.push(`Fail-closed: auto-apply blocked. ${autoApplySafety.reason}`);
+    }
 
     return {
       index,
@@ -14245,6 +14427,9 @@ function buildResultValidationForActiveQuiz(aiMode = false, strictMode = false) 
       correctAnswer: actualAnswer,
       computedAnswer: computed.value,
       computedSource: String(computed && computed.source || "none"),
+      autoApplyConfidence: Number(autoApplySafety.confidence || 0),
+      autoApplySafe: Boolean(autoApplySafety.safe),
+      autoApplyReason: String(autoApplySafety.reason || ""),
       solution: solutionText,
       viewerCompatibilityIssueCount: viewerCompatibilityIssues.length,
       hasViewerCompatibilityIssue: viewerCompatibilityIssues.length > 0,
@@ -14325,11 +14510,12 @@ function renderResultValidation(validation) {
 
   const visibleRows = getFilteredResultValidationRows(validation);
   const redVisible = visibleRows.filter((row) => !row.isValid).length;
+  const safeVisible = visibleRows.filter((row) => !row.isValid && row.autoApplySafe).length;
 
   const issueFilterText = normalizeResultValidationIssueFilter(pendingResultValidationIssueFilter) !== "all"
     ? ` Issue filter: ${normalizeResultValidationIssueFilter(pendingResultValidationIssueFilter)}.`
     : "";
-  meta.textContent = `${validation.categoryName} / ${validation.quizTitle}: ${validation.valid}/${validation.total} green (correct), ${validation.errors}/${validation.total} red (incorrect). Showing ${visibleRows.length} row(s).${issueFilterText}${validation.strictMode ? " Strict mode enabled." : ""} ${validation.aiMode ? "AI heuristic mode enabled." : validation.strictMode ? "" : "Deterministic mode."}`;
+  meta.textContent = `${validation.categoryName} / ${validation.quizTitle}: ${validation.valid}/${validation.total} green (correct), ${validation.errors}/${validation.total} red (incorrect). Showing ${visibleRows.length} row(s). Safe auto-apply: ${safeVisible}/${redVisible} red row(s).${issueFilterText}${validation.strictMode ? " Strict mode enabled." : ""} ${validation.aiMode ? "AI heuristic mode enabled." : validation.strictMode ? "" : "Deterministic mode."}`;
   exportBtn.disabled = validation.total === 0;
   bulkBtn.disabled = redVisible === 0;
 
@@ -14510,13 +14696,20 @@ async function applyBulkResultValidationFixes() {
     return;
   }
 
-  const targets = pendingResultValidation.rows.filter((row) => !row.isValid);
-  if (targets.length === 0) {
+  const redRows = pendingResultValidation.rows.filter((row) => !row.isValid);
+  const targets = redRows.filter((row) => Boolean(row && row.autoApplySafe));
+  const blockedCount = redRows.length - targets.length;
+  if (redRows.length === 0) {
     showToast("No red rows to update.", "info");
     return;
   }
 
-  const proceed = confirm(`Apply proposed updates to ${targets.length} red question(s)?`);
+  if (targets.length === 0) {
+    showToast("No safe auto-updates available. Review manual proposals in each red row.", "warning");
+    return;
+  }
+
+  const proceed = confirm(`Apply proposed updates to ${targets.length} safe red question(s)?${blockedCount > 0 ? ` (${blockedCount} blocked by fail-closed rules)` : ""}`);
   if (!proceed) return;
 
   let applied = 0;
@@ -14536,7 +14729,7 @@ async function applyBulkResultValidationFixes() {
     Boolean(pendingResultValidation && pendingResultValidation.aiMode),
     Boolean(pendingResultValidation && pendingResultValidation.strictMode)
   );
-  showToast(`Applied updates to ${applied} question(s).`, "success");
+  showToast(`Applied updates to ${applied} question(s).${blockedCount > 0 ? ` ${blockedCount} still require manual review.` : ""}`, "success");
 }
 
 function downloadResultValidationCsv() {
@@ -14653,6 +14846,101 @@ function openImportReportModal() {
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
   renderImportAutoFixReport(pendingImportAutoFixReport);
+}
+
+function closeQuizAutoFixReportModal() {
+  const modal = document.getElementById("quizAutoFixReportModal");
+  if (!(modal instanceof HTMLElement)) return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+function openQuizAutoFixReportModal() {
+  const modal = document.getElementById("quizAutoFixReportModal");
+  if (!(modal instanceof HTMLElement)) return;
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  renderQuizAutoFixReport(pendingQuizAutoFixReport);
+}
+
+function renderQuizAutoFixReport(report) {
+  const meta = document.getElementById("quizAutoFixReportMeta");
+  const body = document.getElementById("quizAutoFixReportBody");
+  const exportBtn = document.getElementById("exportQuizAutoFixReportBtn");
+  if (!(meta instanceof HTMLElement) || !(body instanceof HTMLElement) || !(exportBtn instanceof HTMLButtonElement)) return;
+
+  if (!report || !Array.isArray(report.rows) || report.rows.length === 0) {
+    meta.textContent = "No auto-fix report available yet.";
+    body.innerHTML = '<tr><td colspan="7" style="padding:8px;">No report rows available.</td></tr>';
+    exportBtn.disabled = true;
+    return;
+  }
+
+  meta.textContent = `${report.quizTitle}: Fixed ${report.fixedCount} | Improved ${report.improvedCount} | Unresolved ${report.unresolvedCount} | Changed ${report.changedCount}`;
+  body.innerHTML = report.rows.map((row) => `
+    <tr>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.status || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(row.qNo || ""))}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:320px; white-space:normal;">${escapeInteractiveHtml(row.question || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(row.beforeIssues ?? ""))}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(row.afterIssues ?? ""))}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:300px; white-space:normal;">${escapeInteractiveHtml(row.changesFrom || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:300px; white-space:normal;">${escapeInteractiveHtml(row.changesTo || "")}</td>
+    </tr>
+  `).join("");
+  exportBtn.disabled = false;
+}
+
+function downloadQuizAutoFixReportCsv() {
+  const report = pendingQuizAutoFixReport;
+  if (!report || !Array.isArray(report.rows) || report.rows.length === 0) {
+    showToast("No quiz auto-fix report available yet.", "warning");
+    return;
+  }
+
+  const now = new Date();
+  const stamp = `${String(now.getFullYear())}${String(now.getMonth() + 1).padStart(2, "0")}${String(now.getDate()).padStart(2, "0")}-${String(now.getHours()).padStart(2, "0")}${String(now.getMinutes()).padStart(2, "0")}${String(now.getSeconds()).padStart(2, "0")}`;
+  const header = ["Status", "Q No", "Question", "Before Issues", "After Issues", "Changed Fields", "From", "To", "Result Type", "Correct Answer", "Solution"];
+  const rows = report.rows.map((row) => [
+    row.status || "",
+    String(row.qNo || ""),
+    row.question || "",
+    String(row.beforeIssues ?? ""),
+    String(row.afterIssues ?? ""),
+    row.changedFields || "",
+    row.changesFrom || "",
+    row.changesTo || "",
+    row.resultType || "",
+    row.correctAnswer || "",
+    row.solution || ""
+  ]);
+  const summary = [
+    "SUMMARY",
+    `quiz=${report.quizTitle}; fixed=${report.fixedCount}; improved=${report.improvedCount}; unresolved=${report.unresolvedCount}; changed=${report.changedCount}`,
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ];
+
+  const csv = [header, ...rows, summary].map((row) => row.map((cell) => escapeCsvCell(cell)).join(",")).join("\r\n");
+  const blob = new Blob(["\uFEFF", csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `quiz-autofix-report-${slugify(report.quizTitle || "quiz")}-${stamp}.csv`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+  showToast("Quiz auto-fix report downloaded.", "success");
 }
 
 function renderImportAutoFixReport(report) {
@@ -15116,6 +15404,7 @@ window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeImportModal();
     closeResultValidationModal();
+    closeQuizAutoFixReportModal();
   }
 
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {

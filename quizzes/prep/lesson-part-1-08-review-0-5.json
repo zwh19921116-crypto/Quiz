@@ -10,183 +10,111 @@
   "questions": [
     {
       "question": "Which number is 0?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "0",
         "1",
         "2",
         "3"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "0",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
       "learningOutcome": "Recognise 0",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
     },
     {
       "question": "Which number is 1?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "0",
         "1",
         "2",
         "3"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
       "learningOutcome": "Recognise 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
     },
     {
       "question": "Which number is 2?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "1",
         "2",
         "3",
         "4"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
       "learningOutcome": "Recognise 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
     },
     {
       "question": "Which number is 3?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "2",
         "3",
         "4",
         "5"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
       "learningOutcome": "Recognise 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
     },
     {
       "question": "Which number is 4?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "3",
         "4",
         "5",
         "6"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
       "learningOutcome": "Recognise 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
     },
     {
       "question": "Which number is 5?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "4",
         "5",
         "6",
         "7"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "5",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
       "learningOutcome": "Recognise 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
     },
     {
       "question": "Trace the number 0",
@@ -280,153 +208,93 @@
     },
     {
       "question": "🍎🍎 How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "0",
         "1",
         "2",
         "3"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "2",
       "category": "Counting",
       "subcategory": "Count Objects",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
       "solution": "Count the objects shown and match the quantity. The answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "⭐⭐⭐⭐ How many stars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "2",
         "3",
         "4",
         "5"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "4",
       "category": "Counting",
       "subcategory": "Count Objects",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
       "solution": "Count the objects shown and match the quantity. The answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "🚗🚗🚗🚗🚗 How many cars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "3",
         "4",
         "5",
         "6"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "5",
       "category": "Counting",
       "subcategory": "Count Objects",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
       "solution": "Count the objects shown and match the quantity. The answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "Which number matches 🍎 ?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "0",
         "1",
         "2",
         "3"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "1",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
       "solution": "Count the objects shown and match the quantity. The answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "Which number matches 🍎🍎🍎 ?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "1",
         "2",
         "3",
         "4"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "3",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
       "solution": "Count the objects shown and match the quantity. The answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "Which group has 5 objects?",
@@ -460,153 +328,93 @@
     },
     {
       "question": "What comes next? 0,1,2,__",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "2",
         "3",
         "4",
         "5"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "3",
       "category": "Sequencing",
       "subcategory": "Number Order",
       "learningOutcome": "Number sequence",
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "What comes next? 2,3,4,__",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "3",
         "4",
         "5",
         "6"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "5",
       "category": "Sequencing",
       "subcategory": "Number Order",
       "learningOutcome": "Number sequence",
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "Tom has 4 apples. How many apples does he have?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "2",
         "3",
         "4",
         "5"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "4",
       "category": "Application",
       "subcategory": "Mixed Numbers",
       "learningOutcome": "Apply counting",
       "notesAttachments": [],
       "image": "",
       "solution": "Count the objects shown and match the quantity. The answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "Which number matches ⭐⭐⭐⭐⭐ ?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "3",
         "4",
         "5",
         "6"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "5",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review 0-5",
       "notesAttachments": [],
       "image": "",
       "solution": "Count the objects shown and match the quantity. The answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "Select the largest number",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "0",
         "2",
         "4",
         "5"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "0",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery 0-5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
     }
   ]
 }

@@ -53,7 +53,7 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Identify Number 2",
       "learningOutcome": "Understand quantity 2",
@@ -71,7 +71,7 @@
         "2",
         "3"
       ],
-      "correctAnswer": "2, 2",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Select Number 2",
       "learningOutcome": "Recognise 2",
@@ -470,7 +470,7 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review number 2",

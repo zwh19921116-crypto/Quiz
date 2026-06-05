@@ -114,7 +114,17 @@
       "notesAttachments": [],
       "image": "",
       "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
-      "solutionAttachments": []
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 8,
+          "prompt": "Trace the number 8",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
     },
     {
       "question": "Trace the number 8 again",
@@ -132,7 +142,17 @@
       "notesAttachments": [],
       "image": "",
       "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
-      "solutionAttachments": []
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 8,
+          "prompt": "Trace the number 8 again",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
     },
     {
       "question": "Draw the number 8",
@@ -150,7 +170,17 @@
       "notesAttachments": [],
       "image": "",
       "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
-      "solutionAttachments": []
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 8,
+          "prompt": "Draw the number 8",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
     },
     {
       "question": "🍎🍎🍎🍎🍎🍎🍎🍎 How many apples are there?",

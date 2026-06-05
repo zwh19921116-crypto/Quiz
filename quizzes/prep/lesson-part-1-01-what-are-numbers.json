@@ -6,8 +6,6 @@
     "questionOrder": "ordered",
     "questionLimit": 20
   },
-  "fileName": "lesson-part-1-01-what-are-numbers.json",
-  "sourcePath": "quizzes/prep/lesson-part-1-01-what-are-numbers.json",
   "category": "Prep",
   "questions": [
     {
@@ -25,7 +23,7 @@
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Dog.",
+      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     },
     {
