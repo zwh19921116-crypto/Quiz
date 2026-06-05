@@ -6,6 +6,8 @@
     "questionOrder": "ordered",
     "questionLimit": 20
   },
+  "fileName": "lesson-part-1-01-what-are-numbers.json",
+  "sourcePath": "quizzes/prep/lesson-part-1-01-what-are-numbers.json",
   "category": "Prep",
   "questions": [
     {
@@ -35,13 +37,13 @@
         "Ball",
         "Tree"
       ],
-      "correctAnswer": "Cat",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Cat.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +55,13 @@
         "3",
         "Fish"
       ],
-      "correctAnswer": "Car",
+      "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Car.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
