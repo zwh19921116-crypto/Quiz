@@ -138,6 +138,7 @@ function registerQuestionReport(question) {
 }
 
 function syncReportQuestionButton(question) {
+  ensureReportQuestionButtonExists();
   const reportBtn = document.getElementById("reportQuestionBtn");
   if (!(reportBtn instanceof HTMLButtonElement)) return;
 
@@ -164,6 +165,30 @@ function reportCurrentQuestion() {
     return;
   }
   showToast("Thank you for your report. We are aware and working on it.", "success");
+}
+
+function ensureReportQuestionButtonExists() {
+  const existing = document.getElementById("reportQuestionBtn");
+  if (existing instanceof HTMLButtonElement) return existing;
+
+  const actionBar = document.getElementById("viewerActionBar");
+  if (!(actionBar instanceof HTMLElement)) return null;
+
+  const reportBtn = document.createElement("button");
+  reportBtn.className = "btn secondary";
+  reportBtn.id = "reportQuestionBtn";
+  reportBtn.type = "button";
+  reportBtn.textContent = "Report Incorrect Answer";
+
+  const nextBtn = document.getElementById("nextQuestionBtn");
+  if (nextBtn && nextBtn.parentElement === actionBar) {
+    actionBar.insertBefore(reportBtn, nextBtn);
+  } else {
+    actionBar.appendChild(reportBtn);
+  }
+
+  reportBtn.addEventListener("click", reportCurrentQuestion);
+  return reportBtn;
 }
 
 function isNumberTracingQuestion(question) {
@@ -939,6 +964,7 @@ function resetRuntimeForLoadedQuiz() {
   questionNavFilter = "all";
   answerChecked = false;
   quizStarted = false;
+  ensureReportQuestionButtonExists();
   document.getElementById("checkAnswerBtn").style.display = "inline-block";
   document.getElementById("nextQuestionBtn").style.display = "inline-block";
   document.getElementById("notesViewerBtn").style.display = "inline-block";
@@ -1210,9 +1236,11 @@ function renderPrestartIntroScreen() {
       quizStarted = true;
       quizContainer.classList.remove("prestart-mode");
   setViewerProgressChromeVisible(true);
+        ensureReportQuestionButtonExists();
       document.getElementById("checkAnswerBtn").style.display = "inline-block";
       document.getElementById("nextQuestionBtn").style.display = "inline-block";
       document.getElementById("notesViewerBtn").style.display = "inline-block";
+        document.getElementById("reportQuestionBtn").style.display = "inline-block";
 
       if (!Array.isArray(quizData.questions) || quizData.questions.length === 0) {
         document.getElementById("quizContainer").innerHTML = "<p>This quiz has no questions yet.</p>";
@@ -1264,9 +1292,11 @@ function applySingleQuiz(quiz) {
       quizContainer.classList.remove("prestart-mode");
     }
     setViewerProgressChromeVisible(true);
+    ensureReportQuestionButtonExists();
     document.getElementById("checkAnswerBtn").style.display = "inline-block";
     document.getElementById("nextQuestionBtn").style.display = "inline-block";
     document.getElementById("notesViewerBtn").style.display = "inline-block";
+    document.getElementById("reportQuestionBtn").style.display = "inline-block";
 
     if (!Array.isArray(quizData.questions) || quizData.questions.length === 0) {
       document.getElementById("quizContainer").innerHTML = "<p>This quiz has no questions yet.</p>";
@@ -10900,7 +10930,7 @@ async function loadQuiz() {
 }
 
 document.getElementById("checkAnswerBtn").addEventListener("click", checkAnswer);
-document.getElementById("reportQuestionBtn").addEventListener("click", reportCurrentQuestion);
+ensureReportQuestionButtonExists();
 document.getElementById("showSolutionBtn").addEventListener("click", openSolutionModal);
 document.getElementById("nextQuestionBtn").addEventListener("click", goNext);
 document.getElementById("shareQuizLinkBtn").addEventListener("click", () => {

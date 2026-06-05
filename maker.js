@@ -2616,8 +2616,10 @@ function buildQuizViewerUrl(quizId) {
   if (!quiz) return null;
 
   const fileName = quiz.sourcePath || quiz.fileName || normalizeQuizFileName(quiz.title);
+  const cacheToken = "20260606-3";
   const viewerUrl = new URL("viewer.html", window.location.href);
   viewerUrl.searchParams.set("file", fileName);
+  viewerUrl.searchParams.set("cv", cacheToken);
 
   return viewerUrl;
 }
@@ -13373,7 +13375,7 @@ function renderResultValidationDetail(questionIndex) {
           <p style="margin:0 0 8px 0; font-weight:700; color:#1e293b;">Learner Runtime (Live Interactive)</p>
           <p class="helper-text" style="margin:0 0 8px 0;">This runs the same viewer runtime as learners. Use Check Answer inside the frame.</p>
           <iframe
-            src="viewer.html?mode=validation"
+            src="viewer.html?mode=validation&cv=20260606-3"
             data-role="result-validation-viewer"
             title="Learner runtime preview"
             style="width:100%; min-height:560px; border:1px solid #dbe5f1; border-radius:8px; background:#fff;"

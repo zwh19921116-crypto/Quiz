@@ -1240,7 +1240,8 @@
 
       function launchQuiz(file) {
         if (!file) return;
-        window.location.href = "viewer.html?file=" + encodeURIComponent(file);
+        const cacheToken = "20260606-3";
+        window.location.href = "viewer.html?file=" + encodeURIComponent(file) + "&cv=" + encodeURIComponent(cacheToken);
       }
 
       // ── Back button ─────────────────────────────────────────
