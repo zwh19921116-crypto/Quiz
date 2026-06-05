@@ -1,7 +1,7 @@
 {
-  "id": "quiz-100",
+  "id": "quiz-90",
   "title": "Prep 9.06",
-  "description": "Learning Outcomes: Subtract within 20 | Two-step reasoning | Subtract fluently",
+  "description": "Learning Outcomes for Prep: Subtract within 20 | Two-step reasoning | Subtract fluently",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -383,7 +383,7 @@
         "17",
         ""
       ],
-      "correctAnswer": "18",
+      "correctAnswer": "15",
       "category": "Word Problems",
       "subcategory": "Multi-Step",
       "learningOutcome": "Two-step reasoning",

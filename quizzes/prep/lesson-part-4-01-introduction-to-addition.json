@@ -1,7 +1,7 @@
 {
-  "id": "quiz-44",
+  "id": "quiz-35",
   "title": "Prep 4.01",
-  "description": "Learning Outcomes: Combine groups | Count combined groups | Apply addition | Mastery",
+  "description": "Learning Outcomes for Prep: Combine groups | Count combined groups | Apply addition | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -162,13 +162,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Addition",
       "subcategory": "Combine Groups",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -180,13 +180,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Addition",
       "subcategory": "Combine Groups",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -198,13 +198,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Addition",
       "subcategory": "Combine Groups",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -216,13 +216,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Addition",
       "subcategory": "Combine Groups",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -234,13 +234,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Addition",
       "subcategory": "Combine Groups",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -252,13 +252,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Count Altogether",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -270,13 +270,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Count Altogether",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -288,13 +288,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Count Altogether",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -306,13 +306,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Count Altogether",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -324,13 +324,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Count Altogether",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -342,7 +342,7 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Application",
       "subcategory": "Real World Addition",
       "learningOutcome": "Apply addition",
@@ -371,7 +371,7 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Application",
       "subcategory": "Real World Addition",
       "learningOutcome": "Apply addition",
@@ -400,7 +400,7 @@
         "4",
         "5"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "2",
       "category": "Application",
       "subcategory": "Real World Addition",
       "learningOutcome": "Apply addition",
@@ -429,13 +429,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "3",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -447,13 +447,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     }
   ]

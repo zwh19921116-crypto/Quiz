@@ -1,7 +1,7 @@
 {
   "id": "quiz-2",
   "title": "Prep 1.02",
-  "description": "Learning Outcomes: Recognise 0 | Understand zero | Write 0 | Count 0 objects | Match quantity | Apply zero | Review zero | Mastery of zero",
+  "description": "Learning Outcomes for Prep: Recognise 0 | Understand zero | Write 0 | Count 0 objects | Match quantity | Apply zero | Review zero | Mastery of zero",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -71,7 +71,7 @@
         "0",
         "2"
       ],
-      "correctAnswer": "0, 0, 0",
+      "correctAnswer": "0",
       "category": "Recognition",
       "subcategory": "Select Number 0",
       "learningOutcome": "Recognise 0",
@@ -89,7 +89,7 @@
         "4",
         "0"
       ],
-      "correctAnswer": "0, 0",
+      "correctAnswer": "0",
       "category": "Recognition",
       "subcategory": "Select Number 0",
       "learningOutcome": "Recognise 0",
@@ -107,7 +107,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "0",
       "category": "Tracing",
       "subcategory": "Trace Number 0",
       "learningOutcome": "Write 0",
@@ -125,7 +125,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "0",
       "category": "Tracing",
       "subcategory": "Trace Number 0",
       "learningOutcome": "Write 0",
@@ -143,7 +143,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "0",
       "category": "Writing",
       "subcategory": "Draw Number 0",
       "learningOutcome": "Write 0",

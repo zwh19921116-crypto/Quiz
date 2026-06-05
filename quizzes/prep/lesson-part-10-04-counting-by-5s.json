@@ -1,7 +1,7 @@
 {
-  "id": "quiz-19",
+  "id": "quiz-98",
   "title": "Prep 10.04",
-  "description": "Learning Outcomes: Count in 5s | Understand groups | Group counting | Repeated addition | Equal groups",
+  "description": "Learning Outcomes for Prep: Count in 5s | Understand groups | Group counting | Repeated addition | Equal groups",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,7 +17,7 @@
         "2010",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "5",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 5s",
@@ -46,13 +46,13 @@
         "20",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "10",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -64,13 +64,13 @@
         "25",
         ""
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "15",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
+      "solution": "The correct answer is 15.",
       "solutionAttachments": []
     },
     {
@@ -80,6 +80,24 @@
         "5",
         "10",
         "2015",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍪🍪🍪🍪🍪 + 🍪🍪🍪🍪🍪 + 🍪🍪🍪🍪🍪 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "15",
+        "20",
         ""
       ],
       "correctAnswer": "10",
@@ -92,12 +110,12 @@
       "solutionAttachments": []
     },
     {
-      "question": "🍪🍪🍪🍪🍪 + 🍪🍪🍪🍪🍪 + 🍪🍪🍪🍪🍪 = ?",
+      "question": "⭐⭐⭐⭐⭐ + ⭐⭐⭐⭐⭐ + ⭐⭐⭐⭐⭐ + ⭐⭐⭐⭐⭐ = ?",
       "resultType": "multiple-choice",
       "options": [
-        "10",
         "15",
         "20",
+        "25",
         ""
       ],
       "correctAnswer": "15",
@@ -110,24 +128,6 @@
       "solutionAttachments": []
     },
     {
-      "question": "⭐⭐⭐⭐⭐ + ⭐⭐⭐⭐⭐ + ⭐⭐⭐⭐⭐ + ⭐⭐⭐⭐⭐ = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "15",
-        "20",
-        "25",
-        ""
-      ],
-      "correctAnswer": "20",
-      "category": "Number Patterns",
-      "subcategory": "Visual Counting",
-      "learningOutcome": "Count in 5s",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 20.",
-      "solutionAttachments": []
-    },
-    {
       "question": "👟👟👟👟👟 → How many in 1 group?",
       "resultType": "multiple-choice",
       "options": [
@@ -136,7 +136,7 @@
         "2005",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "3",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Understand groups",
@@ -165,7 +165,7 @@
         "2010",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "8",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 5s",
@@ -302,39 +302,63 @@
     },
     {
       "question": "5 + 5 + 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "10",
         "15",
         "20",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
-      "solutionAttachments": []
+      "solution": "Compute 5 + 5 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 5,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "5 + 5 + 5 + 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "15",
         "20",
         "25",
         ""
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
-      "solutionAttachments": []
+      "solution": "Compute 5 + 5 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 5,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "2 groups of 5 = ?",
@@ -345,7 +369,7 @@
         "2010",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "8",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Equal groups",

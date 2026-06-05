@@ -1,7 +1,7 @@
 {
-  "id": "quiz-92",
+  "id": "quiz-83",
   "title": "Prep 8.09",
-  "description": "Learning Outcomes: Add within 10 | Make 10 | Add within 20 | Word addition | Counting on | Missing addend | Add fluently | Double addition | Multi-step addition",
+  "description": "Learning Outcomes for Prep: Add within 10 | Make 10 | Add within 20 | Word addition | Counting on | Missing addend | Add fluently | Double addition | Multi-step addition",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "6 + 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "8",
         "9",
@@ -23,12 +23,24 @@
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
-      "solutionAttachments": []
+      "solution": "Compute 6 + 3 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 3,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "7 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "8",
         "9",
@@ -41,12 +53,24 @@
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
-      "solutionAttachments": []
+      "solution": "Compute 7 + 2 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7,
+          "operandB": 2,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "4 + 6 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "9",
         "10",
@@ -59,12 +83,24 @@
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
+      "solution": "Compute 4 + 6 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 6,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "8 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "9",
         "10",
@@ -77,12 +113,24 @@
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
+      "solution": "Compute 8 + 2 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 8,
+          "operandB": 2,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "10 + 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "14",
         "15",
@@ -95,12 +143,24 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
-      "solutionAttachments": []
+      "solution": "Compute 10 + 5 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 10,
+          "operandB": 5,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "12 + 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "14",
         "15",
@@ -113,8 +173,20 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
-      "solutionAttachments": []
+      "solution": "Compute 12 + 3 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 12,
+          "operandB": 3,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "You have 5 apples and get 4 more. How many?",
@@ -165,7 +237,7 @@
     },
     {
       "question": "9 + 1 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "9",
         "10",
@@ -178,8 +250,20 @@
       "learningOutcome": "Counting on",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
+      "solution": "Compute 9 + 1 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 1,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "10 = 7 + ?",
@@ -201,7 +285,7 @@
     },
     {
       "question": "5 + 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "9",
         "10",
@@ -214,12 +298,24 @@
       "learningOutcome": "Add fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
+      "solution": "Compute 5 + 5 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 5,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "3 + 4 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "6",
         "7",
@@ -232,12 +328,24 @@
       "learningOutcome": "Add fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
-      "solutionAttachments": []
+      "solution": "Compute 3 + 4 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3,
+          "operandB": 4,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "11 + 4 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "14",
         "15",
@@ -250,12 +358,24 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
-      "solutionAttachments": []
+      "solution": "Compute 11 + 4 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 11,
+          "operandB": 4,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "9 + 7 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "15",
         "16",
@@ -268,8 +388,20 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 16.",
-      "solutionAttachments": []
+      "solution": "Compute 9 + 7 = 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 7,
+          "answer": "16",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "6 toys + 5 toys = ?",
@@ -291,7 +423,7 @@
     },
     {
       "question": "8 + 8 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "15",
         "16",
@@ -304,44 +436,80 @@
       "learningOutcome": "Double addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 16.",
-      "solutionAttachments": []
+      "solution": "Compute 8 + 8 = 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 8,
+          "operandB": 8,
+          "answer": "16",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "2 + 3 + 4 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "8",
         "9",
         "10",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "5",
       "category": "Mixed Skills",
       "subcategory": "Multi-step",
       "learningOutcome": "Multi-step addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
-      "solutionAttachments": []
+      "solution": "Compute 2 + 3 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 3,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "5 + 2 + 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "9",
         "10",
         "11",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "7",
       "category": "Mixed Skills",
       "subcategory": "Multi-step",
       "learningOutcome": "Multi-step addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
+      "solution": "Compute 5 + 2 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 2,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "9 + ? = 10",
@@ -363,7 +531,7 @@
     },
     {
       "question": "7 + 6 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "12",
         "13",
@@ -376,8 +544,20 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 13.",
-      "solutionAttachments": []
+      "solution": "Compute 7 + 6 = 13.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7,
+          "operandB": 6,
+          "answer": "13",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     }
   ]
 }

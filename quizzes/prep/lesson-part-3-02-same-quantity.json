@@ -1,7 +1,7 @@
 {
-  "id": "quiz-36",
+  "id": "quiz-26",
   "title": "Prep 3.02",
-  "description": "Learning Outcomes: Identify equal quantities | Compare quantities | Match equal groups | Recognise equal numbers | Compare numbers | Apply equality | Mastery",
+  "description": "Learning Outcomes for Prep: Identify equal quantities | Compare quantities | Match equal groups | Recognise equal numbers | Compare numbers | Apply equality | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "",
         ""
       ],
-      "correctAnswer": "No",
+      "correctAnswer": "Yes",
       "category": "Comparing",
       "subcategory": "Same Quantity",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "The correct answer is Yes.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "",
         ""
       ],
-      "correctAnswer": "No",
+      "correctAnswer": "Yes",
       "category": "Comparing",
       "subcategory": "Same Quantity",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "The correct answer is Yes.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +107,13 @@
         "🍎🍎🍎🍎",
         ""
       ],
-      "correctAnswer": "🍎🍎🍎",
+      "correctAnswer": "🍎🍎",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🍎🍎🍎.",
+      "solution": "The correct answer is 🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +125,13 @@
         "⭐⭐⭐⭐⭐",
         ""
       ],
-      "correctAnswer": "⭐⭐⭐⭐",
+      "correctAnswer": "⭐⭐⭐",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is ⭐⭐⭐⭐.",
+      "solution": "The correct answer is ⭐⭐⭐.",
       "solutionAttachments": []
     },
     {
@@ -143,13 +143,13 @@
         "🚗🚗🚗",
         ""
       ],
-      "correctAnswer": "🚗🚗",
+      "correctAnswer": "🚗",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🚗🚗.",
+      "solution": "The correct answer is 🚗.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +161,13 @@
         "🐶🐶🐶",
         ""
       ],
-      "correctAnswer": "🐶🐶🐶🐶🐶",
+      "correctAnswer": "🐶🐶🐶🐶",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🐶🐶🐶🐶🐶.",
+      "solution": "The correct answer is 🐶🐶🐶🐶.",
       "solutionAttachments": []
     },
     {
@@ -179,13 +179,13 @@
         "🐟🐟",
         ""
       ],
-      "correctAnswer": "🐟🐟🐟🐟",
+      "correctAnswer": "🐟🐟🐟",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🐟🐟🐟🐟.",
+      "solution": "The correct answer is 🐟🐟🐟.",
       "solutionAttachments": []
     },
     {
@@ -341,13 +341,13 @@
         "🍎🍎🍎🍎🍎",
         ""
       ],
-      "correctAnswer": "🍎🍎🍎🍎",
+      "correctAnswer": "🍎🍎🍎",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🍎🍎🍎🍎.",
+      "solution": "The correct answer is 🍎🍎🍎.",
       "solutionAttachments": []
     },
     {

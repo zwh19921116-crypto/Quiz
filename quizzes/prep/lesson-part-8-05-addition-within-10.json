@@ -1,7 +1,7 @@
 {
-  "id": "quiz-89",
+  "id": "quiz-79",
   "title": "Prep 8.05",
-  "description": "Learning Outcomes: Find missing number | Missing addend | Add to 10",
+  "description": "Learning Outcomes for Prep: Find missing number | Missing addend | Add to 10",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,7 +17,7 @@
         "2004",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "2",
       "category": "Number Bonds",
       "subcategory": "Missing Addend",
       "learningOutcome": "Find missing number",
@@ -53,13 +53,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "3",
       "category": "Number Bonds",
       "subcategory": "Missing Addend",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +161,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "4",
       "category": "Number Bonds",
       "subcategory": "Missing Addend",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -197,7 +197,7 @@
         "2004",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Word Problems",
       "subcategory": "Simple Context",
       "learningOutcome": "Missing addend",
@@ -226,7 +226,7 @@
         "2005",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "3",
       "category": "Word Problems",
       "subcategory": "Simple Context",
       "learningOutcome": "Missing addend",

@@ -1,7 +1,7 @@
 {
   "id": "quiz-4",
   "title": "Prep 1.04",
-  "description": "Learning Outcomes: Recognise 2 | Understand quantity 2 | Write 2 | Count 2 objects | Match quantity | Apply quantity 2 | Review number 2 | Mastery of number 2",
+  "description": "Learning Outcomes for Prep: Recognise 2 | Understand quantity 2 | Write 2 | Count 2 objects | Match quantity | Apply quantity 2 | Review number 2 | Mastery of number 2",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Identify Number 2",
       "learningOutcome": "Understand quantity 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     },
     {
@@ -71,7 +71,7 @@
         "2",
         "3"
       ],
-      "correctAnswer": "2, 2, 2",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Select Number 2",
       "learningOutcome": "Recognise 2",
@@ -89,7 +89,7 @@
         "5",
         "2"
       ],
-      "correctAnswer": "2, 2",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Select Number 2",
       "learningOutcome": "Recognise 2",
@@ -107,7 +107,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "2",
       "category": "Tracing",
       "subcategory": "Trace Number 2",
       "learningOutcome": "Write 2",
@@ -125,7 +125,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "2",
       "category": "Tracing",
       "subcategory": "Trace Number 2",
       "learningOutcome": "Write 2",
@@ -143,7 +143,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "2",
       "category": "Writing",
       "subcategory": "Draw Number 2",
       "learningOutcome": "Write 2",
@@ -440,13 +440,13 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review number 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     },
     {

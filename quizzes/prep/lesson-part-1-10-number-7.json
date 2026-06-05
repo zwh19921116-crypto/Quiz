@@ -1,7 +1,7 @@
 {
-  "id": "quiz-11",
+  "id": "quiz-10",
   "title": "Prep 1.10",
-  "description": "Learning Outcomes: Recognise 7 | Understand quantity 7 | Write 7 | Count 7 objects | Match quantity | Apply quantity 7 | Review number 7 | Mastery of number 7",
+  "description": "Learning Outcomes for Prep: Recognise 7 | Understand quantity 7 | Write 7 | Count 7 objects | Match quantity | Apply quantity 7 | Review number 7 | Mastery of number 7",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "7",
         "8"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "5",
       "category": "Recognition",
       "subcategory": "Identify Number 7",
       "learningOutcome": "Understand quantity 7",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -71,7 +71,7 @@
         "7",
         "2"
       ],
-      "correctAnswer": "7, 7, 7",
+      "correctAnswer": "7",
       "category": "Recognition",
       "subcategory": "Select Number 7",
       "learningOutcome": "Recognise 7",
@@ -89,7 +89,7 @@
         "9",
         "7"
       ],
-      "correctAnswer": "7, 7",
+      "correctAnswer": "7",
       "category": "Recognition",
       "subcategory": "Select Number 7",
       "learningOutcome": "Recognise 7",
@@ -107,7 +107,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "7",
       "category": "Tracing",
       "subcategory": "Trace Number 7",
       "learningOutcome": "Write 7",
@@ -125,7 +125,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "7",
       "category": "Tracing",
       "subcategory": "Trace Number 7",
       "learningOutcome": "Write 7",
@@ -143,7 +143,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "7",
       "category": "Writing",
       "subcategory": "Draw Number 7",
       "learningOutcome": "Write 7",
@@ -440,13 +440,13 @@
         "7",
         "8"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "5",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review number 7",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {

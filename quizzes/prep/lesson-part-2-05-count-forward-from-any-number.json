@@ -1,7 +1,7 @@
 {
-  "id": "quiz-29",
+  "id": "quiz-19",
   "title": "Prep 2.05",
-  "description": "Learning Outcomes: Count forward | Complete sequence | Find missing number | Use number line | Mastery",
+  "description": "Learning Outcomes for Prep: Count forward | Complete sequence | Find missing number | Use number line | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -287,13 +287,13 @@
         "6",
         "7"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "4",
       "category": "Application",
       "subcategory": "Number Line",
       "learningOutcome": "Use number line",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -305,13 +305,13 @@
         "10",
         "11"
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "8",
       "category": "Application",
       "subcategory": "Number Line",
       "learningOutcome": "Use number line",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -348,26 +348,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 17.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 15,16,__",
-          "direction": "ascending",
-          "cards": [
-            15,
-            16,
-            17,
-            18
-          ],
-          "correctOrder": [
-            15,
-            16,
-            17,
-            18
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "What comes next? 18,19,__",
@@ -385,26 +366,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 20.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 18,19,__",
-          "direction": "ascending",
-          "cards": [
-            18,
-            19,
-            20,
-            21
-          ],
-          "correctOrder": [
-            18,
-            19,
-            20,
-            21
-          ]
-        }
-      }
+      "solutionAttachments": []
     }
   ]
 }

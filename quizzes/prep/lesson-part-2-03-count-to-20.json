@@ -1,7 +1,7 @@
 {
-  "id": "quiz-27",
+  "id": "quiz-17",
   "title": "Prep 2.03",
-  "description": "Learning Outcomes: Count to 20 | Connect quantity to number | Match quantity | Count different objects | Count forward | Count forward beyond 20 | Apply counting | Mastery",
+  "description": "Learning Outcomes for Prep: Count to 20 | Connect quantity to number | Match quantity | Count different objects | Count forward | Count forward beyond 20 | Apply counting | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -350,26 +350,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 12.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 10,11,__",
-          "direction": "ascending",
-          "cards": [
-            10,
-            11,
-            12,
-            13
-          ],
-          "correctOrder": [
-            10,
-            11,
-            12,
-            13
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "What comes next? 14,15,__",
@@ -387,26 +368,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 16.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 14,15,__",
-          "direction": "ascending",
-          "cards": [
-            14,
-            15,
-            16,
-            17
-          ],
-          "correctOrder": [
-            14,
-            15,
-            16,
-            17
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "What comes next? 19,20,__",
@@ -424,26 +386,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 21.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 19,20,__",
-          "direction": "ascending",
-          "cards": [
-            19,
-            20,
-            21,
-            22
-          ],
-          "correctOrder": [
-            19,
-            20,
-            21,
-            22
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "Mia has 12 balloons. How many balloons does she have?",
@@ -570,13 +513,13 @@
         "18",
         "20"
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "11",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
+      "solution": "The correct answer is 11.",
       "solutionAttachments": []
     }
   ]

@@ -1,7 +1,7 @@
 {
-  "id": "quiz-34",
+  "id": "quiz-24",
   "title": "Prep 2.10",
-  "description": "Learning Outcomes: Count objects | Match quantity | Count forward | Count backward | Missing numbers | Number order | Apply counting | Complete sequence | Mastery",
+  "description": "Learning Outcomes for Prep: Count objects | Match quantity | Count forward | Count backward | Missing numbers | Number order | Apply counting | Complete sequence | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -198,26 +198,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 8.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 6,7,__",
-          "direction": "ascending",
-          "cards": [
-            6,
-            7,
-            8,
-            9
-          ],
-          "correctOrder": [
-            6,
-            7,
-            8,
-            9
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "What comes next? 14,15,__",
@@ -235,26 +216,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 16.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 14,15,__",
-          "direction": "ascending",
-          "cards": [
-            14,
-            15,
-            16,
-            17
-          ],
-          "correctOrder": [
-            14,
-            15,
-            16,
-            17
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "What comes before 9?",
@@ -337,13 +299,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "8",
       "category": "Recognition",
       "subcategory": "Number Order",
       "learningOutcome": "Number order",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -355,13 +317,13 @@
         "17",
         "18"
       ],
-      "correctAnswer": "17",
+      "correctAnswer": "16",
       "category": "Recognition",
       "subcategory": "Number Order",
       "learningOutcome": "Number order",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 17.",
+      "solution": "The correct answer is 16.",
       "solutionAttachments": []
     },
     {
@@ -391,13 +353,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Application",
       "subcategory": "Number Line",
       "learningOutcome": "Apply counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -463,13 +425,13 @@
         "15",
         "20"
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "6",
       "category": "Mastery",
       "subcategory": "Mixed Assessment",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     }
   ]

@@ -1,7 +1,7 @@
 {
-  "id": "quiz-25",
+  "id": "quiz-15",
   "title": "Prep 2.01",
-  "description": "Learning Outcomes: Count to 5 | Connect counting to numbers | Match quantity | Count different objects | Count forward | Apply counting | Mastery",
+  "description": "Learning Outcomes for Prep: Count to 5 | Connect counting to numbers | Match quantity | Count different objects | Count forward | Apply counting | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -350,26 +350,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 3.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 1,2,__",
-          "direction": "ascending",
-          "cards": [
-            1,
-            2,
-            3,
-            4
-          ],
-          "correctOrder": [
-            1,
-            2,
-            3,
-            4
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "What comes next? 2,3,__",
@@ -387,26 +368,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 4.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 2,3,__",
-          "direction": "ascending",
-          "cards": [
-            2,
-            3,
-            4,
-            5
-          ],
-          "correctOrder": [
-            2,
-            3,
-            4,
-            5
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "What comes next? 3,4,__",
@@ -424,26 +386,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 3,4,__",
-          "direction": "ascending",
-          "cards": [
-            3,
-            4,
-            5,
-            6
-          ],
-          "correctOrder": [
-            3,
-            4,
-            5,
-            6
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "Sam has 2 balloons. How many balloons does Sam have?",
@@ -570,13 +513,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "1",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     }
   ]

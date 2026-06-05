@@ -1,7 +1,7 @@
 {
-  "id": "quiz-22",
+  "id": "quiz-102",
   "title": "Prep 10.08",
-  "description": "Learning Outcomes: Count in 2s | Count in 5s | Count in 10s | Group counting | Repeated counting | Equal groups",
+  "description": "Learning Outcomes for Prep: Count in 2s | Count in 5s | Count in 10s | Group counting | Repeated counting | Equal groups",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "4",
       "category": "Number Patterns",
       "subcategory": "Count by 2 (Visual)",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "2",
       "category": "Number Patterns",
       "subcategory": "Count by 2 (Visual)",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "20",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "10",
       "category": "Number Patterns",
       "subcategory": "Count by 5 (Visual)",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "30",
         ""
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "10",
       "category": "Number Patterns",
       "subcategory": "Count by 10 (Visual)",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +107,13 @@
         "40",
         ""
       ],
-      "correctAnswer": "30",
+      "correctAnswer": "20",
       "category": "Number Patterns",
       "subcategory": "Count by 10 (Visual)",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 30.",
+      "solution": "The correct answer is 20.",
       "solutionAttachments": []
     },
     {
@@ -125,7 +125,7 @@
         "2006",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "4",
       "category": "Word Problems",
       "subcategory": "Equal Groups",
       "learningOutcome": "Group counting",
@@ -226,43 +226,67 @@
     },
     {
       "question": "2 + 2 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "6",
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "4",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
+      "solution": "Compute 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "5 + 5 + 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "10",
         "15",
         "20",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
-      "solutionAttachments": []
+      "solution": "Compute 5 + 5 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 5,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "10 + 10 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "10",
         "20",
@@ -275,26 +299,50 @@
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
-      "solutionAttachments": []
+      "solution": "Compute 10 + 10 = 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 10,
+          "operandB": 10,
+          "answer": "20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "3 + 3 + 3 + 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "8",
         "10",
         "2012",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
-      "solutionAttachments": []
+      "solution": "Compute 3 + 3 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3,
+          "operandB": 3,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "4 groups of 2 = ?",
@@ -352,21 +400,33 @@
     },
     {
       "question": "2 + 2 + 2 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "6",
         "8",
         "2010",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "4",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
+      "solution": "Compute 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     }
   ]
 }

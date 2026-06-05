@@ -1,7 +1,7 @@
 {
-  "id": "quiz-55",
+  "id": "quiz-45",
   "title": "Prep 5.01",
-  "description": "Learning Outcomes: Understand take away | Count remaining objects | Apply subtraction | Mastery",
+  "description": "Learning Outcomes for Prep: Understand take away | Count remaining objects | Apply subtraction | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "2",
         "3"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "0",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
       "learningOutcome": "Understand take away",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 0.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "2",
         "3"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "0",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
       "learningOutcome": "Understand take away",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 0.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "2",
         "3"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "0",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
       "learningOutcome": "Understand take away",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 0.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +71,13 @@
         "2",
         "3"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "0",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
       "learningOutcome": "Understand take away",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 0.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "2",
         "3"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "0",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
       "learningOutcome": "Understand take away",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 0.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +107,13 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
       "learningOutcome": "Understand take away",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +125,13 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
       "learningOutcome": "Understand take away",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     },
     {
@@ -143,13 +143,13 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
       "learningOutcome": "Understand take away",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +161,13 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
       "learningOutcome": "Understand take away",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     },
     {
@@ -179,13 +179,13 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
       "learningOutcome": "Understand take away",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +197,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Count Remaining",
       "learningOutcome": "Count remaining objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -215,13 +215,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Count Remaining",
       "learningOutcome": "Count remaining objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -233,13 +233,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Count Remaining",
       "learningOutcome": "Count remaining objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -251,13 +251,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Count Remaining",
       "learningOutcome": "Count remaining objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -269,13 +269,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Count Remaining",
       "learningOutcome": "Count remaining objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -287,7 +287,7 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Application",
       "subcategory": "Real World Take Away",
       "learningOutcome": "Apply subtraction",
@@ -316,7 +316,7 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Application",
       "subcategory": "Real World Take Away",
       "learningOutcome": "Apply subtraction",
@@ -345,7 +345,7 @@
         "5",
         "6"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Application",
       "subcategory": "Real World Take Away",
       "learningOutcome": "Apply subtraction",
@@ -374,13 +374,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -392,13 +392,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     }
   ]

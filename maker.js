@@ -251,6 +251,44 @@ function autoFixQuestionIssues(question) {
     changed = normalizeCheckboxCorrectAnswers(question, choiceOptions) || changed;
   }
 
+  const computedAnswer = computeExpectedAnswerForQuestion(question);
+  const computedValue = String(computedAnswer && computedAnswer.value ? computedAnswer.value : "").trim();
+  if (computedValue) {
+    const currentAnswer = String(question.correctAnswer || "").trim();
+    let nextAnswer = currentAnswer;
+
+    if (["multiple-choice", "true-false"].includes(normalizedType)) {
+      const matchedOption = choiceOptions.find((item) => normalizeText(item) === normalizeText(computedValue));
+      if (matchedOption) {
+        nextAnswer = String(matchedOption).trim();
+      }
+    } else if (normalizedType === "checkbox") {
+      const requested = computedValue
+        .split(",")
+        .map((item) => item.trim())
+        .filter((item) => item !== "");
+      const resolved = requested.map((token) => {
+        const hit = choiceOptions.find((item) => normalizeText(item) === normalizeText(token));
+        return hit ? String(hit).trim() : token;
+      });
+      if (resolved.length > 0) {
+        nextAnswer = resolved.join(", ");
+      }
+    } else {
+      nextAnswer = computedValue;
+    }
+
+    if (nextAnswer && !compareAnswersForResultType(normalizedType, currentAnswer, nextAnswer)) {
+      question.correctAnswer = nextAnswer;
+      changed = true;
+
+      const existingSolution = String(question.solution || "").trim();
+      if (!existingSolution || /^the correct answer is\b/i.test(existingSolution)) {
+        question.solution = inferSolutionFromImport(question.question, nextAnswer);
+      }
+    }
+  }
+
   if (["multiple-choice", "true-false"].includes(normalizedType)) {
     const beforeAnswer = String(question.correctAnswer || "");
     ensureDefaultCorrectAnswer(question);
@@ -290,6 +328,54 @@ function autoFixQuestionIssues(question) {
   return { changed, before, after };
 }
 
+function snapshotImportAutoFixFields(question) {
+  if (!question || typeof question !== "object") return "";
+  return JSON.stringify({
+    resultType: question.resultType || "",
+    options: Array.isArray(question.options) ? question.options : [],
+    correctAnswer: question.correctAnswer || "",
+    category: question.category || "",
+    subcategory: question.subcategory || "",
+    learningOutcome: question.learningOutcome || "",
+    solution: question.solution || "",
+    interactiveApp: question.interactiveApp || null
+  });
+}
+
+function getImportAutoFixStatus(beforeIssues, afterIssues, changed) {
+  if (afterIssues === 0 && changed) return "fixed";
+  if (afterIssues < beforeIssues) return "improved";
+  if (afterIssues > 0) return "unresolved";
+  return changed ? "fixed" : "unchanged";
+}
+
+function describeImportAutoFixChanges(beforeSnapshot, afterSnapshot) {
+  try {
+    const before = beforeSnapshot ? JSON.parse(beforeSnapshot) : null;
+    const after = afterSnapshot ? JSON.parse(afterSnapshot) : null;
+    if (!before || !after) return "";
+    const labels = [];
+    const pairs = [
+      ["resultType", "result type"],
+      ["options", "options"],
+      ["correctAnswer", "answer"],
+      ["category", "category"],
+      ["subcategory", "subcategory"],
+      ["learningOutcome", "learning outcome"],
+      ["solution", "solution"],
+      ["interactiveApp", "interactive app"]
+    ];
+    pairs.forEach(([key, label]) => {
+      if (JSON.stringify(before[key]) !== JSON.stringify(after[key])) {
+        labels.push(label);
+      }
+    });
+    return labels.join(", ");
+  } catch (_error) {
+    return "";
+  }
+}
+
 function autoFixActiveQuizIssues() {
   const quiz = activeQuiz();
   if (!quiz || !Array.isArray(quiz.questions) || quiz.questions.length === 0) {
@@ -327,6 +413,7 @@ function autoFixActiveQuizIssues() {
 let pendingImportRows = [];
 let pendingImportSourceName = "";
 let pendingImportValidation = null;
+let pendingImportAutoFixReport = null;
 let pendingResultValidation = null;
 let pendingResultValidationSelectedIndex = -1;
 let pendingResultValidationFilter = "all";
@@ -11476,6 +11563,18 @@ document.getElementById("exportValidationBtn").addEventListener("click", () => {
   downloadImportValidationCsv();
 });
 
+document.getElementById("openImportReportBtn").addEventListener("click", () => {
+  if (!pendingImportAutoFixReport || !Array.isArray(pendingImportAutoFixReport.rows) || pendingImportAutoFixReport.rows.length === 0) {
+    showToast("No auto-fix report available yet.", "warning");
+    return;
+  }
+  openImportReportModal();
+});
+
+document.getElementById("exportAutoFixReportBtn").addEventListener("click", () => {
+  downloadImportAutoFixReportCsv();
+});
+
 document.getElementById("importValidationBody").addEventListener("click", (event) => {
   const target = event.target;
   if (!(target instanceof HTMLElement)) return;
@@ -11502,15 +11601,28 @@ document.getElementById("applyImportBtn").addEventListener("click", async () => 
       return;
     }
   }
-  await applyPendingImportToMaker();
-  closeImportModal();
+  try {
+    const result = await applyPendingImportToMaker();
+    if (result && result.importedQuizCount > 0) {
+      closeImportModal();
+      openImportReportModal();
+    }
+  } catch (error) {
+    showToast(`Import failed: ${String(error && error.message ? error.message : error)}`, "error");
+    console.error("Apply Import failed", error);
+  }
 });
 
 document.getElementById("clearImportPreviewBtn").addEventListener("click", () => {
   pendingImportRows = [];
   pendingImportSourceName = "";
   pendingImportValidation = null;
+  pendingImportAutoFixReport = null;
   renderImportPreview([], "spreadsheet");
+  const reportBtn = document.getElementById("openImportReportBtn");
+  if (reportBtn instanceof HTMLButtonElement) {
+    reportBtn.disabled = true;
+  }
   showToast("Import preview cleared.", "info");
 });
 
@@ -11518,9 +11630,20 @@ document.getElementById("closeImportModalBtn").addEventListener("click", () => {
   closeImportModal();
 });
 
+document.getElementById("closeImportReportModalBtn").addEventListener("click", () => {
+  closeImportReportModal();
+});
+
 document.getElementById("toggleImportFullscreenBtn").addEventListener("click", () => {
   toggleImportModalFullscreen();
 });
+
+const importReportBackdrop = document.querySelector("[data-close-import-report-modal='true']");
+if (importReportBackdrop instanceof HTMLElement) {
+  importReportBackdrop.addEventListener("click", () => {
+    closeImportReportModal();
+  });
+}
 
 document.querySelector("[data-close-import-modal='true']").addEventListener("click", () => {
   closeImportModal();
@@ -11831,6 +11954,10 @@ function inferResultTypeFromImport(questionType, options = [], question = "", te
     return "plot";
   }
 
+  if (normalizedTemplateType === "arithmetic" || normalizedTemplateType === "arithmetic-long-division") {
+    return "short-answer";
+  }
+
   if (normalized.includes("multi select") || normalized.includes("multiselect")) {
     return optionList.length >= 2 ? "checkbox" : "short-answer";
   }
@@ -11859,6 +11986,99 @@ function inferResultTypeFromImport(questionType, options = [], question = "", te
 
   if (optionList.length >= 2 && hasSelectionCue && !hasOpenResponseCue) return "multiple-choice";
   return "short-answer";
+}
+
+function extractArithmeticStructureFromText(text) {
+  const value = String(text || "").trim();
+  if (!value) return null;
+
+  let match = value.match(/\b(-?\d+)\s*([+\-x×*])\s*(-?\d+)\b/i);
+  if (match) {
+    const operandA = Number.parseInt(match[1], 10);
+    const rawOperator = String(match[2] || "").trim();
+    const operandB = Number.parseInt(match[3], 10);
+    const operator = rawOperator === "×" || rawOperator === "*" ? "x" : rawOperator;
+    if (Number.isFinite(operandA) && Number.isFinite(operandB)) {
+      return { operator, operandA, operandB };
+    }
+  }
+
+  match = value.match(/\b(-?\d+)\s*(?:÷|\/)\s*(-?\d+)\b/i);
+  if (match) {
+    const operandA = Number.parseInt(match[1], 10);
+    const operandB = Number.parseInt(match[2], 10);
+    if (Number.isFinite(operandA) && Number.isFinite(operandB)) {
+      return { operator: "/", operandA, operandB };
+    }
+  }
+
+  match = value.match(/\b(?:divide|dividing)\s+(-?\d+)\s+(?:by|into)\s+(-?\d+)\b/i);
+  if (match) {
+    const operandA = Number.parseInt(match[1], 10);
+    const operandB = Number.parseInt(match[2], 10);
+    if (Number.isFinite(operandA) && Number.isFinite(operandB)) {
+      return { operator: "/", operandA, operandB };
+    }
+  }
+
+  match = value.match(/\b(-?\d+)\s+(?:divided\s+by)\s+(-?\d+)\b/i);
+  if (match) {
+    const operandA = Number.parseInt(match[1], 10);
+    const operandB = Number.parseInt(match[2], 10);
+    if (Number.isFinite(operandA) && Number.isFinite(operandB)) {
+      return { operator: "/", operandA, operandB };
+    }
+  }
+
+  return null;
+}
+
+function inferArithmeticStructureFromImportRow(row) {
+  const question = String(row && row.question ? row.question : "").trim();
+  const questionType = String(row && row.questionType ? row.questionType : "").trim();
+  const category = String(row && row.category ? row.category : "").trim();
+  const subcategory = String(row && row.subcategory ? row.subcategory : "").trim();
+  const module = String(row && row.module ? row.module : "").trim();
+  const lessonPart = String(row && row.lessonPart ? row.lessonPart : "").trim();
+  const lessonName = String(row && row.lessonName ? row.lessonName : "").trim();
+
+  const combined = [question, questionType, category, subcategory, module, lessonPart, lessonName]
+    .join(" ")
+    .toLowerCase();
+
+  const subcategoryHint = String(subcategory || "").toLowerCase();
+  const hasLongDivisionCue = /\blong\s*division\b|\blong\s*divide\b|\bbus\s*stop\b|\bquotient\b|\bremainder\b/.test(combined)
+    || subcategoryHint.includes("division-long")
+    || subcategoryHint.includes("long");
+
+  const direct = extractArithmeticStructureFromText(question) || extractArithmeticStructureFromText(combined);
+  if (!direct) {
+    return null;
+  }
+
+  return {
+    operator: direct.operator,
+    operandA: direct.operandA,
+    operandB: direct.operandB,
+    isLongDivision: direct.operator === "/" && hasLongDivisionCue
+  };
+}
+
+function computeArithmeticAnswerFromStructure(structure) {
+  if (!structure || typeof structure !== "object") return null;
+  const operator = String(structure.operator || "").trim();
+  const operandA = Number.parseFloat(structure.operandA);
+  const operandB = Number.parseFloat(structure.operandB);
+  if (!Number.isFinite(operandA) || !Number.isFinite(operandB)) return null;
+
+  if (operator === "+") return operandA + operandB;
+  if (operator === "-") return operandA - operandB;
+  if (operator === "x" || operator === "*") return operandA * operandB;
+  if (operator === "/") {
+    if (operandB === 0) return null;
+    return operandA / operandB;
+  }
+  return null;
 }
 
 function inferTemplateTypeFromImportRow(row) {
@@ -11892,11 +12112,17 @@ function inferTemplateTypeFromImportRow(row) {
     return "cartesian-plane";
   }
 
+  const arithmeticStructure = inferArithmeticStructureFromImportRow(row);
+  if (arithmeticStructure) {
+    return arithmeticStructure.isLongDivision ? "arithmetic-long-division" : "arithmetic";
+  }
+
   if (/\btrace\b|\bdraw\b|\bwrite\b/i.test(question)) {
     return "number-tracing";
   }
 
-  if (/what comes next\?/i.test(question)) {
+  const hasOrderingCue = /\b(move|drag|arrange|reorder|put)\b.*\b(order|sequence|ascending|descending)\b|\b(order|sequence)\b.*\b(move|drag|arrange|reorder|put)\b|\bmove the numbers in order\b/i.test(combined);
+  if (hasOrderingCue) {
     return "number-ordering";
   }
 
@@ -11911,6 +12137,9 @@ function inferImportCategoryFromTemplateType(templateType) {
   const normalized = String(templateType || "").trim().toLowerCase();
   if (normalized === "cartesian-plane" || normalized === "cartesian-plane-plot") {
     return "cartesian-plane";
+  }
+  if (normalized === "arithmetic" || normalized === "arithmetic-long-division") {
+    return "arithmetic";
   }
   return "";
 }
@@ -11986,21 +12215,40 @@ function inferExpectedNumericAnswerFromQuestion(questionText) {
   return null;
 }
 
-function inferAnswerFromImportRow(row) {
+function inferAnswerFromImportRow(row, templateType = "") {
   const question = String(row.question || "").trim();
   const qLower = question.toLowerCase();
   const options = Array.isArray(row.options) ? row.options : [];
-  const baseResultType = inferResultTypeFromImport(row.questionType, options);
+  const resolvedTemplateType = String(templateType || inferTemplateTypeFromImportRow(row)).trim().toLowerCase();
+  const baseResultType = inferResultTypeFromImport(row.questionType, options, question, resolvedTemplateType);
   const computeValue = String(row && row.compute ? row.compute : "").trim();
+  const expectedNumericFromQuestion = inferExpectedNumericAnswerFromQuestion(question);
+  const arithmeticStructure = inferArithmeticStructureFromImportRow(row);
+  const arithmeticAnswer = computeArithmeticAnswerFromStructure(arithmeticStructure);
+
+  if (Number.isFinite(arithmeticAnswer)) {
+    const arithmeticText = Number.isInteger(arithmeticAnswer)
+      ? String(Math.trunc(arithmeticAnswer))
+      : String(roundTo(arithmeticAnswer, 2));
+    return { resultType: "short-answer", correctAnswer: arithmeticText };
+  }
 
   if (computeValue && normalizeText(computeValue) !== "n/a") {
+    let resolvedComputeValue = computeValue;
+    if (Number.isInteger(expectedNumericFromQuestion)) {
+      const semanticExpected = String(expectedNumericFromQuestion);
+      if (normalizeText(computeValue) !== normalizeText(semanticExpected)) {
+        resolvedComputeValue = semanticExpected;
+      }
+    }
+
     if (["multiple-choice", "true-false"].includes(baseResultType)) {
-      const matched = options.find((item) => normalizeText(item) === normalizeText(computeValue));
-      return { resultType: baseResultType, correctAnswer: matched ? String(matched).trim() : computeValue };
+      const matched = options.find((item) => normalizeText(item) === normalizeText(resolvedComputeValue));
+      return { resultType: baseResultType, correctAnswer: matched ? String(matched).trim() : resolvedComputeValue };
     }
 
     if (baseResultType === "checkbox") {
-      const requested = computeValue
+      const requested = resolvedComputeValue
         .split(",")
         .map((item) => item.trim())
         .filter((item) => item !== "");
@@ -12011,7 +12259,7 @@ function inferAnswerFromImportRow(row) {
       return { resultType: baseResultType, correctAnswer: resolved.join(", ") };
     }
 
-    return { resultType: baseResultType, correctAnswer: computeValue };
+    return { resultType: baseResultType, correctAnswer: resolvedComputeValue };
   }
 
   const whichNumberMatch = question.match(/which number is\s*(\d+)/i);
@@ -12087,7 +12335,20 @@ function inferAnswerFromImportRow(row) {
 function inferSolutionFromImport(question, answer) {
   const q = String(question || "").trim();
   const a = String(answer || "").trim();
+  const arithmeticStructure = inferArithmeticStructureFromImportRow({ question: q });
   if (!a) return "Read the question carefully and use the lesson concept to complete it.";
+  if (arithmeticStructure) {
+    const operator = String(arithmeticStructure.operator || "").trim();
+    const symbol = operator === "x" ? "x" : operator;
+    if (operator === "/") {
+      const isLongDivision = /\blong\s*division\b|\blong\s*divide\b|\bquotient\b|\bremainder\b/i.test(q);
+      if (isLongDivision) {
+        return `Apply long division: ${arithmeticStructure.operandA} / ${arithmeticStructure.operandB} = ${a}. Check: ${arithmeticStructure.operandB} x ${a} = ${arithmeticStructure.operandA}.`;
+      }
+      return `Divide the numbers: ${arithmeticStructure.operandA} / ${arithmeticStructure.operandB} = ${a}.`;
+    }
+    return `Compute ${arithmeticStructure.operandA} ${symbol} ${arithmeticStructure.operandB} = ${a}.`;
+  }
   if (/select all/i.test(q)) return `Select every correct option. The correct selection is: ${a}.`;
   if (/what comes next/i.test(q)) return `Continue the counting pattern by 1. The next number is ${a}.`;
   if (/how many|which number matches/i.test(q)) return `Count the objects shown and match the quantity. The answer is ${a}.`;
@@ -12129,6 +12390,30 @@ function buildInteractiveAppFromImport(row, answer, templateType = "") {
     return app;
   }
 
+  if (normalizedTemplateType === "arithmetic" || normalizedTemplateType === "arithmetic-long-division") {
+    const arithmeticStructure = inferArithmeticStructureFromImportRow(row);
+    if (arithmeticStructure) {
+      const computedAnswer = computeArithmeticAnswerFromStructure(arithmeticStructure);
+      const numericAnswerText = Number.isFinite(computedAnswer)
+        ? (Number.isInteger(computedAnswer) ? String(Math.trunc(computedAnswer)) : String(roundTo(computedAnswer, 2)))
+        : String(answer || "").trim();
+      const isDivision = arithmeticStructure.operator === "/";
+      const useLongLayout = normalizedTemplateType === "arithmetic-long-division" || (isDivision && arithmeticStructure.isLongDivision);
+      return {
+        type: "arithmetic",
+        config: {
+          layout: useLongLayout ? "vertical" : "horizontal",
+          operator: arithmeticStructure.operator,
+          operandA: arithmeticStructure.operandA,
+          operandB: arithmeticStructure.operandB,
+          answer: numericAnswerText,
+          answerDigits: Math.max(1, String(numericAnswerText || "").replace(/\D/g, "").length),
+          visualMode: "none"
+        }
+      };
+    }
+  }
+
   if ((qLower.includes("trace") || qLower.includes("draw") || qLower.includes("write")) && Number.isInteger(numericAnswer)) {
     return {
       type: "number-tracing",
@@ -12142,8 +12427,11 @@ function buildInteractiveAppFromImport(row, answer, templateType = "") {
     };
   }
 
+  const hasOrderingCue = /\b(move|drag|arrange|reorder|put)\b.*\b(order|sequence|ascending|descending)\b|\b(order|sequence)\b.*\b(move|drag|arrange|reorder|put)\b|\bmove the numbers in order\b/i.test(
+    [question, row && row.questionType ? row.questionType : "", row && row.category ? row.category : "", row && row.subcategory ? row.subcategory : ""].join(" ")
+  );
   const nextMatch = question.match(/what comes next\?\s*(\d+)\s*,\s*(\d+)\s*,\s*__/i);
-  if (nextMatch) {
+  if (normalizedTemplateType === "number-ordering" && hasOrderingCue && nextMatch) {
     const left = Number.parseInt(nextMatch[1], 10);
     const right = Number.parseInt(nextMatch[2], 10);
     const cards = [left, right, right + 1, right + 2];
@@ -12388,7 +12676,8 @@ function validateImportedRows(rows) {
       issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "Subcategory is blank." });
     }
 
-    const inferredType = inferResultTypeFromImport(questionType, options);
+    const detectedTemplateType = inferTemplateTypeFromImportRow(row);
+    const inferredType = inferResultTypeFromImport(questionType, options, question, detectedTemplateType);
     const knownType = ["multiple-choice", "checkbox", "true-false", "short-answer", "matching", "ordering"].includes(inferredType);
     if (!knownType) {
       issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: `Unknown question type: ${row.questionType || "(blank)"}.` });
@@ -12804,6 +13093,15 @@ function inferImportSubcategoryFromTemplateType(templateType, questionText = "")
   if (normalized === "number-tracing") return "number-tracing";
   if (normalized === "number-ordering") return "ordering";
   if (normalized === "icon-count") return "counting";
+  if (normalized === "arithmetic-long-division") return "division-long";
+  if (normalized === "arithmetic") {
+    const structure = inferArithmeticStructureFromImportRow({ question: q, questionType: q, category: "", subcategory: "" });
+    if (structure && structure.operator === "/") return "division-short";
+    if (structure && structure.operator === "x") return "basic-multiplication";
+    if (structure && structure.operator === "-") return "basic-subtraction";
+    if (structure && structure.operator === "+") return "basic-addition-h";
+    return "basic-addition-h";
+  }
   return "";
 }
 
@@ -13637,6 +13935,8 @@ function buildResultValidationForActiveQuiz(aiMode = false) {
   const valid = rows.length - errors;
 
   return {
+    categoryId: category ? String(category.id || "") : "",
+    quizId: String(quiz.id || ""),
     categoryName: category ? String(category.name || "") : "",
     quizTitle: String(quiz.title || "Untitled Quiz"),
     total: rows.length,
@@ -13760,6 +14060,10 @@ async function applyResultValidationFixForQuestion(questionIndex, { confirmApply
   if (!quiz || !Array.isArray(quiz.questions)) return false;
   if (!Number.isInteger(questionIndex) || questionIndex < 0 || questionIndex >= quiz.questions.length) return false;
   if (!pendingResultValidation || !Array.isArray(pendingResultValidation.rows)) return false;
+  if (pendingResultValidation.quizId && pendingResultValidation.quizId !== String(quiz.id || "")) {
+    showToast("Validation data belongs to a different quiz. Re-run validation for the selected quiz.", "warning");
+    return false;
+  }
 
   const row = pendingResultValidation.rows.find((item) => item.index === questionIndex) || null;
   const question = quiz.questions[questionIndex] || null;
@@ -13843,6 +14147,16 @@ async function applyResultValidationFixForQuestion(questionIndex, { confirmApply
 async function applyBulkResultValidationFixes() {
   if (!pendingResultValidation || !Array.isArray(pendingResultValidation.rows)) {
     showToast("Run validation first.", "warning");
+    return;
+  }
+
+  const quiz = activeQuiz();
+  if (!quiz || !Array.isArray(quiz.questions)) {
+    showToast("Select a quiz first.", "warning");
+    return;
+  }
+  if (pendingResultValidation.quizId && pendingResultValidation.quizId !== String(quiz.id || "")) {
+    showToast("Validation data belongs to a different quiz. Re-run validation for the selected quiz.", "warning");
     return;
   }
 
@@ -13971,6 +14285,101 @@ function renderImportValidation(validation) {
   exportBtn.disabled = pendingImportRows.length === 0;
 }
 
+function closeImportReportModal() {
+  const modal = document.getElementById("importReportModal");
+  if (!(modal instanceof HTMLElement)) return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+function openImportReportModal() {
+  const modal = document.getElementById("importReportModal");
+  if (!(modal instanceof HTMLElement)) return;
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  renderImportAutoFixReport(pendingImportAutoFixReport);
+}
+
+function renderImportAutoFixReport(report) {
+  const meta = document.getElementById("importReportMeta");
+  const body = document.getElementById("importReportBody");
+  const exportBtn = document.getElementById("exportAutoFixReportBtn");
+  if (!(meta instanceof HTMLElement) || !(body instanceof HTMLElement) || !(exportBtn instanceof HTMLButtonElement)) return;
+
+  if (!report || !Array.isArray(report.rows) || report.rows.length === 0) {
+    meta.textContent = "No import report available yet.";
+    body.innerHTML = '<tr><td colspan="8" style="padding:8px;">No report rows available.</td></tr>';
+    exportBtn.disabled = true;
+    return;
+  }
+
+  meta.textContent = `Fixed ${report.fixedCount} | Improved ${report.improvedCount} | Unresolved ${report.unresolvedCount} | Changed ${report.changedCount}`;
+  body.innerHTML = report.rows.map((row) => `
+    <tr>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.status || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.category || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.lessonPart || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(row.qNo || ""))}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:280px; white-space:normal;">${escapeInteractiveHtml(row.question || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(row.beforeIssues ?? ""))}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(row.afterIssues ?? ""))}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.changedFields || "")}</td>
+    </tr>
+  `).join("");
+  exportBtn.disabled = false;
+}
+
+function downloadImportAutoFixReportCsv() {
+  const report = pendingImportAutoFixReport;
+  if (!report || !Array.isArray(report.rows) || report.rows.length === 0) {
+    showToast("No auto-fix report available yet.", "warning");
+    return;
+  }
+
+  const now = new Date();
+  const stamp = `${String(now.getFullYear())}${String(now.getMonth() + 1).padStart(2, "0")}${String(now.getDate()).padStart(2, "0")}-${String(now.getHours()).padStart(2, "0")}${String(now.getMinutes()).padStart(2, "0")}${String(now.getSeconds()).padStart(2, "0")}`;
+  const header = ["Status", "Category", "Lesson Part", "Q No", "Question", "Before Issues", "After Issues", "Changed Fields", "Result Type", "Correct Answer", "Solution"];
+  const rows = report.rows.map((row) => [
+    row.status || "",
+    row.category || "",
+    row.lessonPart || "",
+    String(row.qNo || ""),
+    row.question || "",
+    String(row.beforeIssues ?? ""),
+    String(row.afterIssues ?? ""),
+    row.changedFields || "",
+    row.resultType || "",
+    row.correctAnswer || "",
+    row.solution || ""
+  ]);
+  const summary = [
+    "SUMMARY",
+    `fixed=${report.fixedCount}; improved=${report.improvedCount}; unresolved=${report.unresolvedCount}; changed=${report.changedCount}`,
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ];
+  const csv = [header, ...rows, summary].map((row) => row.map((cell) => escapeCsvCell(cell)).join(",")).join("\r\n");
+  const blob = new Blob(["\uFEFF", csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `import-autofix-report-${stamp}.csv`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+  showToast("Auto-fix report downloaded.", "success");
+}
+
 function escapeCsvCell(value) {
   const text = String(value == null ? "" : value);
   if (!/[",\r\n]/.test(text)) return text;
@@ -14087,7 +14496,35 @@ function renderImportPreview(rows, sourceName) {
     </tr>
   `).join("");
 
-  pendingImportValidation = validateImportedRows(rows);
+  const applyBtn = document.getElementById("applyImportBtn");
+  const exportBtn = document.getElementById("exportValidationBtn");
+  const reportBtn = document.getElementById("openImportReportBtn");
+  if (applyBtn instanceof HTMLButtonElement) applyBtn.disabled = false;
+  if (exportBtn instanceof HTMLButtonElement) exportBtn.disabled = false;
+  if (reportBtn instanceof HTMLButtonElement) {
+    reportBtn.disabled = !(pendingImportAutoFixReport && Array.isArray(pendingImportAutoFixReport.rows) && pendingImportAutoFixReport.rows.length > 0);
+  }
+
+  try {
+    pendingImportValidation = validateImportedRows(rows);
+  } catch (error) {
+    pendingImportValidation = {
+      errors: 0,
+      warnings: 1,
+      issues: [{
+        level: "warning",
+        grade: "",
+        lessonPart: "",
+        qNo: "",
+        rowIndex: -1,
+        message: `Validation check failed unexpectedly: ${String(error && error.message ? error.message : error)}`
+      }]
+    };
+  }
+
+  if (!pendingImportValidation || typeof pendingImportValidation !== "object") {
+    pendingImportValidation = { errors: 0, warnings: 0, issues: [] };
+  }
   renderImportValidation(pendingImportValidation);
 }
 
@@ -14105,10 +14542,14 @@ function findQuizByTitle(category, title) {
 async function applyPendingImportToMaker() {
   if (!Array.isArray(pendingImportRows) || pendingImportRows.length === 0) {
     showToast("No preview data to import.", "warning");
-    return;
+    return { importedQuizCount: 0, importedQuestionCount: 0, saved: 0, total: 0 };
   }
 
   const importedTargets = [];
+  let autoFixChangedCount = 0;
+  let autoFixImprovedCount = 0;
+  let autoFixUnresolvedCount = 0;
+  const autoFixReportRows = [];
 
   const groupedByCategory = new Map();
   pendingImportRows.forEach((row) => {
@@ -14158,13 +14599,14 @@ async function applyPendingImportToMaker() {
         const inferred = inferAnswerFromImportRow(row, templateType);
         const interactiveApp = buildInteractiveAppFromImport(row, inferred.correctAnswer, templateType);
         const inferredCategory = inferImportCategoryFromTemplateType(templateType);
+        const inferredSubcategory = inferImportSubcategoryFromTemplateType(templateType, row.question);
         const payload = {
           question: row.question,
           resultType: inferred.resultType,
           options: row.options.length > 0 ? row.options : ["", "", "", ""],
           correctAnswer: inferred.correctAnswer,
           category: row.category || inferredCategory,
-          subcategory: row.subcategory || "",
+          subcategory: row.subcategory || inferredSubcategory,
           learningOutcome: row.learningOutcome || "",
           notesAttachments: [],
           image: "",
@@ -14175,6 +14617,31 @@ async function applyPendingImportToMaker() {
         return normalizeQuestion(payload);
       });
 
+      quiz.questions.forEach((question, questionIndex) => {
+        const beforeSnapshot = snapshotImportAutoFixFields(question);
+        const fixResult = autoFixQuestionIssues(question);
+        const afterSnapshot = snapshotImportAutoFixFields(question);
+        const row = sortedRows[questionIndex] || {};
+        const changedFields = describeImportAutoFixChanges(beforeSnapshot, afterSnapshot);
+        const status = getImportAutoFixStatus(fixResult.before, fixResult.after, fixResult.changed);
+        autoFixReportRows.push({
+          status,
+          category: categoryName,
+          lessonPart,
+          qNo: row.qNo || "",
+          question: String(question.question || ""),
+          beforeIssues: fixResult.before,
+          afterIssues: fixResult.after,
+          changedFields,
+          resultType: String(question.resultType || ""),
+          correctAnswer: String(question.correctAnswer || ""),
+          solution: String(question.solution || "")
+        });
+        if (fixResult.changed) autoFixChangedCount += 1;
+        if (fixResult.after < fixResult.before) autoFixImprovedCount += 1;
+        if (fixResult.after > 0) autoFixUnresolvedCount += 1;
+      });
+
       quiz.fileName = buildUniqueQuizFileName(`lesson-part-${lessonPart}-${lessonName}`, quiz.id);
       importedTargets.push({ categoryId: category.id, quizId: quiz.id });
     });
@@ -14182,25 +14649,62 @@ async function applyPendingImportToMaker() {
 
   const orderedCategories = sortCategoriesForDisplay(state.categories);
   state.categories = orderedCategories;
-  const selection = pickInitialSelection(orderedCategories);
-  state.selectedCategoryId = selection.categoryId;
-  state.selectedQuizId = selection.quizId;
-  state.selectedQuestionIndex = selection.questionIndex;
+
+  const firstImportedTarget = importedTargets[0] || null;
+  if (firstImportedTarget) {
+    state.selectedCategoryId = firstImportedTarget.categoryId;
+    state.selectedQuizId = firstImportedTarget.quizId;
+    state.selectedQuestionIndex = 0;
+  } else {
+    const selection = pickInitialSelection(orderedCategories);
+    state.selectedCategoryId = selection.categoryId;
+    state.selectedQuizId = selection.quizId;
+    state.selectedQuestionIndex = selection.questionIndex;
+  }
   ensureQuizFileNames();
   renderAll();
+
+  pendingImportAutoFixReport = {
+    rows: autoFixReportRows,
+    fixedCount: autoFixReportRows.filter((item) => item.status === "fixed").length,
+    improvedCount: autoFixReportRows.filter((item) => item.status === "improved").length,
+    unresolvedCount: autoFixReportRows.filter((item) => item.status === "unresolved").length,
+    changedCount: autoFixReportRows.filter((item) => item.status === "fixed" || item.status === "improved").length
+  };
+
+  const reportBtn = document.getElementById("openImportReportBtn");
+  if (reportBtn instanceof HTMLButtonElement) {
+    reportBtn.disabled = !(pendingImportAutoFixReport && pendingImportAutoFixReport.rows && pendingImportAutoFixReport.rows.length > 0);
+  }
 
   const saveResult = await persistImportedQuizzesToDisk(importedTargets, true);
   if (saveResult === null) {
     showToast("Import applied in Maker, but files were not saved. Connect/select root folder, then save quizzes.", "warning");
-    return;
+    return {
+      importedQuizCount: importedTargets.length,
+      importedQuestionCount: pendingImportRows.length,
+      saved: 0,
+      total: importedTargets.length
+    };
   }
 
   if (saveResult.saved === saveResult.total) {
-    showToast(`Spreadsheet import applied and saved ${saveResult.saved} file(s) to disk.`, "success");
-    return;
+    showToast(`Spreadsheet import applied and saved ${saveResult.saved} file(s). Smart auto-fix changed ${autoFixChangedCount} question(s), improved ${autoFixImprovedCount}, unresolved ${autoFixUnresolvedCount}.`, autoFixUnresolvedCount > 0 ? "warning" : "success");
+    return {
+      importedQuizCount: importedTargets.length,
+      importedQuestionCount: pendingImportRows.length,
+      saved: saveResult.saved,
+      total: saveResult.total
+    };
   }
 
-  showToast(`Import applied. Saved ${saveResult.saved}/${saveResult.total} file(s); ${saveResult.skipped} not saved.`, "warning");
+  showToast(`Import applied. Saved ${saveResult.saved}/${saveResult.total} file(s); ${saveResult.skipped} not saved. Smart auto-fix changed ${autoFixChangedCount} question(s), improved ${autoFixImprovedCount}, unresolved ${autoFixUnresolvedCount}.`, "warning");
+  return {
+    importedQuizCount: importedTargets.length,
+    importedQuestionCount: pendingImportRows.length,
+    saved: saveResult.saved,
+    total: saveResult.total
+  };
 }
 
 async function handleTableImportSelection(file) {

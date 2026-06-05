@@ -1,7 +1,7 @@
 {
-  "id": "quiz-96",
+  "id": "quiz-86",
   "title": "Prep 9.02",
-  "description": "Learning Outcomes: Subtract objects | Word subtraction | Subtract fluently",
+  "description": "Learning Outcomes for Prep: Subtract objects | Word subtraction | Subtract fluently",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "2003",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -105,6 +105,24 @@
         "1",
         "2",
         "2003",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Subtraction Concepts",
+      "subcategory": "Take Away",
+      "learningOutcome": "Subtract objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "⭐⭐⭐⭐ − ⭐ = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "2004",
         ""
       ],
       "correctAnswer": "2",
@@ -117,24 +135,6 @@
       "solutionAttachments": []
     },
     {
-      "question": "⭐⭐⭐⭐ − ⭐ = ?",
-      "resultType": "multiple-choice",
-      "options": [
-        "2",
-        "3",
-        "2004",
-        ""
-      ],
-      "correctAnswer": "3",
-      "category": "Subtraction Concepts",
-      "subcategory": "Take Away",
-      "learningOutcome": "Subtract objects",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 3.",
-      "solutionAttachments": []
-    },
-    {
       "question": "⚽⚽⚽⚽⚽ − ⚽⚽ = ?",
       "resultType": "multiple-choice",
       "options": [
@@ -143,13 +143,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +161,13 @@
         "2005",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "3",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -179,13 +179,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {

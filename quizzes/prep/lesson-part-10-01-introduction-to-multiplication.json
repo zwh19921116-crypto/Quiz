@@ -1,7 +1,7 @@
 {
-  "id": "quiz-16",
+  "id": "quiz-95",
   "title": "Prep 10.01",
-  "description": "Learning Outcomes: Understand grouping | Repeated addition | Equal groups | Identify groups | Word grouping",
+  "description": "Learning Outcomes for Prep: Understand grouping | Repeated addition | Equal groups | Identify groups | Word grouping",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -39,21 +39,33 @@
     },
     {
       "question": "2 + 2 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "5",
         "6",
         "2007",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "4",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
+      "solution": "Compute 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "4 groups of 1 star. Total stars?",
@@ -147,21 +159,33 @@
     },
     {
       "question": "3 + 3 + 3 + 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "10",
         "11",
         "12",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "6",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
-      "solutionAttachments": []
+      "solution": "Compute 3 + 3 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3,
+          "operandB": 3,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "4 groups of 2 = ?",
@@ -172,7 +196,7 @@
         "2008",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "6",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Equal groups",
@@ -190,7 +214,7 @@
         "2008",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "6",
       "category": "Multiplication Concepts",
       "subcategory": "Equal Groups",
       "learningOutcome": "Equal groups",
@@ -291,21 +315,33 @@
     },
     {
       "question": "2 + 2 + 2 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "6",
         "7",
         "2008",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "4",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
+      "solution": "Compute 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "3 groups of 2 = ?",
@@ -327,21 +363,33 @@
     },
     {
       "question": "1 + 1 + 1 + 1 + 1 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "5",
         "2006",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "2",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
-      "solutionAttachments": []
+      "solution": "Compute 1 + 1 = 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 1,
+          "operandB": 1,
+          "answer": "2",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "2 groups of 3 = ?",

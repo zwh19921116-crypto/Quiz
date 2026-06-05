@@ -1,7 +1,7 @@
 {
   "id": "quiz-13",
   "title": "Prep 1.13",
-  "description": "Learning Outcomes: Recognise 10 | Understand quantity 10 | Write 10 | Count 10 objects | Match quantity | Apply quantity 10 | Review number 10 | Mastery of number 10",
+  "description": "Learning Outcomes for Prep: Recognise 10 | Understand quantity 10 | Write 10 | Count 10 objects | Match quantity | Apply quantity 10 | Review number 10 | Mastery of number 10",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "10",
         "11"
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "8",
       "category": "Recognition",
       "subcategory": "Identify Number 10",
       "learningOutcome": "Understand quantity 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -71,7 +71,7 @@
         "10",
         "2"
       ],
-      "correctAnswer": "10, 10, 10",
+      "correctAnswer": "10",
       "category": "Recognition",
       "subcategory": "Select Number 10",
       "learningOutcome": "Recognise 10",
@@ -89,7 +89,7 @@
         "9",
         "10"
       ],
-      "correctAnswer": "10, 10",
+      "correctAnswer": "10",
       "category": "Recognition",
       "subcategory": "Select Number 10",
       "learningOutcome": "Recognise 10",
@@ -107,7 +107,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "10",
       "category": "Tracing",
       "subcategory": "Trace Number 10",
       "learningOutcome": "Write 10",
@@ -125,7 +125,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "10",
       "category": "Tracing",
       "subcategory": "Trace Number 10",
       "learningOutcome": "Write 10",
@@ -143,7 +143,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "10",
       "category": "Writing",
       "subcategory": "Draw Number 10",
       "learningOutcome": "Write 10",
@@ -440,13 +440,13 @@
         "10",
         "11"
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "8",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review number 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {

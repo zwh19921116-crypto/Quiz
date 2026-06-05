@@ -1,7 +1,7 @@
 {
-  "id": "quiz-26",
+  "id": "quiz-16",
   "title": "Prep 2.02",
-  "description": "Learning Outcomes: Count to 10 | Connect quantity to number | Match quantity | Count different objects | Count forward | Apply counting | Mastery",
+  "description": "Learning Outcomes for Prep: Count to 10 | Connect quantity to number | Match quantity | Count different objects | Count forward | Apply counting | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -350,26 +350,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 7.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 5,6,__",
-          "direction": "ascending",
-          "cards": [
-            5,
-            6,
-            7,
-            8
-          ],
-          "correctOrder": [
-            5,
-            6,
-            7,
-            8
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "What comes next? 7,8,__",
@@ -387,26 +368,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 9.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 7,8,__",
-          "direction": "ascending",
-          "cards": [
-            7,
-            8,
-            9,
-            10
-          ],
-          "correctOrder": [
-            7,
-            8,
-            9,
-            10
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "What comes next? 8,9,__",
@@ -424,26 +386,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 10.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 8,9,__",
-          "direction": "ascending",
-          "cards": [
-            8,
-            9,
-            10,
-            11
-          ],
-          "correctOrder": [
-            8,
-            9,
-            10,
-            11
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "Mia has 6 balloons. How many balloons does she have?",
@@ -570,13 +513,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "6",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     }
   ]

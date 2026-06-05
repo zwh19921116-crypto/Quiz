@@ -1,7 +1,7 @@
 {
-  "id": "quiz-45",
+  "id": "quiz-34",
   "title": "Prep 3.1",
-  "description": "Learning Outcomes: Compare quantities | Identify equal quantities | Identify largest group | Identify smallest group | Compare numbers | Recognise equal numbers | Apply comparison | Mastery | Consolidate learning",
+  "description": "Learning Outcomes for Prep: Compare quantities | Identify equal quantities | Identify largest group | Identify smallest group | Compare numbers | Recognise equal numbers | Apply comparison | Mastery | Consolidate learning",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "More Objects",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Less Objects",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +71,13 @@
         "",
         ""
       ],
-      "correctAnswer": "No",
+      "correctAnswer": "Yes",
       "category": "Comparing",
       "subcategory": "Same Quantity",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "The correct answer is Yes.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Middle",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Most Objects",
       "learningOutcome": "Identify largest group",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Middle.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +107,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Middle",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Fewest Objects",
       "learningOutcome": "Identify smallest group",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Middle.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +125,13 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Greater Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -143,13 +143,13 @@
         "",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "6",
       "category": "Recognition",
       "subcategory": "Smaller Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +197,13 @@
         "",
         ""
       ],
-      "correctAnswer": "18",
+      "correctAnswer": "12",
       "category": "Recognition",
       "subcategory": "Greater Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 18.",
+      "solution": "The correct answer is 12.",
       "solutionAttachments": []
     },
     {
@@ -215,13 +215,13 @@
         "",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "15",
       "category": "Recognition",
       "subcategory": "Smaller Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
+      "solution": "The correct answer is 15.",
       "solutionAttachments": []
     },
     {
@@ -233,13 +233,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Middle",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Most Objects",
       "learningOutcome": "Identify largest group",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Middle.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -251,13 +251,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Middle",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Fewest Objects",
       "learningOutcome": "Identify smallest group",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Middle.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -323,13 +323,13 @@
         "",
         ""
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "17",
       "category": "Mastery",
       "subcategory": "Mixed Assessment",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
+      "solution": "The correct answer is 17.",
       "solutionAttachments": []
     },
     {
@@ -359,13 +359,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Middle",
+      "correctAnswer": "Left",
       "category": "Mastery",
       "subcategory": "Mixed Assessment",
       "learningOutcome": "Consolidate learning",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Middle.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     }
   ]

@@ -972,6 +972,7 @@
           <div class="panel-head-actions">
             <button class="btn secondary" id="selectImportFileBtn" type="button">Choose Spreadsheet</button>
             <button class="btn secondary" id="exportValidationBtn" type="button" disabled>Export Validation CSV</button>
+            <button class="btn secondary" id="openImportReportBtn" type="button" disabled>View Auto-Fix Report</button>
             <button class="btn" id="applyImportBtn" type="button">Apply Import</button>
             <button class="btn secondary" id="clearImportPreviewBtn" type="button">Clear Preview</button>
           </div>
@@ -1020,6 +1021,41 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="importReportModal" class="viewer-modal hidden" aria-hidden="true">
+    <div class="viewer-modal-backdrop" data-close-import-report-modal="true"></div>
+    <div class="viewer-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="importReportModalTitle" style="max-width:min(1260px,96vw); width:96vw;">
+      <div class="viewer-modal-header">
+        <h2 id="importReportModalTitle">Import Auto-Fix Report</h2>
+        <div class="viewer-modal-header-actions">
+          <button class="btn secondary small" id="exportAutoFixReportBtn" type="button" disabled>Export CSV</button>
+          <button class="icon-btn" id="closeImportReportModalBtn" type="button" aria-label="Close import report">x</button>
+        </div>
+      </div>
+      <div class="viewer-modal-body result-validation-modal-body">
+        <p class="helper-text" id="importReportMeta">No import report available yet.</p>
+        <div id="importReportTableContainer" style="overflow:auto; border:1px solid #dbe3ee; border-radius:10px; background:#fff; max-height:520px;">
+          <table style="width:100%; border-collapse:collapse; min-width:980px;">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Status</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Category</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Lesson Part</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Q No</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Question</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Before</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">After</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Changed Fields</th>
+              </tr>
+            </thead>
+            <tbody id="importReportBody">
+              <tr><td colspan="8" style="padding:8px;">No report rows available.</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

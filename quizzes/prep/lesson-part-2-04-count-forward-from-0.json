@@ -1,7 +1,7 @@
 {
-  "id": "quiz-28",
+  "id": "quiz-18",
   "title": "Prep 2.04",
-  "description": "Learning Outcomes: Count forward | Complete sequence | Understand order | Find missing number | Use number line | Extend sequence",
+  "description": "Learning Outcomes for Prep: Count forward | Complete sequence | Understand order | Find missing number | Use number line | Extend sequence",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -287,13 +287,13 @@
         "2",
         "3"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "0",
       "category": "Application",
       "subcategory": "Number Line",
       "learningOutcome": "Use number line",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 0.",
       "solutionAttachments": []
     },
     {
@@ -348,26 +348,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 9.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 7,8,__",
-          "direction": "ascending",
-          "cards": [
-            7,
-            8,
-            9,
-            10
-          ],
-          "correctOrder": [
-            7,
-            8,
-            9,
-            10
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "What comes next? 9,10,__",
@@ -385,26 +366,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 11.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 9,10,__",
-          "direction": "ascending",
-          "cards": [
-            9,
-            10,
-            11,
-            12
-          ],
-          "correctOrder": [
-            9,
-            10,
-            11,
-            12
-          ]
-        }
-      }
+      "solutionAttachments": []
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
-  "id": "quiz-15",
+  "id": "quiz-11",
   "title": "Prep 1.11",
-  "description": "Learning Outcomes: Recognise 8 | Understand quantity 8 | Write 8 | Count 8 objects | Match quantity | Apply quantity 8 | Review number 8 | Mastery of number 8",
+  "description": "Learning Outcomes for Prep: Recognise 8 | Understand quantity 8 | Write 8 | Count 8 objects | Match quantity | Apply quantity 8 | Review number 8 | Mastery of number 8",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "8",
         "9"
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "6",
       "category": "Recognition",
       "subcategory": "Identify Number 8",
       "learningOutcome": "Understand quantity 8",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -71,7 +71,7 @@
         "8",
         "2"
       ],
-      "correctAnswer": "8, 8, 8",
+      "correctAnswer": "8",
       "category": "Recognition",
       "subcategory": "Select Number 8",
       "learningOutcome": "Recognise 8",
@@ -89,7 +89,7 @@
         "10",
         "8"
       ],
-      "correctAnswer": "8, 8",
+      "correctAnswer": "8",
       "category": "Recognition",
       "subcategory": "Select Number 8",
       "learningOutcome": "Recognise 8",
@@ -107,7 +107,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "8",
       "category": "Tracing",
       "subcategory": "Trace Number 8",
       "learningOutcome": "Write 8",
@@ -125,7 +125,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "8",
       "category": "Tracing",
       "subcategory": "Trace Number 8",
       "learningOutcome": "Write 8",
@@ -143,7 +143,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "8",
       "category": "Writing",
       "subcategory": "Draw Number 8",
       "learningOutcome": "Write 8",
@@ -440,13 +440,13 @@
         "8",
         "9"
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "6",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review number 8",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {

@@ -1,7 +1,7 @@
 {
-  "id": "quiz-42",
+  "id": "quiz-31",
   "title": "Prep 3.07",
-  "description": "Learning Outcomes: Compare numbers | Recognise equal numbers | Apply comparison | Mastery",
+  "description": "Learning Outcomes for Prep: Compare numbers | Recognise equal numbers | Apply comparison | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,363 +10,603 @@
   "questions": [
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "2",
         "5",
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Greater Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "1",
         "7",
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Greater Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "9",
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Greater Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "3",
         "8",
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Greater Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "0",
         "6",
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Greater Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "2",
         "5",
         "",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Smaller Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "1",
         "7",
         "",
         ""
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Smaller Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "9",
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Smaller Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "3",
         "8",
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Smaller Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "0",
         "6",
         "",
         ""
       ],
-      "correctAnswer": "0",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Smaller Number",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Are these numbers the same? 4 and 4",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "No",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Are these numbers the same? 7 and 7",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "No",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Are these numbers the same? 5 and 8",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "No",
         "",
         ""
       ],
-      "correctAnswer": "No",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Are these numbers the same? 2 and 3",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "No",
         "",
         ""
       ],
-      "correctAnswer": "No",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Are these numbers the same? 10 and 10",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "No",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "-10",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Mia has 3 apples and Tom has 6 apples. Who has more?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Mia",
         "Tom",
         "",
         ""
       ],
-      "correctAnswer": "Tom",
+      "correctAnswer": "-10",
       "category": "Application",
       "subcategory": "Real World Comparison",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Tom.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Ben has 8 balloons and Sam has 4 balloons. Who has fewer?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Ben",
         "Sam",
         "",
         ""
       ],
-      "correctAnswer": "Sam",
+      "correctAnswer": "-10",
       "category": "Application",
       "subcategory": "Real World Comparison",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Sam.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Ava has 5 stars and Leo has 5 stars. Do they have the same amount?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Yes",
         "No",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "-10",
       "category": "Application",
       "subcategory": "Real World Comparison",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "9",
         "10",
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "-10",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "1",
         "4",
         "",
         ""
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "-10",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
-      "solutionAttachments": []
+      "solution": "The correct answer is -10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     }
   ]
 }

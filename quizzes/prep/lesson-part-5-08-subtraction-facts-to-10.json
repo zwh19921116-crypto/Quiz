@@ -1,7 +1,7 @@
 {
-  "id": "quiz-62",
+  "id": "quiz-52",
   "title": "Prep 5.08",
-  "description": "Learning Outcomes: Recall subtraction facts | Recognise related facts | Apply subtraction | Mastery",
+  "description": "Learning Outcomes for Prep: Recall subtraction facts | Recognise related facts | Apply subtraction | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "2 - 1 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "0",
         "1",
@@ -23,12 +23,24 @@
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
-      "solutionAttachments": []
+      "solution": "Compute 2 - 1 = 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 2,
+          "operandB": 1,
+          "answer": "1",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "3 - 1 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "1",
         "2",
@@ -41,12 +53,24 @@
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
-      "solutionAttachments": []
+      "solution": "Compute 3 - 1 = 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 3,
+          "operandB": 1,
+          "answer": "2",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "4 - 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "1",
         "2",
@@ -59,12 +83,24 @@
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
-      "solutionAttachments": []
+      "solution": "Compute 4 - 2 = 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 4,
+          "operandB": 2,
+          "answer": "2",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "5 - 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "2",
         "3",
@@ -77,12 +113,24 @@
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
-      "solutionAttachments": []
+      "solution": "Compute 5 - 2 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 5,
+          "operandB": 2,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "5 - 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "0",
         "1",
@@ -95,12 +143,24 @@
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
-      "solutionAttachments": []
+      "solution": "Compute 5 - 5 = 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 5,
+          "operandB": 5,
+          "answer": "0",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "6 - 1 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "3",
         "4",
@@ -113,12 +173,24 @@
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
-      "solutionAttachments": []
+      "solution": "Compute 6 - 1 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 6,
+          "operandB": 1,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "7 - 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "3",
         "4",
@@ -131,12 +203,24 @@
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
-      "solutionAttachments": []
+      "solution": "Compute 7 - 2 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 7,
+          "operandB": 2,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "8 - 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "5",
@@ -149,12 +233,24 @@
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
-      "solutionAttachments": []
+      "solution": "Compute 8 - 3 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 8,
+          "operandB": 3,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "9 - 4 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "5",
@@ -167,12 +263,24 @@
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
-      "solutionAttachments": []
+      "solution": "Compute 9 - 4 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 9,
+          "operandB": 4,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "10 - 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "5",
@@ -185,48 +293,84 @@
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
-      "solutionAttachments": []
+      "solution": "Compute 10 - 5 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 10,
+          "operandB": 5,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "If 5 - 2 = 3, what is 5 - 3?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "1",
         "2",
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Fact Families",
       "learningOutcome": "Recognise related facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
-      "solutionAttachments": []
+      "solution": "Compute 5 - 2 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 5,
+          "operandB": 2,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "If 6 - 1 = 5, what is 6 - 5?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "0",
         "1",
         "2",
         "3"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "5",
       "category": "Recognition",
       "subcategory": "Fact Families",
       "learningOutcome": "Recognise related facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
-      "solutionAttachments": []
+      "solution": "Compute 6 - 1 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 6,
+          "operandB": 1,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "8 - 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "1",
         "2",
@@ -239,12 +383,24 @@
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
-      "solutionAttachments": []
+      "solution": "Compute 8 - 5 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 8,
+          "operandB": 5,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "9 - 6 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "1",
         "2",
@@ -257,12 +413,24 @@
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
-      "solutionAttachments": []
+      "solution": "Compute 9 - 6 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 9,
+          "operandB": 6,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "10 - 7 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "1",
         "2",
@@ -275,8 +443,20 @@
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
-      "solutionAttachments": []
+      "solution": "Compute 10 - 7 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 10,
+          "operandB": 7,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Mia has 8 apples and eats 3. How many remain?",
@@ -367,7 +547,7 @@
     },
     {
       "question": "10 - 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "5",
         "6",
@@ -380,12 +560,24 @@
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
-      "solutionAttachments": []
+      "solution": "Compute 10 - 3 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 10,
+          "operandB": 3,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "9 - 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "5",
         "6",
@@ -398,8 +590,20 @@
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
-      "solutionAttachments": []
+      "solution": "Compute 9 - 2 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 9,
+          "operandB": 2,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
-  "id": "quiz-91",
+  "id": "quiz-81",
   "title": "Prep 8.07",
-  "description": "Learning Outcomes: Add within 20 | Find missing number | Word addition | Add fluently",
+  "description": "Learning Outcomes for Prep: Add within 20 | Find missing number | Word addition | Add fluently",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -10,7 +10,7 @@
   "questions": [
     {
       "question": "10 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "11",
         "12",
@@ -23,12 +23,24 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
-      "solutionAttachments": []
+      "solution": "Compute 10 + 2 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 10,
+          "operandB": 2,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "8 + 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "10",
         "11",
@@ -41,12 +53,24 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
-      "solutionAttachments": []
+      "solution": "Compute 8 + 3 = 11.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 8,
+          "operandB": 3,
+          "answer": "11",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "7 + 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "11",
         "12",
@@ -59,12 +83,24 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
-      "solutionAttachments": []
+      "solution": "Compute 7 + 5 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7,
+          "operandB": 5,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "6 + 4 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "9",
         "10",
@@ -77,12 +113,24 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
+      "solution": "Compute 6 + 4 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 4,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "9 + 6 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "14",
         "15",
@@ -95,12 +143,24 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
-      "solutionAttachments": []
+      "solution": "Compute 9 + 6 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 6,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "11 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "12",
         "13",
@@ -113,12 +173,24 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 13.",
-      "solutionAttachments": []
+      "solution": "Compute 11 + 2 = 13.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 11,
+          "operandB": 2,
+          "answer": "13",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "12 + 4 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "15",
         "16",
@@ -131,12 +203,24 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 16.",
-      "solutionAttachments": []
+      "solution": "Compute 12 + 4 = 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 12,
+          "operandB": 4,
+          "answer": "16",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "13 + 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "15",
         "16",
@@ -149,12 +233,24 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 16.",
-      "solutionAttachments": []
+      "solution": "Compute 13 + 3 = 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 13,
+          "operandB": 3,
+          "answer": "16",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "14 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "15",
         "16",
@@ -167,12 +263,24 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 16.",
-      "solutionAttachments": []
+      "solution": "Compute 14 + 2 = 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 14,
+          "operandB": 2,
+          "answer": "16",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "15 + 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "17",
         "18",
@@ -185,8 +293,20 @@
       "learningOutcome": "Add within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 18.",
-      "solutionAttachments": []
+      "solution": "Compute 15 + 3 = 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 15,
+          "operandB": 3,
+          "answer": "18",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "10 + ? = 15",
@@ -197,7 +317,7 @@
         "2005",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "3",
       "category": "Number Bonds",
       "subcategory": "Missing Number",
       "learningOutcome": "Find missing number",
@@ -345,7 +465,7 @@
     },
     {
       "question": "5 + 7 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "11",
         "12",
@@ -358,12 +478,24 @@
       "learningOutcome": "Add fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
-      "solutionAttachments": []
+      "solution": "Compute 5 + 7 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 7,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "9 + 9 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "17",
         "18",
@@ -376,8 +508,20 @@
       "learningOutcome": "Add fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 18.",
-      "solutionAttachments": []
+      "solution": "Compute 9 + 9 = 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 9,
+          "answer": "18",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     }
   ]
 }

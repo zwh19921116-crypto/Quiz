@@ -1,7 +1,7 @@
 {
-  "id": "quiz-64",
+  "id": "quiz-53",
   "title": "Prep 5.09",
-  "description": "Learning Outcomes: Subtract objects | Read subtraction sentences | Find missing number | Recall subtraction facts | Apply subtraction | Consolidate subtraction skills",
+  "description": "Learning Outcomes for Prep: Subtract objects | Read subtraction sentences | Find missing number | Recall subtraction facts | Apply subtraction | Consolidate subtraction skills",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -107,14 +107,26 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "3",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
-      "solutionAttachments": []
+      "solution": "Compute 5 - 2 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 5,
+          "operandB": 2,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "6 - 3 = ?",
@@ -125,14 +137,26 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "3",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
+      "solution": "Compute 6 - 3 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 6,
+          "operandB": 3,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "8 - 4 = ?",
@@ -143,14 +167,26 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "4",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
+      "solution": "Compute 8 - 4 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 8,
+          "operandB": 4,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "10 - 5 = ?",
@@ -161,14 +197,26 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "5",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
+      "solution": "Compute 10 - 5 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 10,
+          "operandB": 5,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "7 - 2 = ?",
@@ -179,14 +227,26 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "5",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
-      "solutionAttachments": []
+      "solution": "Compute 7 - 2 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 7,
+          "operandB": 2,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "5 - __ = 3",
@@ -215,14 +275,26 @@
         "",
         ""
       ],
-      "correctAnswer": "-2",
+      "correctAnswer": "5",
       "category": "Missing Numbers",
       "subcategory": "Missing Result",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -2.",
-      "solutionAttachments": []
+      "solution": "Compute 8 - 3 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 8,
+          "operandB": 3,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "__ - 2 = 4",
@@ -269,14 +341,26 @@
         "",
         ""
       ],
-      "correctAnswer": "-1",
+      "correctAnswer": "5",
       "category": "Subtraction Facts",
       "subcategory": "Facts to 10",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -1.",
-      "solutionAttachments": []
+      "solution": "Compute 9 - 4 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 9,
+          "operandB": 4,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Mia has 8 apples. She eats 3. How many are left?",

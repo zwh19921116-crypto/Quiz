@@ -1,7 +1,7 @@
 {
-  "id": "quiz-97",
+  "id": "quiz-87",
   "title": "Prep 9.03",
-  "description": "Learning Outcomes: Find missing number | Subtract within 10 | Subtract fluently",
+  "description": "Learning Outcomes for Prep: Find missing number | Subtract within 10 | Subtract fluently",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -143,7 +143,7 @@
         "2008",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "6",
       "category": "Number Bonds",
       "subcategory": "Missing Number",
       "learningOutcome": "Find missing number",

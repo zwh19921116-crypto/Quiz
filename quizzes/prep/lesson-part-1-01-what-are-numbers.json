@@ -1,7 +1,7 @@
 {
   "id": "quiz-1",
   "title": "Prep 1.01",
-  "description": "Learning Outcomes: Recognise numbers | Count objects | Match quantity | Number order | Apply learning",
+  "description": "Learning Outcomes for Prep: Recognise numbers | Count objects | Match quantity | Number order | Apply learning",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "Apple",
         "Star"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "Dog",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is Dog.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "Ball",
         "Tree"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "Cat",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is Cat.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "3",
         "Fish"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "Car",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is Car.",
       "solutionAttachments": []
     },
     {
@@ -71,7 +71,7 @@
         "2",
         "Dog"
       ],
-      "correctAnswer": "1, 2, 3",
+      "correctAnswer": "1, 2",
       "category": "Recognition",
       "subcategory": "Select Numbers",
       "learningOutcome": "Recognise numbers",
@@ -404,26 +404,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 3.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 1,2,__",
-          "direction": "ascending",
-          "cards": [
-            1,
-            2,
-            3,
-            4
-          ],
-          "correctOrder": [
-            1,
-            2,
-            3,
-            4
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "What comes next? 2,3,__",
@@ -441,26 +422,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 4.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 2,3,__",
-          "direction": "ascending",
-          "cards": [
-            2,
-            3,
-            4,
-            5
-          ],
-          "correctOrder": [
-            2,
-            3,
-            4,
-            5
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "What comes next? 3,4,__",
@@ -478,26 +440,7 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Continue the counting pattern by 1. The next number is 5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-ordering",
-        "config": {
-          "prompt": "What comes next? 3,4,__",
-          "direction": "ascending",
-          "cards": [
-            3,
-            4,
-            5,
-            6
-          ],
-          "correctOrder": [
-            3,
-            4,
-            5,
-            6
-          ]
-        }
-      }
+      "solutionAttachments": []
     },
     {
       "question": "Which number matches 🍎🍎 ?",

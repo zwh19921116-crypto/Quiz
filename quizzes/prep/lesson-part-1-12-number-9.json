@@ -1,7 +1,7 @@
 {
-  "id": "quiz-9",
+  "id": "quiz-12",
   "title": "Prep 1.12",
-  "description": "Learning Outcomes: Recognise 9 | Understand quantity 9 | Write 9 | Count 9 objects | Match quantity | Apply quantity 9 | Review number 9 | Mastery of number 9",
+  "description": "Learning Outcomes for Prep: Recognise 9 | Understand quantity 9 | Write 9 | Count 9 objects | Match quantity | Apply quantity 9 | Review number 9 | Mastery of number 9",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "7",
       "category": "Recognition",
       "subcategory": "Identify Number 9",
       "learningOutcome": "Understand quantity 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -71,7 +71,7 @@
         "9",
         "2"
       ],
-      "correctAnswer": "9, 9, 9",
+      "correctAnswer": "9",
       "category": "Recognition",
       "subcategory": "Select Number 9",
       "learningOutcome": "Recognise 9",
@@ -89,7 +89,7 @@
         "8",
         "9"
       ],
-      "correctAnswer": "9, 9",
+      "correctAnswer": "9",
       "category": "Recognition",
       "subcategory": "Select Number 9",
       "learningOutcome": "Recognise 9",
@@ -107,7 +107,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "9",
       "category": "Tracing",
       "subcategory": "Trace Number 9",
       "learningOutcome": "Write 9",
@@ -125,7 +125,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "9",
       "category": "Tracing",
       "subcategory": "Trace Number 9",
       "learningOutcome": "Write 9",
@@ -143,7 +143,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "9",
       "category": "Writing",
       "subcategory": "Draw Number 9",
       "learningOutcome": "Write 9",
@@ -440,13 +440,13 @@
         "9",
         "10"
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "7",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review number 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {

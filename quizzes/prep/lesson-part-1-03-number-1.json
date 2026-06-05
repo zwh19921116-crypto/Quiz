@@ -1,7 +1,7 @@
 {
   "id": "quiz-3",
   "title": "Prep 1.03",
-  "description": "Learning Outcomes: Recognise 1 | Understand quantity 1 | Write 1 | Count 1 object | Match quantity | Apply quantity 1 | Review number 1 | Mastery of number 1",
+  "description": "Learning Outcomes for Prep: Recognise 1 | Understand quantity 1 | Write 1 | Count 1 object | Match quantity | Apply quantity 1 | Review number 1 | Mastery of number 1",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -71,7 +71,7 @@
         "1",
         "3"
       ],
-      "correctAnswer": "1, 1, 1",
+      "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Select Number 1",
       "learningOutcome": "Recognise 1",
@@ -89,7 +89,7 @@
         "5",
         "1"
       ],
-      "correctAnswer": "1, 1",
+      "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Select Number 1",
       "learningOutcome": "Recognise 1",
@@ -107,7 +107,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "1",
       "category": "Tracing",
       "subcategory": "Trace Number 1",
       "learningOutcome": "Write 1",
@@ -125,7 +125,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "1",
       "category": "Tracing",
       "subcategory": "Trace Number 1",
       "learningOutcome": "Write 1",
@@ -143,7 +143,7 @@
         "",
         ""
       ],
-      "correctAnswer": "Completed",
+      "correctAnswer": "1",
       "category": "Writing",
       "subcategory": "Draw Number 1",
       "learningOutcome": "Write 1",

@@ -1,7 +1,7 @@
 {
-  "id": "quiz-17",
+  "id": "quiz-97",
   "title": "Prep 10.03",
-  "description": "Learning Outcomes: Count in 2s | Group counting | Repeated addition | Equal groups",
+  "description": "Learning Outcomes for Prep: Count in 2s | Group counting | Repeated addition | Equal groups",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,7 +17,7 @@
         "2004",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "2",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
@@ -46,13 +46,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "4",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -64,13 +64,13 @@
         "2008",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "6",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "The correct answer is 6.",
       "solutionAttachments": []
     },
     {
@@ -82,13 +82,13 @@
         "2006",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "4",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
@@ -98,6 +98,24 @@
         "2",
         "3",
         "2004",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍌🍌 🍌🍌 🍌🍌 → Total bananas?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "2006",
         ""
       ],
       "correctAnswer": "4",
@@ -110,66 +128,12 @@
       "solutionAttachments": []
     },
     {
-      "question": "🍌🍌 🍌🍌 🍌🍌 → Total bananas?",
-      "resultType": "multiple-choice",
-      "options": [
-        "4",
-        "5",
-        "2006",
-        ""
-      ],
-      "correctAnswer": "6",
-      "category": "Number Patterns",
-      "subcategory": "Visual Counting",
-      "learningOutcome": "Count in 2s",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
-    },
-    {
       "question": "🐶🐶 🐶🐶 🐶🐶 🐶🐶 🐶🐶 → Total dogs?",
       "resultType": "multiple-choice",
       "options": [
         "8",
         "9",
         "10",
-        ""
-      ],
-      "correctAnswer": "10",
-      "category": "Number Patterns",
-      "subcategory": "Visual Counting",
-      "learningOutcome": "Count in 2s",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "👟👟 👟👟 👟👟 → Total shoes?",
-      "resultType": "multiple-choice",
-      "options": [
-        "4",
-        "5",
-        "2006",
-        ""
-      ],
-      "correctAnswer": "6",
-      "category": "Number Patterns",
-      "subcategory": "Visual Counting",
-      "learningOutcome": "Count in 2s",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "🧃🧃 🧃🧃 🧃🧃 🧃🧃 → Total juice boxes?",
-      "resultType": "multiple-choice",
-      "options": [
-        "6",
-        "7",
-        "2008",
         ""
       ],
       "correctAnswer": "8",
@@ -182,6 +146,42 @@
       "solutionAttachments": []
     },
     {
+      "question": "👟👟 👟👟 👟👟 → Total shoes?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🧃🧃 🧃🧃 🧃🧃 🧃🧃 → Total juice boxes?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number Patterns",
+      "subcategory": "Visual Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
       "question": "✏️✏️ ✏️✏️ ✏️✏️ ✏️✏️ ✏️✏️ → Total pencils?",
       "resultType": "multiple-choice",
       "options": [
@@ -190,13 +190,13 @@
         "2010",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "8",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -208,13 +208,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "2",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -226,7 +226,7 @@
         "2006",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "4",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Group counting",
@@ -244,7 +244,7 @@
         "2008",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "6",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Group counting",
@@ -262,7 +262,7 @@
         "2006",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "4",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "learningOutcome": "Group counting",
@@ -291,57 +291,93 @@
     },
     {
       "question": "2 + 2 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "6",
         "2008",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "4",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
+      "solution": "Compute 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "2 + 2 + 2 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "6",
         "8",
         "10",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "4",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
+      "solution": "Compute 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "2 + 2 + 2 + 2 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "8",
         "10",
         "12",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "4",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
+      "solution": "Compute 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "2 groups of 2 = ?",
@@ -352,13 +388,13 @@
         "2004",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "2",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -370,7 +406,7 @@
         "2006",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "4",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "learningOutcome": "Equal groups",

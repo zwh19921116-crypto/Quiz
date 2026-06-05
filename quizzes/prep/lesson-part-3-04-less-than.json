@@ -1,7 +1,7 @@
 {
-  "id": "quiz-40",
+  "id": "quiz-28",
   "title": "Prep 3.04",
-  "description": "Learning Outcomes: Compare quantities | Compare numbers | Compare groups | Apply comparison | Mastery",
+  "description": "Learning Outcomes for Prep: Compare quantities | Compare numbers | Compare groups | Apply comparison | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Smaller Quantity",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +71,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Smaller Quantity",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Smaller Quantity",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +197,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Find Smaller Group",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -215,13 +215,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Find Smaller Group",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -251,13 +251,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Find Smaller Group",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -269,13 +269,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Find Smaller Group",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -359,13 +359,13 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "9",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 9.",
       "solutionAttachments": []
     }
   ]

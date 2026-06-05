@@ -1,7 +1,7 @@
 {
-  "id": "quiz-98",
+  "id": "quiz-88",
   "title": "Prep 9.04",
-  "description": "Learning Outcomes: Subtract within 20 | Word subtraction | Subtract fluently",
+  "description": "Learning Outcomes for Prep: Subtract within 20 | Word subtraction | Subtract fluently",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -125,13 +125,13 @@
         "13",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "13",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
+      "solution": "The correct answer is 13.",
       "solutionAttachments": []
     },
     {

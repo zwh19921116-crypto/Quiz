@@ -1,7 +1,7 @@
 {
-  "id": "quiz-35",
+  "id": "quiz-27",
   "title": "Prep 3.03",
-  "description": "Learning Outcomes: Compare quantities | Compare numbers | Compare groups | Apply comparison | Mastery",
+  "description": "Learning Outcomes for Prep: Compare quantities | Compare numbers | Compare groups | Apply comparison | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Greater Quantity",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -233,13 +233,13 @@
         "",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Find Greater Group",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -341,13 +341,13 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "8",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "The correct answer is 8.",
       "solutionAttachments": []
     },
     {
@@ -359,13 +359,13 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "3",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     }
   ]

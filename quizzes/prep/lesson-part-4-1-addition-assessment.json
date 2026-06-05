@@ -1,7 +1,7 @@
 {
-  "id": "quiz-54",
+  "id": "quiz-44",
   "title": "Prep 4.1",
-  "description": "Learning Outcomes: Add objects | Read number sentences | Find missing addend | Recall doubles facts | Apply addition | Consolidate addition skills",
+  "description": "Learning Outcomes for Prep: Add objects | Read number sentences | Find missing addend | Recall doubles facts | Apply addition | Consolidate addition skills",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,13 +17,13 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Addition",
       "subcategory": "Add Objects",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 1.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +35,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Addition",
       "subcategory": "Add Objects",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +53,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "3",
       "category": "Addition",
       "subcategory": "Add Objects",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +71,13 @@
         "5",
         "6"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "3",
       "category": "Addition",
       "subcategory": "Add Objects",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 3.",
       "solutionAttachments": []
     },
     {
@@ -89,18 +89,18 @@
         "6",
         "7"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "4",
       "category": "Addition",
       "subcategory": "Add Objects",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "The correct answer is 4.",
       "solutionAttachments": []
     },
     {
       "question": "2 + 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "5",
@@ -113,12 +113,24 @@
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
-      "solutionAttachments": []
+      "solution": "Compute 2 + 3 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 3,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "4 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "5",
         "6",
@@ -131,12 +143,24 @@
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
+      "solution": "Compute 4 + 2 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 2,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "5 + 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "6",
         "7",
@@ -149,12 +173,24 @@
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
+      "solution": "Compute 5 + 3 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 3,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "6 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "6",
         "7",
@@ -167,12 +203,24 @@
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
+      "solution": "Compute 6 + 2 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 2,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "5 + 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "8",
         "9",
@@ -185,8 +233,20 @@
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
+      "solution": "Compute 5 + 5 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 5,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "3 + __ = 5",
@@ -197,13 +257,13 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Missing Addends",
       "subcategory": "Find Missing Number",
       "learningOutcome": "Find missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "The correct answer is 7.",
       "solutionAttachments": []
     },
     {
@@ -215,13 +275,13 @@
         "4",
         "5"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "2",
       "category": "Missing Addends",
       "subcategory": "Find Missing Number",
       "learningOutcome": "Find missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "The correct answer is 10.",
       "solutionAttachments": []
     },
     {
@@ -233,18 +293,18 @@
         "3",
         "4"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "1",
       "category": "Missing Addends",
       "subcategory": "Find Missing Number",
       "learningOutcome": "Find missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 11.",
       "solutionAttachments": []
     },
     {
       "question": "4 + 4 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "6",
         "7",
@@ -257,12 +317,24 @@
       "learningOutcome": "Recall doubles facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
+      "solution": "Compute 4 + 4 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 4,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "5 + 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "8",
         "9",
@@ -275,8 +347,20 @@
       "learningOutcome": "Recall doubles facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
+      "solution": "Compute 5 + 5 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 5,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Mia has 3 apples and gets 4 more. How many apples now?",
@@ -367,7 +451,7 @@
     },
     {
       "question": "6 + 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "7",
         "8",
@@ -380,12 +464,24 @@
       "learningOutcome": "Consolidate addition skills",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
-      "solutionAttachments": []
+      "solution": "Compute 6 + 3 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 3,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "7 + 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "7",
         "8",
@@ -398,8 +494,20 @@
       "learningOutcome": "Consolidate addition skills",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
-      "solutionAttachments": []
+      "solution": "Compute 7 + 2 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7,
+          "operandB": 2,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     }
   ]
 }

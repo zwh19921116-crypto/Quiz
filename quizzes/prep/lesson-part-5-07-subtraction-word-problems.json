@@ -1,7 +1,7 @@
 {
-  "id": "quiz-60",
+  "id": "quiz-51",
   "title": "Prep 5.07",
-  "description": "Learning Outcomes: Solve subtraction problems | Apply subtraction | Mastery",
+  "description": "Learning Outcomes for Prep: Solve subtraction problems | Apply subtraction | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -17,7 +17,7 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Word Problems",
       "subcategory": "Objects",
       "learningOutcome": "Solve subtraction problems",
@@ -46,7 +46,7 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Word Problems",
       "subcategory": "Objects",
       "learningOutcome": "Solve subtraction problems",
@@ -75,7 +75,7 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "5",
       "category": "Word Problems",
       "subcategory": "Objects",
       "learningOutcome": "Solve subtraction problems",
@@ -104,7 +104,7 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Word Problems",
       "subcategory": "Objects",
       "learningOutcome": "Solve subtraction problems",
@@ -162,7 +162,7 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "5",
       "category": "Animals",
       "subcategory": "Animals",
       "learningOutcome": "Solve subtraction problems",
@@ -278,7 +278,7 @@
         "5",
         "6"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Animals",
       "subcategory": "Animals",
       "learningOutcome": "Solve subtraction problems",

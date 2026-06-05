@@ -1,7 +1,7 @@
 {
-  "id": "quiz-30",
+  "id": "quiz-20",
   "title": "Prep 2.06",
-  "description": "Learning Outcomes: Count backward | Complete backward sequence | Understand order | Find missing number | Apply backward counting | Review backward counting | Mastery",
+  "description": "Learning Outcomes for Prep: Count backward | Complete backward sequence | Understand order | Find missing number | Apply backward counting | Review backward counting | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20

@@ -1,7 +1,7 @@
 {
-  "id": "quiz-39",
+  "id": "quiz-30",
   "title": "Prep 3.06",
-  "description": "Learning Outcomes: Identify smallest group | Compare 3 groups | Compare multiple groups | Apply comparison | Mastery",
+  "description": "Learning Outcomes for Prep: Identify smallest group | Compare 3 groups | Compare multiple groups | Apply comparison | Mastery",
   "settings": {
     "questionOrder": "ordered",
     "questionLimit": 20
@@ -53,13 +53,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Middle",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Fewest Objects",
       "learningOutcome": "Identify smallest group",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Middle.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +89,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Fewest Objects",
       "learningOutcome": "Identify smallest group",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +107,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Fewest Objects",
       "learningOutcome": "Compare 3 groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +125,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Middle",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Fewest Objects",
       "learningOutcome": "Compare 3 groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Middle.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +161,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Middle",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Fewest Objects",
       "learningOutcome": "Compare 3 groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Middle.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -233,13 +233,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Middle",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Fewest Objects",
       "learningOutcome": "Compare multiple groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Middle.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -251,13 +251,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Fewest Objects",
       "learningOutcome": "Compare multiple groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -269,13 +269,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Comparing",
       "subcategory": "Fewest Objects",
       "learningOutcome": "Compare multiple groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -341,13 +341,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Right",
+      "correctAnswer": "Left",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Right.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     },
     {
@@ -359,13 +359,13 @@
         "Right",
         ""
       ],
-      "correctAnswer": "Middle",
+      "correctAnswer": "Left",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Middle.",
+      "solution": "The correct answer is Left.",
       "solutionAttachments": []
     }
   ]
