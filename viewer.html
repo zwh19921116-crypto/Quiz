@@ -91,6 +91,23 @@
     </div>
   </div>
 
-  <script src="viewer.js?v=20260606-2"></script>
+  <div id="reportFlowModal" class="viewer-modal hidden" aria-hidden="true">
+    <div class="viewer-modal-backdrop" data-close-report-flow="true"></div>
+    <div class="viewer-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="reportFlowModalTitle">
+      <div class="viewer-modal-header">
+        <h2 id="reportFlowModalTitle">Question Reported</h2>
+        <button class="icon-btn" id="closeReportFlowBtn" type="button" aria-label="Close report options">×</button>
+      </div>
+      <div class="viewer-modal-body">
+        <p>You can continue this question or skip to the next question.</p>
+      </div>
+      <div class="viewer-modal-footer">
+        <button class="btn secondary" id="continueCurrentQuestionBtn" type="button">Continue Question</button>
+        <button class="btn" id="skipQuestionAfterReportBtn" type="button">Skip Question</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="viewer.js?v=20260607-1"></script>
 </body>
 </html>

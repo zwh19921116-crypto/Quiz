@@ -168,9 +168,69 @@ function reportCurrentQuestion() {
   syncReportQuestionButton(question);
   if (result.alreadyFlagged) {
     showToast("Thank you for reporting. We are aware and working on it.", "info");
+    openReportFlowModal();
     return;
   }
   showToast("Thank you for reporting. We are aware and working on it.", "success");
+  openReportFlowModal();
+}
+
+function openReportFlowModal() {
+  const modal = document.getElementById("reportFlowModal");
+  if (!(modal instanceof HTMLElement)) return;
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeReportFlowModal() {
+  const modal = document.getElementById("reportFlowModal");
+  if (!(modal instanceof HTMLElement)) return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+async function skipCurrentQuestionAfterReport() {
+  if (!quizData || !Array.isArray(quizData.questions)) return;
+  const question = quizData.questions[currentIndex];
+  if (!question || isIntroductionQuestion(question)) return;
+
+  if (!answerChecked) {
+    const expectedAnswers = getExpectedAnswers(question);
+    const skippedAttempt = buildAttemptRecord(
+      question,
+      "",
+      expectedAnswers,
+      false,
+      currentIndex + 1
+    );
+
+    quizAnswerLog.push(skippedAttempt);
+    questionAttemptMap[currentIndex] = {
+      isCorrect: false,
+      expectedAnswers: expectedAnswers.slice(),
+      resultClass: "result-incorrect",
+      resultHtml: "Question skipped after reporting."
+    };
+    answerChecked = true;
+    answeredQuestionMap[currentIndex] = true;
+    if (isNumberTracingQuestion(question)) {
+      numberTracingCompletionByQuestion[currentIndex] = true;
+    }
+
+    const resultBox = document.getElementById("resultBox");
+    if (resultBox instanceof HTMLElement) {
+      resultBox.textContent = "Question skipped after reporting.";
+      resultBox.className = "result-incorrect";
+    }
+
+    window.currentExpectedAnswers = expectedAnswers;
+    updateNextQuestionButtonState();
+  }
+
+  closeReportFlowModal();
+  await goNext();
 }
 
 function ensureReportQuestionButtonExists() {
@@ -11124,6 +11184,11 @@ document.getElementById("notesViewerBtn").addEventListener("click", () => {
   panel.classList.toggle("hidden");
 });
 document.getElementById("closeSolutionBtn").addEventListener("click", closeSolutionModal);
+document.getElementById("closeReportFlowBtn").addEventListener("click", closeReportFlowModal);
+document.getElementById("continueCurrentQuestionBtn").addEventListener("click", closeReportFlowModal);
+document.getElementById("skipQuestionAfterReportBtn").addEventListener("click", () => {
+  skipCurrentQuestionAfterReport();
+});
 document.getElementById("solutionNextBtn").addEventListener("click", () => {
   closeSolutionModal();
   goNext();
@@ -11132,6 +11197,12 @@ document.getElementById("solutionModal").addEventListener("click", (event) => {
   const target = event.target;
   if (target instanceof HTMLElement && target.dataset.closeSolution === "true") {
     closeSolutionModal();
+  }
+});
+document.getElementById("reportFlowModal").addEventListener("click", (event) => {
+  const target = event.target;
+  if (target instanceof HTMLElement && target.dataset.closeReportFlow === "true") {
+    closeReportFlowModal();
   }
 });
 document.getElementById("questionNavTab").addEventListener("click", () => {
