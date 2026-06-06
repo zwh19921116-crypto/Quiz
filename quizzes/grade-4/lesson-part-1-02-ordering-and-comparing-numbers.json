@@ -1,0 +1,372 @@
+{
+  "id": "quiz-373",
+  "title": "Grade 4 1.02",
+  "description": "Learning Outcomes for Grade 4: Compare numbers to 10,000 | Use comparison symbols | Compare numbers | Order numbers | 4,123, 4,213, 4,321 | 8,432, 8,324, 8,234 | Compare equal numbers | Identify numbers in range | Compare distances | Apply place value knowledge | Understand ordering | Compare numbers effectively",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Which number is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "567",
+        "4",
+        "576"
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Compare numbers to 10,000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "432",
+        "8",
+        "342"
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Compare numbers to 10,000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which symbol means greater than?",
+      "resultType": "short-answer",
+      "options": [
+        ">",
+        "<",
+        "=",
+        ""
+      ],
+      "correctAnswer": ">",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Use comparison symbols",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to >.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which symbol means less than?",
+      "resultType": "short-answer",
+      "options": [
+        ">",
+        "<",
+        "=",
+        ""
+      ],
+      "correctAnswer": ">",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Use comparison symbols",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to >.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Complete: 5,678 ___ 5,679",
+      "resultType": "short-answer",
+      "options": [
+        "<",
+        ">",
+        "=",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Complete: 9,001 ___ 8,999",
+      "resultType": "short-answer",
+      "options": [
+        "<",
+        ">",
+        "=",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes first?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "245",
+        "3",
+        "254"
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes last?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "123",
+        "7",
+        "321"
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Order from smallest: 4,321, 4,123, 4,213",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "123",
+        "4",
+        "213"
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "4,123, 4,213, 4,321",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Order from largest: 8,234, 8,432, 8,324",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "432",
+        "8",
+        "324"
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "8,432, 8,324, 8,234",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greatest?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "789",
+        "6",
+        "879"
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smallest?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "987",
+        "2",
+        "879"
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Complete: 7,000 ___ 7,000",
+      "resultType": "short-answer",
+      "options": [
+        "<",
+        ">",
+        "=",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Compare equal numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is between 5,200 and 5,300?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "250",
+        "5",
+        "350"
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Identify numbers in range",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is closest to 4,000?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "001",
+        "4",
+        "100"
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Compare distances",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "876",
+        "9",
+        "678"
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "234",
+        "1",
+        "243"
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Comparing numbers uses?",
+      "resultType": "short-answer",
+      "options": [
+        "Place value",
+        "Colours",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Place value",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Apply place value knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Place value.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Ordering numbers means arranging them by?",
+      "resultType": "short-answer",
+      "options": [
+        "Size",
+        "Colour",
+        "Shape",
+        ""
+      ],
+      "correctAnswer": "Size",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Understand ordering",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Size.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Comparing numbers helps identify?",
+      "resultType": "short-answer",
+      "options": [
+        "Larger and smaller values",
+        "Shapes",
+        "Fractions",
+        ""
+      ],
+      "correctAnswer": "Larger and smaller values",
+      "category": "Number",
+      "subcategory": "Number Sense",
+      "learningOutcome": "Compare numbers effectively",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Larger and smaller values.",
+      "solutionAttachments": []
+    }
+  ]
+}

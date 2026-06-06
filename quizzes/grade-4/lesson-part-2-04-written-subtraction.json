@@ -1,0 +1,372 @@
+{
+  "id": "quiz-385",
+  "title": "Grade 4 2.04",
+  "description": "Learning Outcomes for Grade 4: Subtract 3-digit numbers | Subtract hundreds | Use written subtraction | Use regrouping | Subtract from 1,000 | Subtract 4-digit numbers | Subtract large numbers | Subtract thousands | Recognise number patterns | Subtract larger numbers | Apply subtraction strategies | Understand subtraction | Understand written methods | Develop accuracy | Identify operations | Connect operations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "456 − 123 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "333",
+        "323",
+        "343",
+        ""
+      ],
+      "correctAnswer": "456",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 456.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "678 − 245 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "433",
+        "423",
+        "443",
+        ""
+      ],
+      "correctAnswer": "678",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 678.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "900 − 300 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "600",
+        "500",
+        "700",
+        ""
+      ],
+      "correctAnswer": "900",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract hundreds",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 900.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "745 − 212 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "533",
+        "523",
+        "543",
+        ""
+      ],
+      "correctAnswer": "745",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Use written subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 745.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "864 − 421 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "443",
+        "433",
+        "453",
+        ""
+      ],
+      "correctAnswer": "864",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Use written subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 864.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "731 − 258 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "473",
+        "463",
+        "483",
+        ""
+      ],
+      "correctAnswer": "731",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Use regrouping",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 731.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "602 − 187 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "415",
+        "425",
+        "405",
+        ""
+      ],
+      "correctAnswer": "602",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Use regrouping",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 602.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1,000 − 456 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "544",
+        "554",
+        "534",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract from 1,000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1,234 − 123 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "111",
+        "1",
+        "101"
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract 4-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2,000 − 875 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "125",
+        "1",
+        "135"
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract large numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3,456 − 1,234 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "222",
+        "2",
+        "212"
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract 4-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5,000 − 2,500 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "500",
+        "2",
+        "400"
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract thousands",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4,321 − 321 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "000",
+        "3",
+        "900"
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Recognise number patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8,765 − 1,234 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "531",
+        "7",
+        "521"
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract larger numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "7,000 − 999 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "001",
+        "6",
+        "101"
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Apply subtraction strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Subtraction finds the?",
+      "resultType": "short-answer",
+      "options": [
+        "Difference",
+        "Total",
+        "Product",
+        ""
+      ],
+      "correctAnswer": "Difference",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Understand subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Difference.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Written subtraction is useful for?",
+      "resultType": "short-answer",
+      "options": [
+        "Larger numbers",
+        "Smaller numbers only",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Larger numbers",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Understand written methods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Larger numbers.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Accurate subtraction requires?",
+      "resultType": "short-answer",
+      "options": [
+        "Careful working",
+        "Guessing",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Careful working",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Develop accuracy",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Careful working.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which operation symbol means subtract?",
+      "resultType": "short-answer",
+      "options": [
+        "-",
+        "+",
+        "÷",
+        ""
+      ],
+      "correctAnswer": "-",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Identify operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to -.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Subtraction is the opposite of?",
+      "resultType": "short-answer",
+      "options": [
+        "Addition",
+        "Multiplication",
+        "Division",
+        ""
+      ],
+      "correctAnswer": "Addition",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Connect operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Addition.",
+      "solutionAttachments": []
+    }
+  ]
+}

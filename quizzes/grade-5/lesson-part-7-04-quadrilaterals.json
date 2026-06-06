@@ -1,0 +1,427 @@
+{
+  "id": "quiz-535",
+  "title": "Grade 5 7.04",
+  "description": "Learning Outcomes for Grade 5: Identify quadrilaterals | Recognise quadrilaterals | Distinguish quadrilaterals | Identify properties of quadrilaterals | Define quadrilaterals | Classify quadrilaterals | Describe quadrilateral properties | Identify parallel sides | Identify quadrilateral properties | Apply quadrilateral properties | Classify quadrilaterals using properties | Identify quadrilaterals from descriptions",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "How many sides does a quadrilateral have?",
+      "resultType": "short-answer",
+      "options": [
+        "4; 3; 5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4; 3; 5",
+      "category": "Geometry",
+      "subcategory": "Quadrilaterals",
+      "learningOutcome": "Identify quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4; 3; 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a quadrilateral have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many vertices does a quadrilateral have?",
+      "resultType": "short-answer",
+      "options": [
+        "4; 3; 5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4; 3; 5",
+      "category": "Geometry",
+      "subcategory": "Quadrilaterals",
+      "learningOutcome": "Identify quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4; 3; 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many vertices does a quadrilateral have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape is a quadrilateral?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle; triangle; pentagon",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle; triangle; pentagon",
+      "category": "Geometry",
+      "subcategory": "Quadrilaterals",
+      "learningOutcome": "Recognise quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle; Triangle; Pentagon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is NOT a quadrilateral?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle; square; rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Triangle; square; rectangle",
+      "category": "Geometry",
+      "subcategory": "Quadrilaterals",
+      "learningOutcome": "Distinguish quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle; Square; Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A square has how many sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4; 3; 5",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "4; 3; 5",
+      "category": "Geometry",
+      "subcategory": "Quadrilaterals",
+      "learningOutcome": "Identify properties of quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4; 3; 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A square has how many sides?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "A rectangle has how many vertices?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4; 3; 5",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "4; 3; 5",
+      "category": "Geometry",
+      "subcategory": "Quadrilaterals",
+      "learningOutcome": "Identify properties of quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4; 3; 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A rectangle has how many vertices?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has 4 sides and 4 corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Quadrilaterals",
+      "learningOutcome": "Identify quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a quadrilateral?",
+      "resultType": "short-answer",
+      "options": [
+        "Parallelogram; Triangle; Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Parallelogram; Triangle; Circle",
+      "category": "Geometry",
+      "subcategory": "Quadrilaterals",
+      "learningOutcome": "Recognise quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Parallelogram; Triangle; Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A quadrilateral always has how many sides?",
+      "resultType": "short-answer",
+      "options": [
+        "4; 5; 6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4; 5; 6",
+      "category": "Geometry",
+      "subcategory": "Quadrilaterals",
+      "learningOutcome": "Define quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4; 5; 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A quadrilateral always has how many sides?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape belongs to the quadrilateral family?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Trapezium; triangle; pentagon",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Trapezium; triangle; pentagon",
+      "category": "Geometry",
+      "subcategory": "Quadrilaterals",
+      "learningOutcome": "Recognise quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Trapezium; Triangle; Pentagon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which quadrilateral has 4 equal sides and 4 right angles?",
+      "resultType": "short-answer",
+      "options": [
+        "Square; Rectangle; Rhombus",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Classify quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which quadrilateral has opposite sides equal and 4 right angles?",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangle; Rhombus; Trapezium",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Classify quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which quadrilateral has 4 equal sides but not necessarily right angles?",
+      "resultType": "short-answer",
+      "options": [
+        "Rhombus; Rectangle; Trapezium",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Describe quadrilateral properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which quadrilateral has two pairs of parallel sides?",
+      "resultType": "short-answer",
+      "options": [
+        "Parallelogram; Triangle; Kite",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Parallelogram; Triangle; Kite",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify parallel sides",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Parallelogram; Triangle; Kite.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which quadrilateral has one pair of parallel sides?",
+      "resultType": "short-answer",
+      "options": [
+        "Trapezium; Rectangle; Square",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Trapezium; Rectangle; Square",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Classify quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Trapezium; Rectangle; Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape has 4 equal sides and opposite angles equal. What is it?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify quadrilateral properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which quadrilateral always has 4 right angles?",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangle; Rhombus; Trapezium",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Describe quadrilateral properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape has 4 equal sides and 4 right angles. What shape is it?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply quadrilateral properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape has opposite sides equal and parallel, but its angles are not right angles. What is it?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Parallelogram; rectangle; square",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Parallelogram; rectangle; square",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Classify quadrilaterals using properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Parallelogram; Rectangle; Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape has exactly one pair of parallel sides. What quadrilateral is it?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Trapezium; rectangle; square",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Trapezium; rectangle; square",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Identify quadrilaterals from descriptions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Trapezium; Rectangle; Square.",
+      "solutionAttachments": []
+    }
+  ]
+}

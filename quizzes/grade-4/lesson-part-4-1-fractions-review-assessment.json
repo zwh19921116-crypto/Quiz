@@ -1,0 +1,438 @@
+{
+  "id": "quiz-411",
+  "title": "Grade 4 4.1",
+  "description": "Learning Outcomes for Grade 4: Review fraction concepts | Review equivalent fractions | Compare fractions | Find fractions of collections | Add fractions | Subtract fractions | Recognise whole fractions | Apply fractions | Find equivalent fractions | Review fraction terminology | Review visual representations | Review concepts | Review equivalence",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 19
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Which fraction represents one half?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Review fraction concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction represents one quarter?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "1/3",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Review fraction concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is equivalent to 1/2?",
+      "resultType": "short-answer",
+      "options": [
+        "2/4",
+        "1/4",
+        "3/4",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Review equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 2 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 2,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "3/4",
+        "1/4",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "3/4",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is 1/2 of 20?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Find fractions of collections",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 2 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 2,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "What is 1/4 of 24?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "0.25",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Find fractions of collections",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 4 = 0.25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 4,
+          "answer": "0.25",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "1/4 + 2/4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3/4",
+        "3/8",
+        "2/8",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Add fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 + 2 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 2,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5/6 − 2/6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3/6",
+        "4/6",
+        "2/6",
+        ""
+      ],
+      "correctAnswer": "0.8333333333333334",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Subtract fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 / 6 = 0.8333333333333334.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 5,
+          "operandB": 6,
+          "answer": "0.83",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which fraction equals one whole?",
+      "resultType": "short-answer",
+      "options": [
+        "4/4",
+        "3/4",
+        "2/4",
+        ""
+      ],
+      "correctAnswer": "4/4",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Recognise whole fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "1/8",
+        "1/2",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/8",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is 2/3 of 18?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "0.6666666666666666",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Apply fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 / 3 = 0.6666666666666666.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 2,
+          "operandB": 3,
+          "answer": "0.67",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which fraction equals 3/4?",
+      "resultType": "short-answer",
+      "options": [
+        "6/8",
+        "4/8",
+        "2/8",
+        ""
+      ],
+      "correctAnswer": "0.75",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Find equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 / 4 = 0.75.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 3,
+          "operandB": 4,
+          "answer": "0.75",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "The numerator tells us?",
+      "resultType": "short-answer",
+      "options": [
+        "Selected parts",
+        "Total parts",
+        "Whole numbers",
+        ""
+      ],
+      "correctAnswer": "Selected parts",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Review fraction terminology",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Selected parts.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "The denominator tells us?",
+      "resultType": "short-answer",
+      "options": [
+        "Total equal parts",
+        "Selected parts",
+        "Whole numbers",
+        ""
+      ],
+      "correctAnswer": "Total equal parts",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Review fraction terminology",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Total equal parts.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions can be shown on a?",
+      "resultType": "short-answer",
+      "options": [
+        "Number line",
+        "Calendar",
+        "Clock only",
+        ""
+      ],
+      "correctAnswer": "Number line",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Review visual representations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number line.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "5/8",
+        "3/8",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "5/8",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5/8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions describe?",
+      "resultType": "short-answer",
+      "options": [
+        "Parts of a whole",
+        "Whole numbers only",
+        "Shapes only",
+        ""
+      ],
+      "correctAnswer": "Parts of a whole",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Review concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Parts of a whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equivalent fractions have the same?",
+      "resultType": "short-answer",
+      "options": [
+        "Value",
+        "Numerator",
+        "Denominator",
+        ""
+      ],
+      "correctAnswer": "Value",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "Review equivalence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Value.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions are useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Drawing only",
+        "Colouring only",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Number",
+      "subcategory": "Fractions Review",
+      "learningOutcome": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    }
+  ]
+}

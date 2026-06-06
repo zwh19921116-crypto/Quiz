@@ -292,33 +292,21 @@
     },
     {
       "question": "Which group has 5 objects?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "🍎🍎🍎🍎",
         "🍎🍎🍎🍎🍎",
         "🍎🍎🍎",
         "🍎🍎"
       ],
-      "correctAnswer": "-5",
+      "correctAnswer": "🍎🍎🍎🍎🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "-",
-          "operandA": 0,
-          "operandB": 5,
-          "answer": "-5",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solution": "Count each group and select the one with 5 objects.",
+      "solutionAttachments": []
     },
     {
       "question": "What comes next? 0,1,2,__",

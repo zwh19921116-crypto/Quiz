@@ -1,0 +1,372 @@
+{
+  "id": "quiz-519",
+  "title": "Grade 5 5.08",
+  "description": "Learning Outcomes for Grade 5: Interpret decimals in real-world situations | Read decimal measurements | Interpret decimal distances | Read decimal money amounts | Interpret decimal quantities | Interpret decimal capacities | Solve decimal addition problems | Add decimals in context | Add decimal distances | Subtract decimals in context | Calculate change using decimals | Subtract decimal measurements | Apply decimal addition | Solve multi-step decimal problems | Apply decimal subtraction in real-world situations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "A bottle contains 0.5 L of water. How much water is in the bottle?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5 L; 5 L; 0.05 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Interpret decimals in real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A ribbon is 0.8 m long. What is its length?",
+      "resultType": "short-answer",
+      "options": [
+        "0.8 m; 8 m; 0.08 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Read decimal measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A runner completed 0.7 km. How far did the runner travel?",
+      "resultType": "short-answer",
+      "options": [
+        "0.7 km; 7 km; 0.07 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Interpret decimal distances",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A drink costs $0.90. How much does it cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.90; $9.00; $0.09",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Read decimal money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A tank is 0.4 full. What decimal represents the amount filled?",
+      "resultType": "short-answer",
+      "options": [
+        "0.4; 0.04; 4.0",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Interpret decimal quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rope is 0.3 m long. What is its length?",
+      "resultType": "short-answer",
+      "options": [
+        "0.3 m; 3 m; 0.03 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Read decimal measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A book costs $0.75. How much does it cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.75; $7.50; $0.07",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Read decimal money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A container holds 0.6 L. How much liquid does it hold?",
+      "resultType": "short-answer",
+      "options": [
+        "0.6 L; 6 L; 0.06 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Interpret decimal capacities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A runner completed 0.9 km. How far did the runner travel?",
+      "resultType": "short-answer",
+      "options": [
+        "0.9 km; 9 km; 0.09 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Interpret decimal distances",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A ruler measures 0.2 m. What is its length?",
+      "resultType": "short-answer",
+      "options": [
+        "0.2 m; 2 m; 0.02 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Read decimal measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A pencil costs $0.35 and an eraser costs $0.25. What is the total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.60; $0.50; $0.70",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve decimal addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A drink costs $1.20 and a sandwich costs $2.30. What is the total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$3.50; $3.40; $3.60",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Add decimals in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A runner completed 1.50 km and then another 0.75 km. How far did they run altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "2.25 km; 2.15 km; 2.35 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Add decimal distances",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bottle contains 1.00 L. If 0.35 L is used, how much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "0.65 L; 0.75 L; 0.55 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Subtract decimals in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A toy costs $4.80. If you pay $5.00, how much change do you receive?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.20; $0.30; $0.10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Calculate change using decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rope is 2.50 m long. If 0.75 m is cut off, how much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "1.75 m; 1.85 m; 1.65 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Subtract decimal measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A tank contains 0.45 L and another 0.55 L is added. How much water is there now?",
+      "resultType": "short-answer",
+      "options": [
+        "1.00 L; 0.90 L; 1.10 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply decimal addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A family drives 12.5 km in the morning and 18.7 km in the afternoon. How far do they travel altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "31.2 km; 30.2 km; 32.2 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step decimal problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shopkeeper has $20.00. After buying supplies costing $13.45, how much money remains?",
+      "resultType": "short-answer",
+      "options": [
+        "$6.55; $6.45; $7.55",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "21",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply decimal subtraction in real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 21.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A water tank contains 15.8 L. Another 4.7 L is added, then 3.5 L is used. How much water remains?",
+      "resultType": "short-answer",
+      "options": [
+        "17.0 L; 16.0 L; 18.0 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Decimals",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step decimal problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    }
+  ]
+}

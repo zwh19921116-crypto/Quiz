@@ -1,0 +1,449 @@
+{
+  "id": "quiz-275",
+  "title": "Grade 2 8.01",
+  "description": "Learning Outcomes for Grade 2: Identify triangles | Identify squares | Identify rectangles | Identify shapes | Identify circles | Count vertices | Understand 2D shapes | Compare shapes | Count sides | Connect shapes to objects | Understand geometry | Identify properties",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "How many sides does a triangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Triangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify triangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a triangle have?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many sides does a square have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify squares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a square have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many sides does a rectangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a rectangle have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has 3 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has no sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 4 equal sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify squares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is round?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A triangle has how many corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "Triangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "2",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Count vertices",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A triangle has how many corners?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "A square has how many corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Count vertices",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A square has how many corners?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Shapes with flat surfaces are called?",
+      "resultType": "short-answer",
+      "options": [
+        "2D shapes",
+        "Coins",
+        "Numbers",
+        ""
+      ],
+      "correctAnswer": "2D shapes",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Understand 2D shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2D shapes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 4 sides but not all equal?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has the most sides? Triangle, Square, Pentagon",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Square",
+        "Pentagon",
+        "Circle"
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Compare shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle has how many sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Count sides",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A rectangle has how many sides?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "A circle has how many corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2000",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "2000",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2000.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A circle has how many corners?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape would a wheel most closely resemble?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect shapes to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape would a window often resemble?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect shapes to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape would a road sign sometimes resemble?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        "Rectangle"
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect shapes to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Shapes help us describe?",
+      "resultType": "short-answer",
+      "options": [
+        "Objects around us",
+        "Time",
+        "Money",
+        ""
+      ],
+      "correctAnswer": "Objects around us",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Understand geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Objects around us.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 4 corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Geometry is the study of?",
+      "resultType": "short-answer",
+      "options": [
+        "Shapes",
+        "Money",
+        "Time",
+        ""
+      ],
+      "correctAnswer": "Shapes",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Understand geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Shapes.",
+      "solutionAttachments": []
+    }
+  ]
+}

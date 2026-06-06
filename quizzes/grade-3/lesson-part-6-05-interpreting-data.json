@@ -1,0 +1,372 @@
+{
+  "id": "quiz-339",
+  "title": "Grade 3 6.05",
+  "description": "Learning Outcomes for Grade 3: Interpret simple data | Use data to answer questions | Identify greatest values | Identify least values | Compare data sets | Interpret survey results | Identify patterns in data | Compare data | Compare quantities | Compare equal values | Use statistical vocabulary | Interpret representations | Connect graphs and data | Use information meaningfully | Identify equal results | Interpret values | Draw conclusions from data",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "What does interpreting data mean?",
+      "resultType": "short-answer",
+      "options": [
+        "Understanding information",
+        "Drawing pictures",
+        "Measuring objects",
+        ""
+      ],
+      "correctAnswer": "Understanding information",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Interpret simple data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Understanding information.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Data helps us answer?",
+      "resultType": "short-answer",
+      "options": [
+        "Questions",
+        "Shapes",
+        "Directions",
+        ""
+      ],
+      "correctAnswer": "Questions",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Use data to answer questions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Questions.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category has the most data?",
+      "resultType": "short-answer",
+      "options": [
+        "Largest group",
+        "Smallest group",
+        "Equal group",
+        ""
+      ],
+      "correctAnswer": "Largest group",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Identify greatest values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Largest group.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category has the least data?",
+      "resultType": "short-answer",
+      "options": [
+        "Smallest group",
+        "Largest group",
+        "Equal group",
+        ""
+      ],
+      "correctAnswer": "Smallest group",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Identify least values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Smallest group.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If two groups have the same amount, they are?",
+      "resultType": "short-answer",
+      "options": [
+        "Equal",
+        "Different",
+        "Missing",
+        ""
+      ],
+      "correctAnswer": "Equal",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Compare data sets",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category is most popular?",
+      "resultType": "short-answer",
+      "options": [
+        "Largest category",
+        "Smallest category",
+        "Empty category",
+        ""
+      ],
+      "correctAnswer": "Largest category",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Interpret survey results",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Largest category.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category is least popular?",
+      "resultType": "short-answer",
+      "options": [
+        "Smallest category",
+        "Largest category",
+        "Equal category",
+        ""
+      ],
+      "correctAnswer": "Smallest category",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Interpret survey results",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Smallest category.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Data can help us find?",
+      "resultType": "short-answer",
+      "options": [
+        "Patterns",
+        "Angles",
+        "Distances",
+        ""
+      ],
+      "correctAnswer": "Patterns",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Identify patterns in data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Patterns.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Why do we compare data?",
+      "resultType": "short-answer",
+      "options": [
+        "To see differences",
+        "To draw shapes",
+        "To measure mass",
+        ""
+      ],
+      "correctAnswer": "To see differences",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Compare data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to To see differences.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If apples received 10 votes and bananas received 6 votes, which is more popular?",
+      "resultType": "short-answer",
+      "options": [
+        "Apples",
+        "Bananas",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If cats received 8 votes and dogs received 8 votes, which is more popular?",
+      "resultType": "short-answer",
+      "options": [
+        "Cats",
+        "Dogs",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Compare equal values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means the greatest amount?",
+      "resultType": "short-answer",
+      "options": [
+        "Most",
+        "Least",
+        "Equal",
+        ""
+      ],
+      "correctAnswer": "Most",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Use statistical vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Most.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means the smallest amount?",
+      "resultType": "short-answer",
+      "options": [
+        "Most",
+        "Least",
+        "Equal",
+        ""
+      ],
+      "correctAnswer": "Most",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Use statistical vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Most.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What helps us understand survey results?",
+      "resultType": "short-answer",
+      "options": [
+        "Graphs and charts",
+        "Rulers",
+        "Compasses",
+        ""
+      ],
+      "correctAnswer": "Graphs and charts",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Interpret representations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Graphs and charts.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category would have the tallest column in a graph?",
+      "resultType": "plot",
+      "options": [
+        "Largest category",
+        "Smallest category",
+        "Equal category",
+        ""
+      ],
+      "correctAnswer": "Largest category",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Connect graphs and data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Largest category.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category would have the shortest column in a graph?",
+      "resultType": "plot",
+      "options": [
+        "Smallest category",
+        "Largest category",
+        "Equal category",
+        ""
+      ],
+      "correctAnswer": "Smallest category",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Connect graphs and data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Smallest category.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Data interpretation helps us make?",
+      "resultType": "short-answer",
+      "options": [
+        "Decisions",
+        "Shapes",
+        "Directions",
+        ""
+      ],
+      "correctAnswer": "Decisions",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Use information meaningfully",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Decisions.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which graph result shows a tie?",
+      "resultType": "plot",
+      "options": [
+        "Equal amounts",
+        "Largest amount",
+        "Smallest amount",
+        ""
+      ],
+      "correctAnswer": "Equal amounts",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Identify equal results",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Equal amounts.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Looking for the highest value means finding the?",
+      "resultType": "short-answer",
+      "options": [
+        "Maximum",
+        "Minimum",
+        "Average",
+        ""
+      ],
+      "correctAnswer": "Maximum",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Interpret values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Maximum.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Interpreting data means explaining what the information?",
+      "resultType": "short-answer",
+      "options": [
+        "Shows",
+        "Weighs",
+        "Measures",
+        ""
+      ],
+      "correctAnswer": "Shows",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Draw conclusions from data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Shows.",
+      "solutionAttachments": []
+    }
+  ]
+}

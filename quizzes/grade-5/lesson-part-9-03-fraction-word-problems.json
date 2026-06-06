@@ -1,0 +1,552 @@
+{
+  "id": "quiz-553",
+  "title": "Grade 5 9.03",
+  "description": "Learning Outcomes for Grade 5: Solve simple fraction word problems | Identify fractions in context | Find complementary fractions | Represent fractions from real situations | Calculate remaining fractions | Solve fraction problems | Identify fractions from groups | Apply fractions in context | Calculate fractions remaining | Represent fractions from quantities | Add fractions with like denominators | Add fractions in context | Subtract fractions with like denominators | Add fractions to make a whole | Apply fraction addition | Apply fraction subtraction | Solve multi-step fraction problems | Apply fractions to real-world situations | Solve fraction word problems involving subtraction",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "Emma ate 1/2 of a pizza. What fraction of the pizza remains?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2; 1/4; 0",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Fractions",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve simple fraction word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 2 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 2,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A chocolate bar is divided into 4 equal pieces. Tom eats 1 piece. What fraction did he eat?",
+      "resultType": "short-answer",
+      "options": [
+        "1/4; 2/4; 3/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Fractions",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Identify fractions in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Sarah drank 2/5 of a bottle of water. What fraction remains?",
+      "resultType": "short-answer",
+      "options": [
+        "3/5; 2/5; 1/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.4",
+      "category": "Fractions",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Find complementary fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 / 5 = 0.4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 2,
+          "operandB": 5,
+          "answer": "0.4",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A cake is cut into 8 equal slices. Ben eats 2 slices. What fraction did he eat?",
+      "resultType": "short-answer",
+      "options": [
+        "2/8; 6/8; 1/8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Fractions",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Represent fractions from real situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia completed 3/10 of a book. What fraction has not been completed?",
+      "resultType": "short-answer",
+      "options": [
+        "7/10; 3/10; 10/10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.3",
+      "category": "Fractions",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Calculate remaining fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 / 10 = 0.3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 3,
+          "operandB": 10,
+          "answer": "0.3",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A class used 4/12 of a packet of paper. What fraction remains?",
+      "resultType": "short-answer",
+      "options": [
+        "8/12; 4/12; 6/12",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.3333333333333333",
+      "category": "Fractions",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve fraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 / 12 = 0.3333333333333333.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 4,
+          "operandB": 12,
+          "answer": "0.33",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Lucy ate 3 of 6 equal orange slices. What fraction did she eat?",
+      "resultType": "short-answer",
+      "options": [
+        "3/6; 2/6; 4/6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Fractions",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Identify fractions from groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rope is divided into 5 equal parts. One part is cut off. What fraction was removed?",
+      "resultType": "short-answer",
+      "options": [
+        "1/5; 4/5; 2/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Fractions",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply fractions in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "James completed 5/8 of a puzzle. What fraction remains?",
+      "resultType": "short-answer",
+      "options": [
+        "3/8; 5/8; 2/8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.625",
+      "category": "Fractions",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Calculate fractions remaining",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 / 8 = 0.625.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 5,
+          "operandB": 8,
+          "answer": "0.63",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A pizza has 10 slices. Four slices are eaten. What fraction was eaten?",
+      "resultType": "short-answer",
+      "options": [
+        "4/10; 6/10; 5/10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Fractions",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Represent fractions from quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Emma walked 1/4 km in the morning and 2/4 km in the afternoon. How far did she walk altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "3/4 km; 2/4 km; 1 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.25",
+      "category": "Fractions",
+      "subcategory": "Operations",
+      "learningOutcome": "Add fractions with like denominators",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 4 = 0.25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 4,
+          "answer": "0.25",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A recipe uses 2/8 cup of sugar in one batch and 3/8 cup in another. How much sugar is used altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "5/8 cup; 6/8 cup; 1 cup",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.25",
+      "category": "Fractions",
+      "subcategory": "Operations",
+      "learningOutcome": "Add fractions with like denominators",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 / 8 = 0.25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 2,
+          "operandB": 8,
+          "answer": "0.25",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Liam read 7/10 of a book and then another 1/10. How much of the book has he read?",
+      "resultType": "short-answer",
+      "options": [
+        "8/10; 7/10; 9/10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.7",
+      "category": "Fractions",
+      "subcategory": "Operations",
+      "learningOutcome": "Add fractions in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7 / 10 = 0.7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 7,
+          "operandB": 10,
+          "answer": "0.7",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A water tank was 9/12 full. 3/12 was used. How much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "6/12; 12/12; 3/12",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.75",
+      "category": "Fractions",
+      "subcategory": "Operations",
+      "learningOutcome": "Subtract fractions with like denominators",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 9 / 12 = 0.75.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 9,
+          "operandB": 12,
+          "answer": "0.75",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A runner completed 5/6 of a race and then another 1/6. What fraction of the race is complete?",
+      "resultType": "short-answer",
+      "options": [
+        "6/6; 5/6; 4/6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.8333333333333334",
+      "category": "Fractions",
+      "subcategory": "Operations",
+      "learningOutcome": "Add fractions to make a whole",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 / 6 = 0.8333333333333334.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 5,
+          "operandB": 6,
+          "answer": "0.83",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Sophie ate 7/9 of a chocolate block. Her brother ate 1/9. How much was eaten altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "8/9; 7/9; 9/9",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.7777777777777778",
+      "category": "Fractions",
+      "subcategory": "Operations",
+      "learningOutcome": "Apply fraction addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7 / 9 = 0.7777777777777778.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 7,
+          "operandB": 9,
+          "answer": "0.78",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A garden bed is 10/12 planted. If 2/12 is removed, what fraction remains planted?",
+      "resultType": "short-answer",
+      "options": [
+        "8/12; 10/12; 6/12",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.8333333333333334",
+      "category": "Fractions",
+      "subcategory": "Operations",
+      "learningOutcome": "Apply fraction subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 10 / 12 = 0.8333333333333334.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 10,
+          "operandB": 12,
+          "answer": "0.83",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A school raised 3/8 of its fundraising goal in Term 1 and 2/8 in Term 2. What fraction of the goal has been raised?",
+      "resultType": "short-answer",
+      "options": [
+        "5/8; 4/8; 6/8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.375",
+      "category": "Fractions",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step fraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 / 8 = 0.375.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 3,
+          "operandB": 8,
+          "answer": "0.38",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A farmer harvested 11/12 of a field. Later, another 1/12 was harvested. What fraction of the field has been harvested altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "12/12; 11/12; 10/12",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.9166666666666666",
+      "category": "Fractions",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply fractions to real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 11 / 12 = 0.9166666666666666.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 11,
+          "operandB": 12,
+          "answer": "0.92",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A tank is 9/10 full. If 4/10 is used, what fraction of water remains?",
+      "resultType": "short-answer",
+      "options": [
+        "5/10; 4/10; 3/10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.9",
+      "category": "Fractions",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve fraction word problems involving subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 9 / 10 = 0.9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 9,
+          "operandB": 10,
+          "answer": "0.9",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    }
+  ]
+}

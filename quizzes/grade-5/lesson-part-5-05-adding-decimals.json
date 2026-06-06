@@ -1,0 +1,576 @@
+{
+  "id": "quiz-516",
+  "title": "Grade 5 5.05",
+  "description": "Learning Outcomes for Grade 5: Add decimals | Add decimals to hundredths | Add decimals accurately | Solve decimal addition problems in context | Apply decimal addition in real-world situations | Apply decimal addition to solve problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "0.2 + 0.3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5; 0.4; 0.6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 + 0 = 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 0,
+          "answer": "2",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.1 + 0.4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5; 0.3; 0.6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 + 0 = 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 1,
+          "operandB": 0,
+          "answer": "1",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.5 + 0.2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.7; 0.6; 0.8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 + 0 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 0,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.3 + 0.3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.6; 0.5; 0.7",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 + 0 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3,
+          "operandB": 0,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.4 + 0.5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.9; 0.8; 1.0",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 + 0 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 0,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.25 + 0.15 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.40; 0.30; 0.50",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 25 + 0 = 25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 25,
+          "operandB": 0,
+          "answer": "25",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.32 + 0.16 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.48; 0.46; 0.50",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "32",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 32 + 0 = 32.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 32,
+          "operandB": 0,
+          "answer": "32",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.41 + 0.28 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.69; 0.68; 0.70",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "41",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 41 + 0 = 41.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 41,
+          "operandB": 0,
+          "answer": "41",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.12 + 0.23 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.35; 0.34; 0.36",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 12 + 0 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 12,
+          "operandB": 0,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.45 + 0.14 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.59; 0.58; 0.60",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "45",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 45 + 0 = 45.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 45,
+          "operandB": 0,
+          "answer": "45",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.36 + 0.42 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.78; 0.68; 0.88",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "36",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 36 + 0 = 36.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 36,
+          "operandB": 0,
+          "answer": "36",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.57 + 0.23 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.80; 0.70; 0.90",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "57",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 57 + 0 = 57.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 57,
+          "operandB": 0,
+          "answer": "57",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.64 + 0.15 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.79; 0.69; 0.89",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "64",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 64 + 0 = 64.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 64,
+          "operandB": 0,
+          "answer": "64",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.71 + 0.18 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.89; 0.79; 0.99",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "71",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 71 + 0 = 71.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 71,
+          "operandB": 0,
+          "answer": "71",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.48 + 0.37 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.85; 0.75; 0.95",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "48",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 48 + 0 = 48.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 48,
+          "operandB": 0,
+          "answer": "48",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.29 + 0.54 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.83; 0.73; 0.93",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "29",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 29 + 0 = 29.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 29,
+          "operandB": 0,
+          "answer": "29",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.62 + 0.27 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.89; 0.79; 0.99",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "62",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Add decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 62 + 0 = 62.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 62,
+          "operandB": 0,
+          "answer": "62",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A drink costs $0.75 and a snack costs $0.65. What is the total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$1.40; $1.30; $1.50",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Solve decimal addition problems in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A runner completed 0.85 km in the morning and 0.95 km in the afternoon. How far did they run altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "1.80 km; 1.70 km; 1.90 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Apply decimal addition in real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A tank contains 0.45 L and another 0.68 L is added. How much water is there now?",
+      "resultType": "short-answer",
+      "options": [
+        "1.13 L; 1.03 L; 1.23 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Addition",
+      "learningOutcome": "Apply decimal addition to solve problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    }
+  ]
+}

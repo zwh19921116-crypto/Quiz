@@ -1,0 +1,394 @@
+{
+  "id": "quiz-431",
+  "title": "Grade 4 6.1",
+  "description": "Learning Outcomes for Grade 4: Review measurement units | Review conversions | Review perimeter | Calculate perimeter | Review time units | Select measuring tools | Compare mass | Compare capacity | Compare lengths | Apply measurement | Measure accurately | Apply time skills | Consolidate learning | Consolidate understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Which unit measures length?",
+      "resultType": "short-answer",
+      "options": [
+        "Metres",
+        "Litres",
+        "Kilograms",
+        ""
+      ],
+      "correctAnswer": "Metres",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review measurement units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Metres.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit measures mass?",
+      "resultType": "short-answer",
+      "options": [
+        "Kilograms",
+        "Litres",
+        "Metres",
+        ""
+      ],
+      "correctAnswer": "Kilograms",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review measurement units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Kilograms.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit measures capacity?",
+      "resultType": "short-answer",
+      "options": [
+        "Litres",
+        "Kilograms",
+        "Metres",
+        ""
+      ],
+      "correctAnswer": "Litres",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review measurement units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Litres.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "100 cm equals?",
+      "resultType": "short-answer",
+      "options": [
+        "1 m",
+        "10 m",
+        "1000 m",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review conversions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1000 g equals?",
+      "resultType": "short-answer",
+      "options": [
+        "1 kg",
+        "10 kg",
+        "100 kg",
+        ""
+      ],
+      "correctAnswer": "1000",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review conversions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1000 mL equals?",
+      "resultType": "short-answer",
+      "options": [
+        "1 L",
+        "10 L",
+        "100 L",
+        ""
+      ],
+      "correctAnswer": "1000",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review conversions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is perimeter?",
+      "resultType": "short-answer",
+      "options": [
+        "Distance around a shape",
+        "Area inside a shape",
+        "Height of a shape",
+        ""
+      ],
+      "correctAnswer": "Distance around a shape",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review perimeter",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Distance around a shape.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A square has sides of 5 cm. Perimeter?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Calculate perimeter",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many minutes are in an hour?",
+      "resultType": "short-answer",
+      "options": [
+        "60",
+        "100",
+        "24",
+        ""
+      ],
+      "correctAnswer": "60",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review time units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 60.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many minutes are in an hour?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many hours are in a day?",
+      "resultType": "short-answer",
+      "options": [
+        "24",
+        "12",
+        "60",
+        ""
+      ],
+      "correctAnswer": "24",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review time units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 24.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many hours are in a day?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which tool measures mass?",
+      "resultType": "short-answer",
+      "options": [
+        "Scale",
+        "Ruler",
+        "Jug",
+        ""
+      ],
+      "correctAnswer": "Scale",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Select measuring tools",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Scale.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tool measures capacity?",
+      "resultType": "short-answer",
+      "options": [
+        "Measuring jug",
+        "Scale",
+        "Clock",
+        ""
+      ],
+      "correctAnswer": "Measuring jug",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Select measuring tools",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Measuring jug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "2 kg",
+        "500 g",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2 kg",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more?",
+      "resultType": "short-answer",
+      "options": [
+        "2 L",
+        "500 mL",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2 L",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 L.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "2 m",
+        "50 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2 m",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 m.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Measurement is useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Music",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Apply measurement",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Accurate measurement requires?",
+      "resultType": "short-answer",
+      "options": [
+        "Correct tools",
+        "Guessing",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Correct tools",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Measure accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Correct tools.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Time calculations often use?",
+      "resultType": "short-answer",
+      "options": [
+        "Addition and subtraction",
+        "Multiplication only",
+        "Division only",
+        ""
+      ],
+      "correctAnswer": "Addition and subtraction",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Apply time skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Addition and subtraction.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Measurement develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Practical maths skills",
+        "Art skills",
+        "Colour skills",
+        ""
+      ],
+      "correctAnswer": "Practical maths skills",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Consolidate learning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Practical maths skills.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding measurement supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Drawing",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Consolidate understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    }
+  ]
+}

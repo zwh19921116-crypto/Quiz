@@ -1,0 +1,394 @@
+{
+  "id": "quiz-343",
+  "title": "Grade 3 6.09",
+  "description": "Learning Outcomes for Grade 3: Interpret graph data | Compare data sets | Compare probability | Identify certain events | Identify impossible events | Apply probability concepts | Identify outcomes | Compare probabilities | Calculate differences from data | Calculate totals from data | Apply likelihood reasoning | Interpret survey results | Compare equal data | Understand fair experiments | Use graphs to solve problems | Use data meaningfully | Identify certain outcomes | Identify impossible outcomes | Connect statistics and probability",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "A graph shows 10 students like apples and 6 like bananas. Which fruit is more popular?",
+      "resultType": "plot",
+      "options": [
+        "Apples",
+        "Bananas",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Interpret graph data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A graph shows 8 students like soccer and 8 like basketball. What can you conclude?",
+      "resultType": "plot",
+      "options": [
+        "Equal popularity",
+        "Soccer is more popular",
+        "Basketball is more popular",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Compare data sets",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bag has 5 red balls and 2 blue balls. Which colour is more likely to be picked?",
+      "resultType": "short-answer",
+      "options": [
+        "Red",
+        "Blue",
+        "Same chance",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Compare probability",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bag has only green balls. Picking a green ball is?",
+      "resultType": "short-answer",
+      "options": [
+        "Certain",
+        "Impossible",
+        "Unlikely",
+        ""
+      ],
+      "correctAnswer": "Certain",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Identify certain events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Certain.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bag has no yellow balls. Picking a yellow ball is?",
+      "resultType": "short-answer",
+      "options": [
+        "Impossible",
+        "Certain",
+        "Likely",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Identify impossible events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A die is rolled. Which outcome is impossible?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "3",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply probability concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A coin is tossed. What are the possible outcomes?",
+      "resultType": "short-answer",
+      "options": [
+        "Heads or tails",
+        "Red or blue",
+        "Odd or even",
+        ""
+      ],
+      "correctAnswer": "Heads or tails",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Identify outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Heads or tails.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is more likely when rolling a die?",
+      "resultType": "short-answer",
+      "options": [
+        "Number less than 6",
+        "Rolling a 6",
+        "Same chance",
+        ""
+      ],
+      "correctAnswer": "Number less than 6",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Compare probabilities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number less than 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A graph shows 12 votes for cats and 4 votes for dogs. How many more votes did cats receive?",
+      "resultType": "plot",
+      "options": [
+        "8",
+        "6",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Calculate differences from data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A graph shows 12 votes for cats and 4 votes for dogs. How many more votes did cats receive?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "A graph shows 9 votes for pizza and 3 votes for pasta. How many votes altogether?",
+      "resultType": "plot",
+      "options": [
+        "12",
+        "10",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Calculate totals from data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A graph shows 9 votes for pizza and 3 votes for pasta. How many votes altogether?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which event is most likely?",
+      "resultType": "short-answer",
+      "options": [
+        "Picking red from 9 red and 1 blue ball",
+        "Picking blue",
+        "Same chance",
+        ""
+      ],
+      "correctAnswer": "Picking red from 9 red and 1 blue ball",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply likelihood reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Picking red from 9 red and 1 blue ball.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which event is least likely?",
+      "resultType": "short-answer",
+      "options": [
+        "Picking blue from 9 red and 1 blue ball",
+        "Picking red",
+        "Same chance",
+        ""
+      ],
+      "correctAnswer": "Picking blue from 9 red and 1 blue ball",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply likelihood reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Picking blue from 9 red and 1 blue ball.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A survey shows 7 students chose swimming and 5 chose tennis. Which activity is more popular?",
+      "resultType": "short-answer",
+      "options": [
+        "Swimming",
+        "Tennis",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Interpret survey results",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A survey shows 6 students chose blue and 6 chose green. What does this mean?",
+      "resultType": "short-answer",
+      "options": [
+        "Equal choices",
+        "Blue is more popular",
+        "Green is more popular",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Compare equal data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If a spinner has 4 equal sections, is landing on any section equally likely?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Impossible",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Understand fair experiments",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A graph helps us?",
+      "resultType": "plot",
+      "options": [
+        "Compare information",
+        "Measure length",
+        "Find directions",
+        ""
+      ],
+      "correctAnswer": "Compare information",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Use graphs to solve problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Compare information.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What does data help us do?",
+      "resultType": "short-answer",
+      "options": [
+        "Make decisions",
+        "Draw triangles",
+        "Measure mass",
+        ""
+      ],
+      "correctAnswer": "Make decisions",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Use data meaningfully",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Make decisions.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which event is certain?",
+      "resultType": "short-answer",
+      "options": [
+        "A die lands on a number from 1 to 6",
+        "A die lands on 8",
+        "A coin lands on both sides",
+        ""
+      ],
+      "correctAnswer": "A die lands on a number from 1 to 6",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Identify certain outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to A die lands on a number from 1 to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which event is impossible?",
+      "resultType": "short-answer",
+      "options": [
+        "Rolling 10 on a six-sided die",
+        "Rolling 4",
+        "Rolling 6",
+        ""
+      ],
+      "correctAnswer": "Rolling 10 on a six-sided die",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Identify impossible outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rolling 10 on a six-sided die.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Statistics helps us understand?",
+      "resultType": "short-answer",
+      "options": [
+        "Information and chance",
+        "Shapes",
+        "Measurement only",
+        ""
+      ],
+      "correctAnswer": "Information and chance",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Connect statistics and probability",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Information and chance.",
+      "solutionAttachments": []
+    }
+  ]
+}

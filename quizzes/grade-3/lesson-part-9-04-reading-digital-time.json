@@ -1,0 +1,394 @@
+{
+  "id": "quiz-368",
+  "title": "Grade 3 9.04",
+  "description": "Learning Outcomes for Grade 3: Read digital times | Convert digital to words | Match digital times | Sequence times | Understand digital times | Convert time formats | Understand digital clocks | Apply time skills",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "What time does 3:00 show?",
+      "resultType": "short-answer",
+      "options": [
+        "3 o'clock",
+        "Half past 3",
+        "Quarter past 3",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read digital times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time does 4:30 show?",
+      "resultType": "short-answer",
+      "options": [
+        "Half past 4",
+        "Quarter past 4",
+        "4 o'clock",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read digital times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time does 6:15 show?",
+      "resultType": "short-answer",
+      "options": [
+        "Quarter past 6",
+        "Half past 6",
+        "Quarter to 6",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Convert digital to words",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time does 8:45 show?",
+      "resultType": "short-answer",
+      "options": [
+        "Quarter to 9",
+        "Quarter past 8",
+        "Half past 8",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Convert digital to words",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which digital time shows half past 7?",
+      "resultType": "short-answer",
+      "options": [
+        "7:30",
+        "7:15",
+        "7:45",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Match digital times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which digital time shows quarter past 5?",
+      "resultType": "short-answer",
+      "options": [
+        "5:15",
+        "5:30",
+        "5:45",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Match digital times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which digital time shows quarter to 4?",
+      "resultType": "short-answer",
+      "options": [
+        "3:45",
+        "4:15",
+        "4:45",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Match digital times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 12:00?",
+      "resultType": "short-answer",
+      "options": [
+        "12 o'clock",
+        "Half past 12",
+        "Quarter past 12",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read digital times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 9:30?",
+      "resultType": "short-answer",
+      "options": [
+        "Half past 9",
+        "Quarter past 9",
+        "Quarter to 9",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read digital times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 10:15?",
+      "resultType": "short-answer",
+      "options": [
+        "Quarter past 10",
+        "Half past 10",
+        "Quarter to 10",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read digital times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 11:45?",
+      "resultType": "short-answer",
+      "options": [
+        "Quarter to 12",
+        "Quarter past 11",
+        "Half past 11",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read digital times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which time comes after 2:30?",
+      "resultType": "short-answer",
+      "options": [
+        "2:45",
+        "2:15",
+        "2:00",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which time comes before 7:00?",
+      "resultType": "short-answer",
+      "options": [
+        "6:45",
+        "7:15",
+        "7:30",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many minutes past 5 is 5:30?",
+      "resultType": "short-answer",
+      "options": [
+        "15",
+        "30",
+        "45",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand digital times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many minutes past 5 is 5:30?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many minutes past 8 is 8:15?",
+      "resultType": "short-answer",
+      "options": [
+        "15",
+        "30",
+        "45",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand digital times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many minutes past 8 is 8:15?",
+          "totalCount": 15,
+          "iconShape": "circle",
+          "groups": [
+            15
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which digital time represents quarter to 7?",
+      "resultType": "short-answer",
+      "options": [
+        "6:45",
+        "7:45",
+        "6:15",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Convert time formats",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which digital time represents half past 2?",
+      "resultType": "short-answer",
+      "options": [
+        "2:30",
+        "2:15",
+        "2:45",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Convert time formats",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which digital time represents 9 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "9:00",
+        "9:30",
+        "9:15",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Convert time formats",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Digital clocks show time using?",
+      "resultType": "short-answer",
+      "options": [
+        "Numbers",
+        "Hands",
+        "Pictures",
+        ""
+      ],
+      "correctAnswer": "Numbers",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand digital clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Numbers.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Reading digital time helps us?",
+      "resultType": "short-answer",
+      "options": [
+        "Tell time accurately",
+        "Measure length",
+        "Find directions",
+        ""
+      ],
+      "correctAnswer": "Tell time accurately",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Apply time skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tell time accurately.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,396 @@
+{
+  "id": "quiz-421",
+  "title": "Grade 4 5.1",
+  "description": "Learning Outcomes for Grade 4: Review decimal concepts | Review place value | Compare decimals | Add decimals | Subtract decimals | Understand tenths | Understand hundredths | Connect decimals and money | Read money amounts | Locate decimals | Compare hundredths | Add hundredths | Subtract hundredths | Apply decimals | Use visual models | Consolidate learning | Consolidate understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Which decimal represents one-half?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5",
+        "0.2",
+        "0.1",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Review decimal concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal represents one-tenth?",
+      "resultType": "short-answer",
+      "options": [
+        "0.1",
+        "0.01",
+        "1.0",
+        ""
+      ],
+      "correctAnswer": "0.1",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Review place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.8",
+        "0.3",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.8",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.15",
+        "0.51",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.15",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.2 + 0.3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5",
+        "0.4",
+        "0.6",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Add decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 + 0 = 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 0,
+          "answer": "2",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.8 − 0.3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5",
+        "0.4",
+        "0.6",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Subtract decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal equals 5 tenths?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5",
+        "0.05",
+        "5.0",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Understand tenths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal equals 7 hundredths?",
+      "resultType": "short-answer",
+      "options": [
+        "0.07",
+        "0.7",
+        "7.0",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Understand hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "$0.50 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "50 cents",
+        "5 cents",
+        "500 cents",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Connect decimals and money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "$1.25 means?",
+      "resultType": "short-answer",
+      "options": [
+        "$1 and 25 cents",
+        "$125",
+        "$12.50",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Read money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is between 0.3 and 0.5?",
+      "resultType": "short-answer",
+      "options": [
+        "0.4",
+        "0.2",
+        "0.6",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Locate decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "0.65",
+        "0.56",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.65",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Compare hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.65.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.24",
+        "0.42",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.24",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Compare hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.24.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.25 + 0.25 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.50",
+        "0.40",
+        "0.60",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Add hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 25 + 0 = 25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 25,
+          "operandB": 0,
+          "answer": "25",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.75 − 0.25 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.50",
+        "0.40",
+        "0.60",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Subtract hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals are commonly used in?",
+      "resultType": "short-answer",
+      "options": [
+        "Money and measurement",
+        "Art",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Money and measurement",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Apply decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Money and measurement.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals can be shown on a?",
+      "resultType": "short-answer",
+      "options": [
+        "Number line",
+        "Calendar",
+        "Clock",
+        ""
+      ],
+      "correctAnswer": "Number line",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Use visual models",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number line.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals represent?",
+      "resultType": "short-answer",
+      "options": [
+        "Parts of a whole",
+        "Shapes only",
+        "Colours only",
+        ""
+      ],
+      "correctAnswer": "Parts of a whole",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Review decimal concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Parts of a whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimal understanding supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Drawing",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Consolidate learning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals are an important part of?",
+      "resultType": "short-answer",
+      "options": [
+        "Mathematics",
+        "Art",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Mathematics",
+      "category": "Number",
+      "subcategory": "Decimals Review",
+      "learningOutcome": "Consolidate understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mathematics.",
+      "solutionAttachments": []
+    }
+  ]
+}

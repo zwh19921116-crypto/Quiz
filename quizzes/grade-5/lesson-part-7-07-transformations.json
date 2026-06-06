@@ -1,0 +1,372 @@
+{
+  "id": "quiz-538",
+  "title": "Grade 5 7.07",
+  "description": "Learning Outcomes for Grade 5: Identify transformations | Recognise translations | Recognise rotations | Recognise reflections | Understand effects of transformations | Use transformation vocabulary | Identify translations on a grid | Identify rotations | Identify reflections | Describe translations | Describe rotations | Describe reflections | Understand transformation properties | Apply transformation concepts | Apply rotation concepts | Apply transformation concepts in context",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "What is a slide transformation called?",
+      "resultType": "short-answer",
+      "options": [
+        "Translation; Rotation; Reflection",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Translation; Rotation; Reflection",
+      "category": "Geometry",
+      "subcategory": "Transformations",
+      "learningOutcome": "Identify transformations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Translation; Rotation; Reflection.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is a turn transformation called?",
+      "resultType": "short-answer",
+      "options": [
+        "Rotation; Translation; Reflection",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Rotation; Translation; Reflection",
+      "category": "Geometry",
+      "subcategory": "Transformations",
+      "learningOutcome": "Identify transformations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rotation; Translation; Reflection.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is a flip transformation called?",
+      "resultType": "short-answer",
+      "options": [
+        "Reflection; Rotation; Translation",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Reflection; Rotation; Translation",
+      "category": "Geometry",
+      "subcategory": "Transformations",
+      "learningOutcome": "Identify transformations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Reflection; Rotation; Translation.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If a shape slides to the right, what transformation occurred?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Translation; reflection; rotation",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Translation; reflection; rotation",
+      "category": "Geometry",
+      "subcategory": "Transformations",
+      "learningOutcome": "Recognise translations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Translation; Reflection; Rotation.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If a shape turns around a point, what transformation occurred?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rotation; translation; reflection",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rotation; translation; reflection",
+      "category": "Geometry",
+      "subcategory": "Transformations",
+      "learningOutcome": "Recognise rotations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rotation; Translation; Reflection.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If a shape flips over a line, what transformation occurred?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Reflection; translation; rotation",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Reflection; translation; rotation",
+      "category": "Geometry",
+      "subcategory": "Transformations",
+      "learningOutcome": "Recognise reflections",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Reflection; Translation; Rotation.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which transformation keeps a shape facing the same direction?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Translation; reflection; rotation",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Translation; reflection; rotation",
+      "category": "Geometry",
+      "subcategory": "Transformations",
+      "learningOutcome": "Understand effects of transformations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Translation; Reflection; Rotation.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which transformation changes the direction a shape faces by turning it?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rotation; translation; reflection",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rotation; translation; reflection",
+      "category": "Geometry",
+      "subcategory": "Transformations",
+      "learningOutcome": "Understand effects of transformations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rotation; Translation; Reflection.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which transformation creates a mirror image?",
+      "resultType": "short-answer",
+      "options": [
+        "Reflection; Rotation; Translation",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Reflection; Rotation; Translation",
+      "category": "Geometry",
+      "subcategory": "Transformations",
+      "learningOutcome": "Understand effects of transformations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Reflection; Rotation; Translation.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which transformation is also known as a slide?",
+      "resultType": "short-answer",
+      "options": [
+        "Translation; Rotation; Reflection",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Translation; Rotation; Reflection",
+      "category": "Geometry",
+      "subcategory": "Transformations",
+      "learningOutcome": "Use transformation vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Translation; Rotation; Reflection.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A square moves 4 squares right without turning. What transformation is this?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Translation",
+      "learningOutcome": "Identify translations on a grid",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A triangle turns 90°. What transformation occurred?",
+      "resultType": "multiple-choice",
+      "options": [
+        "90",
+        "Triangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "90",
+      "category": "Geometry",
+      "subcategory": "Rotation",
+      "learningOutcome": "Identify rotations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 90.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape is flipped across a vertical line. What transformation occurred?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Reflection; rotation; translation",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Reflection; rotation; translation",
+      "category": "Geometry",
+      "subcategory": "Reflection",
+      "learningOutcome": "Identify reflections",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Reflection; Rotation; Translation.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle moves down 3 squares and keeps the same orientation. What transformation is this?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Rectangle",
+        "Square",
+        "Circle"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "Translation",
+      "learningOutcome": "Describe translations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which transformation turns a shape around a centre point?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rotation; translation; reflection",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rotation; translation; reflection",
+      "category": "Geometry",
+      "subcategory": "Rotation",
+      "learningOutcome": "Describe rotations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rotation; Translation; Reflection.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which transformation produces two matching mirror halves?",
+      "resultType": "short-answer",
+      "options": [
+        "Reflection; Rotation; Translation",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Reflection; Rotation; Translation",
+      "category": "Geometry",
+      "subcategory": "Reflection",
+      "learningOutcome": "Describe reflections",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Reflection; Rotation; Translation.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which transformation does not change the size of a shape?",
+      "resultType": "multiple-choice",
+      "options": [
+        "All three; rotation only; reflection only",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "All three; rotation only; reflection only",
+      "category": "Geometry",
+      "subcategory": "Transformations",
+      "learningOutcome": "Understand transformation properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to All three; Rotation only; Reflection only.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A logo is flipped horizontally to create a mirror image. What transformation was used?",
+      "resultType": "short-answer",
+      "options": [
+        "Reflection; Rotation; Translation",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Reflection; Rotation; Translation",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply transformation concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Reflection; Rotation; Translation.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A robot turns 180° to face the opposite direction. What transformation matches this movement?",
+      "resultType": "short-answer",
+      "options": [
+        "Rotation; Translation; Reflection",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "180",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply rotation concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 180.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A game character moves 5 spaces forward without turning. What transformation matches this movement?",
+      "resultType": "short-answer",
+      "options": [
+        "Translation; Rotation; Reflection",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply transformation concepts in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    }
+  ]
+}

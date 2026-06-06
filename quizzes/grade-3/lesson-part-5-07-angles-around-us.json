@@ -1,0 +1,405 @@
+{
+  "id": "quiz-331",
+  "title": "Grade 3 5.07",
+  "description": "Learning Outcomes for Grade 3: Understand angles | Identify angles in real life | Recognise right angles | Identify right angles | Find angles in everyday objects | Identify angles in letters | Compare shapes by angles | Count angles | Compare angles | Understand angle use | Identify angles in objects | Distinguish shapes with angles | Connect turns and angles",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "An angle is made when two lines?",
+      "resultType": "short-answer",
+      "options": [
+        "Meet",
+        "Cross a river",
+        "Curve",
+        ""
+      ],
+      "correctAnswer": "Meet",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Understand angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Meet.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object has corners that form angles?",
+      "resultType": "short-answer",
+      "options": [
+        "Book",
+        "Ball",
+        "Water",
+        ""
+      ],
+      "correctAnswer": "Book",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Identify angles in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Book.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape has four right angles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Recognise right angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A square has how many right angles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "2",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Identify right angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A square has how many right angles?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which object often has right angles?",
+      "resultType": "short-answer",
+      "options": [
+        "Door frame",
+        "Soccer ball",
+        "Orange",
+        ""
+      ],
+      "correctAnswer": "Door frame",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Find angles in everyday objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Door frame.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A clock showing 3:00 forms what type of angle?",
+      "resultType": "short-answer",
+      "options": [
+        "Right angle",
+        "No angle",
+        "Circle",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Recognise right angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which letter contains angles?",
+      "resultType": "short-answer",
+      "options": [
+        "A",
+        "O",
+        "C",
+        ""
+      ],
+      "correctAnswer": "A",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Identify angles in letters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to A.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has the fewest angles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        "Rectangle"
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Compare shapes by angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A triangle has how many angles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "Triangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "2",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Count angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A triangle has how many angles?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "A pentagon has how many angles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Pentagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Count angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A pentagon has how many angles?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has more angles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Hexagon",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Hexagon",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Compare angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Hexagon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Angles help describe?",
+      "resultType": "short-answer",
+      "options": [
+        "Turns and corners",
+        "Weight",
+        "Capacity",
+        ""
+      ],
+      "correctAnswer": "Turns and corners",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Understand angle use",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Turns and corners.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which everyday object shows an angle when opened?",
+      "resultType": "short-answer",
+      "options": [
+        "Scissors",
+        "Ball",
+        "Cup",
+        ""
+      ],
+      "correctAnswer": "Scissors",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Identify angles in objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Scissors.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has no angles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Distinguish shapes with angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A corner of a book is usually what angle?",
+      "resultType": "short-answer",
+      "options": [
+        "Right angle",
+        "No angle",
+        "Full turn",
+        ""
+      ],
+      "correctAnswer": "Right angle",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Recognise right angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Right angle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has exactly four angles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Count angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has exactly six angles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Hexagon",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Hexagon",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Count angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Hexagon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A turn can be described using?",
+      "resultType": "short-answer",
+      "options": [
+        "Angles",
+        "Weight",
+        "Length",
+        ""
+      ],
+      "correctAnswer": "Angles",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Connect turns and angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Angles.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is least likely to have angles?",
+      "resultType": "short-answer",
+      "options": [
+        "Ball",
+        "Book",
+        "Box",
+        ""
+      ],
+      "correctAnswer": "Ball",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Identify angles in objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ball.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Angles are found where lines?",
+      "resultType": "short-answer",
+      "options": [
+        "Meet",
+        "End",
+        "Curve",
+        ""
+      ],
+      "correctAnswer": "Meet",
+      "category": "Geometry",
+      "subcategory": "Angles",
+      "learningOutcome": "Understand angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Meet.",
+      "solutionAttachments": []
+    }
+  ]
+}

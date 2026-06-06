@@ -1,0 +1,394 @@
+{
+  "id": "quiz-333",
+  "title": "Grade 3 5.09",
+  "description": "Learning Outcomes for Grade 3: Apply shape knowledge | Apply 3D object knowledge | Compare shapes | Identify polygons | Identify shape properties | Recognise 3D objects | Apply map skills | Apply directional knowledge | Apply symmetry knowledge | Apply pattern knowledge | Apply polygon knowledge | Identify 3D object properties | Apply shape properties | Apply directional reasoning | Connect geometry to real life | Understand purpose of geometry",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "A shape has 3 sides. What shape is it?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply shape knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape has 4 equal sides. What shape is it?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply shape knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which 3D object rolls best?",
+      "resultType": "short-answer",
+      "options": [
+        "Sphere",
+        "Cube",
+        "Pyramid",
+        ""
+      ],
+      "correctAnswer": "Sphere",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply 3D object knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sphere.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which 3D object stacks best?",
+      "resultType": "short-answer",
+      "options": [
+        "Cube",
+        "Sphere",
+        "Cone",
+        ""
+      ],
+      "correctAnswer": "Cube",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply 3D object knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cube.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has the most sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        "Rectangle"
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Compare shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape has 5 vertices. What is it likely to be?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "5",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Identify polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has no corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Identify shape properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is shaped like a can?",
+      "resultType": "short-answer",
+      "options": [
+        "Cylinder",
+        "Sphere",
+        "Cube",
+        ""
+      ],
+      "correctAnswer": "Cylinder",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Recognise 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cylinder.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A compass helps show?",
+      "resultType": "short-answer",
+      "options": [
+        "Direction",
+        "Weight",
+        "Length",
+        ""
+      ],
+      "correctAnswer": "Direction",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply map skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Direction.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction is opposite north?",
+      "resultType": "short-answer",
+      "options": [
+        "South",
+        "East",
+        "West",
+        ""
+      ],
+      "correctAnswer": "South",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply directional knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to South.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A square has how many lines of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply symmetry knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A square has how many lines of symmetry?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape is symmetrical?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Circle",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply symmetry knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape comes next: Triangle, Square, Pentagon, ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Hexagon",
+        "Triangle",
+        "Square",
+        "Pentagon"
+      ],
+      "correctAnswer": "Hexagon",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply pattern knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Hexagon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has one more side than a hexagon?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Heptagon",
+        "Hexagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "Heptagon",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply polygon knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Heptagon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A cube has how many faces?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Cube",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Identify 3D object properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A cube has how many faces?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has exactly four vertices?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply shape properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If you turn right from north, which direction do you face?",
+      "resultType": "short-answer",
+      "options": [
+        "East",
+        "West",
+        "South",
+        ""
+      ],
+      "correctAnswer": "East",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply directional reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to East.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape would best fit a wheel?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Connect geometry to real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is most likely a sphere?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Basketball",
+        "Sphere",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "Basketball",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Recognise 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Basketball.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Geometry helps us understand?",
+      "resultType": "short-answer",
+      "options": [
+        "Shapes and space",
+        "Weight",
+        "Temperature",
+        ""
+      ],
+      "correctAnswer": "Shapes and space",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Understand purpose of geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Shapes and space.",
+      "solutionAttachments": []
+    }
+  ]
+}

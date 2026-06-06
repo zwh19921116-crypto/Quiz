@@ -1,0 +1,372 @@
+{
+  "id": "quiz-328",
+  "title": "Grade 3 5.04",
+  "description": "Learning Outcomes for Grade 3: Understand symmetry | Recognise symmetrical shapes | Identify symmetry | Understand line symmetry | Identify symmetrical shapes | Identify symmetry in letters | Classify shapes | Recognise symmetry in nature | Test symmetry | Compare symmetry | Recognise symmetry in real life | Apply symmetry concepts | Use geometric vocabulary",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "What is symmetry?",
+      "resultType": "short-answer",
+      "options": [
+        "Matching halves",
+        "Different halves",
+        "No sides",
+        ""
+      ],
+      "correctAnswer": "Matching halves",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Understand symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Matching halves.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape is symmetrical if both sides are?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Different",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Different",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Recognise symmetrical shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Different.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape usually has symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Circle",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A line of symmetry divides a shape into?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Two matching halves",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Two matching halves",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Understand line symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Two matching halves.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has at least one line of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetrical shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which letter has a vertical line of symmetry?",
+      "resultType": "short-answer",
+      "options": [
+        "A",
+        "F",
+        "G",
+        ""
+      ],
+      "correctAnswer": "A",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetry in letters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to A.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is symmetrical?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Circle",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Classify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is usually symmetrical?",
+      "resultType": "short-answer",
+      "options": [
+        "Butterfly",
+        "Rock",
+        "Crumpled paper",
+        ""
+      ],
+      "correctAnswer": "Butterfly",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Recognise symmetry in nature",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Butterfly.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle has symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "Yes",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A circle has symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Yes",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is not symmetrical?",
+      "resultType": "short-answer",
+      "options": [
+        "Irregular shape",
+        "Square",
+        "Circle",
+        ""
+      ],
+      "correctAnswer": "Irregular shape",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Classify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Irregular shape.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Folding a symmetrical shape along its line of symmetry makes the halves?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Match",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Match",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Test symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Match.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which capital letter has no line of symmetry?",
+      "resultType": "short-answer",
+      "options": [
+        "F",
+        "H",
+        "O",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetry in letters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has more than one line of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Circle",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Compare symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Human faces are usually?",
+      "resultType": "short-answer",
+      "options": [
+        "Roughly symmetrical",
+        "Not symmetrical",
+        "Perfectly square",
+        ""
+      ],
+      "correctAnswer": "Roughly symmetrical",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Recognise symmetry in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Roughly symmetrical.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A heart shape usually has?",
+      "resultType": "multiple-choice",
+      "options": [
+        "One line of symmetry",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "One line of symmetry",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to One line of symmetry.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which activity helps check symmetry?",
+      "resultType": "short-answer",
+      "options": [
+        "Folding",
+        "Measuring weight",
+        "Counting",
+        ""
+      ],
+      "correctAnswer": "Folding",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Apply symmetry concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Folding.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Symmetry is about?",
+      "resultType": "short-answer",
+      "options": [
+        "Balance and matching",
+        "Weight",
+        "Size only",
+        ""
+      ],
+      "correctAnswer": "Balance and matching",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Understand symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Balance and matching.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape definitely has symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Circle",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A line of symmetry is also called a?",
+      "resultType": "short-answer",
+      "options": [
+        "Mirror line",
+        "Edge",
+        "Face",
+        ""
+      ],
+      "correctAnswer": "Mirror line",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Use geometric vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mirror line.",
+      "solutionAttachments": []
+    }
+  ]
+}

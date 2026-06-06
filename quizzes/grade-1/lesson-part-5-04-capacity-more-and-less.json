@@ -1,0 +1,372 @@
+{
+  "id": "quiz-149",
+  "title": "Grade 1 5.04",
+  "description": "Learning Outcomes for Grade 1: Compare capacity",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "Which holds more water: a bucket or a cup?",
+      "resultType": "short-answer",
+      "options": [
+        "Bucket",
+        "Cup",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less water: a bathtub or a bottle?",
+      "resultType": "short-answer",
+      "options": [
+        "Bathtub",
+        "Bottle",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bathtub",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bathtub.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more: a jug or a spoon?",
+      "resultType": "short-answer",
+      "options": [
+        "Jug",
+        "Spoon",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Jug",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Jug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less: a swimming pool or a cup?",
+      "resultType": "short-answer",
+      "options": [
+        "Swimming Pool",
+        "Cup",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Swimming Pool",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Swimming Pool.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bottle holds more than a thimble.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more juice: a glass or a teaspoon?",
+      "resultType": "short-answer",
+      "options": [
+        "Glass",
+        "Teaspoon",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Glass",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Glass.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less milk: a carton or a mug?",
+      "resultType": "short-answer",
+      "options": [
+        "Carton",
+        "Mug",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Carton",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Carton.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bucket holds more than a bottle.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more: a fish tank or a cup?",
+      "resultType": "short-answer",
+      "options": [
+        "Fish Tank",
+        "Cup",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Fish Tank",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Fish Tank.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less: a spoon or a jug?",
+      "resultType": "short-answer",
+      "options": [
+        "Spoon",
+        "Jug",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Spoon",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Spoon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bathtub holds more water than a sink.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less: a watering can or a cup?",
+      "resultType": "short-answer",
+      "options": [
+        "Watering Can",
+        "Cup",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Watering Can",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Watering Can.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more: a water tank or a bottle?",
+      "resultType": "short-answer",
+      "options": [
+        "Water Tank",
+        "Bottle",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Water Tank",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Water Tank.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A teaspoon holds less than a bowl.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more: a mug or a thimble?",
+      "resultType": "short-answer",
+      "options": [
+        "Mug",
+        "Thimble",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Mug",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less: a bucket or a glass?",
+      "resultType": "short-answer",
+      "options": [
+        "Bucket",
+        "Glass",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A swimming pool holds more water than a bathtub.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more: a bowl or a spoon?",
+      "resultType": "short-answer",
+      "options": [
+        "Bowl",
+        "Spoon",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bowl",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bowl.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less: a fish tank or a bottle?",
+      "resultType": "short-answer",
+      "options": [
+        "Fish Tank",
+        "Bottle",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Fish Tank",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Fish Tank.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds the most?",
+      "resultType": "short-answer",
+      "options": [
+        "Cup",
+        "Bucket",
+        "Spoon",
+        ""
+      ],
+      "correctAnswer": "Cup",
+      "category": "Measurement",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cup.",
+      "solutionAttachments": []
+    }
+  ]
+}

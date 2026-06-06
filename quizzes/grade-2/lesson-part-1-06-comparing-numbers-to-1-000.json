@@ -1,0 +1,372 @@
+{
+  "id": "quiz-210",
+  "title": "Grade 2 1.06",
+  "description": "Learning Outcomes for Grade 2: Compare 3-digit numbers | Compare numbers across hundreds | Compare numbers | Compare hundreds | Identify greatest number | Identify smallest number | Compare tens and ones | Compare place values | Compare large numbers | Compare consecutive numbers",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "Which number is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "345",
+        "354",
+        "334",
+        ""
+      ],
+      "correctAnswer": "345",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 345.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "621",
+        "612",
+        "632",
+        ""
+      ],
+      "correctAnswer": "621",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 621.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "899",
+        "909",
+        "890",
+        ""
+      ],
+      "correctAnswer": "899",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare numbers across hundreds",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 899.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "745",
+        "754",
+        "764",
+        ""
+      ],
+      "correctAnswer": "745",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 745.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "500 is greater than 450.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "500",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 500.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "299 is less than 300.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "299",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 299.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "711",
+        "701",
+        "691",
+        ""
+      ],
+      "correctAnswer": "711",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare hundreds",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 711.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "432",
+        "423",
+        "442",
+        ""
+      ],
+      "correctAnswer": "432",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 432.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greatest?",
+      "resultType": "short-answer",
+      "options": [
+        "810",
+        "801",
+        "811",
+        ""
+      ],
+      "correctAnswer": "810",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Identify greatest number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 810.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smallest?",
+      "resultType": "short-answer",
+      "options": [
+        "219",
+        "291",
+        "229",
+        ""
+      ],
+      "correctAnswer": "219",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Identify smallest number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 219.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "675 is greater than 657.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "675",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare tens and ones",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 675.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "902 is less than 920.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "902",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 902.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "567",
+        "576",
+        "556",
+        ""
+      ],
+      "correctAnswer": "567",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare place values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 567.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "883",
+        "838",
+        "888",
+        ""
+      ],
+      "correctAnswer": "883",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare place values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 883.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "999 is greater than 989.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "999",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare large numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 999.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "400 is less than 401.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "400",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare consecutive numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 400.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greatest?",
+      "resultType": "short-answer",
+      "options": [
+        "654",
+        "645",
+        "564",
+        ""
+      ],
+      "correctAnswer": "654",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 654.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smallest?",
+      "resultType": "short-answer",
+      "options": [
+        "710",
+        "701",
+        "711",
+        ""
+      ],
+      "correctAnswer": "710",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 710.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "850 is greater than 805.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "850",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 850.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "123 is less than 132.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "123",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 123.",
+      "solutionAttachments": []
+    }
+  ]
+}

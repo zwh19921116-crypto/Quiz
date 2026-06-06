@@ -1,0 +1,372 @@
+{
+  "id": "quiz-474",
+  "title": "Grade 5 1.03",
+  "description": "Learning Outcomes for Grade 5: Continue addition patterns | Identify increasing patterns | Identify decreasing patterns | Continue skip counting patterns | Identify multiplication patterns | Continue place value patterns | Continue multiplication patterns | Identify doubling patterns | Determine pattern rules | Generate terms using pattern rules | Extend complex number patterns",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "What comes next? 5, 10, 15, 20, ?",
+      "resultType": "short-answer",
+      "options": [
+        "25; 30; 35",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Continue addition patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 5 each step. Continue the same rule to get 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 100, 200, 300, ?",
+      "resultType": "short-answer",
+      "options": [
+        "400; 500; 600",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "400",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify increasing patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 100 each step. Continue the same rule to get 400.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 50, 45, 40, 35, ?",
+      "resultType": "short-answer",
+      "options": [
+        "30; 25; 40",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify decreasing patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by -5 each step. Continue the same rule to get 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 2, 4, 6, 8, ?",
+      "resultType": "short-answer",
+      "options": [
+        "10; 12; 14",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Continue skip counting patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 2 each step. Continue the same rule to get 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 7, 14, 21, 28, ?",
+      "resultType": "short-answer",
+      "options": [
+        "35; 42; 49",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "35",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify multiplication patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 7 each step. Continue the same rule to get 35.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 12, 24, 36, ?",
+      "resultType": "short-answer",
+      "options": [
+        "48; 50; 52",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "48",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify multiplication patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 12 each step. Continue the same rule to get 48.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 1000, 2000, 3000, ?",
+      "resultType": "short-answer",
+      "options": [
+        "4000; 5000; 6000",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4000",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Continue place value patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 1000 each step. Continue the same rule to get 4000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 90, 80, 70, ?",
+      "resultType": "short-answer",
+      "options": [
+        "60; 50; 40",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "60",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify decreasing patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by -10 each step. Continue the same rule to get 60.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 3, 6, 9, 12, ?",
+      "resultType": "short-answer",
+      "options": [
+        "15; 18; 21",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Continue skip counting patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 3 each step. Continue the same rule to get 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 8, 16, 24, 32, ?",
+      "resultType": "short-answer",
+      "options": [
+        "40; 48; 56",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "40",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Continue multiplication patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 8 each step. Continue the same rule to get 40.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 4, 8, 16, 32, ?",
+      "resultType": "short-answer",
+      "options": [
+        "64; 48; 60",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "36",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify doubling patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern multiplies by 2 each step. Apply the same multiplier to get 36.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 81, 72, 63, 54, ?",
+      "resultType": "short-answer",
+      "options": [
+        "45; 44; 46",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "45",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify decreasing patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by -9 each step. Continue the same rule to get 45.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 15, 30, 45, 60, ?",
+      "resultType": "short-answer",
+      "options": [
+        "75; 80; 90",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "75",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Continue multiplication patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 15 each step. Continue the same rule to get 75.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 200, 190, 180, ?",
+      "resultType": "short-answer",
+      "options": [
+        "170; 160; 175",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "170",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify decreasing patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by -10 each step. Continue the same rule to get 170.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which rule describes 6, 12, 18, 24, 30?",
+      "resultType": "short-answer",
+      "options": [
+        "Add 6; Add 5; Multiply by 2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Determine pattern rules",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which rule describes 100, 200, 400, 800?",
+      "resultType": "short-answer",
+      "options": [
+        "Double each term; Add 100; Add 200",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Determine pattern rules",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 25, 50, 100, 200, ?",
+      "resultType": "short-answer",
+      "options": [
+        "400; 300; 500",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "225",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify doubling patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern multiplies by 2 each step. Apply the same multiplier to get 225.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A pattern starts at 350 and increases by 25. What is the fourth term?",
+      "resultType": "short-answer",
+      "options": [
+        "425; 450; 400",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "350",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Generate terms using pattern rules",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 350.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A pattern starts at 1000 and decreases by 125. What is the third term?",
+      "resultType": "short-answer",
+      "options": [
+        "750; 875; 625",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1000",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Generate terms using pattern rules",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A sequence is 10, 20, 40, 80. What is the sixth term?",
+      "resultType": "short-answer",
+      "options": [
+        "320; 160; 640",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Extend complex number patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    }
+  ]
+}

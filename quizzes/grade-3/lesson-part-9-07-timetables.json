@@ -1,0 +1,372 @@
+{
+  "id": "quiz-371",
+  "title": "Grade 3 9.07",
+  "description": "Learning Outcomes for Grade 3: Understand timetables | Use timetables | Read timetables | Understand timetable structure | Interpret timetables | Follow timetable order | Understand real-world timetables | Understand purpose of timetables | Calculate duration | Sequence events | Apply timetable skills | Understand timetable format | Order times | Apply timetables | Understand time management",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "A timetable shows?",
+      "resultType": "short-answer",
+      "options": [
+        "Scheduled times",
+        "Shapes",
+        "Distances",
+        ""
+      ],
+      "correctAnswer": "Scheduled times",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand timetables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Scheduled times.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "School timetables help students know?",
+      "resultType": "short-answer",
+      "options": [
+        "When activities happen",
+        "Their height",
+        "Their weight",
+        ""
+      ],
+      "correctAnswer": "When activities happen",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Use timetables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to When activities happen.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If lunch starts at 12:00, what time does lunch begin?",
+      "resultType": "short-answer",
+      "options": [
+        "12:00",
+        "11:00",
+        "1:00",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read timetables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If sport starts at 2:00, what time does sport begin?",
+      "resultType": "short-answer",
+      "options": [
+        "2:00",
+        "1:00",
+        "3:00",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read timetables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Timetables are organised by?",
+      "resultType": "short-answer",
+      "options": [
+        "Time",
+        "Colour",
+        "Shape",
+        ""
+      ],
+      "correctAnswer": "Time",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand timetable structure",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Time.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If maths starts at 9:00 and ends at 10:00, how long is maths?",
+      "resultType": "short-answer",
+      "options": [
+        "30 minutes",
+        "1 hour",
+        "2 hours",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Interpret timetables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If recess starts at 10:30, what time is recess?",
+      "resultType": "short-answer",
+      "options": [
+        "10:30",
+        "11:30",
+        "9:30",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read timetables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which subject comes after maths if maths is at 9:00 and English is at 10:00?",
+      "resultType": "short-answer",
+      "options": [
+        "English",
+        "Maths",
+        "Sport",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Follow timetable order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bus timetable shows?",
+      "resultType": "short-answer",
+      "options": [
+        "Departure times",
+        "Bus colours",
+        "Bus sizes",
+        ""
+      ],
+      "correctAnswer": "Departure times",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand real-world timetables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Departure times.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Timetables help people?",
+      "resultType": "short-answer",
+      "options": [
+        "Be organised",
+        "Measure length",
+        "Draw maps",
+        ""
+      ],
+      "correctAnswer": "Be organised",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand purpose of timetables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Be organised.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If a lesson starts at 1:00 and ends at 2:00, how long is it?",
+      "resultType": "short-answer",
+      "options": [
+        "30 minutes",
+        "1 hour",
+        "2 hours",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Calculate duration",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which activity happens first: 9:00 reading or 10:00 maths?",
+      "resultType": "short-answer",
+      "options": [
+        "Reading",
+        "Maths",
+        "Same time",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which activity happens later: 11:00 art or 1:00 music?",
+      "resultType": "short-answer",
+      "options": [
+        "Music",
+        "Art",
+        "Same time",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A timetable can help you arrive?",
+      "resultType": "short-answer",
+      "options": [
+        "On time",
+        "Late",
+        "Early only",
+        ""
+      ],
+      "correctAnswer": "On time",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Apply timetable skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to On time.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If school ends at 3:00, when does school finish?",
+      "resultType": "short-answer",
+      "options": [
+        "3:00",
+        "2:00",
+        "4:00",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read timetables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Timetables often use?",
+      "resultType": "short-answer",
+      "options": [
+        "Times and activities",
+        "Shapes and colours",
+        "Distances and maps",
+        ""
+      ],
+      "correctAnswer": "Times and activities",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand timetable format",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Times and activities.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which comes first in a timetable, 8:00 or 9:00?",
+      "resultType": "short-answer",
+      "options": [
+        "8:00",
+        "9:00",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Order times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which comes later, 2:00 or 1:00?",
+      "resultType": "short-answer",
+      "options": [
+        "2:00",
+        "1:00",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Order times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Timetables are useful at?",
+      "resultType": "short-answer",
+      "options": [
+        "School and transport",
+        "Only school",
+        "Only transport",
+        ""
+      ],
+      "correctAnswer": "School and transport",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Apply timetables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to School and transport.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Timetables help manage?",
+      "resultType": "short-answer",
+      "options": [
+        "Time",
+        "Length",
+        "Area",
+        ""
+      ],
+      "correctAnswer": "Time",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand time management",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Time.",
+      "solutionAttachments": []
+    }
+  ]
+}

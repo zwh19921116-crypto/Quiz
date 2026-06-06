@@ -1,0 +1,559 @@
+{
+  "id": "quiz-172",
+  "title": "Grade 1 7.07",
+  "description": "Learning Outcomes for Grade 1: Count equal groups | Apply equal groups | 3,3,3 | 4,3,4 | Connect arrays and groups | Connect concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "2 groups of 2. How many altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "4",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "2 groups of 2. How many altogether?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "3 groups of 2. How many altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "6",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "3 groups of 2. How many altogether?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "2 groups of 3. How many altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "07",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "2 groups of 3. How many altogether?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "4 groups of 2. How many altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "4 groups of 2. How many altogether?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "5 groups of 2. How many altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "5 groups of 2. How many altogether?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 3 bags with 2 apples in each bag. How many apples?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "6",
+        "08",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Apply equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 3 bags with 2 apples in each bag. How many apples?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 2 boxes with 4 toys in each box. How many toys?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Apply equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 2 boxes with 4 toys in each box. How many toys?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shows equal groups?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "3",
+        "3",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "3,3,3",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 groups of 3. How many altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "4 groups of 3. How many altogether?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "3 groups of 4. How many altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "3 groups of 4. How many altogether?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 5 plates with 2 cookies on each plate. How many cookies?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Apply equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 5 plates with 2 cookies on each plate. How many cookies?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 4 baskets with 3 balls in each basket. How many balls?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "12",
+        "15",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Apply equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 4 baskets with 3 balls in each basket. How many balls?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which group is NOT equal?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "4",
+        "4",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "4,3,4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 groups of 5. How many altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "2 groups of 5. How many altogether?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "5 groups of 3. How many altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "15",
+        "18",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "5 groups of 3. How many altogether?",
+          "totalCount": 15,
+          "iconShape": "circle",
+          "groups": [
+            15
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 3 rows of 3 dots. How many dots?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "9",
+        "12",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Connect arrays and groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 3 rows of 3 dots. How many dots?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 2 rows of 5 dots. How many dots?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Connect arrays and groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 2 rows of 5 dots. How many dots?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "Equal groups help us learn about?",
+      "resultType": "short-answer",
+      "options": [
+        "Multiplication",
+        "Time",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Multiplication",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Connect concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Multiplication.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 groups of 2. How many altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "6 groups of 2. How many altogether?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "4 groups of 5. How many altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "15",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Multiplication Foundations",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Count equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "4 groups of 5. How many altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    }
+  ]
+}

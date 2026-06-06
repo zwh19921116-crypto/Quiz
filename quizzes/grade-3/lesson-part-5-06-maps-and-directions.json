@@ -1,0 +1,372 @@
+{
+  "id": "quiz-330",
+  "title": "Grade 3 5.06",
+  "description": "Learning Outcomes for Grade 3: Understand the purpose of maps | Identify cardinal directions | Interpret maps | Apply map directions | Identify map features | Interpret map symbols | Follow directions | Identify intermediate directions | Use map keys | Apply directional concepts | Understand map scales | Understand map uses | Use map orientation",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "What does a map help us find?",
+      "resultType": "short-answer",
+      "options": [
+        "Location",
+        "Weight",
+        "Time",
+        ""
+      ],
+      "correctAnswer": "Location",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Understand the purpose of maps",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Location.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction is opposite of north?",
+      "resultType": "short-answer",
+      "options": [
+        "South",
+        "East",
+        "West",
+        ""
+      ],
+      "correctAnswer": "South",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Identify cardinal directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to South.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction is opposite of east?",
+      "resultType": "short-answer",
+      "options": [
+        "North",
+        "South",
+        "West",
+        ""
+      ],
+      "correctAnswer": "North",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Identify cardinal directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to North.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction is opposite of west?",
+      "resultType": "short-answer",
+      "options": [
+        "East",
+        "North",
+        "South",
+        ""
+      ],
+      "correctAnswer": "East",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Identify cardinal directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to East.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction is opposite of south?",
+      "resultType": "short-answer",
+      "options": [
+        "East",
+        "West",
+        "North",
+        ""
+      ],
+      "correctAnswer": "East",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Identify cardinal directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to East.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "On most maps, north is shown at the?",
+      "resultType": "short-answer",
+      "options": [
+        "Top",
+        "Bottom",
+        "Left",
+        ""
+      ],
+      "correctAnswer": "Top",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Interpret maps",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Top.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If you travel east, which direction are you moving?",
+      "resultType": "short-answer",
+      "options": [
+        "Right",
+        "Left",
+        "Down",
+        ""
+      ],
+      "correctAnswer": "Right",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Apply map directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Right.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If you travel west, which direction are you moving?",
+      "resultType": "short-answer",
+      "options": [
+        "Right",
+        "Left",
+        "Up",
+        ""
+      ],
+      "correctAnswer": "Right",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Apply map directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Right.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tool on a map shows directions?",
+      "resultType": "short-answer",
+      "options": [
+        "Compass rose",
+        "Ruler",
+        "Calendar",
+        ""
+      ],
+      "correctAnswer": "Compass rose",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Identify map features",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Compass rose.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A map symbol stands for?",
+      "resultType": "short-answer",
+      "options": [
+        "A real object or place",
+        "A number",
+        "A sentence",
+        ""
+      ],
+      "correctAnswer": "A real object or place",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Interpret map symbols",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to A real object or place.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If you move north then south, where do you end up?",
+      "resultType": "short-answer",
+      "options": [
+        "Same place",
+        "Further north",
+        "Further south",
+        ""
+      ],
+      "correctAnswer": "Same place",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Follow directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Same place.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If you move east then west, where do you end up?",
+      "resultType": "short-answer",
+      "options": [
+        "Same place",
+        "Further east",
+        "Further west",
+        ""
+      ],
+      "correctAnswer": "Same place",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Follow directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Same place.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction is between north and east?",
+      "resultType": "short-answer",
+      "options": [
+        "North-east",
+        "South-east",
+        "South-west",
+        ""
+      ],
+      "correctAnswer": "North-east",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Identify intermediate directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to North-east.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction is between south and west?",
+      "resultType": "short-answer",
+      "options": [
+        "North-west",
+        "South-west",
+        "South-east",
+        ""
+      ],
+      "correctAnswer": "North-west",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Identify intermediate directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to North-west.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What does a map key explain?",
+      "resultType": "short-answer",
+      "options": [
+        "Symbols",
+        "Directions",
+        "Distances",
+        ""
+      ],
+      "correctAnswer": "Symbols",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Use map keys",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Symbols.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction would you travel from Melbourne to Sydney?",
+      "resultType": "short-answer",
+      "options": [
+        "Generally north-east",
+        "Generally south-west",
+        "Generally west",
+        ""
+      ],
+      "correctAnswer": "Generally north-east",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Apply directional concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Generally north-east.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which map feature helps estimate distance?",
+      "resultType": "short-answer",
+      "options": [
+        "Scale",
+        "Compass",
+        "Key",
+        ""
+      ],
+      "correctAnswer": "Scale",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Understand map scales",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Scale.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Maps help people?",
+      "resultType": "short-answer",
+      "options": [
+        "Navigate",
+        "Weigh objects",
+        "Tell time",
+        ""
+      ],
+      "correctAnswer": "Navigate",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Understand map uses",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Navigate.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction would you move to go up on most maps?",
+      "resultType": "short-answer",
+      "options": [
+        "North",
+        "South",
+        "East",
+        ""
+      ],
+      "correctAnswer": "North",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Use map orientation",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to North.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction would you move to go down on most maps?",
+      "resultType": "short-answer",
+      "options": [
+        "North",
+        "East",
+        "South",
+        ""
+      ],
+      "correctAnswer": "North",
+      "category": "Geometry",
+      "subcategory": "Maps",
+      "learningOutcome": "Use map orientation",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to North.",
+      "solutionAttachments": []
+    }
+  ]
+}

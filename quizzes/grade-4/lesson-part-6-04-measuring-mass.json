@@ -1,0 +1,383 @@
+{
+  "id": "quiz-425",
+  "title": "Grade 4 6.04",
+  "description": "Learning Outcomes for Grade 4: Identify units of mass | Convert units of mass | Select measuring tools | Compare mass | Choose appropriate units | Convert units | Understand mass | Measure accurately | Compare units | Apply mass in real life | Understand units | Build understanding | Understand metric measurement | Apply mathematics | Build foundations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Which unit measures mass?",
+      "resultType": "short-answer",
+      "options": [
+        "Kilograms",
+        "Litres",
+        "Metres",
+        ""
+      ],
+      "correctAnswer": "Kilograms",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Identify units of mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Kilograms.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1000 grams equals?",
+      "resultType": "short-answer",
+      "options": [
+        "1 kilogram",
+        "10 kilograms",
+        "100 kilograms",
+        ""
+      ],
+      "correctAnswer": "1000",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Convert units of mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tool measures mass?",
+      "resultType": "short-answer",
+      "options": [
+        "Scale",
+        "Ruler",
+        "Measuring jug",
+        ""
+      ],
+      "correctAnswer": "Scale",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Select measuring tools",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Scale.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "2 kg",
+        "500 g",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter?",
+      "resultType": "short-answer",
+      "options": [
+        "300 g",
+        "2 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "300 g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 300 g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bag of rice is best measured in?",
+      "resultType": "short-answer",
+      "options": [
+        "Kilograms",
+        "Litres",
+        "Metres",
+        ""
+      ],
+      "correctAnswer": "Kilograms",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Choose appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Kilograms.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A paperclip is best measured in?",
+      "resultType": "short-answer",
+      "options": [
+        "Grams",
+        "Kilograms",
+        "Litres",
+        ""
+      ],
+      "correctAnswer": "Grams",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Choose appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Grams.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 kg equals how many grams?",
+      "resultType": "short-answer",
+      "options": [
+        "2000 g",
+        "200 g",
+        "20 g",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Convert units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "2 kg equals how many grams?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which has greater mass?",
+      "resultType": "short-answer",
+      "options": [
+        "1500 g",
+        "1 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1500 g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1500 g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which has less mass?",
+      "resultType": "short-answer",
+      "options": [
+        "750 g",
+        "1 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "750 g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 750 g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mass measures?",
+      "resultType": "short-answer",
+      "options": [
+        "How heavy something is",
+        "How long it is",
+        "How much it holds",
+        ""
+      ],
+      "correctAnswer": "How heavy something is",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Understand mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to How heavy something is.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Accurate mass measurement requires?",
+      "resultType": "short-answer",
+      "options": [
+        "A scale",
+        "A ruler",
+        "A clock",
+        ""
+      ],
+      "correctAnswer": "A scale",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Measure accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to A scale.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "3 kg",
+        "2500 g",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "3 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter?",
+      "resultType": "short-answer",
+      "options": [
+        "900 g",
+        "1 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "900 g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 900 g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mass is important when buying?",
+      "resultType": "short-answer",
+      "options": [
+        "Food",
+        "Paintings",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Food",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Apply mass in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Food.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Kilograms are larger than?",
+      "resultType": "short-answer",
+      "options": [
+        "Grams",
+        "Metres",
+        "Litres",
+        ""
+      ],
+      "correctAnswer": "Grams",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Understand units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Grams.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mass measurement develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Practical maths skills",
+        "Colour skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Practical maths skills",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Build understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Practical maths skills.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Metric units are used in?",
+      "resultType": "short-answer",
+      "options": [
+        "Australia",
+        "Nowhere",
+        "Only schools",
+        ""
+      ],
+      "correctAnswer": "Australia",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Understand metric measurement",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Australia.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Measuring mass is useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Music",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding mass supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future measurement learning",
+        "Colouring",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Future measurement learning",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future measurement learning.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "id": "quiz-162",
+  "title": "Grade 1 6.07",
+  "description": "Learning Outcomes for Grade 1: Identify shapes in everyday objects | Connect shapes to objects | Apply shape knowledge",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "A coin is shaped like a?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Identify shapes in everyday objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A book is shaped like a?",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Identify shapes in everyday objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A pizza slice is shaped like a?",
+      "resultType": "short-answer",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        ""
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Identify shapes in everyday objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A window is often shaped like a?",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Identify shapes in everyday objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A wheel is shaped like a?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "Square",
+        "Rectangle",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Identify shapes in everyday objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A roof is often shaped like a?",
+      "resultType": "short-answer",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        ""
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Identify shapes in everyday objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A door is usually shaped like a?",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Identify shapes in everyday objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A clock face is usually a?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "Rectangle",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Identify shapes in everyday objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A chessboard square is shaped like a?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Circle",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Identify shapes in everyday objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A warning sign is often a?",
+      "resultType": "short-answer",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Rectangle",
+        ""
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Identify shapes in everyday objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is circular?",
+      "resultType": "short-answer",
+      "options": [
+        "Plate",
+        "Book",
+        "Door",
+        ""
+      ],
+      "correctAnswer": "Plate",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Connect shapes to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Plate.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is rectangular?",
+      "resultType": "short-answer",
+      "options": [
+        "Television",
+        "Coin",
+        "Ball",
+        ""
+      ],
+      "correctAnswer": "Television",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Connect shapes to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Television.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is triangular?",
+      "resultType": "short-answer",
+      "options": [
+        "Pizza Slice",
+        "Coin",
+        "Book",
+        ""
+      ],
+      "correctAnswer": "Pizza Slice",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Connect shapes to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pizza Slice.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is square?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Sticky note",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "Sticky note",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Connect shapes to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sticky Note.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape best matches a coin?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Apply shape knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape best matches a door?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Apply shape knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape best matches a roof?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        "Rectangle"
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Apply shape knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape best matches a wheel?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Apply shape knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape best matches a book cover?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Apply shape knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape best matches a slice of watermelon?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        "Rectangle"
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "Real World Shapes",
+      "learningOutcome": "Apply shape knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    }
+  ]
+}

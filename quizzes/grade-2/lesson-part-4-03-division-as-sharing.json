@@ -1,0 +1,564 @@
+{
+  "id": "quiz-237",
+  "title": "Grade 2 4.03",
+  "description": "Learning Outcomes for Grade 2: Share equally | Understand division | Apply sharing",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "6 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6 / 2 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 6,
+          "operandB": 2,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "8 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 8 / 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 8,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "10 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 10 / 2 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 10,
+          "operandB": 2,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "12 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 12 / 2 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 12,
+          "operandB": 2,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "14 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 14 / 2 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 14,
+          "operandB": 2,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "16 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 16 / 2 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 16,
+          "operandB": 2,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "18 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 18 / 2 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 18,
+          "operandB": 2,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "20 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 20 / 2 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 20,
+          "operandB": 2,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "9 ÷ 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 9 / 3 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 9,
+          "operandB": 3,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "12 ÷ 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 12 / 3 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 12,
+          "operandB": 3,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "15 ÷ 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 15 / 3 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 15,
+          "operandB": 3,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "18 ÷ 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 18 / 3 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 18,
+          "operandB": 3,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "21 ÷ 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 21 / 3 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 21,
+          "operandB": 3,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "24 ÷ 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 24 / 3 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 24,
+          "operandB": 3,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "27 ÷ 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 27 / 3 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 27,
+          "operandB": 3,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "30 ÷ 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 30 / 3 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 30,
+          "operandB": 3,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Sharing equally means everyone gets?",
+      "resultType": "short-answer",
+      "options": [
+        "Same amount",
+        "Different amount",
+        "Extra amount",
+        ""
+      ],
+      "correctAnswer": "Same amount",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Understand division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Same amount.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Division helps us?",
+      "resultType": "short-answer",
+      "options": [
+        "Share equally",
+        "Count backwards",
+        "Measure length",
+        ""
+      ],
+      "correctAnswer": "Share equally",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Understand division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Share equally.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20 lollies shared between 2 children gives?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Apply sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "15 apples shared between 3 children gives?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Apply sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "id": "quiz-265",
+  "title": "Grade 2 7.01",
+  "description": "Learning Outcomes for Grade 2: Identify Australian coins | Identify coin values | Compare coin values | Understand money | Compare values | Identify values | Connect cents and dollars | Understand money use | Order values",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "Which Australian coin is worth the least?",
+      "resultType": "short-answer",
+      "options": [
+        "5c",
+        "10c",
+        "20c",
+        ""
+      ],
+      "correctAnswer": "5c",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Identify Australian coins",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin is worth 10 cents?",
+      "resultType": "short-answer",
+      "options": [
+        "5c",
+        "10c",
+        "20c",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Identify coin values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin is worth 20 cents?",
+      "resultType": "short-answer",
+      "options": [
+        "10c",
+        "20c",
+        "50c",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Identify coin values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin is worth 50 cents?",
+      "resultType": "short-answer",
+      "options": [
+        "20c",
+        "50c",
+        "$1",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Identify coin values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin is worth $1?",
+      "resultType": "short-answer",
+      "options": [
+        "50c",
+        "$1",
+        "$2",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Identify coin values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin is worth $2?",
+      "resultType": "short-answer",
+      "options": [
+        "$1",
+        "$2",
+        "50c",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Identify coin values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin is worth more, 20c or 10c?",
+      "resultType": "short-answer",
+      "options": [
+        "20c",
+        "10c",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "20c",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Compare coin values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin is worth more, $2 or $1?",
+      "resultType": "short-answer",
+      "options": [
+        "$2",
+        "$1",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Compare coin values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Money is used to?",
+      "resultType": "short-answer",
+      "options": [
+        "Buy things",
+        "Measure length",
+        "Tell time",
+        ""
+      ],
+      "correctAnswer": "Buy things",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Understand money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Buy things.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Australian coins have values called?",
+      "resultType": "short-answer",
+      "options": [
+        "Cents and dollars",
+        "Minutes and hours",
+        "Kilograms and grams",
+        ""
+      ],
+      "correctAnswer": "Cents and dollars",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Understand money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cents and dollars.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is worth more, 50c or 20c?",
+      "resultType": "short-answer",
+      "options": [
+        "50c",
+        "20c",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "50c",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Compare values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is worth less, $1 or $2?",
+      "resultType": "short-answer",
+      "options": [
+        "$1",
+        "$2",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Compare values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin is the highest value coin?",
+      "resultType": "short-answer",
+      "options": [
+        "50c",
+        "$1",
+        "$2",
+        ""
+      ],
+      "correctAnswer": "50c",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Identify values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin is the lowest value coin?",
+      "resultType": "short-answer",
+      "options": [
+        "5c",
+        "10c",
+        "20c",
+        ""
+      ],
+      "correctAnswer": "5c",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Identify values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "100 cents equals?",
+      "resultType": "short-answer",
+      "options": [
+        "$1",
+        "$2",
+        "50c",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Connect cents and dollars",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is worth more, $1 or 50c?",
+      "resultType": "short-answer",
+      "options": [
+        "$1",
+        "50c",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Compare values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Coins are a form of?",
+      "resultType": "short-answer",
+      "options": [
+        "Money",
+        "Length",
+        "Time",
+        ""
+      ],
+      "correctAnswer": "Money",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Understand money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Money.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "We use money to?",
+      "resultType": "short-answer",
+      "options": [
+        "Purchase items",
+        "Measure mass",
+        "Measure capacity",
+        ""
+      ],
+      "correctAnswer": "Purchase items",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Understand money use",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Purchase items.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin comes between 10c and 50c?",
+      "resultType": "short-answer",
+      "options": [
+        "20c",
+        "$1",
+        "$2",
+        ""
+      ],
+      "correctAnswer": "20c",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Order values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin comes after $1?",
+      "resultType": "short-answer",
+      "options": [
+        "50c",
+        "$2",
+        "20c",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Money Foundations",
+      "subcategory": "Coins",
+      "learningOutcome": "Order values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    }
+  ]
+}

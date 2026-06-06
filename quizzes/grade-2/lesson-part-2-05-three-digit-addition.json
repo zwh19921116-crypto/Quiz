@@ -1,0 +1,612 @@
+{
+  "id": "quiz-219",
+  "title": "Grade 2 2.05",
+  "description": "Learning Outcomes for Grade 2: Add three-digit numbers",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "100 + 120 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "210",
+        "220",
+        "230",
+        ""
+      ],
+      "correctAnswer": "220",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 100 + 120 = 220.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 100,
+          "operandB": 120,
+          "answer": "220",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "150 + 130 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "270",
+        "280",
+        "290",
+        ""
+      ],
+      "correctAnswer": "280",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 150 + 130 = 280.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 150,
+          "operandB": 130,
+          "answer": "280",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "200 + 140 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "330",
+        "340",
+        "350",
+        ""
+      ],
+      "correctAnswer": "340",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 200 + 140 = 340.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 200,
+          "operandB": 140,
+          "answer": "340",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "250 + 120 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "360",
+        "370",
+        "380",
+        ""
+      ],
+      "correctAnswer": "370",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 250 + 120 = 370.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 250,
+          "operandB": 120,
+          "answer": "370",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "300 + 150 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "440",
+        "450",
+        "460",
+        ""
+      ],
+      "correctAnswer": "450",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 300 + 150 = 450.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 300,
+          "operandB": 150,
+          "answer": "450",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "320 + 170 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "480",
+        "490",
+        "500",
+        ""
+      ],
+      "correctAnswer": "490",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 320 + 170 = 490.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 320,
+          "operandB": 170,
+          "answer": "490",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "410 + 120 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "520",
+        "530",
+        "540",
+        ""
+      ],
+      "correctAnswer": "530",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 410 + 120 = 530.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 410,
+          "operandB": 120,
+          "answer": "530",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "500 + 140 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "630",
+        "640",
+        "650",
+        ""
+      ],
+      "correctAnswer": "640",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 500 + 140 = 640.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 500,
+          "operandB": 140,
+          "answer": "640",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "600 + 130 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "720",
+        "730",
+        "740",
+        ""
+      ],
+      "correctAnswer": "730",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 600 + 130 = 730.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 600,
+          "operandB": 130,
+          "answer": "730",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "700 + 120 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "810",
+        "820",
+        "830",
+        ""
+      ],
+      "correctAnswer": "820",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 700 + 120 = 820.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 700,
+          "operandB": 120,
+          "answer": "820",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "340 + 250 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "570",
+        "590",
+        "610",
+        ""
+      ],
+      "correctAnswer": "590",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 340 + 250 = 590.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 340,
+          "operandB": 250,
+          "answer": "590",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "420 + 170 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "570",
+        "590",
+        "610",
+        ""
+      ],
+      "correctAnswer": "590",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 420 + 170 = 590.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 420,
+          "operandB": 170,
+          "answer": "590",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "510 + 180 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "670",
+        "690",
+        "710",
+        ""
+      ],
+      "correctAnswer": "690",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 510 + 180 = 690.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 510,
+          "operandB": 180,
+          "answer": "690",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "620 + 170 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "770",
+        "790",
+        "810",
+        ""
+      ],
+      "correctAnswer": "790",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 620 + 170 = 790.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 620,
+          "operandB": 170,
+          "answer": "790",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "710 + 180 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "870",
+        "890",
+        "910",
+        ""
+      ],
+      "correctAnswer": "890",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 710 + 180 = 890.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 710,
+          "operandB": 180,
+          "answer": "890",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "430 + 260 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "670",
+        "690",
+        "710",
+        ""
+      ],
+      "correctAnswer": "690",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 430 + 260 = 690.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 430,
+          "operandB": 260,
+          "answer": "690",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "520 + 170 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "670",
+        "690",
+        "710",
+        ""
+      ],
+      "correctAnswer": "690",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 520 + 170 = 690.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 520,
+          "operandB": 170,
+          "answer": "690",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "610 + 180 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "770",
+        "790",
+        "810",
+        ""
+      ],
+      "correctAnswer": "790",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 610 + 180 = 790.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 610,
+          "operandB": 180,
+          "answer": "790",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "720 + 170 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "870",
+        "890",
+        "910",
+        ""
+      ],
+      "correctAnswer": "890",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 720 + 170 = 890.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 720,
+          "operandB": 170,
+          "answer": "890",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "800 + 190 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "970",
+        "990",
+        "1010",
+        ""
+      ],
+      "correctAnswer": "990",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 800 + 190 = 990.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 800,
+          "operandB": 190,
+          "answer": "990",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    }
+  ]
+}

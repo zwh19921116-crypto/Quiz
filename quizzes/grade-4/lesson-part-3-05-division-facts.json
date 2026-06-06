@@ -1,0 +1,564 @@
+{
+  "id": "quiz-396",
+  "title": "Grade 4 3.05",
+  "description": "Learning Outcomes for Grade 4: Recall division facts | Understand inverse operations | Apply division facts | Understand division | Connect multiplication and division | Apply inverse relationships | Develop fluency",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "12 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 12 / 2 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 12,
+          "operandB": 2,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "18 ÷ 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 18 / 3 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 18,
+          "operandB": 3,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "24 ÷ 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 24 / 4 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 24,
+          "operandB": 4,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "35 ÷ 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 35 / 5 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 35,
+          "operandB": 5,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "42 ÷ 6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 42 / 6 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 42,
+          "operandB": 6,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "56 ÷ 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 56 / 8 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 56,
+          "operandB": 8,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "63 ÷ 9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 63 / 9 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 63,
+          "operandB": 9,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "70 ÷ 10 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 70 / 10 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 70,
+          "operandB": 10,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "81 ÷ 9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 81 / 9 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 81,
+          "operandB": 9,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "72 ÷ 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 72 / 8 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 72,
+          "operandB": 8,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "90 ÷ 10 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 90 / 10 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 90,
+          "operandB": 10,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "100 ÷ 10 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 100 / 10 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 100,
+          "operandB": 10,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Division is the opposite of?",
+      "resultType": "short-answer",
+      "options": [
+        "Multiplication",
+        "Addition",
+        "Subtraction",
+        ""
+      ],
+      "correctAnswer": "Multiplication",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Understand inverse operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Multiplication.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "48 ÷ 6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Apply division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 48 / 6 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 48,
+          "operandB": 6,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "54 ÷ 9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Apply division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 54 / 9 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 54,
+          "operandB": 9,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Division can be used for?",
+      "resultType": "short-answer",
+      "options": [
+        "Sharing equally",
+        "Finding totals",
+        "Measuring angles",
+        ""
+      ],
+      "correctAnswer": "Sharing equally",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Understand division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sharing equally.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If 5 × 8 = 40, then 40 ÷ 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "40",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Connect multiplication and division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 x 8 = 40.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 5,
+          "operandB": 8,
+          "answer": "40",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "If 6 × 7 = 42, then 42 ÷ 7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "42",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Connect multiplication and division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6 x 7 = 42.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 6,
+          "operandB": 7,
+          "answer": "42",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Knowing multiplication facts helps with?",
+      "resultType": "short-answer",
+      "options": [
+        "Division",
+        "Geometry",
+        "Measurement",
+        ""
+      ],
+      "correctAnswer": "Division",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Apply inverse relationships",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Division.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Division facts improve?",
+      "resultType": "short-answer",
+      "options": [
+        "Speed and accuracy",
+        "Colouring",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Speed and accuracy",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Develop fluency",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Speed and accuracy.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "id": "quiz-376",
+  "title": "Grade 4 1.05",
+  "description": "Learning Outcomes for Grade 4: Recognise Roman numerals | Read Roman numerals | Convert numbers to Roman numerals | Identify real-world uses | Extend Roman numerals | Order Roman numerals | Understand numeral systems | Apply Roman numeral knowledge",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "What does I represent?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "5",
+        "10",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Recognise Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What does V represent?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "5",
+        "10",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Recognise Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What does X represent?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "10",
+        "50",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Recognise Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is II?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Read Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is III?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Read Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is IV?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Read Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is V?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Read Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is VI?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Read Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is VIII?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Read Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is IX?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Read Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is X?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Read Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which Roman numeral means 7?",
+      "resultType": "short-answer",
+      "options": [
+        "VII",
+        "VIII",
+        "IX",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Convert numbers to Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which Roman numeral means 9?",
+      "resultType": "short-answer",
+      "options": [
+        "VII",
+        "VIII",
+        "IX",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Convert numbers to Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which Roman numeral means 10?",
+      "resultType": "short-answer",
+      "options": [
+        "X",
+        "V",
+        "IX",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Convert numbers to Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Roman numerals are often seen on?",
+      "resultType": "short-answer",
+      "options": [
+        "Clocks",
+        "Rulers",
+        "Calculators",
+        ""
+      ],
+      "correctAnswer": "Clocks",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Identify real-world uses",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Clocks.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is VII?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Read Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is XI?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Extend Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which numeral comes after IX?",
+      "resultType": "short-answer",
+      "options": [
+        "X",
+        "XI",
+        "VIII",
+        ""
+      ],
+      "correctAnswer": "X",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Order Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to X.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Roman numerals are a different way to write?",
+      "resultType": "short-answer",
+      "options": [
+        "Numbers",
+        "Words",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Numbers",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Understand numeral systems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is Numbers.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Learning Roman numerals helps us read?",
+      "resultType": "short-answer",
+      "options": [
+        "Historical and modern displays",
+        "Maps",
+        "Graphs",
+        ""
+      ],
+      "correctAnswer": "Historical and modern displays",
+      "category": "Number",
+      "subcategory": "Numeration",
+      "learningOutcome": "Apply Roman numeral knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Historical and modern displays.",
+      "solutionAttachments": []
+    }
+  ]
+}

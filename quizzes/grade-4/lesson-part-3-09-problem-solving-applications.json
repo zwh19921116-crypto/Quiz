@@ -1,0 +1,383 @@
+{
+  "id": "quiz-400",
+  "title": "Grade 4 3.09",
+  "description": "Learning Outcomes for Grade 4: Apply multiplication in real situations | Apply division in real situations | Solve multiplication problems | Solve division problems | Apply multiplication | Apply division | Identify multiplication applications | Identify division applications | Select operations | Develop reasoning | Extract information | Appreciate mathematics | Build thinking skills | Apply mathematics | Solve problems effectively | Apply maths skills",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "A school buys 8 packs of 25 pencils. How many pencils?",
+      "resultType": "short-answer",
+      "options": [
+        "180",
+        "200",
+        "220",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Apply multiplication in real situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A school buys 8 packs of 25 pencils. How many pencils?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "144 students are placed into 12 equal groups. Students per group?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "144",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Apply division in real situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 144.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A farmer plants 9 rows of 15 trees. Total trees planted?",
+      "resultType": "short-answer",
+      "options": [
+        "125",
+        "135",
+        "145",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Solve multiplication problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "180 apples are packed into 9 boxes equally. Apples per box?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "180",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Solve division problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 180.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A cinema has 12 rows with 20 seats in each row. Total seats?",
+      "resultType": "short-answer",
+      "options": [
+        "220",
+        "240",
+        "260",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Apply multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "200 balloons are shared equally among 10 classes. Balloons per class?",
+      "resultType": "short-answer",
+      "options": [
+        "15",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "200",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Apply division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 200.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A baker makes 14 trays with 12 muffins each. Total muffins?",
+      "resultType": "short-answer",
+      "options": [
+        "158",
+        "168",
+        "178",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Apply multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "240 books are placed equally onto 12 shelves. Books per shelf?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "240",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Apply division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 240.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A factory produces 25 boxes with 8 items in each. Total items?",
+      "resultType": "short-answer",
+      "options": [
+        "180",
+        "200",
+        "220",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Apply multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "300 litres of water are shared equally among 15 tanks. Litres per tank?",
+      "resultType": "short-answer",
+      "options": [
+        "15",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "300",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Apply division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 300.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Multiplication helps calculate?",
+      "resultType": "short-answer",
+      "options": [
+        "Totals of equal groups",
+        "Differences",
+        "Fractions",
+        ""
+      ],
+      "correctAnswer": "Totals of equal groups",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Identify multiplication applications",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Totals of equal groups.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Division helps calculate?",
+      "resultType": "short-answer",
+      "options": [
+        "Equal shares",
+        "Totals",
+        "Patterns",
+        ""
+      ],
+      "correctAnswer": "Equal shares",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Identify division applications",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Equal shares.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Choosing the correct operation helps?",
+      "resultType": "short-answer",
+      "options": [
+        "Solve problems accurately",
+        "Draw better",
+        "Work faster only",
+        ""
+      ],
+      "correctAnswer": "Solve problems accurately",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Select operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Solve problems accurately.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Real-world maths often requires?",
+      "resultType": "short-answer",
+      "options": [
+        "Careful thinking",
+        "Guessing",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Careful thinking",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Develop reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Careful thinking.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Word problems contain?",
+      "resultType": "short-answer",
+      "options": [
+        "Important information",
+        "Colours",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Important information",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Extract information",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Important information.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mathematics is useful outside school?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Rarely",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Appreciate mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Problem solving develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Reasoning skills",
+        "Drawing skills",
+        "Colouring skills",
+        ""
+      ],
+      "correctAnswer": "Reasoning skills",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Build thinking skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Reasoning skills.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Multiplication and division are used in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Colouring books",
+        "Art lessons",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Reading carefully helps identify?",
+      "resultType": "short-answer",
+      "options": [
+        "The operation needed",
+        "Colours",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "The operation needed",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Solve problems effectively",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to The operation needed.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Solving applications helps prepare students for?",
+      "resultType": "short-answer",
+      "options": [
+        "Real-life situations",
+        "Drawing",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Real-life situations",
+      "category": "Number",
+      "subcategory": "Real World Maths",
+      "learningOutcome": "Apply maths skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Real-life situations.",
+      "solutionAttachments": []
+    }
+  ]
+}

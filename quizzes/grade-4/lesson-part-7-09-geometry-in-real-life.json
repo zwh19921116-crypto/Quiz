@@ -1,0 +1,372 @@
+{
+  "id": "quiz-440",
+  "title": "Grade 4 7.09",
+  "description": "Learning Outcomes for Grade 4: Recognise geometry in everyday life | Identify geometric shapes | Apply geometry concepts | Recognise geometry in nature | Identify shapes in objects | Apply geometry | Apply symmetry | Recognise geometry | Connect maths to careers | Build understanding | Apply mathematics | Recognise applications | Build foundations | Consolidate understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "A soccer ball is closest to which 3D shape?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Sphere",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Sphere",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Recognise geometry in everyday life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sphere.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A dice is closest to which 3D shape?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Cube",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Cube",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Recognise geometry in everyday life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cube.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A drink can is closest to which shape?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Cylinder",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Cylinder",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Recognise geometry in everyday life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cylinder.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A road sign shaped like a STOP sign is usually a?",
+      "resultType": "short-answer",
+      "options": [
+        "Octagon",
+        "Hexagon",
+        "Pentagon",
+        ""
+      ],
+      "correctAnswer": "Octagon",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Identify geometric shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Octagon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Floor tiles often use?",
+      "resultType": "short-answer",
+      "options": [
+        "Tessellations",
+        "Fractions",
+        "Timetables",
+        ""
+      ],
+      "correctAnswer": "Tessellations",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Apply geometry concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tessellations.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Honeycombs are made from?",
+      "resultType": "short-answer",
+      "options": [
+        "Hexagons",
+        "Squares",
+        "Circles",
+        ""
+      ],
+      "correctAnswer": "Hexagons",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Recognise geometry in nature",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Hexagons.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A door is most similar to a?",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangle",
+        "Triangle",
+        "Circle",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Identify shapes in objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A clock face is often a?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "Square",
+        "Pentagon",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Identify shapes in objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Geometry is useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Architecture",
+        "Music only",
+        "Cooking only",
+        ""
+      ],
+      "correctAnswer": "Architecture",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Apply geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Architecture.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Engineers use geometry to?",
+      "resultType": "short-answer",
+      "options": [
+        "Design structures",
+        "Write songs",
+        "Cook food",
+        ""
+      ],
+      "correctAnswer": "Design structures",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Apply geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Design structures.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Symmetry is often used in?",
+      "resultType": "short-answer",
+      "options": [
+        "Logos and design",
+        "Cooking",
+        "Running",
+        ""
+      ],
+      "correctAnswer": "Logos and design",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Apply symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Logos and design.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A building is made from many?",
+      "resultType": "short-answer",
+      "options": [
+        "Shapes and solids",
+        "Colours only",
+        "Numbers only",
+        ""
+      ],
+      "correctAnswer": "Shapes and solids",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Recognise geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Shapes and solids.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Geometry helps create?",
+      "resultType": "short-answer",
+      "options": [
+        "Maps and plans",
+        "Music",
+        "Stories",
+        ""
+      ],
+      "correctAnswer": "Maps and plans",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Apply geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Maps and plans.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which career uses geometry?",
+      "resultType": "short-answer",
+      "options": [
+        "Architect",
+        "Singer",
+        "Chef only",
+        ""
+      ],
+      "correctAnswer": "Architect",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Connect maths to careers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Architect.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Shapes are found in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday objects",
+        "Nowhere",
+        "Only classrooms",
+        ""
+      ],
+      "correctAnswer": "Everyday objects",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Apply geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday objects.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding geometry develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Spatial reasoning",
+        "Colouring skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Spatial reasoning",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Build understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Spatial reasoning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Geometry is important for?",
+      "resultType": "short-answer",
+      "options": [
+        "Problem solving",
+        "Colouring",
+        "Drawing only",
+        ""
+      ],
+      "correctAnswer": "Problem solving",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Problem solving.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Real-world geometry appears in?",
+      "resultType": "short-answer",
+      "options": [
+        "Nature and buildings",
+        "Nowhere",
+        "Only books",
+        ""
+      ],
+      "correctAnswer": "Nature and buildings",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Recognise applications",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Nature and buildings.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding geometry supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Music",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Geometry is a branch of?",
+      "resultType": "short-answer",
+      "options": [
+        "Mathematics",
+        "Science only",
+        "English only",
+        ""
+      ],
+      "correctAnswer": "Mathematics",
+      "category": "Geometry",
+      "subcategory": "Applications",
+      "learningOutcome": "Consolidate understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mathematics.",
+      "solutionAttachments": []
+    }
+  ]
+}

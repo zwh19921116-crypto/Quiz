@@ -1,0 +1,405 @@
+{
+  "id": "quiz-465",
+  "title": "Grade 4 10.07",
+  "description": "Learning Outcomes for Grade 4: Understand data collection | Use tally marks | Identify picture graphs | Identify bar graphs | Interpret graph data | Understand chance | Identify certain events | Identify impossible events | Interpret tally chart data | Compare graph data | Identify likely events | Identify unlikely events | Interpret tables | Analyse survey results | Apply probability concepts | Apply data interpretation skills | Select appropriate data displays",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "What is data?",
+      "resultType": "short-answer",
+      "options": [
+        "Information collected",
+        "A shape",
+        "A number sentence",
+        ""
+      ],
+      "correctAnswer": "Information collected",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Understand data collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Information collected.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tool is used to record counts quickly?",
+      "resultType": "short-answer",
+      "options": [
+        "Tally chart",
+        "Compass",
+        "Ruler",
+        ""
+      ],
+      "correctAnswer": "Tally chart",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Use tally marks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is Tally chart.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many does one tally group represent?",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Read the question carefully and use the lesson concept to complete it.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which graph uses pictures to represent data?",
+      "resultType": "plot",
+      "options": [
+        "Picture graph",
+        "Bar graph",
+        "Table",
+        ""
+      ],
+      "correctAnswer": "Picture graph",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Identify picture graphs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Picture graph.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which graph uses bars?",
+      "resultType": "plot",
+      "options": [
+        "Bar graph",
+        "Picture graph",
+        "Tally chart",
+        ""
+      ],
+      "correctAnswer": "Bar graph",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Identify bar graphs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bar graph.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category has the most data?",
+      "resultType": "short-answer",
+      "options": [
+        "Highest value",
+        "Lowest value",
+        "Equal value",
+        ""
+      ],
+      "correctAnswer": "Highest value",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Interpret graph data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Highest value.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category has the least data?",
+      "resultType": "short-answer",
+      "options": [
+        "Lowest value",
+        "Highest value",
+        "Equal value",
+        ""
+      ],
+      "correctAnswer": "Lowest value",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Interpret graph data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Lowest value.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Chance means?",
+      "resultType": "short-answer",
+      "options": [
+        "Possibility of an event",
+        "A measurement",
+        "A shape",
+        ""
+      ],
+      "correctAnswer": "Possibility of an event",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Understand chance",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Possibility of an event.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rolling a number from 1 to 6 on a standard die is?",
+      "resultType": "short-answer",
+      "options": [
+        "Certain",
+        "Impossible",
+        "Unlikely",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Identify certain events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rolling a 7 on a standard die is?",
+      "resultType": "short-answer",
+      "options": [
+        "Impossible",
+        "Certain",
+        "Likely",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Identify impossible events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A tally chart shows 12 votes for apples and 8 votes for bananas. How many votes altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "20",
+        "18",
+        "22",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Interpret tally chart data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A tally chart shows 12 votes for apples and 8 votes for bananas. How many votes altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A bar graph shows cats = 15 and dogs = 10. How many more cats than dogs?",
+      "resultType": "plot",
+      "options": [
+        "5",
+        "10",
+        "15",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Compare graph data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A bar graph shows cats = 15 and dogs = 10. How many more cats than dogs?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which event is likely?",
+      "resultType": "short-answer",
+      "options": [
+        "Sun rising tomorrow",
+        "Rolling a 7 on a die",
+        "Flying unaided",
+        ""
+      ],
+      "correctAnswer": "Sun rising tomorrow",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Identify likely events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sun rising tomorrow.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which event is unlikely?",
+      "resultType": "short-answer",
+      "options": [
+        "Winning a raffle",
+        "Breathing air",
+        "A day having 24 hours",
+        ""
+      ],
+      "correctAnswer": "Winning a raffle",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Identify unlikely events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Winning a raffle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A table shows Red=8, Blue=12. Which colour was chosen most?",
+      "resultType": "short-answer",
+      "options": [
+        "Blue",
+        "Red",
+        "Equal",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Interpret tables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A class survey found 18 students like soccer and 12 like basketball. How many students were surveyed?",
+      "resultType": "short-answer",
+      "options": [
+        "30",
+        "20",
+        "24",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Analyse survey results",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A class survey found 18 students like soccer and 12 like basketball. How many students were surveyed?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A spinner has 8 equal sections and 2 are red. What fraction are red?",
+      "resultType": "short-answer",
+      "options": [
+        "2/8",
+        "4/8",
+        "6/8",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Apply probability concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A graph shows 25 students. 10 chose apples. What fraction chose apples?",
+      "resultType": "plot",
+      "options": [
+        "10/25",
+        "15/25",
+        "20/25",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Apply data interpretation skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bag contains only blue counters. Picking a blue counter is?",
+      "resultType": "short-answer",
+      "options": [
+        "Certain",
+        "Impossible",
+        "Unlikely",
+        ""
+      ],
+      "correctAnswer": "Certain",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Apply probability concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is Certain.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which graph is usually best for comparing categories?",
+      "resultType": "plot",
+      "options": [
+        "Bar graph",
+        "Number line",
+        "Clock",
+        ""
+      ],
+      "correctAnswer": "Bar graph",
+      "category": "Statistics & Probability",
+      "subcategory": "Review",
+      "learningOutcome": "Select appropriate data displays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bar graph.",
+      "solutionAttachments": []
+    }
+  ]
+}

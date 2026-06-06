@@ -1,0 +1,502 @@
+{
+  "id": "quiz-133",
+  "title": "Grade 1 3.08",
+  "description": "Learning Outcomes for Grade 1: Apply addition facts | Apply subtraction facts | Add within 20 | Subtract within 20 | Solve addition problems | Solve subtraction problems | Apply mixed operation skills",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "5 + 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Apply addition facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 + 3 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 3,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "9 − 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Apply subtraction facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 + 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "09",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Apply addition facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 + 4 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 4,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "10 − 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Apply subtraction facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Apply addition facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6 + 2 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 2,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "8 − 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Apply subtraction facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "7 + 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "11",
+        "12",
+        "13",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7 + 5 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7,
+          "operandB": 5,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "14 − 6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "9 + 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "16",
+        "17",
+        "18",
+        ""
+      ],
+      "correctAnswer": "17",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 9 + 8 = 17.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 8,
+          "answer": "17",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "16 − 7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 16.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 + 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 10 + 5 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 10,
+          "operandB": 5,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "18 − 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tom had 6 apples and got 4 more. How many apples now?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom had 6 apples and got 4 more. How many apples now?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "Mia had 12 stickers and gave away 3. How many remain?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Solve subtraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Mia had 12 stickers and gave away 3. How many remain?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "11 + 6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "16",
+        "17",
+        "18",
+        ""
+      ],
+      "correctAnswer": "17",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 11 + 6 = 17.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 11,
+          "operandB": 6,
+          "answer": "17",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "19 − 9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "2011",
+        ""
+      ],
+      "correctAnswer": "19",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 19.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8 + 7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 8 + 7 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 8,
+          "operandB": 7,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "15 − 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "13 + 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "16",
+        "17",
+        "18",
+        ""
+      ],
+      "correctAnswer": "17",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add within 20",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 13 + 4 = 17.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 13,
+          "operandB": 4,
+          "answer": "17",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "17 − 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "17",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Apply mixed operation skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 17.",
+      "solutionAttachments": []
+    }
+  ]
+}

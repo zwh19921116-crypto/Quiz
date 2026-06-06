@@ -1,0 +1,416 @@
+{
+  "id": "quiz-302",
+  "title": "Grade 2 10.08",
+  "description": "Learning Outcomes for Grade 2: Understand calendars | Understand weeks | Sequence days | Understand calendar units | Understand months | Sequence months | Use calendars | Understand years | Apply calendar skills | Consolidate calendar concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "A calendar helps us keep track of?",
+      "resultType": "short-answer",
+      "options": [
+        "Days and dates",
+        "Length",
+        "Mass",
+        ""
+      ],
+      "correctAnswer": "Days and dates",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Understand calendars",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Days and dates.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many days are in a week?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "5",
+        "12",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Understand weeks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many days are in a week?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which day comes after Monday?",
+      "resultType": "short-answer",
+      "options": [
+        "Tuesday",
+        "Sunday",
+        "Friday",
+        ""
+      ],
+      "correctAnswer": "Tuesday",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Sequence days",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tuesday.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which day comes after Friday?",
+      "resultType": "short-answer",
+      "options": [
+        "Saturday",
+        "Thursday",
+        "Sunday",
+        ""
+      ],
+      "correctAnswer": "Saturday",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Sequence days",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Saturday.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which day comes before Sunday?",
+      "resultType": "short-answer",
+      "options": [
+        "Saturday",
+        "Monday",
+        "Friday",
+        ""
+      ],
+      "correctAnswer": "Saturday",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Sequence days",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Saturday.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A month is part of a?",
+      "resultType": "short-answer",
+      "options": [
+        "Year",
+        "Week",
+        "Day",
+        ""
+      ],
+      "correctAnswer": "Year",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Understand calendar units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Year.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many months are in a year?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "10",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Understand months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many months are in a year?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which month comes after January?",
+      "resultType": "short-answer",
+      "options": [
+        "February",
+        "March",
+        "April",
+        ""
+      ],
+      "correctAnswer": "February",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to February.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes after June?",
+      "resultType": "short-answer",
+      "options": [
+        "July",
+        "August",
+        "May",
+        ""
+      ],
+      "correctAnswer": "July",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to July.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Birthdays are usually marked on a?",
+      "resultType": "short-answer",
+      "options": [
+        "Calendar",
+        "Ruler",
+        "Scale",
+        ""
+      ],
+      "correctAnswer": "Calendar",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Use calendars",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Calendar.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which day comes before Wednesday?",
+      "resultType": "short-answer",
+      "options": [
+        "Tuesday",
+        "Thursday",
+        "Monday",
+        ""
+      ],
+      "correctAnswer": "Tuesday",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Sequence days",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tuesday.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which day comes after Saturday?",
+      "resultType": "short-answer",
+      "options": [
+        "Sunday",
+        "Friday",
+        "Monday",
+        ""
+      ],
+      "correctAnswer": "Sunday",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Sequence days",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sunday.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes after September?",
+      "resultType": "short-answer",
+      "options": [
+        "October",
+        "August",
+        "November",
+        ""
+      ],
+      "correctAnswer": "October",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to October.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes before December?",
+      "resultType": "short-answer",
+      "options": [
+        "November",
+        "October",
+        "January",
+        ""
+      ],
+      "correctAnswer": "November",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to November.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A week has how many days?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "5",
+        "12",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Understand weeks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A week has how many days?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "A year has how many months?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "10",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Understand years",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A year has how many months?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "Calendars help us remember?",
+      "resultType": "short-answer",
+      "options": [
+        "Important dates",
+        "Shapes",
+        "Measurements",
+        ""
+      ],
+      "correctAnswer": "Important dates",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Use calendars",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Important dates.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "School holidays are often shown on a?",
+      "resultType": "short-answer",
+      "options": [
+        "Calendar",
+        "Ruler",
+        "Clock",
+        ""
+      ],
+      "correctAnswer": "Calendar",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Use calendars",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Calendar.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Calendars help us plan?",
+      "resultType": "short-answer",
+      "options": [
+        "Events",
+        "Shapes",
+        "Chance activities",
+        ""
+      ],
+      "correctAnswer": "Events",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Apply calendar skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Events.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Days, weeks, months and years are all units of?",
+      "resultType": "short-answer",
+      "options": [
+        "Time",
+        "Mass",
+        "Capacity",
+        ""
+      ],
+      "correctAnswer": "Time",
+      "category": "Measurement",
+      "subcategory": "Calendars",
+      "learningOutcome": "Consolidate calendar concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Time.",
+      "solutionAttachments": []
+    }
+  ]
+}

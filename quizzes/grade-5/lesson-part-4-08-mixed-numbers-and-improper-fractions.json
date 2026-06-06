@@ -1,0 +1,588 @@
+{
+  "id": "quiz-509",
+  "title": "Grade 5 4.08",
+  "description": "Learning Outcomes for Grade 5: Identify mixed numbers | Identify improper fractions | Convert mixed numbers to improper fractions | Convert improper fractions to mixed numbers | Apply mixed numbers in real-world contexts | Apply fraction conversions in context | Convert improper fractions in real-world situations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "Which is a mixed number?",
+      "resultType": "short-answer",
+      "options": [
+        "1 1/2; 3/2; 4/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1 1/2; 3/2; 4/4",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Identify mixed numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1 1/2; 3/2; 4/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is an improper fraction?",
+      "resultType": "short-answer",
+      "options": [
+        "5/4; 1 1/4; 3/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5/4; 1 1/4; 3/4",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Identify improper fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5/4; 1 1/4; 3/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 1 1/2 to an improper fraction.",
+      "resultType": "short-answer",
+      "options": [
+        "3/2; 2/3; 1/2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert mixed numbers to improper fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 2 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 2,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 1 1/3 to an improper fraction.",
+      "resultType": "short-answer",
+      "options": [
+        "4/3; 3/4; 2/3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.3333333333333333",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert mixed numbers to improper fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 3 = 0.3333333333333333.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 3,
+          "answer": "0.33",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 3/2 to a mixed number.",
+      "resultType": "short-answer",
+      "options": [
+        "1 1/2; 2 1/2; 1 2/3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1.5",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert improper fractions to mixed numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 / 2 = 1.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 3,
+          "operandB": 2,
+          "answer": "1.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 5/4 to a mixed number.",
+      "resultType": "short-answer",
+      "options": [
+        "1 1/4; 1 1/2; 2 1/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1.25",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert improper fractions to mixed numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 / 4 = 1.25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 5,
+          "operandB": 4,
+          "answer": "1.25",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 7/3 to a mixed number.",
+      "resultType": "short-answer",
+      "options": [
+        "2 1/3; 2 2/3; 3 1/3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2.3333333333333335",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert improper fractions to mixed numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7 / 3 = 2.3333333333333335.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 7,
+          "operandB": 3,
+          "answer": "2.33",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 2 1/4 to an improper fraction.",
+      "resultType": "short-answer",
+      "options": [
+        "9/4; 8/4; 10/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.25",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert mixed numbers to improper fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 4 = 0.25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 4,
+          "answer": "0.25",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 2 2/5 to an improper fraction.",
+      "resultType": "short-answer",
+      "options": [
+        "12/5; 10/5; 14/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.4",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert mixed numbers to improper fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 / 5 = 0.4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 2,
+          "operandB": 5,
+          "answer": "0.4",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 11/5 to a mixed number.",
+      "resultType": "short-answer",
+      "options": [
+        "2 1/5; 2 2/5; 1 1/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2.2",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert improper fractions to mixed numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 11 / 5 = 2.2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 11,
+          "operandB": 5,
+          "answer": "2.2",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 3 1/3 to an improper fraction.",
+      "resultType": "short-answer",
+      "options": [
+        "10/3; 9/3; 11/3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.3333333333333333",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert mixed numbers to improper fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 3 = 0.3333333333333333.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 3,
+          "answer": "0.33",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 4 2/5 to an improper fraction.",
+      "resultType": "short-answer",
+      "options": [
+        "22/5; 20/5; 24/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.4",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert mixed numbers to improper fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 / 5 = 0.4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 2,
+          "operandB": 5,
+          "answer": "0.4",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 13/4 to a mixed number.",
+      "resultType": "short-answer",
+      "options": [
+        "3 1/4; 3 2/4; 2 1/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3.25",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert improper fractions to mixed numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 13 / 4 = 3.25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 13,
+          "operandB": 4,
+          "answer": "3.25",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 17/5 to a mixed number.",
+      "resultType": "short-answer",
+      "options": [
+        "3 2/5; 3 1/5; 2 2/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3.4",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert improper fractions to mixed numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 17 / 5 = 3.4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 17,
+          "operandB": 5,
+          "answer": "3.4",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 19/6 to a mixed number.",
+      "resultType": "short-answer",
+      "options": [
+        "3 1/6; 3 2/6; 2 1/6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3.1666666666666665",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert improper fractions to mixed numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 19 / 6 = 3.1666666666666665.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 19,
+          "operandB": 6,
+          "answer": "3.17",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 5 3/4 to an improper fraction.",
+      "resultType": "short-answer",
+      "options": [
+        "23/4; 22/4; 24/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.75",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert mixed numbers to improper fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 / 4 = 0.75.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 3,
+          "operandB": 4,
+          "answer": "0.75",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 6 1/2 to an improper fraction.",
+      "resultType": "short-answer",
+      "options": [
+        "13/2; 12/2; 14/2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert mixed numbers to improper fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 2 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 2,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Emma ate 2 whole pizzas and 1/4 of another. What improper fraction of pizzas did she eat?",
+      "resultType": "short-answer",
+      "options": [
+        "9/4; 8/4; 10/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.25",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Apply mixed numbers in real-world contexts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 4 = 0.25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 4,
+          "answer": "0.25",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A tank contains 3 2/5 litres of water. Which improper fraction represents this amount?",
+      "resultType": "short-answer",
+      "options": [
+        "17/5; 15/5; 18/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.4",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Apply fraction conversions in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 / 5 = 0.4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 2,
+          "operandB": 5,
+          "answer": "0.4",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A runner completed 11/4 laps. How many laps is this as a mixed number?",
+      "resultType": "short-answer",
+      "options": [
+        "2 3/4; 2 1/4; 3 1/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2.75",
+      "category": "Fractions",
+      "subcategory": "Mixed Numbers",
+      "learningOutcome": "Convert improper fractions in real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 11 / 4 = 2.75.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 11,
+          "operandB": 4,
+          "answer": "2.75",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    }
+  ]
+}

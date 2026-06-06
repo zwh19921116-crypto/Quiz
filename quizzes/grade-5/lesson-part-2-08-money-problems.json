@@ -1,0 +1,372 @@
+{
+  "id": "quiz-489",
+  "title": "Grade 5 2.08",
+  "description": "Learning Outcomes for Grade 5: Solve simple money problems | Calculate change | Add money amounts | Multiply money amounts | Subtract money amounts | Add money amounts accurately | Solve multi-step money problems | Add larger money amounts | Solve money problems using subtraction | Add money amounts in context | Apply money calculations in real-world contexts | Solve multi-step money problems involving multiplication",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "A toy costs $15. How much do 2 toys cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$30; $25; $35",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Solve simple money problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "You have $50 and spend $20. How much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "$30; $20; $40",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Calculate change",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A book costs $12 and a pen costs $3. What is the total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$15; $14; $16",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Add money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "You have $100 and buy an item for $60. How much change do you receive?",
+      "resultType": "short-answer",
+      "options": [
+        "$40; $30; $50",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Calculate change",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A drink costs $4. How much do 5 drinks cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$20; $25; $15",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Multiply money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A student saves $25 and then another $15. How much has been saved?",
+      "resultType": "short-answer",
+      "options": [
+        "$40; $35; $45",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Add money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A game costs $35. You pay with $50. What is the change?",
+      "resultType": "short-answer",
+      "options": [
+        "$15; $10; $20",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "35",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Calculate change",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 35.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Three movie tickets cost $10 each. What is the total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$30; $20; $40",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Multiply money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A sandwich costs $8 and a juice costs $4. What is the total?",
+      "resultType": "short-answer",
+      "options": [
+        "$12; $10; $14",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Add money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "You have $70 and spend $25. How much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "$45; $35; $55",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "70",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Subtract money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 70.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shirt costs $28 and a hat costs $17. What is the total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$45; $44; $46",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "28",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Add money amounts accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 28.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "You have $100 and buy items costing $36 and $24. How much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "$40; $50; $30",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Solve multi-step money problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A family spends $125 on groceries and $75 on fuel. What is the total spent?",
+      "resultType": "short-answer",
+      "options": [
+        "$200; $190; $210",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "125",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Add larger money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 125.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bicycle costs $350. You pay a $125 deposit. How much is left to pay?",
+      "resultType": "short-answer",
+      "options": [
+        "$225; $215; $235",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "350",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Subtract money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 350.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Four books cost $18 each. What is the total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$72; $64; $80",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Multiply money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Emma saved $250 and spent $85. How much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "$165; $175; $155",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "250",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Solve money problems using subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 250.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shop made $450 on Monday and $375 on Tuesday. What was the total income?",
+      "resultType": "short-answer",
+      "options": [
+        "$825; $815; $835",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "450",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Add money amounts in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 450.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A family budgeted $1000. They spent $425 on rent and $275 on food. How much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "$300; $250; $350",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1000",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Solve multi-step money problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A fundraiser collected $2450 and spent $875 on expenses. How much profit was made?",
+      "resultType": "short-answer",
+      "options": [
+        "$1575; $1565; $1585",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2450",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Apply money calculations in real-world contexts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2450.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A student saved $120 every month for 6 months. How much was saved altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "$720; $620; $820",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "120",
+      "category": "Number",
+      "subcategory": "Money",
+      "learningOutcome": "Solve multi-step money problems involving multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 120.",
+      "solutionAttachments": []
+    }
+  ]
+}

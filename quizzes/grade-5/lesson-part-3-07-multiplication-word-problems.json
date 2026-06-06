@@ -1,0 +1,592 @@
+{
+  "id": "quiz-498",
+  "title": "Grade 5 3.07",
+  "description": "Learning Outcomes for Grade 5: Solve multiplication word problems | Apply multiplication in practical situations | Solve multiplication problems with larger numbers | Apply multiplication to solve real-world problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "There are 4 bags with 6 apples in each bag. How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "24; 20; 28",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 4 bags with 6 apples in each bag. How many apples are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A box contains 8 pencils. There are 5 boxes. How many pencils are there?",
+      "resultType": "short-answer",
+      "options": [
+        "40; 35; 45",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A box contains 8 pencils. There are 5 boxes. How many pencils are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 7 rows of 3 chairs. How many chairs are there?",
+      "resultType": "short-answer",
+      "options": [
+        "21; 18; 24",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 7 rows of 3 chairs. How many chairs are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A farmer plants 9 trees in each row and has 4 rows. How many trees are planted?",
+      "resultType": "short-answer",
+      "options": [
+        "36; 32; 40",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A farmer plants 9 trees in each row and has 4 rows. How many trees are planted?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 10 packs with 5 stickers in each pack. How many stickers are there?",
+      "resultType": "short-answer",
+      "options": [
+        "50; 45; 55",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 10 packs with 5 stickers in each pack. How many stickers are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A class has 6 tables with 4 students at each table. How many students are seated?",
+      "resultType": "short-answer",
+      "options": [
+        "24; 20; 28",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A class has 6 tables with 4 students at each table. How many students are seated?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 12 eggs in a carton. How many eggs are in 3 cartons?",
+      "resultType": "short-answer",
+      "options": [
+        "36; 24; 48",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 12 eggs in a carton. How many eggs are in 3 cartons?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A bus carries 11 passengers in each row and has 2 rows. How many passengers are seated?",
+      "resultType": "short-answer",
+      "options": [
+        "22; 20; 24",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 11.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A bus carries 11 passengers in each row and has 2 rows. How many passengers are seated?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A baker places 8 muffins on each tray and uses 4 trays. How many muffins are there?",
+      "resultType": "short-answer",
+      "options": [
+        "32; 28; 36",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A baker places 8 muffins on each tray and uses 4 trays. How many muffins are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 9 days in a training program and 5 lessons each day. How many lessons are there?",
+      "resultType": "short-answer",
+      "options": [
+        "45; 40; 50",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 9 days in a training program and 5 lessons each day. How many lessons are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A theatre has 24 seats in each row and 5 rows. How many seats are there?",
+      "resultType": "short-answer",
+      "options": [
+        "120; 110; 130",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "24",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 24.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A theatre has 24 seats in each row and 5 rows. How many seats are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A school buys 18 books for each of 6 classes. How many books are bought?",
+      "resultType": "short-answer",
+      "options": [
+        "108; 98; 118",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A school buys 18 books for each of 6 classes. How many books are bought?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A factory makes 35 items per hour for 4 hours. How many items are made?",
+      "resultType": "short-answer",
+      "options": [
+        "140; 130; 150",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "35",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiplication in practical situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 35.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A factory makes 35 items per hour for 4 hours. How many items are made?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A farmer has 28 sheep in each paddock and 3 paddocks. How many sheep are there?",
+      "resultType": "short-answer",
+      "options": [
+        "84; 74; 94",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "28",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiplication in practical situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 28.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A farmer has 28 sheep in each paddock and 3 paddocks. How many sheep are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A warehouse stores 42 boxes on each shelf and has 2 shelves. How many boxes are stored?",
+      "resultType": "short-answer",
+      "options": [
+        "84; 82; 86",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "42",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiplication in practical situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 42.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A warehouse stores 42 boxes on each shelf and has 2 shelves. How many boxes are stored?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A sports club sells 27 tickets each day for 5 days. How many tickets are sold?",
+      "resultType": "short-answer",
+      "options": [
+        "135; 125; 145",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "27",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 27.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A sports club sells 27 tickets each day for 5 days. How many tickets are sold?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A gardener plants 36 flowers in each section and has 4 sections. How many flowers are planted?",
+      "resultType": "short-answer",
+      "options": [
+        "144; 134; 154",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "36",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 36.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A gardener plants 36 flowers in each section and has 4 sections. How many flowers are planted?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A factory produces 125 items each day for 6 days. How many items are produced?",
+      "resultType": "short-answer",
+      "options": [
+        "750; 700; 800",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "125",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication problems with larger numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 125.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A factory produces 125 items each day for 6 days. How many items are produced?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A school has 215 students in each year level and 4 year levels. How many students are there?",
+      "resultType": "short-answer",
+      "options": [
+        "860; 850; 870",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "215",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiplication to solve real-world problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 215.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A school has 215 students in each year level and 4 year levels. How many students are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A warehouse stores 320 boxes on each shelf and has 5 shelves. How many boxes are stored?",
+      "resultType": "short-answer",
+      "options": [
+        "1600; 1500; 1700",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "320",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiplication to solve real-world problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 320.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A warehouse stores 320 boxes on each shelf and has 5 shelves. How many boxes are stored?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    }
+  ]
+}

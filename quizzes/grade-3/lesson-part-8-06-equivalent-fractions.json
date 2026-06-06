@@ -1,0 +1,432 @@
+{
+  "id": "quiz-360",
+  "title": "Grade 3 8.06",
+  "description": "Learning Outcomes for Grade 3: Recognise equivalent fractions | Identify equivalent fractions | Compare equivalent fractions | Relate fractions to wholes | Identify whole fractions | Understand equivalence | Distinguish equivalent fractions | Represent wholes | Compare fractions | Apply equivalent fractions | Recognise equivalence | Understand vocabulary | Recognise wholes | Understand equivalent fractions",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "Two quarters are equal to?",
+      "resultType": "short-answer",
+      "options": [
+        "One half",
+        "One third",
+        "One quarter",
+        ""
+      ],
+      "correctAnswer": "One half",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Recognise equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to One half.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is equal to 1/2?",
+      "resultType": "short-answer",
+      "options": [
+        "2/4",
+        "1/4",
+        "1/3",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Identify equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 2 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 2,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which pair shows the same amount?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2 and 2/4",
+        "1/2 and 1/4",
+        "1/3 and 1/2",
+        ""
+      ],
+      "correctAnswer": "1/2 and 2/4",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2 and 2/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Four quarters equal?",
+      "resultType": "short-answer",
+      "options": [
+        "One whole",
+        "One half",
+        "Two wholes",
+        ""
+      ],
+      "correctAnswer": "One whole",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Relate fractions to wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to One whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two halves equal?",
+      "resultType": "short-answer",
+      "options": [
+        "One whole",
+        "One half",
+        "Two wholes",
+        ""
+      ],
+      "correctAnswer": "One whole",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Relate fractions to wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to One whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is equal to one whole?",
+      "resultType": "short-answer",
+      "options": [
+        "4/4",
+        "1/4",
+        "2/4",
+        ""
+      ],
+      "correctAnswer": "4/4",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Identify whole fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is equal to one whole?",
+      "resultType": "short-answer",
+      "options": [
+        "2/2",
+        "1/2",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "2/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Identify whole fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2/4 is equal to?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "1/3",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Identify equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 / 4 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 2,
+          "operandB": 4,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Equivalent fractions have?",
+      "resultType": "short-answer",
+      "options": [
+        "The same value",
+        "Different values",
+        "No value",
+        ""
+      ],
+      "correctAnswer": "The same value",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand equivalence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to The same value.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is NOT equal to 1/2?",
+      "resultType": "short-answer",
+      "options": [
+        "1/4",
+        "2/4",
+        "Half",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Distinguish equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 2 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 2,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "One whole can be written as?",
+      "resultType": "short-answer",
+      "options": [
+        "2/2",
+        "4/4",
+        "Both",
+        ""
+      ],
+      "correctAnswer": "2/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Represent wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fractions represent the same amount?",
+      "resultType": "short-answer",
+      "options": [
+        "2/4 and 1/2",
+        "1/4 and 1/2",
+        "1/3 and 1/4",
+        ""
+      ],
+      "correctAnswer": "2/4 and 1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2/4 and 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If a pizza is half eaten, it is the same as eating?",
+      "resultType": "short-answer",
+      "options": [
+        "2 quarters",
+        "1 quarter",
+        "3 quarters",
+        ""
+      ],
+      "correctAnswer": "2 quarters",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 quarters.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which pair is equivalent?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2 and 2/4",
+        "1/2 and 1/3",
+        "1/4 and 1/3",
+        ""
+      ],
+      "correctAnswer": "1/2 and 2/4",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Recognise equivalence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2 and 2/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equivalent means?",
+      "resultType": "short-answer",
+      "options": [
+        "Equal in value",
+        "Larger",
+        "Smaller",
+        ""
+      ],
+      "correctAnswer": "Equal in value",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Equal in value.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4/4 represents?",
+      "resultType": "short-answer",
+      "options": [
+        "One whole",
+        "One half",
+        "One quarter",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Recognise wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 / 4 = 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 4,
+          "operandB": 4,
+          "answer": "1",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "2/2 represents?",
+      "resultType": "short-answer",
+      "options": [
+        "One whole",
+        "One half",
+        "Two wholes",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Recognise wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 / 2 = 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "1",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Two quarters are equal to?",
+      "resultType": "short-answer",
+      "options": [
+        "One half",
+        "One whole",
+        "One quarter",
+        ""
+      ],
+      "correctAnswer": "One half",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to One half.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equivalent fractions help us see?",
+      "resultType": "short-answer",
+      "options": [
+        "Same amounts in different forms",
+        "Directions",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Same amounts in different forms",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand equivalence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Same amounts in different forms.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equivalent fractions represent?",
+      "resultType": "short-answer",
+      "options": [
+        "The same amount",
+        "Different amounts",
+        "Unknown amounts",
+        ""
+      ],
+      "correctAnswer": "The same amount",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to The same amount.",
+      "solutionAttachments": []
+    }
+  ]
+}

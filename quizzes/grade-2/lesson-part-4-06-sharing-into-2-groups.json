@@ -1,0 +1,564 @@
+{
+  "id": "quiz-240",
+  "title": "Grade 2 4.06",
+  "description": "Learning Outcomes for Grade 2: Share into 2 equal groups | Connect sharing and halving | Understand halving",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "4 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 / 2 = 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 4,
+          "operandB": 2,
+          "answer": "2",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "6 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6 / 2 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 6,
+          "operandB": 2,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "8 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 8 / 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 8,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "10 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 10 / 2 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 10,
+          "operandB": 2,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "12 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 12 / 2 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 12,
+          "operandB": 2,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "14 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 14 / 2 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 14,
+          "operandB": 2,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "16 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 16 / 2 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 16,
+          "operandB": 2,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "18 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 18 / 2 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 18,
+          "operandB": 2,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "20 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 20 / 2 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 20,
+          "operandB": 2,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Half of 10 is?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Connect sharing and halving",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 12 is?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Connect sharing and halving",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 16 is?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Connect sharing and halving",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 16.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "22 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 22 / 2 = 11.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 22,
+          "operandB": 2,
+          "answer": "11",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "24 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "11",
+        "12",
+        "13",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 24 / 2 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 24,
+          "operandB": 2,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "26 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "13",
+        "14",
+        ""
+      ],
+      "correctAnswer": "13",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 26 / 2 = 13.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 26,
+          "operandB": 2,
+          "answer": "13",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "28 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "13",
+        "14",
+        "15",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 28 / 2 = 14.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 28,
+          "operandB": 2,
+          "answer": "14",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "30 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 30 / 2 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 30,
+          "operandB": 2,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Sharing into 2 groups is called?",
+      "resultType": "short-answer",
+      "options": [
+        "Halving",
+        "Doubling",
+        "Counting",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Understand halving",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "40 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 40 / 2 = 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 40,
+          "operandB": 2,
+          "answer": "20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "50 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "20",
+        "25",
+        "30",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Division Foundations",
+      "subcategory": "Sharing into 2",
+      "learningOutcome": "Share into 2 equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 50 / 2 = 25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 50,
+          "operandB": 2,
+          "answer": "25",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    }
+  ]
+}

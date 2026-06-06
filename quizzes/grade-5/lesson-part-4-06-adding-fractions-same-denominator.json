@@ -1,0 +1,612 @@
+{
+  "id": "quiz-507",
+  "title": "Grade 5 4.06",
+  "description": "Learning Outcomes for Grade 5: Add fractions with the same denominator | Add fractions accurately | Apply fraction addition in real-world situations | Solve fraction addition problems | Apply fraction addition to real-world contexts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "1/5 + 2/5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3/5; 3/10; 2/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions with the same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 + 2 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 2,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "2/6 + 1/6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3/6; 3/12; 2/12",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions with the same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6 + 1 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 1,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3/8 + 2/8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5/8; 5/16; 4/8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions with the same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 8 + 2 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 8,
+          "operandB": 2,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "1/4 + 1/4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "2/4; 1/8; 2/8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions with the same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 + 1 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 1,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "2/7 + 3/7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5/7; 5/14; 4/7",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions with the same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7 + 3 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7,
+          "operandB": 3,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "4/10 + 2/10 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6/10; 6/20; 5/10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions with the same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 10 + 2 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 10,
+          "operandB": 2,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3/9 + 4/9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7/9; 7/18; 6/9",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "13",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions with the same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 9 + 4 = 13.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 4,
+          "answer": "13",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5/12 + 2/12 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7/12; 7/24; 6/12",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions with the same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 12 + 2 = 14.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 12,
+          "operandB": 2,
+          "answer": "14",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "1/3 + 1/3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "2/3; 2/6; 1/6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions with the same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 + 1 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3,
+          "operandB": 1,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "2/11 + 5/11 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7/11; 7/22; 6/11",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions with the same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 11 + 5 = 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 11,
+          "operandB": 5,
+          "answer": "16",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "4/9 + 3/9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7/9; 8/9; 6/9",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 9 + 3 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 3,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5/8 + 2/8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7/8; 6/8; 8/8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 8 + 2 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 8,
+          "operandB": 2,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "6/10 + 3/10 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9/10; 8/10; 10/10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "13",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 10 + 3 = 13.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 10,
+          "operandB": 3,
+          "answer": "13",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "7/12 + 4/12 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "11/12; 10/12; 12/12",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 12 + 4 = 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 12,
+          "operandB": 4,
+          "answer": "16",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3/5 + 1/5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4/5; 3/10; 2/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 + 1 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 1,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "8/15 + 4/15 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "12/15; 11/15; 13/15",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "19",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 15 + 4 = 19.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 15,
+          "operandB": 4,
+          "answer": "19",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "9/20 + 6/20 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "15/20; 14/20; 16/20",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "26",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Add fractions accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 20 + 6 = 26.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 20,
+          "operandB": 6,
+          "answer": "26",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Emma ate 2/8 of a pizza and later ate another 3/8. How much did she eat altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "5/8; 4/8; 6/8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.25",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Apply fraction addition in real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 / 8 = 0.25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 2,
+          "operandB": 8,
+          "answer": "0.25",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A tank was filled by 4/10 in the morning and 3/10 in the afternoon. How full is it now?",
+      "resultType": "short-answer",
+      "options": [
+        "7/10; 6/10; 8/10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.4",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Solve fraction addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 / 10 = 0.4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 4,
+          "operandB": 10,
+          "answer": "0.4",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A student completed 5/12 of a project on Monday and 4/12 on Tuesday. What fraction is completed?",
+      "resultType": "short-answer",
+      "options": [
+        "9/12; 8/12; 10/12",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.4166666666666667",
+      "category": "Fractions",
+      "subcategory": "Addition",
+      "learningOutcome": "Apply fraction addition to real-world contexts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 / 12 = 0.4166666666666667.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 5,
+          "operandB": 12,
+          "answer": "0.42",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    }
+  ]
+}

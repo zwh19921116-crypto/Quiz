@@ -1,0 +1,383 @@
+{
+  "id": "quiz-449",
+  "title": "Grade 4 8.08",
+  "description": "Learning Outcomes for Grade 4: Understand chance | Identify certain events | Identify impossible events | Understand outcomes | Identify outcomes | Use probability language | Describe chance | Identify certainty | Identify impossibility | Understand probability | Apply probability | Recognise real-life probability | Conduct probability experiments | Build understanding | Apply mathematics | Identify possible events | Build foundations | Consolidate understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Chance describes?",
+      "resultType": "short-answer",
+      "options": [
+        "Likelihood of an event",
+        "Length of an object",
+        "Weight of an object",
+        ""
+      ],
+      "correctAnswer": "Likelihood of an event",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Understand chance",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Likelihood of an event.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which event is certain?",
+      "resultType": "short-answer",
+      "options": [
+        "The sun will rise tomorrow",
+        "Rolling a 7 on a 6-sided die",
+        "Picking a purple card from only red cards",
+        ""
+      ],
+      "correctAnswer": "The sun will rise tomorrow",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Identify certain events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to The sun will rise tomorrow.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which event is impossible?",
+      "resultType": "short-answer",
+      "options": [
+        "Rolling a 7 on a 6-sided die",
+        "Rolling a 3 on a die",
+        "Tossing a coin",
+        ""
+      ],
+      "correctAnswer": "Rolling a 7 on a 6-sided die",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Identify impossible events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rolling a 7 on a 6-sided die.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A coin has how many possible outcomes?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "4",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Understand outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A coin has how many possible outcomes?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "What are the outcomes when tossing a coin?",
+      "resultType": "short-answer",
+      "options": [
+        "Heads and tails",
+        "Red and blue",
+        "1 and 2",
+        ""
+      ],
+      "correctAnswer": "Heads and tails",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Identify outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Heads and tails.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means a high chance?",
+      "resultType": "short-answer",
+      "options": [
+        "Likely",
+        "Impossible",
+        "Never",
+        ""
+      ],
+      "correctAnswer": "Likely",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Use probability language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Likely.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means no chance?",
+      "resultType": "short-answer",
+      "options": [
+        "Impossible",
+        "Likely",
+        "Certain",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Use probability language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means it will definitely happen?",
+      "resultType": "short-answer",
+      "options": [
+        "Certain",
+        "Unlikely",
+        "Impossible",
+        ""
+      ],
+      "correctAnswer": "Certain",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Use probability language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Certain.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rolling an even number on a die is?",
+      "resultType": "short-answer",
+      "options": [
+        "Possible",
+        "Impossible",
+        "Certain",
+        ""
+      ],
+      "correctAnswer": "Possible",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Describe chance",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Possible.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Picking a red marble from a bag of only red marbles is?",
+      "resultType": "short-answer",
+      "options": [
+        "Certain",
+        "Impossible",
+        "Unlikely",
+        ""
+      ],
+      "correctAnswer": "Certain",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Identify certainty",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Certain.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Picking a blue marble from a bag of only red marbles is?",
+      "resultType": "short-answer",
+      "options": [
+        "Impossible",
+        "Certain",
+        "Likely",
+        ""
+      ],
+      "correctAnswer": "Impossible",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Identify impossibility",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Impossible.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Chance is studied in?",
+      "resultType": "short-answer",
+      "options": [
+        "Statistics",
+        "Geometry",
+        "Measurement",
+        ""
+      ],
+      "correctAnswer": "Statistics",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Understand probability",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Statistics.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Probability helps us?",
+      "resultType": "short-answer",
+      "options": [
+        "Predict outcomes",
+        "Measure length",
+        "Draw shapes",
+        ""
+      ],
+      "correctAnswer": "Predict outcomes",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Apply probability",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Predict outcomes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A weather forecast uses?",
+      "resultType": "short-answer",
+      "options": [
+        "Chance",
+        "Perimeter",
+        "Fractions",
+        ""
+      ],
+      "correctAnswer": "Chance",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Recognise real-life probability",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Chance.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tossing a coin is an example of?",
+      "resultType": "short-answer",
+      "options": [
+        "Chance experiment",
+        "Measurement",
+        "Geometry",
+        ""
+      ],
+      "correctAnswer": "Chance experiment",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Conduct probability experiments",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Chance experiment.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Learning chance develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Reasoning skills",
+        "Colouring skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Reasoning skills",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Build understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Reasoning skills.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Probability is useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Music only",
+        "Art only",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which event is possible?",
+      "resultType": "short-answer",
+      "options": [
+        "Rolling a 4 on a die",
+        "Rolling an 8 on a die",
+        "Rolling a 10 on a die",
+        ""
+      ],
+      "correctAnswer": "Rolling a 4 on a die",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Identify possible events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rolling a 4 on a die.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding chance supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future probability learning",
+        "Music",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future probability learning",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future probability learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Probability is part of?",
+      "resultType": "short-answer",
+      "options": [
+        "Mathematics",
+        "English",
+        "Art",
+        ""
+      ],
+      "correctAnswer": "Mathematics",
+      "category": "Statistics",
+      "subcategory": "Probability",
+      "learningOutcome": "Consolidate understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mathematics.",
+      "solutionAttachments": []
+    }
+  ]
+}

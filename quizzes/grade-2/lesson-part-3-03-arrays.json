@@ -1,0 +1,427 @@
+{
+  "id": "quiz-227",
+  "title": "Grade 2 3.03",
+  "description": "Learning Outcomes for Grade 2: Count objects in arrays | Connect arrays to multiplication | Identify arrays | Understand arrays",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "An array with 2 rows of 3 has how many objects?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "An array with 2 rows of 3 has how many objects?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "An array with 2 rows of 4 has how many objects?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "An array with 2 rows of 4 has how many objects?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "An array with 3 rows of 2 has how many objects?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "6",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "An array with 3 rows of 2 has how many objects?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "An array with 3 rows of 3 has how many objects?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "An array with 3 rows of 3 has how many objects?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "An array with 4 rows of 2 has how many objects?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "An array with 4 rows of 2 has how many objects?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "2 rows of 5 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 rows of 2 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 rows of 4 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 rows of 3 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 rows of 3 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "15",
+        "18",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 rows of 6 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 rows of 5 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "15",
+        "18",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 rows of 4 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "16",
+        "20",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 rows of 4 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "16",
+        "20",
+        "24",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 rows of 7 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "14",
+        "16",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 rows of 6 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "16",
+        "18",
+        "20",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 rows of 5 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Count objects in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Arrays help us learn?",
+      "resultType": "short-answer",
+      "options": [
+        "Multiplication",
+        "Money",
+        "Time",
+        ""
+      ],
+      "correctAnswer": "Multiplication",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Connect arrays to multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Multiplication.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equal rows make an?",
+      "resultType": "short-answer",
+      "options": [
+        "Array",
+        "Clock",
+        "Graph",
+        ""
+      ],
+      "correctAnswer": "Array",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Identify arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Array.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Arrays show?",
+      "resultType": "short-answer",
+      "options": [
+        "Groups",
+        "Fractions",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Groups",
+      "category": "Multiplication Foundations",
+      "subcategory": "Arrays",
+      "learningOutcome": "Understand arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Groups.",
+      "solutionAttachments": []
+    }
+  ]
+}

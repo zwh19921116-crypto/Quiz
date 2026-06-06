@@ -1,0 +1,372 @@
+{
+  "id": "quiz-359",
+  "title": "Grade 3 8.05",
+  "description": "Learning Outcomes for Grade 3: Compare common fractions | Compare unit fractions | Compare fractions | Compare fraction sizes | Compare equivalent fractions | Recognise equivalent fractions | Understand denominator effect | Order fractions | Apply comparisons",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare common fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "1/4",
+        "1/2",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/4",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare common fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/3",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare unit fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "1/3",
+        "1/2",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/3",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare unit fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "1/3",
+        "1/4",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/3",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "1/4",
+        "1/3",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/4",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction gives the biggest piece?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fraction sizes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction gives the smallest piece?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fraction sizes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two quarters compared with one half are?",
+      "resultType": "short-answer",
+      "options": [
+        "Equal",
+        "Larger",
+        "Smaller",
+        ""
+      ],
+      "correctAnswer": "Equal",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "2/4",
+        "Equal",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Recognise equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/5",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "1/3",
+        "1/5",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/3",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "As the denominator gets bigger, the pieces become?",
+      "resultType": "short-answer",
+      "options": [
+        "Smaller",
+        "Larger",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Smaller",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand denominator effect",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Smaller.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the largest?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Order fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the smallest?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Order fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is closer to a whole?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fraction sizes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "One half of a pizza is more than?",
+      "resultType": "short-answer",
+      "options": [
+        "One quarter",
+        "One whole",
+        "Two halves",
+        ""
+      ],
+      "correctAnswer": "One quarter",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply comparisons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to One quarter.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "One quarter of a cake is less than?",
+      "resultType": "short-answer",
+      "options": [
+        "One half",
+        "One whole",
+        "Both",
+        ""
+      ],
+      "correctAnswer": "One half",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to One half.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions can be compared using?",
+      "resultType": "short-answer",
+      "options": [
+        "Size of parts",
+        "Colour",
+        "Shape only",
+        ""
+      ],
+      "correctAnswer": "Size of parts",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Size of parts.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Comparing fractions helps us determine?",
+      "resultType": "short-answer",
+      "options": [
+        "Which is larger or smaller",
+        "Directions",
+        "Measurements",
+        ""
+      ],
+      "correctAnswer": "Which is larger or smaller",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Which is larger or smaller.",
+      "solutionAttachments": []
+    }
+  ]
+}

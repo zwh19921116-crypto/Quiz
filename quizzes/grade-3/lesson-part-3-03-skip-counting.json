@@ -1,0 +1,372 @@
+{
+  "id": "quiz-307",
+  "title": "Grade 3 3.03",
+  "description": "Learning Outcomes for Grade 3: Skip count by 2s | Skip count by 5s | Skip count by 10s | Skip count by 3s | Skip count by 4s | Continue patterns",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "2, 4, 6, 8, ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Count by 2s",
+      "learningOutcome": "Skip count by 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "14, 16, 18, ?",
+      "resultType": "short-answer",
+      "options": [
+        "19",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Number",
+      "subcategory": "Count by 2s",
+      "learningOutcome": "Skip count by 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "22, 24, 26, ?",
+      "resultType": "short-answer",
+      "options": [
+        "28",
+        "29",
+        "30",
+        ""
+      ],
+      "correctAnswer": "22",
+      "category": "Number",
+      "subcategory": "Count by 2s",
+      "learningOutcome": "Skip count by 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 22.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5, 10, 15, ?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Count by 5s",
+      "learningOutcome": "Skip count by 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "25, 30, 35, ?",
+      "resultType": "short-answer",
+      "options": [
+        "40",
+        "45",
+        "50",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Number",
+      "subcategory": "Count by 5s",
+      "learningOutcome": "Skip count by 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "60, 65, 70, ?",
+      "resultType": "short-answer",
+      "options": [
+        "75",
+        "80",
+        "85",
+        ""
+      ],
+      "correctAnswer": "60",
+      "category": "Number",
+      "subcategory": "Count by 5s",
+      "learningOutcome": "Skip count by 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 60.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10, 20, 30, ?",
+      "resultType": "short-answer",
+      "options": [
+        "35",
+        "40",
+        "50",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Count by 10s",
+      "learningOutcome": "Skip count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "110, 120, 130, ?",
+      "resultType": "short-answer",
+      "options": [
+        "135",
+        "140",
+        "150",
+        ""
+      ],
+      "correctAnswer": "110",
+      "category": "Number",
+      "subcategory": "Count by 10s",
+      "learningOutcome": "Skip count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 110.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "250, 260, 270, ?",
+      "resultType": "short-answer",
+      "options": [
+        "275",
+        "280",
+        "290",
+        ""
+      ],
+      "correctAnswer": "250",
+      "category": "Number",
+      "subcategory": "Count by 10s",
+      "learningOutcome": "Skip count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 250.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3, 6, 9, ?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Count by 3s",
+      "learningOutcome": "Skip count by 3s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "12, 15, 18, ?",
+      "resultType": "short-answer",
+      "options": [
+        "20",
+        "21",
+        "24",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Count by 3s",
+      "learningOutcome": "Skip count by 3s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "27, 30, 33, ?",
+      "resultType": "short-answer",
+      "options": [
+        "35",
+        "36",
+        "39",
+        ""
+      ],
+      "correctAnswer": "27",
+      "category": "Number",
+      "subcategory": "Count by 3s",
+      "learningOutcome": "Skip count by 3s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 27.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4, 8, 12, ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "16",
+        "18",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Count by 4s",
+      "learningOutcome": "Skip count by 4s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20, 24, 28, ?",
+      "resultType": "short-answer",
+      "options": [
+        "30",
+        "32",
+        "36",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Number",
+      "subcategory": "Count by 4s",
+      "learningOutcome": "Skip count by 4s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "40, 44, 48, ?",
+      "resultType": "short-answer",
+      "options": [
+        "50",
+        "52",
+        "56",
+        ""
+      ],
+      "correctAnswer": "40",
+      "category": "Number",
+      "subcategory": "Count by 4s",
+      "learningOutcome": "Skip count by 4s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 40.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "100, 110, 120, ?",
+      "resultType": "short-answer",
+      "options": [
+        "125",
+        "130",
+        "140",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Mixed Skip Counting",
+      "learningOutcome": "Continue patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "200, 205, 210, ?",
+      "resultType": "short-answer",
+      "options": [
+        "215",
+        "220",
+        "225",
+        ""
+      ],
+      "correctAnswer": "200",
+      "category": "Number",
+      "subcategory": "Mixed Skip Counting",
+      "learningOutcome": "Continue patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 200.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "18, 20, 22, ?",
+      "resultType": "short-answer",
+      "options": [
+        "23",
+        "24",
+        "26",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Number",
+      "subcategory": "Mixed Skip Counting",
+      "learningOutcome": "Continue patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "45, 50, 55, ?",
+      "resultType": "short-answer",
+      "options": [
+        "58",
+        "60",
+        "65",
+        ""
+      ],
+      "correctAnswer": "45",
+      "category": "Number",
+      "subcategory": "Mixed Skip Counting",
+      "learningOutcome": "Continue patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 45.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "72, 76, 80, ?",
+      "resultType": "short-answer",
+      "options": [
+        "82",
+        "84",
+        "88",
+        ""
+      ],
+      "correctAnswer": "72",
+      "category": "Number",
+      "subcategory": "Mixed Skip Counting",
+      "learningOutcome": "Continue patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 72.",
+      "solutionAttachments": []
+    }
+  ]
+}

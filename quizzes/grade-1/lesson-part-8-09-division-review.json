@@ -1,0 +1,471 @@
+{
+  "id": "quiz-184",
+  "title": "Grade 1 8.09",
+  "description": "Learning Outcomes for Grade 1: Review equal sharing | Review halving | Apply division concepts | Connect halves and wholes | Review grouping | Understand equal groups | Review division concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "4 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "4 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "6 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "6 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "Half of 8 is?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review halving",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 10 is?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review halving",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "10 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "12 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "12 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shows equal sharing?",
+      "resultType": "short-answer",
+      "options": [
+        "4 and 4",
+        "3 and 5",
+        "2 and 6",
+        ""
+      ],
+      "correctAnswer": "4 and 4",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4 and 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which does NOT show equal sharing?",
+      "resultType": "short-answer",
+      "options": [
+        "5 and 5",
+        "4 and 6",
+        "3 and 3",
+        ""
+      ],
+      "correctAnswer": "5 and 5",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5 and 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 12 is?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review halving",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 14 is?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review halving",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "16 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Apply division concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "16 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "18 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Apply division concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "18 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "20 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Apply division concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "20 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number has half equal to 8?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "16",
+        "18",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Connect halves and wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number has half equal to 10?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Connect halves and wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8 counters grouped into groups of 2. How many groups?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review grouping",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "8 counters grouped into groups of 2. How many groups?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "12 counters grouped into groups of 2. How many groups?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review grouping",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "12 counters grouped into groups of 2. How many groups?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Equal groups contain the same amount.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Understand equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 20 is?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review halving",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Sharing equally means each group gets the same amount.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Division Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review division concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,416 @@
+{
+  "id": "quiz-120",
+  "title": "Grade 1 2.05",
+  "description": "Learning Outcomes for Grade 1: Solve missing addends | Complete addition equations | Solve missing part problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "? + 3 = 8",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "06",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Solve missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 + ? = 10",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Solve missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 5 = 12",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "08",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Solve missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "9 + ? = 15",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Solve missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 6 = 14",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "09",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Solve missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "7 + ? = 13",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Solve missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 8 = 16",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Solve missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 + ? = 18",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Solve missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 4 = 11",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Solve missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "12 + ? = 20",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Solve missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 + ? = 9",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Addition",
+      "subcategory": "Complete Equation",
+      "learningOutcome": "Complete addition equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 2 = 10",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Addition",
+      "subcategory": "Complete Equation",
+      "learningOutcome": "Complete addition equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 + ? = 12",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Addition",
+      "subcategory": "Complete Equation",
+      "learningOutcome": "Complete addition equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 9 = 17",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Addition",
+      "subcategory": "Complete Equation",
+      "learningOutcome": "Complete addition equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 + ? = 10",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "08",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Addition",
+      "subcategory": "Complete Equation",
+      "learningOutcome": "Complete addition equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia has 5 stickers. She needs 10. How many more?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "06",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Word Problems",
+      "subcategory": "Missing Part",
+      "learningOutcome": "Solve missing part problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Mia has 5 stickers. She needs 10. How many more?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "Tom has 8 marbles. He needs 12. How many more?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "05",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "Missing Part",
+      "learningOutcome": "Solve missing part problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom has 8 marbles. He needs 12. How many more?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Ben has 11 books. He needs 20. How many more?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "2010",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Word Problems",
+      "subcategory": "Missing Part",
+      "learningOutcome": "Solve missing part problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 11.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Ben has 11 books. He needs 20. How many more?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "Lily has 7 pencils. She needs 15. How many more?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "09",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Word Problems",
+      "subcategory": "Missing Part",
+      "learningOutcome": "Solve missing part problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Lily has 7 pencils. She needs 15. How many more?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "14 + ? = 20",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "07",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Review",
+      "subcategory": "Mixed",
+      "learningOutcome": "Solve missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": []
+    }
+  ]
+}

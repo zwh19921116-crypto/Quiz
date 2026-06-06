@@ -1,0 +1,552 @@
+{
+  "id": "quiz-406",
+  "title": "Grade 4 4.05",
+  "description": "Learning Outcomes for Grade 4: Add fractions with same denominator | Add fractions | Understand fraction addition | Recognise whole fractions | Add fractions to make a whole | Apply fraction concepts | Build fraction knowledge | Apply fractions",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "1/4 + 1/4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "2/4",
+        "1/2",
+        "3/4",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions with same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 + 1 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 1,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "2/5 + 1/5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3/5",
+        "3/10",
+        "2/10",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions with same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 + 1 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 1,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3/8 + 2/8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5/8",
+        "5/16",
+        "6/8",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions with same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 8 + 2 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 8,
+          "operandB": 2,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "1/3 + 1/3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "2/3",
+        "2/6",
+        "1/6",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 + 1 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3,
+          "operandB": 1,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "4/10 + 3/10 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7/10",
+        "7/20",
+        "6/10",
+        ""
+      ],
+      "correctAnswer": "13",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 10 + 3 = 13.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 10,
+          "operandB": 3,
+          "answer": "13",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "When adding fractions with the same denominator, we add the?",
+      "resultType": "short-answer",
+      "options": [
+        "Numerators",
+        "Denominators",
+        "Whole numbers",
+        ""
+      ],
+      "correctAnswer": "Numerators",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand fraction addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Numerators.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2/6 + 3/6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5/6",
+        "5/12",
+        "6/6",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6 + 3 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 3,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5/8 + 1/8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6/8",
+        "6/16",
+        "5/16",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 8 + 1 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 8,
+          "operandB": 1,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3/7 + 2/7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5/7",
+        "5/14",
+        "4/7",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7 + 2 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7,
+          "operandB": 2,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "1/9 + 4/9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5/9",
+        "5/18",
+        "6/9",
+        ""
+      ],
+      "correctAnswer": "13",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 9 + 4 = 13.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 4,
+          "answer": "13",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "2/4 + 2/4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4/4",
+        "3/4",
+        "2/8",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Recognise whole fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 + 2 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 2,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "1/5 + 2/5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3/5",
+        "2/10",
+        "4/5",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 + 2 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 2,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "6/10 + 2/10 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8/10",
+        "8/20",
+        "7/10",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 10 + 2 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 10,
+          "operandB": 2,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3/12 + 4/12 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7/12",
+        "7/24",
+        "8/12",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 12 + 4 = 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 12,
+          "operandB": 4,
+          "answer": "16",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "The denominator stays the?",
+      "resultType": "short-answer",
+      "options": [
+        "Same",
+        "Doubles",
+        "Halves",
+        ""
+      ],
+      "correctAnswer": "Same",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand fraction addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Same.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4/8 + 3/8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7/8",
+        "7/16",
+        "6/8",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 8 + 3 = 11.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 8,
+          "operandB": 3,
+          "answer": "11",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5/6 + 1/6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6/6",
+        "5/12",
+        "7/6",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions to make a whole",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6 + 1 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 1,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Fraction addition helps us find?",
+      "resultType": "short-answer",
+      "options": [
+        "Combined parts",
+        "Differences",
+        "Products",
+        ""
+      ],
+      "correctAnswer": "Combined parts",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply fraction concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Combined parts.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Adding fractions develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Fraction understanding",
+        "Drawing skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Fraction understanding",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Build fraction knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Fraction understanding.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions are useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Colouring only",
+        "Drawing only",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    }
+  ]
+}

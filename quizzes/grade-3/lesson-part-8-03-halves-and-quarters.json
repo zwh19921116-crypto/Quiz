@@ -1,0 +1,394 @@
+{
+  "id": "quiz-357",
+  "title": "Grade 3 8.03",
+  "description": "Learning Outcomes for Grade 3: Identify halves | Identify quarters | Understand halves | Understand quarters | Compare common fractions | Apply halves | Apply quarters | Relate halves and quarters | Relate quarters to a whole | Compare fractions | Find halves of collections | Find quarters of collections | Compare shares | Review fractions | Understand fraction requirements",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "One half is written as?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Identify halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "One quarter is written as?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Identify quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many halves make a whole?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many halves make a whole?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many quarters make a whole?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many quarters make a whole?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "Same size",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare common fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A pizza cut into 2 equal parts creates?",
+      "resultType": "short-answer",
+      "options": [
+        "Halves",
+        "Quarters",
+        "Thirds",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A cake cut into 4 equal parts creates?",
+      "resultType": "short-answer",
+      "options": [
+        "Halves",
+        "Quarters",
+        "Thirds",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two quarters equal?",
+      "resultType": "short-answer",
+      "options": [
+        "One half",
+        "One whole",
+        "One third",
+        ""
+      ],
+      "correctAnswer": "One half",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Relate halves and quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to One half.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Four quarters equal?",
+      "resultType": "short-answer",
+      "options": [
+        "One whole",
+        "One half",
+        "Two wholes",
+        ""
+      ],
+      "correctAnswer": "One whole",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Relate quarters to a whole",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to One whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is bigger?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "Equal",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "1/4",
+        "1/2",
+        "Equal",
+        ""
+      ],
+      "correctAnswer": "1/4",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 8 is?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "4",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Find halves of collections",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 10 is?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Find halves of collections",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "One quarter of 8 is?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "4",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Find quarters of collections",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "One quarter of 12 is?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Find quarters of collections",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction represents a larger share?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare shares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction represents a smaller share?",
+      "resultType": "short-answer",
+      "options": [
+        "1/4",
+        "1/2",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/4",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare shares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two halves equal?",
+      "resultType": "short-answer",
+      "options": [
+        "One whole",
+        "One quarter",
+        "Two wholes",
+        ""
+      ],
+      "correctAnswer": "One whole",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to One whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions help describe?",
+      "resultType": "short-answer",
+      "options": [
+        "Parts of a whole",
+        "Length",
+        "Time",
+        ""
+      ],
+      "correctAnswer": "Parts of a whole",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Review fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Parts of a whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Halves and quarters must be?",
+      "resultType": "short-answer",
+      "options": [
+        "Equal parts",
+        "Different parts",
+        "Random parts",
+        ""
+      ],
+      "correctAnswer": "Equal parts",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand fraction requirements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Equal parts.",
+      "solutionAttachments": []
+    }
+  ]
+}

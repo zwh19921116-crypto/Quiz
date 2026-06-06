@@ -1,0 +1,372 @@
+{
+  "id": "quiz-161",
+  "title": "Grade 1 6.06",
+  "description": "Learning Outcomes for Grade 1: Sort shapes by attributes | Classify shapes | Sort shapes | Connect attributes | Compare shapes | Sort shapes by properties",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "Which shape belongs with circles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Sort shapes by attributes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape belongs with triangles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        "Rectangle"
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Sort shapes by attributes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 4 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Classify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has no corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Classify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 3 corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Classify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 4 equal sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Classify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is not round?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Circle",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Sort shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape belongs with squares?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Circle",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Sort shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has straight sides only?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Sort shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has curved sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Sort shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape belongs in the 4-sided group?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Classify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape belongs in the no-corner group?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Classify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape does not belong? Circle, Circle, Triangle",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        "Rectangle"
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Sort shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape does not belong? Square, Rectangle, Circle",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Rectangle",
+        "Triangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Sort shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape belongs with rectangles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Door shape",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "Door shape",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Connect attributes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Door Shape.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape belongs with circles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Wheel",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Wheel",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Connect attributes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Wheel.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has the most corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Circle",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Compare shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has the fewest corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Compare shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape belongs in the triangle group?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        "Rectangle"
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Classify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape belongs in the square group?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Circle",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Shape Classification",
+      "learningOutcome": "Sort shapes by properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    }
+  ]
+}

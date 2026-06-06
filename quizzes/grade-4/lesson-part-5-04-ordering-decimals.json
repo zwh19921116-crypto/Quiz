@@ -1,0 +1,372 @@
+{
+  "id": "quiz-415",
+  "title": "Grade 4 5.04",
+  "description": "Learning Outcomes for Grade 4: Order decimals | Sequence decimals | Order hundredths | Compare and order decimals | Understand ordering | Use number lines | Build understanding | Apply decimals | Build foundations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Which decimal comes first?",
+      "resultType": "short-answer",
+      "options": [
+        "0.2",
+        "0.5",
+        "0.8",
+        ""
+      ],
+      "correctAnswer": "0.2",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Order decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal comes last?",
+      "resultType": "short-answer",
+      "options": [
+        "0.2",
+        "0.5",
+        "0.8",
+        ""
+      ],
+      "correctAnswer": "0.2",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Order decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Order: 0.1, 0.3, 0.2. Which is in the middle?",
+      "resultType": "short-answer",
+      "options": [
+        "0.1",
+        "0.2",
+        "0.3",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Order decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal comes after 0.4?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5",
+        "0.3",
+        "0.2",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Sequence decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal comes before 0.7?",
+      "resultType": "short-answer",
+      "options": [
+        "0.6",
+        "0.8",
+        "0.9",
+        ""
+      ],
+      "correctAnswer": "-1",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Sequence decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to -1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the smallest?",
+      "resultType": "short-answer",
+      "options": [
+        "0.12",
+        "0.21",
+        "0.31",
+        ""
+      ],
+      "correctAnswer": "0.12",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Order hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the largest?",
+      "resultType": "short-answer",
+      "options": [
+        "0.34",
+        "0.43",
+        "0.24",
+        ""
+      ],
+      "correctAnswer": "0.34",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Order hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.34.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which comes first?",
+      "resultType": "short-answer",
+      "options": [
+        "0.25",
+        "0.35",
+        "0.15",
+        ""
+      ],
+      "correctAnswer": "0.25",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Order decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which comes last?",
+      "resultType": "short-answer",
+      "options": [
+        "0.56",
+        "0.65",
+        "0.46",
+        ""
+      ],
+      "correctAnswer": "0.56",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Order decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.56.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "0.78",
+        "0.68",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.78",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare and order decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.78.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.14",
+        "0.41",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.14",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare and order decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals can be ordered using?",
+      "resultType": "short-answer",
+      "options": [
+        "Place value",
+        "Colour",
+        "Shape",
+        ""
+      ],
+      "correctAnswer": "Place value",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand ordering",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Place value.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is between 0.3 and 0.5?",
+      "resultType": "short-answer",
+      "options": [
+        "0.4",
+        "0.2",
+        "0.6",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Order decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is between 0.65 and 0.67?",
+      "resultType": "short-answer",
+      "options": [
+        "0.66",
+        "0.76",
+        "0.56",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Order hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals increase moving?",
+      "resultType": "short-answer",
+      "options": [
+        "Right on a number line",
+        "Left on a number line",
+        "Down",
+        ""
+      ],
+      "correctAnswer": "Right on a number line",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Use number lines",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Right on a number line.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals decrease moving?",
+      "resultType": "short-answer",
+      "options": [
+        "Left on a number line",
+        "Right on a number line",
+        "Up",
+        ""
+      ],
+      "correctAnswer": "Left on a number line",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Use number lines",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Left on a number line.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Ordering decimals develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Number sense",
+        "Art skills",
+        "Colour skills",
+        ""
+      ],
+      "correctAnswer": "Number sense",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Build understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number sense.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Ordered decimals help with?",
+      "resultType": "short-answer",
+      "options": [
+        "Problem solving",
+        "Colouring",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Problem solving",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Apply decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Problem solving.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals are commonly used in?",
+      "resultType": "short-answer",
+      "options": [
+        "Money and measurement",
+        "Art",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Money and measurement",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Apply decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Money and measurement.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding decimal order supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Colouring",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    }
+  ]
+}

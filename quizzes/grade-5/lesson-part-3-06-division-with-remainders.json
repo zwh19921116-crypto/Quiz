@@ -1,0 +1,587 @@
+{
+  "id": "quiz-497",
+  "title": "Grade 5 3.06",
+  "description": "Learning Outcomes for Grade 5: Identify remainders in division | Calculate quotients and remainders | Apply division with remainders | Apply remainders in real-world contexts | Solve division problems with remainders | Apply division with remainders to solve problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "13 ÷ 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3 R1; 4 R1; 3 R2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3.25",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Identify remainders in division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 13 / 4 = 3.25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 13,
+          "operandB": 4,
+          "answer": "3.25",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "17 ÷ 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3 R2; 4 R1; 3 R1",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3.4",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Identify remainders in division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 17 / 5 = 3.4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 17,
+          "operandB": 5,
+          "answer": "3.4",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "22 ÷ 7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3 R1; 2 R6; 4 R1",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3.142857142857143",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Identify remainders in division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 22 / 7 = 3.142857142857143.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 22,
+          "operandB": 7,
+          "answer": "3.14",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "19 ÷ 6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3 R1; 2 R7; 4 R1",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3.1666666666666665",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Identify remainders in division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 19 / 6 = 3.1666666666666665.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 19,
+          "operandB": 6,
+          "answer": "3.17",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "25 ÷ 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6 R1; 5 R5; 7 R1",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6.25",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Identify remainders in division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 25 / 4 = 6.25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 25,
+          "operandB": 4,
+          "answer": "6.25",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "29 ÷ 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5 R4; 6 R1; 5 R3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5.8",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Identify remainders in division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 29 / 5 = 5.8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 29,
+          "operandB": 5,
+          "answer": "5.8",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "34 ÷ 6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5 R4; 6 R4; 5 R3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5.666666666666667",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Identify remainders in division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 34 / 6 = 5.666666666666667.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 34,
+          "operandB": 6,
+          "answer": "5.67",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "41 ÷ 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5 R1; 4 R9; 6 R1",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5.125",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Identify remainders in division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 41 / 8 = 5.125.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 41,
+          "operandB": 8,
+          "answer": "5.13",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "27 ÷ 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6 R3; 7 R1; 5 R2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6.75",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Identify remainders in division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 27 / 4 = 6.75.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 27,
+          "operandB": 4,
+          "answer": "6.75",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "31 ÷ 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "10 R1; 9 R4; 11 R1",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10.333333333333334",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Identify remainders in division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 31 / 3 = 10.333333333333334.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 31,
+          "operandB": 3,
+          "answer": "10.33",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "38 ÷ 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7 R3; 6 R4; 8 R2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7.6",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Calculate quotients and remainders",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 38 / 5 = 7.6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 38,
+          "operandB": 5,
+          "answer": "7.6",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "52 ÷ 7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7 R3; 8 R4; 6 R5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7.428571428571429",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Calculate quotients and remainders",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 52 / 7 = 7.428571428571429.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 52,
+          "operandB": 7,
+          "answer": "7.43",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "67 ÷ 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8 R3; 7 R4; 9 R2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8.375",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Calculate quotients and remainders",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 67 / 8 = 8.375.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 67,
+          "operandB": 8,
+          "answer": "8.38",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "74 ÷ 9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8 R2; 7 R3; 9 R1",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8.222222222222221",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Calculate quotients and remainders",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 74 / 9 = 8.222222222222221.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 74,
+          "operandB": 9,
+          "answer": "8.22",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "85 ÷ 6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14 R1; 13 R2; 15 R0",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "14.166666666666666",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Calculate quotients and remainders",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 85 / 6 = 14.166666666666666.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 85,
+          "operandB": 6,
+          "answer": "14.17",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "97 ÷ 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "12 R1; 11 R9; 13 R1",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12.125",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Calculate quotients and remainders",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 97 / 8 = 12.125.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 97,
+          "operandB": 8,
+          "answer": "12.13",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "113 ÷ 9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "12 R5; 13 R4; 11 R6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12.555555555555555",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Apply division with remainders",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 113 / 9 = 12.555555555555555.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 113,
+          "operandB": 9,
+          "answer": "12.56",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "50 students are placed into groups of 8. How many full groups can be made?",
+      "resultType": "short-answer",
+      "options": [
+        "6 R2; 7 R1; 5 R5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Apply remainders in real-world contexts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 50.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "50 students are placed into groups of 8. How many full groups can be made?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "73 tennis balls are packed into tubes of 6. What is the result?",
+      "resultType": "short-answer",
+      "options": [
+        "12 R1; 11 R7; 13 R2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "73",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Solve division problems with remainders",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 73.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "125 books are placed onto shelves holding 12 books each. What is the result?",
+      "resultType": "short-answer",
+      "options": [
+        "10 R5; 11 R3; 9 R7",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "125",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Apply division with remainders to solve problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 125.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,432 @@
+{
+  "id": "quiz-391",
+  "title": "Grade 4 2.1",
+  "description": "Learning Outcomes for Grade 4: Review addition | Review subtraction | Review estimation | Review operations | Review checking strategies | Review inverse operations | Review problem solving | Review checking | Apply maths | Review symbols | Consolidate learning",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "245 + 155 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "400",
+        "390",
+        "410",
+        ""
+      ],
+      "correctAnswer": "400",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 245 + 155 = 400.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 245,
+          "operandB": 155,
+          "answer": "400",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "700 − 250 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "450",
+        "440",
+        "460",
+        ""
+      ],
+      "correctAnswer": "700",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 700.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Estimate 198 + 302.",
+      "resultType": "short-answer",
+      "options": [
+        "500",
+        "400",
+        "600",
+        ""
+      ],
+      "correctAnswer": "500",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review estimation",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 198 + 302 = 500.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 198,
+          "operandB": 302,
+          "answer": "500",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which operation finds a total?",
+      "resultType": "short-answer",
+      "options": [
+        "Addition",
+        "Subtraction",
+        "Division",
+        ""
+      ],
+      "correctAnswer": "Addition",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Addition.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which operation finds the difference?",
+      "resultType": "short-answer",
+      "options": [
+        "Subtraction",
+        "Addition",
+        "Multiplication",
+        ""
+      ],
+      "correctAnswer": "Subtraction",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Subtraction.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1,000 − 375 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "625",
+        "615",
+        "635",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "456 + 544 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "000",
+        "900",
+        "1"
+      ],
+      "correctAnswer": "1000",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 456 + 544 = 1000.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 456,
+          "operandB": 544,
+          "answer": "1000",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which method helps check answers?",
+      "resultType": "short-answer",
+      "options": [
+        "Estimation",
+        "Guessing",
+        "Ignoring",
+        ""
+      ],
+      "correctAnswer": "Estimation",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review checking strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Estimation.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the inverse of subtraction?",
+      "resultType": "short-answer",
+      "options": [
+        "Addition",
+        "Multiplication",
+        "Division",
+        ""
+      ],
+      "correctAnswer": "Addition",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review inverse operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Addition.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3,200 + 800 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "000",
+        "3",
+        "900"
+      ],
+      "correctAnswer": "1000",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 200 + 800 = 1000.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 200,
+          "operandB": 800,
+          "answer": "1000",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "900 − 450 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "450",
+        "400",
+        "500",
+        ""
+      ],
+      "correctAnswer": "900",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 900.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A problem requiring more than one operation is called a?",
+      "resultType": "short-answer",
+      "options": [
+        "Multi-step problem",
+        "Pattern",
+        "Estimate",
+        ""
+      ],
+      "correctAnswer": "Multi-step problem",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review problem solving",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Multi-step problem.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Estimation provides an answer that is?",
+      "resultType": "short-answer",
+      "options": [
+        "Close",
+        "Exact",
+        "Wrong",
+        ""
+      ],
+      "correctAnswer": "Close",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review estimation",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Close.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2,500 − 1,250 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "250",
+        "1",
+        "150"
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "675 + 325 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "000",
+        "900",
+        "1"
+      ],
+      "correctAnswer": "1000",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 675 + 325 = 1000.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 675,
+          "operandB": 325,
+          "answer": "1000",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Careful checking improves?",
+      "resultType": "short-answer",
+      "options": [
+        "Accuracy",
+        "Guessing",
+        "Speed only",
+        ""
+      ],
+      "correctAnswer": "Accuracy",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review checking",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Accuracy.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Addition and subtraction are useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Drawing only",
+        "Sport only",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Apply maths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which symbol means subtraction?",
+      "resultType": "short-answer",
+      "options": [
+        "-",
+        "+",
+        "×",
+        ""
+      ],
+      "correctAnswer": "-",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review symbols",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to -.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which symbol means addition?",
+      "resultType": "short-answer",
+      "options": [
+        "#ERROR!",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "#ERROR!",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review symbols",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to #ERROR!.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding addition and subtraction supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Colouring",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Consolidate learning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "id": "quiz-422",
+  "title": "Grade 4 6.01",
+  "description": "Learning Outcomes for Grade 4: Identify measurement units | Select measuring tools | Convert metric units | Compare measurements | Compare capacity | Understand measurement | Select appropriate units | Measure accurately | Apply measurement | Apply mathematics | Understand metric system | Build foundations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Which unit is used to measure length?",
+      "resultType": "short-answer",
+      "options": [
+        "Metres",
+        "Litres",
+        "Kilograms",
+        ""
+      ],
+      "correctAnswer": "Metres",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Identify measurement units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Metres.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit is used to measure mass?",
+      "resultType": "short-answer",
+      "options": [
+        "Kilograms",
+        "Metres",
+        "Litres",
+        ""
+      ],
+      "correctAnswer": "Kilograms",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Identify measurement units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Kilograms.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit is used to measure capacity?",
+      "resultType": "short-answer",
+      "options": [
+        "Litres",
+        "Metres",
+        "Kilograms",
+        ""
+      ],
+      "correctAnswer": "Litres",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Identify measurement units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Litres.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tool measures length?",
+      "resultType": "short-answer",
+      "options": [
+        "Ruler",
+        "Scale",
+        "Measuring jug",
+        ""
+      ],
+      "correctAnswer": "Ruler",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Select measuring tools",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ruler.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tool measures mass?",
+      "resultType": "short-answer",
+      "options": [
+        "Scale",
+        "Ruler",
+        "Clock",
+        ""
+      ],
+      "correctAnswer": "Scale",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Select measuring tools",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Scale.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tool measures capacity?",
+      "resultType": "short-answer",
+      "options": [
+        "Measuring jug",
+        "Ruler",
+        "Scale",
+        ""
+      ],
+      "correctAnswer": "Measuring jug",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Select measuring tools",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Measuring jug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "100 centimetres equals?",
+      "resultType": "short-answer",
+      "options": [
+        "1 metre",
+        "10 metres",
+        "100 metres",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Convert metric units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1 kilogram equals?",
+      "resultType": "short-answer",
+      "options": [
+        "1000 grams",
+        "100 grams",
+        "10 grams",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Convert metric units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "2 m",
+        "50 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2 m",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Compare measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 m.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "2 kg",
+        "500 g",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2 kg",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Compare measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more?",
+      "resultType": "short-answer",
+      "options": [
+        "2 L",
+        "500 mL",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2 L",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 L.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Measurement helps us describe?",
+      "resultType": "short-answer",
+      "options": [
+        "Size and quantity",
+        "Colours",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Size and quantity",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Understand measurement",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Size and quantity.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit would measure a classroom?",
+      "resultType": "short-answer",
+      "options": [
+        "Metres",
+        "Litres",
+        "Kilograms",
+        ""
+      ],
+      "correctAnswer": "Metres",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Select appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Metres.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit would measure milk?",
+      "resultType": "short-answer",
+      "options": [
+        "Litres",
+        "Metres",
+        "Kilograms",
+        ""
+      ],
+      "correctAnswer": "Litres",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Select appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Litres.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit would measure a bag of rice?",
+      "resultType": "short-answer",
+      "options": [
+        "Kilograms",
+        "Metres",
+        "Litres",
+        ""
+      ],
+      "correctAnswer": "Kilograms",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Select appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Kilograms.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Accurate measurement requires?",
+      "resultType": "short-answer",
+      "options": [
+        "Correct tools",
+        "Guessing",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Correct tools",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Measure accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Correct tools.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Measurement is useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Art only",
+        "Music only",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Apply measurement",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Measurement develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Practical maths skills",
+        "Colour skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Practical maths skills",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Practical maths skills.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Metric units are used in?",
+      "resultType": "short-answer",
+      "options": [
+        "Australia",
+        "Nowhere",
+        "Only schools",
+        ""
+      ],
+      "correctAnswer": "Australia",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Understand metric system",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Australia.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding measurement supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Drawing",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Measurement",
+      "subcategory": "Units",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    }
+  ]
+}

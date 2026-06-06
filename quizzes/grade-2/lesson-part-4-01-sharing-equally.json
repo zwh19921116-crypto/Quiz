@@ -1,0 +1,574 @@
+{
+  "id": "quiz-235",
+  "title": "Grade 2 4.01",
+  "description": "Learning Outcomes for Grade 2: Share equally | Understand equal sharing | Connect sharing to division | Understand division concept",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "4 apples shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "4 apples shared between 2 children. How many each?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "6 cookies shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "6 cookies shared between 2 children. How many each?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "8 balls shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "8 balls shared between 2 children. How many each?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "10 pencils shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "10 pencils shared between 2 children. How many each?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "12 stickers shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "12 stickers shared between 2 children. How many each?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "14 toys shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 14.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "14 toys shared between 2 children. How many each?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "16 marbles shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "16 marbles shared between 2 children. How many each?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "18 counters shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "18 counters shared between 2 children. How many each?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "20 blocks shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "20 blocks shared between 2 children. How many each?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "Equal sharing means everyone gets?",
+      "resultType": "short-answer",
+      "options": [
+        "Different amounts",
+        "Same amount",
+        "More toys",
+        ""
+      ],
+      "correctAnswer": "Different amounts",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Understand equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Different amounts.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 lollies shared between 3 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "6 lollies shared between 3 children. How many each?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "9 apples shared between 3 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "9 apples shared between 3 children. How many each?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "12 toys shared between 3 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "12 toys shared between 3 children. How many each?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "15 counters shared between 3 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "15 counters shared between 3 children. How many each?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "18 stickers shared between 3 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "18 stickers shared between 3 children. How many each?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "8 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Connect sharing to division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 8 / 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 8,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "10 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Connect sharing to division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 10 / 2 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 10,
+          "operandB": 2,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "12 ÷ 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Connect sharing to division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 12 / 2 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 12,
+          "operandB": 2,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "15 ÷ 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Connect sharing to division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 15 / 3 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 15,
+          "operandB": 3,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Sharing equally is called?",
+      "resultType": "short-answer",
+      "options": [
+        "Division",
+        "Addition",
+        "Counting",
+        ""
+      ],
+      "correctAnswer": "Division",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Understand division concept",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Division.",
+      "solutionAttachments": []
+    }
+  ]
+}

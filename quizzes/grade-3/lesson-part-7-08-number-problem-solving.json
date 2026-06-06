@@ -1,0 +1,548 @@
+{
+  "id": "quiz-352",
+  "title": "Grade 3 7.08",
+  "description": "Learning Outcomes for Grade 3: Apply multiplication to real-life situations | Apply division to sharing situations | Use multiplication in arrays | Apply division as grouping | Solve multiplication problems | Solve division problems | Apply multiplication facts | Apply division facts | Apply multiplication in context | Apply division in context | Use multiplication facts | Use division facts | Apply multiplication to pairs | Apply multiplication to arrays | Apply division to sharing | Choose appropriate operations | Connect multiplication and division | Apply mathematical reasoning",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "Sarah has 4 bags with 5 apples in each bag. How many apples does she have?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiplication to real-life situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sarah has 4 bags with 5 apples in each bag. How many apples does she have?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "24 stickers are shared equally among 4 children. How many stickers does each child get?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "24",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply division to sharing situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 24.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "24 stickers are shared equally among 4 children. How many stickers does each child get?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "A classroom has 6 rows of 4 desks. How many desks are there?",
+      "resultType": "short-answer",
+      "options": [
+        "20",
+        "24",
+        "28",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Use multiplication in arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A classroom has 6 rows of 4 desks. How many desks are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "30 lollies are packed into bags of 5. How many bags are needed?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply division as grouping",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 30.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "30 lollies are packed into bags of 5. How many bags are needed?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 7 boxes with 3 toys in each box. How many toys altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "21",
+        "24",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 7 boxes with 3 toys in each box. How many toys altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "32 books are shared equally onto 4 shelves. How many books per shelf?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "32",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve division problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 32.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "32 books are shared equally onto 4 shelves. How many books per shelf?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "A spider has 8 legs. How many legs do 4 spiders have?",
+      "resultType": "short-answer",
+      "options": [
+        "24",
+        "32",
+        "40",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiplication facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A spider has 8 legs. How many legs do 4 spiders have?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "27 apples are placed into bags of 3. How many bags are needed?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "27",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 27.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "27 apples are placed into bags of 3. How many bags are needed?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "A farmer plants 5 rows of 6 trees. How many trees are planted?",
+      "resultType": "short-answer",
+      "options": [
+        "25",
+        "30",
+        "35",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiplication in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A farmer plants 5 rows of 6 trees. How many trees are planted?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "40 cupcakes are shared equally among 5 tables. How many cupcakes per table?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "40",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply division in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 40.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "40 cupcakes are shared equally among 5 tables. How many cupcakes per table?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "A packet contains 4 stickers. How many stickers are in 8 packets?",
+      "resultType": "short-answer",
+      "options": [
+        "28",
+        "32",
+        "36",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Use multiplication facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A packet contains 4 stickers. How many stickers are in 8 packets?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "36 marbles are shared among 4 children. How many marbles each?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "36",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Use division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 36.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "36 marbles are shared among 4 children. How many marbles each?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 9 pairs of gloves. How many gloves altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "16",
+        "18",
+        "20",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiplication to pairs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 9 pairs of gloves. How many gloves altogether?",
+          "totalCount": 18,
+          "iconShape": "circle",
+          "groups": [
+            18
+          ]
+        }
+      }
+    },
+    {
+      "question": "42 pencils are packed into boxes of 6. How many boxes are needed?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "42",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 42.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "42 pencils are packed into boxes of 6. How many boxes are needed?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "A bus has 5 rows with 8 seats in each row. How many seats are there?",
+      "resultType": "short-answer",
+      "options": [
+        "35",
+        "40",
+        "45",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiplication to arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A bus has 5 rows with 8 seats in each row. How many seats are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "45 biscuits are shared among 5 children. How many biscuits each?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "45",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply division to sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 45.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "45 biscuits are shared among 5 children. How many biscuits each?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which operation is best for finding the total of equal groups?",
+      "resultType": "short-answer",
+      "options": [
+        "Multiplication",
+        "Division",
+        "Subtraction",
+        ""
+      ],
+      "correctAnswer": "Multiplication",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Choose appropriate operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Multiplication.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which operation is best for equal sharing?",
+      "resultType": "short-answer",
+      "options": [
+        "Division",
+        "Addition",
+        "Multiplication",
+        ""
+      ],
+      "correctAnswer": "Division",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Choose appropriate operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Division.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Multiplication and division are?",
+      "resultType": "short-answer",
+      "options": [
+        "Related operations",
+        "Opposite directions",
+        "Measurements",
+        ""
+      ],
+      "correctAnswer": "Related operations",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Connect multiplication and division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Related operations.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Problem solving helps us apply?",
+      "resultType": "short-answer",
+      "options": [
+        "Maths skills",
+        "Drawing skills",
+        "Geography skills",
+        ""
+      ],
+      "correctAnswer": "Maths skills",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply mathematical reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Maths skills.",
+      "solutionAttachments": []
+    }
+  ]
+}

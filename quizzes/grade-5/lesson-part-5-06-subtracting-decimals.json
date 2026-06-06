@@ -1,0 +1,372 @@
+{
+  "id": "quiz-517",
+  "title": "Grade 5 5.06",
+  "description": "Learning Outcomes for Grade 5: Subtract decimals | Subtract decimals to hundredths | Subtract decimals accurately | Apply decimal subtraction in real-world situations | Solve decimal subtraction problems | Apply decimal subtraction to solve problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "0.5 − 0.2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.3; 0.2; 0.4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.7 − 0.3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.4; 0.3; 0.5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.9 − 0.4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5; 0.4; 0.6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.8 − 0.5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.3; 0.2; 0.4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.6 − 0.1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5; 0.4; 0.6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.75 − 0.25 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.50; 0.40; 0.60",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.68 − 0.24 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.44; 0.42; 0.46",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.91 − 0.30 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.61; 0.60; 0.62",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.55 − 0.12 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.43; 0.42; 0.44",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.84 − 0.31 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.53; 0.52; 0.54",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.88 − 0.35 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.53; 0.43; 0.63",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.94 − 0.42 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.52; 0.62; 0.42",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.75 − 0.23 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.52; 0.42; 0.62",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.81 − 0.17 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.64; 0.54; 0.74",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.92 − 0.48 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.44; 0.54; 0.34",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.67 − 0.24 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.43; 0.33; 0.53",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.83 − 0.29 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.54; 0.44; 0.64",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract decimals accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A drink costs $1.50. You pay $2.00. How much change do you receive?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.50; $0.40; $0.60",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Apply decimal subtraction in real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A runner completed 2.00 km and has 0.65 km left. How far has the runner already completed?",
+      "resultType": "short-answer",
+      "options": [
+        "1.35 km; 1.25 km; 1.45 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Solve decimal subtraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A tank contains 1.25 L of water. If 0.48 L is used, how much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "0.77 L; 0.87 L; 0.67 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Decimals",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Apply decimal subtraction to solve problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    }
+  ]
+}

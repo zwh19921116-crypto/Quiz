@@ -1,0 +1,372 @@
+{
+  "id": "quiz-356",
+  "title": "Grade 3 8.02",
+  "description": "Learning Outcomes for Grade 3: Understand equal parts | Identify equal parts | Recognise halves | Recognise quarters | Define equal parts | Identify unequal partitions | Understand fraction rules | Understand part-whole relationships | Identify fractions | Explain equal parts | Connect fractions and sharing | Apply fractions to real life | Understand fraction concepts | Apply equal sharing | Recognise unequal sharing | Understand foundations | Understand equal partitioning",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "Fractions require parts to be?",
+      "resultType": "short-answer",
+      "options": [
+        "Equal",
+        "Different",
+        "Random",
+        ""
+      ],
+      "correctAnswer": "Equal",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand equal parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is divided into equal parts?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Same-sized sections",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Same-sized sections",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Identify equal parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Same-sized sections.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If a pizza is cut into 2 equal pieces, each piece is a?",
+      "resultType": "short-answer",
+      "options": [
+        "Half",
+        "Third",
+        "Quarter",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Recognise halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If a cake is cut into 4 equal pieces, each piece is a?",
+      "resultType": "short-answer",
+      "options": [
+        "Half",
+        "Third",
+        "Quarter",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Recognise quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equal parts must be?",
+      "resultType": "short-answer",
+      "options": [
+        "Same size",
+        "Different sizes",
+        "Random sizes",
+        ""
+      ],
+      "correctAnswer": "Same size",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Define equal parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Same size.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is not divided into equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "One large piece and one small piece",
+        "Two same-sized pieces",
+        "Four same-sized pieces",
+        ""
+      ],
+      "correctAnswer": "One large piece and one small piece",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Identify unequal partitions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to One large piece and one small piece.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions only work when parts are?",
+      "resultType": "short-answer",
+      "options": [
+        "Equal",
+        "Colourful",
+        "Large",
+        ""
+      ],
+      "correctAnswer": "Equal",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand fraction rules",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two equal parts make?",
+      "resultType": "short-answer",
+      "options": [
+        "A whole",
+        "A quarter",
+        "A third",
+        ""
+      ],
+      "correctAnswer": "A whole",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand part-whole relationships",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to A whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Four equal quarters make?",
+      "resultType": "short-answer",
+      "options": [
+        "A whole",
+        "A half",
+        "Two wholes",
+        ""
+      ],
+      "correctAnswer": "A whole",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand part-whole relationships",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to A whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction represents one of two equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Identify fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction represents one of four equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "1/4",
+        "1/2",
+        "1/3",
+        ""
+      ],
+      "correctAnswer": "1/4",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Identify fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction represents one of three equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "1/3",
+        "1/2",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "1/3",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Identify fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Why must fraction parts be equal?",
+      "resultType": "short-answer",
+      "options": [
+        "To be fair and accurate",
+        "To look nice",
+        "To use colour",
+        ""
+      ],
+      "correctAnswer": "To be fair and accurate",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Explain equal parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to To be fair and accurate.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equal sharing means everyone gets?",
+      "resultType": "short-answer",
+      "options": [
+        "The same amount",
+        "Different amounts",
+        "Random amounts",
+        ""
+      ],
+      "correctAnswer": "The same amount",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Connect fractions and sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to The same amount.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object can be divided into equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "Pizza",
+        "Cake",
+        "Both",
+        ""
+      ],
+      "correctAnswer": "Pizza",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply fractions to real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pizza.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equal parts are important for?",
+      "resultType": "short-answer",
+      "options": [
+        "Fractions",
+        "Maps",
+        "Clocks",
+        ""
+      ],
+      "correctAnswer": "Fractions",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand fraction concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Fractions.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is an example of equal sharing?",
+      "resultType": "short-answer",
+      "options": [
+        "8 lollies shared 4 each between 2 children",
+        "7 and 1",
+        "6 and 2",
+        ""
+      ],
+      "correctAnswer": "8 lollies shared 4 each between 2 children",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8 lollies shared 4 each between 2 children.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is not equal sharing?",
+      "resultType": "short-answer",
+      "options": [
+        "7 and 1",
+        "4 and 4",
+        "5 and 5",
+        ""
+      ],
+      "correctAnswer": "7 and 1",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Recognise unequal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7 and 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equal parts form the basis of?",
+      "resultType": "short-answer",
+      "options": [
+        "Fractions",
+        "Multiplication",
+        "Measurement",
+        ""
+      ],
+      "correctAnswer": "Fractions",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Fractions.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equal parts help us describe?",
+      "resultType": "short-answer",
+      "options": [
+        "Fractions accurately",
+        "Shapes only",
+        "Directions",
+        ""
+      ],
+      "correctAnswer": "Fractions accurately",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand equal partitioning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Fractions accurately.",
+      "solutionAttachments": []
+    }
+  ]
+}

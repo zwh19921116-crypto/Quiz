@@ -1,0 +1,372 @@
+{
+  "id": "quiz-203",
+  "title": "Grade 1 10.08",
+  "description": "Learning Outcomes for Grade 1: Review length | Review height | Review mass | Review capacity | Review time | Review days of the week | Review money | Review calendar time | Review days",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "Which is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "10 cm",
+        "5 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "10 cm",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10 cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is taller?",
+      "resultType": "short-answer",
+      "options": [
+        "12 cm",
+        "8 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "12 cm",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review height",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12 cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "10 kg",
+        "5 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "10 kg",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more?",
+      "resultType": "short-answer",
+      "options": [
+        "10 L",
+        "5 L",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "10 L",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10 L.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which comes first?",
+      "resultType": "short-answer",
+      "options": [
+        "Morning",
+        "Afternoon",
+        "Evening",
+        ""
+      ],
+      "correctAnswer": "Morning",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Morning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which day comes after Monday?",
+      "resultType": "short-answer",
+      "options": [
+        "Tuesday",
+        "Wednesday",
+        "Sunday",
+        ""
+      ],
+      "correctAnswer": "Tuesday",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review days of the week",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tuesday.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin is worth more?",
+      "resultType": "short-answer",
+      "options": [
+        "$2",
+        "$1",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "$2",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to $2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20 cm is longer than 10 cm.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "15 kg is heavier than 8 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Sunday comes after Saturday.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review calendar time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter?",
+      "resultType": "short-answer",
+      "options": [
+        "4 cm",
+        "12 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "4 cm",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4 cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter?",
+      "resultType": "short-answer",
+      "options": [
+        "20 kg",
+        "6 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "20 kg",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less?",
+      "resultType": "short-answer",
+      "options": [
+        "15 L",
+        "4 L",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "15 L",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15 L.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which comes after afternoon?",
+      "resultType": "short-answer",
+      "options": [
+        "Morning",
+        "Evening",
+        "Lunch",
+        ""
+      ],
+      "correctAnswer": "Morning",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Morning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which day comes before Friday?",
+      "resultType": "short-answer",
+      "options": [
+        "Wednesday",
+        "Thursday",
+        "Saturday",
+        ""
+      ],
+      "correctAnswer": "Wednesday",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review days",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Wednesday.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "50c is worth more than 20c.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is taller?",
+      "resultType": "short-answer",
+      "options": [
+        "18 cm",
+        "13 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "18 cm",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review height",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18 cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Morning comes before afternoon.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A week has 7 days.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review calendar time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Australian money uses dollars and cents.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Review money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    }
+  ]
+}

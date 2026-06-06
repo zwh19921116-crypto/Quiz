@@ -1,0 +1,383 @@
+{
+  "id": "quiz-246",
+  "title": "Grade 2 5.02",
+  "description": "Learning Outcomes for Grade 2: Identify halves | Understand halves | Find halves | Connect halving and division | Apply halves",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "Half of a shape means?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1 of 2 equal parts",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "1 of 2 equal parts",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Identify halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1 of 2 equal parts.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many halves make a whole?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Understand halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many halves make a whole?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "Half of 2 is?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 4 is?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 6 is?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 8 is?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 10 is?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 12 is?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 14 is?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 16 is?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 16.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 18 is?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 20 is?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half means divide by?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Connect halving and division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two halves make?",
+      "resultType": "short-answer",
+      "options": [
+        "A whole",
+        "A quarter",
+        "Nothing",
+        ""
+      ],
+      "correctAnswer": "A whole",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Understand halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to A whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of a pizza is?",
+      "resultType": "short-answer",
+      "options": [
+        "One of two equal pieces",
+        "One of four pieces",
+        "Whole pizza",
+        ""
+      ],
+      "correctAnswer": "One of two equal pieces",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Apply halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to One of two equal pieces.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 22 is?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "22",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 22.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 24 is?",
+      "resultType": "short-answer",
+      "options": [
+        "11",
+        "12",
+        "13",
+        ""
+      ],
+      "correctAnswer": "24",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 24.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 26 is?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "13",
+        "14",
+        ""
+      ],
+      "correctAnswer": "26",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 26.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 28 is?",
+      "resultType": "short-answer",
+      "options": [
+        "13",
+        "14",
+        "15",
+        ""
+      ],
+      "correctAnswer": "28",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 28.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 30 is?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Fractions Foundations",
+      "subcategory": "Halves",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 30.",
+      "solutionAttachments": []
+    }
+  ]
+}

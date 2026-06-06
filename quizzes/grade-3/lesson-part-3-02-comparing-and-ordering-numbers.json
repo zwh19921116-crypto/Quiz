@@ -1,0 +1,372 @@
+{
+  "id": "quiz-306",
+  "title": "Grade 3 3.02",
+  "description": "Learning Outcomes for Grade 3: Compare 3-digit numbers | Use comparison symbols | Identify greatest number | Identify smallest number | Compare place values | Compare numbers across hundreds | Compare tens and ones | Order numbers | Order numbers smallest to largest | Order numbers largest to smallest | Sequence numbers | Identify numbers between",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "Which number is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "456",
+        "465",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "456",
+      "category": "Number",
+      "subcategory": "Compare Numbers",
+      "learningOutcome": "Compare 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 456.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "782",
+        "728",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "782",
+      "category": "Number",
+      "subcategory": "Compare Numbers",
+      "learningOutcome": "Compare 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 782.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Complete: 345 __ 354",
+      "resultType": "short-answer",
+      "options": [
+        "<",
+        ">",
+        "=",
+        ""
+      ],
+      "correctAnswer": "363",
+      "category": "Number",
+      "subcategory": "Compare Numbers",
+      "learningOutcome": "Use comparison symbols",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 363.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Complete: 689 __ 689",
+      "resultType": "short-answer",
+      "options": [
+        "<",
+        ">",
+        "=",
+        ""
+      ],
+      "correctAnswer": "689",
+      "category": "Number",
+      "subcategory": "Compare Numbers",
+      "learningOutcome": "Use comparison symbols",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 689.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Complete: 912 __ 891",
+      "resultType": "short-answer",
+      "options": [
+        "<",
+        ">",
+        "=",
+        ""
+      ],
+      "correctAnswer": "870",
+      "category": "Number",
+      "subcategory": "Compare Numbers",
+      "learningOutcome": "Use comparison symbols",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 870.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greatest?",
+      "resultType": "short-answer",
+      "options": [
+        "543",
+        "453",
+        "345",
+        ""
+      ],
+      "correctAnswer": "543",
+      "category": "Number",
+      "subcategory": "Compare Numbers",
+      "learningOutcome": "Identify greatest number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 543.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smallest?",
+      "resultType": "short-answer",
+      "options": [
+        "278",
+        "287",
+        "728",
+        ""
+      ],
+      "correctAnswer": "278",
+      "category": "Number",
+      "subcategory": "Compare Numbers",
+      "learningOutcome": "Identify smallest number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 278.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "601",
+        "610",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "601",
+      "category": "Number",
+      "subcategory": "Compare Numbers",
+      "learningOutcome": "Compare place values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 601.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Complete: 799 __ 800",
+      "resultType": "short-answer",
+      "options": [
+        "<",
+        ">",
+        "=",
+        ""
+      ],
+      "correctAnswer": "801",
+      "category": "Number",
+      "subcategory": "Compare Numbers",
+      "learningOutcome": "Compare numbers across hundreds",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 801.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Complete: 432 __ 423",
+      "resultType": "short-answer",
+      "options": [
+        "<",
+        ">",
+        "=",
+        ""
+      ],
+      "correctAnswer": "414",
+      "category": "Number",
+      "subcategory": "Compare Numbers",
+      "learningOutcome": "Compare tens and ones",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 414.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the smallest number?",
+      "resultType": "short-answer",
+      "options": [
+        "356",
+        "365",
+        "536",
+        ""
+      ],
+      "correctAnswer": "356",
+      "category": "Number",
+      "subcategory": "Ordering",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 356.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the greatest number?",
+      "resultType": "short-answer",
+      "options": [
+        "845",
+        "854",
+        "485",
+        ""
+      ],
+      "correctAnswer": "845",
+      "category": "Number",
+      "subcategory": "Ordering",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 845.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Put in ascending order.",
+      "resultType": "short-answer",
+      "options": [
+        "123",
+        "132",
+        "213",
+        ""
+      ],
+      "correctAnswer": "123",
+      "category": "Number",
+      "subcategory": "Ordering",
+      "learningOutcome": "Order numbers smallest to largest",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 123.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Put in descending order.",
+      "resultType": "short-answer",
+      "options": [
+        "765",
+        "756",
+        "675",
+        ""
+      ],
+      "correctAnswer": "765",
+      "category": "Number",
+      "subcategory": "Ordering",
+      "learningOutcome": "Order numbers largest to smallest",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 765.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes first when ordered smallest to largest?",
+      "resultType": "short-answer",
+      "options": [
+        "912",
+        "129",
+        "291",
+        ""
+      ],
+      "correctAnswer": "912",
+      "category": "Number",
+      "subcategory": "Ordering",
+      "learningOutcome": "Sequence numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 912.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes last when ordered smallest to largest?",
+      "resultType": "short-answer",
+      "options": [
+        "507",
+        "570",
+        "750",
+        ""
+      ],
+      "correctAnswer": "507",
+      "category": "Number",
+      "subcategory": "Ordering",
+      "learningOutcome": "Sequence numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 507.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Order from smallest to largest.",
+      "resultType": "short-answer",
+      "options": [
+        "402",
+        "420",
+        "240",
+        ""
+      ],
+      "correctAnswer": "402",
+      "category": "Number",
+      "subcategory": "Ordering",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 402.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Order from largest to smallest.",
+      "resultType": "short-answer",
+      "options": [
+        "318",
+        "381",
+        "813",
+        ""
+      ],
+      "correctAnswer": "318",
+      "category": "Number",
+      "subcategory": "Ordering",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 318.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is between 499 and 501?",
+      "resultType": "short-answer",
+      "options": [
+        "498",
+        "500",
+        "502",
+        ""
+      ],
+      "correctAnswer": "499",
+      "category": "Number",
+      "subcategory": "Ordering",
+      "learningOutcome": "Identify numbers between",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 499.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is between 699 and 701?",
+      "resultType": "short-answer",
+      "options": [
+        "698",
+        "700",
+        "702",
+        ""
+      ],
+      "correctAnswer": "699",
+      "category": "Number",
+      "subcategory": "Ordering",
+      "learningOutcome": "Identify numbers between",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 699.",
+      "solutionAttachments": []
+    }
+  ]
+}

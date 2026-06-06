@@ -1,0 +1,372 @@
+{
+  "id": "quiz-274",
+  "title": "Grade 2 7.1",
+  "description": "Learning Outcomes for Grade 2: Demonstrate coin knowledge | Count money | Add money values | Identify notes | Compare money to prices | Calculate change | Compare values | Connect cents and dollars | Understand money | Compare amounts | Understand change | Apply money concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "Which coin is worth 20c?",
+      "resultType": "short-answer",
+      "options": [
+        "10c",
+        "20c",
+        "50c",
+        ""
+      ],
+      "correctAnswer": "10c",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Demonstrate coin knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin is worth $1?",
+      "resultType": "short-answer",
+      "options": [
+        "50c",
+        "$1",
+        "$2",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Demonstrate coin knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two 10c coins make?",
+      "resultType": "short-answer",
+      "options": [
+        "10c",
+        "20c",
+        "30c",
+        ""
+      ],
+      "correctAnswer": "10c",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Count money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20c + 50c = ?",
+      "resultType": "short-answer",
+      "options": [
+        "60c",
+        "70c",
+        "80c",
+        ""
+      ],
+      "correctAnswer": "60c",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Add money values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 60c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two 50c coins make?",
+      "resultType": "short-answer",
+      "options": [
+        "50c",
+        "$1",
+        "$2",
+        ""
+      ],
+      "correctAnswer": "50c",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Count money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which note is worth $10?",
+      "resultType": "short-answer",
+      "options": [
+        "$5",
+        "$10",
+        "$20",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Identify notes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which note is worth $50?",
+      "resultType": "short-answer",
+      "options": [
+        "$20",
+        "$50",
+        "$100",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Identify notes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A toy costs $2. You have $3. Can you buy it?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Compare money to prices",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A book costs $5. You have $4. Can you buy it?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Compare money to prices",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "You pay $2 for a $1 item. Change = ?",
+      "resultType": "short-answer",
+      "options": [
+        "$1",
+        "$2",
+        "50c",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Calculate change",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "You pay $5 for a $5 item. Change = ?",
+      "resultType": "short-answer",
+      "options": [
+        "$0",
+        "$1",
+        "$2",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Calculate change",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is worth more? $2 or $1",
+      "resultType": "short-answer",
+      "options": [
+        "$2",
+        "$1",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Compare values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is worth less? 10c or 20c",
+      "resultType": "short-answer",
+      "options": [
+        "10c",
+        "20c",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "10c",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Compare values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "$1 + $1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "$1",
+        "$2",
+        "$3",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Count money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10c + 20c = ?",
+      "resultType": "short-answer",
+      "options": [
+        "20c",
+        "30c",
+        "40c",
+        ""
+      ],
+      "correctAnswer": "20c",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Count money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "100 cents equals?",
+      "resultType": "short-answer",
+      "options": [
+        "$1",
+        "$2",
+        "50c",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Connect cents and dollars",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Money is used to?",
+      "resultType": "short-answer",
+      "options": [
+        "Buy goods and services",
+        "Measure mass",
+        "Measure length",
+        ""
+      ],
+      "correctAnswer": "Buy goods and services",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Understand money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Buy goods and services.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is more? $4 or $3",
+      "resultType": "short-answer",
+      "options": [
+        "$4",
+        "$3",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Compare amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Change is money given?",
+      "resultType": "short-answer",
+      "options": [
+        "Back after paying",
+        "Before paying",
+        "Never",
+        ""
+      ],
+      "correctAnswer": "Back after paying",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Understand change",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Back after paying.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Counting money helps find?",
+      "resultType": "short-answer",
+      "options": [
+        "Total value",
+        "Length",
+        "Time",
+        ""
+      ],
+      "correctAnswer": "Total value",
+      "category": "Money Foundations",
+      "subcategory": "Assessment",
+      "learningOutcome": "Apply money concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is Total value.",
+      "solutionAttachments": []
+    }
+  ]
+}

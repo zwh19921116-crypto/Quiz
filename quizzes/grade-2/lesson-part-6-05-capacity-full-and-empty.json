@@ -1,0 +1,372 @@
+{
+  "id": "quiz-259",
+  "title": "Grade 2 6.05",
+  "description": "Learning Outcomes for Grade 2: Understand capacity | Compare capacity | Understand vocabulary",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "A cup filled to the top is?",
+      "resultType": "short-answer",
+      "options": [
+        "Full",
+        "Empty",
+        "Half broken",
+        ""
+      ],
+      "correctAnswer": "Full",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Understand capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Full.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bottle with nothing inside is?",
+      "resultType": "short-answer",
+      "options": [
+        "Full",
+        "Empty",
+        "Half full",
+        ""
+      ],
+      "correctAnswer": "Full",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Understand capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Full.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more water? A bucket or a cup",
+      "resultType": "short-answer",
+      "options": [
+        "Bucket",
+        "Cup",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less water? A bathtub or a spoon",
+      "resultType": "short-answer",
+      "options": [
+        "Bathtub",
+        "Spoon",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bathtub",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bathtub.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Capacity tells us?",
+      "resultType": "short-answer",
+      "options": [
+        "How much something can hold",
+        "How heavy something is",
+        "How long something is",
+        ""
+      ],
+      "correctAnswer": "How much something can hold",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Understand capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to How much something can hold.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more juice? A jug or a glass",
+      "resultType": "short-answer",
+      "options": [
+        "Jug",
+        "Glass",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Jug",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Jug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less? A bucket or a teacup",
+      "resultType": "short-answer",
+      "options": [
+        "Bucket",
+        "Teacup",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A container with no liquid is?",
+      "resultType": "short-answer",
+      "options": [
+        "Empty",
+        "Full",
+        "Overflowing",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Understand capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A container filled completely is?",
+      "resultType": "short-answer",
+      "options": [
+        "Full",
+        "Empty",
+        "Tiny",
+        ""
+      ],
+      "correctAnswer": "Full",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Understand capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Full.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which usually holds more? A swimming pool or a bathtub",
+      "resultType": "short-answer",
+      "options": [
+        "Swimming pool",
+        "Bathtub",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Swimming pool",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Swimming pool.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more? A watering can or a spoon",
+      "resultType": "short-answer",
+      "options": [
+        "Watering can",
+        "Spoon",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Watering can",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Watering can.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less? A jug or a cup",
+      "resultType": "short-answer",
+      "options": [
+        "Jug",
+        "Cup",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Jug",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Jug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Capacity measures?",
+      "resultType": "short-answer",
+      "options": [
+        "How much can be held",
+        "How heavy",
+        "How long",
+        ""
+      ],
+      "correctAnswer": "How much can be held",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Understand capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to How much can be held.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Full means?",
+      "resultType": "short-answer",
+      "options": [
+        "Filled up",
+        "Empty",
+        "Broken",
+        ""
+      ],
+      "correctAnswer": "Filled up",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Understand vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Filled up.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Empty means?",
+      "resultType": "short-answer",
+      "options": [
+        "Nothing inside",
+        "Filled up",
+        "Heavy",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Understand vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which container has greater capacity? A tank or a bottle",
+      "resultType": "short-answer",
+      "options": [
+        "Tank",
+        "Bottle",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Tank",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tank.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which has smaller capacity? A cup or a swimming pool",
+      "resultType": "short-answer",
+      "options": [
+        "Cup",
+        "Swimming pool",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Cup",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cup.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Capacity is about?",
+      "resultType": "short-answer",
+      "options": [
+        "Holding liquid",
+        "Length",
+        "Mass",
+        ""
+      ],
+      "correctAnswer": "Holding liquid",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Understand capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Holding liquid.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which could hold the most water? Bucket, cup, spoon",
+      "resultType": "short-answer",
+      "options": [
+        "Bucket",
+        "Cup",
+        "Spoon",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Capacity helps us describe?",
+      "resultType": "short-answer",
+      "options": [
+        "How much something can hold",
+        "How heavy something is",
+        "How long something is",
+        ""
+      ],
+      "correctAnswer": "How much something can hold",
+      "category": "Measurement Foundations",
+      "subcategory": "Capacity",
+      "learningOutcome": "Understand capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to How much something can hold.",
+      "solutionAttachments": []
+    }
+  ]
+}

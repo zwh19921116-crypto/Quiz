@@ -1,0 +1,463 @@
+{
+  "id": "quiz-324",
+  "title": "Grade 3 4.10",
+  "description": "Learning Outcomes for Grade 3: Identify common fractions | Find fractions of collections | Compare simple fractions | Recognise equivalent fractions | Recall metric length relationships | Select appropriate units | Recall metric mass relationships | Select appropriate mass units | Recall metric capacity relationships | Select appropriate capacity units | Recall units of time | Compare masses | Compare capacities | Compare lengths | Apply fraction and measurement knowledge",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "Which fraction represents one half?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Identify common fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction represents one quarter?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Identify common fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is 1/2 of 12?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "6",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Find fractions of collections",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 2 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 2,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "What is 1/4 of 20?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "0.25",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Find fractions of collections",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 4 = 0.25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 4,
+          "answer": "0.25",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "What is 1/3 of 18?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "0.3333333333333333",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Find fractions of collections",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 3 = 0.3333333333333333.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 3,
+          "answer": "0.33",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which fraction is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Compare simple fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two quarters are equal to?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/3",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Recognise equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Four quarters are equal to?",
+      "resultType": "short-answer",
+      "options": [
+        "1 whole",
+        "1/2",
+        "2 wholes",
+        ""
+      ],
+      "correctAnswer": "1 whole",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Recognise equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1 whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many centimetres are in 1 metre?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "100",
+        "1000",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Recall metric length relationships",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many centimetres are in 1 metre?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which unit is best for measuring a pencil?",
+      "resultType": "short-answer",
+      "options": [
+        "cm",
+        "m",
+        "km",
+        ""
+      ],
+      "correctAnswer": "cm",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Select appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many grams are in 1 kilogram?",
+      "resultType": "short-answer",
+      "options": [
+        "100",
+        "1000",
+        "10000",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Recall metric mass relationships",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many grams are in 1 kilogram?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which unit is best for measuring a school bag?",
+      "resultType": "short-answer",
+      "options": [
+        "g",
+        "kg",
+        "cm",
+        ""
+      ],
+      "correctAnswer": "g",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Select appropriate mass units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many millilitres are in 1 litre?",
+      "resultType": "short-answer",
+      "options": [
+        "100",
+        "1000",
+        "10000",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Recall metric capacity relationships",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many millilitres are in 1 litre?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which unit is best for measuring a bucket?",
+      "resultType": "short-answer",
+      "options": [
+        "mL",
+        "L",
+        "cm",
+        ""
+      ],
+      "correctAnswer": "mL",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Select appropriate capacity units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to mL.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many days are in a week?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "7",
+        "10",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Recall units of time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many days are in a week?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many months are in a year?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Recall units of time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many months are in a year?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "1 kg",
+        "500 g",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1 kg",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Compare masses",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more?",
+      "resultType": "short-answer",
+      "options": [
+        "1 L",
+        "500 mL",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1 L",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Compare capacities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1 L.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "1 m",
+        "75 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1 m",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1 m.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which statement is true?",
+      "resultType": "short-answer",
+      "options": [
+        "2/4 = 1/2",
+        "1/4 = 1/2",
+        "1/3 = 1/2",
+        ""
+      ],
+      "correctAnswer": "2/4 = 1/2",
+      "category": "Fractions & Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Apply fraction and measurement knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2/4 = 1/2.",
+      "solutionAttachments": []
+    }
+  ]
+}

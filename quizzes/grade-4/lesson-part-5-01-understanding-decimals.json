@@ -1,0 +1,372 @@
+{
+  "id": "quiz-412",
+  "title": "Grade 4 5.01",
+  "description": "Learning Outcomes for Grade 4: Identify decimals | Recognise decimal notation | Connect fractions and decimals | Understand tenths | Compare decimals | Order decimals | Understand place value | Understand decimals | Compare decimal size | Use visual models | Connect decimals and fractions | Apply decimals | Develop number sense",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Which number is a decimal?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5",
+        "5",
+        "50",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Identify decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the decimal point called?",
+      "resultType": "short-answer",
+      "options": [
+        "Decimal point",
+        "Fraction point",
+        "Number point",
+        ""
+      ],
+      "correctAnswer": "Decimal point",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Recognise decimal notation",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Decimal point.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal represents one-half?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5",
+        "0.2",
+        "0.1",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Connect fractions and decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal represents one-tenth?",
+      "resultType": "short-answer",
+      "options": [
+        "0.1",
+        "1.0",
+        "0.01",
+        ""
+      ],
+      "correctAnswer": "0.1",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand tenths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.8",
+        "0.3",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.8",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.2",
+        "0.7",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.2",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes after 0.4?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5",
+        "0.3",
+        "0.6",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Order decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes before 0.8?",
+      "resultType": "short-answer",
+      "options": [
+        "0.7",
+        "0.9",
+        "0.6",
+        ""
+      ],
+      "correctAnswer": "-1",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Order decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to -1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal equals 5 tenths?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5",
+        "5.0",
+        "0.05",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal equals 9 tenths?",
+      "resultType": "short-answer",
+      "options": [
+        "0.9",
+        "0.09",
+        "9.0",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "0.6",
+        "0.4",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.6",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is less?",
+      "resultType": "short-answer",
+      "options": [
+        "0.1",
+        "0.8",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.1",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals can represent?",
+      "resultType": "short-answer",
+      "options": [
+        "Parts of a whole",
+        "Whole numbers only",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Parts of a whole",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Parts of a whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is closest to one whole?",
+      "resultType": "short-answer",
+      "options": [
+        "0.9",
+        "0.1",
+        "0.3",
+        ""
+      ],
+      "correctAnswer": "0.9",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimal size",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is closest to zero?",
+      "resultType": "short-answer",
+      "options": [
+        "0.1",
+        "0.9",
+        "0.8",
+        ""
+      ],
+      "correctAnswer": "0.1",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimal size",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals can be shown on a?",
+      "resultType": "short-answer",
+      "options": [
+        "Number line",
+        "Calendar",
+        "Clock",
+        ""
+      ],
+      "correctAnswer": "Number line",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Use visual models",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number line.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals are related to?",
+      "resultType": "short-answer",
+      "options": [
+        "Fractions",
+        "Shapes",
+        "Angles",
+        ""
+      ],
+      "correctAnswer": "Fractions",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Connect decimals and fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Fractions.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding decimals helps with?",
+      "resultType": "short-answer",
+      "options": [
+        "Money",
+        "Measurement",
+        "Both",
+        ""
+      ],
+      "correctAnswer": "Money",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Apply decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Money.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals are used in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Colouring only",
+        "Art only",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Apply decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals build understanding of?",
+      "resultType": "short-answer",
+      "options": [
+        "Number value",
+        "Colour value",
+        "Shape value",
+        ""
+      ],
+      "correctAnswer": "Number value",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Develop number sense",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number value.",
+      "solutionAttachments": []
+    }
+  ]
+}

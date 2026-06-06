@@ -1,0 +1,405 @@
+{
+  "id": "quiz-145",
+  "title": "Grade 1 4.10",
+  "description": "Learning Outcomes for Grade 1: Recognise place value | Build numbers from tens and ones | Count forwards | Count backwards | Compare numbers | Order numbers | Skip count by 2 | Skip count by 5 | Identify tens | Identify ones | Count to 100 | Demonstrate place value understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "14 has 1 ten and how many ones?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Recognise place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 14.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "14 has 1 ten and how many ones?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number has 2 tens and 3 ones?",
+      "resultType": "short-answer",
+      "options": [
+        "23",
+        "32",
+        "13",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Build numbers from tens and ones",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes after 49?",
+      "resultType": "short-answer",
+      "options": [
+        "48",
+        "50",
+        "51",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Count forwards",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes before 70?",
+      "resultType": "short-answer",
+      "options": [
+        "68",
+        "69",
+        "71",
+        ""
+      ],
+      "correctAnswer": "69",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Count backwards",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 69.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "37",
+        "73",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "37",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 37.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which symbol makes this true? 18 __ 12",
+      "resultType": "short-answer",
+      "options": [
+        ">",
+        "<",
+        "=",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Put in order: 21, 23, 22",
+      "resultType": "short-answer",
+      "options": [
+        "21",
+        "22",
+        "23 / 23",
+        "22"
+      ],
+      "correctAnswer": "21",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 21.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2, 4, 6, __",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2010",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Skip count by 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5, 10, 15, __",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Skip count by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number has 4 tens and 2 ones?",
+      "resultType": "short-answer",
+      "options": [
+        "24",
+        "42",
+        "44",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Build numbers from tens and ones",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "56 has how many tens?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "56",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Identify tens",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 56.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "56 has how many tens?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "83 has how many ones?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "83",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Identify ones",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 83.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "83 has how many ones?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "64",
+        "46",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "64",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 64.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which symbol makes this true? 91 __ 91",
+      "resultType": "short-answer",
+      "options": [
+        ">",
+        "<",
+        "=",
+        ""
+      ],
+      "correctAnswer": "91",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 91.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Put in order: 75, 73, 74",
+      "resultType": "short-answer",
+      "options": [
+        "73",
+        "74",
+        "75 / 75",
+        "74"
+      ],
+      "correctAnswer": "75",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 75.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20, 22, 24, __",
+      "resultType": "short-answer",
+      "options": [
+        "25",
+        "26",
+        "28",
+        ""
+      ],
+      "correctAnswer": "26",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Skip count by 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 26.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "40, 45, 50, __",
+      "resultType": "short-answer",
+      "options": [
+        "52",
+        "55",
+        "60",
+        ""
+      ],
+      "correctAnswer": "55",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Skip count by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 55.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number has 7 tens and 8 ones?",
+      "resultType": "short-answer",
+      "options": [
+        "78",
+        "87",
+        "77",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Build numbers from tens and ones",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes after 99?",
+      "resultType": "short-answer",
+      "options": [
+        "98",
+        "100",
+        "101",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Count to 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is largest?",
+      "resultType": "short-answer",
+      "options": [
+        "89",
+        "98",
+        "88",
+        ""
+      ],
+      "correctAnswer": "89",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Demonstrate place value understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 89.",
+      "solutionAttachments": []
+    }
+  ]
+}

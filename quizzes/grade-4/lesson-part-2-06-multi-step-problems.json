@@ -1,0 +1,460 @@
+{
+  "id": "quiz-387",
+  "title": "Grade 4 2.06",
+  "description": "Learning Outcomes for Grade 4: Solve two-step problems | Solve multi-step problems | Solve money problems | Apply addition and subtraction | Solve multi-step calculations | Apply multiple operations | Solve financial problems | Solve transport problems | Apply multi-step reasoning | Solve real-life problems | Solve business problems | Solve sequential problems | Understand multi-step problems | Develop problem-solving skills | Connect operations | Plan solutions | Build mathematical reasoning",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Sam had 100 stickers, got 50 more, then gave away 20. How many stickers now?",
+      "resultType": "short-answer",
+      "options": [
+        "130",
+        "120",
+        "140",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve two-step problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 100.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sam had 100 stickers, got 50 more, then gave away 20. How many stickers now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A shop sold 200 toys, received 80 more, then sold 30. How many toys remain?",
+      "resultType": "short-answer",
+      "options": [
+        "250",
+        "240",
+        "260",
+        ""
+      ],
+      "correctAnswer": "200",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 200.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A shop sold 200 toys, received 80 more, then sold 30. How many toys remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A school raised $500, then $250 more, and spent $300. How much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "$450",
+        "$400",
+        "$500",
+        ""
+      ],
+      "correctAnswer": "500",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve money problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 500.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A tank held 800 litres, 250 litres were used, then 100 litres were added. How much is in the tank now?",
+      "resultType": "short-answer",
+      "options": [
+        "650",
+        "550",
+        "750",
+        ""
+      ],
+      "correctAnswer": "800",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply addition and subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 800.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Ben scored 150 points in Game 1 and 200 in Game 2, then lost 50 points. Total score?",
+      "resultType": "short-answer",
+      "options": [
+        "300",
+        "350",
+        "250",
+        ""
+      ],
+      "correctAnswer": "150",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step calculations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 150.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A farmer harvested 900 apples, sold 300, then harvested another 100. How many apples now?",
+      "resultType": "short-answer",
+      "options": [
+        "700",
+        "600",
+        "800",
+        ""
+      ],
+      "correctAnswer": "900",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiple operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 900.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A farmer harvested 900 apples, sold 300, then harvested another 100. How many apples now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Mia saved $100, then $150 more, and spent $80. How much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "$170",
+        "$180",
+        "$160",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve financial problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bus had 60 passengers. 15 got off, then 20 got on. How many passengers now?",
+      "resultType": "short-answer",
+      "options": [
+        "65",
+        "75",
+        "55",
+        ""
+      ],
+      "correctAnswer": "60",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve transport problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 60.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A bus had 60 passengers. 15 got off, then 20 got on. How many passengers now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A class collected 250 cans, then 175 more, and recycled 100. How many cans remain?",
+      "resultType": "short-answer",
+      "options": [
+        "325",
+        "315",
+        "335",
+        ""
+      ],
+      "correctAnswer": "250",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multi-step reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 250.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A class collected 250 cans, then 175 more, and recycled 100. How many cans remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A zoo had 1,000 visitors. 300 left, then 150 entered. How many visitors now?",
+      "resultType": "short-answer",
+      "options": [
+        "850",
+        "750",
+        "950",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve real-life problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A zoo had 1,000 visitors. 300 left, then 150 entered. How many visitors now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Emma had 500 beads, used 120, then bought 50 more. How many beads now?",
+      "resultType": "short-answer",
+      "options": [
+        "430",
+        "420",
+        "440",
+        ""
+      ],
+      "correctAnswer": "500",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply addition and subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 500.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Emma had 500 beads, used 120, then bought 50 more. How many beads now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A team scored 220 points, then 180 more, and lost 50 points. Total?",
+      "resultType": "short-answer",
+      "options": [
+        "350",
+        "360",
+        "340",
+        ""
+      ],
+      "correctAnswer": "220",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step calculations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 220.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A library had 2,000 books, bought 500 more, then removed 250 old books. Total books?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "250",
+        "2",
+        "150"
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiple operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A baker made 400 cupcakes, sold 150, then made another 100. How many cupcakes now?",
+      "resultType": "short-answer",
+      "options": [
+        "350",
+        "340",
+        "360",
+        ""
+      ],
+      "correctAnswer": "400",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve business problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 400.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A baker made 400 cupcakes, sold 150, then made another 100. How many cupcakes now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A swimmer completed 20 laps, then 15 more, then stopped after 5 extra laps. Total laps?",
+      "resultType": "short-answer",
+      "options": [
+        "40",
+        "35",
+        "45",
+        ""
+      ],
+      "correctAnswer": "21",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve sequential problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 21.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Multi-step problems require?",
+      "resultType": "short-answer",
+      "options": [
+        "More than one operation",
+        "One operation only",
+        "Guessing",
+        ""
+      ],
+      "correctAnswer": "More than one operation",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Understand multi-step problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to More than one operation.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Solving step-by-step helps?",
+      "resultType": "short-answer",
+      "options": [
+        "Accuracy",
+        "Confusion",
+        "Errors",
+        ""
+      ],
+      "correctAnswer": "Accuracy",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Develop problem-solving skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Accuracy.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which operations are commonly used together?",
+      "resultType": "short-answer",
+      "options": [
+        "Addition and subtraction",
+        "Multiplication only",
+        "Division only",
+        ""
+      ],
+      "correctAnswer": "Addition and subtraction",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Connect operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Addition and subtraction.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Reading carefully helps identify?",
+      "resultType": "short-answer",
+      "options": [
+        "Steps needed",
+        "Colours",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Steps needed",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Plan solutions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Steps needed.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Multi-step problems help develop?",
+      "resultType": "short-answer",
+      "options": [
+        "Reasoning skills",
+        "Drawing skills",
+        "Colouring skills",
+        ""
+      ],
+      "correctAnswer": "Reasoning skills",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Build mathematical reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Reasoning skills.",
+      "solutionAttachments": []
+    }
+  ]
+}

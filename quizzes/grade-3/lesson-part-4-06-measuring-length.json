@@ -1,0 +1,394 @@
+{
+  "id": "quiz-320",
+  "title": "Grade 3 4.06",
+  "description": "Learning Outcomes for Grade 3: Choose appropriate units | Know metric relationships | Recognise measuring tools | Compare lengths | Compare metric measurements | Convert metric units | Compare measurements | Compare cm and m | Identify measuring tools | Understand length measurement",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "Which unit is best for measuring a pencil?",
+      "resultType": "short-answer",
+      "options": [
+        "cm",
+        "m",
+        "km",
+        ""
+      ],
+      "correctAnswer": "cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Choose appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit is best for measuring a classroom?",
+      "resultType": "short-answer",
+      "options": [
+        "cm",
+        "m",
+        "km",
+        ""
+      ],
+      "correctAnswer": "cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Choose appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit is best for measuring the distance between cities?",
+      "resultType": "short-answer",
+      "options": [
+        "cm",
+        "m",
+        "km",
+        ""
+      ],
+      "correctAnswer": "cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Choose appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many centimetres are in 1 metre?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "100",
+        "1000",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Know metric relationships",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many centimetres are in 1 metre?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A ruler is usually measured in?",
+      "resultType": "short-answer",
+      "options": [
+        "cm",
+        "m",
+        "km",
+        ""
+      ],
+      "correctAnswer": "cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Recognise measuring tools",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "50 cm",
+        "1 m",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "50 cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50 cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter?",
+      "resultType": "short-answer",
+      "options": [
+        "25 cm",
+        "40 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "25 cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25 cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "2 m",
+        "150 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2 m",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare metric measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 m.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit would measure a person's height?",
+      "resultType": "short-answer",
+      "options": [
+        "cm",
+        "m",
+        "km",
+        ""
+      ],
+      "correctAnswer": "cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Choose appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit would measure a road?",
+      "resultType": "short-answer",
+      "options": [
+        "cm",
+        "m",
+        "km",
+        ""
+      ],
+      "correctAnswer": "cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Choose appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1 m equals how many cm?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "100",
+        "1000",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Convert metric units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "1 m equals how many cm?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "90 cm",
+        "1 m",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "90 cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 90 cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A desk is most likely measured in?",
+      "resultType": "short-answer",
+      "options": [
+        "cm",
+        "m",
+        "km",
+        ""
+      ],
+      "correctAnswer": "cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Choose appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A football field is most likely measured in?",
+      "resultType": "short-answer",
+      "options": [
+        "cm",
+        "m",
+        "km",
+        ""
+      ],
+      "correctAnswer": "cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Choose appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "120 cm",
+        "1 m",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "120 cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare metric measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 120 cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter?",
+      "resultType": "short-answer",
+      "options": [
+        "75 cm",
+        "1 m",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "75 cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare metric measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 75 cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A ribbon is 80 cm long. Is it less than 1 m?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "80",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare cm and m",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 80.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rope is 2 m long. Is it longer than 150 cm?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tool is used to measure length?",
+      "resultType": "short-answer",
+      "options": [
+        "Ruler",
+        "Clock",
+        "Scale",
+        ""
+      ],
+      "correctAnswer": "Ruler",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Identify measuring tools",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ruler.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Length tells us how ____ something is.",
+      "resultType": "short-answer",
+      "options": [
+        "heavy",
+        "long",
+        "full",
+        ""
+      ],
+      "correctAnswer": "heavy",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Understand length measurement",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to heavy.",
+      "solutionAttachments": []
+    }
+  ]
+}

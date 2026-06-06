@@ -1,0 +1,372 @@
+{
+  "id": "quiz-152",
+  "title": "Grade 1 5.07",
+  "description": "Learning Outcomes for Grade 1: Read o'clock times | Connect time to daily events | Connect time to events | Compare times | Sequence hours | Identify o'clock times",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "What time is 3 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "3:00",
+        "3:30",
+        "2:00",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 5 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "5:00",
+        "5:30",
+        "4:00",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 8 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "8:00",
+        "8:30",
+        "7:00",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 12 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "12:00",
+        "12:30",
+        "11:00",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "School starts at 9 o'clock. What time is that?",
+      "resultType": "short-answer",
+      "options": [
+        "9:00",
+        "9:30",
+        "8:00",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Connect time to daily events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 1 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "1:00",
+        "1:30",
+        "12:00",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 10 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "10:00",
+        "10:30",
+        "9:00",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 6 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "6:00",
+        "6:30",
+        "5:00",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 7 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "7:00",
+        "7:30",
+        "6:00",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 11 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "11:00",
+        "11:30",
+        "10:00",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shows 4 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "4:00",
+        "4:30",
+        "3:00",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shows 2 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "2:00",
+        "2:30",
+        "1:00",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Lunch is at 12 o'clock. What time is that?",
+      "resultType": "short-answer",
+      "options": [
+        "12:00",
+        "12:30",
+        "11:00",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Connect time to events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Bedtime is 8 o'clock. What time is that?",
+      "resultType": "short-answer",
+      "options": [
+        "8:00",
+        "8:30",
+        "7:00",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Connect time to events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is earlier?",
+      "resultType": "short-answer",
+      "options": [
+        "3:00",
+        "5:00",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "3:00",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Compare times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3:00.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is later?",
+      "resultType": "short-answer",
+      "options": [
+        "6:00",
+        "9:00",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "6:00",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Compare times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6:00.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time comes after 4:00?",
+      "resultType": "short-answer",
+      "options": [
+        "5:00",
+        "4:30",
+        "3:00",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence hours",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time comes before 10:00?",
+      "resultType": "short-answer",
+      "options": [
+        "8:00",
+        "9:00",
+        "11:00",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence hours",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is an o'clock time?",
+      "resultType": "short-answer",
+      "options": [
+        "7:00",
+        "7:30",
+        "7:15",
+        ""
+      ],
+      "correctAnswer": "7:00",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Identify o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7:00.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is an o'clock time?",
+      "resultType": "short-answer",
+      "options": [
+        "1:30",
+        "2:00",
+        "2:30",
+        ""
+      ],
+      "correctAnswer": "1:30",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Identify o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1:30.",
+      "solutionAttachments": []
+    }
+  ]
+}

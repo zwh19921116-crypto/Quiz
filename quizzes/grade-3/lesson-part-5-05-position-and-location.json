@@ -1,0 +1,372 @@
+{
+  "id": "quiz-329",
+  "title": "Grade 3 5.05",
+  "description": "Learning Outcomes for Grade 3: Use positional language | Interpret positional language | Understand direction | Describe movement | Understand turns | Follow positional instructions | Understand spatial language | Understand spatial concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "Which word means above?",
+      "resultType": "short-answer",
+      "options": [
+        "Over",
+        "Under",
+        "Behind",
+        ""
+      ],
+      "correctAnswer": "Over",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Use positional language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Over.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means below?",
+      "resultType": "short-answer",
+      "options": [
+        "Under",
+        "Beside",
+        "Above",
+        ""
+      ],
+      "correctAnswer": "Under",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Use positional language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Under.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means next to?",
+      "resultType": "short-answer",
+      "options": [
+        "Beside",
+        "Behind",
+        "Above",
+        ""
+      ],
+      "correctAnswer": "Beside",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Use positional language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Beside.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means at the back of?",
+      "resultType": "short-answer",
+      "options": [
+        "Behind",
+        "Beside",
+        "Under",
+        ""
+      ],
+      "correctAnswer": "Behind",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Use positional language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Behind.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means in front of?",
+      "resultType": "short-answer",
+      "options": [
+        "Ahead",
+        "Behind",
+        "Under",
+        ""
+      ],
+      "correctAnswer": "Ahead",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Use positional language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ahead.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If the book is beside the pencil, it is?",
+      "resultType": "short-answer",
+      "options": [
+        "Next to it",
+        "Under it",
+        "Behind it",
+        ""
+      ],
+      "correctAnswer": "Next to it",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Interpret positional language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Next to it.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction is opposite of left?",
+      "resultType": "short-answer",
+      "options": [
+        "Right",
+        "Up",
+        "Down",
+        ""
+      ],
+      "correctAnswer": "Right",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand direction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Right.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction is opposite of up?",
+      "resultType": "short-answer",
+      "options": [
+        "Down",
+        "Left",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Down",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand direction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Down.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If you move forward, you move?",
+      "resultType": "short-answer",
+      "options": [
+        "Ahead",
+        "Backward",
+        "Sideways",
+        ""
+      ],
+      "correctAnswer": "Ahead",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Describe movement",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ahead.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If you move backward, you move?",
+      "resultType": "short-answer",
+      "options": [
+        "Forward",
+        "Back",
+        "Up",
+        ""
+      ],
+      "correctAnswer": "Forward",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Describe movement",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Forward.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word describes a location?",
+      "resultType": "short-answer",
+      "options": [
+        "Beside",
+        "Add",
+        "Multiply",
+        ""
+      ],
+      "correctAnswer": "Beside",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Use positional language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Beside.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction would you turn to face the opposite way?",
+      "resultType": "short-answer",
+      "options": [
+        "Half turn",
+        "Quarter turn",
+        "No turn",
+        ""
+      ],
+      "correctAnswer": "Half turn",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand turns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Half turn.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which turn is a right angle turn?",
+      "resultType": "short-answer",
+      "options": [
+        "Quarter turn",
+        "Half turn",
+        "Full turn",
+        ""
+      ],
+      "correctAnswer": "Quarter turn",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand turns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Quarter turn.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which turn brings you back to the same direction?",
+      "resultType": "short-answer",
+      "options": [
+        "Full turn",
+        "Half turn",
+        "Quarter turn",
+        ""
+      ],
+      "correctAnswer": "Full turn",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand turns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Full turn.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which instruction moves you toward an object?",
+      "resultType": "short-answer",
+      "options": [
+        "Forward",
+        "Backward",
+        "Away",
+        ""
+      ],
+      "correctAnswer": "Forward",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Follow positional instructions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Forward.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which instruction moves you away from an object?",
+      "resultType": "short-answer",
+      "options": [
+        "Backward",
+        "Forward",
+        "Beside",
+        ""
+      ],
+      "correctAnswer": "Backward",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Follow positional instructions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Backward.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Maps use position words to show?",
+      "resultType": "short-answer",
+      "options": [
+        "Location",
+        "Weight",
+        "Time",
+        ""
+      ],
+      "correctAnswer": "Location",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand spatial language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Location.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word helps describe where something is?",
+      "resultType": "short-answer",
+      "options": [
+        "Behind",
+        "Add",
+        "Divide",
+        ""
+      ],
+      "correctAnswer": "Behind",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Use positional language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Behind.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Position helps us understand?",
+      "resultType": "short-answer",
+      "options": [
+        "Location",
+        "Mass",
+        "Capacity",
+        ""
+      ],
+      "correctAnswer": "Location",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand spatial concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Location.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word describes a place relative to another place?",
+      "resultType": "short-answer",
+      "options": [
+        "Positional word",
+        "Number word",
+        "Action word",
+        ""
+      ],
+      "correctAnswer": "Positional word",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Use positional language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Positional word.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,456 @@
+{
+  "id": "quiz-410",
+  "title": "Grade 4 4.09",
+  "description": "Learning Outcomes for Grade 4: Apply fraction concepts | Compare fractions | Apply fractions | Recognise equivalent fractions | Add fractions | Subtract fractions | Use visual models | Apply maths | Understand equivalence | Build mathematical understanding | Build foundations | Consolidate understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Which fraction is equal to one whole?",
+      "resultType": "short-answer",
+      "options": [
+        "4/4",
+        "3/4",
+        "1/4",
+        ""
+      ],
+      "correctAnswer": "4/4",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply fraction concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "3/4",
+        "1/2",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "3/4",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is 1/2 of 16?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 2 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 2,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "What is 1/4 of 20?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "0.25",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 4 = 0.25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 4,
+          "answer": "0.25",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "What is 2/3 of 18?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "0.6666666666666666",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 / 3 = 0.6666666666666666.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 2,
+          "operandB": 3,
+          "answer": "0.67",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which fraction is equivalent to 1/2?",
+      "resultType": "short-answer",
+      "options": [
+        "2/4",
+        "1/4",
+        "3/4",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Recognise equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 2 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 2,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which fraction is equivalent to 3/4?",
+      "resultType": "short-answer",
+      "options": [
+        "6/8",
+        "2/8",
+        "4/8",
+        ""
+      ],
+      "correctAnswer": "0.75",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Recognise equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 / 4 = 0.75.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 3,
+          "operandB": 4,
+          "answer": "0.75",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "1/4 + 2/4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3/4",
+        "3/8",
+        "2/8",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Add fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 + 2 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 2,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5/6 − 2/6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3/6",
+        "3/12",
+        "4/6",
+        ""
+      ],
+      "correctAnswer": "0.8333333333333334",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Subtract fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 / 6 = 0.8333333333333334.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 5,
+          "operandB": 6,
+          "answer": "0.83",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "5/8",
+        "3/8",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "5/8",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5/8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is closest to one whole?",
+      "resultType": "short-answer",
+      "options": [
+        "7/8",
+        "1/8",
+        "3/8",
+        ""
+      ],
+      "correctAnswer": "7/8",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7/8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions can describe?",
+      "resultType": "short-answer",
+      "options": [
+        "Parts of collections",
+        "Colours",
+        "Shapes only",
+        ""
+      ],
+      "correctAnswer": "Parts of collections",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Parts of collections.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions can be shown on a?",
+      "resultType": "short-answer",
+      "options": [
+        "Number line",
+        "Calendar only",
+        "Clock only",
+        ""
+      ],
+      "correctAnswer": "Number line",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Use visual models",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number line.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding fractions helps with?",
+      "resultType": "short-answer",
+      "options": [
+        "Problem solving",
+        "Colouring",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Problem solving",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply maths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Problem solving.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "1/8",
+        "1/2",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/8",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equivalent fractions have the same?",
+      "resultType": "short-answer",
+      "options": [
+        "Value",
+        "Numerator",
+        "Denominator",
+        ""
+      ],
+      "correctAnswer": "Value",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Understand equivalence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Value.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fraction knowledge is useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Art only",
+        "Sport only",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Apply fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions help develop?",
+      "resultType": "short-answer",
+      "options": [
+        "Number sense",
+        "Colour sense",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Number sense",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Build mathematical understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number sense.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fraction concepts support?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Drawing",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions are an important part of?",
+      "resultType": "short-answer",
+      "options": [
+        "Mathematics",
+        "Art",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Mathematics",
+      "category": "Number",
+      "subcategory": "Fractions",
+      "learningOutcome": "Consolidate understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mathematics.",
+      "solutionAttachments": []
+    }
+  ]
+}

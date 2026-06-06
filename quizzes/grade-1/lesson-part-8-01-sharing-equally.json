@@ -1,0 +1,504 @@
+{
+  "id": "quiz-176",
+  "title": "Grade 1 8.01",
+  "description": "Learning Outcomes for Grade 1: Share equally | Recognise equal sharing | Understand equal sharing | 4 and 4 | 4 and 6 | Apply sharing | Understand fairness",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "4 apples shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "4 apples shared between 2 children. How many each?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "6 cookies shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "6 cookies shared between 2 children. How many each?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "8 toys shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "8 toys shared between 2 children. How many each?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "10 pencils shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "10 pencils shared between 2 children. How many each?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "12 stickers shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "12 stickers shared between 2 children. How many each?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Is 6 shared between 2 children equal if each gets 3?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Recognise equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Is 8 shared between 2 children equal if one gets 3 and one gets 5?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Recognise equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 apples shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "2000",
+        "1",
+        "2",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "2 apples shared between 2 children. How many each?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "14 counters shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 14.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "14 counters shared between 2 children. How many each?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sharing equally means everyone gets?",
+      "resultType": "short-answer",
+      "options": [
+        "Same Amount",
+        "Different Amount",
+        "Any Amount",
+        ""
+      ],
+      "correctAnswer": "Same Amount",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Understand equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Same Amount.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "16 blocks shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "16 blocks shared between 2 children. How many each?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "18 crayons shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "18 crayons shared between 2 children. How many each?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shows equal sharing?",
+      "resultType": "short-answer",
+      "options": [
+        "4 and 4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4 and 4",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "4 and 4",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4 and 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which does NOT show equal sharing?",
+      "resultType": "short-answer",
+      "options": [
+        "5 and 5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5 and 5",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "4 and 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5 and 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20 counters shared between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "20 counters shared between 2 children. How many each?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "6 bananas shared equally between 2 monkeys. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Apply sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "6 bananas shared equally between 2 monkeys. How many each?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "10 biscuits shared equally between 2 children. How many each?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Apply sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "10 biscuits shared equally between 2 children. How many each?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "Equal sharing is fair.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Understand fairness",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 shared between 2 gives?",
+      "resultType": "short-answer",
+      "options": [
+        "1 each",
+        "2 each",
+        "3 each",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "12 shared between 2 gives?",
+      "resultType": "short-answer",
+      "options": [
+        "5 each",
+        "6 each",
+        "7 each",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Division Foundations",
+      "subcategory": "Sharing",
+      "learningOutcome": "Share equally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    }
+  ]
+}

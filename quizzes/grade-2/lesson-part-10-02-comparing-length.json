@@ -1,0 +1,372 @@
+{
+  "id": "quiz-296",
+  "title": "Grade 2 10.02",
+  "description": "Learning Outcomes for Grade 2: Compare lengths | Use comparison language | Compare measurements | Order lengths | Use measuring tools | Apply measurement | Longer, shorter, equal | Consolidate understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "Which is longer? Rope A = 5 m, Rope B = 3 m",
+      "resultType": "short-answer",
+      "options": [
+        "Rope A",
+        "Rope B",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter? Pencil A = 10 cm, Pencil B = 15 cm",
+      "resultType": "short-answer",
+      "options": [
+        "Pencil A",
+        "Pencil B",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Longer means?",
+      "resultType": "short-answer",
+      "options": [
+        "Greater length",
+        "Smaller length",
+        "Equal length",
+        ""
+      ],
+      "correctAnswer": "Greater length",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Use comparison language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Greater length.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Shorter means?",
+      "resultType": "short-answer",
+      "options": [
+        "Smaller length",
+        "Greater length",
+        "Equal length",
+        ""
+      ],
+      "correctAnswer": "Smaller length",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Use comparison language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Smaller length.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer? 8 cm or 4 cm",
+      "resultType": "short-answer",
+      "options": [
+        "8 cm",
+        "4 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Compare measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter? 2 cm or 7 cm",
+      "resultType": "short-answer",
+      "options": [
+        "2 cm",
+        "7 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Compare measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longest? 3 cm, 6 cm, 9 cm",
+      "resultType": "short-answer",
+      "options": [
+        "9 cm",
+        "6 cm",
+        "3 cm",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Order lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shortest? 12 cm, 5 cm, 8 cm",
+      "resultType": "short-answer",
+      "options": [
+        "5 cm",
+        "8 cm",
+        "12 cm",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Order lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equal means?",
+      "resultType": "short-answer",
+      "options": [
+        "Same length",
+        "Longer",
+        "Shorter",
+        ""
+      ],
+      "correctAnswer": "Same length",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Same length.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Comparing helps us find?",
+      "resultType": "short-answer",
+      "options": [
+        "Longer and shorter",
+        "Heavier and lighter",
+        "Full and empty",
+        ""
+      ],
+      "correctAnswer": "Longer and shorter",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Compare measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Longer and shorter.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer? 15 cm or 11 cm",
+      "resultType": "short-answer",
+      "options": [
+        "15 cm",
+        "11 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Compare measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter? 14 cm or 18 cm",
+      "resultType": "short-answer",
+      "options": [
+        "14 cm",
+        "18 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Compare measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longest? 7 cm, 10 cm, 4 cm",
+      "resultType": "short-answer",
+      "options": [
+        "10 cm",
+        "7 cm",
+        "4 cm",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Order lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shortest? 9 cm, 3 cm, 6 cm",
+      "resultType": "short-answer",
+      "options": [
+        "3 cm",
+        "6 cm",
+        "9 cm",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Order lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A ruler helps compare?",
+      "resultType": "short-answer",
+      "options": [
+        "Lengths",
+        "Time",
+        "Money",
+        ""
+      ],
+      "correctAnswer": "Lengths",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Use measuring tools",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Lengths.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Comparing length helps us?",
+      "resultType": "short-answer",
+      "options": [
+        "Describe objects",
+        "Count money",
+        "Read maps",
+        ""
+      ],
+      "correctAnswer": "Describe objects",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Apply measurement",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Describe objects.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater? 20 cm or 12 cm",
+      "resultType": "short-answer",
+      "options": [
+        "20 cm",
+        "12 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Compare measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller? 5 cm or 13 cm",
+      "resultType": "short-answer",
+      "options": [
+        "5 cm",
+        "13 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Compare measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Length comparison uses?",
+      "resultType": "short-answer",
+      "options": [
+        "Longer",
+        "shorter",
+        "equal",
+        ""
+      ],
+      "correctAnswer": "Longer",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Longer, shorter, equal",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Longer.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Comparing length is part of?",
+      "resultType": "short-answer",
+      "options": [
+        "Measurement",
+        "Geometry",
+        "Chance",
+        ""
+      ],
+      "correctAnswer": "Measurement",
+      "category": "Measurement",
+      "subcategory": "Length Comparison",
+      "learningOutcome": "Consolidate understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Measurement.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,598 @@
+{
+  "id": "quiz-483",
+  "title": "Grade 5 2.02",
+  "description": "Learning Outcomes for Grade 5: Add 3-digit numbers using written methods | Add 4-digit numbers using written methods | Add numbers using place value | Add numbers involving regrouping | Add 4-digit numbers involving regrouping | Apply place value when adding | Add larger numbers accurately | Apply written addition in real-world contexts | Solve addition word problems | Apply written addition to solve problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "234 + 145 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "379; 369; 389",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "379",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add 3-digit numbers using written methods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 234 + 145 = 379.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 234,
+          "operandB": 145,
+          "answer": "379",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "321 + 278 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "599; 589; 609",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "599",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add 3-digit numbers using written methods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 321 + 278 = 599.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 321,
+          "operandB": 278,
+          "answer": "599",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "456 + 123 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "579; 569; 589",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "579",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add 3-digit numbers using written methods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 456 + 123 = 579.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 456,
+          "operandB": 123,
+          "answer": "579",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "582 + 217 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "799; 789; 809",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "799",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add 3-digit numbers using written methods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 582 + 217 = 799.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 582,
+          "operandB": 217,
+          "answer": "799",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "675 + 124 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "799; 789; 809",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "799",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add 3-digit numbers using written methods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 675 + 124 = 799.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 675,
+          "operandB": 124,
+          "answer": "799",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "1234 + 2345 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3579; 3569; 3589",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3579",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add 4-digit numbers using written methods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1234 + 2345 = 3579.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 1234,
+          "operandB": 2345,
+          "answer": "3579",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "2500 + 1500 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4000; 3500; 4500",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4000",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add 4-digit numbers using written methods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2500 + 1500 = 4000.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2500,
+          "operandB": 1500,
+          "answer": "4000",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "4321 + 1111 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5432; 5422; 5442",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5432",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add 4-digit numbers using written methods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4321 + 1111 = 5432.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4321,
+          "operandB": 1111,
+          "answer": "5432",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3456 + 1234 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4690; 4680; 4700",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4690",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add 4-digit numbers using written methods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3456 + 1234 = 4690.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3456,
+          "operandB": 1234,
+          "answer": "4690",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "6789 + 1000 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7789; 7689; 7889",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7789",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add numbers using place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6789 + 1000 = 7789.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6789,
+          "operandB": 1000,
+          "answer": "7789",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "287 + 496 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "783; 773; 793",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "783",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add numbers involving regrouping",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 287 + 496 = 783.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 287,
+          "operandB": 496,
+          "answer": "783",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "569 + 378 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "947; 937; 957",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "947",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add numbers involving regrouping",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 569 + 378 = 947.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 569,
+          "operandB": 378,
+          "answer": "947",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "1845 + 2678 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4523; 4513; 4533",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4523",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add 4-digit numbers involving regrouping",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1845 + 2678 = 4523.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 1845,
+          "operandB": 2678,
+          "answer": "4523",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3598 + 2407 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6005; 5995; 6015",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6005",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add 4-digit numbers involving regrouping",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3598 + 2407 = 6005.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3598,
+          "operandB": 2407,
+          "answer": "6005",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "4999 + 1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5000; 4990; 5001",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5000",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Apply place value when adding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4999 + 1 = 5000.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4999,
+          "operandB": 1,
+          "answer": "5000",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "6785 + 2318 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9103; 9093; 9113",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "9103",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add larger numbers accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6785 + 2318 = 9103.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6785,
+          "operandB": 2318,
+          "answer": "9103",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "7546 + 2457 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "10003; 9993; 10013",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10003",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add larger numbers accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7546 + 2457 = 10003.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7546,
+          "operandB": 2457,
+          "answer": "10003",
+          "answerDigits": 5,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A library bought 2345 books and then 1678 more. How many books were bought altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "4023; 4013; 4033",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2345",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Apply written addition in real-world contexts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2345.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A library bought 2345 books and then 1678 more. How many books were bought altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A school raised $4875 in Term 1 and $3628 in Term 2. How much was raised altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "$8503; $8493; $8513",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4875",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Solve addition word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4875.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A factory produced 5678 items on Monday and 4327 on Tuesday. How many items were produced altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "10005; 9995; 10015",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5678",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Apply written addition to solve problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5678.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A factory produced 5678 items on Monday and 4327 on Tuesday. How many items were produced altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    }
+  ]
+}

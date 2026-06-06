@@ -1,0 +1,372 @@
+{
+  "id": "quiz-271",
+  "title": "Grade 2 7.07",
+  "description": "Learning Outcomes for Grade 2: Understand purchases | Compare money to price | Understand money use | Understand money vocabulary | Compare prices | Apply money concepts | Understand money",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "A pencil costs 20c. You pay 20c. Can you buy it?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Understand purchases",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A toy costs $2. You have $2. Can you buy it?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Compare money to price",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A drink costs $1. You have $2. Do you have enough?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Compare money to price",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A book costs $5. You have $2. Do you have enough?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Compare money to price",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A ball costs $3. You have $5. Do you have enough?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Compare money to price",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A ruler costs $1. You have $1. Can you buy it?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Understand purchases",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A snack costs $2. You have $1. Can you buy it?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Compare money to price",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "To buy something you need?",
+      "resultType": "short-answer",
+      "options": [
+        "Enough money",
+        "A ruler",
+        "A clock",
+        ""
+      ],
+      "correctAnswer": "Enough money",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Understand money use",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Enough money.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Price means?",
+      "resultType": "short-answer",
+      "options": [
+        "Cost of an item",
+        "Weight of an item",
+        "Length of an item",
+        ""
+      ],
+      "correctAnswer": "Cost of an item",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Understand money vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cost of an item.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which costs more? $2 or $1",
+      "resultType": "short-answer",
+      "options": [
+        "$2",
+        "$1",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Compare prices",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "An apple costs $1. You have $3. Do you have enough?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Compare money to price",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A game costs $10. You have $5. Do you have enough?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Compare money to price",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A sandwich costs $4. You have $4. Can you buy it?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Compare money to price",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is more expensive? $5 toy or $2 toy",
+      "resultType": "short-answer",
+      "options": [
+        "$5 toy",
+        "$2 toy",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Compare prices",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is cheaper? $1 drink or $3 drink",
+      "resultType": "short-answer",
+      "options": [
+        "$1 drink",
+        "$3 drink",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Compare prices",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If you have more money than the price, you can buy it.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Apply money concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If you have less money than the price, you cannot buy it.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Apply money concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Shopping uses?",
+      "resultType": "short-answer",
+      "options": [
+        "Money",
+        "Time",
+        "Length",
+        ""
+      ],
+      "correctAnswer": "Money",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Understand purchases",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Money.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which amount is enough to buy a $2 item?",
+      "resultType": "short-answer",
+      "options": [
+        "$2",
+        "$1",
+        "50c",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Compare money to price",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Money helps us?",
+      "resultType": "short-answer",
+      "options": [
+        "Buy goods and services",
+        "Measure mass",
+        "Measure length",
+        ""
+      ],
+      "correctAnswer": "Buy goods and services",
+      "category": "Money Foundations",
+      "subcategory": "Purchases",
+      "learningOutcome": "Understand money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Buy goods and services.",
+      "solutionAttachments": []
+    }
+  ]
+}

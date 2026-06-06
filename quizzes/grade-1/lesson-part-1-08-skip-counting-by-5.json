@@ -1,0 +1,372 @@
+{
+  "id": "quiz-113",
+  "title": "Grade 1 1.08",
+  "description": "Learning Outcomes for Grade 1: Skip count by 5 | Count money by 5 | Recognise multiples of 5 | Skip counting",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "5, 10, 15, ?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Counting Patterns",
+      "subcategory": "By 5",
+      "learningOutcome": "Skip count by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10, 15, 20, ?",
+      "resultType": "short-answer",
+      "options": [
+        "25",
+        "30",
+        "35",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Counting Patterns",
+      "subcategory": "By 5",
+      "learningOutcome": "Skip count by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20, 25, 30, ?",
+      "resultType": "short-answer",
+      "options": [
+        "35",
+        "40",
+        "45",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Counting Patterns",
+      "subcategory": "By 5",
+      "learningOutcome": "Skip count by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "35, 40, 45, ?",
+      "resultType": "short-answer",
+      "options": [
+        "50",
+        "55",
+        "60",
+        ""
+      ],
+      "correctAnswer": "35",
+      "category": "Counting Patterns",
+      "subcategory": "By 5",
+      "learningOutcome": "Skip count by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 35.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "50, 55, 60, ?",
+      "resultType": "short-answer",
+      "options": [
+        "65",
+        "70",
+        "75",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Counting Patterns",
+      "subcategory": "By 5",
+      "learningOutcome": "Skip count by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5, ?, 15",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "2012",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Missing Numbers",
+      "subcategory": "By 5",
+      "learningOutcome": "Skip count by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20, ?, 30",
+      "resultType": "short-answer",
+      "options": [
+        "22",
+        "25",
+        "28",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Missing Numbers",
+      "subcategory": "By 5",
+      "learningOutcome": "Skip count by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "35, ?, 45",
+      "resultType": "short-answer",
+      "options": [
+        "38",
+        "40",
+        "42",
+        ""
+      ],
+      "correctAnswer": "35",
+      "category": "Missing Numbers",
+      "subcategory": "By 5",
+      "learningOutcome": "Skip count by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 35.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "50, ?, 60",
+      "resultType": "short-answer",
+      "options": [
+        "53",
+        "55",
+        "58",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Missing Numbers",
+      "subcategory": "By 5",
+      "learningOutcome": "Skip count by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "65, ?, 75",
+      "resultType": "short-answer",
+      "options": [
+        "68",
+        "70",
+        "72",
+        ""
+      ],
+      "correctAnswer": "65",
+      "category": "Missing Numbers",
+      "subcategory": "By 5",
+      "learningOutcome": "Skip count by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 65.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5c, 10c, 15c, ?",
+      "resultType": "short-answer",
+      "options": [
+        "18c",
+        "20c",
+        "25c",
+        ""
+      ],
+      "correctAnswer": "18c",
+      "category": "Money",
+      "subcategory": "Counting",
+      "learningOutcome": "Count money by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10c, 15c, 20c, ?",
+      "resultType": "short-answer",
+      "options": [
+        "25c",
+        "30c",
+        "35c",
+        ""
+      ],
+      "correctAnswer": "25c",
+      "category": "Money",
+      "subcategory": "Counting",
+      "learningOutcome": "Count money by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "25c, 30c, 35c, ?",
+      "resultType": "short-answer",
+      "options": [
+        "40c",
+        "45c",
+        "50c",
+        ""
+      ],
+      "correctAnswer": "40c",
+      "category": "Money",
+      "subcategory": "Counting",
+      "learningOutcome": "Count money by 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 40c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes next? 40, 45, ?",
+      "resultType": "short-answer",
+      "options": [
+        "48",
+        "50",
+        "55",
+        ""
+      ],
+      "correctAnswer": "40",
+      "category": "Counting",
+      "subcategory": "Multiples",
+      "learningOutcome": "Recognise multiples of 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 40.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes next? 55, 60, ?",
+      "resultType": "short-answer",
+      "options": [
+        "63",
+        "65",
+        "70",
+        ""
+      ],
+      "correctAnswer": "55",
+      "category": "Counting",
+      "subcategory": "Multiples",
+      "learningOutcome": "Recognise multiples of 5",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 55.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "15, 20, ?, 30",
+      "resultType": "short-answer",
+      "options": [
+        "22",
+        "25",
+        "28",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Review",
+      "subcategory": "Mixed",
+      "learningOutcome": "Skip counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "45, ?, 55",
+      "resultType": "short-answer",
+      "options": [
+        "48",
+        "50",
+        "52",
+        ""
+      ],
+      "correctAnswer": "45",
+      "category": "Review",
+      "subcategory": "Mixed",
+      "learningOutcome": "Skip counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 45.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "60, 65, ?, 75",
+      "resultType": "short-answer",
+      "options": [
+        "68",
+        "70",
+        "72",
+        ""
+      ],
+      "correctAnswer": "60",
+      "category": "Review",
+      "subcategory": "Mixed",
+      "learningOutcome": "Skip counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 60.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "75, ?, 85",
+      "resultType": "short-answer",
+      "options": [
+        "78",
+        "80",
+        "82",
+        ""
+      ],
+      "correctAnswer": "75",
+      "category": "Review",
+      "subcategory": "Mixed",
+      "learningOutcome": "Skip counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 75.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "85, 90, ?, 100",
+      "resultType": "short-answer",
+      "options": [
+        "92",
+        "95",
+        "98",
+        ""
+      ],
+      "correctAnswer": "85",
+      "category": "Review",
+      "subcategory": "Mixed",
+      "learningOutcome": "Skip counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 85.",
+      "solutionAttachments": []
+    }
+  ]
+}

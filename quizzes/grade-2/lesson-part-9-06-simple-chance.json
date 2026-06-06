@@ -1,0 +1,405 @@
+{
+  "id": "quiz-290",
+  "title": "Grade 2 9.06",
+  "description": "Learning Outcomes for Grade 2: Understand chance | Understand outcomes | Identify chance events | Identify chance activities | Identify chance tools | Understand uncertainty | Identify outcomes | Classify activities | Understand random outcomes | Learn chance vocabulary | Understand dice | Understand statistics",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "Chance means?",
+      "resultType": "short-answer",
+      "options": [
+        "Something may happen",
+        "Counting money",
+        "Measuring length",
+        ""
+      ],
+      "correctAnswer": "Something may happen",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand chance",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Something may happen.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "When you toss a coin, how many possible outcomes are there?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "When you toss a coin, how many possible outcomes are there?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "A coin can land on?",
+      "resultType": "short-answer",
+      "options": [
+        "Heads or tails",
+        "1 or 2",
+        "Red or blue",
+        ""
+      ],
+      "correctAnswer": "Heads or tails",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Heads or tails.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rolling a standard die can give how many outcomes?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "5",
+        "10",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Rolling a standard die can give how many outcomes?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number cannot appear on a standard die?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "5",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Picking a red ball from a bag is an example of?",
+      "resultType": "short-answer",
+      "options": [
+        "Chance",
+        "Measurement",
+        "Geometry",
+        ""
+      ],
+      "correctAnswer": "Chance",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Identify chance events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Chance.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Chance is about?",
+      "resultType": "short-answer",
+      "options": [
+        "What might happen",
+        "What already happened",
+        "Measuring things",
+        ""
+      ],
+      "correctAnswer": "What might happen",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand chance",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to What might happen.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a chance activity?",
+      "resultType": "short-answer",
+      "options": [
+        "Tossing a coin",
+        "Measuring a desk",
+        "Counting coins",
+        ""
+      ],
+      "correctAnswer": "Tossing a coin",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Identify chance activities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tossing a coin.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A spinner is often used in?",
+      "resultType": "short-answer",
+      "options": [
+        "Chance activities",
+        "Geometry",
+        "Measurement",
+        ""
+      ],
+      "correctAnswer": "Chance activities",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Identify chance tools",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Chance activities.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "We cannot know the result of a coin toss before it happens.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand uncertainty",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a possible outcome when rolling a die?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Identify outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is not a possible outcome on a standard die?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "2",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Identify outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Chance events are usually?",
+      "resultType": "short-answer",
+      "options": [
+        "Uncertain",
+        "Certain",
+        "Measured",
+        ""
+      ],
+      "correctAnswer": "Uncertain",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand chance",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Uncertain.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A coin toss is an example of?",
+      "resultType": "short-answer",
+      "options": [
+        "Chance",
+        "Data table",
+        "Shape",
+        ""
+      ],
+      "correctAnswer": "Chance",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Classify activities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Chance.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tool can be used for chance experiments?",
+      "resultType": "short-answer",
+      "options": [
+        "Spinner",
+        "Ruler",
+        "Thermometer",
+        ""
+      ],
+      "correctAnswer": "Spinner",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Identify chance tools",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Spinner.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rolling a die gives a result chosen by?",
+      "resultType": "short-answer",
+      "options": [
+        "Chance",
+        "Measurement",
+        "Time",
+        ""
+      ],
+      "correctAnswer": "Chance",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand random outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Chance.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a chance word?",
+      "resultType": "short-answer",
+      "options": [
+        "Outcome",
+        "Rectangle",
+        "Kilogram",
+        ""
+      ],
+      "correctAnswer": "Outcome",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Learn chance vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Outcome.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Chance helps us describe?",
+      "resultType": "short-answer",
+      "options": [
+        "Events that may happen",
+        "Shapes",
+        "Distances",
+        ""
+      ],
+      "correctAnswer": "Events that may happen",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand chance",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Events that may happen.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A die has how many faces?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "4",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand dice",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A die has how many faces?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Statistics includes studying?",
+      "resultType": "short-answer",
+      "options": [
+        "Chance and data",
+        "Shapes",
+        "Time",
+        ""
+      ],
+      "correctAnswer": "Chance and data",
+      "category": "Statistics",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand statistics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Chance and data.",
+      "solutionAttachments": []
+    }
+  ]
+}

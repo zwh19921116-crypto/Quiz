@@ -1,0 +1,372 @@
+{
+  "id": "quiz-169",
+  "title": "Grade 1 7.04",
+  "description": "Learning Outcomes for Grade 1: Count in 2s | Continue skip counting patterns",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "2, 4, __",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4, 6, __",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6, 8, __",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8, 10, __",
+      "resultType": "short-answer",
+      "options": [
+        "11",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10, 12, __",
+      "resultType": "short-answer",
+      "options": [
+        "13",
+        "14",
+        "16",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "12, 14, __",
+      "resultType": "short-answer",
+      "options": [
+        "15",
+        "16",
+        "18",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 16.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "14, 16, __",
+      "resultType": "short-answer",
+      "options": [
+        "17",
+        "18",
+        "20",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "16, 18, __",
+      "resultType": "short-answer",
+      "options": [
+        "19",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "18, 20, __",
+      "resultType": "short-answer",
+      "options": [
+        "21",
+        "22",
+        "24",
+        ""
+      ],
+      "correctAnswer": "22",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 22.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20, 22, __",
+      "resultType": "short-answer",
+      "options": [
+        "23",
+        "24",
+        "26",
+        ""
+      ],
+      "correctAnswer": "24",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 24.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "22, 24, __",
+      "resultType": "short-answer",
+      "options": [
+        "25",
+        "26",
+        "28",
+        ""
+      ],
+      "correctAnswer": "26",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 26.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "24, 26, __",
+      "resultType": "short-answer",
+      "options": [
+        "27",
+        "28",
+        "30",
+        ""
+      ],
+      "correctAnswer": "28",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 28.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "26, 28, __",
+      "resultType": "short-answer",
+      "options": [
+        "29",
+        "30",
+        "32",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "28, 30, __",
+      "resultType": "short-answer",
+      "options": [
+        "31",
+        "32",
+        "34",
+        ""
+      ],
+      "correctAnswer": "32",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 32.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes after 34 when counting in 2s?",
+      "resultType": "short-answer",
+      "options": [
+        "35",
+        "36",
+        "38",
+        ""
+      ],
+      "correctAnswer": "35",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 35.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes after 40 when counting in 2s?",
+      "resultType": "short-answer",
+      "options": [
+        "41",
+        "42",
+        "44",
+        ""
+      ],
+      "correctAnswer": "41",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 41.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes before 20 when counting in 2s?",
+      "resultType": "short-answer",
+      "options": [
+        "16",
+        "18",
+        "22",
+        ""
+      ],
+      "correctAnswer": "19",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 19.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes before 50 when counting in 2s?",
+      "resultType": "short-answer",
+      "options": [
+        "46",
+        "48",
+        "52",
+        ""
+      ],
+      "correctAnswer": "49",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 49.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2, 4, 6, 8, __",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Continue skip counting patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "12, 14, 16, 18, __",
+      "resultType": "short-answer",
+      "options": [
+        "19",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Multiplication Foundations",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Continue skip counting patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    }
+  ]
+}

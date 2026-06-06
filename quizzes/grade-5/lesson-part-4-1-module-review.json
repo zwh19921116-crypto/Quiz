@@ -1,0 +1,576 @@
+{
+  "id": "quiz-511",
+  "title": "Grade 5 4.1",
+  "description": "Learning Outcomes for Grade 5: Identify common fractions | Identify equivalent fractions | Simplify fractions | Compare fractions | Order fractions | Add fractions with the same denominator | Subtract fractions with the same denominator | Convert mixed numbers to improper fractions | Convert improper fractions to mixed numbers | Represent fractions in context | Generate equivalent fractions | Simplify fractions using common factors | Compare fractions using equivalent fractions | Add fractions accurately | Subtract fractions accurately | Find fractions of quantities | Calculate fractions of quantities | Apply fractions to solve real-world problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "Which fraction represents one half?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2; 1/4; 1/3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1/2; 1/4; 1/3",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Identify common fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2; 1/4; 1/3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is equivalent to 1/2?",
+      "resultType": "short-answer",
+      "options": [
+        "2/4; 1/4; 3/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Identify equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 2 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 2,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Simplify 4/8.",
+      "resultType": "short-answer",
+      "options": [
+        "1/2; 2/4; 3/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Simplify fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 / 8 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 4,
+          "operandB": 8,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which is larger? 3/4 or 1/2",
+      "resultType": "short-answer",
+      "options": [
+        "3/4; 1/2; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.75",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 / 4 = 0.75.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 3,
+          "operandB": 4,
+          "answer": "0.75",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which fraction is smallest?",
+      "resultType": "short-answer",
+      "options": [
+        "1/4; 1/2; 3/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1/4; 1/2; 3/4",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Order fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/4; 1/2; 3/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2/5 + 1/5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "3/5; 3/10; 2/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Add fractions with the same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 + 1 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 1,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "4/7 − 2/7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "2/7; 3/7; 1/7",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.5714285714285714",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Subtract fractions with the same denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 / 7 = 0.5714285714285714.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 4,
+          "operandB": 7,
+          "answer": "0.57",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 1 1/2 to an improper fraction.",
+      "resultType": "short-answer",
+      "options": [
+        "3/2; 2/3; 4/2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.5",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Convert mixed numbers to improper fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 / 2 = 0.5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 1,
+          "operandB": 2,
+          "answer": "0.5",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 5/4 to a mixed number.",
+      "resultType": "short-answer",
+      "options": [
+        "1 1/4; 1 1/2; 2 1/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1.25",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Convert improper fractions to mixed numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 / 4 = 1.25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 5,
+          "operandB": 4,
+          "answer": "1.25",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A pizza is cut into 8 slices. If 3 slices are eaten, what fraction is eaten?",
+      "resultType": "short-answer",
+      "options": [
+        "3/8; 5/8; 3/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Represent fractions in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Complete: 3/4 = ?/16",
+      "resultType": "short-answer",
+      "options": [
+        "12/16; 10/16; 14/16",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.75",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Generate equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 / 4 = 0.75.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 3,
+          "operandB": 4,
+          "answer": "0.75",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Simplify 15/20.",
+      "resultType": "short-answer",
+      "options": [
+        "3/4; 2/3; 4/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.75",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Simplify fractions using common factors",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 15 / 20 = 0.75.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 15,
+          "operandB": 20,
+          "answer": "0.75",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which is larger? 4/5 or 7/10",
+      "resultType": "short-answer",
+      "options": [
+        "4/5; 7/10; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.8",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Compare fractions using equivalent fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 / 5 = 0.8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 4,
+          "operandB": 5,
+          "answer": "0.8",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Order from largest to smallest: 5/8, 3/4, 1/2. Which comes first?",
+      "resultType": "short-answer",
+      "options": [
+        "3/4; 5/8; 1/2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.625",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Order fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 / 8 = 0.625.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 5,
+          "operandB": 8,
+          "answer": "0.63",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "7/12 + 4/12 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "11/12; 10/12; 12/12",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Add fractions accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 12 + 4 = 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 12,
+          "operandB": 4,
+          "answer": "16",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "17/24 − 8/24 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9/24; 8/24; 10/24",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.7083333333333334",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Subtract fractions accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 17 / 24 = 0.7083333333333334.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 17,
+          "operandB": 24,
+          "answer": "0.71",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Convert 17/5 to a mixed number.",
+      "resultType": "short-answer",
+      "options": [
+        "3 2/5; 3 1/5; 2 2/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3.4",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Convert improper fractions to mixed numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 17 / 5 = 3.4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 17,
+          "operandB": 5,
+          "answer": "3.4",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A school received 120 books. 3/4 were placed in classrooms. How many books were placed in classrooms?",
+      "resultType": "short-answer",
+      "options": [
+        "90; 80; 100",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.75",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Find fractions of quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 / 4 = 0.75.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 3,
+          "operandB": 4,
+          "answer": "0.75",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A farmer harvested 200 apples. 2/5 were sold. How many apples were sold?",
+      "resultType": "short-answer",
+      "options": [
+        "80; 60; 100",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.4",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Calculate fractions of quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 / 5 = 0.4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 2,
+          "operandB": 5,
+          "answer": "0.4",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A water tank holds 300 litres. It is 2/3 full. How many litres of water are in the tank?",
+      "resultType": "short-answer",
+      "options": [
+        "200; 150; 250",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.6666666666666666",
+      "category": "Fractions",
+      "subcategory": "Review",
+      "learningOutcome": "Apply fractions to solve real-world problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 / 3 = 0.6666666666666666.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 2,
+          "operandB": 3,
+          "answer": "0.67",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    }
+  ]
+}

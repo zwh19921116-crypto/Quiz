@@ -1,0 +1,416 @@
+{
+  "id": "quiz-118",
+  "title": "Grade 1 2.03",
+  "description": "Learning Outcomes for Grade 1: Recall number bonds to 10 | Find missing addends | Apply number bonds to 10 | Identify pairs that make 10",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "1 + ? = 10",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Addition",
+      "subcategory": "Make 10",
+      "learningOutcome": "Recall number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 + ? = 10",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Addition",
+      "subcategory": "Make 10",
+      "learningOutcome": "Recall number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 + ? = 10",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "08",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Addition",
+      "subcategory": "Make 10",
+      "learningOutcome": "Recall number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 + ? = 10",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "07",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Addition",
+      "subcategory": "Make 10",
+      "learningOutcome": "Recall number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 + ? = 10",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "06",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Addition",
+      "subcategory": "Make 10",
+      "learningOutcome": "Recall number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 + ? = 10",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Addition",
+      "subcategory": "Make 10",
+      "learningOutcome": "Recall number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "7 + ? = 10",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Addition",
+      "subcategory": "Make 10",
+      "learningOutcome": "Recall number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8 + ? = 10",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Addition",
+      "subcategory": "Make 10",
+      "learningOutcome": "Recall number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "9 + ? = 10",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "1",
+        "2000",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Addition",
+      "subcategory": "Make 10",
+      "learningOutcome": "Recall number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 + ? = 10",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "1",
+        "2000",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Addition",
+      "subcategory": "Make 10",
+      "learningOutcome": "Recall number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 4 = 10",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "07",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 7 = 10",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "04",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 2 = 10",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "09",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 5 = 10",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "06",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 9 = 10",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "1",
+        "00",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Addition",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing addends",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Sam has 6 apples. How many more to make 10?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Word Problems",
+      "subcategory": "Make 10",
+      "learningOutcome": "Apply number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sam has 6 apples. How many more to make 10?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Mia has 8 stickers. How many more to make 10?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "03",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "Make 10",
+      "learningOutcome": "Apply number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Mia has 8 stickers. How many more to make 10?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "Tom has 3 toys. How many more to make 10?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Word Problems",
+      "subcategory": "Make 10",
+      "learningOutcome": "Apply number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom has 3 toys. How many more to make 10?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "Lily has 9 pencils. How many more to make 10?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "1",
+        "00",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Word Problems",
+      "subcategory": "Make 10",
+      "learningOutcome": "Apply number bonds to 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Lily has 9 pencils. How many more to make 10?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which pair makes 10?",
+      "resultType": "short-answer",
+      "options": [
+        "4 and 6",
+        "4 and 5",
+        "4 and 7",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Review",
+      "subcategory": "Mixed",
+      "learningOutcome": "Identify pairs that make 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    }
+  ]
+}

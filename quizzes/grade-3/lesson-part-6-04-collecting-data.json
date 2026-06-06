@@ -1,0 +1,372 @@
+{
+  "id": "quiz-338",
+  "title": "Grade 3 6.04",
+  "description": "Learning Outcomes for Grade 3: Understand data collection | Identify data | Understand purpose of data | Ask questions to gather data | Understand surveys | Identify data collection methods | Identify survey questions | Organise data | Identify categories | Use tally charts | Record data | Record accurate data | Collect information | Identify sources of data | Process collected data | Distinguish data from objects | Understand purpose of statistics | Classify survey responses | Understand data terminology | Connect data collection and representation",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "What does it mean to collect data?",
+      "resultType": "short-answer",
+      "options": [
+        "Gather information",
+        "Draw shapes",
+        "Measure length",
+        ""
+      ],
+      "correctAnswer": "Gather information",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Understand data collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Gather information.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is an example of data?",
+      "resultType": "short-answer",
+      "options": [
+        "Favourite colour",
+        "Triangle",
+        "Compass",
+        ""
+      ],
+      "correctAnswer": "Favourite colour",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Identify data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Favourite colour.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Why do we collect data?",
+      "resultType": "short-answer",
+      "options": [
+        "To answer questions",
+        "To decorate",
+        "To exercise",
+        ""
+      ],
+      "correctAnswer": "To answer questions",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Understand purpose of data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to To answer questions.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which question could be used to collect data?",
+      "resultType": "short-answer",
+      "options": [
+        "What is your favourite fruit?",
+        "What is 2+2?",
+        "Draw a square",
+        ""
+      ],
+      "correctAnswer": "What is your favourite fruit?",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Ask questions to gather data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to What is your favourite fruit?.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A survey is used to?",
+      "resultType": "short-answer",
+      "options": [
+        "Collect information",
+        "Measure length",
+        "Tell time",
+        ""
+      ],
+      "correctAnswer": "Collect information",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Understand surveys",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Collect information.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tool helps collect class opinions?",
+      "resultType": "short-answer",
+      "options": [
+        "Survey",
+        "Ruler",
+        "Scale",
+        ""
+      ],
+      "correctAnswer": "Survey",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Identify data collection methods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Survey.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What might a class survey ask?",
+      "resultType": "short-answer",
+      "options": [
+        "Favourite sport",
+        "Shoe size of a desk",
+        "Age of a tree",
+        ""
+      ],
+      "correctAnswer": "Favourite sport",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Identify survey questions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Favourite sport.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Data collected from students can be organised into?",
+      "resultType": "short-answer",
+      "options": [
+        "Categories",
+        "Shapes",
+        "Directions",
+        ""
+      ],
+      "correctAnswer": "Categories",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Organise data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Categories.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a category in a favourite fruit survey?",
+      "resultType": "short-answer",
+      "options": [
+        "Apples",
+        "Triangle",
+        "Kilogram",
+        ""
+      ],
+      "correctAnswer": "Apples",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Identify categories",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Apples.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A tally chart helps us?",
+      "resultType": "short-answer",
+      "options": [
+        "Count responses",
+        "Measure mass",
+        "Find directions",
+        ""
+      ],
+      "correctAnswer": "Count responses",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Use tally charts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Count responses.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is recorded in a tally chart?",
+      "resultType": "short-answer",
+      "options": [
+        "Responses",
+        "Angles",
+        "Lengths",
+        ""
+      ],
+      "correctAnswer": "Responses",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Record data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Responses.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Why should data be recorded carefully?",
+      "resultType": "short-answer",
+      "options": [
+        "To be accurate",
+        "To save colour",
+        "To make shapes",
+        ""
+      ],
+      "correctAnswer": "To be accurate",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Record accurate data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to To be accurate.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which activity collects data?",
+      "resultType": "short-answer",
+      "options": [
+        "Asking classmates a question",
+        "Drawing a circle",
+        "Measuring a desk",
+        ""
+      ],
+      "correctAnswer": "Asking classmates a question",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Collect information",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Asking classmates a question.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Data can be collected from?",
+      "resultType": "short-answer",
+      "options": [
+        "People",
+        "Surveys",
+        "Both",
+        ""
+      ],
+      "correctAnswer": "People",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Identify sources of data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to People.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What should happen after collecting data?",
+      "resultType": "short-answer",
+      "options": [
+        "Organise it",
+        "Throw it away",
+        "Ignore it",
+        ""
+      ],
+      "correctAnswer": "Organise it",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Process collected data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Organise it.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is NOT data?",
+      "resultType": "short-answer",
+      "options": [
+        "Favourite colour",
+        "Number of pets",
+        "Triangle shape",
+        ""
+      ],
+      "correctAnswer": "Favourite colour",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Distinguish data from objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Favourite colour.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Why do classes collect data?",
+      "resultType": "short-answer",
+      "options": [
+        "To learn about a group",
+        "To measure roads",
+        "To draw maps",
+        ""
+      ],
+      "correctAnswer": "To learn about a group",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Understand purpose of statistics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to To learn about a group.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which response belongs in a favourite animal survey?",
+      "resultType": "short-answer",
+      "options": [
+        "Dog",
+        "Metre",
+        "Square",
+        ""
+      ],
+      "correctAnswer": "Dog",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Classify survey responses",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Dog.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A survey result is a piece of?",
+      "resultType": "short-answer",
+      "options": [
+        "Data",
+        "Geometry",
+        "Measurement",
+        ""
+      ],
+      "correctAnswer": "Data",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Understand data terminology",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Data.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Collecting data helps us make?",
+      "resultType": "short-answer",
+      "options": [
+        "Graphs and charts",
+        "Shapes",
+        "Directions",
+        ""
+      ],
+      "correctAnswer": "Graphs and charts",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Connect data collection and representation",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Graphs and charts.",
+      "solutionAttachments": []
+    }
+  ]
+}

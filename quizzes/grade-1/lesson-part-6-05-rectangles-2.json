@@ -1,0 +1,405 @@
+{
+  "id": "quiz-160",
+  "title": "Grade 1 6.05",
+  "description": "Learning Outcomes for Grade 1: Identify rectangle properties | Connect rectangles to objects | Identify rectangles | Compare shapes | Connect shapes to objects | Classify shapes | Distinguish rectangles | Recognise rectangle symbols",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "How many sides does a rectangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify rectangle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a rectangle have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many corners does a rectangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "2",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify rectangle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many corners does a rectangle have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape often looks like a door?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect rectangles to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape often looks like a book?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect rectangles to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle has straight sides.",
+      "resultType": "multiple-choice",
+      "options": [
+        "True",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "True",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify rectangle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has four corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has four sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is usually rectangular?",
+      "resultType": "short-answer",
+      "options": [
+        "Television",
+        "Coin",
+        "Ball",
+        ""
+      ],
+      "correctAnswer": "Television",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect rectangles to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Television.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle has more sides than a triangle.",
+      "resultType": "multiple-choice",
+      "options": [
+        "True",
+        "Rectangle",
+        "Triangle",
+        "Circle"
+      ],
+      "correctAnswer": "True",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Compare shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has four sides and four corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify rectangle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle has curved sides.",
+      "resultType": "multiple-choice",
+      "options": [
+        "True",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "True",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify rectangle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to True.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is rectangular?",
+      "resultType": "short-answer",
+      "options": [
+        "Window",
+        "Coin",
+        "Plate",
+        ""
+      ],
+      "correctAnswer": "Window",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect rectangles to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Window.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has the same number of sides as a square?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Compare shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many corners does a rectangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify rectangle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many corners does a rectangle have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape can be a door?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect shapes to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle is a 2D shape.",
+      "resultType": "multiple-choice",
+      "options": [
+        "True",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "True",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Classify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has four straight sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify rectangle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is not a rectangle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Rectangle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Distinguish rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle has four sides and four corners.",
+      "resultType": "multiple-choice",
+      "options": [
+        "True",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "True",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify rectangle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape best matches a rectangle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "▭",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "▭",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Recognise rectangle symbols",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to ▭.",
+      "solutionAttachments": []
+    }
+  ]
+}

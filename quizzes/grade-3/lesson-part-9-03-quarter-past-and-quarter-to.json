@@ -1,0 +1,383 @@
+{
+  "id": "quiz-367",
+  "title": "Grade 3 9.03",
+  "description": "Learning Outcomes for Grade 3: Understand quarter hours | Read quarter past times | Read quarter to times | Understand quarter past | Understand quarter to | Connect digital and analogue time | Sequence times | Calculate elapsed time | Read analogue clocks | Apply time concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "A quarter of an hour is?",
+      "resultType": "short-answer",
+      "options": [
+        "10 minutes",
+        "15 minutes",
+        "30 minutes",
+        ""
+      ],
+      "correctAnswer": "10 minutes",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand quarter hours",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10 minutes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter past 4 is?",
+      "resultType": "short-answer",
+      "options": [
+        "4:15",
+        "4:30",
+        "4:45",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read quarter past times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter past 8 is?",
+      "resultType": "short-answer",
+      "options": [
+        "8:15",
+        "8:30",
+        "8:45",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read quarter past times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter to 5 is?",
+      "resultType": "short-answer",
+      "options": [
+        "4:45",
+        "5:15",
+        "5:45",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read quarter to times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter to 9 is?",
+      "resultType": "short-answer",
+      "options": [
+        "8:45",
+        "9:15",
+        "9:45",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read quarter to times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter past means?",
+      "resultType": "short-answer",
+      "options": [
+        "15 minutes after",
+        "15 minutes before",
+        "30 minutes after",
+        ""
+      ],
+      "correctAnswer": "15 minutes after",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand quarter past",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15 minutes after.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter to means?",
+      "resultType": "short-answer",
+      "options": [
+        "15 minutes after",
+        "15 minutes before",
+        "30 minutes before",
+        ""
+      ],
+      "correctAnswer": "15 minutes after",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand quarter to",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15 minutes after.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter past 12 is?",
+      "resultType": "short-answer",
+      "options": [
+        "12:15",
+        "12:30",
+        "12:45",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read quarter past times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter to 1 is?",
+      "resultType": "short-answer",
+      "options": [
+        "12:45",
+        "1:15",
+        "1:45",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read quarter to times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 6:15?",
+      "resultType": "short-answer",
+      "options": [
+        "Quarter past 6",
+        "Half past 6",
+        "Quarter to 6",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Connect digital and analogue time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 7:45?",
+      "resultType": "short-answer",
+      "options": [
+        "Quarter past 7",
+        "Quarter to 8",
+        "Half past 7",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Connect digital and analogue time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which comes first?",
+      "resultType": "short-answer",
+      "options": [
+        "Quarter past",
+        "Half past",
+        "Quarter to",
+        ""
+      ],
+      "correctAnswer": "Quarter past",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Quarter past.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which comes after quarter past?",
+      "resultType": "short-answer",
+      "options": [
+        "Half past",
+        "O'clock",
+        "Quarter to",
+        ""
+      ],
+      "correctAnswer": "Half past",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Half past.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter past 3 plus 15 minutes equals?",
+      "resultType": "short-answer",
+      "options": [
+        "3:30",
+        "3:45",
+        "4:00",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Calculate elapsed time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter to 6 is how many minutes before 6:00?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "15",
+        "20",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand quarter to",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Quarter to 6 is how many minutes before 6:00?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "Quarter past uses the minute hand pointing to?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "6",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read analogue clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter to uses the minute hand pointing to?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "6",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read analogue clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter past 10 is?",
+      "resultType": "short-answer",
+      "options": [
+        "10:15",
+        "10:30",
+        "10:45",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read quarter past times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter to 11 is?",
+      "resultType": "short-answer",
+      "options": [
+        "10:45",
+        "11:15",
+        "11:45",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read quarter to times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter hours help us read?",
+      "resultType": "short-answer",
+      "options": [
+        "Time accurately",
+        "Length",
+        "Area",
+        ""
+      ],
+      "correctAnswer": "Time accurately",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Apply time concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Time accurately.",
+      "solutionAttachments": []
+    }
+  ]
+}

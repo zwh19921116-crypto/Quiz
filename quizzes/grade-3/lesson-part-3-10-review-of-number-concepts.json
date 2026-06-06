@@ -1,0 +1,488 @@
+{
+  "id": "quiz-314",
+  "title": "Grade 3 3.10",
+  "description": "Learning Outcomes for Grade 3: Identify place value | Build numbers | Compare numbers | Use comparison symbols | Skip count by 10s | Skip count by 5s | Add 3-digit numbers | Subtract 3-digit numbers | Recall multiplication facts | Recall division facts | Solve multiplication problems | Solve division problems | Solve subtraction problems | Solve addition problems | Review fact families | Compare and order numbers",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "What is the value of the 5 in 582?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "50",
+        "500",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Identify place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number has 4 hundreds, 3 tens and 2 ones?",
+      "resultType": "short-answer",
+      "options": [
+        "432",
+        "423",
+        "342",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Build numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "678",
+        "687",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "678",
+      "category": "Number",
+      "subcategory": "Compare Numbers",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 678.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Complete: 456 __ 465",
+      "resultType": "short-answer",
+      "options": [
+        "<",
+        ">",
+        "=",
+        ""
+      ],
+      "correctAnswer": "474",
+      "category": "Number",
+      "subcategory": "Compare Numbers",
+      "learningOutcome": "Use comparison symbols",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 474.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10, 20, 30, ?",
+      "resultType": "short-answer",
+      "options": [
+        "35",
+        "40",
+        "50",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Skip count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5, 10, 15, ?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Skip count by 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "234 + 145 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "369",
+        "379",
+        "389",
+        ""
+      ],
+      "correctAnswer": "379",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 234 + 145 = 379.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 234,
+          "operandB": 145,
+          "answer": "379",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "456 + 123 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "569",
+        "579",
+        "589",
+        ""
+      ],
+      "correctAnswer": "579",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 456 + 123 = 579.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 456,
+          "operandB": 123,
+          "answer": "579",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "700 − 245 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "445",
+        "455",
+        "465",
+        ""
+      ],
+      "correctAnswer": "700",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 700.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "650 − 120 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "520",
+        "530",
+        "540",
+        ""
+      ],
+      "correctAnswer": "650",
+      "category": "Number",
+      "subcategory": "Subtraction",
+      "learningOutcome": "Subtract 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 650.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 × 6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "20",
+        "24",
+        "28",
+        ""
+      ],
+      "correctAnswer": "24",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Recall multiplication facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 x 6 = 24.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 4,
+          "operandB": 6,
+          "answer": "24",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5 × 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "35",
+        "40",
+        "45",
+        ""
+      ],
+      "correctAnswer": "40",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Recall multiplication facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 x 8 = 40.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 5,
+          "operandB": 8,
+          "answer": "40",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "24 ÷ 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 24 / 4 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 24,
+          "operandB": 4,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "35 ÷ 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Division",
+      "learningOutcome": "Recall division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 35 / 5 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 35,
+          "operandB": 5,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3 bags contain 7 apples each. How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "21",
+        "24",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve multiplication problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "3 bags contain 7 apples each. How many apples are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "28 lollies are shared equally among 4 children. How many lollies each?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "28",
+      "category": "Number",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve division problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 28.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "28 lollies are shared equally among 4 children. How many lollies each?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "A shop sold 145 toys from 500 toys. How many remain?",
+      "resultType": "short-answer",
+      "options": [
+        "345",
+        "355",
+        "365",
+        ""
+      ],
+      "correctAnswer": "145",
+      "category": "Number",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve subtraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 145.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A shop sold 145 toys from 500 toys. How many remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A school bought 225 books and then 175 more. How many books altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "390",
+        "400",
+        "410",
+        ""
+      ],
+      "correctAnswer": "225",
+      "category": "Number",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 225.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A school bought 225 books and then 175 more. How many books altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which statement is true?",
+      "resultType": "short-answer",
+      "options": [
+        "6×4=20",
+        "24÷6=4",
+        "18÷3=5",
+        ""
+      ],
+      "correctAnswer": "6×4=20",
+      "category": "Number",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Review fact families",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6×4=20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is the greatest?",
+      "resultType": "short-answer",
+      "options": [
+        "789",
+        "798",
+        "879",
+        ""
+      ],
+      "correctAnswer": "789",
+      "category": "Number",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Compare and order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 789.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,427 @@
+{
+  "id": "quiz-432",
+  "title": "Grade 4 7.01",
+  "description": "Learning Outcomes for Grade 4: Identify 2D shapes | Identify polygons | Identify shape properties | Understand polygons | Compare shapes | Compare polygons | Apply geometry | Understand geometry | Distinguish polygons | Build understanding | Understand properties | Build foundations | Consolidate understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "How many sides does a triangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Triangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify 2D shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a triangle have?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many sides does a square have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify 2D shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a square have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many sides does a pentagon have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "Pentagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "5",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a pentagon have?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many sides does a hexagon have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "Hexagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "6",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a hexagon have?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has 4 equal sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify shape properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 3 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify shape properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 6 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "6",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 8 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "8",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle has how many sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify shape properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A rectangle has how many sides?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "A polygon is a shape with?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Straight sides",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Straight sides",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Understand polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Straight sides.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has the fewest sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        "Rectangle"
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Compare shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has more sides than a pentagon?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Hexagon",
+        "Pentagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "Hexagon",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Compare polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Hexagon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Shapes are used in?",
+      "resultType": "short-answer",
+      "options": [
+        "Design and construction",
+        "Music only",
+        "Cooking only",
+        ""
+      ],
+      "correctAnswer": "Design and construction",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Apply geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Design and construction.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Geometry is the study of?",
+      "resultType": "short-answer",
+      "options": [
+        "Shapes and space",
+        "Colours",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Shapes and space",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Understand geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Shapes and space.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is not a polygon?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Distinguish polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding shapes develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Spatial awareness",
+        "Colour awareness",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Spatial awareness",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Build understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Spatial awareness.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Shapes are found in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday objects",
+        "Nowhere",
+        "Only textbooks",
+        ""
+      ],
+      "correctAnswer": "Everyday objects",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Apply geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday objects.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Polygons have?",
+      "resultType": "short-answer",
+      "options": [
+        "Straight sides",
+        "Curved sides only",
+        "No corners",
+        ""
+      ],
+      "correctAnswer": "Straight sides",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Understand properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Straight sides.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Learning shapes supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future geometry learning",
+        "Colouring",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Future geometry learning",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future geometry learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Geometry is an important part of?",
+      "resultType": "short-answer",
+      "options": [
+        "Mathematics",
+        "Art only",
+        "Music only",
+        ""
+      ],
+      "correctAnswer": "Mathematics",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Consolidate understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mathematics.",
+      "solutionAttachments": []
+    }
+  ]
+}

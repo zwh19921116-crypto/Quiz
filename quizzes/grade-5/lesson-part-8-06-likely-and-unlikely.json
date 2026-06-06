@@ -1,0 +1,384 @@
+{
+  "id": "quiz-546",
+  "title": "Grade 5 8.06",
+  "description": "Learning Outcomes for Grade 5: Use probability language | Identify certain events | Identify impossible events | Compare likelihoods | Understand equal chance | Identify certain outcomes | Identify impossible outcomes",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "Which word means an event has a good chance of happening?",
+      "resultType": "short-answer",
+      "options": [
+        "Likely; Unlikely; Impossible",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Likely; Unlikely; Impossible",
+      "category": "Probability",
+      "subcategory": "Probability Language",
+      "learningOutcome": "Use probability language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Likely; Unlikely; Impossible.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means an event probably will not happen?",
+      "resultType": "short-answer",
+      "options": [
+        "Unlikely; Likely; Certain",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Unlikely; Likely; Certain",
+      "category": "Probability",
+      "subcategory": "Probability Language",
+      "learningOutcome": "Use probability language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Unlikely; Likely; Certain.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "The sun rising tomorrow is?",
+      "resultType": "short-answer",
+      "options": [
+        "Certain; Unlikely; Impossible",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Certain; Unlikely; Impossible",
+      "category": "Probability",
+      "subcategory": "Probability Language",
+      "learningOutcome": "Identify certain events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Certain; Unlikely; Impossible.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rolling a 7 on a standard die is?",
+      "resultType": "short-answer",
+      "options": [
+        "Impossible; Likely; Certain",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Probability",
+      "subcategory": "Probability Language",
+      "learningOutcome": "Identify impossible events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Picking a red ball from a bag with 9 red balls and 1 blue ball is?",
+      "resultType": "short-answer",
+      "options": [
+        "Likely; Unlikely; Impossible",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Probability",
+      "subcategory": "Probability Language",
+      "learningOutcome": "Compare likelihoods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Picking a blue ball from a bag with 9 red balls and 1 blue ball is?",
+      "resultType": "short-answer",
+      "options": [
+        "Unlikely; Certain; Impossible",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Probability",
+      "subcategory": "Probability Language",
+      "learningOutcome": "Compare likelihoods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tossing a coin and getting heads is?",
+      "resultType": "short-answer",
+      "options": [
+        "Equally likely; Impossible; Certain",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Equally likely; Impossible; Certain",
+      "category": "Probability",
+      "subcategory": "Probability Language",
+      "learningOutcome": "Understand equal chance",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Equally likely; Impossible; Certain.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Choosing a weekday from a list of weekdays is?",
+      "resultType": "short-answer",
+      "options": [
+        "Certain; Unlikely; Impossible",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Certain; Unlikely; Impossible",
+      "category": "Probability",
+      "subcategory": "Probability Language",
+      "learningOutcome": "Identify certain events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Certain; Unlikely; Impossible.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Picking a green marble from a bag containing only green marbles is?",
+      "resultType": "short-answer",
+      "options": [
+        "Certain; Unlikely; Impossible",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Certain; Unlikely; Impossible",
+      "category": "Probability",
+      "subcategory": "Probability Language",
+      "learningOutcome": "Identify certain outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Certain; Unlikely; Impossible.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Picking a purple marble from a bag containing only red marbles is?",
+      "resultType": "short-answer",
+      "options": [
+        "Impossible; Likely; Certain",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Impossible; Likely; Certain",
+      "category": "Probability",
+      "subcategory": "Probability Language",
+      "learningOutcome": "Identify impossible outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Impossible; Likely; Certain.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Red; Blue; Same chance",
+      "resultType": "short-answer",
+      "options": [
+        "Red",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Red",
+      "category": "Comparing Chances",
+      "subcategory": "11",
+      "learningOutcome": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Red.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Blue; Red; Same chance",
+      "resultType": "short-answer",
+      "options": [
+        "Blue",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Blue",
+      "category": "Comparing Chances",
+      "subcategory": "12",
+      "learningOutcome": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Blue.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Same chance; Yellow; Green",
+      "resultType": "short-answer",
+      "options": [
+        "Same chance",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Same chance",
+      "category": "Comparing Chances",
+      "subcategory": "13",
+      "learningOutcome": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Same chance.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rolling a number less than 5 on a die; Rolling a 6",
+      "resultType": "short-answer",
+      "options": [
+        "Rolling a number less than 5 on a die",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Comparing Chances",
+      "subcategory": "14",
+      "learningOutcome": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rolling a 1 on a die; Rolling any number from 1-6",
+      "resultType": "short-answer",
+      "options": [
+        "Rolling a 1 on a die",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "-5",
+      "category": "Comparing Chances",
+      "subcategory": "15",
+      "learningOutcome": "Solve the arithmetic question",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 - 6 = -5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 1,
+          "operandB": 6,
+          "answer": "-5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Chocolate bar; Muesli bar; Same chance",
+      "resultType": "short-answer",
+      "options": [
+        "Chocolate bar",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Chocolate bar",
+      "category": "Comparing Chances",
+      "subcategory": "16",
+      "learningOutcome": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Chocolate bar.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Both colours are equally likely; Red is more likely; Blue is impossible",
+      "resultType": "short-answer",
+      "options": [
+        "Both colours are equally likely",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Both colours are equally likely",
+      "category": "Comparing Chances",
+      "subcategory": "17",
+      "learningOutcome": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Both colours are equally likely.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Unlikely; Certain; Likely",
+      "resultType": "short-answer",
+      "options": [
+        "Unlikely",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Unlikely",
+      "category": "Problem Solving",
+      "subcategory": "18",
+      "learningOutcome": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Unlikely.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Unlikely; Certain; Impossible",
+      "resultType": "short-answer",
+      "options": [
+        "Unlikely",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Unlikely",
+      "category": "Problem Solving",
+      "subcategory": "19",
+      "learningOutcome": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Unlikely.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Certain; Likely; Unlikely",
+      "resultType": "short-answer",
+      "options": [
+        "Certain",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Certain",
+      "category": "Problem Solving",
+      "subcategory": "20",
+      "learningOutcome": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Certain.",
+      "solutionAttachments": []
+    }
+  ]
+}

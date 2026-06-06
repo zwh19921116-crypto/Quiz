@@ -1,0 +1,383 @@
+{
+  "id": "quiz-443",
+  "title": "Grade 4 8.02",
+  "description": "Learning Outcomes for Grade 4: Use tally charts | Read tally charts | 3, 4, 2005 | represent? | Count tallies | 2 | Understand organisation | Compare data | Understand usefulness | Understand tally systems | Connect representations | Apply tally charts | Understand statistics | Build understanding | Interpret data | Apply statistics | Build foundations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "What is a tally chart used for?",
+      "resultType": "short-answer",
+      "options": [
+        "Recording data",
+        "Measuring length",
+        "Drawing shapes",
+        ""
+      ],
+      "correctAnswer": "Recording data",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Use tally charts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Recording data.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many tally marks are in a complete group?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "4",
+        "10",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Read tally charts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many tally marks are in a complete group?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "What does",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "3, 4, 2005",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Read the question carefully and use the lesson concept to complete it.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What does",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "represent?",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Read the question carefully and use the lesson concept to complete it.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A group of five tallies represents?",
+      "resultType": "short-answer",
+      "options": [
+        "5 items",
+        "4 items",
+        "6 items",
+        ""
+      ],
+      "correctAnswer": "5 items",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Count tallies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5 items.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tool records data quickly?",
+      "resultType": "short-answer",
+      "options": [
+        "Tally chart",
+        "Protractor",
+        "Compass",
+        ""
+      ],
+      "correctAnswer": "Tally chart",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Use tally charts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tally chart.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If a tally chart shows",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": ", how many?",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to , how many?.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If a tally chart shows",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Read the question carefully and use the lesson concept to complete it.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tally charts help organise?",
+      "resultType": "short-answer",
+      "options": [
+        "Data",
+        "Shapes",
+        "Angles",
+        ""
+      ],
+      "correctAnswer": "Data",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Understand organisation",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Data.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category has the most if it has 10 tallies?",
+      "resultType": "short-answer",
+      "options": [
+        "The category with 10 tallies",
+        "The category with 5 tallies",
+        "The category with 2 tallies",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Compare data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tally charts make counting?",
+      "resultType": "short-answer",
+      "options": [
+        "Easier",
+        "Harder",
+        "Impossible",
+        ""
+      ],
+      "correctAnswer": "Easier",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Understand usefulness",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is Easier.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tally marks are grouped in?",
+      "resultType": "short-answer",
+      "options": [
+        "Fives",
+        "Tens",
+        "Twos",
+        ""
+      ],
+      "correctAnswer": "Fives",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Understand tally systems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Fives.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category has the least if it has 1 tally?",
+      "resultType": "short-answer",
+      "options": [
+        "The category with 1 tally",
+        "The category with 8 tallies",
+        "The category with 6 tallies",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Compare data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tally charts are often used before?",
+      "resultType": "short-answer",
+      "options": [
+        "Graphs",
+        "Fractions",
+        "Geometry",
+        ""
+      ],
+      "correctAnswer": "Graphs",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Connect representations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Graphs.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tally charts record results from?",
+      "resultType": "short-answer",
+      "options": [
+        "Surveys and counts",
+        "Drawing",
+        "Measuring",
+        ""
+      ],
+      "correctAnswer": "Surveys and counts",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Apply tally charts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Surveys and counts.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tally charts are useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Statistics",
+        "Geometry",
+        "Measurement only",
+        ""
+      ],
+      "correctAnswer": "Statistics",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Understand statistics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Statistics.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Reading tally charts develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Data skills",
+        "Colouring skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Data skills",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Build understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Data skills.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tally charts help us find?",
+      "resultType": "short-answer",
+      "options": [
+        "Totals",
+        "Angles",
+        "Lengths",
+        ""
+      ],
+      "correctAnswer": "Totals",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Interpret data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Totals.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tally charts are used in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday investigations",
+        "Music",
+        "Sport only",
+        ""
+      ],
+      "correctAnswer": "Everyday investigations",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Apply statistics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday investigations.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding tally charts supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future statistics learning",
+        "Music",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future statistics learning",
+      "category": "Statistics",
+      "subcategory": "Data Recording",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future statistics learning.",
+      "solutionAttachments": []
+    }
+  ]
+}

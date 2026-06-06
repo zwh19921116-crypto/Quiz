@@ -1,0 +1,609 @@
+{
+  "id": "quiz-494",
+  "title": "Grade 5 3.03",
+  "description": "Learning Outcomes for Grade 5: Multiply a 3-digit number by a 1-digit number | Apply multiplication in real-world contexts | Solve multiplication word problems | Apply multiplication to solve problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "123 × 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "246; 236; 256",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "246",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 123 x 2 = 246.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 123,
+          "operandB": 2,
+          "answer": "246",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "145 × 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "435; 425; 445",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "435",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 145 x 3 = 435.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 145,
+          "operandB": 3,
+          "answer": "435",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "210 × 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "840; 820; 860",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "840",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 210 x 4 = 840.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 210,
+          "operandB": 4,
+          "answer": "840",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "132 × 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "264; 254; 274",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "264",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 132 x 2 = 264.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 132,
+          "operandB": 2,
+          "answer": "264",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "250 × 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "750; 700; 800",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "750",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 250 x 3 = 750.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 250,
+          "operandB": 3,
+          "answer": "750",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "321 × 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "642; 632; 652",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "642",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 321 x 2 = 642.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 321,
+          "operandB": 2,
+          "answer": "642",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "412 × 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "824; 814; 834",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "824",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 412 x 2 = 824.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 412,
+          "operandB": 2,
+          "answer": "824",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "205 × 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "820; 800; 840",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "820",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 205 x 4 = 820.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 205,
+          "operandB": 4,
+          "answer": "820",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "111 × 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "555; 545; 565",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "555",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 111 x 5 = 555.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 111,
+          "operandB": 5,
+          "answer": "555",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "302 × 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "906; 896; 916",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "906",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 302 x 3 = 906.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 302,
+          "operandB": 3,
+          "answer": "906",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "234 × 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "468; 458; 478",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "468",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 234 x 2 = 468.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 234,
+          "operandB": 2,
+          "answer": "468",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "156 × 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "468; 458; 478",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "468",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 156 x 3 = 468.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 156,
+          "operandB": 3,
+          "answer": "468",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "321 × 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "1284; 1274; 1294",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1284",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 321 x 4 = 1284.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 321,
+          "operandB": 4,
+          "answer": "1284",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "245 × 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "1225; 1215; 1235",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1225",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 245 x 5 = 1225.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 245,
+          "operandB": 5,
+          "answer": "1225",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "412 × 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "1236; 1226; 1246",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1236",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 412 x 3 = 1236.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 412,
+          "operandB": 3,
+          "answer": "1236",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "508 × 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "1016; 1006; 1026",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1016",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 508 x 2 = 1016.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 508,
+          "operandB": 2,
+          "answer": "1016",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "375 × 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "1500; 1490; 1510",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1500",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Multiply a 3-digit number by a 1-digit number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 375 x 4 = 1500.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 375,
+          "operandB": 4,
+          "answer": "1500",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A factory produces 125 items each day for 4 days. How many items are produced?",
+      "resultType": "short-answer",
+      "options": [
+        "500; 490; 510",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "125",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Apply multiplication in real-world contexts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 125.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A factory produces 125 items each day for 4 days. How many items are produced?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A school has 215 students in each year level and 5 year levels. How many students are there?",
+      "resultType": "short-answer",
+      "options": [
+        "1075; 1065; 1085",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "215",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 215.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A school has 215 students in each year level and 5 year levels. How many students are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A warehouse stores 320 boxes on each shelf and has 3 shelves. How many boxes are stored?",
+      "resultType": "short-answer",
+      "options": [
+        "960; 950; 970",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "320",
+      "category": "Number",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Apply multiplication to solve problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 320.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A warehouse stores 320 boxes on each shelf and has 3 shelves. How many boxes are stored?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    }
+  ]
+}

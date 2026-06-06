@@ -1,0 +1,1020 @@
+{
+  "id": "quiz-401",
+  "title": "Grade 4 3.1",
+  "description": "Learning Outcomes for Grade 4: Review multiplication facts | Review division facts | Apply multiplication strategies | Apply division facts | Multiply larger numbers | Divide larger numbers | Apply multiplication | Apply division | Review terminology | Review division concepts | Use inverse operations | Divide multiples of 10 | Understand relationships | Select operations | Verify answers | Develop fluency | Develop reasoning | Consolidate learning",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 40
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "6 × 7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "40",
+        "42",
+        "48",
+        ""
+      ],
+      "correctAnswer": "42",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review multiplication facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6 x 7 = 42.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 6,
+          "operandB": 7,
+          "answer": "42",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "6 × 7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "40",
+        "42",
+        "48",
+        ""
+      ],
+      "correctAnswer": "42",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review multiplication facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6 x 7 = 42.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 6,
+          "operandB": 7,
+          "answer": "42",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "56 ÷ 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 56 / 8 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 56,
+          "operandB": 8,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "56 ÷ 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 56 / 8 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 56,
+          "operandB": 8,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "25 × 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "100",
+        "90",
+        "110",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Apply multiplication strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 25 x 4 = 100.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 25,
+          "operandB": 4,
+          "answer": "100",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "25 × 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "100",
+        "90",
+        "110",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Apply multiplication strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 25 x 4 = 100.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 25,
+          "operandB": 4,
+          "answer": "100",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "72 ÷ 9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Apply division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 72 / 9 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 72,
+          "operandB": 9,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "72 ÷ 9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Apply division facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 72 / 9 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 72,
+          "operandB": 9,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "123 × 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "246",
+        "236",
+        "256",
+        ""
+      ],
+      "correctAnswer": "246",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Multiply larger numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 123 x 2 = 246.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 123,
+          "operandB": 2,
+          "answer": "246",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "123 × 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "246",
+        "236",
+        "256",
+        ""
+      ],
+      "correctAnswer": "246",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Multiply larger numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 123 x 2 = 246.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 123,
+          "operandB": 2,
+          "answer": "246",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "144 ÷ 12 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Divide larger numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 144 / 12 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 144,
+          "operandB": 12,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "144 ÷ 12 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Divide larger numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 144 / 12 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 144,
+          "operandB": 12,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "15 × 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "110",
+        "120",
+        "130",
+        ""
+      ],
+      "correctAnswer": "120",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Apply multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 15 x 8 = 120.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 15,
+          "operandB": 8,
+          "answer": "120",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "15 × 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "110",
+        "120",
+        "130",
+        ""
+      ],
+      "correctAnswer": "120",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Apply multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 15 x 8 = 120.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 15,
+          "operandB": 8,
+          "answer": "120",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "180 ÷ 9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Apply division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 180 / 9 = 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 180,
+          "operandB": 9,
+          "answer": "20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "180 ÷ 9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Apply division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 180 / 9 = 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 180,
+          "operandB": 9,
+          "answer": "20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Multiplication finds the?",
+      "resultType": "short-answer",
+      "options": [
+        "Product",
+        "Sum",
+        "Difference",
+        ""
+      ],
+      "correctAnswer": "Product",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review terminology",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Product.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Multiplication finds the?",
+      "resultType": "short-answer",
+      "options": [
+        "Product",
+        "Sum",
+        "Difference",
+        ""
+      ],
+      "correctAnswer": "Product",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review terminology",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Product.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Division finds equal?",
+      "resultType": "short-answer",
+      "options": [
+        "Shares",
+        "Totals",
+        "Areas",
+        ""
+      ],
+      "correctAnswer": "Shares",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review division concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Shares.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Division finds equal?",
+      "resultType": "short-answer",
+      "options": [
+        "Shares",
+        "Totals",
+        "Areas",
+        ""
+      ],
+      "correctAnswer": "Shares",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review division concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Shares.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If 7 × 8 = 56, then 56 ÷ 7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "56",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Use inverse operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7 x 8 = 56.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 7,
+          "operandB": 8,
+          "answer": "56",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "If 7 × 8 = 56, then 56 ÷ 7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "56",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Use inverse operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7 x 8 = 56.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 7,
+          "operandB": 8,
+          "answer": "56",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "300 ÷ 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "50",
+        "60",
+        "70",
+        ""
+      ],
+      "correctAnswer": "60",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Divide multiples of 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 300 / 5 = 60.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 300,
+          "operandB": 5,
+          "answer": "60",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "300 ÷ 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "50",
+        "60",
+        "70",
+        ""
+      ],
+      "correctAnswer": "60",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Divide multiples of 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 300 / 5 = 60.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 300,
+          "operandB": 5,
+          "answer": "60",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "250 × 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "000",
+        "900",
+        "1"
+      ],
+      "correctAnswer": "1000",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Multiply larger numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 250 x 4 = 1000.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 250,
+          "operandB": 4,
+          "answer": "1000",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "250 × 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "000",
+        "900",
+        "1"
+      ],
+      "correctAnswer": "1000",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Multiply larger numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 250 x 4 = 1000.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 250,
+          "operandB": 4,
+          "answer": "1000",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "96 ÷ 12 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Apply division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 96 / 12 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 96,
+          "operandB": 12,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "96 ÷ 12 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Apply division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 96 / 12 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 96,
+          "operandB": 12,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Multiplication and division are?",
+      "resultType": "short-answer",
+      "options": [
+        "Inverse operations",
+        "Shapes",
+        "Measurements",
+        ""
+      ],
+      "correctAnswer": "Inverse operations",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Understand relationships",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Inverse operations.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Multiplication and division are?",
+      "resultType": "short-answer",
+      "options": [
+        "Inverse operations",
+        "Shapes",
+        "Measurements",
+        ""
+      ],
+      "correctAnswer": "Inverse operations",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Understand relationships",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Inverse operations.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A word problem involving equal groups usually uses?",
+      "resultType": "short-answer",
+      "options": [
+        "Multiplication or division",
+        "Addition only",
+        "Subtraction only",
+        ""
+      ],
+      "correctAnswer": "Multiplication or division",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Select operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Multiplication or division.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A word problem involving equal groups usually uses?",
+      "resultType": "short-answer",
+      "options": [
+        "Multiplication or division",
+        "Addition only",
+        "Subtraction only",
+        ""
+      ],
+      "correctAnswer": "Multiplication or division",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Select operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Multiplication or division.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Division can be checked using?",
+      "resultType": "short-answer",
+      "options": [
+        "Multiplication",
+        "Addition",
+        "Estimation only",
+        ""
+      ],
+      "correctAnswer": "Multiplication",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Verify answers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Multiplication.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Division can be checked using?",
+      "resultType": "short-answer",
+      "options": [
+        "Multiplication",
+        "Addition",
+        "Estimation only",
+        ""
+      ],
+      "correctAnswer": "Multiplication",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Verify answers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Multiplication.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Multiplication facts help with?",
+      "resultType": "short-answer",
+      "options": [
+        "Speed and accuracy",
+        "Colouring",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Speed and accuracy",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Develop fluency",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Speed and accuracy.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Multiplication facts help with?",
+      "resultType": "short-answer",
+      "options": [
+        "Speed and accuracy",
+        "Colouring",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Speed and accuracy",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Develop fluency",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Speed and accuracy.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mathematical reasoning improves when solving?",
+      "resultType": "short-answer",
+      "options": [
+        "Problems",
+        "Colouring tasks",
+        "Art tasks",
+        ""
+      ],
+      "correctAnswer": "Problems",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Develop reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Problems.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mathematical reasoning improves when solving?",
+      "resultType": "short-answer",
+      "options": [
+        "Problems",
+        "Colouring tasks",
+        "Art tasks",
+        ""
+      ],
+      "correctAnswer": "Problems",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Develop reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Problems.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding multiplication and division supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Drawing",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Consolidate learning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding multiplication and division supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Drawing",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Consolidate learning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    }
+  ]
+}

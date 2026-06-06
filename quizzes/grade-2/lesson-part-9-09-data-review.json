@@ -1,0 +1,372 @@
+{
+  "id": "quiz-293",
+  "title": "Grade 2 9.09",
+  "description": "Learning Outcomes for Grade 2: Review data concepts | Identify data | Review sorting | Review categories | Review graphs | Review tables | Review comparisons | Compare data | Display data | Categorise data | Review statistics | Apply data | Interpret data | Consolidate data skills",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "Data is information that we?",
+      "resultType": "short-answer",
+      "options": [
+        "Collect",
+        "Throw away",
+        "Hide",
+        ""
+      ],
+      "correctAnswer": "Collect",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Review data concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Collect.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is an example of data?",
+      "resultType": "short-answer",
+      "options": [
+        "Favourite colour",
+        "Ruler",
+        "Coin",
+        ""
+      ],
+      "correctAnswer": "Favourite colour",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Identify data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Favourite colour.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Sorting data means?",
+      "resultType": "short-answer",
+      "options": [
+        "Grouping information",
+        "Measuring",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Grouping information",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Review sorting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Grouping information.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category does apple belong to?",
+      "resultType": "short-answer",
+      "options": [
+        "Fruit",
+        "Animal",
+        "Sport",
+        ""
+      ],
+      "correctAnswer": "Fruit",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Review categories",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Fruit.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A picture graph uses?",
+      "resultType": "plot",
+      "options": [
+        "Pictures to show data",
+        "Coins",
+        "Maps",
+        ""
+      ],
+      "correctAnswer": "Pictures to show data",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Review graphs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pictures to show data.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Graphs help us?",
+      "resultType": "short-answer",
+      "options": [
+        "Read data",
+        "Measure length",
+        "Tell time",
+        ""
+      ],
+      "correctAnswer": "Read data",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Review graphs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Read data.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tables organise data into?",
+      "resultType": "short-answer",
+      "options": [
+        "Rows and columns",
+        "Circles and squares",
+        "Maps and roads",
+        ""
+      ],
+      "correctAnswer": "Rows and columns",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Review tables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rows and columns.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rows go?",
+      "resultType": "short-answer",
+      "options": [
+        "Across",
+        "Down",
+        "Around",
+        ""
+      ],
+      "correctAnswer": "Across",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Review tables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Across.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Columns go?",
+      "resultType": "short-answer",
+      "options": [
+        "Down",
+        "Across",
+        "Around",
+        ""
+      ],
+      "correctAnswer": "Down",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Review tables",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Down.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Comparing data means finding?",
+      "resultType": "short-answer",
+      "options": [
+        "More",
+        "less or equal",
+        "Shapes",
+        "Directions"
+      ],
+      "correctAnswer": "More",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Review comparisons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to More.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater? 12 or 8",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "8",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Compare data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller? 5 or 11",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "11",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Compare data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equal means?",
+      "resultType": "short-answer",
+      "options": [
+        "Same amount",
+        "More",
+        "Less",
+        ""
+      ],
+      "correctAnswer": "Same amount",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Compare data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Same amount.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Data can be shown in a?",
+      "resultType": "short-answer",
+      "options": [
+        "Graph or table",
+        "Clock",
+        "Compass",
+        ""
+      ],
+      "correctAnswer": "Graph or table",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Display data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Graph or table.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category does soccer belong to?",
+      "resultType": "short-answer",
+      "options": [
+        "Sport",
+        "Fruit",
+        "Animal",
+        ""
+      ],
+      "correctAnswer": "Sport",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Categorise data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sport.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Statistics is the study of?",
+      "resultType": "short-answer",
+      "options": [
+        "Data",
+        "Shapes",
+        "Time",
+        ""
+      ],
+      "correctAnswer": "Data",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Review statistics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Data.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Data helps us make?",
+      "resultType": "short-answer",
+      "options": [
+        "Decisions",
+        "Shapes",
+        "Measurements",
+        ""
+      ],
+      "correctAnswer": "Decisions",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Apply data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Decisions.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Graphs make data easier to?",
+      "resultType": "short-answer",
+      "options": [
+        "Understand",
+        "Lose",
+        "Ignore",
+        ""
+      ],
+      "correctAnswer": "Understand",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Interpret data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Understand.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Sorting helps organise?",
+      "resultType": "short-answer",
+      "options": [
+        "Information",
+        "Time",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Information",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Review sorting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Information.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Data and graphs help us understand?",
+      "resultType": "short-answer",
+      "options": [
+        "Information",
+        "Directions",
+        "Length",
+        ""
+      ],
+      "correctAnswer": "Information",
+      "category": "Statistics",
+      "subcategory": "Review",
+      "learningOutcome": "Consolidate data skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Information.",
+      "solutionAttachments": []
+    }
+  ]
+}

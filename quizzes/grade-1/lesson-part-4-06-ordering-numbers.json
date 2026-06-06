@@ -1,0 +1,372 @@
+{
+  "id": "quiz-141",
+  "title": "Grade 1 4.06",
+  "description": "Learning Outcomes for Grade 1: Order numbers | Order numbers to 100",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "Which is the smallest? 12, 15, 18",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "15",
+        "18",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the largest? 21, 24, 19",
+      "resultType": "short-answer",
+      "options": [
+        "21",
+        "24",
+        "19",
+        ""
+      ],
+      "correctAnswer": "21",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 21.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Put in order: 14, 12, 13",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "13",
+        "14 / 13",
+        "12"
+      ],
+      "correctAnswer": "14",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the smallest? 35, 31, 38",
+      "resultType": "short-answer",
+      "options": [
+        "35",
+        "31",
+        "38",
+        ""
+      ],
+      "correctAnswer": "35",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 35.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the largest? 42, 39, 41",
+      "resultType": "short-answer",
+      "options": [
+        "42",
+        "39",
+        "41",
+        ""
+      ],
+      "correctAnswer": "42",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 42.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Put in order: 27, 29, 28",
+      "resultType": "short-answer",
+      "options": [
+        "27",
+        "28",
+        "29 / 29",
+        "28"
+      ],
+      "correctAnswer": "27",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 27.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the smallest? 56, 65, 46",
+      "resultType": "short-answer",
+      "options": [
+        "56",
+        "65",
+        "46",
+        ""
+      ],
+      "correctAnswer": "56",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 56.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the largest? 72, 27, 62",
+      "resultType": "short-answer",
+      "options": [
+        "72",
+        "27",
+        "62",
+        ""
+      ],
+      "correctAnswer": "72",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 72.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Put in order: 51, 53, 52",
+      "resultType": "short-answer",
+      "options": [
+        "51",
+        "52",
+        "53 / 53",
+        "52"
+      ],
+      "correctAnswer": "51",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 51.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the smallest? 84, 48, 74",
+      "resultType": "short-answer",
+      "options": [
+        "84",
+        "48",
+        "74",
+        ""
+      ],
+      "correctAnswer": "84",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 84.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the largest? 86, 68, 76",
+      "resultType": "short-answer",
+      "options": [
+        "86",
+        "68",
+        "76",
+        ""
+      ],
+      "correctAnswer": "86",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers to 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 86.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Put in order: 95, 91, 93",
+      "resultType": "short-answer",
+      "options": [
+        "91",
+        "93",
+        "95 / 95",
+        "93"
+      ],
+      "correctAnswer": "95",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers to 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 95.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the smallest? 99, 89, 79",
+      "resultType": "short-answer",
+      "options": [
+        "99",
+        "89",
+        "79",
+        ""
+      ],
+      "correctAnswer": "99",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers to 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 99.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the largest? 57, 75, 67",
+      "resultType": "short-answer",
+      "options": [
+        "57",
+        "75",
+        "67",
+        ""
+      ],
+      "correctAnswer": "57",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers to 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 57.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Put in order: 63, 61, 62",
+      "resultType": "short-answer",
+      "options": [
+        "61",
+        "62",
+        "63 / 63",
+        "62"
+      ],
+      "correctAnswer": "63",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers to 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 63.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the smallest? 44, 34, 43",
+      "resultType": "short-answer",
+      "options": [
+        "44",
+        "34",
+        "43",
+        ""
+      ],
+      "correctAnswer": "44",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers to 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 44.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the largest? 58, 85, 68",
+      "resultType": "short-answer",
+      "options": [
+        "58",
+        "85",
+        "68",
+        ""
+      ],
+      "correctAnswer": "58",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers to 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 58.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Put in order: 77, 79, 78",
+      "resultType": "short-answer",
+      "options": [
+        "77",
+        "78",
+        "79 / 79",
+        "78"
+      ],
+      "correctAnswer": "77",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers to 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 77.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the smallest? 92, 29, 82",
+      "resultType": "short-answer",
+      "options": [
+        "92",
+        "29",
+        "82",
+        ""
+      ],
+      "correctAnswer": "92",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers to 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 92.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the largest? 100, 99, 98",
+      "resultType": "short-answer",
+      "options": [
+        "100",
+        "99",
+        "98",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Number Order",
+      "learningOutcome": "Order numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    }
+  ]
+}

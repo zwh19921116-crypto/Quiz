@@ -1,0 +1,372 @@
+{
+  "id": "quiz-139",
+  "title": "Grade 1 4.04",
+  "description": "Learning Outcomes for Grade 1: Compare numbers",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "Which number is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "15",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "11",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "25",
+        "32",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "41",
+        "39",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "41",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 41.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "28",
+        "82",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "28",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 28.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "56",
+        "65",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "56",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 56.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "47",
+        "74",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "47",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 47.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "93",
+        "39",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "93",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 93.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "63",
+        "36",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "63",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 63.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "81",
+        "18",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "81",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 81.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "54",
+        "45",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "54",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 54.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "72",
+        "27",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "72",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 72.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "68",
+        "86",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "68",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 68.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "91",
+        "19",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "91",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 91.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "57",
+        "75",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "57",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 57.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "84",
+        "48",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "84",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 84.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "62",
+        "26",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "62",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 62.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "73",
+        "37",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "73",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 73.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "95",
+        "59",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "95",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 95.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "88",
+        "80",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "88",
+      "category": "Number",
+      "subcategory": "Number Comparison",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 88.",
+      "solutionAttachments": []
+    }
+  ]
+}

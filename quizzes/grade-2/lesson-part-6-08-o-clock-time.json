@@ -1,0 +1,383 @@
+{
+  "id": "quiz-262",
+  "title": "Grade 2 6.08",
+  "description": "Learning Outcomes for Grade 2: Read o'clock times | Read clocks | Identify clock parts | Understand clocks | Understand elapsed time",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "When the minute hand points to 12, it is called?",
+      "resultType": "short-answer",
+      "options": [
+        "O'clock",
+        "Half past",
+        "Quarter past",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is shown when the hour hand is on 3 and minute hand on 12?",
+      "resultType": "short-answer",
+      "options": [
+        "3 o'clock",
+        "12 o'clock",
+        "6 o'clock",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Read clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is shown when the hour hand is on 5 and minute hand on 12?",
+      "resultType": "short-answer",
+      "options": [
+        "5 o'clock",
+        "12 o'clock",
+        "10 o'clock",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Read clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is shown when the hour hand is on 8 and minute hand on 12?",
+      "resultType": "short-answer",
+      "options": [
+        "8 o'clock",
+        "12 o'clock",
+        "4 o'clock",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Read clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which hand tells the hour?",
+      "resultType": "short-answer",
+      "options": [
+        "Short hand",
+        "Long hand",
+        "Both",
+        ""
+      ],
+      "correctAnswer": "Short hand",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Identify clock parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Short hand.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which hand tells the minutes?",
+      "resultType": "short-answer",
+      "options": [
+        "Long hand",
+        "Short hand",
+        "Both",
+        ""
+      ],
+      "correctAnswer": "Long hand",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Identify clock parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Long hand.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is shown when the hour hand is on 1 and minute hand on 12?",
+      "resultType": "short-answer",
+      "options": [
+        "1 o'clock",
+        "11 o'clock",
+        "12 o'clock",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Read clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is shown when the hour hand is on 10 and minute hand on 12?",
+      "resultType": "short-answer",
+      "options": [
+        "10 o'clock",
+        "12 o'clock",
+        "2 o'clock",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Read clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Clocks help us measure?",
+      "resultType": "short-answer",
+      "options": [
+        "Time",
+        "Length",
+        "Capacity",
+        ""
+      ],
+      "correctAnswer": "Time",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Understand clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Time.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many hours are shown on a clock face?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "10",
+        "24",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Understand clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many hours are shown on a clock face?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "What time is shown when the hour hand is on 7 and minute hand on 12?",
+      "resultType": "short-answer",
+      "options": [
+        "7 o'clock",
+        "5 o'clock",
+        "9 o'clock",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Read clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is shown when the hour hand is on 12 and minute hand on 12?",
+      "resultType": "short-answer",
+      "options": [
+        "12 o'clock",
+        "6 o'clock",
+        "3 o'clock",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Read clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "O'clock means the minute hand points to?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "6",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Understand clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which comes one hour after 4 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "5 o'clock",
+        "3 o'clock",
+        "6 o'clock",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Understand elapsed time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which comes one hour before 9 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "8 o'clock",
+        "10 o'clock",
+        "7 o'clock",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Understand elapsed time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is shown when the hour hand is on 6 and minute hand on 12?",
+      "resultType": "short-answer",
+      "options": [
+        "6 o'clock",
+        "12 o'clock",
+        "9 o'clock",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Read clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is shown when the hour hand is on 2 and minute hand on 12?",
+      "resultType": "short-answer",
+      "options": [
+        "2 o'clock",
+        "4 o'clock",
+        "12 o'clock",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Read clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is shown when the hour hand is on 11 and minute hand on 12?",
+      "resultType": "short-answer",
+      "options": [
+        "11 o'clock",
+        "1 o'clock",
+        "12 o'clock",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Read clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A clock measures?",
+      "resultType": "short-answer",
+      "options": [
+        "Time",
+        "Mass",
+        "Capacity",
+        ""
+      ],
+      "correctAnswer": "Time",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Understand clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Time.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "O'clock time uses which hand on 12?",
+      "resultType": "short-answer",
+      "options": [
+        "Minute hand",
+        "Hour hand",
+        "Both",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Understand clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,405 @@
+{
+  "id": "quiz-522",
+  "title": "Grade 5 6.01",
+  "description": "Learning Outcomes for Grade 5: Identify appropriate units of length | Convert metres and centimetres | Convert kilometres and metres | Convert centimetres and metres | Compare equivalent lengths | Compare lengths | Convert between metric units | Convert metres and kilometres | Convert decimal measurements | Compare metric lengths | Apply length conversions in context | Convert measurements in real-world situations | Solve length problems involving addition",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "Which unit is best for measuring the length of a pencil?",
+      "resultType": "short-answer",
+      "options": [
+        "cm; km; L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "cm; km; L",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Identify appropriate units of length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to cm; km; L.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit is best for measuring the distance between cities?",
+      "resultType": "short-answer",
+      "options": [
+        "km; cm; m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "km; cm; m",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Identify appropriate units of length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to km; cm; m.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many centimetres are in 1 metre?",
+      "resultType": "short-answer",
+      "options": [
+        "100; 10; 1000",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Convert metres and centimetres",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many centimetres are in 1 metre?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many metres are in 1 kilometre?",
+      "resultType": "short-answer",
+      "options": [
+        "1000; 100; 10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Convert kilometres and metres",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many metres are in 1 kilometre?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Convert 2 m to cm.",
+      "resultType": "short-answer",
+      "options": [
+        "200 cm; 20 cm; 2000 cm",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Convert metres and centimetres",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 300 cm to m.",
+      "resultType": "short-answer",
+      "options": [
+        "3 m; 30 m; 0.3 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "300",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Convert centimetres and metres",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 300.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "5 m; 500 cm; Same",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5 m; 500 cm; Same",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare equivalent lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5 m; 500 cm; Same.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "2 km; 1500 m; Same",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2 km; 1500 m; Same",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 km; 1500 m; Same.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 5 m to cm.",
+      "resultType": "short-answer",
+      "options": [
+        "500 cm; 50 cm; 5000 cm",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Convert metres and centimetres",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 800 cm to m.",
+      "resultType": "short-answer",
+      "options": [
+        "8 m; 80 m; 0.8 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "800",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Convert centimetres and metres",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 800.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 4.5 m to cm.",
+      "resultType": "short-answer",
+      "options": [
+        "450 cm; 45 cm; 4500 cm",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Convert between metric units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 2500 m to km.",
+      "resultType": "short-answer",
+      "options": [
+        "2.5 km; 25 km; 0.25 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2500",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Convert metres and kilometres",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2500.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "3.2 km; 3200 m; Same",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3.2 km; 3200 m; Same",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare equivalent lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.2 km; 3200 m; Same.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 7.25 m to cm.",
+      "resultType": "short-answer",
+      "options": [
+        "725 cm; 72.5 cm; 7250 cm",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Convert decimal measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 0.8 km to m.",
+      "resultType": "short-answer",
+      "options": [
+        "800 m; 80 m; 8000 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Convert kilometres and metres",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter?",
+      "resultType": "short-answer",
+      "options": [
+        "950 m; 1 km; Same",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "950 m; 1 km; Same",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare metric lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 950 m; 1 km; Same.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 125 cm to m.",
+      "resultType": "short-answer",
+      "options": [
+        "1.25 m; 12.5 m; 0.125 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "125",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Convert centimetres and metres",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 125.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A road is 3.5 km long. How many metres is this?",
+      "resultType": "short-answer",
+      "options": [
+        "3500 m; 350 m; 35000 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Apply length conversions in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A road is 3.5 km long. How many metres is this?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A rope is 450 cm long. What is its length in metres?",
+      "resultType": "short-answer",
+      "options": [
+        "4.5 m; 45 m; 0.45 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "450",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Convert measurements in real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 450.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A runner completes 2.75 km and then another 1.25 km. How far did the runner travel altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "4 km; 3 km; 5 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Solve length problems involving addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    }
+  ]
+}

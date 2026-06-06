@@ -1,0 +1,372 @@
+{
+  "id": "quiz-524",
+  "title": "Grade 5 6.03",
+  "description": "Learning Outcomes for Grade 5: Calculate area of rectangles | Calculate area of squares | Calculate area using length × width | Calculate area of larger rectangles | Calculate area accurately | Calculate area of larger shapes | Apply area calculations in real-world situations | Solve area problems in context | Apply area calculations to real-world situations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "What is the area of a rectangle 2 cm long and 3 cm wide?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the area of a square with sides of 4 cm?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of squares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the area of a rectangle 5 m long and 2 m wide?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the area of a square with sides of 3 m?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of squares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle measures 6 cm by 2 cm. What is its area?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "6",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A square has sides of 5 cm. What is its area?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of squares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the area of a rectangle 7 m long and 3 m wide?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the area of a square with sides of 6 m?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "6",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of squares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle measures 8 cm by 4 cm. What is its area?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A square has sides of 8 cm. What is its area?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of squares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the area of a rectangle 12 cm long and 5 cm wide?",
+      "resultType": "multiple-choice",
+      "options": [
+        "12",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area using length × width",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the area of a square with sides of 11 cm?",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "11",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of squares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle measures 15 m by 8 m. What is its area?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "15",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of larger rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A square garden has sides of 13 m. What is its area?",
+      "resultType": "multiple-choice",
+      "options": [
+        "13",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "13",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of squares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 13.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle measures 20 cm by 7 cm. What is its area?",
+      "resultType": "multiple-choice",
+      "options": [
+        "20",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "20",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the area of a square with sides of 14 cm?",
+      "resultType": "multiple-choice",
+      "options": [
+        "14",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "14",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle measures 25 m by 12 m. What is its area?",
+      "resultType": "multiple-choice",
+      "options": [
+        "25",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "25",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area of larger shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangular playground is 30 m long and 20 m wide. What is its area?",
+      "resultType": "short-answer",
+      "options": [
+        "600 m²; 100 m²; 500 m²",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Apply area calculations in real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A square paddock has sides of 45 m. What is its area?",
+      "resultType": "multiple-choice",
+      "options": [
+        "45",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "45",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Solve area problems in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 45.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangular pool is 18 m long and 12 m wide. What is the surface area of the pool?",
+      "resultType": "short-answer",
+      "options": [
+        "216 m²; 60 m²; 30 m²",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Measurement",
+      "subcategory": "Area",
+      "learningOutcome": "Apply area calculations to real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18.",
+      "solutionAttachments": []
+    }
+  ]
+}

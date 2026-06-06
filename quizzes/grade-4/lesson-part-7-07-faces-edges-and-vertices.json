@@ -1,0 +1,405 @@
+{
+  "id": "quiz-438",
+  "title": "Grade 4 7.07",
+  "description": "Learning Outcomes for Grade 4: Identify parts of 3D objects | Identify object properties | Compare 3D objects | Identify object features | Understand object properties | Understand vertices | Use geometric language | Connect geometry to real life | Build understanding | Apply geometry | Understand geometry | Build foundations | Consolidate understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "A face is a?",
+      "resultType": "short-answer",
+      "options": [
+        "Flat surface",
+        "Corner",
+        "Line",
+        ""
+      ],
+      "correctAnswer": "Flat surface",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify parts of 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Flat surface.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "An edge is where?",
+      "resultType": "short-answer",
+      "options": [
+        "Two faces meet",
+        "Two colours meet",
+        "Two numbers meet",
+        ""
+      ],
+      "correctAnswer": "Two faces meet",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify parts of 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Two faces meet.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A vertex is a?",
+      "resultType": "short-answer",
+      "options": [
+        "Corner",
+        "Face",
+        "Edge",
+        ""
+      ],
+      "correctAnswer": "Corner",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify parts of 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Corner.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many faces does a cube have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "Cube",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "6",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify object properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many faces does a cube have?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many vertices does a cube have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "Cube",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "8",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify object properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many vertices does a cube have?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many edges does a cube have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "12",
+        "Cube",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "12",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify object properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many edges does a cube have?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which object has no vertices?",
+      "resultType": "short-answer",
+      "options": [
+        "Sphere",
+        "Cube",
+        "Cone",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Compare 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object has one vertex?",
+      "resultType": "short-answer",
+      "options": [
+        "Cone",
+        "Cube",
+        "Cylinder",
+        ""
+      ],
+      "correctAnswer": "Cone",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Compare 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cone.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangular prism has?",
+      "resultType": "short-answer",
+      "options": [
+        "Faces",
+        "edges and vertices",
+        "Faces only",
+        "Edges only"
+      ],
+      "correctAnswer": "Faces",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify object features",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Faces.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A sphere has flat faces?",
+      "resultType": "multiple-choice",
+      "options": [
+        "No",
+        "Sphere",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "No",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Understand object properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to No.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Faces are usually?",
+      "resultType": "short-answer",
+      "options": [
+        "Flat",
+        "Curved only",
+        "Invisible",
+        ""
+      ],
+      "correctAnswer": "Flat",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify object features",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Flat.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Vertices are where edges?",
+      "resultType": "short-answer",
+      "options": [
+        "Meet",
+        "End",
+        "Curve",
+        ""
+      ],
+      "correctAnswer": "Meet",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Understand vertices",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Meet.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding faces, edges and vertices helps?",
+      "resultType": "short-answer",
+      "options": [
+        "Describe 3D objects",
+        "Colour objects",
+        "Draw pictures",
+        ""
+      ],
+      "correctAnswer": "Describe 3D objects",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Use geometric language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Describe 3D objects.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object resembles a cereal box?",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangular prism",
+        "Sphere",
+        "Cone",
+        ""
+      ],
+      "correctAnswer": "Rectangular prism",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Connect geometry to real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangular prism.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object resembles a soccer ball?",
+      "resultType": "short-answer",
+      "options": [
+        "Sphere",
+        "Cube",
+        "Prism",
+        ""
+      ],
+      "correctAnswer": "Sphere",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Connect geometry to real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sphere.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Learning about 3D objects develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Spatial reasoning",
+        "Colouring skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Spatial reasoning",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Build understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Spatial reasoning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Geometry is useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Design and engineering",
+        "Music",
+        "Cooking",
+        ""
+      ],
+      "correctAnswer": "Design and engineering",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Apply geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Design and engineering.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3D objects are studied in?",
+      "resultType": "short-answer",
+      "options": [
+        "Geometry",
+        "Statistics",
+        "Algebra",
+        ""
+      ],
+      "correctAnswer": "Geometry",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Understand geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Geometry.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding object features supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future geometry learning",
+        "Colouring",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Future geometry learning",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future geometry learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Geometry is an important part of?",
+      "resultType": "short-answer",
+      "options": [
+        "Mathematics",
+        "Music",
+        "Art only",
+        ""
+      ],
+      "correctAnswer": "Mathematics",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Consolidate understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mathematics.",
+      "solutionAttachments": []
+    }
+  ]
+}

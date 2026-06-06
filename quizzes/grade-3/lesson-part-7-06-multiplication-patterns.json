@@ -1,0 +1,372 @@
+{
+  "id": "quiz-350",
+  "title": "Grade 3 7.06",
+  "description": "Learning Outcomes for Grade 3: Identify multiplication patterns | Recognise multiples | Continue number patterns | Identify number patterns | Recognise patterns | Distinguish multiples | Continue patterns | Identify pattern rules | Understand patterns | Connect multiplication and patterns",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "What comes next? 2, 4, 6, 8, ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify multiplication patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 2 each step. Continue the same rule to get 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 3, 6, 9, 12, ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "18",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify multiplication patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 3 each step. Continue the same rule to get 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 5, 10, 15, 20, ?",
+      "resultType": "short-answer",
+      "options": [
+        "24",
+        "25",
+        "30",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify multiplication patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 5 each step. Continue the same rule to get 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 4, 8, 12, 16, ?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "24",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify multiplication patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 4 each step. Continue the same rule to get 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is a multiple of 3?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Recognise multiples",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is a multiple of 5?",
+      "resultType": "short-answer",
+      "options": [
+        "15",
+        "16",
+        "17",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Recognise multiples",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is a multiple of 4?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Recognise multiples",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 6, 12, 18, 24, ?",
+      "resultType": "short-answer",
+      "options": [
+        "28",
+        "30",
+        "32",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Continue number patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 6 each step. Continue the same rule to get 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 7, 14, 21, 28, ?",
+      "resultType": "short-answer",
+      "options": [
+        "32",
+        "35",
+        "42",
+        ""
+      ],
+      "correctAnswer": "35",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Continue number patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 7 each step. Continue the same rule to get 35.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 8, 16, 24, 32, ?",
+      "resultType": "short-answer",
+      "options": [
+        "36",
+        "40",
+        "48",
+        ""
+      ],
+      "correctAnswer": "40",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Continue number patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 8 each step. Continue the same rule to get 40.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Multiples of 2 are?",
+      "resultType": "short-answer",
+      "options": [
+        "Even numbers",
+        "Odd numbers",
+        "Prime numbers",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify number patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Multiples of 5 end in?",
+      "resultType": "short-answer",
+      "options": [
+        "0 or 5",
+        "2 or 4",
+        "1 or 3",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Recognise patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is not a multiple of 4?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "16",
+        "18",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Distinguish multiples",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is not a multiple of 3?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "15",
+        "14",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Distinguish multiples",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 9, 18, 27, 36, ?",
+      "resultType": "short-answer",
+      "options": [
+        "40",
+        "45",
+        "54",
+        ""
+      ],
+      "correctAnswer": "45",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Continue patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 9 each step. Continue the same rule to get 45.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which pattern increases by 5?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "20"
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify pattern rules",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which pattern increases by 4?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "8",
+        "12",
+        "16"
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify pattern rules",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which pattern increases by 3?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "6",
+        "9",
+        "12"
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Identify pattern rules",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Patterns help us?",
+      "resultType": "short-answer",
+      "options": [
+        "Predict numbers",
+        "Measure mass",
+        "Tell time",
+        ""
+      ],
+      "correctAnswer": "Predict numbers",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Understand patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Predict numbers.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Multiplication patterns are based on?",
+      "resultType": "short-answer",
+      "options": [
+        "Repeated addition",
+        "Division only",
+        "Subtraction only",
+        ""
+      ],
+      "correctAnswer": "Repeated addition",
+      "category": "Number",
+      "subcategory": "Patterns",
+      "learningOutcome": "Connect multiplication and patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Repeated addition.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,405 @@
+{
+  "id": "quiz-435",
+  "title": "Grade 4 7.04",
+  "description": "Learning Outcomes for Grade 4: Understand symmetry | Identify symmetry | Identify lines of symmetry | Identify symmetry in real life | Apply symmetry | Compare symmetry | Understand patterns | Understand geometry | Build understanding | Apply geometry | Build foundations | Consolidate understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Symmetry means both sides are?",
+      "resultType": "short-answer",
+      "options": [
+        "Matching",
+        "Different",
+        "Curved",
+        ""
+      ],
+      "correctAnswer": "Matching",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Understand symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Matching.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has a line of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Circle",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A square has how many lines of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify lines of symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A square has how many lines of symmetry?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "A rectangle has how many lines of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "2",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify lines of symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A rectangle has how many lines of symmetry?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "A circle has?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Many lines of symmetry",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Many lines of symmetry",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Many lines of symmetry.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has no line of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A line of symmetry divides a shape into?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Two matching halves",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Two matching halves",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Understand symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Two matching halves.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is symmetrical?",
+      "resultType": "short-answer",
+      "options": [
+        "Butterfly",
+        "Random cloud shape",
+        "Scribble",
+        ""
+      ],
+      "correctAnswer": "Butterfly",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetry in real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Butterfly.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Folding a symmetrical shape along its line of symmetry will make both halves?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Match exactly",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Match exactly",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Understand symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Match exactly.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Symmetry is useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Art and design",
+        "Music only",
+        "Cooking only",
+        ""
+      ],
+      "correctAnswer": "Art and design",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Apply symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Art and design.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A heart shape usually has how many lines of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "1",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A heart shape usually has how many lines of symmetry?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has the most symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Compare symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Symmetry helps us recognise?",
+      "resultType": "short-answer",
+      "options": [
+        "Patterns",
+        "Colours",
+        "Weights",
+        ""
+      ],
+      "correctAnswer": "Patterns",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Understand patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Patterns.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Symmetrical designs are often?",
+      "resultType": "short-answer",
+      "options": [
+        "Balanced",
+        "Unbalanced",
+        "Random",
+        ""
+      ],
+      "correctAnswer": "Balanced",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Apply symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Balanced.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which letter has vertical symmetry?",
+      "resultType": "short-answer",
+      "options": [
+        "A",
+        "F",
+        "G",
+        ""
+      ],
+      "correctAnswer": "A",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to A.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Symmetry is a concept in?",
+      "resultType": "short-answer",
+      "options": [
+        "Geometry",
+        "Statistics",
+        "Algebra",
+        ""
+      ],
+      "correctAnswer": "Geometry",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Understand geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Geometry.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Symmetry develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Spatial reasoning",
+        "Colouring skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Spatial reasoning",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Build understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Spatial reasoning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Symmetry is seen in?",
+      "resultType": "short-answer",
+      "options": [
+        "Nature and design",
+        "Nowhere",
+        "Only textbooks",
+        ""
+      ],
+      "correctAnswer": "Nature and design",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Apply geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Nature and design.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding symmetry supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future geometry learning",
+        "Colouring",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Future geometry learning",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future geometry learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Symmetry is important in?",
+      "resultType": "short-answer",
+      "options": [
+        "Mathematics",
+        "Art",
+        "Both",
+        ""
+      ],
+      "correctAnswer": "Mathematics",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Consolidate understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mathematics.",
+      "solutionAttachments": []
+    }
+  ]
+}

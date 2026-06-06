@@ -1,0 +1,383 @@
+{
+  "id": "quiz-186",
+  "title": "Grade 1 9.01",
+  "description": "Learning Outcomes for Grade 1: Identify a whole | Understand a whole | Understand parts | Identify wholes | Identify parts | Understand wholes | Distinguish whole and part | Compare whole and part | Compare sizes | Connect whole and part",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "A whole shape has how many pieces?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "1",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Identify a whole",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A whole shape has how many pieces?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "A whole apple is one complete apple.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Understand a whole",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A part is less than a whole.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Understand parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a whole?",
+      "resultType": "short-answer",
+      "options": [
+        "Complete circle",
+        "Half circle",
+        "Quarter circle",
+        ""
+      ],
+      "correctAnswer": "Complete circle",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Identify wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Complete circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a part?",
+      "resultType": "short-answer",
+      "options": [
+        "Half circle",
+        "Whole circle",
+        "Whole square",
+        ""
+      ],
+      "correctAnswer": "Half circle",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Identify parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Half circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A whole square has all its pieces.",
+      "resultType": "multiple-choice",
+      "options": [
+        "True",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "True",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Understand wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is NOT a whole?",
+      "resultType": "short-answer",
+      "options": [
+        "Half shape",
+        "Complete shape",
+        "Full shape",
+        ""
+      ],
+      "correctAnswer": "Half shape",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Distinguish whole and part",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Half shape.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A part can be one piece of a shape.",
+      "resultType": "multiple-choice",
+      "options": [
+        "True",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "True",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Understand parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is bigger?",
+      "resultType": "short-answer",
+      "options": [
+        "Whole",
+        "Part",
+        "Same Size",
+        ""
+      ],
+      "correctAnswer": "Whole",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Compare whole and part",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A whole object is complete.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Understand wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a part of a square?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Half square",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "Half square",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Identify parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Half square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A part is smaller than the whole.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Compare whole and part",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is complete?",
+      "resultType": "short-answer",
+      "options": [
+        "Whole shape",
+        "Half shape",
+        "Part shape",
+        ""
+      ],
+      "correctAnswer": "Whole shape",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Identify wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Whole shape.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is incomplete?",
+      "resultType": "short-answer",
+      "options": [
+        "Part shape",
+        "Whole shape",
+        "Full shape",
+        ""
+      ],
+      "correctAnswer": "Part shape",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Identify parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Part shape.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Whole means all pieces are present.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Understand wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Part means only some pieces are present.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Understand parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "Whole circle",
+        "Half circle",
+        "Same size",
+        ""
+      ],
+      "correctAnswer": "Whole circle",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Compare sizes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Whole circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a whole object?",
+      "resultType": "short-answer",
+      "options": [
+        "Full rectangle",
+        "Half rectangle",
+        "Part rectangle",
+        ""
+      ],
+      "correctAnswer": "Full rectangle",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Identify wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Full rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a part of a rectangle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Half rectangle",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "Half rectangle",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Identify parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Half rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A whole is made up of all its parts.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Fractions Foundations",
+      "subcategory": "Whole and Part",
+      "learningOutcome": "Connect whole and part",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "id": "quiz-280",
+  "title": "Grade 2 8.06",
+  "description": "Learning Outcomes for Grade 2: Understand directions | Follow directions | Understand position | Understand direction | Understand maps | Describe position | Use positional language | Use directional language | Identify direction words | Identify position words | Apply directional concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "Which direction is opposite to left?",
+      "resultType": "short-answer",
+      "options": [
+        "Right",
+        "Up",
+        "Down",
+        ""
+      ],
+      "correctAnswer": "Right",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Right.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction is opposite to up?",
+      "resultType": "short-answer",
+      "options": [
+        "Down",
+        "Left",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Down",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Down.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If you move forward, you go?",
+      "resultType": "short-answer",
+      "options": [
+        "Ahead",
+        "Backward",
+        "Sideways",
+        ""
+      ],
+      "correctAnswer": "Ahead",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Follow directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ahead.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If you move backward, you go?",
+      "resultType": "short-answer",
+      "options": [
+        "Behind",
+        "Ahead",
+        "Up",
+        ""
+      ],
+      "correctAnswer": "Behind",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Follow directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Behind.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which way is above your head?",
+      "resultType": "short-answer",
+      "options": [
+        "Up",
+        "Down",
+        "Left",
+        ""
+      ],
+      "correctAnswer": "Up",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand position",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Up.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which way is below your feet?",
+      "resultType": "short-answer",
+      "options": [
+        "Down",
+        "Up",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Down",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand position",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Down.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Turn left means turn?",
+      "resultType": "short-answer",
+      "options": [
+        "To your left side",
+        "To your right side",
+        "Around twice",
+        ""
+      ],
+      "correctAnswer": "To your left side",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Follow directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to To your left side.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Turn right means turn?",
+      "resultType": "short-answer",
+      "options": [
+        "To your right side",
+        "To your left side",
+        "Backward",
+        ""
+      ],
+      "correctAnswer": "To your right side",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Follow directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to To your right side.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Position tells us?",
+      "resultType": "short-answer",
+      "options": [
+        "Where something is",
+        "How much it costs",
+        "How heavy it is",
+        ""
+      ],
+      "correctAnswer": "Where something is",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand position",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Where something is.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Direction tells us?",
+      "resultType": "short-answer",
+      "options": [
+        "Which way to move",
+        "How much money",
+        "How much time",
+        ""
+      ],
+      "correctAnswer": "Which way to move",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand direction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Which way to move.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction comes after turning right?",
+      "resultType": "short-answer",
+      "options": [
+        "Right side",
+        "Left side",
+        "Up",
+        ""
+      ],
+      "correctAnswer": "Right side",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Follow directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Right side.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which direction comes after turning left?",
+      "resultType": "short-answer",
+      "options": [
+        "Left side",
+        "Right side",
+        "Down",
+        ""
+      ],
+      "correctAnswer": "Left side",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Follow directions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Left side.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A map uses directions to show?",
+      "resultType": "short-answer",
+      "options": [
+        "Locations",
+        "Money",
+        "Shapes only",
+        ""
+      ],
+      "correctAnswer": "Locations",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Understand maps",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Locations.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If a chair is behind you, it is?",
+      "resultType": "short-answer",
+      "options": [
+        "At your back",
+        "In front",
+        "Above",
+        ""
+      ],
+      "correctAnswer": "At your back",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Describe position",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to At your back.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If a ball is in front of you, it is?",
+      "resultType": "short-answer",
+      "options": [
+        "Ahead",
+        "Behind",
+        "Under",
+        ""
+      ],
+      "correctAnswer": "Ahead",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Describe position",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ahead.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Position words help us?",
+      "resultType": "short-answer",
+      "options": [
+        "Describe locations",
+        "Count money",
+        "Tell time",
+        ""
+      ],
+      "correctAnswer": "Describe locations",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Use positional language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Describe locations.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Direction words help us?",
+      "resultType": "short-answer",
+      "options": [
+        "Move correctly",
+        "Measure mass",
+        "Compare coins",
+        ""
+      ],
+      "correctAnswer": "Move correctly",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Use directional language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Move correctly.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a direction word?",
+      "resultType": "short-answer",
+      "options": [
+        "Left",
+        "Coin",
+        "Kilogram",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Identify direction words",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a position word?",
+      "resultType": "short-answer",
+      "options": [
+        "Behind",
+        "Dollar",
+        "Minute",
+        ""
+      ],
+      "correctAnswer": "Behind",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Identify position words",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Behind.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Directions help us travel from one place to?",
+      "resultType": "short-answer",
+      "options": [
+        "Another place",
+        "A number",
+        "A shape",
+        ""
+      ],
+      "correctAnswer": "Another place",
+      "category": "Geometry",
+      "subcategory": "Position",
+      "learningOutcome": "Apply directional concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Another place.",
+      "solutionAttachments": []
+    }
+  ]
+}

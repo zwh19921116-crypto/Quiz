@@ -1,0 +1,394 @@
+{
+  "id": "quiz-487",
+  "title": "Grade 5 2.06",
+  "description": "Learning Outcomes for Grade 5: Find missing numbers in addition equations | Find missing numbers in subtraction equations | Solve missing number equations | Find missing starting values | Solve real-world missing number problems | Solve multi-step missing number problems | Apply inverse operations to solve problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "? + 15 = 40",
+      "resultType": "short-answer",
+      "options": [
+        "25; 20; 30",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Find missing numbers in addition equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "18 + ? = 50",
+      "resultType": "short-answer",
+      "options": [
+        "32; 22; 42",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Find missing numbers in addition equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? - 12 = 28",
+      "resultType": "short-answer",
+      "options": [
+        "40; 38; 30",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Find missing numbers in subtraction equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "75 - ? = 25",
+      "resultType": "short-answer",
+      "options": [
+        "50; 40; 60",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "75",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Find missing numbers in subtraction equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 75.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 120 = 300",
+      "resultType": "short-answer",
+      "options": [
+        "180; 170; 190",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "120",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Find missing numbers in addition equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 120.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "450 - ? = 200",
+      "resultType": "short-answer",
+      "options": [
+        "250; 240; 260",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "450",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Find missing numbers in subtraction equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 450.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 80 = 150",
+      "resultType": "short-answer",
+      "options": [
+        "70; 60; 80",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "80",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Find missing numbers in addition equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 80.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "95 - ? = 45",
+      "resultType": "short-answer",
+      "options": [
+        "50; 40; 60",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "95",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Find missing numbers in subtraction equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 95.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 250 = 500",
+      "resultType": "short-answer",
+      "options": [
+        "250; 240; 260",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "250",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Find missing numbers in addition equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 250.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "700 - ? = 300",
+      "resultType": "short-answer",
+      "options": [
+        "400; 300; 500",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "700",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Find missing numbers in subtraction equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 700.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 345 = 900",
+      "resultType": "short-answer",
+      "options": [
+        "555; 545; 565",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "345",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Solve missing number equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 345.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1000 - ? = 675",
+      "resultType": "short-answer",
+      "options": [
+        "325; 335; 315",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1000",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Solve missing number equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 178 = 625",
+      "resultType": "short-answer",
+      "options": [
+        "447; 437; 457",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "178",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Solve missing number equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 178.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "850 - ? = 375",
+      "resultType": "short-answer",
+      "options": [
+        "475; 465; 485",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "850",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Solve missing number equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 850.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? + 1245 = 3000",
+      "resultType": "short-answer",
+      "options": [
+        "1755; 1745; 1765",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1245",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Solve missing number equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1245.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5000 - ? = 2750",
+      "resultType": "short-answer",
+      "options": [
+        "2250; 2150; 2350",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5000",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Solve missing number equations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "? - 875 = 2125",
+      "resultType": "short-answer",
+      "options": [
+        "3000; 3100; 2900",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "875",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Find missing starting values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 875.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shop sold some items. After selling 350 items, 650 remained. How many items were there at the start?",
+      "resultType": "short-answer",
+      "options": [
+        "1000; 900; 1100",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "350",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Solve real-world missing number problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 350.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A shop sold some items. After selling 350 items, 650 remained. How many items were there at the start?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Emma had some money. After spending $275, she had $725 left. How much did she have originally?",
+      "resultType": "short-answer",
+      "options": [
+        "$1000; $900; $1100",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "276",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Solve multi-step missing number problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 276.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A library bought some books. After adding 1250 books, it had 5000 books. How many books did it have before?",
+      "resultType": "short-answer",
+      "options": [
+        "3750; 3650; 3850",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1250",
+      "category": "Number",
+      "subcategory": "Equations",
+      "learningOutcome": "Apply inverse operations to solve problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1250.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A library bought some books. After adding 1250 books, it had 5000 books. How many books did it have before?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    }
+  ]
+}

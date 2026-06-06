@@ -1,0 +1,588 @@
+{
+  "id": "quiz-382",
+  "title": "Grade 4 2.01",
+  "description": "Learning Outcomes for Grade 4: Use mental addition | Add mentally | Add hundreds and tens | Make friendly numbers | Use compensation | Make multiples of 10 | Use mental strategies | Use number bonds | Appreciate mental maths | Apply mental maths",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "25 + 10 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "35",
+        "30",
+        "40",
+        ""
+      ],
+      "correctAnswer": "35",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Use mental addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 25 + 10 = 35.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 25,
+          "operandB": 10,
+          "answer": "35",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "48 + 20 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "68",
+        "58",
+        "78",
+        ""
+      ],
+      "correctAnswer": "68",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Use mental addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 48 + 20 = 68.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 48,
+          "operandB": 20,
+          "answer": "68",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "36 + 30 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "66",
+        "56",
+        "76",
+        ""
+      ],
+      "correctAnswer": "66",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Use mental addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 36 + 30 = 66.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 36,
+          "operandB": 30,
+          "answer": "66",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "70 + 15 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "85",
+        "75",
+        "95",
+        ""
+      ],
+      "correctAnswer": "85",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add mentally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 70 + 15 = 85.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 70,
+          "operandB": 15,
+          "answer": "85",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "120 + 30 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "150",
+        "140",
+        "160",
+        ""
+      ],
+      "correctAnswer": "150",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add hundreds and tens",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 120 + 30 = 150.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 120,
+          "operandB": 30,
+          "answer": "150",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "54 + 6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "60",
+        "58",
+        "64",
+        ""
+      ],
+      "correctAnswer": "60",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Make friendly numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 54 + 6 = 60.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 54,
+          "operandB": 6,
+          "answer": "60",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "89 + 11 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "100",
+        "90",
+        "110",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Use compensation",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 89 + 11 = 100.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 89,
+          "operandB": 11,
+          "answer": "100",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "240 + 60 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "300",
+        "310",
+        "290",
+        ""
+      ],
+      "correctAnswer": "300",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add mentally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 240 + 60 = 300.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 240,
+          "operandB": 60,
+          "answer": "300",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "350 + 50 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "400",
+        "390",
+        "410",
+        ""
+      ],
+      "correctAnswer": "400",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add mentally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 350 + 50 = 400.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 350,
+          "operandB": 50,
+          "answer": "400",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "62 + 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "70",
+        "68",
+        "72",
+        ""
+      ],
+      "correctAnswer": "70",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Make multiples of 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 62 + 8 = 70.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 62,
+          "operandB": 8,
+          "answer": "70",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "125 + 25 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "150",
+        "140",
+        "160",
+        ""
+      ],
+      "correctAnswer": "150",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Use mental strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 125 + 25 = 150.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 125,
+          "operandB": 25,
+          "answer": "150",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "480 + 20 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "500",
+        "490",
+        "510",
+        ""
+      ],
+      "correctAnswer": "500",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add mentally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 480 + 20 = 500.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 480,
+          "operandB": 20,
+          "answer": "500",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "210 + 90 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "300",
+        "290",
+        "310",
+        ""
+      ],
+      "correctAnswer": "300",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add mentally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 210 + 90 = 300.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 210,
+          "operandB": 90,
+          "answer": "300",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "75 + 25 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "100",
+        "90",
+        "110",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Make friendly numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 75 + 25 = 100.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 75,
+          "operandB": 25,
+          "answer": "100",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "340 + 60 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "400",
+        "390",
+        "410",
+        ""
+      ],
+      "correctAnswer": "400",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add mentally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 340 + 60 = 400.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 340,
+          "operandB": 60,
+          "answer": "400",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "18 + 22 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "40",
+        "38",
+        "42",
+        ""
+      ],
+      "correctAnswer": "40",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Use mental addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 18 + 22 = 40.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 18,
+          "operandB": 22,
+          "answer": "40",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "270 + 30 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "300",
+        "290",
+        "310",
+        ""
+      ],
+      "correctAnswer": "300",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add mentally",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 270 + 30 = 300.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 270,
+          "operandB": 30,
+          "answer": "300",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "44 + 56 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "100",
+        "90",
+        "110",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Use number bonds",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 44 + 56 = 100.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 44,
+          "operandB": 56,
+          "answer": "100",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Mental addition helps solve problems?",
+      "resultType": "short-answer",
+      "options": [
+        "Quickly",
+        "Slowly",
+        "Never",
+        ""
+      ],
+      "correctAnswer": "Quickly",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Appreciate mental maths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Quickly.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mental strategies use?",
+      "resultType": "short-answer",
+      "options": [
+        "Number knowledge",
+        "Guessing",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Number knowledge",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Apply mental maths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number knowledge.",
+      "solutionAttachments": []
+    }
+  ]
+}

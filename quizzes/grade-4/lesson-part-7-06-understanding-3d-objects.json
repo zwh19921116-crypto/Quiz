@@ -1,0 +1,383 @@
+{
+  "id": "quiz-437",
+  "title": "Grade 4 7.06",
+  "description": "Learning Outcomes for Grade 4: Identify 3D objects | Identify 3D object properties | Identify object properties | Understand object properties | Connect objects to real life | Understand dimensions | Identify object features | Understand geometry | Apply geometry | Build understanding | Connect shapes to objects | Build foundations | Consolidate understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Which is a 3D object?",
+      "resultType": "short-answer",
+      "options": [
+        "Cube",
+        "Square",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Cube",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cube.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object has 6 square faces?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "6",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify 3D object properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object can roll?",
+      "resultType": "short-answer",
+      "options": [
+        "Sphere",
+        "Cube",
+        "Rectangular prism",
+        ""
+      ],
+      "correctAnswer": "Sphere",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify object properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sphere.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object has one curved surface and one point?",
+      "resultType": "short-answer",
+      "options": [
+        "Cone",
+        "Cube",
+        "Cylinder",
+        ""
+      ],
+      "correctAnswer": "Cone",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cone.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object has two circular faces?",
+      "resultType": "short-answer",
+      "options": [
+        "Cylinder",
+        "Cone",
+        "Sphere",
+        ""
+      ],
+      "correctAnswer": "Cylinder",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cylinder.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object looks like a box?",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangular prism",
+        "Sphere",
+        "Cone",
+        ""
+      ],
+      "correctAnswer": "Rectangular prism",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangular prism.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A sphere has any flat faces?",
+      "resultType": "multiple-choice",
+      "options": [
+        "No",
+        "Sphere",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "No",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Understand object properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to No.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A cube has how many faces?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "Cube",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "6",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify object properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A cube has how many faces?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which object is shaped like a can?",
+      "resultType": "short-answer",
+      "options": [
+        "Cylinder",
+        "Cone",
+        "Sphere",
+        ""
+      ],
+      "correctAnswer": "Cylinder",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Connect objects to real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cylinder.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is shaped like a ball?",
+      "resultType": "short-answer",
+      "options": [
+        "Sphere",
+        "Cube",
+        "Prism",
+        ""
+      ],
+      "correctAnswer": "Sphere",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Connect objects to real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sphere.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3D objects have?",
+      "resultType": "short-answer",
+      "options": [
+        "Length",
+        "width and height",
+        "Length only",
+        "Width only"
+      ],
+      "correctAnswer": "Length",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Understand dimensions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Length.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object has vertices?",
+      "resultType": "short-answer",
+      "options": [
+        "Cube",
+        "Sphere",
+        "Cylinder",
+        ""
+      ],
+      "correctAnswer": "Cube",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify object features",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cube.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object has no vertices?",
+      "resultType": "short-answer",
+      "options": [
+        "Sphere",
+        "Cube",
+        "Cone",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Identify object features",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Geometry studies?",
+      "resultType": "short-answer",
+      "options": [
+        "Shapes and space",
+        "Colours",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Shapes and space",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Understand geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Shapes and space.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3D objects are found in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Nowhere",
+        "Only books",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Apply geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding 3D objects develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Spatial reasoning",
+        "Colouring skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Spatial reasoning",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Build understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Spatial reasoning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A dice is usually shaped like a?",
+      "resultType": "short-answer",
+      "options": [
+        "Cube",
+        "Sphere",
+        "Cone",
+        ""
+      ],
+      "correctAnswer": "Cube",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Connect shapes to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cube.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "An ice cream cone is shaped like a?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Cone",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Cone",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Connect shapes to objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cone.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding 3D objects supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future geometry learning",
+        "Colouring",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Future geometry learning",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future geometry learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3D geometry is part of?",
+      "resultType": "short-answer",
+      "options": [
+        "Mathematics",
+        "Art only",
+        "Music only",
+        ""
+      ],
+      "correctAnswer": "Mathematics",
+      "category": "Geometry",
+      "subcategory": "3D Objects",
+      "learningOutcome": "Consolidate understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mathematics.",
+      "solutionAttachments": []
+    }
+  ]
+}

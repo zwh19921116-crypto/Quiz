@@ -1,0 +1,405 @@
+{
+  "id": "quiz-365",
+  "title": "Grade 3 9.01",
+  "description": "Learning Outcomes for Grade 3: Identify parts of an analogue clock | Understand clock features | Read analogue clocks | Understand clock movement | Read o'clock times | Understand purpose of clocks | Understand time units | Understand clock structure | Recognise clock positions | Read clock numbers | Identify clock hands | Understand clocks | Understand elapsed time | Identify analogue clocks | Use clocks in daily life",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "Which hand shows the hour?",
+      "resultType": "short-answer",
+      "options": [
+        "Short hand",
+        "Long hand",
+        "Second hand",
+        ""
+      ],
+      "correctAnswer": "Short hand",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Identify parts of an analogue clock",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Short hand.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which hand shows the minutes?",
+      "resultType": "short-answer",
+      "options": [
+        "Long hand",
+        "Short hand",
+        "Second hand",
+        ""
+      ],
+      "correctAnswer": "Long hand",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Identify parts of an analogue clock",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Long hand.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many numbers are on a clock face?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "24",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand clock features",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many numbers are on a clock face?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "When the minute hand points to 12, it means?",
+      "resultType": "short-answer",
+      "options": [
+        "O'clock",
+        "Half past",
+        "Quarter past",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read analogue clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which hand moves faster?",
+      "resultType": "short-answer",
+      "options": [
+        "Minute hand",
+        "Hour hand",
+        "Both the same",
+        ""
+      ],
+      "correctAnswer": "Minute hand",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand clock movement",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Minute hand.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If the hour hand points to 3 and the minute hand points to 12, the time is?",
+      "resultType": "short-answer",
+      "options": [
+        "3:00",
+        "3:30",
+        "12:03",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If the hour hand points to 7 and the minute hand points to 12, the time is?",
+      "resultType": "short-answer",
+      "options": [
+        "7:00",
+        "7:30",
+        "12:07",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What does a clock measure?",
+      "resultType": "short-answer",
+      "options": [
+        "Time",
+        "Length",
+        "Mass",
+        ""
+      ],
+      "correctAnswer": "Time",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand purpose of clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Time.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many minutes are in one hour?",
+      "resultType": "short-answer",
+      "options": [
+        "30",
+        "60",
+        "100",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand time units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 30.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many minutes are in one hour?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many hours are on a clock face?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "24",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand clock structure",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many hours are on a clock face?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "The number directly opposite 12 on a clock is?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Recognise clock positions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "The number after 8 on a clock is?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read clock numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "The number before 4 on a clock is?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read clock numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which hand is usually shorter?",
+      "resultType": "short-answer",
+      "options": [
+        "Hour hand",
+        "Minute hand",
+        "Both same",
+        ""
+      ],
+      "correctAnswer": "Hour hand",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Identify clock hands",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Hour hand.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which hand is usually longer?",
+      "resultType": "short-answer",
+      "options": [
+        "Minute hand",
+        "Hour hand",
+        "Both same",
+        ""
+      ],
+      "correctAnswer": "Minute hand",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Identify clock hands",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Minute hand.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Clocks help us know?",
+      "resultType": "short-answer",
+      "options": [
+        "Time",
+        "Temperature",
+        "Weight",
+        ""
+      ],
+      "correctAnswer": "Time",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Time.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A full turn of the minute hand takes?",
+      "resultType": "short-answer",
+      "options": [
+        "30 minutes",
+        "60 minutes",
+        "120 minutes",
+        ""
+      ],
+      "correctAnswer": "30 minutes",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand clock movement",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 30 minutes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "The hour hand moves from 2 to 3 in?",
+      "resultType": "short-answer",
+      "options": [
+        "30 minutes",
+        "60 minutes",
+        "90 minutes",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand elapsed time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Analogue clocks use?",
+      "resultType": "short-answer",
+      "options": [
+        "Hands",
+        "Screens",
+        "Keyboards",
+        ""
+      ],
+      "correctAnswer": "Hands",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Identify analogue clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Hands.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Reading clocks helps us manage?",
+      "resultType": "short-answer",
+      "options": [
+        "Time",
+        "Distance",
+        "Area",
+        ""
+      ],
+      "correctAnswer": "Time",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Use clocks in daily life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Time.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "id": "quiz-455",
+  "title": "Grade 4 9.04",
+  "description": "Learning Outcomes for Grade 4: Solve measurement problems | Apply capacity concepts | Apply mass concepts | Apply perimeter concepts | Calculate elapsed time | Convert measurements | Solve subtraction problems | Select operations | Apply mathematics | Build understanding | Use strategies | Verify solutions | Understand mathematics | Build foundations | Apply learning",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "A rope is 5 m long. Another 3 m is added. Total length?",
+      "resultType": "short-answer",
+      "options": [
+        "8 m",
+        "7 m",
+        "9 m",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Solve measurement problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bottle holds 2 L. 1 L is poured out. Remaining?",
+      "resultType": "short-answer",
+      "options": [
+        "1 L",
+        "2 L",
+        "3 L",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Apply capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bag weighs 6 kg. 2 kg is removed. New mass?",
+      "resultType": "short-answer",
+      "options": [
+        "4 kg",
+        "3 kg",
+        "5 kg",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Apply mass concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle has sides 5 cm and 3 cm. Perimeter?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "5",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Apply perimeter concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A trip lasts from 1 PM to 4 PM. Duration?",
+      "resultType": "short-answer",
+      "options": [
+        "3 hours",
+        "2 hours",
+        "4 hours",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Calculate elapsed time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "100 cm equals?",
+      "resultType": "short-answer",
+      "options": [
+        "1 m",
+        "10 m",
+        "1000 m",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Convert measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2000 g equals?",
+      "resultType": "short-answer",
+      "options": [
+        "2 kg",
+        "20 kg",
+        "200 kg",
+        ""
+      ],
+      "correctAnswer": "2000",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Convert measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3000 mL equals?",
+      "resultType": "short-answer",
+      "options": [
+        "3 L",
+        "30 L",
+        "0.3 L",
+        ""
+      ],
+      "correctAnswer": "3000",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Convert measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A fence is 12 m long. 4 m is repaired. How much still needs repair?",
+      "resultType": "short-answer",
+      "options": [
+        "8 m",
+        "6 m",
+        "10 m",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Solve subtraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A container holds 5 L. 2 L is added to 1 L already inside. Total?",
+      "resultType": "short-answer",
+      "options": [
+        "3 L",
+        "5 L",
+        "4 L",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Apply capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which operation finds a total measurement?",
+      "resultType": "short-answer",
+      "options": [
+        "Addition",
+        "Subtraction",
+        "Division",
+        ""
+      ],
+      "correctAnswer": "Addition",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Select operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Addition.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which operation finds how much is left?",
+      "resultType": "short-answer",
+      "options": [
+        "Subtraction",
+        "Addition",
+        "Multiplication",
+        ""
+      ],
+      "correctAnswer": "Subtraction",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Select operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Subtraction.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Measurement problems use?",
+      "resultType": "short-answer",
+      "options": [
+        "Real-world situations",
+        "Shapes only",
+        "Graphs only",
+        ""
+      ],
+      "correctAnswer": "Real-world situations",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Real-world situations.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Solving measurement problems develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Practical skills",
+        "Colouring skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Practical skills",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Build understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Practical skills.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Measurement is useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Music",
+        "Drama",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Reading carefully helps solve?",
+      "resultType": "short-answer",
+      "options": [
+        "Word problems",
+        "Songs",
+        "Stories",
+        ""
+      ],
+      "correctAnswer": "Word problems",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Use strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Word problems.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Checking answers helps?",
+      "resultType": "short-answer",
+      "options": [
+        "Find errors",
+        "Create errors",
+        "Ignore errors",
+        ""
+      ],
+      "correctAnswer": "Find errors",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Verify solutions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Find errors.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Measurement maths is part of?",
+      "resultType": "short-answer",
+      "options": [
+        "Mathematics",
+        "English",
+        "Art",
+        ""
+      ],
+      "correctAnswer": "Mathematics",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Understand mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mathematics.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding measurement problems supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Music",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Measurement skills help solve?",
+      "resultType": "short-answer",
+      "options": [
+        "Real-life problems",
+        "Games only",
+        "Drawings only",
+        ""
+      ],
+      "correctAnswer": "Real-life problems",
+      "category": "Problem Solving",
+      "subcategory": "Measurement",
+      "learningOutcome": "Apply learning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Real-life problems.",
+      "solutionAttachments": []
+    }
+  ]
+}

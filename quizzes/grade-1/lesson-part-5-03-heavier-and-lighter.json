@@ -1,0 +1,372 @@
+{
+  "id": "quiz-148",
+  "title": "Grade 1 5.03",
+  "description": "Learning Outcomes for Grade 1: Compare weight",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "Which is heavier: an elephant or a cat?",
+      "resultType": "short-answer",
+      "options": [
+        "Elephant",
+        "Cat",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Elephant",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Elephant.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: a feather or a brick?",
+      "resultType": "short-answer",
+      "options": [
+        "Feather",
+        "Brick",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Feather",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Feather.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: a watermelon or an apple?",
+      "resultType": "short-answer",
+      "options": [
+        "Watermelon",
+        "Apple",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Watermelon",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Watermelon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: a coin or a table?",
+      "resultType": "short-answer",
+      "options": [
+        "Coin",
+        "Table",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Coin",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Coin.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: a bus or a bicycle?",
+      "resultType": "short-answer",
+      "options": [
+        "Bus",
+        "Bicycle",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bus",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bus.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 kg is heavier than 5 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 kg is lighter than 8 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: a sofa or a cushion?",
+      "resultType": "short-answer",
+      "options": [
+        "Sofa",
+        "Cushion",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Sofa",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sofa.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: a paperclip or a laptop?",
+      "resultType": "short-answer",
+      "options": [
+        "Paperclip",
+        "Laptop",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Paperclip",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Paperclip.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: a horse or a dog?",
+      "resultType": "short-answer",
+      "options": [
+        "Horse",
+        "Dog",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Horse",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Horse.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "15 kg is heavier than 12 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: a spoon or a fridge?",
+      "resultType": "short-answer",
+      "options": [
+        "Spoon",
+        "Fridge",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Spoon",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Spoon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: a truck or a car?",
+      "resultType": "short-answer",
+      "options": [
+        "Truck",
+        "Car",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Truck",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Truck.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 kg is heavier than 9 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: a balloon or a basketball?",
+      "resultType": "short-answer",
+      "options": [
+        "Balloon",
+        "Basketball",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Balloon",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Balloon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: a whale or a fish?",
+      "resultType": "short-answer",
+      "options": [
+        "Whale",
+        "Fish",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Whale",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Whale.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20 kg is heavier than 18 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: a pencil or a desk?",
+      "resultType": "short-answer",
+      "options": [
+        "Pencil",
+        "Desk",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Pencil",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pencil.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: a train or a scooter?",
+      "resultType": "short-answer",
+      "options": [
+        "Train",
+        "Scooter",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Train",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Train.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heaviest?",
+      "resultType": "short-answer",
+      "options": [
+        "1 kg",
+        "5 kg",
+        "10 kg",
+        ""
+      ],
+      "correctAnswer": "1 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1 kg.",
+      "solutionAttachments": []
+    }
+  ]
+}

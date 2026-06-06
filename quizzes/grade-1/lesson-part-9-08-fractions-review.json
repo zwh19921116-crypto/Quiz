@@ -1,0 +1,394 @@
+{
+  "id": "quiz-193",
+  "title": "Grade 1 9.08",
+  "description": "Learning Outcomes for Grade 1: Review halves | Review quarters | Connect halves and wholes | Connect quarters and wholes | Find halves | Find quarters | Compare fractions | Understand fractions",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "A half means one of how many equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "4",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A half means one of how many equal parts?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "A quarter means one of how many equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "4",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Review quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A quarter means one of how many equal parts?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Two halves make a?",
+      "resultType": "short-answer",
+      "options": [
+        "Whole",
+        "Quarter",
+        "Part",
+        ""
+      ],
+      "correctAnswer": "Whole",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Connect halves and wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Four quarters make a?",
+      "resultType": "short-answer",
+      "options": [
+        "Whole",
+        "Half",
+        "Part",
+        ""
+      ],
+      "correctAnswer": "Whole",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Connect quarters and wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 8 is?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter of 8 is?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Find quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 12 is?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter of 12 is?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Find quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "Half",
+        "Quarter",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Half",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Half.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions require equal parts.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Understand fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 16 is?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 16.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter of 16 is?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Find quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 16.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 20 is?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter of 20 is?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Find quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "Half",
+        "Quarter",
+        "Whole",
+        ""
+      ],
+      "correctAnswer": "Half",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Half.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two halves equal a whole.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Connect halves and wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Four quarters equal a whole.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Connect quarters and wholes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 18 is?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Find halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter of 4 is?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Find quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions describe parts of a whole.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Fractions Foundations",
+      "subcategory": "Review",
+      "learningOutcome": "Understand fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    }
+  ]
+}

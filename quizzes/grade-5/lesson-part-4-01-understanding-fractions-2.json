@@ -1,0 +1,420 @@
+{
+  "id": "quiz-502",
+  "title": "Grade 5 4.01",
+  "description": "Learning Outcomes for Grade 5: Identify simple fractions | Read and identify fractions | Identify numerator and denominator | Interpret fractions | Recognise proper fractions | Identify fractions from descriptions | Understand denominator meaning | Understand numerator meaning | Represent fractions correctly | Identify proper fractions | Recognise common fractions | Apply fractions to real-world situations | Represent real-world situations as fractions",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "Which fraction represents one part out of two equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2; 1/3; 1/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1/2; 1/3; 1/4",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Identify simple fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2; 1/3; 1/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction represents one part out of four equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "1/4; 1/2; 1/3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1/4; 1/2; 1/3",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Identify simple fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/4; 1/2; 1/3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is read as \"one third\"?",
+      "resultType": "short-answer",
+      "options": [
+        "1/3; 3/1; 1/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1/3; 3/1; 1/4",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Read and identify fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/3; 3/1; 1/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is read as \"one fifth\"?",
+      "resultType": "short-answer",
+      "options": [
+        "1/5; 5/1; 1/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1/5; 5/1; 1/4",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Read and identify fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/5; 5/1; 1/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the numerator in 3/8?",
+      "resultType": "short-answer",
+      "options": [
+        "3; 8; 11",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.375",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Identify numerator and denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 / 8 = 0.375.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 3,
+          "operandB": 8,
+          "answer": "0.38",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "What is the denominator in 3/8?",
+      "resultType": "short-answer",
+      "options": [
+        "8; 3; 24",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.375",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Identify numerator and denominator",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 / 8 = 0.375.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 3,
+          "operandB": 8,
+          "answer": "0.38",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which fraction shows 2 parts out of 5 equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "2/5; 5/2; 3/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Interpret fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction shows 3 parts out of 4 equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "3/4; 4/3; 1/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Interpret fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is smaller than 1?",
+      "resultType": "short-answer",
+      "options": [
+        "2/3; 4/3; 5/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Recognise proper fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction represents a whole divided into 6 equal parts with 1 part selected?",
+      "resultType": "short-answer",
+      "options": [
+        "1/6; 6/1; 2/6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Identify fractions from descriptions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "In 5/7, what does the denominator tell us?",
+      "resultType": "short-answer",
+      "options": [
+        "Total equal parts; Selected parts; Whole numbers",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.7142857142857143",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Understand denominator meaning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 / 7 = 0.7142857142857143.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 5,
+          "operandB": 7,
+          "answer": "0.71",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "In 5/7, what does the numerator tell us?",
+      "resultType": "short-answer",
+      "options": [
+        "Selected parts; Total parts; Number of wholes",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.7142857142857143",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Understand numerator meaning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 / 7 = 0.7142857142857143.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 5,
+          "operandB": 7,
+          "answer": "0.71",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which fraction represents 4 parts out of 9 equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "4/9; 9/4; 5/9",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Represent fractions correctly",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction represents 7 parts out of 10 equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "7/10; 10/7; 3/10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Represent fractions correctly",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a proper fraction?",
+      "resultType": "short-answer",
+      "options": [
+        "3/5; 5/3; 7/4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3/5; 5/3; 7/4",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Identify proper fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3/5; 5/3; 7/4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction represents half?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2; 1/4; 2/3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1/2; 1/4; 2/3",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Recognise common fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2; 1/4; 2/3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction represents a quarter?",
+      "resultType": "short-answer",
+      "options": [
+        "1/4; 1/2; 1/8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1/4; 1/2; 1/8",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Recognise common fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/4; 1/2; 1/8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A pizza is cut into 8 equal slices. If 3 slices are eaten, what fraction is eaten?",
+      "resultType": "short-answer",
+      "options": [
+        "3/8; 5/8; 3/5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Apply fractions to real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A chocolate bar has 12 equal pieces. If 5 pieces are eaten, what fraction is eaten?",
+      "resultType": "short-answer",
+      "options": [
+        "5/12; 7/12; 5/7",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Apply fractions to real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A class has 20 students. If 8 are wearing hats, what fraction of the class is wearing hats?",
+      "resultType": "short-answer",
+      "options": [
+        "8/20; 12/20; 8/12",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Fractions",
+      "subcategory": "Basics",
+      "learningOutcome": "Represent real-world situations as fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    }
+  ]
+}

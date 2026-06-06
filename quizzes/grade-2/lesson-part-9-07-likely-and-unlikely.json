@@ -1,0 +1,372 @@
+{
+  "id": "quiz-291",
+  "title": "Grade 2 9.07",
+  "description": "Learning Outcomes for Grade 2: Understand likely | Understand unlikely | Identify likely events | Identify unlikely events | Understand chance language | Understand certainty | Understand impossibility | Learn vocabulary | Understand likelihood | Apply chance language | Compare likelihood",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "The sun rising tomorrow is?",
+      "resultType": "short-answer",
+      "options": [
+        "Likely",
+        "Unlikely",
+        "Impossible",
+        ""
+      ],
+      "correctAnswer": "Likely",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Understand likely",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Likely.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A fish riding a bicycle is?",
+      "resultType": "short-answer",
+      "options": [
+        "Unlikely",
+        "Likely",
+        "Certain",
+        ""
+      ],
+      "correctAnswer": "Unlikely",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Understand unlikely",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Unlikely.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rain on a cloudy day is?",
+      "resultType": "short-answer",
+      "options": [
+        "Likely",
+        "Impossible",
+        "Certain",
+        ""
+      ],
+      "correctAnswer": "Likely",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Identify likely events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Likely.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Snow in the desert is generally?",
+      "resultType": "short-answer",
+      "options": [
+        "Unlikely",
+        "Likely",
+        "Certain",
+        ""
+      ],
+      "correctAnswer": "Unlikely",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Identify unlikely events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Unlikely.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Getting heads on a coin toss is?",
+      "resultType": "short-answer",
+      "options": [
+        "Possible",
+        "Impossible",
+        "Certain",
+        ""
+      ],
+      "correctAnswer": "Possible",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Understand chance language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Possible.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rolling a 3 on a die is?",
+      "resultType": "short-answer",
+      "options": [
+        "Possible",
+        "Impossible",
+        "Certain",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Understand chance language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Flying to school without an aircraft is?",
+      "resultType": "short-answer",
+      "options": [
+        "Unlikely",
+        "Likely",
+        "Certain",
+        ""
+      ],
+      "correctAnswer": "Unlikely",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Identify unlikely events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Unlikely.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Eating lunch today is?",
+      "resultType": "short-answer",
+      "options": [
+        "Likely",
+        "Impossible",
+        "Unlikely",
+        ""
+      ],
+      "correctAnswer": "Likely",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Identify likely events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Likely.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Chance words help describe?",
+      "resultType": "short-answer",
+      "options": [
+        "Events",
+        "Shapes",
+        "Distances",
+        ""
+      ],
+      "correctAnswer": "Events",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Understand chance language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Events.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which event is likely?",
+      "resultType": "short-answer",
+      "options": [
+        "Seeing clouds in the sky",
+        "Seeing a purple elephant",
+        "Seeing a flying car",
+        ""
+      ],
+      "correctAnswer": "Seeing clouds in the sky",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Identify likely events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Seeing clouds in the sky.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which event is unlikely?",
+      "resultType": "short-answer",
+      "options": [
+        "A dog driving a bus",
+        "A bird flying",
+        "A person walking",
+        ""
+      ],
+      "correctAnswer": "A dog driving a bus",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Identify unlikely events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to A dog driving a bus.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rolling a number less than 7 on a standard die is?",
+      "resultType": "short-answer",
+      "options": [
+        "Certain",
+        "Impossible",
+        "Unlikely",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Understand certainty",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rolling a 10 on a standard die is?",
+      "resultType": "short-answer",
+      "options": [
+        "Impossible",
+        "Possible",
+        "Likely",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Understand impossibility",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means \"may happen\"?",
+      "resultType": "short-answer",
+      "options": [
+        "Possible",
+        "Impossible",
+        "Certain",
+        ""
+      ],
+      "correctAnswer": "Possible",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Learn vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Possible.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means \"will definitely happen\"?",
+      "resultType": "short-answer",
+      "options": [
+        "Certain",
+        "Impossible",
+        "Possible",
+        ""
+      ],
+      "correctAnswer": "Certain",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Learn vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Certain.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word means \"cannot happen\"?",
+      "resultType": "short-answer",
+      "options": [
+        "Impossible",
+        "Certain",
+        "Possible",
+        ""
+      ],
+      "correctAnswer": "Impossible",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Learn vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Impossible.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Likely events happen?",
+      "resultType": "short-answer",
+      "options": [
+        "Often",
+        "Never",
+        "Impossible",
+        ""
+      ],
+      "correctAnswer": "Often",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Understand likelihood",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Often.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Unlikely events happen?",
+      "resultType": "short-answer",
+      "options": [
+        "Rarely",
+        "Always",
+        "Often",
+        ""
+      ],
+      "correctAnswer": "Rarely",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Understand likelihood",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rarely.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Chance language helps us describe?",
+      "resultType": "short-answer",
+      "options": [
+        "Probability of events",
+        "Shape properties",
+        "Measurements",
+        ""
+      ],
+      "correctAnswer": "Probability of events",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Apply chance language",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Probability of events.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is most likely?",
+      "resultType": "short-answer",
+      "options": [
+        "The sun rising tomorrow",
+        "A cat driving a car",
+        "A fish playing tennis",
+        ""
+      ],
+      "correctAnswer": "The sun rising tomorrow",
+      "category": "Statistics",
+      "subcategory": "Chance Language",
+      "learningOutcome": "Compare likelihood",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to The sun rising tomorrow.",
+      "solutionAttachments": []
+    }
+  ]
+}

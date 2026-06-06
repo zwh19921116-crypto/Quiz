@@ -1,0 +1,444 @@
+{
+  "id": "quiz-388",
+  "title": "Grade 4 2.07",
+  "description": "Learning Outcomes for Grade 4: Estimate sums | Round and estimate | Estimate differences | Estimate larger calculations | Round to nearest thousand | Use rounding | Understand estimation purpose | Understand rounding | Understand estimation | Apply estimation | Apply estimation strategies | Check answers | Strengthen number understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Estimate 49 + 52.",
+      "resultType": "short-answer",
+      "options": [
+        "100",
+        "90",
+        "110",
+        ""
+      ],
+      "correctAnswer": "101",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Estimate sums",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 49 + 52 = 101.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 49,
+          "operandB": 52,
+          "answer": "101",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Estimate 198 + 301.",
+      "resultType": "short-answer",
+      "options": [
+        "500",
+        "400",
+        "600",
+        ""
+      ],
+      "correctAnswer": "499",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Round and estimate",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 198 + 301 = 499.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 198,
+          "operandB": 301,
+          "answer": "499",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Estimate 72 − 31.",
+      "resultType": "short-answer",
+      "options": [
+        "40",
+        "50",
+        "30",
+        ""
+      ],
+      "correctAnswer": "72",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Estimate differences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 72.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Estimate 603 − 201.",
+      "resultType": "short-answer",
+      "options": [
+        "400",
+        "300",
+        "500",
+        ""
+      ],
+      "correctAnswer": "603",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Estimate differences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 603.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Estimate 247 + 349.",
+      "resultType": "short-answer",
+      "options": [
+        "600",
+        "500",
+        "700",
+        ""
+      ],
+      "correctAnswer": "596",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Estimate larger calculations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 247 + 349 = 596.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 247,
+          "operandB": 349,
+          "answer": "596",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Estimate 812 − 392.",
+      "resultType": "short-answer",
+      "options": [
+        "400",
+        "500",
+        "300",
+        ""
+      ],
+      "correctAnswer": "812",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Estimate larger calculations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 812.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which estimate is closest to 1,002?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "000",
+        "900",
+        "1"
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Round to nearest thousand",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Estimate 498 + 505.",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "000",
+        "900",
+        "1"
+      ],
+      "correctAnswer": "1003",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Use rounding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 498 + 505 = 1003.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 498,
+          "operandB": 505,
+          "answer": "1003",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Estimate 1,200 − 620.",
+      "resultType": "short-answer",
+      "options": [
+        "600",
+        "500",
+        "700",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Estimate differences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Why do we estimate?",
+      "resultType": "short-answer",
+      "options": [
+        "Check reasonableness",
+        "Replace exact answers",
+        "Draw diagrams",
+        ""
+      ],
+      "correctAnswer": "Check reasonableness",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Understand estimation purpose",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Check reasonableness.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Estimate 385 + 214.",
+      "resultType": "short-answer",
+      "options": [
+        "600",
+        "500",
+        "700",
+        ""
+      ],
+      "correctAnswer": "599",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Estimate sums",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 385 + 214 = 599.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 385,
+          "operandB": 214,
+          "answer": "599",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Estimate 687 − 292.",
+      "resultType": "short-answer",
+      "options": [
+        "400",
+        "300",
+        "500",
+        ""
+      ],
+      "correctAnswer": "687",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Estimate differences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 687.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rounding makes calculations?",
+      "resultType": "short-answer",
+      "options": [
+        "Easier",
+        "Harder",
+        "Impossible",
+        ""
+      ],
+      "correctAnswer": "Easier",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Understand rounding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Easier.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Estimate 901 + 105.",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "000",
+        "900",
+        "1"
+      ],
+      "correctAnswer": "1006",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Estimate sums",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 901 + 105 = 1006.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 901,
+          "operandB": 105,
+          "answer": "1006",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Estimate 749 − 252.",
+      "resultType": "short-answer",
+      "options": [
+        "500",
+        "400",
+        "600",
+        ""
+      ],
+      "correctAnswer": "749",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Estimate differences",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 749.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Estimation provides an answer that is?",
+      "resultType": "short-answer",
+      "options": [
+        "Close",
+        "Exact",
+        "Wrong",
+        ""
+      ],
+      "correctAnswer": "Close",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Understand estimation",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Close.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Estimation is useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday situations",
+        "Only school",
+        "Only tests",
+        ""
+      ],
+      "correctAnswer": "Everyday situations",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Apply estimation",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday situations.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Good estimates use?",
+      "resultType": "short-answer",
+      "options": [
+        "Rounding",
+        "Guessing only",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Rounding",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Apply estimation strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rounding.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Estimation can help find errors?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Sometimes never",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Check answers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Estimation develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Number sense",
+        "Drawing skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Number sense",
+      "category": "Number",
+      "subcategory": "Estimation",
+      "learningOutcome": "Strengthen number understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number sense.",
+      "solutionAttachments": []
+    }
+  ]
+}

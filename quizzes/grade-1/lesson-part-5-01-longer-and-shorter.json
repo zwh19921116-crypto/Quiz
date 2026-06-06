@@ -1,0 +1,372 @@
+{
+  "id": "quiz-146",
+  "title": "Grade 1 5.01",
+  "description": "Learning Outcomes for Grade 1: Compare lengths",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "Which is longer: a pencil or an eraser?",
+      "resultType": "short-answer",
+      "options": [
+        "Pencil",
+        "Eraser",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Pencil",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pencil.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter: a ruler or a crayon?",
+      "resultType": "short-answer",
+      "options": [
+        "Ruler",
+        "Crayon",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Ruler",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ruler.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rope is 10 cm. A string is 5 cm. Which is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "Rope",
+        "String",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A stick is 8 cm. A pencil is 12 cm. Which is shorter?",
+      "resultType": "short-answer",
+      "options": [
+        "Stick",
+        "Pencil",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer: a table or a book?",
+      "resultType": "short-answer",
+      "options": [
+        "Table",
+        "Book",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Table",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Table.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter: a bus or a car?",
+      "resultType": "short-answer",
+      "options": [
+        "Bus",
+        "Car",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bus",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bus.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "15 cm is longer than 10 cm.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 cm is shorter than 9 cm.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer: a snake or a worm?",
+      "resultType": "short-answer",
+      "options": [
+        "Snake",
+        "Worm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Snake",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Snake.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter: a bed or a pillow?",
+      "resultType": "short-answer",
+      "options": [
+        "Bed",
+        "Pillow",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bed",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bed.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A ribbon is 20 cm. A straw is 12 cm. Which is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "Ribbon",
+        "Straw",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A pen is 14 cm. A marker is 16 cm. Which is shorter?",
+      "resultType": "short-answer",
+      "options": [
+        "Pen",
+        "Marker",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer: a train or a bicycle?",
+      "resultType": "short-answer",
+      "options": [
+        "Train",
+        "Bicycle",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Train",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Train.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter: a spoon or a ladder?",
+      "resultType": "short-answer",
+      "options": [
+        "Spoon",
+        "Ladder",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Spoon",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Spoon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "18 cm is longer than 17 cm.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "11 cm is shorter than 8 cm.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer: a road or a driveway?",
+      "resultType": "short-answer",
+      "options": [
+        "Road",
+        "Driveway",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Road",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Road.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter: a bookmark or a ruler?",
+      "resultType": "short-answer",
+      "options": [
+        "Bookmark",
+        "Ruler",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bookmark",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bookmark.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A 25 cm rope is longer than a 15 cm rope.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the longest?",
+      "resultType": "short-answer",
+      "options": [
+        "5 cm",
+        "10 cm",
+        "15 cm",
+        ""
+      ],
+      "correctAnswer": "5 cm",
+      "category": "Measurement",
+      "subcategory": "Length",
+      "learningOutcome": "Compare lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5 cm.",
+      "solutionAttachments": []
+    }
+  ]
+}

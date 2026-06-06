@@ -1,0 +1,372 @@
+{
+  "id": "quiz-198",
+  "title": "Grade 1 10.03",
+  "description": "Learning Outcomes for Grade 1: Compare mass",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "10 kg",
+        "5 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "10 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter?",
+      "resultType": "short-answer",
+      "options": [
+        "8 kg",
+        "3 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "8 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "12 kg is heavier than 6 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 kg is lighter than 9 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "15 kg",
+        "7 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "15 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter?",
+      "resultType": "short-answer",
+      "options": [
+        "20 kg",
+        "11 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "20 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "14 kg is heavier than 10 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 kg is lighter than 13 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "18 kg",
+        "12 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "18 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter?",
+      "resultType": "short-answer",
+      "options": [
+        "16 kg",
+        "5 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "16 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 16 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "19 kg is heavier than 14 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "19",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 19.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "7 kg is lighter than 15 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "17 kg",
+        "8 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "17 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 17 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter?",
+      "resultType": "short-answer",
+      "options": [
+        "4 kg",
+        "18 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "4 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20 kg is heavier than 11 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 kg is lighter than 12 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "13 kg",
+        "9 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "13 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 13 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter?",
+      "resultType": "short-answer",
+      "options": [
+        "6 kg",
+        "17 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "6 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "18 kg is heavier than 10 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 kg is lighter than 19 kg.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    }
+  ]
+}

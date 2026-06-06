@@ -1,0 +1,383 @@
+{
+  "id": "quiz-454",
+  "title": "Grade 4 9.03",
+  "description": "Learning Outcomes for Grade 4: Solve money problems | Add money amounts | Subtract money amounts | Compare money amounts | Multiply money amounts | Apply multiplication | Apply division | Solve two-step problems | Find missing amounts | Select operations | Apply mathematics | Apply practical maths | Understand budgeting | Use problem-solving strategies | Verify solutions | Build foundations | Apply learning",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "A toy costs $5. You pay $10. Change?",
+      "resultType": "short-answer",
+      "options": [
+        "$5",
+        "$4",
+        "$6",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Solve money problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A drink costs $3 and a sandwich costs $4. Total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$7",
+        "$6",
+        "$8",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Add money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "You have $20 and spend $8. Money left?",
+      "resultType": "short-answer",
+      "options": [
+        "$12",
+        "$10",
+        "$14",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Subtract money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A book costs $12. You have $15. Enough money?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Compare money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two items cost $6 each. Total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$12",
+        "$10",
+        "$14",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Multiply money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "You save $5 each week for 4 weeks. Total savings?",
+      "resultType": "short-answer",
+      "options": [
+        "$20",
+        "$15",
+        "$25",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Apply multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A pencil costs $2. How many can you buy with $10?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "4",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Apply division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A pencil costs $2. How many can you buy with $10?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "You have $30 and spend $12. Then spend $8. Left?",
+      "resultType": "short-answer",
+      "options": [
+        "$10",
+        "$12",
+        "$8",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Solve two-step problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A game costs $25. You have $20. Need how much more?",
+      "resultType": "short-answer",
+      "options": [
+        "$5",
+        "$10",
+        "$15",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Find missing amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Three toys cost $4 each. Total?",
+      "resultType": "short-answer",
+      "options": [
+        "$12",
+        "$10",
+        "$14",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Apply multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which operation finds total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "Addition",
+        "Subtraction",
+        "Division",
+        ""
+      ],
+      "correctAnswer": "Addition",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Select operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Addition.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which operation finds change?",
+      "resultType": "short-answer",
+      "options": [
+        "Subtraction",
+        "Addition",
+        "Multiplication",
+        ""
+      ],
+      "correctAnswer": "Subtraction",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Select operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Subtraction.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Money problems are examples of?",
+      "resultType": "short-answer",
+      "options": [
+        "Real-life maths",
+        "Geometry",
+        "Statistics",
+        ""
+      ],
+      "correctAnswer": "Real-life maths",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Real-life maths.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Solving money problems develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Financial skills",
+        "Colouring skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Financial skills",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Apply practical maths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Financial skills.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Budgeting means?",
+      "resultType": "short-answer",
+      "options": [
+        "Planning spending",
+        "Drawing graphs",
+        "Measuring length",
+        ""
+      ],
+      "correctAnswer": "Planning spending",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Understand budgeting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Planning spending.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Money maths is useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Music",
+        "Sport only",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Careful reading helps solve?",
+      "resultType": "short-answer",
+      "options": [
+        "Word problems",
+        "Songs",
+        "Drawings",
+        ""
+      ],
+      "correctAnswer": "Word problems",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Use problem-solving strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Word problems.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Checking answers helps?",
+      "resultType": "short-answer",
+      "options": [
+        "Find mistakes",
+        "Create mistakes",
+        "Hide mistakes",
+        ""
+      ],
+      "correctAnswer": "Find mistakes",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Verify solutions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Find mistakes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding money problems supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Music",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Money skills are important because they help?",
+      "resultType": "short-answer",
+      "options": [
+        "Manage finances",
+        "Draw pictures",
+        "Play games",
+        ""
+      ],
+      "correctAnswer": "Manage finances",
+      "category": "Problem Solving",
+      "subcategory": "Money",
+      "learningOutcome": "Apply learning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Manage finances.",
+      "solutionAttachments": []
+    }
+  ]
+}

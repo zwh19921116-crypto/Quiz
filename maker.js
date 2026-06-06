@@ -13227,25 +13227,95 @@ function inferAnswerFromImportRow(row, templateType = "") {
 function inferSolutionFromImport(question, answer) {
   const q = String(question || "").trim();
   const a = String(answer || "").trim();
+  const qLower = q.toLowerCase();
+
+  const formatAnswerList = (text) => {
+    const parts = String(text || "")
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item !== "");
+    if (parts.length <= 1) return String(text || "").trim();
+    if (parts.length === 2) return `${parts[0]} and ${parts[1]}`;
+    return `${parts.slice(0, -1).join(", ")}, and ${parts[parts.length - 1]}`;
+  };
+
+  const sequenceHint = (() => {
+    const values = (q.match(/-?\d+(?:\.\d+)?/g) || [])
+      .map((item) => Number(item))
+      .filter((num) => Number.isFinite(num));
+    if (values.length < 2) return "";
+
+    const deltas = [];
+    for (let i = 1; i < values.length; i += 1) {
+      deltas.push(values[i] - values[i - 1]);
+    }
+    const uniformStep = deltas.every((step) => Math.abs(step - deltas[0]) < 1e-9);
+    if (uniformStep) {
+      const step = deltas[0];
+      if (Math.abs(step - 1) < 1e-9) {
+        return `The pattern increases by 1 each step. After ${values[values.length - 1]}, the next number is ${a}.`;
+      }
+      if (Math.abs(step + 1) < 1e-9) {
+        return `The pattern decreases by 1 each step. After ${values[values.length - 1]}, the next number is ${a}.`;
+      }
+      return `The pattern changes by ${step} each step. Continue the same rule to get ${a}.`;
+    }
+
+    if (values.length >= 3 && values[0] !== 0 && values[1] !== 0) {
+      const ratios = [];
+      for (let i = 1; i < values.length; i += 1) {
+        if (values[i - 1] === 0) return "";
+        ratios.push(values[i] / values[i - 1]);
+      }
+      const uniformRatio = ratios.every((ratio) => Math.abs(ratio - ratios[0]) < 1e-9);
+      if (uniformRatio) {
+        return `The pattern multiplies by ${ratios[0]} each step. Apply the same multiplier to get ${a}.`;
+      }
+    }
+
+    return "";
+  })();
+
   const arithmeticStructure = inferArithmeticStructureFromImportRow({ question: q });
   if (!a) return "Read the question carefully and use the lesson concept to complete it.";
   if (arithmeticStructure) {
     const operator = String(arithmeticStructure.operator || "").trim();
     const symbol = operator === "x" ? "x" : operator;
+    if (operator === "+") {
+      return `Add the two numbers step by step: ${arithmeticStructure.operandA} + ${arithmeticStructure.operandB} = ${a}.`;
+    }
+    if (operator === "-") {
+      return `Subtract the second number from the first: ${arithmeticStructure.operandA} - ${arithmeticStructure.operandB} = ${a}.`;
+    }
+    if (operator === "x") {
+      return `Multiply the factors: ${arithmeticStructure.operandA} x ${arithmeticStructure.operandB} = ${a}.`;
+    }
     if (operator === "/") {
       const isLongDivision = /\blong\s*division\b|\blong\s*divide\b|\bquotient\b|\bremainder\b/i.test(q);
       if (isLongDivision) {
-        return `Apply long division: ${arithmeticStructure.operandA} / ${arithmeticStructure.operandB} = ${a}. Check: ${arithmeticStructure.operandB} x ${a} = ${arithmeticStructure.operandA}.`;
+        return `Use long division: divide ${arithmeticStructure.operandA} by ${arithmeticStructure.operandB} to get ${a}. Check by multiplying ${a} x ${arithmeticStructure.operandB} = ${arithmeticStructure.operandA}.`;
       }
       return `Divide the numbers: ${arithmeticStructure.operandA} / ${arithmeticStructure.operandB} = ${a}.`;
     }
     return `Compute ${arithmeticStructure.operandA} ${symbol} ${arithmeticStructure.operandB} = ${a}.`;
   }
-  if (/select all/i.test(q)) return `Select every correct option. The correct selection is: ${a}.`;
-  if (/what comes next/i.test(q)) return `Continue the counting pattern by 1. The next number is ${a}.`;
-  if (/how many|which number matches/i.test(q)) return `Count the objects shown and match the quantity. The answer is ${a}.`;
-  if (/trace|draw|write/i.test(q)) return `The target numeral is ${a}. Complete the tracing/writing step using that number.`;
-  return `The correct answer is ${a}.`;
+  if (/select all/i.test(qLower)) {
+    return `Check each option against the rule in the question, then select all valid choices: ${formatAnswerList(a)}.`;
+  }
+  if (/what comes next|continue the pattern|complete the pattern/i.test(qLower)) {
+    if (sequenceHint) return sequenceHint;
+    return `Identify the number pattern and apply the same rule to the final blank. The next term is ${a}.`;
+  }
+  if (/how many|which number matches|count/i.test(qLower)) {
+    return `Count each object once, then match that total to the choices. The total count is ${a}.`;
+  }
+  if (/trace|draw|write/i.test(qLower)) {
+    return `Use the prompt to identify the target number, then trace or write it carefully. The target is ${a}.`;
+  }
+  if (/true or false|true\/false|is it true|is this true|correct or incorrect/i.test(qLower)) {
+    return `Evaluate the statement using the lesson rule, then decide whether it is true or false. The correct choice is ${a}.`;
+  }
+  return `Use the key clue in the question and apply the lesson method step by step. This leads to ${a}.`;
 }
 
 function summarizeModuleLearningOutcomes(rows) {

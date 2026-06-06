@@ -1,0 +1,394 @@
+{
+  "id": "quiz-518",
+  "title": "Grade 5 5.07",
+  "description": "Learning Outcomes for Grade 5: Read money amounts as decimals | Convert dollars to cents | Compare money amounts | Convert cents to dollars | Recognise dollar values | Add money amounts | Calculate change | Solve money problems using decimals | Calculate change in real-world situations | Apply decimal operations with money",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "Which amount represents 50 cents?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.50; $5.00; $0.05",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Read money amounts as decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which amount represents 25 cents?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.25; $2.50; $0.02",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Read money amounts as decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many cents are in $0.75?",
+      "resultType": "short-answer",
+      "options": [
+        "75; 7.5; 750",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Convert dollars to cents",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many cents are in $0.75?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many cents are in $0.40?",
+      "resultType": "short-answer",
+      "options": [
+        "40; 4; 400",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Convert dollars to cents",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many cents are in $0.40?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which is more expensive?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.80; $0.60; Same price",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "$0.80; $0.60; Same price",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Compare money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to $0.80; $0.60; Same price.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is cheaper?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.35; $0.53; Same price",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "$0.35; $0.53; Same price",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Compare money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to $0.35; $0.53; Same price.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 90 cents to dollars.",
+      "resultType": "short-answer",
+      "options": [
+        "$0.90; $9.00; $0.09",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "90",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Convert cents to dollars",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 90.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 15 cents to dollars.",
+      "resultType": "short-answer",
+      "options": [
+        "$0.15; $1.50; $0.015",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Convert cents to dollars",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which amount is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.95; $0.59; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "$0.95; $0.59; Equal",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Compare money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to $0.95; $0.59; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which amount equals one dollar?",
+      "resultType": "short-answer",
+      "options": [
+        "$1.00; $0.10; $10.00",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "$1.00; $0.10; $10.00",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Recognise dollar values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to $1.00; $0.10; $10.00.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A pencil costs $0.45 and an eraser costs $0.25. What is the total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.70; $0.60; $0.80",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Add money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A drink costs $0.85 and a snack costs $0.40. What is the total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$1.25; $1.15; $1.35",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Add money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A toy costs $1.50. If you pay $2.00, how much change do you receive?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.50; $0.40; $0.60",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Calculate change",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A book costs $2.75. If you pay $3.00, how much change do you receive?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.25; $0.35; $0.15",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Calculate change",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which costs more?",
+      "resultType": "short-answer",
+      "options": [
+        "$1.25; $1.05; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "$1.25; $1.05; Equal",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Compare money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to $1.25; $1.05; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 135 cents to dollars.",
+      "resultType": "short-answer",
+      "options": [
+        "$1.35; $13.50; $0.135",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "135",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Convert cents to dollars",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 135.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert $2.40 to cents.",
+      "resultType": "short-answer",
+      "options": [
+        "240; 24; 2400",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Convert dollars to cents",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Sarah buys a sandwich for $3.45 and a juice for $2.55. How much does she spend altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "$6.00; $5.90; $6.10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Solve money problems using decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tom has $10.00. He buys a toy costing $6.75. How much money is left?",
+      "resultType": "short-answer",
+      "options": [
+        "$3.25; $3.35; $2.25",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Calculate change in real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A student buys items costing $2.40, $1.85 and $3.75. What is the total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$8.00; $7.90; $8.10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Decimals",
+      "subcategory": "Money",
+      "learningOutcome": "Apply decimal operations with money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    }
+  ]
+}

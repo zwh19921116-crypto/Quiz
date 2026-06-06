@@ -1,0 +1,372 @@
+{
+  "id": "quiz-375",
+  "title": "Grade 4 1.04",
+  "description": "Learning Outcomes for Grade 4: Round numbers to the nearest 10 | Round 3-digit numbers | Round numbers to nearest 100 | Round numbers to nearest 1,000 | Understand purpose of rounding | Apply rounding | Connect rounding and place value",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Round 24 to the nearest 10.",
+      "resultType": "short-answer",
+      "options": [
+        "20",
+        "30",
+        "24",
+        ""
+      ],
+      "correctAnswer": "24",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round numbers to the nearest 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 24.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 27 to the nearest 10.",
+      "resultType": "short-answer",
+      "options": [
+        "20",
+        "30",
+        "27",
+        ""
+      ],
+      "correctAnswer": "27",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round numbers to the nearest 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 27.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 63 to the nearest 10.",
+      "resultType": "short-answer",
+      "options": [
+        "60",
+        "70",
+        "63",
+        ""
+      ],
+      "correctAnswer": "63",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round numbers to the nearest 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 63.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 68 to the nearest 10.",
+      "resultType": "short-answer",
+      "options": [
+        "60",
+        "70",
+        "68",
+        ""
+      ],
+      "correctAnswer": "68",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round numbers to the nearest 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 68.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 145 to the nearest 10.",
+      "resultType": "short-answer",
+      "options": [
+        "140",
+        "150",
+        "145",
+        ""
+      ],
+      "correctAnswer": "145",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 145.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 372 to the nearest 10.",
+      "resultType": "short-answer",
+      "options": [
+        "370",
+        "380",
+        "372",
+        ""
+      ],
+      "correctAnswer": "372",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 372.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 399 to the nearest 10.",
+      "resultType": "short-answer",
+      "options": [
+        "390",
+        "400",
+        "399",
+        ""
+      ],
+      "correctAnswer": "399",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 399.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 512 to the nearest 10.",
+      "resultType": "short-answer",
+      "options": [
+        "510",
+        "520",
+        "500",
+        ""
+      ],
+      "correctAnswer": "512",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 512.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 748 to the nearest 10.",
+      "resultType": "short-answer",
+      "options": [
+        "740",
+        "750",
+        "760",
+        ""
+      ],
+      "correctAnswer": "748",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round 3-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 748.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 1,234 to the nearest 100.",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "200",
+        "1",
+        "300"
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round numbers to nearest 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 1,278 to the nearest 100.",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "200",
+        "1",
+        "300"
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round numbers to nearest 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 2,649 to the nearest 100.",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "600",
+        "2",
+        "700"
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round numbers to nearest 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 4,750 to the nearest 100.",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "700",
+        "4",
+        "800"
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round numbers to nearest 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 3,421 to the nearest 1,000.",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "000",
+        "4",
+        "000"
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round numbers to nearest 1,000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 3,678 to the nearest 1,000.",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "000",
+        "4",
+        "000"
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round numbers to nearest 1,000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 8,499 to the nearest 1,000.",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "000",
+        "9",
+        "000"
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round numbers to nearest 1,000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 8,500 to the nearest 1,000.",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "000",
+        "9",
+        "000"
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Round numbers to nearest 1,000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Why do we round numbers?",
+      "resultType": "short-answer",
+      "options": [
+        "To estimate",
+        "To make numbers larger",
+        "To make numbers smaller",
+        ""
+      ],
+      "correctAnswer": "To estimate",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Understand purpose of rounding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to To estimate.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rounded numbers are useful for?",
+      "resultType": "short-answer",
+      "options": [
+        "Quick estimates",
+        "Exact answers only",
+        "Drawing graphs",
+        ""
+      ],
+      "correctAnswer": "Quick estimates",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Apply rounding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Quick estimates.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rounding uses knowledge of?",
+      "resultType": "short-answer",
+      "options": [
+        "Place value",
+        "Shapes",
+        "Fractions",
+        ""
+      ],
+      "correctAnswer": "Place value",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Connect rounding and place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Place value.",
+      "solutionAttachments": []
+    }
+  ]
+}

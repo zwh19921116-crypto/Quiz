@@ -1,0 +1,372 @@
+{
+  "id": "quiz-337",
+  "title": "Grade 3 6.03",
+  "description": "Learning Outcomes for Grade 3: Identify column graphs | Interpret column graphs | Read graph features | Compare data | Compare quantities | Understand graph purpose | Understand data | Interpret graphs | Understand graph design | Analyse data | Identify graph features | Understand representations | Interpret results | Use data displays",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "A column graph uses?",
+      "resultType": "plot",
+      "options": [
+        "Bars/columns",
+        "Pictures only",
+        "Shapes only",
+        ""
+      ],
+      "correctAnswer": "Bars/columns",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Identify column graphs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bars/columns.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Taller columns usually mean?",
+      "resultType": "short-answer",
+      "options": [
+        "More data",
+        "Less data",
+        "No data",
+        ""
+      ],
+      "correctAnswer": "More data",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Interpret column graphs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to More data.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Shorter columns usually mean?",
+      "resultType": "short-answer",
+      "options": [
+        "Less data",
+        "More data",
+        "Equal data",
+        ""
+      ],
+      "correctAnswer": "Less data",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Interpret column graphs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Less data.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What does the title tell us?",
+      "resultType": "short-answer",
+      "options": [
+        "What the graph is about",
+        "The answer",
+        "The colour",
+        ""
+      ],
+      "correctAnswer": "What the graph is about",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Read graph features",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to What the graph is about.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What do labels identify?",
+      "resultType": "short-answer",
+      "options": [
+        "Categories",
+        "Colours",
+        "Borders",
+        ""
+      ],
+      "correctAnswer": "Categories",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Read graph features",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Categories.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which column represents the most data?",
+      "resultType": "short-answer",
+      "options": [
+        "Tallest column",
+        "Shortest column",
+        "Any column",
+        ""
+      ],
+      "correctAnswer": "Tallest column",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Compare data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tallest column.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which column represents the least data?",
+      "resultType": "short-answer",
+      "options": [
+        "Shortest column",
+        "Tallest column",
+        "Any column",
+        ""
+      ],
+      "correctAnswer": "Shortest column",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Compare data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Shortest column.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If two columns are the same height, the data is?",
+      "resultType": "short-answer",
+      "options": [
+        "Equal",
+        "Different",
+        "Missing",
+        ""
+      ],
+      "correctAnswer": "Equal",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Column graphs help us?",
+      "resultType": "short-answer",
+      "options": [
+        "Compare data",
+        "Measure angles",
+        "Tell time",
+        ""
+      ],
+      "correctAnswer": "Compare data",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Understand graph purpose",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Compare data.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is data?",
+      "resultType": "short-answer",
+      "options": [
+        "Information",
+        "A shape",
+        "A direction",
+        ""
+      ],
+      "correctAnswer": "Information",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Understand data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Information.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category would have the tallest column?",
+      "resultType": "short-answer",
+      "options": [
+        "Largest group",
+        "Smallest group",
+        "Empty group",
+        ""
+      ],
+      "correctAnswer": "Largest group",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Interpret graphs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Largest group.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category would have the shortest column?",
+      "resultType": "short-answer",
+      "options": [
+        "Smallest group",
+        "Largest group",
+        "Equal group",
+        ""
+      ],
+      "correctAnswer": "Smallest group",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Interpret graphs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Smallest group.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Why are columns useful?",
+      "resultType": "short-answer",
+      "options": [
+        "Easy comparison",
+        "Decoration",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Easy comparison",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Understand graph design",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Easy comparison.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A graph can show?",
+      "resultType": "plot",
+      "options": [
+        "Patterns",
+        "Weight only",
+        "Shapes only",
+        ""
+      ],
+      "correctAnswer": "Patterns",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Analyse data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Patterns.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which graph feature names the graph?",
+      "resultType": "plot",
+      "options": [
+        "Title",
+        "Label",
+        "Key",
+        ""
+      ],
+      "correctAnswer": "Title",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Identify graph features",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Title.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which graph feature names categories?",
+      "resultType": "plot",
+      "options": [
+        "Labels",
+        "Title",
+        "Key",
+        ""
+      ],
+      "correctAnswer": "Labels",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Identify graph features",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Labels.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A column graph is another way to display?",
+      "resultType": "plot",
+      "options": [
+        "Data",
+        "Directions",
+        "Angles",
+        ""
+      ],
+      "correctAnswer": "Data",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Understand representations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Data.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category is most popular in a graph?",
+      "resultType": "plot",
+      "options": [
+        "Largest category",
+        "Smallest category",
+        "Equal category",
+        ""
+      ],
+      "correctAnswer": "Largest category",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Interpret results",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Largest category.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category is least popular in a graph?",
+      "resultType": "plot",
+      "options": [
+        "Smallest category",
+        "Largest category",
+        "Equal category",
+        ""
+      ],
+      "correctAnswer": "Smallest category",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Interpret results",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Smallest category.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Graphs help us make?",
+      "resultType": "short-answer",
+      "options": [
+        "Comparisons",
+        "Sandwiches",
+        "Maps",
+        ""
+      ],
+      "correctAnswer": "Comparisons",
+      "category": "Statistics",
+      "subcategory": "Column Graphs",
+      "learningOutcome": "Use data displays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Comparisons.",
+      "solutionAttachments": []
+    }
+  ]
+}

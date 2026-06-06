@@ -1,0 +1,591 @@
+{
+  "id": "quiz-310",
+  "title": "Grade 3 3.06",
+  "description": "Learning Outcomes for Grade 3: Multiply small numbers | Recall multiplication facts | Understand arrays | Model multiplication as groups | Connect addition and multiplication | Solve multiplication word problems | Match multiplication facts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "2 × 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Multiplication Facts",
+      "learningOutcome": "Multiply small numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 x 3 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 2,
+          "operandB": 3,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "4 × 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Multiplication Facts",
+      "learningOutcome": "Multiply small numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 x 2 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 4,
+          "operandB": 2,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5 × 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "15",
+        "12",
+        "18",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number",
+      "subcategory": "Multiplication Facts",
+      "learningOutcome": "Recall multiplication facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 x 3 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 5,
+          "operandB": 3,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "2 × 6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Multiplication Facts",
+      "learningOutcome": "Recall multiplication facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 x 6 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 2,
+          "operandB": 6,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3 × 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Multiplication Facts",
+      "learningOutcome": "Recall multiplication facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 x 4 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 3,
+          "operandB": 4,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "An array has 3 rows of 2. How many objects are there?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Arrays",
+      "learningOutcome": "Understand arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "An array has 3 rows of 2. How many objects are there?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "An array has 4 rows of 3. How many objects are there?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Arrays",
+      "learningOutcome": "Understand arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "An array has 4 rows of 3. How many objects are there?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "An array has 2 rows of 5. How many objects are there?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Arrays",
+      "learningOutcome": "Understand arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "An array has 2 rows of 5. How many objects are there?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 3 groups of 4 apples. How many apples altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Model multiplication as groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 3 groups of 4 apples. How many apples altogether?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 5 groups of 2 balloons. How many balloons altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Model multiplication as groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 5 groups of 2 balloons. How many balloons altogether?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 4 groups of 5 pencils. How many pencils altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Model multiplication as groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 4 groups of 5 pencils. How many pencils altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "3 + 3 + 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "9",
+        "12",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Repeated Addition",
+      "learningOutcome": "Connect addition and multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 + 3 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3,
+          "operandB": 3,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5 + 5 + 5 + 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "15",
+        "20",
+        "25",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Repeated Addition",
+      "learningOutcome": "Connect addition and multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 + 5 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 5,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "2 + 2 + 2 + 2 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Repeated Addition",
+      "learningOutcome": "Connect addition and multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "6 × 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Multiplication Facts",
+      "learningOutcome": "Recall multiplication facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6 x 2 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 6,
+          "operandB": 2,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "3 × 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "15",
+        "18",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number",
+      "subcategory": "Multiplication Facts",
+      "learningOutcome": "Recall multiplication facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 x 5 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 3,
+          "operandB": 5,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "4 bags contain 3 marbles each. How many marbles are there?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "4 bags contain 3 marbles each. How many marbles are there?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "5 tables have 4 chairs each. How many chairs are there?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "5 tables have 4 chairs each. How many chairs are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "2 boxes contain 6 toys each. How many toys are there?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve multiplication word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "2 boxes contain 6 toys each. How many toys are there?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which multiplication equals 18?",
+      "resultType": "short-answer",
+      "options": [
+        "3×5",
+        "3×6",
+        "2×8",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Number",
+      "subcategory": "Multiplication Facts",
+      "learningOutcome": "Match multiplication facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18.",
+      "solutionAttachments": []
+    }
+  ]
+}

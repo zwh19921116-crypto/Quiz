@@ -1,0 +1,383 @@
+{
+  "id": "quiz-380",
+  "title": "Grade 4 1.09",
+  "description": "Learning Outcomes for Grade 4: Understand prime numbers | Identify prime numbers | Identify composite numbers | Recognise prime numbers | Recognise composite numbers | Identify special primes | Classify numbers | Identify larger primes | Identify larger composites | Understand composite numbers | Distinguish primes | Distinguish composites | Appreciate number properties | Identify prime pairs | Identify composite pairs | Understand special cases | Connect factors and primes | Apply number properties",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "A prime number has exactly?",
+      "resultType": "short-answer",
+      "options": [
+        "2 factors",
+        "3 factors",
+        "4 factors",
+        ""
+      ],
+      "correctAnswer": "2 factors",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Understand prime numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 factors.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is prime?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Identify prime numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is composite?",
+      "resultType": "short-answer",
+      "options": [
+        "11",
+        "13",
+        "12",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Identify composite numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number has only factors 1 and itself?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Recognise prime numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number has more than 2 factors?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "7",
+        "11",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Recognise composite numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Is 2 a prime number?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Sometimes",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Identify special primes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Is 10 prime or composite?",
+      "resultType": "short-answer",
+      "options": [
+        "Composite",
+        "Prime",
+        "Neither",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Classify numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Is 13 prime or composite?",
+      "resultType": "short-answer",
+      "options": [
+        "Prime",
+        "Composite",
+        "Neither",
+        ""
+      ],
+      "correctAnswer": "13",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Classify numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 13.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is prime?",
+      "resultType": "short-answer",
+      "options": [
+        "17",
+        "15",
+        "21",
+        ""
+      ],
+      "correctAnswer": "17",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Identify larger primes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 17.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is composite?",
+      "resultType": "short-answer",
+      "options": [
+        "19",
+        "23",
+        "18",
+        ""
+      ],
+      "correctAnswer": "19",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Identify larger composites",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 19.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many factors does 11 have?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Understand prime numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 11.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many factors does 11 have?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many factors does 12 have?",
+      "resultType": "short-answer",
+      "options": [
+        "More than 2",
+        "Exactly 2",
+        "1",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Understand composite numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is NOT prime?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Distinguish primes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is NOT composite?",
+      "resultType": "short-answer",
+      "options": [
+        "13",
+        "15",
+        "18",
+        ""
+      ],
+      "correctAnswer": "13",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Distinguish composites",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 13.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Prime numbers are important in?",
+      "resultType": "short-answer",
+      "options": [
+        "Number theory",
+        "Geometry only",
+        "Time only",
+        ""
+      ],
+      "correctAnswer": "Number theory",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Appreciate number properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number theory.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which pair are both prime?",
+      "resultType": "short-answer",
+      "options": [
+        "3 and 5",
+        "4 and 5",
+        "6 and 7",
+        ""
+      ],
+      "correctAnswer": "3 and 5",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Identify prime pairs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3 and 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which pair are both composite?",
+      "resultType": "short-answer",
+      "options": [
+        "8 and 12",
+        "7 and 9",
+        "11 and 13",
+        ""
+      ],
+      "correctAnswer": "8 and 12",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Identify composite pairs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8 and 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "The number 1 is?",
+      "resultType": "short-answer",
+      "options": [
+        "Neither prime nor composite",
+        "Prime",
+        "Composite",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Understand special cases",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Prime and composite numbers are based on?",
+      "resultType": "short-answer",
+      "options": [
+        "Factors",
+        "Fractions",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Factors",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Connect factors and primes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Factors.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding primes helps with?",
+      "resultType": "short-answer",
+      "options": [
+        "Number relationships",
+        "Graphs",
+        "Time",
+        ""
+      ],
+      "correctAnswer": "Number relationships",
+      "category": "Number",
+      "subcategory": "Number Properties",
+      "learningOutcome": "Apply number properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number relationships.",
+      "solutionAttachments": []
+    }
+  ]
+}

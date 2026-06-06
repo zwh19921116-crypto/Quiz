@@ -1,0 +1,372 @@
+{
+  "id": "quiz-377",
+  "title": "Grade 4 1.06",
+  "description": "Learning Outcomes for Grade 4: Review place value | Review comparing numbers | Review number patterns | Review rounding | Review Roman numerals | Review ordering | Review patterns | Review comparison symbols | Review numeral systems | Apply number skills",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "What is the value of the digit 6 in 6,234?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "60",
+        "6",
+        "000"
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "567",
+        "4",
+        "657"
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review comparing numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 100, 200, 300, ?",
+      "resultType": "short-answer",
+      "options": [
+        "350",
+        "400",
+        "500",
+        ""
+      ],
+      "correctAnswer": "400",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review number patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 100 each step. Continue the same rule to get 400.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 78 to the nearest 10.",
+      "resultType": "short-answer",
+      "options": [
+        "70",
+        "80",
+        "78",
+        ""
+      ],
+      "correctAnswer": "78",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review rounding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 78.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is IV?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is IX?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 2,650 to the nearest 100.",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "600",
+        "2",
+        "700"
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review rounding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greatest?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "678",
+        "5",
+        "786"
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review ordering",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is represented by 3 thousands, 4 hundreds, 2 tens and 1 one?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "421",
+        "3",
+        "241"
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 12, 24, 36, ?",
+      "resultType": "short-answer",
+      "options": [
+        "42",
+        "48",
+        "54",
+        ""
+      ],
+      "correctAnswer": "48",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 12 each step. Continue the same rule to get 48.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What does X represent in Roman numerals?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "10",
+        "50",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which symbol means greater than?",
+      "resultType": "short-answer",
+      "options": [
+        ">",
+        "<",
+        "=",
+        ""
+      ],
+      "correctAnswer": ">",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review comparison symbols",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to >.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 5,499 to the nearest 1,000.",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "000",
+        "6",
+        "000"
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review rounding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smallest?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "654",
+        "7",
+        "546"
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review ordering",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is XI?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review Roman numerals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Place value helps us understand?",
+      "resultType": "short-answer",
+      "options": [
+        "Value of digits",
+        "Colours",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Value of digits",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Value of digits.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Patterns are based on?",
+      "resultType": "short-answer",
+      "options": [
+        "Rules",
+        "Colours",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Rules",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rules.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rounding is useful for?",
+      "resultType": "short-answer",
+      "options": [
+        "Estimating",
+        "Drawing",
+        "Measuring angles",
+        ""
+      ],
+      "correctAnswer": "Estimating",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review rounding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Estimating.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Roman numerals are used to write?",
+      "resultType": "short-answer",
+      "options": [
+        "Numbers",
+        "Letters",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Numbers",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Review numeral systems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is Numbers.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding numbers helps with?",
+      "resultType": "short-answer",
+      "options": [
+        "Problem solving",
+        "Colouring",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Problem solving",
+      "category": "Number",
+      "subcategory": "Review",
+      "learningOutcome": "Apply number skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Problem solving.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "id": "quiz-1",
+  "id": "quiz-368",
   "title": "Prep 1.01",
   "description": "Learning Outcomes for Prep: Recognise numbers | Count objects | Match quantity | Number order | Apply learning",
   "settings": {
@@ -12,10 +12,10 @@
       "question": "Which of these is a number?",
       "resultType": "multiple-choice",
       "options": [
-        "Dog",
-        "1",
         "Apple",
-        "Star"
+        "Star",
+        "Dog",
+        "1"
       ],
       "correctAnswer": "1",
       "category": "Recognition",
@@ -23,16 +23,16 @@
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
       "solutionAttachments": []
     },
     {
       "question": "Which of these is a number?",
       "resultType": "multiple-choice",
       "options": [
+        "Ball",
         "Cat",
         "2",
-        "Ball",
         "Tree"
       ],
       "correctAnswer": "2",
@@ -41,17 +41,17 @@
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
       "question": "Which of these is a number?",
       "resultType": "multiple-choice",
       "options": [
-        "Car",
-        "House",
+        "Fish",
         "3",
-        "Fish"
+        "House",
+        "Car"
       ],
       "correctAnswer": "3",
       "category": "Recognition",
@@ -59,16 +59,16 @@
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the numbers",
       "resultType": "checkbox",
       "options": [
-        "1",
         "Cat",
         "2",
+        "1",
         "Dog"
       ],
       "correctAnswer": "1, 2",
@@ -77,17 +77,17 @@
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 1, 2, 3.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: 1 and 2.",
       "solutionAttachments": []
     },
     {
       "question": "Which number is 3?",
       "resultType": "multiple-choice",
       "options": [
+        "4",
         "1",
         "2",
-        "3",
-        "4"
+        "3"
       ],
       "correctAnswer": "3",
       "category": "Recognition",
@@ -95,7 +95,7 @@
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -113,7 +113,7 @@
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -142,7 +142,7 @@
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -171,7 +171,7 @@
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -200,7 +200,7 @@
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -229,7 +229,7 @@
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -247,10 +247,10 @@
       "question": "Which number matches 🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "2",
-        "3",
-        "4"
+        "1",
+        "4",
+        "3"
       ],
       "correctAnswer": "1",
       "category": "Matching",
@@ -258,7 +258,7 @@
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -276,10 +276,10 @@
       "question": "Which number matches 🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "2",
-        "3",
-        "4"
+        "1",
+        "4",
+        "3"
       ],
       "correctAnswer": "2",
       "category": "Matching",
@@ -287,7 +287,7 @@
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -305,10 +305,10 @@
       "question": "Which number matches 🍎🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "2",
-        "3",
-        "4"
+        "1",
+        "4",
+        "3"
       ],
       "correctAnswer": "3",
       "category": "Matching",
@@ -316,7 +316,7 @@
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -334,8 +334,8 @@
       "question": "Which number matches ⭐⭐ ?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "2",
+        "1",
         "3",
         "4"
       ],
@@ -345,7 +345,7 @@
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -364,9 +364,9 @@
       "resultType": "multiple-choice",
       "options": [
         "1",
-        "2",
         "3",
-        "4"
+        "4",
+        "2"
       ],
       "correctAnswer": "3",
       "category": "Matching",
@@ -374,7 +374,7 @@
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -392,10 +392,10 @@
       "question": "What comes next? 1,2,__",
       "resultType": "multiple-choice",
       "options": [
-        "1",
-        "2",
+        "4",
         "3",
-        "4"
+        "1",
+        "2"
       ],
       "correctAnswer": "3",
       "category": "Sequencing",
@@ -403,17 +403,17 @@
       "learningOutcome": "Number order",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 3.",
+      "solution": "The pattern increases by 1 each step. After 2, the next number is 3.",
       "solutionAttachments": []
     },
     {
       "question": "What comes next? 2,3,__",
       "resultType": "multiple-choice",
       "options": [
-        "2",
         "3",
-        "4",
-        "5"
+        "2",
+        "5",
+        "4"
       ],
       "correctAnswer": "4",
       "category": "Sequencing",
@@ -421,16 +421,16 @@
       "learningOutcome": "Number order",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 4.",
+      "solution": "The pattern increases by 1 each step. After 3, the next number is 4.",
       "solutionAttachments": []
     },
     {
       "question": "What comes next? 3,4,__",
       "resultType": "multiple-choice",
       "options": [
-        "3",
         "4",
         "5",
+        "3",
         "6"
       ],
       "correctAnswer": "5",
@@ -439,17 +439,17 @@
       "learningOutcome": "Number order",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 5.",
+      "solution": "The pattern increases by 1 each step. After 4, the next number is 5.",
       "solutionAttachments": []
     },
     {
       "question": "Which number matches 🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
-        "2",
         "3",
-        "4"
+        "4",
+        "1",
+        "2"
       ],
       "correctAnswer": "2",
       "category": "Mixed Review",
@@ -457,7 +457,7 @@
       "learningOutcome": "Apply learning",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -475,10 +475,10 @@
       "question": "Which number matches 🍎🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
+        "4",
         "2",
         "3",
-        "4"
+        "1"
       ],
       "correctAnswer": "3",
       "category": "Mixed Review",
@@ -486,7 +486,7 @@
       "learningOutcome": "Apply learning",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",

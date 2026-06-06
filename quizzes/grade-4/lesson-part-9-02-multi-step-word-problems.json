@@ -1,0 +1,438 @@
+{
+  "id": "quiz-453",
+  "title": "Grade 4 9.02",
+  "description": "Learning Outcomes for Grade 4: Solve addition word problems | Solve subtraction word problems | Solve two-step problems | Apply multiplication | Apply division | Apply addition | Solve reverse problems | Apply subtraction | Select operations | Extract information | Solve multi-step problems | Use strategies | Verify solutions | Apply mathematics | Build reasoning | Build foundations | Consolidate understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Sam has 5 apples and buys 3 more. How many apples?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "7",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve addition word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sam has 5 apples and buys 3 more. How many apples?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 12 birds. 4 fly away. How many remain?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "7",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve subtraction word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 12 birds. 4 fly away. How many remain?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Tom has 10 stickers and gets 5 more. Then gives away 3. How many now?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "15",
+        "8",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve two-step problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom has 10 stickers and gets 5 more. Then gives away 3. How many now?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "A box has 20 pencils. 5 are used and 4 are added. How many now?",
+      "resultType": "short-answer",
+      "options": [
+        "19",
+        "21",
+        "20",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve two-step problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A box has 20 pencils. 5 are used and 4 are added. How many now?",
+          "totalCount": 19,
+          "iconShape": "circle",
+          "groups": [
+            19
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sarah has 8 marbles. She doubles them. How many marbles?",
+      "resultType": "short-answer",
+      "options": [
+        "16",
+        "14",
+        "12",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sarah has 8 marbles. She doubles them. How many marbles?",
+          "totalCount": 16,
+          "iconShape": "circle",
+          "groups": [
+            16
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 24 cookies shared equally among 4 children. Each gets?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "24",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 24.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bus carries 15 passengers and picks up 10 more. Total?",
+      "resultType": "short-answer",
+      "options": [
+        "25",
+        "20",
+        "30",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shop sold 30 toys and has 12 left. How many did it start with?",
+      "resultType": "short-answer",
+      "options": [
+        "42",
+        "18",
+        "30",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve reverse problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 30.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A shop sold 30 toys and has 12 left. How many did it start with?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A rope is 10 m long. 3 m is cut off. Length remaining?",
+      "resultType": "short-answer",
+      "options": [
+        "7 m",
+        "6 m",
+        "8 m",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A pack has 4 rows of 5 chocolates. Total chocolates?",
+      "resultType": "short-answer",
+      "options": [
+        "20",
+        "9",
+        "25",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which operation means \"shared equally\"?",
+      "resultType": "short-answer",
+      "options": [
+        "Division",
+        "Addition",
+        "Subtraction",
+        ""
+      ],
+      "correctAnswer": "Division",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Select operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Division.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which operation means \"groups of\"?",
+      "resultType": "short-answer",
+      "options": [
+        "Multiplication",
+        "Division",
+        "Addition",
+        ""
+      ],
+      "correctAnswer": "Multiplication",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Select operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Multiplication.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Word problems require?",
+      "resultType": "short-answer",
+      "options": [
+        "Careful reading",
+        "Guessing",
+        "Skipping",
+        ""
+      ],
+      "correctAnswer": "Careful reading",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Extract information",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Careful reading.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Multi-step problems need?",
+      "resultType": "short-answer",
+      "options": [
+        "More than one calculation",
+        "One guess",
+        "No working",
+        ""
+      ],
+      "correctAnswer": "More than one calculation",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Solve multi-step problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to More than one calculation.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Drawing a picture can help?",
+      "resultType": "short-answer",
+      "options": [
+        "Solve problems",
+        "Hide information",
+        "Change answers",
+        ""
+      ],
+      "correctAnswer": "Solve problems",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Use strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is Solve problems.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Checking your answer helps?",
+      "resultType": "short-answer",
+      "options": [
+        "Find mistakes",
+        "Create mistakes",
+        "Ignore mistakes",
+        ""
+      ],
+      "correctAnswer": "Find mistakes",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Verify solutions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Find mistakes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Word problems are useful because they connect maths to?",
+      "resultType": "short-answer",
+      "options": [
+        "Real life",
+        "Music",
+        "Art",
+        ""
+      ],
+      "correctAnswer": "Real life",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Real life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Solving problems develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Reasoning skills",
+        "Colouring skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Reasoning skills",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Build reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Reasoning skills.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding word problems supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Music",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Problem solving is an important part of?",
+      "resultType": "short-answer",
+      "options": [
+        "Mathematics",
+        "English",
+        "Art",
+        ""
+      ],
+      "correctAnswer": "Mathematics",
+      "category": "Problem Solving",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Consolidate understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mathematics.",
+      "solutionAttachments": []
+    }
+  ]
+}

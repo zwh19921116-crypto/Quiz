@@ -1,0 +1,372 @@
+{
+  "id": "quiz-542",
+  "title": "Grade 5 8.01",
+  "description": "Learning Outcomes for Grade 5: Understand what data is | Identify ways to collect data | Recognise data collection questions | Identify data collection activities | Identify data collection methods | Identify categories for data | Understand data collection | Recognise survey responses | Understand why data is collected | Identify data sources | Interpret survey questions | Design survey questions | Understand data collection terms | Identify practical uses of data | Create effective survey questions | Recognise collected data | Understand the data process | Apply data collection concepts | Plan a data collection process | Understand real-world uses of data",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "What is data?",
+      "resultType": "short-answer",
+      "options": [
+        "Information collected; A shape; A number sentence",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Information collected; A shape; A number sentence",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Understand what data is",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Information collected; A shape; A number sentence.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is an example of collecting data?",
+      "resultType": "short-answer",
+      "options": [
+        "Surveying favourite colours; Drawing a triangle; Solving 5+5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Surveying favourite colours; Drawing a triangle; Solving 5+5",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Identify ways to collect data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Surveying favourite colours; Drawing a triangle; Solving 5+5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which question collects data?",
+      "resultType": "short-answer",
+      "options": [
+        "What is your favourite fruit?; What is 3+4?; Draw a square",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "What is your favourite fruit?; What is 3+4?; Draw a square",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Recognise data collection questions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to What is your favourite fruit?; What is 3+4?; Draw a square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A class asks students about favourite pets. What are they doing?",
+      "resultType": "short-answer",
+      "options": [
+        "Collecting data; Measuring length; Finding area",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Collecting data; Measuring length; Finding area",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Identify data collection activities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Collecting data; Measuring length; Finding area.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tool is often used to collect data?",
+      "resultType": "short-answer",
+      "options": [
+        "Survey; Ruler; Protractor",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Survey; Ruler; Protractor",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Identify data collection methods",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Survey; Ruler; Protractor.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a data category?",
+      "resultType": "short-answer",
+      "options": [
+        "Favourite sport; Triangle; Kilogram",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Favourite sport; Triangle; Kilogram",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Identify categories for data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Favourite sport; Triangle; Kilogram.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If students count eye colours in a class, what are they collecting?",
+      "resultType": "short-answer",
+      "options": [
+        "Data; Perimeter; Angles",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Data; Perimeter; Angles",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Understand data collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is Data; Perimeter; Angles.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which answer could be collected in a survey?",
+      "resultType": "short-answer",
+      "options": [
+        "Blue; Rectangle; 90°",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Blue; Rectangle; 90°",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Recognise survey responses",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Blue; Rectangle; 90°.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the purpose of collecting data?",
+      "resultType": "short-answer",
+      "options": [
+        "To gather information; To draw shapes; To measure mass",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "To gather information; To draw shapes; To measure mass",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Understand why data is collected",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to To gather information; To draw shapes; To measure mass.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group could be surveyed about favourite food?",
+      "resultType": "short-answer",
+      "options": [
+        "Students; Triangles; Rulers",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Students; Triangles; Rulers",
+      "category": "Statistics",
+      "subcategory": "Data Collection",
+      "learningOutcome": "Identify data sources",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Students; Triangles; Rulers.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A class surveys 20 students about favourite fruit. What is being collected?",
+      "resultType": "short-answer",
+      "options": [
+        "Fruit preferences; Lengths; Angles",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Statistics",
+      "subcategory": "Surveys",
+      "learningOutcome": "Interpret survey questions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which question is best for a survey?",
+      "resultType": "short-answer",
+      "options": [
+        "What is your favourite colour?; What is 8×7?; Draw a hexagon",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "What is your favourite colour?; What is 8×7?; Draw a hexagon",
+      "category": "Statistics",
+      "subcategory": "Surveys",
+      "learningOutcome": "Design survey questions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to What is your favourite colour?; What is 8×7?; Draw a hexagon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If 15 students are asked about pets, what is 15 called?",
+      "resultType": "short-answer",
+      "options": [
+        "Sample size; Answer; Graph",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Statistics",
+      "subcategory": "Surveys",
+      "learningOutcome": "Understand data collection terms",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which survey would help a school canteen?",
+      "resultType": "short-answer",
+      "options": [
+        "Favourite lunch choices; Favourite shape; Height of desks",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Favourite lunch choices; Favourite shape; Height of desks",
+      "category": "Statistics",
+      "subcategory": "Surveys",
+      "learningOutcome": "Identify practical uses of data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Favourite lunch choices; Favourite shape; Height of desks.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What should a survey question be?",
+      "resultType": "short-answer",
+      "options": [
+        "Clear and easy to understand; Very long; Confusing",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Clear and easy to understand; Very long; Confusing",
+      "category": "Statistics",
+      "subcategory": "Surveys",
+      "learningOutcome": "Create effective survey questions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Clear and easy to understand; Very long; Confusing.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which response is data?",
+      "resultType": "short-answer",
+      "options": [
+        "Soccer; Triangle; Kilometre",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Soccer; Triangle; Kilometre",
+      "category": "Statistics",
+      "subcategory": "Surveys",
+      "learningOutcome": "Recognise collected data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Soccer; Triangle; Kilometre.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What can happen after data is collected?",
+      "resultType": "short-answer",
+      "options": [
+        "It can be organised; It disappears; It becomes a shape",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "It can be organised; It disappears; It becomes a shape",
+      "category": "Statistics",
+      "subcategory": "Surveys",
+      "learningOutcome": "Understand the data process",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to It can be organised; It disappears; It becomes a shape.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A teacher asks 30 students their favourite subject. What is the teacher doing?",
+      "resultType": "short-answer",
+      "options": [
+        "Collecting data; Measuring area; Calculating perimeter",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply data collection concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A sports club wants to know which sport is most popular. What should they do first?",
+      "resultType": "short-answer",
+      "options": [
+        "Conduct a survey; Draw a graph; Measure a field",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Conduct a survey; Draw a graph; Measure a field",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Plan a data collection process",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Conduct a survey; Draw a graph; Measure a field.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shop asks customers which product they buy most often. Why are they collecting this data?",
+      "resultType": "short-answer",
+      "options": [
+        "To make decisions; To calculate area; To measure weight",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "To make decisions; To calculate area; To measure weight",
+      "category": "Statistics",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Understand real-world uses of data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to To make decisions; To calculate area; To measure weight.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "id": "quiz-473",
+  "title": "Grade 5 1.02",
+  "description": "Learning Outcomes for Grade 5: Compare numbers to 100000 | Use comparison symbols | Identify the largest number | Identify the smallest number | Order numbers from smallest to largest | Compare numbers using benchmarks | Compare numbers to benchmarks | Order numbers correctly | Identify numbers within intervals | Compare distances between numbers | Compare large numbers accurately | Identify numbers on a number line | Apply number comparison in context | Order large numbers accurately | Apply ordering and comparison in real-world contexts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "Which number is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "45678; 45687; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "45678; 45687; Equal",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare numbers to 100000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 45678; 45687; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "67321; 67123; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "67321; 67123; Equal",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare numbers to 100000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 67321; 67123; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which symbol makes the statement true? 8765 ___ 8675",
+      "resultType": "short-answer",
+      "options": [
+        ">; <; =",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8585",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Use comparison symbols",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8585.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which symbol makes the statement true? 54321 ___ 54321",
+      "resultType": "short-answer",
+      "options": [
+        ">; <; =",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "54321",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Use comparison symbols",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 54321.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is the largest?",
+      "resultType": "short-answer",
+      "options": [
+        "72345; 73245; 71999",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "72345; 73245; 71999",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Identify the largest number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 72345; 73245; 71999.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is the smallest?",
+      "resultType": "short-answer",
+      "options": [
+        "89765; 89675; 89756",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "89765; 89675; 89756",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Identify the smallest number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 89765; 89675; 89756.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes first when ordered from smallest to largest?",
+      "resultType": "short-answer",
+      "options": [
+        "34567; 35467; 36457",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "34567; 35467; 36457",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Order numbers from smallest to largest",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 34567; 35467; 36457.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes last when ordered from smallest to largest?",
+      "resultType": "short-answer",
+      "options": [
+        "43567; 45367; 44567",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "43567; 45367; 44567",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Order numbers from smallest to largest",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 43567; 45367; 44567.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is closest to 50000?",
+      "resultType": "short-answer",
+      "options": [
+        "49950; 49500; 48900",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "50000",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare numbers using benchmarks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater than 65000?",
+      "resultType": "short-answer",
+      "options": [
+        "65432; 64999; 63876",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "65000",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare numbers to benchmarks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 65000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Put in ascending order: 23456, 23654, 23546",
+      "resultType": "short-answer",
+      "options": [
+        "23456 then 23546 then 23654; 23456 then 23654 then 23546; 23546 then 23456 then 23654",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "23456",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Order numbers correctly",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 23456.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Put in descending order: 78901, 78109, 79001",
+      "resultType": "short-answer",
+      "options": [
+        "79001 then 78901 then 78109; 78901 then 79001 then 78109; 79001 then 78109 then 78901",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "78901",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Order numbers correctly",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 78901.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is between 45000 and 46000?",
+      "resultType": "short-answer",
+      "options": [
+        "45678; 46123; 44999",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "45000",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Identify numbers within intervals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 45000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is closest to 80000?",
+      "resultType": "short-answer",
+      "options": [
+        "79950; 79500; 78000",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "80000",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare distances between numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 80000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is furthest from 60000?",
+      "resultType": "short-answer",
+      "options": [
+        "59900; 62000; 58000",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "60000",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare distances between numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 60000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which statement is true?",
+      "resultType": "short-answer",
+      "options": [
+        "54321 > 54123; 54321 < 54123; 54321 = 54123",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "54321 > 54123; 54321 < 54123; 54321 = 54123",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Compare large numbers accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 54321 > 54123; 54321 < 54123; 54321 = 54123.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number belongs between 69999 and 70001?",
+      "resultType": "short-answer",
+      "options": [
+        "70000; 69000; 71000",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "69999",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Identify numbers on a number line",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 69999.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A town has 54876 people. Another town has 54678 people. Which town is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "54876; 54678; Same",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "54876",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Apply number comparison in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 54876.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which set is ordered from greatest to least?",
+      "resultType": "short-answer",
+      "options": [
+        "98765 then 97865 then 96875; 96875 then 97865 then 98765; 97865 then 98765 then 96875",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "98765 then 97865 then 96875; 96875 then 97865 then 98765; 97865 then 98765 then 96875",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Order large numbers accurately",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 98765 then 97865 then 96875; 96875 then 97865 then 98765; 97865 then 98765 then 96875.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Three schools have 23456, 24356 and 23654 students. Which school has the most students?",
+      "resultType": "short-answer",
+      "options": [
+        "24356; 23654; 23456",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "23456",
+      "category": "Number",
+      "subcategory": "Comparing Numbers",
+      "learningOutcome": "Apply ordering and comparison in real-world contexts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 23456.",
+      "solutionAttachments": []
+    }
+  ]
+}

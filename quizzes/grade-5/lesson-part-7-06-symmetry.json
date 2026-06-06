@@ -1,0 +1,449 @@
+{
+  "id": "quiz-537",
+  "title": "Grade 5 7.06",
+  "description": "Learning Outcomes for Grade 5: Understand symmetry | Identify lines of symmetry | Recognise symmetry in shapes | Identify symmetrical shapes | Identify non-symmetrical shapes | Recognise symmetrical shapes | Identify symmetry in polygons | Compare symmetry | Compare shape symmetry | Classify shapes by symmetry | Apply symmetry concepts in context | Apply symmetry knowledge to real-world objects | Use symmetry to identify shapes",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "What is a line of symmetry?",
+      "resultType": "short-answer",
+      "options": [
+        "A line that divides a shape into two matching halves; A curved line; A measurement line",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "A line that divides a shape into two matching halves; A curved line; A measurement line",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Understand symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to A line that divides a shape into two matching halves; A curved line; A measurement line.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many lines of symmetry does a square have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4; 2; 1",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "4; 2; 1",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify lines of symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4; 2; 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many lines of symmetry does a square have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many lines of symmetry does a rectangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2; 4; 1",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "2; 4; 1",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify lines of symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2; 4; 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many lines of symmetry does a rectangle have?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many lines of symmetry does a circle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Infinitely many; 4; 2",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Infinitely many; 4; 2",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Recognise symmetry in shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is Infinitely many; 4; 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many lines of symmetry does an equilateral triangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3; 2; 1",
+        "Triangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "3; 2; 1",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify lines of symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3; 2; 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many lines of symmetry does an equilateral triangle have?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has exactly one line of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Isosceles triangle; square; circle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Isosceles triangle; square; circle",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify symmetrical shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Isosceles Triangle; Square; Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has no lines of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify non-symmetrical shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 2 lines of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "2",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Identify lines of symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape can be folded exactly in half. What property does it have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Symmetry; perimeter; area",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Symmetry; perimeter; area",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Understand symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Symmetry; Perimeter; Area.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is symmetrical?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square; scalene triangle; irregular quadrilateral",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Square; scalene triangle; irregular quadrilateral",
+      "category": "Geometry",
+      "subcategory": "Symmetry",
+      "learningOutcome": "Recognise symmetrical shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square; Scalene Triangle; Irregular Quadrilateral.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many lines of symmetry does a regular pentagon have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5; 4; 6",
+        "Pentagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "5; 4; 6",
+      "category": "Geometry",
+      "subcategory": "Lines of Symmetry",
+      "learningOutcome": "Identify symmetry in polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5; 4; 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many lines of symmetry does a regular pentagon have?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many lines of symmetry does a regular hexagon have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6; 5; 4",
+        "Hexagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "6; 5; 4",
+      "category": "Geometry",
+      "subcategory": "Lines of Symmetry",
+      "learningOutcome": "Identify symmetry in polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6; 5; 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many lines of symmetry does a regular hexagon have?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has more lines of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square; rectangle; same",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Square; rectangle; same",
+      "category": "Geometry",
+      "subcategory": "Lines of Symmetry",
+      "learningOutcome": "Compare symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square; Rectangle; Same.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many lines of symmetry does a regular octagon have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8; 4; 6",
+        "Octagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "8; 4; 6",
+      "category": "Geometry",
+      "subcategory": "Lines of Symmetry",
+      "learningOutcome": "Identify symmetry in polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8; 4; 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many lines of symmetry does a regular octagon have?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has exactly 3 lines of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "Lines of Symmetry",
+      "learningOutcome": "Compare shape symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has exactly 1 line of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "1",
+      "category": "Geometry",
+      "subcategory": "Lines of Symmetry",
+      "learningOutcome": "Classify shapes by symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has no lines of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "Lines of Symmetry",
+      "learningOutcome": "Identify non-symmetrical shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A company logo can be folded vertically into two identical halves. What does it have?",
+      "resultType": "short-answer",
+      "options": [
+        "One line of symmetry; No symmetry; Infinite symmetry",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "One line of symmetry; No symmetry; Infinite symmetry",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply symmetry concepts in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to One line of symmetry; No symmetry; Infinite symmetry.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A road sign is shaped like a regular octagon. How many lines of symmetry does it have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8; 4; 6",
+        "Octagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "8; 4; 6",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply symmetry knowledge to real-world objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8; 4; 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A road sign is shaped like a regular octagon. How many lines of symmetry does it have?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "A shape has 4 equal sides and 4 lines of symmetry. What shape is it?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Use symmetry to identify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    }
+  ]
+}

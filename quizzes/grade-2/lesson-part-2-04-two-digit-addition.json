@@ -1,0 +1,612 @@
+{
+  "id": "quiz-218",
+  "title": "Grade 2 2.04",
+  "description": "Learning Outcomes for Grade 2: Add two-digit numbers",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "12 + 15 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "25",
+        "27",
+        "29",
+        ""
+      ],
+      "correctAnswer": "27",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 12 + 15 = 27.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 12,
+          "operandB": 15,
+          "answer": "27",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "21 + 13 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "32",
+        "34",
+        "36",
+        ""
+      ],
+      "correctAnswer": "34",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 21 + 13 = 34.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 21,
+          "operandB": 13,
+          "answer": "34",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "24 + 12 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "34",
+        "36",
+        "38",
+        ""
+      ],
+      "correctAnswer": "36",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 24 + 12 = 36.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 24,
+          "operandB": 12,
+          "answer": "36",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "31 + 14 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "43",
+        "45",
+        "47",
+        ""
+      ],
+      "correctAnswer": "45",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 31 + 14 = 45.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 31,
+          "operandB": 14,
+          "answer": "45",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "25 + 23 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "46",
+        "48",
+        "50",
+        ""
+      ],
+      "correctAnswer": "48",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 25 + 23 = 48.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 25,
+          "operandB": 23,
+          "answer": "48",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "42 + 16 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "56",
+        "58",
+        "60",
+        ""
+      ],
+      "correctAnswer": "58",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 42 + 16 = 58.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 42,
+          "operandB": 16,
+          "answer": "58",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "33 + 24 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "55",
+        "57",
+        "59",
+        ""
+      ],
+      "correctAnswer": "57",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 33 + 24 = 57.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 33,
+          "operandB": 24,
+          "answer": "57",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "41 + 27 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "66",
+        "68",
+        "70",
+        ""
+      ],
+      "correctAnswer": "68",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 41 + 27 = 68.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 41,
+          "operandB": 27,
+          "answer": "68",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "52 + 15 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "65",
+        "67",
+        "69",
+        ""
+      ],
+      "correctAnswer": "67",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 52 + 15 = 67.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 52,
+          "operandB": 15,
+          "answer": "67",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "61 + 18 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "77",
+        "79",
+        "81",
+        ""
+      ],
+      "correctAnswer": "79",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 61 + 18 = 79.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 61,
+          "operandB": 18,
+          "answer": "79",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "34 + 25 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "57",
+        "59",
+        "61",
+        ""
+      ],
+      "correctAnswer": "59",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 34 + 25 = 59.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 34,
+          "operandB": 25,
+          "answer": "59",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "45 + 22 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "65",
+        "67",
+        "69",
+        ""
+      ],
+      "correctAnswer": "67",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 45 + 22 = 67.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 45,
+          "operandB": 22,
+          "answer": "67",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "53 + 16 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "67",
+        "69",
+        "71",
+        ""
+      ],
+      "correctAnswer": "69",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 53 + 16 = 69.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 53,
+          "operandB": 16,
+          "answer": "69",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "62 + 17 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "77",
+        "79",
+        "81",
+        ""
+      ],
+      "correctAnswer": "79",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 62 + 17 = 79.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 62,
+          "operandB": 17,
+          "answer": "79",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "71 + 18 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "87",
+        "89",
+        "91",
+        ""
+      ],
+      "correctAnswer": "89",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 71 + 18 = 89.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 71,
+          "operandB": 18,
+          "answer": "89",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "27 + 32 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "57",
+        "59",
+        "61",
+        ""
+      ],
+      "correctAnswer": "59",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 27 + 32 = 59.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 27,
+          "operandB": 32,
+          "answer": "59",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "38 + 21 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "57",
+        "59",
+        "61",
+        ""
+      ],
+      "correctAnswer": "59",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 38 + 21 = 59.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 38,
+          "operandB": 21,
+          "answer": "59",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "46 + 23 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "67",
+        "69",
+        "71",
+        ""
+      ],
+      "correctAnswer": "69",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 46 + 23 = 69.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 46,
+          "operandB": 23,
+          "answer": "69",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "55 + 14 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "67",
+        "69",
+        "71",
+        ""
+      ],
+      "correctAnswer": "69",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 55 + 14 = 69.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 55,
+          "operandB": 14,
+          "answer": "69",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "63 + 16 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "77",
+        "79",
+        "81",
+        ""
+      ],
+      "correctAnswer": "79",
+      "category": "Number",
+      "subcategory": "Addition",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 63 + 16 = 79.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 63,
+          "operandB": 16,
+          "answer": "79",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    }
+  ]
+}

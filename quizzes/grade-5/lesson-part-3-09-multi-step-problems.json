@@ -1,0 +1,592 @@
+{
+  "id": "quiz-500",
+  "title": "Grade 5 3.09",
+  "description": "Learning Outcomes for Grade 5: Solve multi-step multiplication problems | Solve division problems | Solve multiplication problems | Apply multiplication in practical situations | Apply multiplication to solve real-world problems | Apply division to solve real-world problems | Solve division problems with larger numbers | Solve multi-step multiplication and division problems | Apply multiple operations to solve real-world problems | Solve complex multi-step problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "There are 5 bags with 4 apples each. How many apples are there altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "20; 18; 22",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step multiplication problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 5 bags with 4 apples each. How many apples are there altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "24 stickers are shared among 6 students. How many stickers does each student get?",
+      "resultType": "short-answer",
+      "options": [
+        "4; 3; 5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "24",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve division problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 24.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "24 stickers are shared among 6 students. How many stickers does each student get?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "A box contains 8 pencils. There are 3 boxes. How many pencils are there?",
+      "resultType": "short-answer",
+      "options": [
+        "24; 20; 28",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A box contains 8 pencils. There are 3 boxes. How many pencils are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "42 books are arranged equally on 6 shelves. How many books are on each shelf?",
+      "resultType": "short-answer",
+      "options": [
+        "7; 6; 8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "42",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve division problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 42.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "42 books are arranged equally on 6 shelves. How many books are on each shelf?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "A farmer has 4 rows of 9 trees. How many trees are planted?",
+      "resultType": "short-answer",
+      "options": [
+        "36; 32; 40",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A farmer has 4 rows of 9 trees. How many trees are planted?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "56 chocolates are shared among 8 children. How many chocolates does each child receive?",
+      "resultType": "short-answer",
+      "options": [
+        "7; 6; 8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "56",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve division problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 56.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "56 chocolates are shared among 8 children. How many chocolates does each child receive?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "A classroom has 6 tables with 5 students at each table. How many students are there?",
+      "resultType": "short-answer",
+      "options": [
+        "30; 25; 35",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A classroom has 6 tables with 5 students at each table. How many students are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "72 balloons are shared equally into 9 groups. How many balloons are in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "8; 7; 9",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "72",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve division problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 72.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "72 balloons are shared equally into 9 groups. How many balloons are in each group?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 7 trays with 6 muffins on each tray. How many muffins are there?",
+      "resultType": "short-answer",
+      "options": [
+        "42; 40; 44",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 7 trays with 6 muffins on each tray. How many muffins are there?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "90 students are divided equally into 10 groups. How many students are in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "9; 8; 10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "90",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve division problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 90.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "90 students are divided equally into 10 groups. How many students are in each group?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "A farmer has 12 paddocks with 15 sheep in each paddock. How many sheep are there altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "180; 170; 190",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step multiplication problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A farmer has 12 paddocks with 15 sheep in each paddock. How many sheep are there altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A factory makes 24 boxes each day for 5 days. How many boxes are made altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "120; 110; 130",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "24",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiplication in practical situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 24.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A factory makes 24 boxes each day for 5 days. How many boxes are made altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "180 apples are packed equally into 9 crates. How many apples are in each crate?",
+      "resultType": "short-answer",
+      "options": [
+        "20; 18; 22",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "180",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve division problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 180.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "180 apples are packed equally into 9 crates. How many apples are in each crate?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A school has 8 classes with 28 students in each class. How many students are there altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "224; 214; 234",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiplication to solve real-world problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A school has 8 classes with 28 students in each class. How many students are there altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A warehouse stores 360 boxes equally on 12 shelves. How many boxes are on each shelf?",
+      "resultType": "short-answer",
+      "options": [
+        "30; 20; 40",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "360",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply division to solve real-world problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 360.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A warehouse stores 360 boxes equally on 12 shelves. How many boxes are on each shelf?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A sports club buys 18 balls for each of 7 teams. How many balls are bought?",
+      "resultType": "short-answer",
+      "options": [
+        "126; 116; 136",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multiplication problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A sports club buys 18 balls for each of 7 teams. How many balls are bought?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "528 books are shared equally among 16 classrooms. How many books does each classroom receive?",
+      "resultType": "short-answer",
+      "options": [
+        "33; 32; 34",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "528",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve division problems with larger numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 528.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "528 books are shared equally among 16 classrooms. How many books does each classroom receive?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A factory produces 125 items each day for 8 days and then packs them equally into 20 cartons. How many items are in each carton?",
+      "resultType": "short-answer",
+      "options": [
+        "50; 40; 60",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "125",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step multiplication and division problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 125.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A factory produces 125 items each day for 8 days and then packs them equally into 20 cartons. How many items are in each carton?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A school has 24 classes with 28 students in each class. If 112 students are absent, how many students are present?",
+      "resultType": "short-answer",
+      "options": [
+        "560; 570; 550",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "24",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiple operations to solve real-world problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 24.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A school has 24 classes with 28 students in each class. If 112 students are absent, how many students are present?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A warehouse stores 48 boxes on each of 25 shelves. If 300 boxes are shipped, how many boxes remain?",
+      "resultType": "short-answer",
+      "options": [
+        "900; 800; 1000",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "48",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve complex multi-step problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 48.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A warehouse stores 48 boxes on each of 25 shelves. If 300 boxes are shipped, how many boxes remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    }
+  ]
+}

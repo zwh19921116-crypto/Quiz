@@ -1,0 +1,396 @@
+{
+  "id": "quiz-228",
+  "title": "Grade 2 3.04",
+  "description": "Learning Outcomes for Grade 2: Count groups of 2 | Use repeated addition | Connect groups and addition | Recognise equal groups | Skip count by 2 | Compare groups | Understand multiplication concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "1 group of 2 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Count groups of 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 groups of 2 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "4",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Count groups of 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 groups of 2 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "6",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Count groups of 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 groups of 2 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Count groups of 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 groups of 2 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Count groups of 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6 groups of 2 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Count groups of 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "7 groups of 2 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "14",
+        "16",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Count groups of 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8 groups of 2 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "16",
+        "18",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Count groups of 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "9 groups of 2 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "16",
+        "18",
+        "20",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Count groups of 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 groups of 2 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Count groups of 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 + 2 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "6",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Use repeated addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "2 + 2 + 2 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Use repeated addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5 groups of 2 means?",
+      "resultType": "short-answer",
+      "options": [
+        "2+2+2+2+2",
+        "5+2",
+        "5+5",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Connect groups and addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is equal to 8?",
+      "resultType": "short-answer",
+      "options": [
+        "3 groups of 2",
+        "4 groups of 2",
+        "5 groups of 2",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Recognise equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Skip count by 2: 2,4,6,?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Skip count by 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Skip count by 2: 8,10,12,?",
+      "resultType": "short-answer",
+      "options": [
+        "13",
+        "14",
+        "15",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Skip count by 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "4 groups of 2",
+        "3 groups of 2",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "4 groups of 2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Compare groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4 groups of 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "7 groups of 2 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "14",
+        "16",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Count groups of 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 groups of 2 equals?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "20",
+        "22",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Count groups of 2",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Groups of 2 help us learn?",
+      "resultType": "short-answer",
+      "options": [
+        "Multiplication",
+        "Time",
+        "Money",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Multiplication Foundations",
+      "subcategory": "Groups of 2",
+      "learningOutcome": "Understand multiplication concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    }
+  ]
+}

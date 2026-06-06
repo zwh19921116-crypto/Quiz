@@ -1,0 +1,383 @@
+{
+  "id": "quiz-300",
+  "title": "Grade 2 10.06",
+  "description": "Learning Outcomes for Grade 2: Understand time | Understand hours | Read o'clock times | Identify clock parts | Connect time to daily life | Read clocks | Sequence times | Understand purpose of time | Understand daily time | Identify tools | Consolidate time concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "A clock is used to measure?",
+      "resultType": "short-answer",
+      "options": [
+        "Time",
+        "Length",
+        "Mass",
+        ""
+      ],
+      "correctAnswer": "Time",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Time.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many hours are in one day?",
+      "resultType": "short-answer",
+      "options": [
+        "24",
+        "12",
+        "60",
+        ""
+      ],
+      "correctAnswer": "24",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand hours",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 24.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many hours are in one day?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "When the minute hand points to 12 and the hour hand points to 3, the time is?",
+      "resultType": "short-answer",
+      "options": [
+        "3 o'clock",
+        "12 o'clock",
+        "6 o'clock",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which hand shows the hour?",
+      "resultType": "short-answer",
+      "options": [
+        "Short hand",
+        "Long hand",
+        "Both",
+        ""
+      ],
+      "correctAnswer": "Short hand",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Identify clock parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Short hand.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which hand shows the minutes?",
+      "resultType": "short-answer",
+      "options": [
+        "Long hand",
+        "Short hand",
+        "Both",
+        ""
+      ],
+      "correctAnswer": "Long hand",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Identify clock parts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Long hand.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If the hour hand points to 7 and the minute hand points to 12, it is?",
+      "resultType": "short-answer",
+      "options": [
+        "7 o'clock",
+        "12 o'clock",
+        "5 o'clock",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "School usually starts in the?",
+      "resultType": "short-answer",
+      "options": [
+        "Morning",
+        "Night",
+        "Midnight",
+        ""
+      ],
+      "correctAnswer": "Morning",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Connect time to daily life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Morning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "We usually sleep at?",
+      "resultType": "short-answer",
+      "options": [
+        "Night",
+        "Morning",
+        "Noon",
+        ""
+      ],
+      "correctAnswer": "Night",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Connect time to daily life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Night.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Time helps us know?",
+      "resultType": "short-answer",
+      "options": [
+        "When things happen",
+        "How heavy things are",
+        "How long things are",
+        ""
+      ],
+      "correctAnswer": "When things happen",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to When things happen.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "The numbers on a clock help us tell?",
+      "resultType": "short-answer",
+      "options": [
+        "Time",
+        "Capacity",
+        "Mass",
+        ""
+      ],
+      "correctAnswer": "Time",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read clocks",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Time.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If the hour hand points to 5 and the minute hand points to 12, it is?",
+      "resultType": "short-answer",
+      "options": [
+        "5 o'clock",
+        "12 o'clock",
+        "10 o'clock",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Read o'clock times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which comes after 4 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "5 o'clock",
+        "3 o'clock",
+        "6 o'clock",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which comes before 9 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "8 o'clock",
+        "10 o'clock",
+        "7 o'clock",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence times",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Clocks help us organise?",
+      "resultType": "short-answer",
+      "options": [
+        "Our day",
+        "Our mass",
+        "Our capacity",
+        ""
+      ],
+      "correctAnswer": "Our day",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand purpose of time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Our day.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Noon happens around?",
+      "resultType": "short-answer",
+      "options": [
+        "12 o'clock",
+        "6 o'clock",
+        "3 o'clock",
+        ""
+      ],
+      "correctAnswer": "12 o'clock",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand daily time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12 o'clock.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Midnight happens around?",
+      "resultType": "short-answer",
+      "options": [
+        "12 o'clock at night",
+        "12 o'clock at noon",
+        "6 o'clock",
+        ""
+      ],
+      "correctAnswer": "12 o'clock at night",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Understand daily time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12 o'clock at night.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Time is measured using?",
+      "resultType": "short-answer",
+      "options": [
+        "Clocks",
+        "Rulers",
+        "Scales",
+        ""
+      ],
+      "correctAnswer": "Clocks",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Identify tools",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Clocks.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which activity usually happens in the morning?",
+      "resultType": "short-answer",
+      "options": [
+        "Breakfast",
+        "Sleeping",
+        "Dinner",
+        ""
+      ],
+      "correctAnswer": "Breakfast",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Connect time to daily life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Breakfast.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which activity usually happens at night?",
+      "resultType": "short-answer",
+      "options": [
+        "Sleeping",
+        "Breakfast",
+        "School assembly",
+        ""
+      ],
+      "correctAnswer": "Sleeping",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Connect time to daily life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sleeping.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Time is part of?",
+      "resultType": "short-answer",
+      "options": [
+        "Measurement",
+        "Geometry",
+        "Statistics",
+        ""
+      ],
+      "correctAnswer": "Measurement",
+      "category": "Measurement",
+      "subcategory": "Time",
+      "learningOutcome": "Consolidate time concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Measurement.",
+      "solutionAttachments": []
+    }
+  ]
+}

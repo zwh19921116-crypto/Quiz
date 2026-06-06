@@ -1,0 +1,427 @@
+{
+  "id": "quiz-468",
+  "title": "Grade 4 10.06",
+  "description": "Learning Outcomes for Grade 4: Identify properties of triangles | Identify properties of quadrilaterals | Identify common polygons | Identify properties of 2D shapes | Classify quadrilaterals | Identify lines of symmetry | Identify angle types | Classify angles | Identify properties of 3D objects | Identify 3D objects | Apply properties of 2D shapes | Compare properties of polygons | Apply properties of quadrilaterals | Apply properties of 3D objects",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "How many sides does a triangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Triangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify properties of triangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a triangle have?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many sides does a square have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify properties of quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a square have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has 5 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "5",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify common polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 6 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "6",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify common polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has all sides equal and 4 right angles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify properties of 2D shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which quadrilateral has opposite sides equal?",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangle",
+        "Triangle",
+        "Pentagon",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify properties of quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape with 8 sides is called a?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "8",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify common polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is a quadrilateral?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Classify quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many lines of symmetry does a square have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify lines of symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many lines of symmetry does a square have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has exactly 1 line of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "1",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify lines of symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the name of a 90° angle?",
+      "resultType": "short-answer",
+      "options": [
+        "Right angle",
+        "Acute angle",
+        "Reflex angle",
+        ""
+      ],
+      "correctAnswer": "90",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify angle types",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 90.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which angle is less than 90°?",
+      "resultType": "short-answer",
+      "options": [
+        "Acute angle",
+        "Right angle",
+        "Reflex angle",
+        ""
+      ],
+      "correctAnswer": "90",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify angle types",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 90.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which angle is greater than 90° but less than 180°?",
+      "resultType": "short-answer",
+      "options": [
+        "Obtuse angle",
+        "Acute angle",
+        "Right angle",
+        ""
+      ],
+      "correctAnswer": "90",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Classify angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 90.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many faces does a cube have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "Cube",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "6",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify properties of 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many faces does a cube have?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many vertices does a cube have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "Cube",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "8",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify properties of 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many vertices does a cube have?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which 3D object has a circular base and one curved surface?",
+      "resultType": "short-answer",
+      "options": [
+        "Cone",
+        "Cube",
+        "Rectangular prism",
+        ""
+      ],
+      "correctAnswer": "Cone",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cone.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle has 4 right angles and opposite sides equal. What type of shape is it?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Apply properties of 2D shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has more sides: a hexagon or a pentagon?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Hexagon",
+        "Pentagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "Hexagon",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Compare properties of polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Hexagon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape has 4 equal sides but no right angles. Which shape could it be?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Apply properties of quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which property helps identify a cube?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6 equal square faces",
+        "Cube",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "6 equal square faces",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Apply properties of 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6 equal square faces.",
+      "solutionAttachments": []
+    }
+  ]
+}

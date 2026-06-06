@@ -1,0 +1,473 @@
+{
+  "id": "quiz-559",
+  "title": "Grade 5 9.09",
+  "description": "Learning Outcomes for Grade 5: Solve addition problems | Solve subtraction problems | Apply multiplication | Apply division | Solve fraction problems | Add decimals | Solve measurement problems | Calculate perimeter | Interpret data | Calculate simple probability | Solve multi-step problems | Subtract fractions | Calculate area | Analyse data | Apply probability fractions | Apply multiple operations | Apply geometry concepts | Apply probability in real-world situations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "Sarah has 25 stickers and buys 15 more. How many stickers does she have now?",
+      "resultType": "short-answer",
+      "options": [
+        "40; 35; 45",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Mixed",
+      "subcategory": "Number",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sarah has 25 stickers and buys 15 more. How many stickers does she have now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Tom has 50 marbles and loses 18. How many remain?",
+      "resultType": "short-answer",
+      "options": [
+        "32; 28; 38",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Mixed",
+      "subcategory": "Number",
+      "learningOutcome": "Solve subtraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 50.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom has 50 marbles and loses 18. How many remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 6 boxes with 7 pencils in each box. How many pencils altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "42; 36; 49",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Mixed",
+      "subcategory": "Multiplication",
+      "learningOutcome": "Apply multiplication",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 6 boxes with 7 pencils in each box. How many pencils altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "40 biscuits are shared equally among 5 children. How many biscuits does each child receive?",
+      "resultType": "short-answer",
+      "options": [
+        "8; 10; 6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "40",
+      "category": "Mixed",
+      "subcategory": "Division",
+      "learningOutcome": "Apply division",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 40.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "40 biscuits are shared equally among 5 children. How many biscuits does each child receive?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Emma ate 3/8 of a pizza. What fraction remains?",
+      "resultType": "short-answer",
+      "options": [
+        "5/8; 3/8; 4/8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.375",
+      "category": "Mixed",
+      "subcategory": "Fractions",
+      "learningOutcome": "Solve fraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 / 8 = 0.375.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 3,
+          "operandB": 8,
+          "answer": "0.38",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A drink costs $2.50 and a snack costs $1.40. What is the total cost?",
+      "resultType": "short-answer",
+      "options": [
+        "$3.90; $3.80; $4.00",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Mixed",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rope is 8 m long. If 3 m is cut off, how much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "5 m; 6 m; 4 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Mixed",
+      "subcategory": "Measurement",
+      "learningOutcome": "Solve measurement problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A square has sides of 5 cm. What is its perimeter?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "5",
+      "category": "Mixed",
+      "subcategory": "Geometry",
+      "learningOutcome": "Calculate perimeter",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A survey shows 14 students like soccer and 9 like basketball. Which sport is more popular?",
+      "resultType": "short-answer",
+      "options": [
+        "Soccer; Basketball; Same",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Mixed",
+      "subcategory": "Statistics",
+      "learningOutcome": "Interpret data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the probability of rolling a 2 on a standard die?",
+      "resultType": "short-answer",
+      "options": [
+        "1/6; 2/6; 1/2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Mixed",
+      "subcategory": "Probability",
+      "learningOutcome": "Calculate simple probability",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Liam had $20. He spent $7 and then earned $12. How much money does he have now?",
+      "resultType": "short-answer",
+      "options": [
+        "$25; $19; $32",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Mixed",
+      "subcategory": "Multi-Step",
+      "learningOutcome": "Solve multi-step problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A tank is 7/10 full. If 2/10 is used, what fraction remains?",
+      "resultType": "short-answer",
+      "options": [
+        "5/10; 9/10; 4/10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.7",
+      "category": "Mixed",
+      "subcategory": "Fractions",
+      "learningOutcome": "Subtract fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7 / 10 = 0.7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "/",
+          "operandA": 7,
+          "operandB": 10,
+          "answer": "0.7",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A runner completes 2.8 km and then another 1.7 km. How far altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "4.5 km; 4.3 km; 5.5 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Mixed",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle is 8 m long and 6 m wide. What is its area?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "8",
+      "category": "Mixed",
+      "subcategory": "Area",
+      "learningOutcome": "Calculate area",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A graph shows Apples = 15, Bananas = 10 and Oranges = 5. How many votes altogether?",
+      "resultType": "plot",
+      "options": [
+        "30; 25; 35",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Mixed",
+      "subcategory": "Statistics",
+      "learningOutcome": "Analyse data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A graph shows Apples = 15, Bananas = 10 and Oranges = 5. How many votes altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A bag contains 10 marbles. Four are blue. What is the probability of selecting blue?",
+      "resultType": "short-answer",
+      "options": [
+        "4/10; 6/10; 1/10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed",
+      "subcategory": "Probability",
+      "learningOutcome": "Apply probability fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shop sold 125 toys on Monday and 85 on Tuesday. If 40 were returned, how many toys remained sold?",
+      "resultType": "short-answer",
+      "options": [
+        "170; 210; 160",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "125",
+      "category": "Mixed",
+      "subcategory": "Multi-Step",
+      "learningOutcome": "Solve multi-step problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 125.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A shop sold 125 toys on Monday and 85 on Tuesday. If 40 were returned, how many toys remained sold?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A school collected 250 cans. It donated 85 and then collected another 40. How many cans does it have now?",
+      "resultType": "short-answer",
+      "options": [
+        "205; 195; 290",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "250",
+      "category": "Mixed",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiple operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 250.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A school collected 250 cans. It donated 85 and then collected another 40. How many cans does it have now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A rectangular field is 25 m long and 12 m wide. What is its area?",
+      "resultType": "short-answer",
+      "options": [
+        "300 m²; 74 m²; 150 m²",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Mixed",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply geometry concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A jar contains 8 red, 6 blue and 6 green marbles. What is the probability of selecting a green marble?",
+      "resultType": "short-answer",
+      "options": [
+        "6/20; 8/20; 12/20",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Mixed",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply probability in real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    }
+  ]
+}

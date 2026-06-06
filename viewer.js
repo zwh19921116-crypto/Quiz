@@ -84,15 +84,18 @@ function saveQuestionReportsPayload(payload) {
   }
 }
 
-function buildQuestionReportKey(question) {
+function buildQuestionReportKey(question, questionIndex = currentIndex) {
   const sourceFile = normalizeReportKeyPart(getRequestedFile());
   const quizTitle = normalizeReportKeyPart(quizData && quizData.title ? quizData.title : "");
   const category = normalizeReportKeyPart(question && question.category ? question.category : "");
   const prompt = normalizeReportKeyPart(question && question.question ? question.question : "");
-  return [sourceFile, quizTitle, category, prompt].join("||");
+  const indexPart = Number.isInteger(questionIndex) && questionIndex >= 0
+    ? String(questionIndex + 1)
+    : "";
+  return [sourceFile, quizTitle, category, prompt, indexPart].join("||");
 }
 
-function buildQuestionReportRecord(question, key) {
+function buildQuestionReportRecord(question, key, questionIndex = currentIndex) {
   const now = new Date().toISOString();
   return {
     key,
@@ -102,6 +105,7 @@ function buildQuestionReportRecord(question, key) {
     reportCount: 1,
     sourceFile: getRequestedFile(),
     quizTitle: String((quizData && quizData.title) || "Quiz Viewer"),
+    questionNumber: Number.isInteger(questionIndex) && questionIndex >= 0 ? questionIndex + 1 : null,
     category: String((question && question.category) || "").trim(),
     subcategory: String((question && question.subcategory) || "").trim(),
     learningOutcome: String((question && question.learningOutcome) || "").trim(),
@@ -113,28 +117,36 @@ function buildQuestionReportRecord(question, key) {
   };
 }
 
-function isQuestionAlreadyFlagged(question) {
+function isQuestionAlreadyFlagged(question, questionIndex = currentIndex) {
   if (!question) return false;
-  const key = buildQuestionReportKey(question);
+  const key = buildQuestionReportKey(question, questionIndex);
   const payload = loadQuestionReportsPayload();
   return payload.items.some((item) => item.key === key && item.status === "flagged");
 }
 
-function registerQuestionReport(question) {
+function registerQuestionReport(question, questionIndex = currentIndex) {
   if (!question) return { alreadyFlagged: false, saved: false };
-  const key = buildQuestionReportKey(question);
+  const key = buildQuestionReportKey(question, questionIndex);
   const payload = loadQuestionReportsPayload();
   const existing = payload.items.find((item) => item.key === key);
 
   if (existing) {
+    const wasAlreadyFlagged = String(existing.status || "flagged").trim().toLowerCase() === "flagged";
+
+    // Prevent repeat-click spam: keep a single active flag per question until resolved.
+    if (wasAlreadyFlagged) {
+      saveQuestionReportsPayload(payload);
+      return { alreadyFlagged: true, saved: true };
+    }
+
     existing.status = "flagged";
     existing.lastReportedAt = new Date().toISOString();
     existing.reportCount = Math.max(1, Number.parseInt(existing.reportCount, 10) || 1) + 1;
     saveQuestionReportsPayload(payload);
-    return { alreadyFlagged: true, saved: true };
+    return { alreadyFlagged: false, saved: true };
   }
 
-  payload.items.push(buildQuestionReportRecord(question, key));
+  payload.items.push(buildQuestionReportRecord(question, key, questionIndex));
   saveQuestionReportsPayload(payload);
   return { alreadyFlagged: false, saved: true };
 }
@@ -145,7 +157,7 @@ function syncReportQuestionButton(question) {
   if (!(reportBtn instanceof HTMLButtonElement)) return;
 
   const alreadyFlagged = Boolean(question) && isQuestionAlreadyFlagged(question);
-  const shouldShow = Boolean(question) && !isIntroductionQuestion(question) && !alreadyFlagged;
+  const shouldShow = Boolean(question) && !isIntroductionQuestion(question);
   reportBtn.style.display = shouldShow ? "inline-block" : "none";
   if (!shouldShow) return;
 
@@ -164,7 +176,7 @@ function reportCurrentQuestion() {
   const question = quizData.questions[currentIndex];
   if (!question || isIntroductionQuestion(question)) return;
 
-  const result = registerQuestionReport(question);
+  const result = registerQuestionReport(question, currentIndex);
   syncReportQuestionButton(question);
   if (result.alreadyFlagged) {
     showToast("Thank you for reporting. We are aware and working on it.", "info");

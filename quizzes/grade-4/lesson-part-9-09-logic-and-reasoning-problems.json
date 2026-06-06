@@ -1,0 +1,408 @@
+{
+  "id": "quiz-460",
+  "title": "Grade 4 9.09",
+  "description": "Learning Outcomes for Grade 4: Apply logical reasoning | Identify patterns | Extend patterns | Apply sequencing | Compare numbers | Apply geometry knowledge | Identify number patterns | Apply number facts | Apply logical thinking | Understand reasoning | Apply reasoning | Estimate answers | Evaluate answers | Build thinking skills | Apply mathematics | Verify solutions | Understand problem solving | Build foundations | Apply learning",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "If all squares have 4 sides, does a square have 4 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Apply logical reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number does not belong? 2, 4, 6, 7, 8",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "6",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Identify patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which comes next? A, B, C, D, ?",
+      "resultType": "short-answer",
+      "options": [
+        "E",
+        "F",
+        "G",
+        ""
+      ],
+      "correctAnswer": "E",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Extend patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to E.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If today is Monday, what day comes next?",
+      "resultType": "short-answer",
+      "options": [
+        "Tuesday",
+        "Wednesday",
+        "Sunday",
+        ""
+      ],
+      "correctAnswer": "Tuesday",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Apply sequencing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tuesday.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the largest number?",
+      "resultType": "short-answer",
+      "options": [
+        "25",
+        "18",
+        "21",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the smallest number?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "8",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If a shape has 3 sides, it is a?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "3",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Apply geometry knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 10, 20, 30, 40, ?",
+      "resultType": "short-answer",
+      "options": [
+        "50",
+        "45",
+        "60",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Identify number patterns",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern changes by 10 each step. Continue the same rule to get 50.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If 5 + 5 = 10, then 10 + 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "15",
+        "10",
+        "20",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Apply number facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 + 5 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 5,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which answer makes sense? 12 apples shared between 3 children = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4 each",
+        "12 each",
+        "1 each",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Apply logical thinking",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Reasoning means?",
+      "resultType": "short-answer",
+      "options": [
+        "Thinking carefully",
+        "Guessing",
+        "Skipping work",
+        ""
+      ],
+      "correctAnswer": "Thinking carefully",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Understand reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Thinking carefully.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Logical thinking helps us?",
+      "resultType": "short-answer",
+      "options": [
+        "Solve problems",
+        "Avoid learning",
+        "Ignore facts",
+        ""
+      ],
+      "correctAnswer": "Solve problems",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Apply reasoning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Solve problems.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a reasonable estimate for 9 + 10?",
+      "resultType": "short-answer",
+      "options": [
+        "19",
+        "50",
+        "100",
+        ""
+      ],
+      "correctAnswer": "19",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Estimate answers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 9 + 10 = 19.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 10,
+          "answer": "19",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which answer is unreasonable? 2 + 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "50",
+        "5",
+        "4",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Evaluate answers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 + 3 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 3,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Reasoning develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Critical thinking",
+        "Colouring skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Critical thinking",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Build thinking skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Critical thinking.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Logical thinking is useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Music only",
+        "Art only",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Checking if an answer makes sense is called?",
+      "resultType": "short-answer",
+      "options": [
+        "Reasoning",
+        "Guessing",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Reasoning",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Verify solutions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Reasoning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Reasoning is part of?",
+      "resultType": "short-answer",
+      "options": [
+        "Problem solving",
+        "Colouring",
+        "Sport",
+        ""
+      ],
+      "correctAnswer": "Problem solving",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Understand problem solving",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Problem solving.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding reasoning supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Music",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Reasoning helps us make?",
+      "resultType": "short-answer",
+      "options": [
+        "Better decisions",
+        "Drawings",
+        "Songs",
+        ""
+      ],
+      "correctAnswer": "Better decisions",
+      "category": "Problem Solving",
+      "subcategory": "Reasoning",
+      "learningOutcome": "Apply learning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Better decisions.",
+      "solutionAttachments": []
+    }
+  ]
+}

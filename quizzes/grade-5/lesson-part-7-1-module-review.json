@@ -1,0 +1,438 @@
+{
+  "id": "quiz-541",
+  "title": "Grade 5 7.1",
+  "description": "Learning Outcomes for Grade 5: Identify properties of 2D shapes | Identify common polygons | Recognise shape properties | Identify common 2D shapes | Identify shape properties | Identify common 3D objects | Identify angle types | Identify transformations | Identify symmetry | Classify triangles | Classify quadrilaterals | Classify angles | Describe 3D objects | Compare symmetry | Identify properties of 3D objects | Classify shapes using multiple properties | Apply symmetry concepts | Apply multiple geometry concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "How many sides does a triangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3; 4; 5",
+        "Triangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "3; 4; 5",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify properties of 2D shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3; 4; 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a triangle have?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many sides does a hexagon have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6; 5; 8",
+        "Hexagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "6; 5; 8",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify common polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6; 5; 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a hexagon have?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has 4 equal sides and 4 right angles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Recognise shape properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has no sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify common 2D shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many vertices does a rectangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4; 3; 5",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "4; 3; 5",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify shape properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4; 3; 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many vertices does a rectangle have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which 3D object has 6 square faces?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "6",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify common 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What type of angle is 90°?",
+      "resultType": "short-answer",
+      "options": [
+        "Right; Acute; Obtuse",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "90",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify angle types",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 90.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which transformation is a slide?",
+      "resultType": "short-answer",
+      "options": [
+        "Translation; Rotation; Reflection",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Translation; Rotation; Reflection",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify transformations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Translation; Rotation; Reflection.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many lines of symmetry does a square have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4; 2; 1",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "4; 2; 1",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4; 2; 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many lines of symmetry does a square have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has 8 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "8",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify common polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which triangle has all sides equal?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Equilateral triangle; isosceles triangle; scalene triangle",
+        "Triangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "Equilateral triangle; isosceles triangle; scalene triangle",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Classify triangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Equilateral Triangle; Isosceles Triangle; Scalene Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which quadrilateral has exactly one pair of parallel sides?",
+      "resultType": "short-answer",
+      "options": [
+        "Trapezium; Rectangle; Square",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Trapezium; Rectangle; Square",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Classify quadrilaterals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Trapezium; Rectangle; Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What type of angle is 135°?",
+      "resultType": "short-answer",
+      "options": [
+        "Obtuse; Acute; Right",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "135",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Classify angles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 135.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many vertices does a cube have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8; 6; 12",
+        "Cube",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "8; 6; 12",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Describe 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8; 6; 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many vertices does a cube have?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has exactly one line of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Isosceles triangle; square; circle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Isosceles triangle; square; circle",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Compare symmetry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Isosceles Triangle; Square; Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape is flipped across a line. What transformation occurred?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Reflection; translation; rotation",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Reflection; translation; rotation",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify transformations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Reflection; Translation; Rotation.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which 3D object has two circular faces?",
+      "resultType": "short-answer",
+      "options": [
+        "Cylinder; Cone; Sphere",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Cylinder; Cone; Sphere",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Identify properties of 3D objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cylinder; Cone; Sphere.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape has 4 equal sides but does not necessarily have right angles. What shape is it?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Classify shapes using multiple properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A regular octagon has how many lines of symmetry?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8; 4; 6",
+        "Octagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "8; 4; 6",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Apply symmetry concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8; 4; 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A regular octagon has how many lines of symmetry?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "A shape is rotated 180° and then reflected. Which two transformations were used?",
+      "resultType": "multiple-choice",
+      "options": [
+        "180",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "180",
+      "category": "Geometry",
+      "subcategory": "Review",
+      "learningOutcome": "Apply multiple geometry concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 180.",
+      "solutionAttachments": []
+    }
+  ]
+}

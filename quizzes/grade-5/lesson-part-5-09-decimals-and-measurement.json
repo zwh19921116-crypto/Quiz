@@ -1,0 +1,372 @@
+{
+  "id": "quiz-520",
+  "title": "Grade 5 5.09",
+  "description": "Learning Outcomes for Grade 5: Read decimal measurements | Read decimal capacities | Read decimal masses | Compare decimal measurements | Compare decimal capacities | Read decimal distances | Compare decimal masses | Add decimal measurements | Subtract decimal capacities | Add decimal distances | Subtract decimal masses | Compare decimal distances | Solve measurement problems using decimals | Apply decimal subtraction in measurement contexts | Solve multi-step measurement problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "A ribbon is 0.5 m long. What is its length?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5 m; 5 m; 0.05 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Read decimal measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bottle contains 0.8 L of water. How much water is in the bottle?",
+      "resultType": "short-answer",
+      "options": [
+        "0.8 L; 8 L; 0.08 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Read decimal capacities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bag weighs 1.2 kg. What is its mass?",
+      "resultType": "short-answer",
+      "options": [
+        "1.2 kg; 12 kg; 0.12 kg",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Read decimal masses",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which length is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "0.9 m; 0.6 m; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.9 m; 0.6 m; Equal",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Compare decimal measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.9 m; 0.6 m; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which capacity is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.3 L; 0.7 L; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.3 L; 0.7 L; Equal",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Compare decimal capacities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.3 L; 0.7 L; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A runner travels 1.5 km. How far did the runner travel?",
+      "resultType": "short-answer",
+      "options": [
+        "1.5 km; 15 km; 0.15 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Read decimal distances",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A fish weighs 2.4 kg. What is its mass?",
+      "resultType": "short-answer",
+      "options": [
+        "2.4 kg; 24 kg; 0.24 kg",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Read decimal masses",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which measurement is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "1.8 m; 1.3 m; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1.8 m; 1.3 m; Equal",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Compare decimal measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.8 m; 1.3 m; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A jug contains 2.5 L. How much liquid does it contain?",
+      "resultType": "short-answer",
+      "options": [
+        "2.5 L; 25 L; 0.25 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Read decimal capacities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which mass is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "3.2 kg; 2.9 kg; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3.2 kg; 2.9 kg; Equal",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Compare decimal masses",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.2 kg; 2.9 kg; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rope is 1.25 m long and another rope is 0.75 m long. What is the total length?",
+      "resultType": "short-answer",
+      "options": [
+        "2.00 m; 1.90 m; 2.10 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Add decimal measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A tank contains 3.50 L. If 1.25 L is used, how much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "2.25 L; 2.15 L; 2.35 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Subtract decimal capacities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A runner completes 2.35 km in the morning and 1.45 km in the afternoon. How far altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "3.80 km; 3.70 km; 3.90 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Add decimal distances",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A parcel weighs 5.60 kg. If 1.25 kg is removed, what is the new mass?",
+      "resultType": "short-answer",
+      "options": [
+        "4.35 kg; 4.25 kg; 4.45 kg",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Subtract decimal masses",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which distance is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "2.75 km; 2.57 km; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2.75 km; 2.57 km; Equal",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Compare decimal distances",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.75 km; 2.57 km; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which capacity is smallest?",
+      "resultType": "short-answer",
+      "options": [
+        "1.08 L; 1.80 L; 1.18 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1.08 L; 1.80 L; 1.18 L",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Compare decimal capacities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.08 L; 1.80 L; 1.18 L.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A board is 4.25 m long. Another board is 3.75 m long. What is their total length?",
+      "resultType": "short-answer",
+      "options": [
+        "8.00 m; 7.90 m; 8.10 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Add decimal measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A truck travels 125.5 km on Monday and 138.7 km on Tuesday. How far does it travel altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "264.2 km; 263.2 km; 265.2 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "125",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Solve measurement problems using decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 125.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A water tank contains 250.8 L. If 125.4 L is used, how much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "125.4 L; 124.4 L; 126.4 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "250",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Apply decimal subtraction in measurement contexts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 250.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A runner completes 12.5 km, 8.7 km and 4.8 km over three days. What total distance is covered?",
+      "resultType": "short-answer",
+      "options": [
+        "26.0 km; 25.0 km; 27.0 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Decimals",
+      "subcategory": "Measurement",
+      "learningOutcome": "Solve multi-step measurement problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    }
+  ]
+}

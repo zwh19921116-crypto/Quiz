@@ -1,0 +1,407 @@
+{
+  "id": "quiz-472",
+  "title": "Grade 5 1.01",
+  "description": "Learning Outcomes for Grade 5: Identify place value to 100,000 | Identify place value positions | Read and write large numbers | Compose numbers using place value | Use expanded notation | Compare large numbers | Understand place value changes | Compare and order large numbers | Apply place value understanding | Apply place value knowledge | Apply place value in real-world contexts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "What is the value of the digit 5 in 54,321?",
+      "resultType": "multiple-choice",
+      "options": [
+        "54",
+        "5",
+        "000",
+        "50"
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Identify place value to 100,000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the value of the digit 8 in 18,765?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "000",
+        "800",
+        "80"
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Identify place value to 100,000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which digit is in the ten-thousands place in 62,418?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "2",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "62",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Identify place value positions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 62.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which digit is in the thousands place in 45,219?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "4",
+        "2002",
+        ""
+      ],
+      "correctAnswer": "45",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Identify place value positions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 45.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How is 30,000 written in words?",
+      "resultType": "short-answer",
+      "options": [
+        "Thirty thousand",
+        "Three thousand",
+        "Thirty hundred",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Read and write large numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number has a 7 in the thousands place?",
+      "resultType": "short-answer",
+      "options": [
+        "47",
+        "325",
+        "54",
+        "723"
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Identify place value positions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is 40,000 + 3,000 + 200 + 5?",
+      "resultType": "short-answer",
+      "options": [
+        "43",
+        "205",
+        "43",
+        "025"
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Compose numbers using place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 0 + 3 = 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 0,
+          "operandB": 3,
+          "answer": "3",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "What is the expanded form of 52,406?",
+      "resultType": "short-answer",
+      "options": [
+        "50",
+        "000 + 2",
+        "000 + 400 + 6",
+        "52"
+      ],
+      "correctAnswer": "52",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Use expanded notation",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 52.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is represented by 7 ten-thousands, 2 thousands and 5 tens?",
+      "resultType": "short-answer",
+      "options": [
+        "72",
+        "050",
+        "70",
+        "250"
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Compose numbers using place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "45",
+        "678",
+        "45",
+        "687"
+      ],
+      "correctAnswer": "45",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Compare large numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 45.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the value of the digit 3 in 83,421?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "000",
+        "300",
+        "30"
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Identify place value to 100,000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is closest to 50,000?",
+      "resultType": "short-answer",
+      "options": [
+        "49",
+        "980",
+        "48",
+        "900"
+      ],
+      "correctAnswer": "50",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Compare large numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What number is represented by 90,000 + 4,000 + 80 + 2?",
+      "resultType": "short-answer",
+      "options": [
+        "94",
+        "082",
+        "90",
+        "482"
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Compose numbers using place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 0 + 4 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 0,
+          "operandB": 4,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which digit changes when 34,567 increases by 1,000?",
+      "resultType": "short-answer",
+      "options": [
+        "Thousands digit",
+        "Hundreds digit",
+        "Tens digit",
+        ""
+      ],
+      "correctAnswer": "34",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Understand place value changes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 34.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is written correctly in words?",
+      "resultType": "short-answer",
+      "options": [
+        "Seventy-two thousand three hundred and five",
+        "Seventy-two hundred and five",
+        "Seven-two thousand three hundred five",
+        ""
+      ],
+      "correctAnswer": "Seventy-two thousand three hundred and five",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Read and write large numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Seventy-two thousand three hundred and five.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number has the greatest value?",
+      "resultType": "short-answer",
+      "options": [
+        "98",
+        "765",
+        "89",
+        "765"
+      ],
+      "correctAnswer": "98",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Compare and order large numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 98.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is 65,432 rounded to the nearest thousand?",
+      "resultType": "short-answer",
+      "options": [
+        "65",
+        "000",
+        "66",
+        "000"
+      ],
+      "correctAnswer": "65",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Apply place value understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 65.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A number has 8 in the ten-thousands place, 4 in the thousands place, 2 in the hundreds place and 7 in the ones place. What is the number?",
+      "resultType": "short-answer",
+      "options": [
+        "84",
+        "207",
+        "84",
+        "027"
+      ],
+      "correctAnswer": "8",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Apply place value knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is between 56,000 and 57,000?",
+      "resultType": "short-answer",
+      "options": [
+        "56",
+        "432",
+        "57",
+        "123"
+      ],
+      "correctAnswer": "56",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Compare and order large numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 56.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A school has 48,765 books and receives 1,000 more. How many books does it now have?",
+      "resultType": "short-answer",
+      "options": [
+        "49",
+        "765",
+        "58",
+        "765"
+      ],
+      "correctAnswer": "48",
+      "category": "Number",
+      "subcategory": "Place Value",
+      "learningOutcome": "Apply place value in real-world contexts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 48.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A school has 48,765 books and receives 1,000 more. How many books does it now have?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    }
+  ]
+}

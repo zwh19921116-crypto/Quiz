@@ -1,0 +1,526 @@
+{
+  "id": "quiz-178",
+  "title": "Grade 1 8.03",
+  "description": "Learning Outcomes for Grade 1: Share equally between 2 groups | Identify equal sharing | Identify unequal sharing | Understand equal sharing",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "4 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "4 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "6 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "6 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "8 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "05",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "8 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "10 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "2006",
+        "5",
+        "4",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "10 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shows equal sharing?",
+      "resultType": "short-answer",
+      "options": [
+        "4 and 4",
+        "3 and 5",
+        "2 and 6",
+        ""
+      ],
+      "correctAnswer": "4 and 4",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Identify equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4 and 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which does NOT show equal sharing?",
+      "resultType": "short-answer",
+      "options": [
+        "5 and 5",
+        "4 and 6",
+        "3 and 3",
+        ""
+      ],
+      "correctAnswer": "5 and 5",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Identify unequal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5 and 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "12 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "2007",
+        "6",
+        "5",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "12 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "14 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 14.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "14 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "16 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "09",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "16 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Equal sharing means each group gets the same amount.",
+      "resultType": "short-answer",
+      "options": [
+        "True",
+        "False",
+        "Maybe",
+        ""
+      ],
+      "correctAnswer": "TRUE",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Understand equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "18 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "18 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "20 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "20 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which pair shows equal sharing?",
+      "resultType": "short-answer",
+      "options": [
+        "7 and 7",
+        "6 and 8",
+        "5 and 9",
+        ""
+      ],
+      "correctAnswer": "7 and 7",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Identify equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7 and 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which pair shows unequal sharing?",
+      "resultType": "short-answer",
+      "options": [
+        "8 and 8",
+        "7 and 9",
+        "10 and 10",
+        ""
+      ],
+      "correctAnswer": "8 and 8",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Identify unequal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8 and 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "2000",
+        "1",
+        "2",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "2 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "8 cubes shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "2005",
+        "4",
+        "3",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "8 cubes shared equally between 2 groups. How many in each group?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "10 blocks shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "10 blocks shared equally between 2 groups. How many in each group?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "12 dots shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "12 dots shared equally between 2 groups. How many in each group?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shows equal sharing?",
+      "resultType": "short-answer",
+      "options": [
+        "10 and 10",
+        "9 and 11",
+        "8 and 12",
+        ""
+      ],
+      "correctAnswer": "10 and 10",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Identify equal sharing",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10 and 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20 counters shared equally between 2 groups. How many in each group?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Division Foundations",
+      "subcategory": "Equal Sharing",
+      "learningOutcome": "Share equally between 2 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "20 counters shared equally between 2 groups. How many in each group?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    }
+  ]
+}

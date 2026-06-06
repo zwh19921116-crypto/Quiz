@@ -1,0 +1,612 @@
+{
+  "id": "quiz-222",
+  "title": "Grade 2 2.08",
+  "description": "Learning Outcomes for Grade 2: Add hundreds | Subtract hundreds | Add tens | Subtract tens | Add ones | Subtract ones | Add three-digit numbers | Add two-digit numbers",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "100 + 200 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "200",
+        "300",
+        "400",
+        ""
+      ],
+      "correctAnswer": "300",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add hundreds",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 100 + 200 = 300.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 100,
+          "operandB": 200,
+          "answer": "300",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "300 - 100 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "100",
+        "200",
+        "300",
+        ""
+      ],
+      "correctAnswer": "200",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract hundreds",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 300 - 100 = 200.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 300,
+          "operandB": 100,
+          "answer": "200",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "20 + 30 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "40",
+        "50",
+        "60",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add tens",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 20 + 30 = 50.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 20,
+          "operandB": 30,
+          "answer": "50",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "70 - 20 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "40",
+        "50",
+        "60",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract tens",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 70 - 20 = 50.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 70,
+          "operandB": 20,
+          "answer": "50",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5 + 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add ones",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 + 4 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 4,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "10 - 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract ones",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 10 - 3 = 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 10,
+          "operandB": 3,
+          "answer": "7",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "250 + 120 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "360",
+        "370",
+        "380",
+        ""
+      ],
+      "correctAnswer": "370",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 250 + 120 = 370.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 250,
+          "operandB": 120,
+          "answer": "370",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "500 - 200 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "200",
+        "300",
+        "400",
+        ""
+      ],
+      "correctAnswer": "300",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract hundreds",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 500 - 200 = 300.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 500,
+          "operandB": 200,
+          "answer": "300",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "45 + 22 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "65",
+        "67",
+        "69",
+        ""
+      ],
+      "correctAnswer": "67",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 45 + 22 = 67.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 45,
+          "operandB": 22,
+          "answer": "67",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "90 - 20 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "60",
+        "70",
+        "80",
+        ""
+      ],
+      "correctAnswer": "70",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract tens",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 90 - 20 = 70.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 90,
+          "operandB": 20,
+          "answer": "70",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "600 + 300 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "800",
+        "900",
+        "1000",
+        ""
+      ],
+      "correctAnswer": "900",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add hundreds",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 600 + 300 = 900.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 600,
+          "operandB": 300,
+          "answer": "900",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "800 - 300 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "400",
+        "500",
+        "600",
+        ""
+      ],
+      "correctAnswer": "500",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract hundreds",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 800 - 300 = 500.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 800,
+          "operandB": 300,
+          "answer": "500",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "63 + 16 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "77",
+        "79",
+        "81",
+        ""
+      ],
+      "correctAnswer": "79",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 63 + 16 = 79.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 63,
+          "operandB": 16,
+          "answer": "79",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "150 - 30 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "110",
+        "120",
+        "130",
+        ""
+      ],
+      "correctAnswer": "120",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract tens",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 150 - 30 = 120.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 150,
+          "operandB": 30,
+          "answer": "120",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "12 + 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add ones",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 12 + 3 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 12,
+          "operandB": 3,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "20 - 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract ones",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 20 - 8 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 20,
+          "operandB": 8,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "720 + 170 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "870",
+        "890",
+        "910",
+        ""
+      ],
+      "correctAnswer": "890",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add three-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 720 + 170 = 890.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 720,
+          "operandB": 170,
+          "answer": "890",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "900 - 200 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "600",
+        "700",
+        "800",
+        ""
+      ],
+      "correctAnswer": "700",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract hundreds",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 900 - 200 = 700.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 900,
+          "operandB": 200,
+          "answer": "700",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "55 + 14 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "67",
+        "69",
+        "71",
+        ""
+      ],
+      "correctAnswer": "69",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Add two-digit numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 55 + 14 = 69.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 55,
+          "operandB": 14,
+          "answer": "69",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "100 - 20 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "70",
+        "80",
+        "90",
+        ""
+      ],
+      "correctAnswer": "80",
+      "category": "Number",
+      "subcategory": "Mixed Operations",
+      "learningOutcome": "Subtract tens",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 100 - 20 = 80.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 100,
+          "operandB": 20,
+          "answer": "80",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "id": "quiz-430",
+  "title": "Grade 4 6.09",
+  "description": "Learning Outcomes for Grade 4: Solve measurement word problems | Apply capacity concepts | Apply mass concepts | Apply perimeter concepts | Apply time concepts | Add measurements | Subtract measurements | Convert capacity units | Convert length units | Convert mass units | Calculate elapsed time | Select appropriate units | Apply measurement | Apply mathematics | Build problem-solving skills | Build foundations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "A rope is 2 m long. Another 3 m is added. Total length?",
+      "resultType": "short-answer",
+      "options": [
+        "5 m",
+        "4 m",
+        "6 m",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve measurement word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bottle holds 1 L. If 500 mL is added, total amount?",
+      "resultType": "short-answer",
+      "options": [
+        "1.5 L",
+        "1.0 L",
+        "0.5 L",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bag weighs 2 kg and another weighs 3 kg. Total mass?",
+      "resultType": "short-answer",
+      "options": [
+        "5 kg",
+        "4 kg",
+        "6 kg",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply mass concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle has sides 4 cm and 6 cm. Perimeter?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "4",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply perimeter concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A trip starts at 9:00 AM and ends at 11:00 AM. Duration?",
+      "resultType": "short-answer",
+      "options": [
+        "2 hours",
+        "1 hour",
+        "3 hours",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply time concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A jug contains 2 L of water. 1 L is used. How much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "1 L",
+        "2 L",
+        "3 L",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply capacity concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A ruler measures a book as 25 cm. Another book is 15 cm. Combined length?",
+      "resultType": "short-answer",
+      "options": [
+        "40 cm",
+        "35 cm",
+        "45 cm",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Add measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 25.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A package weighs 5 kg. 2 kg is removed. New mass?",
+      "resultType": "short-answer",
+      "options": [
+        "3 kg",
+        "2 kg",
+        "4 kg",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Subtract measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A container holds 3000 mL. This equals?",
+      "resultType": "short-answer",
+      "options": [
+        "3 L",
+        "30 L",
+        "0.3 L",
+        ""
+      ],
+      "correctAnswer": "3000",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Convert capacity units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A length of 200 cm equals?",
+      "resultType": "short-answer",
+      "options": [
+        "2 m",
+        "20 m",
+        "0.2 m",
+        ""
+      ],
+      "correctAnswer": "200",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Convert length units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 200.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A mass of 4000 g equals?",
+      "resultType": "short-answer",
+      "options": [
+        "4 kg",
+        "40 kg",
+        "0.4 kg",
+        ""
+      ],
+      "correctAnswer": "4000",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Convert mass units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A movie lasts from 1:00 PM to 3:30 PM. Duration?",
+      "resultType": "short-answer",
+      "options": [
+        "2 hr 30 min",
+        "2 hr",
+        "3 hr",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Calculate elapsed time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit is best for measuring milk?",
+      "resultType": "short-answer",
+      "options": [
+        "Litres",
+        "Metres",
+        "Kilograms",
+        ""
+      ],
+      "correctAnswer": "Litres",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Select appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Litres.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit is best for measuring a person's mass?",
+      "resultType": "short-answer",
+      "options": [
+        "Kilograms",
+        "Litres",
+        "Metres",
+        ""
+      ],
+      "correctAnswer": "Kilograms",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Select appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Kilograms.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit is best for measuring a desk length?",
+      "resultType": "short-answer",
+      "options": [
+        "Metres",
+        "Litres",
+        "Kilograms",
+        ""
+      ],
+      "correctAnswer": "Metres",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Select appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Metres.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Measurement helps solve?",
+      "resultType": "short-answer",
+      "options": [
+        "Real-world problems",
+        "Colouring tasks",
+        "Art tasks",
+        ""
+      ],
+      "correctAnswer": "Real-world problems",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply measurement",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Real-world problems.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Measurement skills are used in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Music only",
+        "Art only",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Word problems develop?",
+      "resultType": "short-answer",
+      "options": [
+        "Reasoning skills",
+        "Colouring skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Reasoning skills",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Build problem-solving skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Reasoning skills.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Accurate measurement improves?",
+      "resultType": "short-answer",
+      "options": [
+        "Decision making",
+        "Guessing",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Decision making",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply measurement",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Decision making.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding measurement supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Drawing",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Measurement",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    }
+  ]
+}

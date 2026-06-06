@@ -1,0 +1,537 @@
+{
+  "id": "quiz-488",
+  "title": "Grade 5 2.07",
+  "description": "Learning Outcomes for Grade 5: Solve two-step addition problems | Solve subtraction problems | Solve subtraction word problems | Solve addition word problems | Solve multi-step addition problems | Solve multi-step subtraction problems | Solve mixed operation problems | Solve addition problems with larger numbers | Solve multi-step real-world problems | Solve multi-step addition and subtraction problems | Apply multiple operations to solve real-world problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "Emma has 25 stickers. She buys 15 more. How many stickers does she have now?",
+      "resultType": "short-answer",
+      "options": [
+        "40; 35; 45",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve two-step addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Emma has 25 stickers. She buys 15 more. How many stickers does she have now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Tom had 80 marbles and lost 20. How many remain?",
+      "resultType": "short-answer",
+      "options": [
+        "60; 50; 70",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "80",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve subtraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 80.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom had 80 marbles and lost 20. How many remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A box contains 120 pencils. 30 are used. How many remain?",
+      "resultType": "short-answer",
+      "options": [
+        "90; 80; 100",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "120",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve subtraction word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 120.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A box contains 120 pencils. 30 are used. How many remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sarah saved $50 and then another $25. How much did she save altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "$75; $65; $85",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve addition word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shop sold 200 items on Monday and 150 on Tuesday. How many items were sold?",
+      "resultType": "short-answer",
+      "options": [
+        "350; 300; 400",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "200",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve addition word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 200.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A shop sold 200 items on Monday and 150 on Tuesday. How many items were sold?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A class collected 300 cans and then 100 more. How many cans were collected?",
+      "resultType": "short-answer",
+      "options": [
+        "400; 350; 450",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "300",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve addition word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 300.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A class collected 300 cans and then 100 more. How many cans were collected?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A farmer had 75 sheep and sold 25. How many sheep remain?",
+      "resultType": "short-answer",
+      "options": [
+        "50; 40; 60",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "75",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve subtraction word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 75.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A farmer had 75 sheep and sold 25. How many sheep remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A bus carried 40 passengers and picked up 20 more. How many passengers are on the bus?",
+      "resultType": "short-answer",
+      "options": [
+        "60; 50; 70",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "40",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve addition word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 40.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A bus carried 40 passengers and picked up 20 more. How many passengers are on the bus?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A library had 500 books and bought 100 more. How many books are there now?",
+      "resultType": "short-answer",
+      "options": [
+        "600; 550; 650",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "500",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve addition word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 500.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A library had 500 books and bought 100 more. How many books are there now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A tank held 250 L of water and 50 L was used. How much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "200 L; 150 L; 250 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "250",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve subtraction word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 250.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A school raised $450, then another $275. How much was raised altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "$725; $715; $735",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "450",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 450.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shop had 900 items, sold 275, then sold another 125. How many remain?",
+      "resultType": "short-answer",
+      "options": [
+        "500; 450; 550",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "900",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step subtraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 900.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A shop had 900 items, sold 275, then sold another 125. How many remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Emma saved $300, spent $75, then saved another $125. How much does she have now?",
+      "resultType": "short-answer",
+      "options": [
+        "$350; $325; $375",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "300",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve mixed operation problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 300.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A library bought 250 books and later bought 175 more. How many books were bought altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "425; 415; 435",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "250",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 250.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A library bought 250 books and later bought 175 more. How many books were bought altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A bus carried 120 passengers. 45 got off and 30 got on. How many passengers are on the bus now?",
+      "resultType": "short-answer",
+      "options": [
+        "105; 95; 115",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "120",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve mixed operation problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 120.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A bus carried 120 passengers. 45 got off and 30 got on. How many passengers are on the bus now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A farmer harvested 850 apples. He sold 275 and gave away 125. How many remain?",
+      "resultType": "short-answer",
+      "options": [
+        "450; 440; 460",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "850",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step subtraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 850.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A farmer harvested 850 apples. He sold 275 and gave away 125. How many remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A stadium had 2500 people. Another 750 arrived. How many people are there now?",
+      "resultType": "short-answer",
+      "options": [
+        "3250; 3150; 3350",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2500",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve addition problems with larger numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2500.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A stadium had 2500 people. Another 750 arrived. How many people are there now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A factory made 4500 items, shipped 1750, then made 500 more. How many items does it have now?",
+      "resultType": "short-answer",
+      "options": [
+        "3250; 3150; 3350",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4500",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step real-world problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4500.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A factory made 4500 items, shipped 1750, then made 500 more. How many items does it have now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A school had 3200 students. 450 left and 275 new students enrolled. How many students are there now?",
+      "resultType": "short-answer",
+      "options": [
+        "3025; 3125; 2925",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3200",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve multi-step addition and subtraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3200.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A school had 3200 students. 450 left and 275 new students enrolled. How many students are there now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A charity collected $2500, spent $875, then received another $625 donation. How much money does it have now?",
+      "resultType": "short-answer",
+      "options": [
+        "$2250; $2150; $2350",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2500",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply multiple operations to solve real-world problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2500.",
+      "solutionAttachments": []
+    }
+  ]
+}

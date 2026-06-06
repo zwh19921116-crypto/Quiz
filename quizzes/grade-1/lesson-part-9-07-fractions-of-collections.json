@@ -1,0 +1,383 @@
+{
+  "id": "quiz-192",
+  "title": "Grade 1 9.07",
+  "description": "Learning Outcomes for Grade 1: Find half of a collection | Find quarter of a collection | Understand halves | Identify halves | Identify quarters",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "Half of 4 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find half of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 6 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find half of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 8 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find half of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 10 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find half of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 12 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find half of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter of 4 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find quarter of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter of 8 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2003",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find quarter of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter of 12 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find quarter of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter of 16 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find quarter of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 16.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half means divide into how many equal groups?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "4",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Understand halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Half means divide into how many equal groups?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "Half of 14 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "7",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find half of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 14.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 16 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find half of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 16.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 18 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "10",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find half of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 18.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half of 20 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find half of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Quarter of 20 counters is?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Find quarter of a collection",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is half of 8?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "4",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Identify halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is quarter of 8?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "2",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Identify quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is half of 12?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Identify halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is quarter of 16?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "4",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Identify quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 16.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is half of 20?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "12",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Fractions Foundations",
+      "subcategory": "Collections",
+      "learningOutcome": "Identify halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": []
+    }
+  ]
+}

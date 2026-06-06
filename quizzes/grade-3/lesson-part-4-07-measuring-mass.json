@@ -1,0 +1,394 @@
+{
+  "id": "quiz-321",
+  "title": "Grade 3 4.07",
+  "description": "Learning Outcomes for Grade 3: Choose appropriate units for mass | Know metric mass relationships | Compare masses | Identify measuring tools | Choose appropriate units | Compare kg and g | Convert kg to g | Understand equivalent measurements | Compare g and kg | Understand mass | Estimate mass",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "Which unit is best for measuring an apple?",
+      "resultType": "short-answer",
+      "options": [
+        "g",
+        "kg",
+        "km",
+        ""
+      ],
+      "correctAnswer": "g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Choose appropriate units for mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit is best for measuring a school bag?",
+      "resultType": "short-answer",
+      "options": [
+        "g",
+        "kg",
+        "cm",
+        ""
+      ],
+      "correctAnswer": "g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Choose appropriate units for mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which unit is best for measuring a car?",
+      "resultType": "short-answer",
+      "options": [
+        "g",
+        "kg",
+        "cm",
+        ""
+      ],
+      "correctAnswer": "g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Choose appropriate units for mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many grams are in 1 kilogram?",
+      "resultType": "short-answer",
+      "options": [
+        "100",
+        "1000",
+        "10000",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Know metric mass relationships",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many grams are in 1 kilogram?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "1 kg",
+        "500 g",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare masses",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter?",
+      "resultType": "short-answer",
+      "options": [
+        "250 g",
+        "750 g",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "250 g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare masses",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 250 g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which tool measures mass?",
+      "resultType": "short-answer",
+      "options": [
+        "Scale",
+        "Ruler",
+        "Clock",
+        ""
+      ],
+      "correctAnswer": "Scale",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Identify measuring tools",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Scale.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A packet of chips is most likely measured in?",
+      "resultType": "short-answer",
+      "options": [
+        "g",
+        "kg",
+        "m",
+        ""
+      ],
+      "correctAnswer": "g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Choose appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A sack of rice is most likely measured in?",
+      "resultType": "short-answer",
+      "options": [
+        "g",
+        "kg",
+        "cm",
+        ""
+      ],
+      "correctAnswer": "g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Choose appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "2 kg",
+        "1500 g",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare kg and g",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter?",
+      "resultType": "short-answer",
+      "options": [
+        "1 kg",
+        "900 g",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1 kg",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare kg and g",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1 kg equals how many grams?",
+      "resultType": "short-answer",
+      "options": [
+        "100",
+        "1000",
+        "10000",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Convert kg to g",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "1 kg equals how many grams?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A watermelon is most likely measured in?",
+      "resultType": "short-answer",
+      "options": [
+        "g",
+        "kg",
+        "mm",
+        ""
+      ],
+      "correctAnswer": "g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Choose appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A chocolate bar is most likely measured in?",
+      "resultType": "short-answer",
+      "options": [
+        "g",
+        "kg",
+        "km",
+        ""
+      ],
+      "correctAnswer": "g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Choose appropriate units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "1000 g",
+        "1 kg",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1000 g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Understand equivalent measurements",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1000 g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bag weighs 3 kg. Is it heavier than 2000 g?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare kg and g",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A toy weighs 500 g. Is it less than 1 kg?",
+      "resultType": "short-answer",
+      "options": [
+        "Yes",
+        "No",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "500",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare g and kg",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 500.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which weighs the most?",
+      "resultType": "short-answer",
+      "options": [
+        "750 g",
+        "1 kg",
+        "500 g",
+        ""
+      ],
+      "correctAnswer": "750 g",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Compare masses",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 750 g.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mass tells us how ____ an object is.",
+      "resultType": "short-answer",
+      "options": [
+        "long",
+        "heavy",
+        "tall",
+        ""
+      ],
+      "correctAnswer": "long",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Understand mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to long.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would likely weigh about 1 kg?",
+      "resultType": "short-answer",
+      "options": [
+        "A textbook",
+        "A paperclip",
+        "A feather",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Mass",
+      "learningOutcome": "Estimate mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    }
+  ]
+}

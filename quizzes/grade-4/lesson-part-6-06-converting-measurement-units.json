@@ -1,0 +1,372 @@
+{
+  "id": "quiz-427",
+  "title": "Grade 4 6.06",
+  "description": "Learning Outcomes for Grade 4: Convert length units | Convert mass units | Convert capacity units | Compare converted units | Understand conversions | Understand metric system | Apply conversions | Apply mathematics | Build foundations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "100 cm equals?",
+      "resultType": "short-answer",
+      "options": [
+        "1 m",
+        "10 m",
+        "1000 m",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Convert length units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 m equals?",
+      "resultType": "short-answer",
+      "options": [
+        "200 cm",
+        "20 cm",
+        "2000 cm",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Convert length units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1000 g equals?",
+      "resultType": "short-answer",
+      "options": [
+        "1 kg",
+        "10 kg",
+        "100 kg",
+        ""
+      ],
+      "correctAnswer": "1000",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Convert mass units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 kg equals?",
+      "resultType": "short-answer",
+      "options": [
+        "2000 g",
+        "200 g",
+        "20 g",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Convert mass units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1000 mL equals?",
+      "resultType": "short-answer",
+      "options": [
+        "1 L",
+        "10 L",
+        "100 L",
+        ""
+      ],
+      "correctAnswer": "1000",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Convert capacity units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 L equals?",
+      "resultType": "short-answer",
+      "options": [
+        "3000 mL",
+        "300 mL",
+        "30 mL",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Convert capacity units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "250 cm equals?",
+      "resultType": "short-answer",
+      "options": [
+        "2.5 m",
+        "25 m",
+        "0.25 m",
+        ""
+      ],
+      "correctAnswer": "250",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Convert length units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 250.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1500 g equals?",
+      "resultType": "short-answer",
+      "options": [
+        "1.5 kg",
+        "15 kg",
+        "0.15 kg",
+        ""
+      ],
+      "correctAnswer": "1500",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Convert mass units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1500.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2500 mL equals?",
+      "resultType": "short-answer",
+      "options": [
+        "2.5 L",
+        "25 L",
+        "0.25 L",
+        ""
+      ],
+      "correctAnswer": "2500",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Convert capacity units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2500.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "2 m",
+        "150 cm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2 m",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Compare converted units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 m.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier?",
+      "resultType": "short-answer",
+      "options": [
+        "2 kg",
+        "1500 g",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2 kg",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Compare converted units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more?",
+      "resultType": "short-answer",
+      "options": [
+        "2 L",
+        "1500 mL",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "2 L",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Compare converted units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 L.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Converting units helps us?",
+      "resultType": "short-answer",
+      "options": [
+        "Compare measurements",
+        "Draw shapes",
+        "Colour pictures",
+        ""
+      ],
+      "correctAnswer": "Compare measurements",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Understand conversions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Compare measurements.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Metric units are based on?",
+      "resultType": "short-answer",
+      "options": [
+        "Tens",
+        "Twelves",
+        "Fives",
+        ""
+      ],
+      "correctAnswer": "Tens",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Understand metric system",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tens.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Accurate conversions improve?",
+      "resultType": "short-answer",
+      "options": [
+        "Measurement accuracy",
+        "Colouring",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Measurement accuracy",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Apply conversions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Measurement accuracy.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Conversions are useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Music",
+        "Painting",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which equals 4 L?",
+      "resultType": "short-answer",
+      "options": [
+        "4000 mL",
+        "400 mL",
+        "40 mL",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Convert capacity units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which equals 5 kg?",
+      "resultType": "short-answer",
+      "options": [
+        "5000 g",
+        "500 g",
+        "50 g",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Convert mass units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which equals 3 m?",
+      "resultType": "short-answer",
+      "options": [
+        "300 cm",
+        "30 cm",
+        "3000 cm",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Convert length units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding conversions supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future measurement learning",
+        "Drawing",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future measurement learning",
+      "category": "Measurement",
+      "subcategory": "Conversions",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future measurement learning.",
+      "solutionAttachments": []
+    }
+  ]
+}

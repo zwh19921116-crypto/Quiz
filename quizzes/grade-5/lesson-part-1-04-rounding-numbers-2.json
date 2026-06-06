@@ -1,0 +1,407 @@
+{
+  "id": "quiz-475",
+  "title": "Grade 5 1.04",
+  "description": "Learning Outcomes for Grade 5: Round numbers to the nearest 10 | Round numbers to the nearest 100 | Round numbers to the nearest 1000 | Round numbers to the nearest 10000 | Identify rounded values | Apply rounding rules | Use rounding to estimate calculations | Identify numbers from rounded values | Apply rounding in real-world contexts | Use rounding to estimate quantities",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "Round 47 to the nearest 10.",
+      "resultType": "short-answer",
+      "options": [
+        "50; 40; 45",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "47",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Round numbers to the nearest 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 47.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 83 to the nearest 10.",
+      "resultType": "short-answer",
+      "options": [
+        "80; 90; 85",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "83",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Round numbers to the nearest 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 83.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 347 to the nearest 100.",
+      "resultType": "short-answer",
+      "options": [
+        "300; 400; 350",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "347",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Round numbers to the nearest 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 347.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 872 to the nearest 100.",
+      "resultType": "short-answer",
+      "options": [
+        "900; 800; 850",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "872",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Round numbers to the nearest 100",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 872.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 4,651 to the nearest 1,000.",
+      "resultType": "short-answer",
+      "options": [
+        "5000; 4000; 4500",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Round numbers to the nearest 1000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 3,249 to the nearest 1,000.",
+      "resultType": "short-answer",
+      "options": [
+        "3000; 4000; 3500",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Round numbers to the nearest 1000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 24,678 to the nearest 10,000.",
+      "resultType": "short-answer",
+      "options": [
+        "20000; 30000; 25000",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "24",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Round numbers to the nearest 10000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 24.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 76,543 to the nearest 10,000.",
+      "resultType": "short-answer",
+      "options": [
+        "80000; 70000; 75000",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "76",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Round numbers to the nearest 10000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 76.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number rounds to 500?",
+      "resultType": "short-answer",
+      "options": [
+        "487; 449; 432",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "500",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Identify rounded values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 500.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number rounds to 1,000?",
+      "resultType": "short-answer",
+      "options": [
+        "987; 899; 850",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Identify rounded values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 5,499 to the nearest 1,000.",
+      "resultType": "short-answer",
+      "options": [
+        "5000; 6000; 5500",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Round numbers to the nearest 1000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 5,500 to the nearest 1,000.",
+      "resultType": "short-answer",
+      "options": [
+        "6000; 5000; 5500",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Apply rounding rules",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 68,499 to the nearest 10,000.",
+      "resultType": "short-answer",
+      "options": [
+        "70000; 60000; 68000",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "68",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Round numbers to the nearest 10000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 68.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Round 63,200 to the nearest 10,000.",
+      "resultType": "short-answer",
+      "options": [
+        "60000; 70000; 65000",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "63",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Round numbers to the nearest 10000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 63.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Estimate 398 + 604.",
+      "resultType": "short-answer",
+      "options": [
+        "1000; 900; 1100",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1002",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Use rounding to estimate calculations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 398 + 604 = 1002.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 398,
+          "operandB": 604,
+          "answer": "1002",
+          "answerDigits": 4,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Estimate 2,480 + 5,610.",
+      "resultType": "short-answer",
+      "options": [
+        "8000; 7000; 9000",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "485",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Use rounding to estimate calculations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 480 + 5 = 485.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 480,
+          "operandB": 5,
+          "answer": "485",
+          "answerDigits": 3,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which number rounds to 80,000?",
+      "resultType": "short-answer",
+      "options": [
+        "79",
+        "999; 74",
+        "999; 69",
+        "999"
+      ],
+      "correctAnswer": "80",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Identify numbers from rounded values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 80.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A town has 34,678 people. Rounded to the nearest 1,000, how many people is that?",
+      "resultType": "short-answer",
+      "options": [
+        "35000; 34000; 34600",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "34",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Apply rounding in real-world contexts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 34.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A town has 34,678 people. Rounded to the nearest 1,000, how many people is that?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A stadium holds 58,432 people. Rounded to the nearest 10,000, what is the capacity?",
+      "resultType": "short-answer",
+      "options": [
+        "60000; 50000; 58000",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "58",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Apply rounding in real-world contexts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 58.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A school estimates attendance of 4,521 students. Rounded to the nearest 100, what is the estimate?",
+      "resultType": "short-answer",
+      "options": [
+        "4500; 4600; 4520",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Rounding",
+      "learningOutcome": "Use rounding to estimate quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    }
+  ]
+}

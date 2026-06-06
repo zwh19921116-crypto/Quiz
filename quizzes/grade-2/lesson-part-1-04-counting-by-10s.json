@@ -1,0 +1,372 @@
+{
+  "id": "quiz-208",
+  "title": "Grade 2 1.04",
+  "description": "Learning Outcomes for Grade 2: Count by 10s | Add 10 | Subtract 10 | Continue skip-counting | Count beyond 1,000",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "10, 20, 30, ?",
+      "resultType": "short-answer",
+      "options": [
+        "35",
+        "40",
+        "50",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "40, 50, 60, ?",
+      "resultType": "short-answer",
+      "options": [
+        "65",
+        "70",
+        "80",
+        ""
+      ],
+      "correctAnswer": "40",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 40.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "70, 80, 90, ?",
+      "resultType": "short-answer",
+      "options": [
+        "95",
+        "100",
+        "110",
+        ""
+      ],
+      "correctAnswer": "70",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 70.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "100, 110, 120, ?",
+      "resultType": "short-answer",
+      "options": [
+        "125",
+        "130",
+        "140",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "200, 210, 220, ?",
+      "resultType": "short-answer",
+      "options": [
+        "225",
+        "230",
+        "240",
+        ""
+      ],
+      "correctAnswer": "200",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 200.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "300, 310, 320, ?",
+      "resultType": "short-answer",
+      "options": [
+        "325",
+        "330",
+        "340",
+        ""
+      ],
+      "correctAnswer": "300",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 300.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "400, 410, 420, ?",
+      "resultType": "short-answer",
+      "options": [
+        "425",
+        "430",
+        "440",
+        ""
+      ],
+      "correctAnswer": "400",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 400.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "500, 510, 520, ?",
+      "resultType": "short-answer",
+      "options": [
+        "525",
+        "530",
+        "540",
+        ""
+      ],
+      "correctAnswer": "500",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 500.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "600, 610, 620, ?",
+      "resultType": "short-answer",
+      "options": [
+        "625",
+        "630",
+        "640",
+        ""
+      ],
+      "correctAnswer": "600",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 600.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "700, 710, 720, ?",
+      "resultType": "short-answer",
+      "options": [
+        "725",
+        "730",
+        "740",
+        ""
+      ],
+      "correctAnswer": "700",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 700.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "800, 810, 820, ?",
+      "resultType": "short-answer",
+      "options": [
+        "825",
+        "830",
+        "840",
+        ""
+      ],
+      "correctAnswer": "800",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 800.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "900, 910, 920, ?",
+      "resultType": "short-answer",
+      "options": [
+        "925",
+        "930",
+        "940",
+        ""
+      ],
+      "correctAnswer": "900",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count by 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 900.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is 10 more than 55?",
+      "resultType": "short-answer",
+      "options": [
+        "60",
+        "65",
+        "75",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Add 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is 10 more than 125?",
+      "resultType": "short-answer",
+      "options": [
+        "130",
+        "135",
+        "145",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Add 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is 10 less than 90?",
+      "resultType": "short-answer",
+      "options": [
+        "70",
+        "80",
+        "100",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Subtract 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is 10 less than 300?",
+      "resultType": "short-answer",
+      "options": [
+        "280",
+        "290",
+        "310",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Subtract 10",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "150, 160, 170, ?",
+      "resultType": "short-answer",
+      "options": [
+        "175",
+        "180",
+        "190",
+        ""
+      ],
+      "correctAnswer": "150",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Continue skip-counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 150.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "250, 260, 270, ?",
+      "resultType": "short-answer",
+      "options": [
+        "275",
+        "280",
+        "290",
+        ""
+      ],
+      "correctAnswer": "250",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Continue skip-counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 250.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "350, 360, 370, ?",
+      "resultType": "short-answer",
+      "options": [
+        "375",
+        "380",
+        "390",
+        ""
+      ],
+      "correctAnswer": "350",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Continue skip-counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 350.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "990, 1000, ?",
+      "resultType": "short-answer",
+      "options": [
+        "1010",
+        "1020",
+        "1030",
+        ""
+      ],
+      "correctAnswer": "990",
+      "category": "Number",
+      "subcategory": "Skip Counting",
+      "learningOutcome": "Count beyond 1,000",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 990.",
+      "solutionAttachments": []
+    }
+  ]
+}

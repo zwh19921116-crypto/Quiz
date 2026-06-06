@@ -1,0 +1,372 @@
+{
+  "id": "quiz-446",
+  "title": "Grade 4 8.05",
+  "description": "Learning Outcomes for Grade 4: Interpret graphs | Read graph components | Compare graph data | Analyse data | Select graph types | Compare data | Understand graphs | Apply statistics | Interpret data | Understand statistics | Build understanding | Apply mathematics | Build foundations | Consolidate understanding",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "What is the purpose of a graph?",
+      "resultType": "plot",
+      "options": [
+        "Show data clearly",
+        "Draw pictures",
+        "Measure length",
+        ""
+      ],
+      "correctAnswer": "Show data clearly",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Interpret graphs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Show data clearly.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which graph feature explains the graph topic?",
+      "resultType": "plot",
+      "options": [
+        "Title",
+        "Axis",
+        "Bar",
+        ""
+      ],
+      "correctAnswer": "Title",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Read graph components",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Title.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category has the most data?",
+      "resultType": "short-answer",
+      "options": [
+        "Highest value",
+        "Lowest value",
+        "Any value",
+        ""
+      ],
+      "correctAnswer": "Highest value",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Compare graph data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Highest value.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which category has the least data?",
+      "resultType": "short-answer",
+      "options": [
+        "Lowest value",
+        "Highest value",
+        "Any value",
+        ""
+      ],
+      "correctAnswer": "Lowest value",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Compare graph data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Lowest value.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A graph helps answer?",
+      "resultType": "plot",
+      "options": [
+        "Questions",
+        "Drawings",
+        "Stories",
+        ""
+      ],
+      "correctAnswer": "Questions",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Analyse data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Questions.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which graph is easiest for comparing categories?",
+      "resultType": "plot",
+      "options": [
+        "Bar graph",
+        "Number line",
+        "Clock",
+        ""
+      ],
+      "correctAnswer": "Bar graph",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Select graph types",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bar graph.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If apples = 10 and bananas = 5, which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "Apples",
+        "Bananas",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Compare data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "If two categories both show 8, they are?",
+      "resultType": "short-answer",
+      "options": [
+        "Equal",
+        "Different",
+        "Unknown",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Compare data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Graphs organise?",
+      "resultType": "short-answer",
+      "options": [
+        "Information",
+        "Angles",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Information",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Understand graphs",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Information.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Reading graphs helps us?",
+      "resultType": "short-answer",
+      "options": [
+        "Make decisions",
+        "Draw shapes",
+        "Measure weight",
+        ""
+      ],
+      "correctAnswer": "Make decisions",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Apply statistics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Make decisions.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which graph part often shows numbers?",
+      "resultType": "plot",
+      "options": [
+        "Vertical axis",
+        "Title",
+        "Key only",
+        ""
+      ],
+      "correctAnswer": "Vertical axis",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Read graph components",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Vertical axis.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which graph part often shows categories?",
+      "resultType": "plot",
+      "options": [
+        "Horizontal axis",
+        "Title",
+        "Key only",
+        ""
+      ],
+      "correctAnswer": "Horizontal axis",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Read graph components",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Horizontal axis.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Data interpretation means?",
+      "resultType": "short-answer",
+      "options": [
+        "Understanding data",
+        "Collecting data only",
+        "Drawing graphs only",
+        ""
+      ],
+      "correctAnswer": "Understanding data",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Interpret data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Understanding data.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Graphs are used in?",
+      "resultType": "short-answer",
+      "options": [
+        "Statistics",
+        "Geometry only",
+        "Measurement only",
+        ""
+      ],
+      "correctAnswer": "Statistics",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Understand statistics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Statistics.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Reading graphs develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Analytical skills",
+        "Colouring skills",
+        "Art skills",
+        ""
+      ],
+      "correctAnswer": "Analytical skills",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Build understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Analytical skills.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Graphs are useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Nowhere",
+        "Only books",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Apply statistics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Data can help solve?",
+      "resultType": "short-answer",
+      "options": [
+        "Problems",
+        "Songs",
+        "Paintings",
+        ""
+      ],
+      "correctAnswer": "Problems",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Problems.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Graphs display?",
+      "resultType": "short-answer",
+      "options": [
+        "Results",
+        "Angles",
+        "Lengths",
+        ""
+      ],
+      "correctAnswer": "Results",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Interpret data",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Results.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding graphs supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future statistics learning",
+        "Music",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future statistics learning",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future statistics learning.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Statistics is part of?",
+      "resultType": "short-answer",
+      "options": [
+        "Mathematics",
+        "Science only",
+        "English only",
+        ""
+      ],
+      "correctAnswer": "Mathematics",
+      "category": "Statistics",
+      "subcategory": "Data Interpretation",
+      "learningOutcome": "Consolidate understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mathematics.",
+      "solutionAttachments": []
+    }
+  ]
+}

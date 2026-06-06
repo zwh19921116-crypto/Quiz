@@ -1,0 +1,372 @@
+{
+  "id": "quiz-268",
+  "title": "Grade 2 7.04",
+  "description": "Learning Outcomes for Grade 2: Make simple amounts | Combine coin values | Identify amounts | Count by tens | Make dollar amounts | Combine money values | Make amounts | Count money | Add money | Understand money",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "Which coin makes 10c?",
+      "resultType": "short-answer",
+      "options": [
+        "10c",
+        "20c",
+        "50c",
+        ""
+      ],
+      "correctAnswer": "10c",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Make simple amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two 5c coins make?",
+      "resultType": "short-answer",
+      "options": [
+        "5c",
+        "10c",
+        "15c",
+        ""
+      ],
+      "correctAnswer": "5c",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Combine coin values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin makes 20c?",
+      "resultType": "short-answer",
+      "options": [
+        "10c",
+        "20c",
+        "50c",
+        ""
+      ],
+      "correctAnswer": "10c",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Identify amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two 10c coins make?",
+      "resultType": "short-answer",
+      "options": [
+        "10c",
+        "20c",
+        "30c",
+        ""
+      ],
+      "correctAnswer": "10c",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Combine coin values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin makes 50c?",
+      "resultType": "short-answer",
+      "options": [
+        "20c",
+        "50c",
+        "$1",
+        ""
+      ],
+      "correctAnswer": "20c",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Identify amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Five 10c coins make?",
+      "resultType": "short-answer",
+      "options": [
+        "40c",
+        "50c",
+        "60c",
+        ""
+      ],
+      "correctAnswer": "40c",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Count by tens",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 40c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two 50c coins make?",
+      "resultType": "short-answer",
+      "options": [
+        "50c",
+        "$1",
+        "$2",
+        ""
+      ],
+      "correctAnswer": "50c",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Make dollar amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 50c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which coin makes $1?",
+      "resultType": "short-answer",
+      "options": [
+        "50c",
+        "$1",
+        "$2",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Identify amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "One $1 coin and one 50c coin make?",
+      "resultType": "short-answer",
+      "options": [
+        "$1.50",
+        "$2.00",
+        "$0.50",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Combine money values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two $1 coins make?",
+      "resultType": "short-answer",
+      "options": [
+        "$1",
+        "$2",
+        "$3",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Make amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Three 10c coins make?",
+      "resultType": "short-answer",
+      "options": [
+        "20c",
+        "30c",
+        "40c",
+        ""
+      ],
+      "correctAnswer": "20c",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Count money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Four 5c coins make?",
+      "resultType": "short-answer",
+      "options": [
+        "15c",
+        "20c",
+        "25c",
+        ""
+      ],
+      "correctAnswer": "15c",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Count money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "20c + 10c = ?",
+      "resultType": "short-answer",
+      "options": [
+        "20c",
+        "30c",
+        "40c",
+        ""
+      ],
+      "correctAnswer": "20c",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Add money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "50c + 20c = ?",
+      "resultType": "short-answer",
+      "options": [
+        "60c",
+        "70c",
+        "80c",
+        ""
+      ],
+      "correctAnswer": "60c",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Add money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 60c.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "$1 + $1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "$1",
+        "$2",
+        "$3",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Add money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "$2 + $1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "$2",
+        "$3",
+        "$4",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Add money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Making amounts means?",
+      "resultType": "short-answer",
+      "options": [
+        "Combining money values",
+        "Measuring length",
+        "Telling time",
+        ""
+      ],
+      "correctAnswer": "Combining money values",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Understand money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Combining money values.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is $1?",
+      "resultType": "short-answer",
+      "options": [
+        "Two 50c coins",
+        "One 20c coin",
+        "Four 10c coins",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Make amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is 40c?",
+      "resultType": "short-answer",
+      "options": [
+        "Two 20c coins",
+        "One 50c coin",
+        "Four 5c coins",
+        ""
+      ],
+      "correctAnswer": "Two 20c coins",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Make amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Two 20c coins.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Counting money helps us?",
+      "resultType": "short-answer",
+      "options": [
+        "Find total value",
+        "Measure mass",
+        "Measure length",
+        ""
+      ],
+      "correctAnswer": "Find total value",
+      "category": "Money Foundations",
+      "subcategory": "Making Amounts",
+      "learningOutcome": "Understand money",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is Find total value.",
+      "solutionAttachments": []
+    }
+  ]
+}

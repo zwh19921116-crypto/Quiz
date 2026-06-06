@@ -1,0 +1,416 @@
+{
+  "id": "quiz-545",
+  "title": "Grade 5 8.05",
+  "description": "Learning Outcomes for Grade 5: Understand probability | Recognise chance events | Identify possible outcomes | Identify coin toss outcomes | Understand die outcomes | Recognise probability situations | Understand uncertainty | Identify valid outcomes | Recognise random events | Count possible outcomes | Identify outcome sets | Compare probability situations | Distinguish possible and impossible outcomes | Understand equally likely outcomes | Use probability vocabulary | Identify certain events | Identify impossible outcomes | Apply understanding of chance events",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "Probability is about?",
+      "resultType": "short-answer",
+      "options": [
+        "Chance; Length; Area",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Chance; Length; Area",
+      "category": "Probability",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand probability",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Chance; Length; Area.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which event involves chance?",
+      "resultType": "short-answer",
+      "options": [
+        "Tossing a coin; Measuring a desk; Drawing a square",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Tossing a coin; Measuring a desk; Drawing a square",
+      "category": "Probability",
+      "subcategory": "Chance",
+      "learningOutcome": "Recognise chance events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tossing a coin; Measuring a desk; Drawing a square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "When tossing a coin, how many possible outcomes are there?",
+      "resultType": "short-answer",
+      "options": [
+        "2; 1; 3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2; 1; 3",
+      "category": "Probability",
+      "subcategory": "Chance",
+      "learningOutcome": "Identify possible outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2; 1; 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "When tossing a coin, how many possible outcomes are there?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "What are the outcomes of a coin toss?",
+      "resultType": "short-answer",
+      "options": [
+        "Heads and Tails; Red and Blue; Odd and Even",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Heads and Tails; Red and Blue; Odd and Even",
+      "category": "Probability",
+      "subcategory": "Chance",
+      "learningOutcome": "Identify coin toss outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Heads and Tails; Red and Blue; Odd and Even.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Rolling a standard die gives how many possible outcomes?",
+      "resultType": "short-answer",
+      "options": [
+        "6; 5; 10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6; 5; 10",
+      "category": "Probability",
+      "subcategory": "Chance",
+      "learningOutcome": "Identify possible outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6; 5; 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Rolling a standard die gives how many possible outcomes?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number cannot appear on a standard die?",
+      "resultType": "short-answer",
+      "options": [
+        "7; 6; 5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7; 6; 5",
+      "category": "Probability",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand die outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7; 6; 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which event is based on chance?",
+      "resultType": "short-answer",
+      "options": [
+        "Picking a card; Measuring mass; Finding perimeter",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Picking a card; Measuring mass; Finding perimeter",
+      "category": "Probability",
+      "subcategory": "Chance",
+      "learningOutcome": "Recognise probability situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Picking a card; Measuring mass; Finding perimeter.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A coin toss outcome is?",
+      "resultType": "short-answer",
+      "options": [
+        "Uncertain; Certain; Impossible to describe",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Uncertain; Certain; Impossible to describe",
+      "category": "Probability",
+      "subcategory": "Chance",
+      "learningOutcome": "Understand uncertainty",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Uncertain; Certain; Impossible to describe.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a possible result when rolling a die?",
+      "resultType": "short-answer",
+      "options": [
+        "4; 8; 10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4; 8; 10",
+      "category": "Probability",
+      "subcategory": "Chance",
+      "learningOutcome": "Identify valid outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4; 8; 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which activity involves randomness?",
+      "resultType": "short-answer",
+      "options": [
+        "Drawing a marble from a bag; Measuring time; Drawing a rectangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Drawing a marble from a bag; Measuring time; Drawing a rectangle",
+      "category": "Probability",
+      "subcategory": "Chance",
+      "learningOutcome": "Recognise random events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Drawing a marble from a bag; Measuring time; Drawing a rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many outcomes are possible when flipping a coin once?",
+      "resultType": "short-answer",
+      "options": [
+        "2; 4; 6",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2; 4; 6",
+      "category": "Probability",
+      "subcategory": "Outcomes",
+      "learningOutcome": "Count possible outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2; 4; 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many outcomes are possible when flipping a coin once?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many outcomes are possible on a die?",
+      "resultType": "short-answer",
+      "options": [
+        "6; 8; 10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6; 8; 10",
+      "category": "Probability",
+      "subcategory": "Outcomes",
+      "learningOutcome": "Identify outcome sets",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6; 8; 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many outcomes are possible on a die?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which outcome is possible when rolling a die?",
+      "resultType": "short-answer",
+      "options": [
+        "5; 8; 9",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5; 8; 9",
+      "category": "Probability",
+      "subcategory": "Outcomes",
+      "learningOutcome": "Identify valid outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5; 8; 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which event has two possible outcomes?",
+      "resultType": "short-answer",
+      "options": [
+        "Coin toss; Die roll; Spinner with 8 sections",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Coin toss; Die roll; Spinner with 8 sections",
+      "category": "Probability",
+      "subcategory": "Outcomes",
+      "learningOutcome": "Compare probability situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Coin toss; Die roll; Spinner with 8 sections.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which outcome is impossible on a standard die?",
+      "resultType": "short-answer",
+      "options": [
+        "9; 2; 4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "9; 2; 4",
+      "category": "Probability",
+      "subcategory": "Outcomes",
+      "learningOutcome": "Distinguish possible and impossible outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9; 2; 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which event has six equally likely outcomes?",
+      "resultType": "short-answer",
+      "options": [
+        "Rolling a die; Tossing a coin; Picking red or blue",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Rolling a die; Tossing a coin; Picking red or blue",
+      "category": "Probability",
+      "subcategory": "Outcomes",
+      "learningOutcome": "Understand equally likely outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rolling a die; Tossing a coin; Picking red or blue.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word best describes a coin toss?",
+      "resultType": "short-answer",
+      "options": [
+        "Random; Certain; Measured",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Random; Certain; Measured",
+      "category": "Probability",
+      "subcategory": "Outcomes",
+      "learningOutcome": "Use probability vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Random; Certain; Measured.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bag contains only red balls. What is certain when selecting one ball?",
+      "resultType": "short-answer",
+      "options": [
+        "Red will be chosen; Blue will be chosen; Green will be chosen",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Red will be chosen; Blue will be chosen; Green will be chosen",
+      "category": "Probability",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Identify certain events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Red will be chosen; Blue will be chosen; Green will be chosen.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A spinner has sections numbered 1 to 4. Which number is impossible to land on?",
+      "resultType": "short-answer",
+      "options": [
+        "5; 1; 3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Probability",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Identify impossible outcomes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A die is rolled. Which statement is true?",
+      "resultType": "short-answer",
+      "options": [
+        "Landing on 1-6 is possible; Landing on 7 is possible; Every number is certain",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Landing on 1-6 is possible; Landing on 7 is possible; Every number is certain",
+      "category": "Probability",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply understanding of chance events",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Landing on 1-6 is possible; Landing on 7 is possible; Every number is certain.",
+      "solutionAttachments": []
+    }
+  ]
+}

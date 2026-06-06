@@ -1,0 +1,504 @@
+{
+  "id": "quiz-386",
+  "title": "Grade 4 2.05",
+  "description": "Learning Outcomes for Grade 4: Solve addition word problems | Solve subtraction word problems | Apply addition in context | Apply subtraction in context | Solve addition problems | Solve subtraction problems | Solve money problems | Solve real-life problems | Solve large-number problems | Solve transport problems | Apply addition | Select appropriate operations | Apply maths in context",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Sarah has 125 stickers and gets 45 more. How many stickers does she have now?",
+      "resultType": "short-answer",
+      "options": [
+        "160",
+        "170",
+        "180",
+        ""
+      ],
+      "correctAnswer": "125",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve addition word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 125.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sarah has 125 stickers and gets 45 more. How many stickers does she have now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Tom has 200 marbles and loses 35. How many marbles are left?",
+      "resultType": "short-answer",
+      "options": [
+        "165",
+        "175",
+        "155",
+        ""
+      ],
+      "correctAnswer": "200",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve subtraction word problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 200.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom has 200 marbles and loses 35. How many marbles are left?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A library has 350 books and buys 120 more. How many books are there now?",
+      "resultType": "short-answer",
+      "options": [
+        "470",
+        "460",
+        "480",
+        ""
+      ],
+      "correctAnswer": "350",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply addition in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 350.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A library has 350 books and buys 120 more. How many books are there now?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A shop had 500 apples and sold 150. How many remain?",
+      "resultType": "short-answer",
+      "options": [
+        "350",
+        "340",
+        "360",
+        ""
+      ],
+      "correctAnswer": "500",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply subtraction in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 500.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A shop had 500 apples and sold 150. How many remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are 245 boys and 255 girls in a school. How many students altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "500",
+        "490",
+        "510",
+        ""
+      ],
+      "correctAnswer": "245",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 245.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There are 245 boys and 255 girls in a school. How many students altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A farmer collected 420 eggs and sold 180. How many eggs remain?",
+      "resultType": "short-answer",
+      "options": [
+        "240",
+        "250",
+        "230",
+        ""
+      ],
+      "correctAnswer": "420",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve subtraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 420.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A farmer collected 420 eggs and sold 180. How many eggs remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Mia saved $150 and then saved another $75. How much has she saved altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "$225",
+        "$215",
+        "$235",
+        ""
+      ],
+      "correctAnswer": "150",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve money problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 150.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bus carried 80 passengers. 25 got off. How many passengers remain?",
+      "resultType": "short-answer",
+      "options": [
+        "55",
+        "45",
+        "65",
+        ""
+      ],
+      "correctAnswer": "80",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve real-life problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 80.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A bus carried 80 passengers. 25 got off. How many passengers remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A stadium had 1,200 people. 350 left. How many people remain?",
+      "resultType": "short-answer",
+      "options": [
+        "850",
+        "840",
+        "860",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve large-number problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A stadium had 1,200 people. 350 left. How many people remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A class collected 340 cans and then 260 more. Total cans collected?",
+      "resultType": "short-answer",
+      "options": [
+        "600",
+        "590",
+        "610",
+        ""
+      ],
+      "correctAnswer": "340",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 340.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Ben had 900 trading cards and gave away 275. How many does he have left?",
+      "resultType": "short-answer",
+      "options": [
+        "625",
+        "615",
+        "635",
+        ""
+      ],
+      "correctAnswer": "900",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve subtraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 900.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Ben had 900 trading cards and gave away 275. How many does he have left?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A zoo had 1,450 visitors on Saturday and 550 on Sunday morning. Total visitors?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "000",
+        "1",
+        "900"
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A water tank held 2,000 litres. 450 litres were used. How much remains?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "550",
+        "1",
+        "450"
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve subtraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Lily read 145 pages on Monday and 155 pages on Tuesday. How many pages altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "300",
+        "290",
+        "310",
+        ""
+      ],
+      "correctAnswer": "145",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve addition problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 145.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Lily read 145 pages on Monday and 155 pages on Tuesday. How many pages altogether?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A baker made 600 cupcakes and sold 425. How many remain?",
+      "resultType": "short-answer",
+      "options": [
+        "175",
+        "185",
+        "165",
+        ""
+      ],
+      "correctAnswer": "600",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve subtraction problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 600.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A baker made 600 cupcakes and sold 425. How many remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A train carried 375 passengers. 125 got off. How many remain?",
+      "resultType": "short-answer",
+      "options": [
+        "250",
+        "260",
+        "240",
+        ""
+      ],
+      "correctAnswer": "375",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve transport problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 375.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A train carried 375 passengers. 125 got off. How many remain?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Emma had $500 and spent $175. How much money is left?",
+      "resultType": "short-answer",
+      "options": [
+        "$325",
+        "$315",
+        "$335",
+        ""
+      ],
+      "correctAnswer": "500",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Solve money problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 500.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A concert sold 725 tickets on Friday and 275 on Saturday morning. Total tickets?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "000",
+        "900",
+        "1"
+      ],
+      "correctAnswer": "725",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 725.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Word problems require students to identify the correct?",
+      "resultType": "short-answer",
+      "options": [
+        "Operation",
+        "Colour",
+        "Shape",
+        ""
+      ],
+      "correctAnswer": "Operation",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Select appropriate operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Operation.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Addition and subtraction help solve?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday problems",
+        "Drawing tasks",
+        "Art projects",
+        ""
+      ],
+      "correctAnswer": "Everyday problems",
+      "category": "Number",
+      "subcategory": "Problem Solving",
+      "learningOutcome": "Apply maths in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday problems.",
+      "solutionAttachments": []
+    }
+  ]
+}

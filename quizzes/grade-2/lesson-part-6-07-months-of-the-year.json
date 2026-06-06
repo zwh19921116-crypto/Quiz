@@ -1,0 +1,394 @@
+{
+  "id": "quiz-261",
+  "title": "Grade 2 6.07",
+  "description": "Learning Outcomes for Grade 2: Identify months | Sequence months | Understand calendar | Compare time units | Understand time",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "How many months are in a year?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Identify months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many months are in a year?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which month comes after January?",
+      "resultType": "short-answer",
+      "options": [
+        "February",
+        "March",
+        "April",
+        ""
+      ],
+      "correctAnswer": "February",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to February.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes after February?",
+      "resultType": "short-answer",
+      "options": [
+        "March",
+        "April",
+        "May",
+        ""
+      ],
+      "correctAnswer": "March",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to March.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes after March?",
+      "resultType": "short-answer",
+      "options": [
+        "April",
+        "May",
+        "June",
+        ""
+      ],
+      "correctAnswer": "April",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to April.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes after April?",
+      "resultType": "short-answer",
+      "options": [
+        "May",
+        "June",
+        "July",
+        ""
+      ],
+      "correctAnswer": "May",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to May.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes after May?",
+      "resultType": "short-answer",
+      "options": [
+        "June",
+        "July",
+        "August",
+        ""
+      ],
+      "correctAnswer": "June",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to June.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes after June?",
+      "resultType": "short-answer",
+      "options": [
+        "July",
+        "August",
+        "September",
+        ""
+      ],
+      "correctAnswer": "July",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to July.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes after July?",
+      "resultType": "short-answer",
+      "options": [
+        "August",
+        "September",
+        "October",
+        ""
+      ],
+      "correctAnswer": "August",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to August.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes after August?",
+      "resultType": "short-answer",
+      "options": [
+        "September",
+        "October",
+        "November",
+        ""
+      ],
+      "correctAnswer": "September",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to September.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes after September?",
+      "resultType": "short-answer",
+      "options": [
+        "October",
+        "November",
+        "December",
+        ""
+      ],
+      "correctAnswer": "October",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to October.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes after October?",
+      "resultType": "short-answer",
+      "options": [
+        "November",
+        "December",
+        "January",
+        ""
+      ],
+      "correctAnswer": "November",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to November.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes after November?",
+      "resultType": "short-answer",
+      "options": [
+        "December",
+        "January",
+        "February",
+        ""
+      ],
+      "correctAnswer": "December",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to December.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes before March?",
+      "resultType": "short-answer",
+      "options": [
+        "February",
+        "January",
+        "April",
+        ""
+      ],
+      "correctAnswer": "February",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to February.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which month comes before July?",
+      "resultType": "short-answer",
+      "options": [
+        "June",
+        "August",
+        "May",
+        ""
+      ],
+      "correctAnswer": "June",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to June.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the first month of the year?",
+      "resultType": "short-answer",
+      "options": [
+        "January",
+        "February",
+        "December",
+        ""
+      ],
+      "correctAnswer": "January",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Understand calendar",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to January.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the last month of the year?",
+      "resultType": "short-answer",
+      "options": [
+        "November",
+        "December",
+        "January",
+        ""
+      ],
+      "correctAnswer": "November",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Understand calendar",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to November.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A year has how many months?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Understand calendar",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A year has how many months?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    },
+    {
+      "question": "A month is longer than a?",
+      "resultType": "short-answer",
+      "options": [
+        "Week",
+        "Year",
+        "Decade",
+        ""
+      ],
+      "correctAnswer": "Week",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Compare time units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Week.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "December comes before?",
+      "resultType": "short-answer",
+      "options": [
+        "January",
+        "February",
+        "November",
+        ""
+      ],
+      "correctAnswer": "January",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Sequence months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to January.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Months help us measure?",
+      "resultType": "short-answer",
+      "options": [
+        "Time",
+        "Mass",
+        "Length",
+        ""
+      ],
+      "correctAnswer": "Time",
+      "category": "Measurement Foundations",
+      "subcategory": "Time",
+      "learningOutcome": "Understand time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Time.",
+      "solutionAttachments": []
+    }
+  ]
+}

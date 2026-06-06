@@ -1,0 +1,427 @@
+{
+  "id": "quiz-531",
+  "title": "Grade 5 6.1",
+  "description": "Learning Outcomes for Grade 5: Convert between common length units | Convert between common mass units | Convert between common capacity units | Recall common time conversions | Convert metres to centimetres | Convert kilograms to grams | Convert litres to millilitres | Calculate perimeter of squares | Calculate area of rectangles | Compare metric lengths | Convert metres to kilometres | Convert grams to kilograms | Convert millilitres to litres | Calculate perimeter using formulas | Calculate area using formulas | Calculate elapsed time | Interpret timetable information | Apply measurement conversions in context | Solve real-world capacity problems | Apply measurement concepts to solve multi-step problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "How many centimetres are in 1 metre?",
+      "resultType": "short-answer",
+      "options": [
+        "100; 10; 1000",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Convert between common length units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many centimetres are in 1 metre?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many grams are in 1 kilogram?",
+      "resultType": "short-answer",
+      "options": [
+        "1000; 100; 10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Convert between common mass units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many grams are in 1 kilogram?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many millilitres are in 1 litre?",
+      "resultType": "short-answer",
+      "options": [
+        "1000; 100; 10",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Convert between common capacity units",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many millilitres are in 1 litre?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many minutes are in 1 hour?",
+      "resultType": "short-answer",
+      "options": [
+        "60; 100; 24",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Recall common time conversions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many minutes are in 1 hour?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "Convert 3 m to cm.",
+      "resultType": "short-answer",
+      "options": [
+        "300 cm; 30 cm; 3000 cm",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Convert metres to centimetres",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 2 kg to grams.",
+      "resultType": "short-answer",
+      "options": [
+        "2000 g; 200 g; 20 g",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Convert kilograms to grams",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 4 L to mL.",
+      "resultType": "short-answer",
+      "options": [
+        "4000 mL; 400 mL; 40 mL",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Convert litres to millilitres",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the perimeter of a square with sides of 5 cm?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Calculate perimeter of squares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What is the area of a rectangle 4 cm by 3 cm?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "4",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Calculate area of rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer?",
+      "resultType": "short-answer",
+      "options": [
+        "2 km; 1500 m; Same",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2 km; 1500 m; Same",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Compare metric lengths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2 km; 1500 m; Same.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 2500 m to km.",
+      "resultType": "short-answer",
+      "options": [
+        "2.5 km; 25 km; 0.25 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2500",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Convert metres to kilometres",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2500.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 1250 g to kg.",
+      "resultType": "short-answer",
+      "options": [
+        "1.25 kg; 12.5 kg; 0.125 kg",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1250",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Convert grams to kilograms",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1250.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Convert 4500 mL to L.",
+      "resultType": "short-answer",
+      "options": [
+        "4.5 L; 45 L; 0.45 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4500",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Convert millilitres to litres",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4500.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle is 12 m long and 5 m wide. What is its perimeter?",
+      "resultType": "multiple-choice",
+      "options": [
+        "12",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Calculate perimeter using formulas",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle is 12 m long and 5 m wide. What is its area?",
+      "resultType": "multiple-choice",
+      "options": [
+        "12",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "12",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Calculate area using formulas",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A lesson starts at 9:15 AM and ends at 10:00 AM. How long is it?",
+      "resultType": "short-answer",
+      "options": [
+        "45 minutes; 30 minutes; 60 minutes",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Calculate elapsed time",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bus leaves at 8:00 AM and arrives at 8:45 AM. How long is the trip?",
+      "resultType": "short-answer",
+      "options": [
+        "45 minutes; 30 minutes; 60 minutes",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Interpret timetable information",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A road is 3.5 km long. How many metres is this?",
+      "resultType": "short-answer",
+      "options": [
+        "3500 m; 350 m; 35000 m",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Apply measurement conversions in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A road is 3.5 km long. How many metres is this?",
+          "totalCount": 20,
+          "iconShape": "circle",
+          "groups": [
+            20
+          ]
+        }
+      }
+    },
+    {
+      "question": "A water tank contains 2500 L. If 750 L is used, how much water remains?",
+      "resultType": "short-answer",
+      "options": [
+        "1750 L; 1850 L; 1650 L",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2500",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Solve real-world capacity problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2500.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A truck travels 125 km in the morning and 175 km in the afternoon. How far does it travel altogether?",
+      "resultType": "short-answer",
+      "options": [
+        "300 km; 250 km; 350 km",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "125",
+      "category": "Measurement",
+      "subcategory": "Review",
+      "learningOutcome": "Apply measurement concepts to solve multi-step problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 125.",
+      "solutionAttachments": []
+    }
+  ]
+}

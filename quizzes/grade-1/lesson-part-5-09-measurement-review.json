@@ -1,0 +1,394 @@
+{
+  "id": "quiz-154",
+  "title": "Grade 1 5.09",
+  "description": "Learning Outcomes for Grade 1: Review length | Review height | Review mass | Review capacity | Review days | Review months | Review o'clock | Review half-past | Review time concepts | Review calendar concepts",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "Which is longer: a pencil or an eraser?",
+      "resultType": "short-answer",
+      "options": [
+        "Pencil",
+        "Eraser",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Pencil",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pencil.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is taller: a giraffe or a dog?",
+      "resultType": "short-answer",
+      "options": [
+        "Giraffe",
+        "Dog",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Giraffe",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review height",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Giraffe.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: an elephant or a cat?",
+      "resultType": "short-answer",
+      "options": [
+        "Elephant",
+        "Cat",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Elephant",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Elephant.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more water: a bucket or a cup?",
+      "resultType": "short-answer",
+      "options": [
+        "Bucket",
+        "Cup",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bucket",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bucket.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What day comes after Monday?",
+      "resultType": "short-answer",
+      "options": [
+        "Tuesday",
+        "Wednesday",
+        "Sunday",
+        ""
+      ],
+      "correctAnswer": "Tuesday",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review days",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tuesday.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What month comes after January?",
+      "resultType": "short-answer",
+      "options": [
+        "February",
+        "March",
+        "April",
+        ""
+      ],
+      "correctAnswer": "February",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to February.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 4 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "4:00",
+        "4:30",
+        "5:00",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review o'clock",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is half past 6?",
+      "resultType": "short-answer",
+      "options": [
+        "6:00",
+        "6:30",
+        "7:00",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review half-past",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter: a ruler or a bookmark?",
+      "resultType": "short-answer",
+      "options": [
+        "Ruler",
+        "Bookmark",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Ruler",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ruler.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lighter: a feather or a brick?",
+      "resultType": "short-answer",
+      "options": [
+        "Feather",
+        "Brick",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Feather",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Feather.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is taller: a tree or a bush?",
+      "resultType": "short-answer",
+      "options": [
+        "Tree",
+        "Bush",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Tree",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review height",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tree.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less: a spoon or a jug?",
+      "resultType": "short-answer",
+      "options": [
+        "Spoon",
+        "Jug",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Spoon",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Spoon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which day comes before Friday?",
+      "resultType": "short-answer",
+      "options": [
+        "Wednesday",
+        "Thursday",
+        "Saturday",
+        ""
+      ],
+      "correctAnswer": "Wednesday",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review days",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Wednesday.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What month comes before December?",
+      "resultType": "short-answer",
+      "options": [
+        "October",
+        "November",
+        "January",
+        ""
+      ],
+      "correctAnswer": "October",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review months",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to October.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is 9 o'clock?",
+      "resultType": "short-answer",
+      "options": [
+        "9:00",
+        "9:30",
+        "10:00",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review o'clock",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What time is half past 1?",
+      "resultType": "short-answer",
+      "options": [
+        "1:00",
+        "1:30",
+        "2:00",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review half-past",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longest?",
+      "resultType": "short-answer",
+      "options": [
+        "5 cm",
+        "10 cm",
+        "15 cm",
+        ""
+      ],
+      "correctAnswer": "5 cm",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5 cm.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heaviest?",
+      "resultType": "short-answer",
+      "options": [
+        "1 kg",
+        "5 kg",
+        "10 kg",
+        ""
+      ],
+      "correctAnswer": "1 kg",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review mass",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1 kg.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many days are in a week?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review time concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many days are in a week?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many months are in a year?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Measurement",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review calendar concepts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many months are in a year?",
+          "totalCount": 12,
+          "iconShape": "circle",
+          "groups": [
+            12
+          ]
+        }
+      }
+    }
+  ]
+}

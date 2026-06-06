@@ -1,0 +1,516 @@
+{
+  "id": "quiz-417",
+  "title": "Grade 4 5.06",
+  "description": "Learning Outcomes for Grade 4: Add simple decimals | Add tenths | Add hundredths | Add decimals | Add money amounts | Understand decimal operations | Apply decimals | Understand addition | Build understanding | Build foundations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "0.2 + 0.3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5",
+        "0.6",
+        "0.4",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add simple decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 2 + 0 = 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 0,
+          "answer": "2",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.4 + 0.5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.9",
+        "0.8",
+        "1.0",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add simple decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 + 0 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 0,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.1 + 0.7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.8",
+        "0.6",
+        "0.9",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add tenths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 1 + 0 = 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 1,
+          "operandB": 0,
+          "answer": "1",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.6 + 0.2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.8",
+        "0.7",
+        "0.9",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add tenths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6 + 0 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 0,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.25 + 0.25 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.50",
+        "0.40",
+        "0.75",
+        ""
+      ],
+      "correctAnswer": "25",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 25 + 0 = 25.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 25,
+          "operandB": 0,
+          "answer": "25",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.15 + 0.10 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.25",
+        "0.35",
+        "0.20",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 15 + 0 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 15,
+          "operandB": 0,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.30 + 0.40 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.70",
+        "0.60",
+        "0.80",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 30 + 0 = 30.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 30,
+          "operandB": 0,
+          "answer": "30",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.45 + 0.20 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.65",
+        "0.55",
+        "0.75",
+        ""
+      ],
+      "correctAnswer": "45",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 45 + 0 = 45.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 45,
+          "operandB": 0,
+          "answer": "45",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "$0.50 + $0.20 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "$0.70",
+        "$0.60",
+        "$0.80",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "$1.20 + $0.30 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "$1.50",
+        "$1.40",
+        "$1.60",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add money amounts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "0.12 + 0.13 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.25",
+        "0.35",
+        "0.15",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 12 + 0 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 12,
+          "operandB": 0,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "0.50 + 0.25 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "0.75",
+        "0.65",
+        "0.85",
+        ""
+      ],
+      "correctAnswer": "50",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 50 + 0 = 50.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 50,
+          "operandB": 0,
+          "answer": "50",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Adding decimals requires aligning the?",
+      "resultType": "short-answer",
+      "options": [
+        "Decimal points",
+        "Numerators",
+        "Denominators",
+        ""
+      ],
+      "correctAnswer": "Decimal points",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand decimal operations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Decimal points.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which total is correct? 0.4 + 0.4",
+      "resultType": "short-answer",
+      "options": [
+        "0.8",
+        "0.7",
+        "0.9",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add tenths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 + 0 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 0,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which total is correct? 0.05 + 0.05",
+      "resultType": "short-answer",
+      "options": [
+        "0.10",
+        "0.01",
+        "0.50",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Add hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 + 0 = 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 0,
+          "answer": "5",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Decimal addition is useful for?",
+      "resultType": "short-answer",
+      "options": [
+        "Money and measurement",
+        "Colouring",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Money and measurement",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Apply decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Money and measurement.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Adding decimals combines?",
+      "resultType": "short-answer",
+      "options": [
+        "Values",
+        "Colours",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Values",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Values.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimal addition develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Number sense",
+        "Art skills",
+        "Colour skills",
+        ""
+      ],
+      "correctAnswer": "Number sense",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Build understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number sense.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals are commonly used in?",
+      "resultType": "short-answer",
+      "options": [
+        "Everyday life",
+        "Art only",
+        "Sport only",
+        ""
+      ],
+      "correctAnswer": "Everyday life",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Apply decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Everyday life.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding decimal addition supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Drawing",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    }
+  ]
+}

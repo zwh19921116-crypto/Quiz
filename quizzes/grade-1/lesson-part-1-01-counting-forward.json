@@ -1,0 +1,372 @@
+{
+  "id": "quiz-1",
+  "title": "Grade 1 1.01",
+  "description": "Learning Outcomes for Grade 1: Count forward by 1 | Identify missing numbers | Number order | Apply counting skills | Count forward confidently",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "21, 22, 23, ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "24",
+        "26",
+        "21",
+        "25"
+      ],
+      "correctAnswer": "21",
+      "category": "Number Sense",
+      "subcategory": "Count On",
+      "learningOutcome": "Count forward by 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 21.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "35, 36, 37, ?",
+      "resultType": "short-answer",
+      "options": [
+        "38",
+        "39",
+        "40",
+        ""
+      ],
+      "correctAnswer": "35",
+      "category": "Number Sense",
+      "subcategory": "Count On",
+      "learningOutcome": "Count forward by 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 35.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "48, 49, 50, ?",
+      "resultType": "short-answer",
+      "options": [
+        "51",
+        "52",
+        "53",
+        ""
+      ],
+      "correctAnswer": "48",
+      "category": "Number Sense",
+      "subcategory": "Count On",
+      "learningOutcome": "Count forward by 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 48.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "61, 62, 63, ?",
+      "resultType": "short-answer",
+      "options": [
+        "64",
+        "65",
+        "66",
+        ""
+      ],
+      "correctAnswer": "61",
+      "category": "Number Sense",
+      "subcategory": "Count On",
+      "learningOutcome": "Count forward by 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 61.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "74, 75, 76, ?",
+      "resultType": "short-answer",
+      "options": [
+        "77",
+        "78",
+        "79",
+        ""
+      ],
+      "correctAnswer": "74",
+      "category": "Number Sense",
+      "subcategory": "Count On",
+      "learningOutcome": "Count forward by 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 74.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "42, ?, 44",
+      "resultType": "short-answer",
+      "options": [
+        "43",
+        "45",
+        "46",
+        ""
+      ],
+      "correctAnswer": "42",
+      "category": "Number Sense",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Identify missing numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 42.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "57, ?, 59",
+      "resultType": "short-answer",
+      "options": [
+        "56",
+        "58",
+        "60",
+        ""
+      ],
+      "correctAnswer": "57",
+      "category": "Number Sense",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Identify missing numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 57.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "81, ?, 83",
+      "resultType": "short-answer",
+      "options": [
+        "80",
+        "82",
+        "84",
+        ""
+      ],
+      "correctAnswer": "81",
+      "category": "Number Sense",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Identify missing numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 81.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "94, ?, 96",
+      "resultType": "short-answer",
+      "options": [
+        "93",
+        "95",
+        "97",
+        ""
+      ],
+      "correctAnswer": "94",
+      "category": "Number Sense",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Identify missing numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 94.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "67, ?, 69",
+      "resultType": "short-answer",
+      "options": [
+        "66",
+        "68",
+        "70",
+        ""
+      ],
+      "correctAnswer": "67",
+      "category": "Number Sense",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Identify missing numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 67.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes after 29?",
+      "resultType": "short-answer",
+      "options": [
+        "28",
+        "30",
+        "31",
+        ""
+      ],
+      "correctAnswer": "30",
+      "category": "Number Sense",
+      "subcategory": "Before & After",
+      "learningOutcome": "Number order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 30.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes after 54?",
+      "resultType": "short-answer",
+      "options": [
+        "53",
+        "55",
+        "56",
+        ""
+      ],
+      "correctAnswer": "55",
+      "category": "Number Sense",
+      "subcategory": "Before & After",
+      "learningOutcome": "Number order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 55.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes after 88?",
+      "resultType": "short-answer",
+      "options": [
+        "87",
+        "89",
+        "90",
+        ""
+      ],
+      "correctAnswer": "89",
+      "category": "Number Sense",
+      "subcategory": "Before & After",
+      "learningOutcome": "Number order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 89.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes after 99?",
+      "resultType": "short-answer",
+      "options": [
+        "98",
+        "100",
+        "101",
+        ""
+      ],
+      "correctAnswer": "100",
+      "category": "Number Sense",
+      "subcategory": "Before & After",
+      "learningOutcome": "Number order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 100.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes after 70?",
+      "resultType": "short-answer",
+      "options": [
+        "69",
+        "71",
+        "72",
+        ""
+      ],
+      "correctAnswer": "71",
+      "category": "Number Sense",
+      "subcategory": "Before & After",
+      "learningOutcome": "Number order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 71.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia counted 45, 46, 47. What comes next?",
+      "resultType": "short-answer",
+      "options": [
+        "48",
+        "49",
+        "50",
+        ""
+      ],
+      "correctAnswer": "48",
+      "category": "Number Sense",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply counting skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern increases by 1 each step. After 47, the next number is 48.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tom counted 63, 64, 65. What comes next?",
+      "resultType": "short-answer",
+      "options": [
+        "66",
+        "67",
+        "68",
+        ""
+      ],
+      "correctAnswer": "66",
+      "category": "Number Sense",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply counting skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern increases by 1 each step. After 65, the next number is 66.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Lily counted 79, 80, 81. What comes next?",
+      "resultType": "short-answer",
+      "options": [
+        "82",
+        "83",
+        "84",
+        ""
+      ],
+      "correctAnswer": "82",
+      "category": "Number Sense",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply counting skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern increases by 1 each step. After 81, the next number is 82.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Ben counted 90, 91, 92. What comes next?",
+      "resultType": "short-answer",
+      "options": [
+        "93",
+        "94",
+        "95",
+        ""
+      ],
+      "correctAnswer": "93",
+      "category": "Number Sense",
+      "subcategory": "Word Problems",
+      "learningOutcome": "Apply counting skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The pattern increases by 1 each step. After 92, the next number is 93.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes next: 39, 40, 41, ?",
+      "resultType": "short-answer",
+      "options": [
+        "42",
+        "43",
+        "44",
+        ""
+      ],
+      "correctAnswer": "39",
+      "category": "Number Sense",
+      "subcategory": "Review",
+      "learningOutcome": "Count forward confidently",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 39.",
+      "solutionAttachments": []
+    }
+  ]
+}

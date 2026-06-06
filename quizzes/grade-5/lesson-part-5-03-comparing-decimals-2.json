@@ -1,0 +1,372 @@
+{
+  "id": "quiz-514",
+  "title": "Grade 5 5.03",
+  "description": "Learning Outcomes for Grade 5: Compare decimals to tenths | Compare decimals to hundredths | Compare decimals in real-world situations | Apply decimal comparison in context | Compare decimals to solve real-world problems",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 5",
+  "questions": [
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.7; 0.5; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.7; 0.5; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to tenths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.7; 0.5; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.2; 0.8; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.2; 0.8; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to tenths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.2; 0.8; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.9; 0.4; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.9; 0.4; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to tenths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.9; 0.4; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.1; 0.6; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.1; 0.6; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to tenths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.1; 0.6; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.35; 0.25; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.35; 0.25; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.35; 0.25; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.82; 0.28; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.82; 0.28; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.82; 0.28; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.43; 0.74; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.43; 0.74; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.43; 0.74; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.67; 0.61; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.67; 0.61; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.67; 0.61; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.14; 0.41; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.14; 0.41; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.14; 0.41; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.99; 0.89; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.99; 0.89; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.99; 0.89; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.56; 0.54; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.56; 0.54; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.56; 0.54; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.37; 0.73; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.37; 0.73; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.37; 0.73; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.84; 0.48; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.84; 0.48; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.84; 0.48; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.29; 0.92; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.29; 0.92; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.29; 0.92; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.71; 0.69; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.71; 0.69; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.71; 0.69; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.45; 0.54; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.45; 0.54; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.45; 0.54; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.93; 0.89; Equal",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0.93; 0.89; Equal",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.93; 0.89; Equal.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A bottle contains 0.75 L and another contains 0.68 L. Which bottle contains more liquid?",
+      "resultType": "short-answer",
+      "options": [
+        "0.75 L; 0.68 L; Same amount",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals in real-world situations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A runner completed 0.82 km and another completed 0.79 km. Who ran further?",
+      "resultType": "short-answer",
+      "options": [
+        "0.82 km runner; 0.79 km runner; Same distance",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Apply decimal comparison in context",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A tank is 0.91 full and another is 0.89 full. Which tank is fuller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.91 full tank; 0.89 full tank; Same amount",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Decimals",
+      "subcategory": "Comparing",
+      "learningOutcome": "Compare decimals to solve real-world problems",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    }
+  ]
+}

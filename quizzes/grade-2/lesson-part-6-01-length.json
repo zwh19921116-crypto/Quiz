@@ -1,0 +1,372 @@
+{
+  "id": "quiz-255",
+  "title": "Grade 2 6.01",
+  "description": "Learning Outcomes for Grade 2: Compare length | Understand length | Understand vocabulary | Understand measurement",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "Which is longer? A pencil or an eraser?",
+      "resultType": "short-answer",
+      "options": [
+        "Pencil",
+        "Eraser",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Pencil",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pencil.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer? A ruler or a coin?",
+      "resultType": "short-answer",
+      "options": [
+        "Ruler",
+        "Coin",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Ruler",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ruler.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter? A bus or a car?",
+      "resultType": "short-answer",
+      "options": [
+        "Bus",
+        "Car",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bus",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bus.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer? A snake or a worm?",
+      "resultType": "short-answer",
+      "options": [
+        "Snake",
+        "Worm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Snake",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Snake.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter? A train or a bicycle?",
+      "resultType": "short-answer",
+      "options": [
+        "Train",
+        "Bicycle",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Train",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Train.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Length tells us how?",
+      "resultType": "short-answer",
+      "options": [
+        "Long",
+        "Heavy",
+        "Full",
+        ""
+      ],
+      "correctAnswer": "Long",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Understand length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Long.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer? A desk or a book?",
+      "resultType": "short-answer",
+      "options": [
+        "Desk",
+        "Book",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Desk",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Desk.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter? A pencil or a ruler?",
+      "resultType": "short-answer",
+      "options": [
+        "Pencil",
+        "Ruler",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Pencil",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pencil.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer? A bed or a pillow?",
+      "resultType": "short-answer",
+      "options": [
+        "Bed",
+        "Pillow",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Bed",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bed.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter? A road or a driveway?",
+      "resultType": "short-answer",
+      "options": [
+        "Road",
+        "Driveway",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Road",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Road.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Longer means?",
+      "resultType": "short-answer",
+      "options": [
+        "More length",
+        "Less length",
+        "More weight",
+        ""
+      ],
+      "correctAnswer": "More length",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Understand vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to More length.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Shorter means?",
+      "resultType": "short-answer",
+      "options": [
+        "Less length",
+        "More length",
+        "More weight",
+        ""
+      ],
+      "correctAnswer": "Less length",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Understand vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Less length.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object would usually be longest?",
+      "resultType": "short-answer",
+      "options": [
+        "Bus",
+        "Pencil",
+        "Coin",
+        ""
+      ],
+      "correctAnswer": "Bus",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bus.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object would usually be shortest?",
+      "resultType": "short-answer",
+      "options": [
+        "Coin",
+        "Desk",
+        "Bed",
+        ""
+      ],
+      "correctAnswer": "Coin",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Coin.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Length is measured from?",
+      "resultType": "short-answer",
+      "options": [
+        "End to end",
+        "Top to bottom only",
+        "Side only",
+        ""
+      ],
+      "correctAnswer": "End to end",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Understand measurement",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to End to end.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer? A tree or a flower?",
+      "resultType": "short-answer",
+      "options": [
+        "Tree",
+        "Flower",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Tree",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tree.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter? A finger or an arm?",
+      "resultType": "short-answer",
+      "options": [
+        "Finger",
+        "Arm",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Finger",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Finger.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Length compares?",
+      "resultType": "short-answer",
+      "options": [
+        "Size from end to end",
+        "Weight",
+        "Capacity",
+        ""
+      ],
+      "correctAnswer": "Size from end to end",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Understand length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Size from end to end.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longer? A football field or a classroom?",
+      "resultType": "short-answer",
+      "options": [
+        "Football field",
+        "Classroom",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "Football field",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Football field.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Length helps us describe?",
+      "resultType": "short-answer",
+      "options": [
+        "How long something is",
+        "How heavy something is",
+        "How full something is",
+        ""
+      ],
+      "correctAnswer": "How long something is",
+      "category": "Measurement Foundations",
+      "subcategory": "Length",
+      "learningOutcome": "Understand length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to How long something is.",
+      "solutionAttachments": []
+    }
+  ]
+}

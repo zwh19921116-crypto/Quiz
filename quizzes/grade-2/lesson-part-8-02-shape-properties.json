@@ -1,0 +1,438 @@
+{
+  "id": "quiz-276",
+  "title": "Grade 2 8.02",
+  "description": "Learning Outcomes for Grade 2: Identify properties | Learn geometry terms | Compare properties | Understand properties | Describe shapes | Apply geometry",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "How many sides does a square have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a square have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many sides does a triangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Triangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a triangle have?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many corners does a rectangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many corners does a rectangle have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many corners does a triangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "Triangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "2",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many corners does a triangle have?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has no corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A square has how many equal sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "2",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A square has how many equal sides?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "A rectangle has how many sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "A rectangle has how many sides?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape is round?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has exactly 3 corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 4 corners and 4 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A shape's corners are also called?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Vertices",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Vertices",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Learn geometry terms",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Vertices.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has the fewest sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Compare properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has more sides, triangle or square?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Triangle",
+        "Circle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Compare properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has more corners, square or triangle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Triangle",
+        "Circle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Compare properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A circle has?",
+      "resultType": "multiple-choice",
+      "options": [
+        "No corners",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "No corners",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to No corners.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle usually has?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Longer and shorter sides",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "Longer and shorter sides",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Understand properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Longer and shorter sides.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Shapes can be described using?",
+      "resultType": "short-answer",
+      "options": [
+        "Sides and corners",
+        "Weight and mass",
+        "Time and money",
+        ""
+      ],
+      "correctAnswer": "Sides and corners",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Describe shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sides and corners.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A triangle always has?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3 sides",
+        "Triangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "3 sides",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Understand properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3 sides.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A square always has?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4 equal sides",
+        "Square",
+        "Circle",
+        "Triangle"
+      ],
+      "correctAnswer": "4 equal sides",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Understand properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4 equal sides.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Shape properties help us?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Identify shapes",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Identify shapes",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Apply geometry",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Identify shapes.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,394 @@
+{
+  "id": "quiz-157",
+  "title": "Grade 1 6.02",
+  "description": "Learning Outcomes for Grade 1: Identify circle properties | Connect circles to real objects | Understand circle properties | Recognise circles | Distinguish circles | Connect shapes to real objects | Apply shape knowledge",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "How many sides does a circle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2000",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "2000",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2000.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a circle have?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many corners does a circle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many corners does a circle have?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which object is shaped like a circle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Coin",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Coin",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect circles to real objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Coin.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is shaped like a circle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Plate",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Plate",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect circles to real objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Plate.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape rolls easily?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Understand circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A wheel is shaped like a?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "Triangle",
+        "Square",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect circles to real objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A clock face is usually a?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "Rectangle",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect circles to real objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has no straight sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is round?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a circle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Coin",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Coin",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Recognise circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Coin.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A circle has ___ corners.",
+      "resultType": "multiple-choice",
+      "options": [
+        "2000",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "2000",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A circle has ___ sides.",
+      "resultType": "multiple-choice",
+      "options": [
+        "2000",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "2000",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2000.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which object is not a circle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Plate",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Plate",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Distinguish circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Plate.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape can roll?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Understand circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is completely curved?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which item looks most like a circle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Pizza",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Pizza",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect shapes to real objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pizza.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is not round?",
+      "resultType": "short-answer",
+      "options": [
+        "Coin",
+        "Ball",
+        "Book",
+        ""
+      ],
+      "correctAnswer": "Coin",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Distinguish circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Coin.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A circle has curved edges.",
+      "resultType": "multiple-choice",
+      "options": [
+        "True",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "True",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to TRUE.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is best for a wheel?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Apply shape knowledge",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has no corners and no straight sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify circle properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    }
+  ]
+}

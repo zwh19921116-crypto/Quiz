@@ -1,0 +1,416 @@
+{
+  "id": "quiz-248",
+  "title": "Grade 2 5.04",
+  "description": "Learning Outcomes for Grade 2: Identify fractions | Recognise fraction notation | Understand halves | Understand quarters | Compare simple fractions | Identify halves | Identify quarters | Understand fractions | Compare fractions | Recognise fractions",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 2",
+  "questions": [
+    {
+      "question": "One of two equal parts is called?",
+      "resultType": "short-answer",
+      "options": [
+        "Half",
+        "Quarter",
+        "Whole",
+        ""
+      ],
+      "correctAnswer": "Half",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Identify fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Half.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "One of four equal parts is called?",
+      "resultType": "short-answer",
+      "options": [
+        "Half",
+        "Quarter",
+        "Whole",
+        ""
+      ],
+      "correctAnswer": "Half",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Identify fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Half.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which means one half?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "2/4",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Recognise fraction notation",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which means one quarter?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "2/2",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Recognise fraction notation",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Two halves make?",
+      "resultType": "short-answer",
+      "options": [
+        "Half",
+        "Whole",
+        "Quarter",
+        ""
+      ],
+      "correctAnswer": "Half",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Understand halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Half.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Four quarters make?",
+      "resultType": "short-answer",
+      "options": [
+        "Half",
+        "Whole",
+        "Quarter",
+        ""
+      ],
+      "correctAnswer": "Half",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Understand quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Half.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Compare simple fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A whole pizza cut into 2 equal pieces creates?",
+      "resultType": "short-answer",
+      "options": [
+        "Halves",
+        "Quarters",
+        "Thirds",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Identify halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A whole pizza cut into 4 equal pieces creates?",
+      "resultType": "short-answer",
+      "options": [
+        "Halves",
+        "Quarters",
+        "Thirds",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Identify quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Fractions are made from?",
+      "resultType": "short-answer",
+      "options": [
+        "Equal parts",
+        "Different parts",
+        "Numbers only",
+        ""
+      ],
+      "correctAnswer": "Equal parts",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Understand fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Equal parts.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is a half?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "1/8",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Identify fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which fraction is a quarter?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "2/2",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Identify fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Half means how many equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Understand halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Half means how many equal parts?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "Quarter means how many equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Understand quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Quarter means how many equal parts?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "1/4",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Compare fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "One quarter is one out of how many equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Understand quarters",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "One quarter is one out of how many equal parts?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "One half is one out of how many equal parts?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Understand halves",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "One half is one out of how many equal parts?",
+          "totalCount": 2,
+          "iconShape": "circle",
+          "groups": [
+            2
+          ]
+        }
+      }
+    },
+    {
+      "question": "Fractions show?",
+      "resultType": "short-answer",
+      "options": [
+        "Parts of a whole",
+        "Only numbers",
+        "Shapes only",
+        ""
+      ],
+      "correctAnswer": "Parts of a whole",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Understand fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Parts of a whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Equal parts are important because fractions must be?",
+      "resultType": "short-answer",
+      "options": [
+        "Fair",
+        "Unequal",
+        "Random",
+        ""
+      ],
+      "correctAnswer": "Fair",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Understand fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Fair.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a fraction?",
+      "resultType": "short-answer",
+      "options": [
+        "1/2",
+        "20",
+        "+",
+        ""
+      ],
+      "correctAnswer": "1/2",
+      "category": "Fractions Foundations",
+      "subcategory": "Identifying Fractions",
+      "learningOutcome": "Recognise fractions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1/2.",
+      "solutionAttachments": []
+    }
+  ]
+}

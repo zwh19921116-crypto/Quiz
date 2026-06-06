@@ -1,0 +1,404 @@
+{
+  "id": "quiz-326",
+  "title": "Grade 3 5.02",
+  "description": "Learning Outcomes for Grade 3: Understand 2D shapes | Identify 2D shapes | Classify shapes | Identify shape properties | Identify polygons | Connect shapes to real life | Count vertices | Compare shapes | Identify real-world shapes | Understand dimensions",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 3",
+  "questions": [
+    {
+      "question": "What does 2D mean?",
+      "resultType": "short-answer",
+      "options": [
+        "Flat",
+        "Solid",
+        "Heavy",
+        ""
+      ],
+      "correctAnswer": "Flat",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Understand 2D shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Flat.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a 2D shape?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Circle",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify 2D shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is a 2D shape?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify 2D shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rectangle is a?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2d shape",
+        "Rectangle",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "2d shape",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Classify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2D shape.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has no sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "0",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify shape properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 3 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify shape properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 4 equal sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "4",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify shape properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 5 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "5",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 6 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "6",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 8 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "8",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify polygons",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is used on a clock face?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect shapes to real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is often used for windows?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Connect shapes to real life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many corners does a hexagon have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "Hexagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "5",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Count vertices",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many corners does a hexagon have?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "How many corners does an octagon have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "Octagon",
+        "Circle",
+        "Square"
+      ],
+      "correctAnswer": "6",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Count vertices",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many corners does an octagon have?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which shape has the fewest sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        "Rectangle"
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Compare shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has the most sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        "Rectangle"
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Compare shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape could be a road sign?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Octagon",
+        "Circle",
+        "Square",
+        "Triangle"
+      ],
+      "correctAnswer": "Octagon",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Identify real-world shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Octagon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is not a polygon?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        "Rectangle"
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Classify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What do all 2D shapes have?",
+      "resultType": "short-answer",
+      "options": [
+        "Length and width",
+        "Height only",
+        "Depth only",
+        ""
+      ],
+      "correctAnswer": "Length and width",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Understand dimensions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Length and width.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A drawing on paper is usually?",
+      "resultType": "short-answer",
+      "options": [
+        "2D",
+        "3D",
+        "Both",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Geometry",
+      "subcategory": "2D Shapes",
+      "learningOutcome": "Understand dimensions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The dotted numeral is 2. Trace it while saying 2 aloud.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 2,
+          "prompt": "A drawing on paper is usually?",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    }
+  ]
+}

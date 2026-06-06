@@ -1,0 +1,372 @@
+{
+  "id": "quiz-420",
+  "title": "Grade 4 5.09",
+  "description": "Learning Outcomes for Grade 4: Locate decimals on a number line | Order decimals | Compare decimals | Locate decimals | Understand number lines | Locate hundredths | Use visual models | Understand decimal positions | Develop understanding | Understand decimals | Apply mathematics | Build foundations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Which decimal is halfway between 0 and 1?",
+      "resultType": "short-answer",
+      "options": [
+        "0.5",
+        "0.2",
+        "0.8",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Locate decimals on a number line",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal comes first?",
+      "resultType": "short-answer",
+      "options": [
+        "0.2",
+        "0.5",
+        "0.8",
+        ""
+      ],
+      "correctAnswer": "0.2",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Order decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal comes last?",
+      "resultType": "short-answer",
+      "options": [
+        "0.2",
+        "0.5",
+        "0.8",
+        ""
+      ],
+      "correctAnswer": "0.2",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Order decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is closest to 0?",
+      "resultType": "short-answer",
+      "options": [
+        "0.1",
+        "0.7",
+        "0.9",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is closest to 1?",
+      "resultType": "short-answer",
+      "options": [
+        "0.9",
+        "0.2",
+        "0.4",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is between 0.3 and 0.5?",
+      "resultType": "short-answer",
+      "options": [
+        "0.4",
+        "0.2",
+        "0.6",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Locate decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is between 0.6 and 0.8?",
+      "resultType": "short-answer",
+      "options": [
+        "0.7",
+        "0.5",
+        "0.9",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Locate decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals increase moving?",
+      "resultType": "short-answer",
+      "options": [
+        "Right",
+        "Left",
+        "Down",
+        ""
+      ],
+      "correctAnswer": "Right",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand number lines",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Right.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals decrease moving?",
+      "resultType": "short-answer",
+      "options": [
+        "Left",
+        "Right",
+        "Up",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand number lines",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.65",
+        "0.56",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.65",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.65.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.24",
+        "0.42",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.24",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.24.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal lies between 0.45 and 0.47?",
+      "resultType": "short-answer",
+      "options": [
+        "0.46",
+        "0.44",
+        "0.48",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Locate hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "0.81",
+        "0.18",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.81",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.81.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is less?",
+      "resultType": "short-answer",
+      "options": [
+        "0.09",
+        "0.90",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.09",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.09.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Number lines help visualise?",
+      "resultType": "short-answer",
+      "options": [
+        "Decimal size",
+        "Colours",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Decimal size",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Use visual models",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Decimal size.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals can be placed between?",
+      "resultType": "short-answer",
+      "options": [
+        "Whole numbers",
+        "Colours",
+        "Shapes",
+        ""
+      ],
+      "correctAnswer": "Whole numbers",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand decimal positions",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Whole numbers.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimal number lines build?",
+      "resultType": "short-answer",
+      "options": [
+        "Number sense",
+        "Art skills",
+        "Colour skills",
+        ""
+      ],
+      "correctAnswer": "Number sense",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Develop understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number sense.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals can represent?",
+      "resultType": "short-answer",
+      "options": [
+        "Parts of a whole",
+        "Shapes only",
+        "Colours only",
+        ""
+      ],
+      "correctAnswer": "Parts of a whole",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Parts of a whole.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Number lines support?",
+      "resultType": "short-answer",
+      "options": [
+        "Problem solving",
+        "Colouring",
+        "Drawing",
+        ""
+      ],
+      "correctAnswer": "Problem solving",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Apply mathematics",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Problem solving.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding decimal placement supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Art",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    }
+  ]
+}

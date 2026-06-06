@@ -1,0 +1,372 @@
+{
+  "id": "quiz-414",
+  "title": "Grade 4 5.03",
+  "description": "Learning Outcomes for Grade 4: Compare decimals | Compare tenths | Compare hundredths | Compare decimal values | Understand decimal comparison | Understand place value | Understand ordering | Use visual models | Build understanding | Apply decimals | Build foundations",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 4",
+  "questions": [
+    {
+      "question": "Which decimal is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.7",
+        "0.5",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.7",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.2",
+        "0.8",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.2",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "0.9",
+        "0.4",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.9",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare tenths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is less?",
+      "resultType": "short-answer",
+      "options": [
+        "0.1",
+        "0.6",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.1",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare tenths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.35",
+        "0.25",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.35",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.35.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.12",
+        "0.21",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.12",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "0.48",
+        "0.45",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.48",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.48.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is less?",
+      "resultType": "short-answer",
+      "options": [
+        "0.61",
+        "0.71",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.61",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.61.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is closest to 1?",
+      "resultType": "short-answer",
+      "options": [
+        "0.9",
+        "0.3",
+        "0.5",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimal values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which decimal is closest to 0?",
+      "resultType": "short-answer",
+      "options": [
+        "0.1",
+        "0.8",
+        "0.9",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare decimal values",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is larger?",
+      "resultType": "short-answer",
+      "options": [
+        "0.56",
+        "0.54",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.56",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.56.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.27",
+        "0.72",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.27",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Compare hundredths",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.27.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals can be compared using?",
+      "resultType": "short-answer",
+      "options": [
+        "Place value",
+        "Colour",
+        "Shape",
+        ""
+      ],
+      "correctAnswer": "Place value",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand decimal comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Place value.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "0.80",
+        "0.08",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.80",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.80.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is smaller?",
+      "resultType": "short-answer",
+      "options": [
+        "0.09",
+        "0.90",
+        "Same",
+        ""
+      ],
+      "correctAnswer": "0.09",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand place value",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.09.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals increase as numbers get?",
+      "resultType": "short-answer",
+      "options": [
+        "Larger",
+        "Smaller",
+        "Equal",
+        ""
+      ],
+      "correctAnswer": "Larger",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Understand ordering",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Larger.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimals can be ordered on a?",
+      "resultType": "short-answer",
+      "options": [
+        "Number line",
+        "Calendar",
+        "Clock",
+        ""
+      ],
+      "correctAnswer": "Number line",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Use visual models",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number line.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Comparing decimals develops?",
+      "resultType": "short-answer",
+      "options": [
+        "Number sense",
+        "Art skills",
+        "Colour skills",
+        ""
+      ],
+      "correctAnswer": "Number sense",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Build understanding",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Number sense.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Decimal comparisons are useful in?",
+      "resultType": "short-answer",
+      "options": [
+        "Money and measurement",
+        "Drawing",
+        "Colouring",
+        ""
+      ],
+      "correctAnswer": "Money and measurement",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Apply decimals",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Money and measurement.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Understanding decimals supports?",
+      "resultType": "short-answer",
+      "options": [
+        "Future maths learning",
+        "Art",
+        "Music",
+        ""
+      ],
+      "correctAnswer": "Future maths learning",
+      "category": "Number",
+      "subcategory": "Decimals",
+      "learningOutcome": "Build foundations",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Future maths learning.",
+      "solutionAttachments": []
+    }
+  ]
+}

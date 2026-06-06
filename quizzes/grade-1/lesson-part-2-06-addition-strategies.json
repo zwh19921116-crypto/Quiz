@@ -1,0 +1,588 @@
+{
+  "id": "quiz-121",
+  "title": "Grade 1 2.06",
+  "description": "Learning Outcomes for Grade 1: Count on from a number | Use doubles facts | Use near doubles | Make 10 strategy | Mental addition | Apply addition strategies | Review strategies",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Grade 1",
+  "questions": [
+    {
+      "question": "5 + 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Count On",
+      "subcategory": "Addition",
+      "learningOutcome": "Count on from a number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 + 3 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 3,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "7 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "9",
+        "2010",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Count On",
+      "subcategory": "Addition",
+      "learningOutcome": "Count on from a number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7 + 2 = 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7,
+          "operandB": 2,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "9 + 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "13",
+        "14",
+        ""
+      ],
+      "correctAnswer": "13",
+      "category": "Count On",
+      "subcategory": "Addition",
+      "learningOutcome": "Count on from a number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 9 + 4 = 13.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 4,
+          "answer": "13",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "4 + 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "10",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Doubles",
+      "subcategory": "Addition",
+      "learningOutcome": "Use doubles facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 4 + 4 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 4,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "6 + 6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "12",
+        "14",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Doubles",
+      "subcategory": "Addition",
+      "learningOutcome": "Use doubles facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6 + 6 = 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 6,
+          "answer": "12",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "8 + 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "16",
+        "18",
+        ""
+      ],
+      "correctAnswer": "16",
+      "category": "Doubles",
+      "subcategory": "Addition",
+      "learningOutcome": "Use doubles facts",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 8 + 8 = 16.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 8,
+          "operandB": 8,
+          "answer": "16",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "5 + 6 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "11",
+        "12",
+        ""
+      ],
+      "correctAnswer": "11",
+      "category": "Near Doubles",
+      "subcategory": "Addition",
+      "learningOutcome": "Use near doubles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 5 + 6 = 11.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 6,
+          "answer": "11",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "7 + 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Near Doubles",
+      "subcategory": "Addition",
+      "learningOutcome": "Use near doubles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7 + 8 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7,
+          "operandB": 8,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "9 + 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "16",
+        "17",
+        "18",
+        ""
+      ],
+      "correctAnswer": "17",
+      "category": "Near Doubles",
+      "subcategory": "Addition",
+      "learningOutcome": "Use near doubles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 9 + 8 = 17.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 8,
+          "answer": "17",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "8 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Make 10",
+      "subcategory": "Addition",
+      "learningOutcome": "Make 10 strategy",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 8 + 2 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 8,
+          "operandB": 2,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "6 + 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Make 10",
+      "subcategory": "Addition",
+      "learningOutcome": "Make 10 strategy",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 6 + 4 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 6,
+          "operandB": 4,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "7 + 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Make 10",
+      "subcategory": "Addition",
+      "learningOutcome": "Make 10 strategy",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7 + 3 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7,
+          "operandB": 3,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "10 + 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "14",
+        "15",
+        "16",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Mental Maths",
+      "subcategory": "Addition",
+      "learningOutcome": "Mental addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 10 + 5 = 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 10,
+          "operandB": 5,
+          "answer": "15",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "10 + 8 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "17",
+        "18",
+        "19",
+        ""
+      ],
+      "correctAnswer": "18",
+      "category": "Mental Maths",
+      "subcategory": "Addition",
+      "learningOutcome": "Mental addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 10 + 8 = 18.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 10,
+          "operandB": 8,
+          "answer": "18",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "10 + 9 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "18",
+        "19",
+        "20",
+        ""
+      ],
+      "correctAnswer": "19",
+      "category": "Mental Maths",
+      "subcategory": "Addition",
+      "learningOutcome": "Mental addition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 10 + 9 = 19.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 10,
+          "operandB": 9,
+          "answer": "19",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Mia has 6 apples and gets 4 more. Total?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "2011",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Word Problems",
+      "subcategory": "Addition",
+      "learningOutcome": "Apply addition strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tom has 8 marbles and gets 2 more. Total?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "2011",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "Addition",
+      "learningOutcome": "Apply addition strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 + 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "2007",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Review",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 3 + 3 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3,
+          "operandB": 3,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "9 + 1 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "9",
+        "10",
+        "11",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Review",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 9 + 1 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 9,
+          "operandB": 1,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "7 + 7 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "12",
+        "14",
+        "16",
+        ""
+      ],
+      "correctAnswer": "14",
+      "category": "Review",
+      "subcategory": "Mixed",
+      "learningOutcome": "Review strategies",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute the operation: 7 + 7 = 14.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 7,
+          "operandB": 7,
+          "answer": "14",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    }
+  ]
+}
