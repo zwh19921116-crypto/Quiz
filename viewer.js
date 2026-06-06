@@ -1446,11 +1446,23 @@ function normalizeQuizFilePath(value) {
     .trim()
     .replace(/\\/g, "/")
     .replace(/^\.\//, "")
+    .replace(/\/\.\//g, "/")
+    .replace(/\/+/g, "/")
     .toLowerCase();
 }
 
+function canonicalizeQuizPath(value) {
+  return String(value || "")
+    .trim()
+    .replace(/\\/g, "/")
+    .replace(/^\.\//, "")
+    .replace(/^\/+/, "")
+    .replace(/\/\.\//g, "/")
+    .replace(/\/+/g, "/");
+}
+
 function resolveQuizFileRequestPath(value) {
-  const raw = String(value || "").trim().replace(/\\/g, "/").replace(/^\.\//, "");
+  const raw = canonicalizeQuizPath(value);
   if (!raw) return "";
 
   const lowered = raw.toLowerCase();
@@ -1472,10 +1484,10 @@ function resolveQuizFileRequestPath(value) {
   }
 
   if (raw.includes("/")) {
-    return `quizzes/${raw}`;
+    return canonicalizeQuizPath(`quizzes/${raw}`);
   }
 
-  return raw;
+  return canonicalizeQuizPath(raw);
 }
 
 async function getQuizIndexEntries() {
@@ -1501,19 +1513,59 @@ function getNextQuizEntryFromList(currentFile, entries) {
   const normalizedCurrent = normalizeQuizFilePath(resolveQuizFileRequestPath(currentFile));
   if (!normalizedCurrent) return null;
 
-  const exactIndex = list.findIndex(
-    (item) => normalizeQuizFilePath(resolveQuizFileRequestPath(item && item.file)) === normalizedCurrent
-  );
-  if (exactIndex >= 0) {
-    return exactIndex < list.length - 1 ? list[exactIndex + 1] : null;
+  const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
+  const getSortLabel = (item) => {
+    if (!item || typeof item !== "object") return "";
+    const label = String(item.label || item.title || "").trim();
+    if (!label) return "";
+    // Labels are typically "Category - Title"; order by the quiz title portion.
+    const parts = label.split(" - ");
+    return String(parts[parts.length - 1] || label).trim();
+  };
+  const canonicalEntries = list.map((item) => {
+    const file = String((item && item.file) || "").trim();
+    return {
+      item,
+      canonical: normalizeQuizFilePath(resolveQuizFileRequestPath(file)),
+      sortLabel: getSortLabel(item)
+    };
+  }).filter((entry) => entry.canonical !== "");
+
+  const compareEntries = (left, right) => {
+    const byLabel = collator.compare(left.sortLabel, right.sortLabel);
+    if (byLabel !== 0) return byLabel;
+    return collator.compare(left.canonical, right.canonical);
+  };
+
+  const sortedCanonicalEntries = canonicalEntries.slice().sort(compareEntries);
+
+  const currentDir = normalizedCurrent.includes("/")
+    ? normalizedCurrent.slice(0, normalizedCurrent.lastIndexOf("/"))
+    : "";
+
+  if (currentDir) {
+    const sameFolder = sortedCanonicalEntries
+      .filter((entry) => entry.canonical.slice(0, entry.canonical.lastIndexOf("/")) === currentDir)
+      .sort(compareEntries);
+
+    const folderIndex = sameFolder.findIndex((entry) => entry.canonical === normalizedCurrent);
+    if (folderIndex >= 0) {
+      return folderIndex < sameFolder.length - 1 ? sameFolder[folderIndex + 1].item : null;
+    }
   }
 
-  const suffixIndex = list.findIndex((item) => {
-    const normalized = normalizeQuizFilePath(resolveQuizFileRequestPath(item && item.file));
-    return normalized.endsWith(normalizedCurrent) || normalizedCurrent.endsWith(normalized);
+  const exactIndex = sortedCanonicalEntries.findIndex(
+    (entry) => entry.canonical === normalizedCurrent
+  );
+  if (exactIndex >= 0) {
+    return exactIndex < sortedCanonicalEntries.length - 1 ? sortedCanonicalEntries[exactIndex + 1].item : null;
+  }
+
+  const suffixIndex = sortedCanonicalEntries.findIndex((entry) => {
+    return entry.canonical.endsWith(normalizedCurrent) || normalizedCurrent.endsWith(entry.canonical);
   });
   if (suffixIndex >= 0) {
-    return suffixIndex < list.length - 1 ? list[suffixIndex + 1] : null;
+    return suffixIndex < sortedCanonicalEntries.length - 1 ? sortedCanonicalEntries[suffixIndex + 1].item : null;
   }
 
   return null;

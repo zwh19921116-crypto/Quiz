@@ -723,6 +723,24 @@
         return alnumCollator.compare(left, right);
       }
 
+      function getQuizSortLabel(quiz) {
+        const raw = String((quiz && (quiz.title || quiz.file)) || "").trim();
+        if (!raw) return "";
+        const parts = raw.split(" - ");
+        return String(parts[parts.length - 1] || raw).trim();
+      }
+
+      function compareQuizEntriesNatural(leftQuiz, rightQuiz) {
+        const leftLabel = getQuizSortLabel(leftQuiz);
+        const rightLabel = getQuizSortLabel(rightQuiz);
+        const byLabel = alnumCollator.compare(leftLabel, rightLabel);
+        if (byLabel !== 0) return byLabel;
+
+        const leftFile = String((leftQuiz && leftQuiz.file) || "").trim();
+        const rightFile = String((rightQuiz && rightQuiz.file) || "").trim();
+        return alnumCollator.compare(leftFile, rightFile);
+      }
+
       function resolveQuizFilePath(file) {
         const root = String((indexData && indexData.root) || "quizzes").replace(/\/+$/, "");
         const f    = String(file || "").replace(/^\/+/, "");
@@ -895,7 +913,7 @@
 
         const categories = Array.from(categoriesByKey.values())
           .map((category) => {
-            category.quizzes.sort((left, right) => compareCategoryNamesAlnum(left.title, right.title));
+            category.quizzes.sort((left, right) => compareQuizEntriesNatural(left, right));
             return category;
           })
           .sort((left, right) => compareCategoryNamesAlnum(left.name, right.name));
@@ -989,11 +1007,11 @@
           if (quizFiles.length === 0) continue;
 
           const quizzes = quizFiles
-            .sort((a, b) => alnumCollator.compare(a, b))
             .map((quizFile) => ({
               title: prettifyQuizTitle(quizFile),
               file: folder.replace(/\/+$/, "") + "/" + quizFile.replace(/^\/+/, "")
-            }));
+            }))
+            .sort((left, right) => compareQuizEntriesNatural(left, right));
 
           categories.push({
             name: prettifyCategoryTitle(folder),
@@ -1346,11 +1364,7 @@
         quizListLabel.textContent = catName;
 
         const quizzes = Array.isArray(cat.quizzes) ? cat.quizzes : [];
-        const sortedQuizzes = quizzes.slice().sort((left, right) => {
-          const leftTitle = String((left && (left.title || left.file)) || "").trim();
-          const rightTitle = String((right && (right.title || right.file)) || "").trim();
-          return compareCategoryNamesAlnum(leftTitle, rightTitle);
-        });
+        const sortedQuizzes = quizzes.slice().sort((left, right) => compareQuizEntriesNatural(left, right));
 
         if (quizSearchInput instanceof HTMLInputElement) {
           quizSearchInput.value = "";
