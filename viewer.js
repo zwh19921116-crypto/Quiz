@@ -1265,7 +1265,7 @@ function setViewerProgressChromeVisible(visible) {
 function renderPrestartIntroScreen() {
   const quizContainer = document.getElementById("quizContainer");
   const intro = quizData && quizData.prestartIntro ? quizData.prestartIntro : buildDefaultPrestartIntro();
-  const quizTitle = String(quizData && quizData.title ? quizData.title : "Quiz Viewer").trim() || "Quiz Viewer";
+  const quizTitle = normalizeQuizTitleDisplay(String(quizData && quizData.title ? quizData.title : "Quiz Viewer").trim() || "Quiz Viewer");
   const subtitle = String(intro && intro.subtitle ? intro.subtitle : "Terms and Conditions of Use").trim() || "Terms and Conditions of Use";
   const supportMarkup = intro.supportEmail
     ? `<p class="intro-support"><strong>${escapeHtml(intro.supportLabel || "Support")}:</strong> <a href="mailto:${escapeHtml(intro.supportEmail)}">${escapeHtml(intro.supportEmail)}</a></p>`
@@ -1365,7 +1365,7 @@ function applySingleQuiz(quiz) {
   };
 
   resetRuntimeForLoadedQuiz();
-  document.getElementById("quizTitle").textContent = quizData.title || "Quiz Viewer";
+  document.getElementById("quizTitle").textContent = normalizeQuizTitleDisplay(quizData && quizData.title ? quizData.title : "Quiz Viewer") || "Quiz Viewer";
 
   const quizDescription = document.getElementById("quizDescription");
   if (quizDescription) {
@@ -1494,6 +1494,14 @@ function openValidationPreviewSolutionIfReady() {
   pendingValidationPreviewShowSolution = false;
 }
 
+function normalizeQuizTitleDisplay(value) {
+  const text = String(value || "").trim();
+  if (!text) return "";
+  return text
+    .replace(/\b(\d+)\.1\b(?!\d)/g, "$1.10")
+    .replace(/\b(grade\s+\d+)\s+(\d+\.\d+\b)/gi, "$1 - $2");
+}
+
 function flattenQuizIndexEntries(indexPayload) {
   const entries = [];
   if (!indexPayload || !Array.isArray(indexPayload.categories)) return entries;
@@ -1504,7 +1512,7 @@ function flattenQuizIndexEntries(indexPayload) {
     quizzes.forEach((quiz) => {
       const file = String((quiz && quiz.file) || "").trim();
       if (!file) return;
-      const title = String((quiz && quiz.title) || file).trim() || file;
+      const title = normalizeQuizTitleDisplay(String((quiz && quiz.title) || file).trim() || file);
       const label = categoryName ? `${categoryName} - ${title}` : title;
       entries.push({ file, label });
     });
@@ -1718,7 +1726,7 @@ function showQuizSelectorFromIndex() {
 }
 
 function buildShareQuizText() {
-  const title = String((quizData && quizData.title) || "Quiz").trim() || "Quiz";
+  const title = normalizeQuizTitleDisplay(String((quizData && quizData.title) || "Quiz").trim() || "Quiz");
   const quizFile = getRequestedFile();
   const shareUrl = window.location.href;
   return `Try this quiz: ${title}. ${shareUrl}${quizFile ? ` (file: ${quizFile})` : ""}`;
@@ -1726,7 +1734,7 @@ function buildShareQuizText() {
 
 async function shareQuizLink() {
   const shareText = buildShareQuizText();
-  const shareTitle = String((quizData && quizData.title) || "Quiz").trim() || "Quiz";
+  const shareTitle = normalizeQuizTitleDisplay(String((quizData && quizData.title) || "Quiz").trim() || "Quiz");
   const shareUrl = window.location.href;
 
   try {
@@ -1950,7 +1958,7 @@ function buildPdfInteractiveSummaryMarkup(attempt) {
 }
 
 function exportQuizResultsPdf(total, percent) {
-  const quizTitle = String((quizData && quizData.title) || "Quiz").trim() || "Quiz";
+  const quizTitle = normalizeQuizTitleDisplay(String((quizData && quizData.title) || "Quiz").trim() || "Quiz");
   const generatedAt = new Date();
   const generatedLabel = generatedAt.toLocaleString();
   const quizUrl = window.location.href;

@@ -728,11 +728,19 @@
         return name === "prep" || name.startsWith("prep ") || name.startsWith("prep-");
       }
 
+      function normalizeQuizTitleDisplay(value) {
+        const text = String(value || "").trim();
+        if (!text) return "";
+        return text
+          .replace(/\b(\d+)\.1\b(?!\d)/g, "$1.10")
+          .replace(/\b(grade\s+\d+)\s+(\d+\.\d+\b)/gi, "$1 - $2");
+      }
+
       function getQuizSortLabel(quiz) {
         const raw = String((quiz && (quiz.title || quiz.file)) || "").trim();
         if (!raw) return "";
         const parts = raw.split(" - ");
-        return String(parts[parts.length - 1] || raw).trim();
+        return normalizeQuizTitleDisplay(String(parts[parts.length - 1] || raw).trim());
       }
 
       function parseLessonPartSortKey(quiz) {
@@ -1200,12 +1208,13 @@
 
         quizList.innerHTML = visibleEntries.map(function (entry, i) {
           const quiz = entry.quiz;
-          const title = escapeHtml(quiz.title || quiz.file || "Untitled Quiz");
+          const displayTitle = normalizeQuizTitleDisplay(quiz && (quiz.title || quiz.file || "Untitled Quiz"));
+          const title = escapeHtml(displayTitle);
           const file  = escapeHtml(resolveQuizFilePath(quiz.file || ""));
           const meta = entry.meta && typeof entry.meta === "object" ? entry.meta : {};
           const desc = escapeHtml(meta.description || "");
           const lastModifiedText = escapeHtml(formatQuizLastModified(meta.lastModified));
-          const moduleGlyph = escapeHtml(getQuizIconGlyph(quiz && quiz.title ? quiz.title : "", i));
+          const moduleGlyph = escapeHtml(getQuizIconGlyph(displayTitle, i));
           const descMarkup = desc ? '<p class="quiz-item-description">' + desc + '</p>' : '';
           return (
             '<div class="quiz-item" data-file="' + file + '" tabindex="0" role="button" aria-label="Start ' + title + '">' +
@@ -1433,8 +1442,10 @@
           const keywords = Array.isArray(meta.keywords)
             ? meta.keywords.map((item) => String(item || "").trim()).filter((item) => item !== "")
             : [];
+          const displayTitle = normalizeQuizTitleDisplay(String(quiz && (quiz.title || quiz.file) || ""));
           const searchText = [
             String(quiz && (quiz.title || quiz.file) || ""),
+            displayTitle,
             String(meta.description || ""),
             keywords.join(" ")
           ].join(" ");
