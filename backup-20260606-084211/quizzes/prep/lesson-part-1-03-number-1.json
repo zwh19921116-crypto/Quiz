@@ -1,0 +1,501 @@
+{
+  "id": "quiz-3",
+  "title": "Prep 1.03",
+  "description": "Learning Outcomes for Prep: Recognise 1 | Understand quantity 1 | Write 1 | Count 1 object | Match quantity | Apply quantity 1 | Review number 1 | Mastery of number 1",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which number is 1?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Recognition",
+      "subcategory": "Identify Number 1",
+      "learningOutcome": "Recognise 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select the number 1",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "1",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "1",
+      "category": "Recognition",
+      "subcategory": "Identify Number 1",
+      "learningOutcome": "Recognise 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number means one?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Recognition",
+      "subcategory": "Identify Number 1",
+      "learningOutcome": "Understand quantity 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 1s",
+      "resultType": "checkbox",
+      "options": [
+        "1",
+        "2",
+        "1",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Recognition",
+      "subcategory": "Select Number 1",
+      "learningOutcome": "Recognise 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 1, 1, 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 1s",
+      "resultType": "checkbox",
+      "options": [
+        "4",
+        "1",
+        "5",
+        "1"
+      ],
+      "correctAnswer": "1",
+      "category": "Recognition",
+      "subcategory": "Select Number 1",
+      "learningOutcome": "Recognise 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Select every correct option. The correct selection is: 1, 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Trace the number 1",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Tracing",
+      "subcategory": "Trace Number 1",
+      "learningOutcome": "Write 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 1,
+          "prompt": "Trace the number 1",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Trace the number 1 again",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Tracing",
+      "subcategory": "Trace Number 1",
+      "learningOutcome": "Write 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 1,
+          "prompt": "Trace the number 1 again",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Draw the number 1",
+      "resultType": "short-answer",
+      "options": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Writing",
+      "subcategory": "Draw Number 1",
+      "learningOutcome": "Write 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 1,
+          "prompt": "Draw the number 1",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "🍎 How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Counting",
+      "subcategory": "Count One Object",
+      "learningOutcome": "Count 1 object",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🍎 How many apples are there?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "⭐ How many stars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Counting",
+      "subcategory": "Count One Object",
+      "learningOutcome": "Count 1 object",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "⭐ How many stars are there?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "🚗 How many cars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Counting",
+      "subcategory": "Count One Object",
+      "learningOutcome": "Count 1 object",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🚗 How many cars are there?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "🐶 How many dogs are there?",
+      "resultType": "short-answer",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Counting",
+      "subcategory": "Count One Object",
+      "learningOutcome": "Count 1 object",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🐶 How many dogs are there?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches 🍎 ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 🍎 ?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches ⭐ ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches ⭐ ?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which group has 1 object?",
+      "resultType": "multiple-choice",
+      "options": [
+        "🍎",
+        "🍎🍎",
+        "🍎🍎",
+        "🍎🍎🍎🍎"
+      ],
+      "correctAnswer": "🍎",
+      "category": "Matching",
+      "subcategory": "Quantity Matching",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 🍎.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Tom has 1 apple. How many apples does Tom have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Application",
+      "subcategory": "Understanding One",
+      "learningOutcome": "Apply quantity 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Tom has 1 apple. How many apples does Tom have?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sara has 1 balloon. How many balloons does she have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Application",
+      "subcategory": "Understanding One",
+      "learningOutcome": "Apply quantity 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sara has 1 balloon. How many balloons does she have?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "There is 1 fish in the tank. How many fish are there?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Application",
+      "subcategory": "Understanding One",
+      "learningOutcome": "Apply quantity 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "There is 1 fish in the tank. How many fish are there?",
+          "totalCount": 1,
+          "iconShape": "circle",
+          "groups": [
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number means one?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Review number 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select the number 1",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery of number 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    }
+  ]
+}

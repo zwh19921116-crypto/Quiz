@@ -1,0 +1,438 @@
+{
+  "id": "quiz-23",
+  "title": "Prep 2.09",
+  "description": "Learning Outcomes for Prep: Count objects | Match quantity | Count forward | Count backward | Missing numbers | Number order | Apply counting | Complete sequence | Mastery",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "🍎🍎🍎 How many apples are there?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "3",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🍎🍎🍎 How many apples are there?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "⭐⭐⭐⭐⭐ How many stars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "5",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "⭐⭐⭐⭐⭐ How many stars are there?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "🚗🚗🚗🚗🚗🚗 How many cars are there?",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "6",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🚗🚗🚗🚗🚗🚗 How many cars are there?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "🐶🐶🐶🐶🐶🐶🐶🐶 How many dogs are there?",
+      "resultType": "short-answer",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "8",
+      "category": "Counting",
+      "subcategory": "Count Objects",
+      "learningOutcome": "Count objects",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "🐶🐶🐶🐶🐶🐶🐶🐶 How many dogs are there?",
+          "totalCount": 8,
+          "iconShape": "circle",
+          "groups": [
+            8
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches ⭐⭐⭐⭐⭐⭐⭐⭐⭐ ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "9",
+      "category": "Recognition",
+      "subcategory": "Number Recognition",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches ⭐⭐⭐⭐⭐⭐⭐⭐⭐ ?",
+          "totalCount": 9,
+          "iconShape": "circle",
+          "groups": [
+            9
+          ]
+        }
+      }
+    },
+    {
+      "question": "Which number matches 10 apples?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Recognition",
+      "subcategory": "Number Recognition",
+      "learningOutcome": "Match quantity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Which number matches 10 apples?",
+          "totalCount": 10,
+          "iconShape": "circle",
+          "groups": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "question": "What comes next? 4,5,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Sequencing",
+      "subcategory": "Count Forward",
+      "learningOutcome": "Count forward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Continue the counting pattern by 1. The next number is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes next? 9,10,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "correctAnswer": "11",
+      "category": "Sequencing",
+      "subcategory": "Count Forward",
+      "learningOutcome": "Count forward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Continue the counting pattern by 1. The next number is 11.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes before 8?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "7",
+      "category": "Sequencing",
+      "subcategory": "Count Backward",
+      "learningOutcome": "Count backward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes before 4?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "3",
+      "category": "Sequencing",
+      "subcategory": "Count Backward",
+      "learningOutcome": "Count backward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3, __ ,5",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Sequencing",
+      "subcategory": "Missing Numbers",
+      "learningOutcome": "Missing numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8, __ ,10",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "9",
+      "category": "Sequencing",
+      "subcategory": "Missing Numbers",
+      "learningOutcome": "Missing numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes between 6 and 8?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "6",
+      "category": "Recognition",
+      "subcategory": "Number Order",
+      "learningOutcome": "Number order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes between 12 and 14?",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "correctAnswer": "12",
+      "category": "Recognition",
+      "subcategory": "Number Order",
+      "learningOutcome": "Number order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Start at 5 and move forward 2 steps. Where are you?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "5",
+      "category": "Application",
+      "subcategory": "Number Line",
+      "learningOutcome": "Apply counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Start at 10 and move backward 1 step. Where are you?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "10",
+      "category": "Application",
+      "subcategory": "Number Line",
+      "learningOutcome": "Apply counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "11,12,__ ,14",
+      "resultType": "multiple-choice",
+      "options": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "correctAnswer": "13",
+      "category": "Application",
+      "subcategory": "Complete Sequence",
+      "learningOutcome": "Complete sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 13.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "17,18,__ ,20",
+      "resultType": "multiple-choice",
+      "options": [
+        "17",
+        "18",
+        "19",
+        "20"
+      ],
+      "correctAnswer": "19",
+      "category": "Application",
+      "subcategory": "Complete Sequence",
+      "learningOutcome": "Complete sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 19.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes after 19?",
+      "resultType": "multiple-choice",
+      "options": [
+        "18",
+        "19",
+        "20",
+        "21"
+      ],
+      "correctAnswer": "20",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 20.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is the largest number?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "12",
+        "17",
+        "20"
+      ],
+      "correctAnswer": "8",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    }
+  ]
+}

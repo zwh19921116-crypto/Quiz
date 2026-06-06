@@ -211,356 +211,6 @@ function normalizeCheckboxCorrectAnswers(question, choiceOptions) {
   return true;
 }
 
-function normalizeChoiceOptionOrder(question) {
-  if (!question || typeof question !== "object") return false;
-
-  const resultType = normalizeResultType(question.resultType || "multiple-choice");
-  if (![
-    "multiple-choice",
-    "checkbox"
-  ].includes(resultType)) {
-    return false;
-  }
-
-  const options = getChoiceOptions(question);
-  if (options.length < 2) return false;
-
-  const answerValue = String(question.correctAnswer || "").trim();
-  if (!answerValue) return false;
-
-  let anchorToken = "";
-  if (resultType === "checkbox") {
-    const tokens = answerValue
-      .split(",")
-      .map((item) => item.trim())
-      .filter((item) => item !== "");
-    if (tokens.length === 0) return false;
-    const matched = tokens.find((token) => options.some((item) => normalizeText(item) === normalizeText(token)));
-    if (!matched) return false;
-    anchorToken = matched;
-  } else {
-    anchorToken = answerValue;
-  }
-
-  const currentIndex = options.findIndex((item) => normalizeText(item) === normalizeText(anchorToken));
-  if (currentIndex < 0) return false;
-
-  const shuffle = (items) => {
-    const next = items.slice();
-    for (let i = next.length - 1; i > 0; i -= 1) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = next[i];
-      next[i] = next[j];
-      next[j] = temp;
-    }
-    return next;
-  };
-
-  let mixed = options.slice();
-  let attempts = 0;
-  while (attempts < 10) {
-    const candidate = shuffle(options);
-    const nextIndex = candidate.findIndex((item) => normalizeText(item) === normalizeText(anchorToken));
-    if (nextIndex !== currentIndex || options.length <= 1) {
-      mixed = candidate;
-      break;
-    }
-    attempts += 1;
-  }
-
-  if (JSON.stringify(mixed) === JSON.stringify(options)) {
-    return false;
-  }
-
-  const minLength = Math.max(4, Array.isArray(question.options) ? question.options.length : 4);
-  question.options = [
-    ...mixed,
-    ...Array(Math.max(0, minLength - mixed.length)).fill("")
-  ];
-
-  return true;
-}
-
-function buildExpectedSolutionForAutoFix(question) {
-  if (!question || typeof question !== "object") return "";
-  const answerText = String(question.correctAnswer || "").trim();
-  if (!answerText) return "";
-
-  const appType = String(question && question.interactiveApp && question.interactiveApp.type || "").trim();
-  if (appType) {
-    const computed = buildDeterministicPayloadFromInteractiveApp(
-      appType,
-      question.interactiveApp,
-      question.resultType || "short-answer",
-      { answerPolicy: "auto", decimalPlaces: 2 }
-    );
-    const deterministicSolution = String(computed && computed.solution || "").trim();
-    if (deterministicSolution) {
-      return deterministicSolution;
-    }
-  }
-
-  return inferSolutionFromImport(question.question, answerText);
-}
-
-function appendUniqueNormalizedOption(list, value) {
-  const text = String(value || "").trim();
-  if (!text) return false;
-  if (list.some((item) => normalizeText(item) === normalizeText(text))) {
-    return false;
-  }
-  list.push(text);
-  return true;
-}
-
-const SHAPE_OPTION_POOL = [
-  "Circle",
-  "Square",
-  "Triangle",
-  "Rectangle",
-  "Oval",
-  "Pentagon",
-  "Hexagon",
-  "Octagon",
-  "Star",
-  "Sphere",
-  "Cube",
-  "Cylinder",
-  "Cone"
-];
-
-const SHAPE_TOKEN_SET = new Set(SHAPE_OPTION_POOL.map((item) => normalizeShapeToken(item)));
-
-function normalizeShapeToken(value) {
-  const token = String(value || "").trim().toLowerCase();
-  if (!token) return "";
-  const aliases = {
-    round: "circle",
-    circular: "circle",
-    rect: "rectangle",
-    box: "square",
-    ball: "sphere"
-  };
-  return aliases[token] || token;
-}
-
-function toShapeLabel(value) {
-  const token = normalizeShapeToken(value);
-  if (!token) return "";
-  return token.charAt(0).toUpperCase() + token.slice(1);
-}
-
-function isShapeLikeOption(value) {
-  const token = normalizeShapeToken(value);
-  return token ? SHAPE_TOKEN_SET.has(token) : false;
-}
-
-function hasStrongShapeOptionSet(options, answerSeed) {
-  const list = Array.isArray(options) ? options : [];
-  if (list.length === 0) return false;
-
-  const allShapeLike = list.every((item) => isShapeLikeOption(item));
-  const expectedAnswerToken = normalizeShapeToken(answerSeed);
-  const hasAnswerShape = !expectedAnswerToken
-    || list.some((item) => normalizeShapeToken(item) === expectedAnswerToken);
-
-  return allShapeLike && hasAnswerShape;
-}
-
-function isShapesCategory(value) {
-  const normalized = String(normalizeQuestionCategory(value) || "").trim().toLowerCase();
-  return normalized === "shapes" || normalized === "shape recognition";
-}
-
-function shouldForceShapeChoices(question) {
-  const questionText = String(question && question.question || "").toLowerCase();
-  const asksForShape = /\b(which|what)\s+shape\b/.test(questionText);
-  return asksForShape && isShapesCategory(question && question.category);
-}
-
-function buildShapeOptionsFromQuestion(question, answerSeed, targetCount = 4) {
-  const appType = String(question && question.interactiveApp && question.interactiveApp.type || "").trim().toLowerCase();
-  const questionText = String(question && question.question || "").toLowerCase();
-  const shapeCue = /\bshape\b|\bcircle\b|\bsquare\b|\btriangle\b|\brectangle\b|\boval\b|\bpentagon\b|\bhexagon\b|\boctagon\b|\bstar\b|\bsphere\b|\bcube\b|\bcylinder\b|\bcone\b/.test(questionText)
-    || appType === "geometry-shapes"
-    || shouldForceShapeChoices(question);
-  if (!shapeCue) {
-    return [];
-  }
-
-  const seeded = [];
-  const answerLabel = toShapeLabel(answerSeed);
-  if (answerLabel) {
-    appendUniqueNormalizedOption(seeded, answerLabel);
-  }
-
-  const foundInQuestion = questionText.match(/circle|square|triangle|rectangle|oval|pentagon|hexagon|octagon|star|sphere|cube|cylinder|cone/g) || [];
-  foundInQuestion.forEach((item) => {
-    appendUniqueNormalizedOption(seeded, toShapeLabel(item));
-  });
-
-  const configShapes = Array.isArray(question && question.interactiveApp && question.interactiveApp.config && question.interactiveApp.config.shapes)
-    ? question.interactiveApp.config.shapes
-    : [];
-  configShapes.forEach((shape) => {
-    appendUniqueNormalizedOption(seeded, toShapeLabel(shape && shape.type));
-  });
-
-  SHAPE_OPTION_POOL.forEach((item) => {
-    if (seeded.length < targetCount) {
-      appendUniqueNormalizedOption(seeded, item);
-    }
-  });
-
-  return seeded.slice(0, targetCount);
-}
-
-function buildSmartMultipleChoiceOptions(question, desiredCount = 4) {
-  const targetCount = Math.max(4, Number.parseInt(desiredCount, 10) || 4);
-  const seeded = [];
-  const currentOptions = Array.isArray(question && question.options) ? question.options : [];
-  currentOptions.forEach((item) => {
-    appendUniqueNormalizedOption(seeded, item);
-  });
-
-  const currentAnswer = String(question && question.correctAnswer || "").trim();
-  const computed = computeExpectedAnswerForQuestion(question || {});
-  const computedAnswer = String(computed && computed.value || "").trim();
-  const answerSeed = currentAnswer || computedAnswer;
-
-  const shapeOptions = buildShapeOptionsFromQuestion(question, answerSeed, targetCount);
-  if (shapeOptions.length >= targetCount) {
-    return shapeOptions;
-  }
-
-  if (answerSeed) {
-    appendUniqueNormalizedOption(seeded, answerSeed);
-  }
-
-  const questionText = String(question && question.question || "").trim();
-  const numbersInQuestion = Array.from(new Set(
-    (questionText.match(/-?\d+(?:\.\d+)?/g) || []).map((token) => String(token).trim())
-  ));
-  numbersInQuestion.forEach((token) => {
-    appendUniqueNormalizedOption(seeded, token);
-  });
-
-  const answerNumber = Number.parseFloat(answerSeed);
-  if (Number.isFinite(answerNumber)) {
-    const deltas = Number.isInteger(answerNumber)
-      ? [1, -1, 2, -2, 3, -3, 10, -10]
-      : [0.1, -0.1, 0.2, -0.2, 0.5, -0.5, 1, -1];
-    deltas.forEach((delta) => {
-      const candidate = Number.isInteger(answerNumber)
-        ? String(Math.round(answerNumber + delta))
-        : String(roundTo(answerNumber + delta, 2));
-      appendUniqueNormalizedOption(seeded, candidate);
-    });
-  }
-
-  if (seeded.length > targetCount) {
-    const answerFirst = [];
-    if (answerSeed) {
-      appendUniqueNormalizedOption(answerFirst, answerSeed);
-    }
-    seeded.forEach((item) => {
-      if (answerFirst.length < targetCount) {
-        appendUniqueNormalizedOption(answerFirst, item);
-      }
-    });
-    return answerFirst;
-  }
-
-  let fillerIndex = 1;
-  while (seeded.length < targetCount) {
-    appendUniqueNormalizedOption(seeded, `Option ${String.fromCharCode(64 + Math.min(26, fillerIndex))}`);
-    fillerIndex += 1;
-  }
-
-  return seeded;
-}
-
-function ensureMultipleChoiceOptionSet(question, targetCount = 4) {
-  if (!question || normalizeResultType(question.resultType) !== "multiple-choice") {
-    return { changed: false, options: getChoiceOptions(question) };
-  }
-
-  const currentAnswer = String(question.correctAnswer || "").trim();
-  const computed = computeExpectedAnswerForQuestion(question || {});
-  const computedAnswer = String(computed && computed.value || "").trim();
-  const answerSeed = currentAnswer || computedAnswer;
-
-  const currentChoiceOptions = getChoiceOptions(question);
-  const uniqueValidOptions = getUniqueValidChoiceOptions(question);
-  const shapeOptions = buildShapeOptionsFromQuestion(question, answerSeed, targetCount);
-  const shouldPreferShapeOptions = shapeOptions.length >= targetCount
-    && !hasStrongShapeOptionSet(currentChoiceOptions, answerSeed);
-
-  if (uniqueValidOptions.length >= targetCount && !shouldPreferShapeOptions) {
-    return { changed: false, options: currentChoiceOptions };
-  }
-
-  const nextOptions = shouldPreferShapeOptions
-    ? shapeOptions
-    : buildSmartMultipleChoiceOptions(question, targetCount);
-  const padded = [
-    nextOptions[0] || "",
-    nextOptions[1] || "",
-    nextOptions[2] || "",
-    nextOptions[3] || ""
-  ];
-
-  const changed = JSON.stringify(Array.isArray(question.options) ? question.options : []) !== JSON.stringify(padded);
-  if (changed) {
-    question.options = padded;
-  }
-
-  return { changed, options: getChoiceOptions(question) };
-}
-
-function prepareQuestionForPersistence(item) {
-  const normalizedItem = normalizeQuestion(item || {});
-  const question = {
-    ...normalizedItem,
-    options: Array.isArray(normalizedItem.options) ? normalizedItem.options.slice(0, 4) : ["", "", "", ""]
-  };
-
-  while (question.options.length < 4) {
-    question.options.push("");
-  }
-
-  const answerSeed = String(question.correctAnswer || "").trim()
-    || String(computeExpectedAnswerForQuestion(question).value || "").trim();
-  const shapeOptions = buildShapeOptionsFromQuestion(question, answerSeed, 4);
-  const hasShapeCue = shapeOptions.length >= 4;
-
-  if (hasShapeCue) {
-    question.resultType = "multiple-choice";
-    question.options = shapeOptions.slice(0, 4);
-    const canonicalAnswer = question.options.find((item) => normalizeText(item) === normalizeText(answerSeed));
-    question.correctAnswer = canonicalAnswer || question.options[0] || answerSeed;
-    return question;
-  }
-
-  if (question.resultType === "multiple-choice") {
-    const ensured = ensureMultipleChoiceOptionSet(question, 4);
-    if (ensured.changed) {
-      question.options = ensured.options.slice(0, 4);
-      while (question.options.length < 4) {
-        question.options.push("");
-      }
-    }
-  }
-
-  const choiceOptions = getChoiceOptions(question);
-  if (question.resultType === "multiple-choice" && choiceOptions.length > 0) {
-    const canonicalAnswer = choiceOptions.find((item) => normalizeText(item) === normalizeText(question.correctAnswer));
-    question.correctAnswer = canonicalAnswer || choiceOptions[0];
-  }
-
-  return question;
-}
-
 function autoFixQuestionIssues(question) {
   if (!question || typeof question !== "object") {
     return { changed: false, before: 0, after: 0 };
@@ -589,9 +239,10 @@ function autoFixQuestionIssues(question) {
   }
 
   let choiceOptions = getChoiceOptions(question);
-  if (normalizedType === "multiple-choice") {
-    const ensured = ensureMultipleChoiceOptionSet(question, 4);
-    if (ensured.changed) {
+  if (["multiple-choice", "checkbox", "true-false"].includes(normalizedType) && choiceOptions.length < 2) {
+    normalizedType = "short-answer";
+    if (question.resultType !== "short-answer") {
+      question.resultType = "short-answer";
       changed = true;
     }
   }
@@ -730,10 +381,6 @@ function autoFixQuestionIssues(question) {
     }
   }
 
-  if (normalizeChoiceOptionOrder(question)) {
-    changed = true;
-  }
-
   if (normalizedType === "date") {
     const raw = String(question.correctAnswer || "").trim();
     const isoMatch = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
@@ -759,15 +406,6 @@ function autoFixQuestionIssues(question) {
   });
   if (metadataBefore !== metadataAfter) {
     changed = true;
-  }
-
-  const expectedSolution = buildExpectedSolutionForAutoFix(question);
-  if (expectedSolution) {
-    const existingSolution = String(question.solution || "").trim();
-    if (normalizeWhitespace(existingSolution) !== normalizeWhitespace(expectedSolution)) {
-      question.solution = expectedSolution;
-      changed = true;
-    }
   }
 
   const after = getQuestionValidationIssues(question).length;
@@ -862,9 +500,11 @@ function buildAutoFixFieldDiffs(beforeSnapshot, afterSnapshot) {
   }
 }
 
-function autoFixQuizIssuesWithReport(quiz, reportTitle = "Untitled Quiz") {
+function autoFixActiveQuizIssues() {
+  const quiz = activeQuiz();
   if (!quiz || !Array.isArray(quiz.questions) || quiz.questions.length === 0) {
-    return null;
+    showToast("Select a quiz with questions first.", "warning");
+    return;
   }
 
   let changedCount = 0;
@@ -889,7 +529,6 @@ function autoFixQuizIssuesWithReport(quiz, reportTitle = "Untitled Quiz") {
     reportRows.push({
       status,
       qNo: index + 1,
-      quizTitle: reportTitle,
       question: String(question && question.question || ""),
       beforeIssues: result.before,
       afterIssues: result.after,
@@ -906,95 +545,32 @@ function autoFixQuizIssuesWithReport(quiz, reportTitle = "Untitled Quiz") {
     if (result.after > 0) unresolvedCount += 1;
   });
 
-  return {
+  pendingQuizAutoFixReport = {
     rows: reportRows,
     fixedCount: reportRows.filter((item) => item.status === "fixed").length,
     improvedCount: reportRows.filter((item) => item.status === "improved").length,
     unresolvedCount: reportRows.filter((item) => item.status === "unresolved").length,
     changedCount: reportRows.filter((item) => item.status === "fixed" || item.status === "improved").length,
     total: reportRows.length,
-    quizTitle: reportTitle,
-    rawChangedCount: changedCount,
-    rawImprovedCount: improvedCount,
-    rawUnresolvedCount: unresolvedCount
+    quizTitle: String(quiz && quiz.title || "Untitled Quiz")
   };
-}
-
-function autoFixActiveQuizIssues() {
-  const quiz = activeQuiz();
-  if (!quiz || !Array.isArray(quiz.questions) || quiz.questions.length === 0) {
-    showToast("Select a quiz with questions first.", "warning");
-    return;
-  }
-
-  const report = autoFixQuizIssuesWithReport(quiz, String(quiz && quiz.title || "Untitled Quiz"));
-  if (!report) {
-    showToast("Select a quiz with questions first.", "warning");
-    return;
-  }
-
-  pendingQuizAutoFixReport = report;
 
   renderAll();
   scheduleSilentDiskSave();
 
   openQuizAutoFixReportModal();
 
-  if (report.rawImprovedCount > 0) {
-    showToast(`Auto-fix updated ${report.rawChangedCount} question(s). Remaining with issues: ${report.rawUnresolvedCount}.`, report.rawUnresolvedCount > 0 ? "warning" : "success");
+  if (improvedCount > 0) {
+    showToast(`Auto-fix updated ${changedCount} question(s). Remaining with issues: ${unresolvedCount}.`, unresolvedCount > 0 ? "warning" : "success");
     return;
   }
 
-  if (report.rawChangedCount > 0) {
-    showToast(`Auto-fix normalized ${report.rawChangedCount} question(s).`, "success");
+  if (changedCount > 0) {
+    showToast(`Auto-fix normalized ${changedCount} question(s).`, "success");
     return;
   }
 
   showToast("No auto-fixable issues found.", "info");
-}
-
-function autoFixAllQuizIssues() {
-  const categories = Array.isArray(state.categories) ? state.categories : [];
-  const quizzes = categories.flatMap((category) => Array.isArray(category && category.quizzes) ? category.quizzes : []);
-  if (quizzes.length === 0) {
-    showToast("No quizzes available to auto-fix.", "warning");
-    return;
-  }
-
-  const reports = quizzes
-    .map((quiz) => autoFixQuizIssuesWithReport(quiz, String(quiz && quiz.title || "Untitled Quiz")))
-    .filter((report) => report && Array.isArray(report.rows));
-
-  if (reports.length === 0) {
-    showToast("No quizzes with questions found.", "warning");
-    return;
-  }
-
-  pendingQuizAutoFixReport = {
-    rows: reports.flatMap((report) => report.rows.map((row) => ({
-      ...row,
-      qNo: `${report.quizTitle} #${row.qNo}`
-    }))),
-    fixedCount: reports.reduce((sum, report) => sum + report.fixedCount, 0),
-    improvedCount: reports.reduce((sum, report) => sum + report.improvedCount, 0),
-    unresolvedCount: reports.reduce((sum, report) => sum + report.unresolvedCount, 0),
-    changedCount: reports.reduce((sum, report) => sum + report.changedCount, 0),
-    total: reports.reduce((sum, report) => sum + report.total, 0),
-    quizTitle: "All Quizzes"
-  };
-
-  renderAll();
-  scheduleSilentDiskSave();
-  openQuizAutoFixReportModal();
-
-  const changedCount = reports.reduce((sum, report) => sum + report.rawChangedCount, 0);
-  const unresolvedCount = reports.reduce((sum, report) => sum + report.rawUnresolvedCount, 0);
-  if (changedCount > 0) {
-    showToast(`Auto-fix all updated ${changedCount} question(s). Remaining with issues: ${unresolvedCount}.`, unresolvedCount > 0 ? "warning" : "success");
-    return;
-  }
-
-  showToast("No auto-fixable issues found across all quizzes.", "info");
 }
 
 let pendingImportRows = [];
@@ -1298,15 +874,6 @@ function normalizeQuestionFieldValue(value) {
   return String(value || "").trim();
 }
 
-function normalizeQuestionCategory(value) {
-  const raw = String(value || "").trim();
-  if (!raw) return "";
-  if (raw.toLowerCase() === "shape recognition") {
-    return "Shapes";
-  }
-  return raw;
-}
-
 function extractQuestionNumber(value) {
   const match = String(value || "").match(/\b(\d+)\b/);
   return match ? match[1] : "";
@@ -1330,7 +897,7 @@ function inferQuestionMetadata(question) {
   const lowerText = questionText.toLowerCase();
   const targetNumber = String(appConfig.targetNumber || extractQuestionNumber(questionText) || question && question.correctAnswer || "").trim();
 
-  let category = normalizeQuestionCategory(question && question.category);
+  let category = normalizeQuestionFieldValue(question && question.category);
   let subcategory = normalizeQuestionFieldValue(question && question.subcategory);
   let learningOutcome = normalizeQuestionFieldValue(question && question.learningOutcome);
   let detectedSource = appType ? formatMetadataLabel(appType) : "Question text";
@@ -1426,13 +993,8 @@ function applyDetectedQuestionMetadata(question) {
   if (!question) return inferQuestionMetadata(question);
   const detected = inferQuestionMetadata(question);
 
-  const normalizedCategory = normalizeQuestionCategory(question.category);
-  if (String(question.category || "") !== normalizedCategory) {
-    question.category = normalizedCategory;
-  }
-
   if (!normalizeQuestionFieldValue(question.category) && detected.category) {
-    question.category = normalizeQuestionCategory(detected.category);
+    question.category = detected.category;
   }
   if (!normalizeQuestionFieldValue(question.subcategory) && detected.subcategory) {
     question.subcategory = detected.subcategory;
@@ -2562,13 +2124,7 @@ async function loadLibraryFromHandleCategoryFolders(rootHandle, rootFolder) {
       category.quizzes.push(quiz);
     }
 
-    if (category.quizzes.length > 0) {
-      loadedCategories.push(category);
-    }
-  }
-
-  if (loadedCategories.length === 0) {
-    throw new Error(`No quiz JSON files found in ${rootFolder}/`);
+    loadedCategories.push(category);
   }
 
   return loadedCategories;
@@ -2873,8 +2429,7 @@ async function loadLibraryFromRoot({ allowPrompt = true } = {}) {
         const freshHandle = await window.showDirectoryPicker({ mode: "readwrite" });
         rootDirectoryHandle = freshHandle;
         await saveRootDirectoryHandle(freshHandle);
-        const configuredHandle = await getConfiguredRootHandle({ create: false, allowPrompt: false, promptForPermission: true }) || freshHandle;
-        loadedCategories = await loadLibraryFromHandleCategoryFolders(configuredHandle, rootFolder);
+        loadedCategories = await loadLibraryFromHandleCategoryFolders(freshHandle, freshHandle.name);
         sourceMode = "handle-folder-scan";
         setLocalFolderPath(freshHandle);
       } catch (pickerError) {
@@ -2887,20 +2442,6 @@ async function loadLibraryFromRoot({ allowPrompt = true } = {}) {
     }
 
     // 4) Fallback: manifest (index.json)
-    if (loadedCategories.length === 0 && supportsFolderDeletion()) {
-      try {
-        const configuredRoot = await getConfiguredRootHandle({ create: false, allowPrompt: false });
-        if (configuredRoot) {
-          loadedCategories = await loadLibraryFromHandleManifest(configuredRoot, rootFolder);
-          sourceMode = "handle-manifest";
-          setLocalFolderPath(configuredRoot);
-        }
-      } catch (handleManifestError) {
-        console.warn("[LOCAL] Handle manifest fallback failed:", handleManifestError.message);
-      }
-    }
-
-    // 5) Fallback: manifest via fetch (index.json)
     if (loadedCategories.length === 0) {
       try {
         const indexPath = `${rootFolder}/index.json`;
@@ -2996,7 +2537,6 @@ function getQuestionValidationIssues(question) {
   );
   const optionValues = Array.isArray(question.options) ? question.options.map((item) => String(item || "").trim()) : [];
   const choiceOptions = optionValues.filter((item) => item !== "");
-  const uniqueValidChoiceOptions = getUniqueValidChoiceOptions(question);
   const answerValue = String(question.correctAnswer || "").trim();
 
   if (!String(question.question || "").trim()) {
@@ -3047,12 +2587,8 @@ function getQuestionValidationIssues(question) {
     }
   }
 
-  if (!isCartesianPlotQuestion && resultType === "multiple-choice" && uniqueValidChoiceOptions.length <= 3) {
-    issues.push("Multiple-choice questions need at least 4 unique valid options.");
-  }
-
-  if (!isCartesianPlotQuestion && ["checkbox", "true-false"].includes(resultType) && uniqueValidChoiceOptions.length < 2) {
-    issues.push("At least two valid options are required for this result type.");
+  if (!isCartesianPlotQuestion && ["multiple-choice", "checkbox", "true-false"].includes(resultType) && choiceOptions.length < 2) {
+    issues.push("At least two options are required for this result type.");
   }
 
   if (isCartesianPlotQuestion) {
@@ -3065,7 +2601,7 @@ function getQuestionValidationIssues(question) {
   } else if (!answerValue) {
     issues.push("Correct answer is required.");
   } else if (["multiple-choice", "true-false"].includes(resultType)) {
-    const matchesChoice = uniqueValidChoiceOptions.some((item) => normalizeText(item) === normalizeText(answerValue));
+    const matchesChoice = choiceOptions.some((item) => normalizeText(item) === normalizeText(answerValue));
     if (!matchesChoice) {
       issues.push("Correct answer must match one option exactly.");
     }
@@ -3075,31 +2611,13 @@ function getQuestionValidationIssues(question) {
     }
   } else if (resultType === "checkbox") {
     const answers = answerValue.split(",").map((item) => item.trim()).filter((item) => item !== "");
-    const invalid = answers.some((item) => !uniqueValidChoiceOptions.some((option) => normalizeText(option) === normalizeText(item)));
+    const invalid = answers.some((item) => !choiceOptions.some((option) => normalizeText(option) === normalizeText(item)));
     if (answers.length === 0 || invalid) {
       issues.push("Checkbox correct answer must be one or more comma-separated options.");
     }
   }
 
   return issues;
-}
-
-function isValidChoiceOptionText(value) {
-  const text = String(value || "").trim();
-  if (!text) return false;
-  return /[a-z0-9]/i.test(text);
-}
-
-function getUniqueValidChoiceOptions(question) {
-  const options = getChoiceOptions(question);
-  const unique = [];
-  options.forEach((item) => {
-    if (!isValidChoiceOptionText(item)) return;
-    if (!unique.some((existing) => normalizeText(existing) === normalizeText(item))) {
-      unique.push(item);
-    }
-  });
-  return unique;
 }
 
 function renderValidationBox(question) {
@@ -3400,38 +2918,6 @@ function getChoiceOptions(question) {
   if (!question) return [];
   const options = Array.isArray(question.options) ? question.options : [];
   return options.map((item) => String(item || "").trim()).filter((item) => item !== "");
-}
-
-function resolveChoiceAnswerText(answerValue, choiceOptions) {
-  const answerText = String(answerValue || "").trim();
-  const options = Array.isArray(choiceOptions) ? choiceOptions : [];
-  if (!answerText || options.length === 0) {
-    return answerText;
-  }
-
-  const direct = options.find((item) => normalizeText(item) === normalizeText(answerText));
-  if (direct) {
-    return direct;
-  }
-
-  if (!/^\d+$/.test(answerText)) {
-    return answerText;
-  }
-
-  const parsed = Number.parseInt(answerText, 10);
-  if (!Number.isInteger(parsed)) {
-    return answerText;
-  }
-
-  if (parsed >= 1 && parsed <= options.length) {
-    return options[parsed - 1];
-  }
-
-  if (parsed >= 0 && parsed < options.length) {
-    return options[parsed];
-  }
-
-  return answerText;
 }
 
 function getEditorResultType(question) {
@@ -4633,29 +4119,6 @@ function extractArithmeticExpectedAnswer(questionText) {
   }
 
   return Number.NaN;
-}
-
-function extractEmojiArithmeticExpectedAnswer(questionText) {
-  const text = String(questionText || "").trim();
-  if (!text) return null;
-
-  const match = text.match(/^(.*?)([+\-x×*÷\/])(.*?)(?:=|\?|$)/u);
-  if (!match) return null;
-
-  const leftCount = countEmojiGlyphs(match[1]);
-  const rightCount = countEmojiGlyphs(match[3]);
-  if (leftCount <= 0 || rightCount <= 0) return null;
-
-  const operator = String(match[2] || "").trim();
-  if (operator === "+") return leftCount + rightCount;
-  if (operator === "-") return leftCount - rightCount;
-  if (operator === "x" || operator === "×" || operator === "*") return leftCount * rightCount;
-  if (operator === "÷" || operator === "/") {
-    if (rightCount === 0) return null;
-    return leftCount / rightCount;
-  }
-
-  return null;
 }
 
 function parseCartesianPointText(value) {
@@ -10283,29 +9746,17 @@ function renderEditor() {
   if (selectedQuestionSummary) {
     selectedQuestionSummary.textContent = `Selected: ${questionLabel}`;
   }
-  const normalizedForEditor = prepareQuestionForPersistence(question);
-  if (normalizedForEditor.resultType === "short-answer" && getChoiceOptions(normalizedForEditor).length > 0) {
-    normalizedForEditor.resultType = String(normalizedForEditor.correctAnswer || "").includes(",")
-      ? "checkbox"
-      : "multiple-choice";
-  }
-  if (normalizedForEditor.resultType === "multiple-choice") {
-    ensureMultipleChoiceOptionSet(normalizedForEditor, 4);
-  }
-  Object.assign(question, normalizedForEditor);
-
   const detectedMetadata = applyDetectedQuestionMetadata(question);
   ensureTrueFalseOptions(question);
-  const optionValues = Array.isArray(question.options) ? question.options : ["", "", "", ""];
   document.getElementById("questionText").value = question.question || "";
   document.getElementById("questionCategory").value = question.category || "";
   document.getElementById("questionSubcategory").value = question.subcategory || "";
   document.getElementById("questionLearningOutcome").value = question.learningOutcome || "";
   document.getElementById("resultType").value = getEditorResultType(question) || "multiple-choice";
-  document.getElementById("option1").value = optionValues[0] || "";
-  document.getElementById("option2").value = optionValues[1] || "";
-  document.getElementById("option3").value = optionValues[2] || "";
-  document.getElementById("option4").value = optionValues[3] || "";
+  document.getElementById("option1").value = question.options[0] || "";
+  document.getElementById("option2").value = question.options[1] || "";
+  document.getElementById("option3").value = question.options[2] || "";
+  document.getElementById("option4").value = question.options[3] || "";
   document.getElementById("correctAnswer").value = question.correctAnswer || "";
   document.getElementById("correctAnswerSelect").innerHTML = "";
   document.getElementById("correctAnswerCheckboxWrap").innerHTML = "";
@@ -10347,21 +9798,20 @@ function getQuizData() {
   const category = activeCategory();
   const selectedQuestions = selectedQuiz
     ? selectedQuiz.questions.map((item) => {
-      const normalizedItem = prepareQuestionForPersistence(item || {});
       const q = {
-        question: normalizedItem.question || "",
-        resultType: normalizedItem.resultType || "multiple-choice",
-        options: Array.isArray(normalizedItem.options) ? normalizedItem.options : ["", "", "", ""],
-        correctAnswer: normalizedItem.correctAnswer || "",
-        category: normalizedItem.category || "",
-        subcategory: normalizedItem.subcategory || "",
-        learningOutcome: normalizedItem.learningOutcome || "",
-        notesAttachments: Array.isArray(normalizedItem.notesAttachments) ? normalizedItem.notesAttachments : [],
-        image: normalizedItem.image || "",
-        solution: normalizedItem.solution || "",
-        solutionAttachments: normalizeSolutionAttachments(normalizedItem.solutionAttachments)
+        question: item.question || "",
+        resultType: item.resultType || "multiple-choice",
+        options: Array.isArray(item.options) ? item.options : ["", "", "", ""],
+        correctAnswer: item.correctAnswer || "",
+        category: item.category || "",
+        subcategory: item.subcategory || "",
+        learningOutcome: item.learningOutcome || "",
+        notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
+        image: item.image || "",
+        solution: item.solution || "",
+        solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)
       };
-      if (normalizedItem.interactiveApp) q.interactiveApp = normalizedItem.interactiveApp;
+      if (item.interactiveApp) q.interactiveApp = item.interactiveApp;
       return q;
     })
     : [];
@@ -10885,7 +10335,7 @@ function updateQuestionFromForm() {
   const previousNotesParts = splitNotesAttachments(question.notesAttachments || []);
 
   question.question = document.getElementById("questionText").value.trim();
-  question.category = normalizeQuestionCategory(document.getElementById("questionCategory").value);
+  question.category = document.getElementById("questionCategory").value.trim();
   question.subcategory = document.getElementById("questionSubcategory").value.trim();
   question.learningOutcome = document.getElementById("questionLearningOutcome").value.trim();
   question.resultType = normalizeResultType(document.getElementById("resultType").value);
@@ -10896,23 +10346,8 @@ function updateQuestionFromForm() {
     document.getElementById("option4").value.trim()
   ];
 
-  if (shouldForceShapeChoices(question)) {
-    question.resultType = "multiple-choice";
-    document.getElementById("resultType").value = "multiple-choice";
-  }
-
   if (question.resultType === "true-false") {
     ensureTrueFalseOptions(question);
-  }
-
-  if (question.resultType === "multiple-choice") {
-    const ensured = ensureMultipleChoiceOptionSet(question, 4);
-    if (ensured.changed) {
-      document.getElementById("option1").value = question.options[0] || "";
-      document.getElementById("option2").value = question.options[1] || "";
-      document.getElementById("option3").value = question.options[2] || "";
-      document.getElementById("option4").value = question.options[3] || "";
-    }
   }
 
   if (["multiple-choice", "true-false"].includes(question.resultType)) {
@@ -11091,7 +10526,7 @@ function buildPersistedQuizPayloadFrom(quiz, category) {
     settings: normalizeQuizSettings(quiz.settings),
     category: category.name || "General",
     questions: (quiz.questions || []).map((item) => {
-      const normalizedItem = prepareQuestionForPersistence(item || {});
+      const normalizedItem = normalizeQuestion(item || {});
       const question = {
         question: normalizedItem.question || "",
         resultType: normalizedItem.resultType || "multiple-choice",
@@ -11626,10 +11061,6 @@ document.getElementById("clearQuestionBtn").addEventListener("click", () => {
 
 document.getElementById("autoFixQuizIssuesBtn").addEventListener("click", () => {
   autoFixActiveQuizIssues();
-});
-
-document.getElementById("autoFixAllQuizIssuesBtn").addEventListener("click", () => {
-  autoFixAllQuizIssues();
 });
 
 document.getElementById("toggleQuizScanBtn").addEventListener("click", () => {
@@ -12609,7 +12040,7 @@ function normalizeQuestion(item) {
     resultType,
     options,
     correctAnswer: correctAnswerValue,
-    category: normalizeQuestionCategory(item.category),
+    category: item.category || "",
     subcategory: item.subcategory || "",
     learningOutcome: item.learningOutcome || "",
     notesAttachments: buildNotesAttachments(splitNotesAttachments(Array.isArray(item.notesAttachments) ? item.notesAttachments : [])),
@@ -12625,12 +12056,6 @@ function normalizeQuestion(item) {
     normalized.interactiveApp = inferredInteractiveApp;
     normalized.resultType = "short-answer";
   }
-
-  if (shouldForceShapeChoices(normalized)) {
-    normalized.resultType = "multiple-choice";
-    ensureMultipleChoiceOptionSet(normalized, 4);
-  }
-
   return normalized;
 }
 
@@ -13109,20 +12534,12 @@ function inferAnswerFromImportRow(row, templateType = "") {
   const expectedNumericFromQuestion = inferExpectedNumericAnswerFromQuestion(question);
   const arithmeticStructure = inferArithmeticStructureFromImportRow(row);
   const arithmeticAnswer = computeArithmeticAnswerFromStructure(arithmeticStructure);
-  const emojiArithmeticAnswer = extractEmojiArithmeticExpectedAnswer(question);
 
   if (Number.isFinite(arithmeticAnswer)) {
     const arithmeticText = Number.isInteger(arithmeticAnswer)
       ? String(Math.trunc(arithmeticAnswer))
       : String(roundTo(arithmeticAnswer, 2));
     return { resultType: "short-answer", correctAnswer: arithmeticText };
-  }
-
-  if (Number.isFinite(emojiArithmeticAnswer)) {
-    const emojiText = Number.isInteger(emojiArithmeticAnswer)
-      ? String(Math.trunc(emojiArithmeticAnswer))
-      : String(roundTo(emojiArithmeticAnswer, 2));
-    return { resultType: baseResultType, correctAnswer: emojiText };
   }
 
   if (computeValue && normalizeText(computeValue) !== "n/a") {
@@ -14018,14 +13435,6 @@ function computeExpectedAnswerForQuestion(question) {
   }
 
   if (normalizeResultType(question.resultType) === "short-answer") {
-    const emojiArithmeticExpected = extractEmojiArithmeticExpectedAnswer(question.question || "");
-    if (Number.isFinite(emojiArithmeticExpected)) {
-      return {
-        value: String(roundTo(emojiArithmeticExpected, 2)),
-        source: "question-compute"
-      };
-    }
-
     const arithmeticExpected = extractArithmeticExpectedAnswer(question.question || "");
     if (Number.isFinite(arithmeticExpected)) {
       return {
@@ -14648,12 +14057,9 @@ function buildResultValidationFixPlan(question, row) {
   }
 
   if (row && row.computedAnswer && !compareAnswersForResultType(nextResultType, nextAnswer, row.computedAnswer)) {
-    const computedForType = ["multiple-choice", "true-false", "checkbox"].includes(nextResultType)
-      ? resolveChoiceAnswerText(row.computedAnswer, choiceOptions)
-      : String(row.computedAnswer || "").trim();
     const safeAutoApply = Boolean(row && row.autoApplySafe);
     if (safeAutoApply) {
-      updates.correctAnswer = String(computedForType || "").trim();
+      updates.correctAnswer = String(row.computedAnswer || "").trim();
       trackChange("correctAnswer", "Correct Answer", question && question.correctAnswer, updates.correctAnswer);
       nextAnswer = updates.correctAnswer;
       notes.push(`Update correct answer to computed value: ${nextAnswer}`);
@@ -14662,7 +14068,7 @@ function buildResultValidationFixPlan(question, row) {
         "correctAnswer",
         "Correct Answer (manual)",
         question && question.correctAnswer,
-        String(computedForType || "").trim(),
+        String(row.computedAnswer || "").trim(),
         row && row.autoApplyReason
           ? `Auto-apply blocked: ${row.autoApplyReason}`
           : "Auto-apply blocked due to low confidence."
@@ -14715,36 +14121,6 @@ function buildResultValidationFixPlan(question, row) {
       trackChange("correctAnswer", "Correct Answer", question && question.correctAnswer, updates.correctAnswer);
       nextAnswer = updates.correctAnswer;
       notes.push(`Normalize checkbox answer list: ${updates.correctAnswer}`);
-    }
-  }
-
-  if (nextResultType === "multiple-choice") {
-    const uniqueValidOptions = getUniqueValidChoiceOptions(question);
-    if (uniqueValidOptions.length < 4) {
-      const tmpQuestion = {
-        ...(question || {}),
-        resultType: "multiple-choice",
-        correctAnswer: nextAnswer,
-        options: Array.isArray(question && question.options) ? question.options.slice() : []
-      };
-      const ensured = ensureMultipleChoiceOptionSet(tmpQuestion, 4);
-      if (ensured.changed) {
-        updates.options = Array.isArray(tmpQuestion.options) ? tmpQuestion.options.slice(0, 4) : [];
-        trackChange(
-          "options",
-          "Options",
-          getChoiceOptions(question).join(", "),
-          getChoiceOptions(tmpQuestion).join(", ")
-        );
-        notes.push("Populate multiple-choice options to 4 based on question context.");
-
-        const canonical = getChoiceOptions(tmpQuestion).find((item) => normalizeText(item) === normalizeText(nextAnswer));
-        if (!canonical && getChoiceOptions(tmpQuestion)[0]) {
-          updates.correctAnswer = getChoiceOptions(tmpQuestion)[0];
-          trackChange("correctAnswer", "Correct Answer", question && question.correctAnswer, updates.correctAnswer);
-          nextAnswer = updates.correctAnswer;
-        }
-      }
     }
   }
 
@@ -15338,15 +14714,6 @@ async function applyResultValidationFixForQuestion(questionIndex, { confirmApply
   }
   if (Object.prototype.hasOwnProperty.call(plan.updates, "resultType")) {
     question.resultType = normalizeResultType(plan.updates.resultType);
-  }
-  if (Object.prototype.hasOwnProperty.call(plan.updates, "options")) {
-    const incoming = Array.isArray(plan.updates.options) ? plan.updates.options : [];
-    question.options = [
-      String(incoming[0] || "").trim(),
-      String(incoming[1] || "").trim(),
-      String(incoming[2] || "").trim(),
-      String(incoming[3] || "").trim()
-    ];
   }
   if (Object.prototype.hasOwnProperty.call(plan.updates, "solution")) {
     question.solution = String(plan.updates.solution || "").trim();

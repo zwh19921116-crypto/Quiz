@@ -1,0 +1,372 @@
+{
+  "id": "quiz-20",
+  "title": "Prep 2.06",
+  "description": "Learning Outcomes for Prep: Count backward | Complete backward sequence | Understand order | Find missing number | Apply backward counting | Review backward counting | Mastery",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "What comes before 10?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctAnswer": "9",
+      "category": "Sequencing",
+      "subcategory": "Count Backward",
+      "learningOutcome": "Count backward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes before 9?",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "correctAnswer": "8",
+      "category": "Sequencing",
+      "subcategory": "Count Backward",
+      "learningOutcome": "Count backward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes before 8?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "7",
+      "category": "Sequencing",
+      "subcategory": "Count Backward",
+      "learningOutcome": "Count backward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes before 7?",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "6",
+      "category": "Sequencing",
+      "subcategory": "Count Backward",
+      "learningOutcome": "Count backward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes before 6?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "5",
+      "category": "Sequencing",
+      "subcategory": "Count Backward",
+      "learningOutcome": "Count backward",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 5.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10,9,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "8",
+      "category": "Sequencing",
+      "subcategory": "Complete Sequence",
+      "learningOutcome": "Complete backward sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "8,7,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Sequencing",
+      "subcategory": "Complete Sequence",
+      "learningOutcome": "Complete backward sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "6,5,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "4",
+      "category": "Sequencing",
+      "subcategory": "Complete Sequence",
+      "learningOutcome": "Complete backward sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4,3,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "2",
+      "category": "Sequencing",
+      "subcategory": "Complete Sequence",
+      "learningOutcome": "Complete backward sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2,1,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Sequencing",
+      "subcategory": "Complete Sequence",
+      "learningOutcome": "Complete backward sequence",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes before 5?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Number Order",
+      "learningOutcome": "Understand order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number comes before 2?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Recognition",
+      "subcategory": "Number Order",
+      "learningOutcome": "Understand order",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "7,__ ,5",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "correctAnswer": "6",
+      "category": "Sequencing",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4,__ ,2",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "3",
+      "category": "Sequencing",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2,__ ,0",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "category": "Sequencing",
+      "subcategory": "Missing Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rocket counts down: 10,9,8,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "correctAnswer": "7",
+      "category": "Application",
+      "subcategory": "Rocket Countdown",
+      "learningOutcome": "Apply backward counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rocket counts down: 5,4,3,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "2",
+      "category": "Application",
+      "subcategory": "Rocket Countdown",
+      "learningOutcome": "Apply backward counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A rocket counts down: 3,2,1,__",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Application",
+      "subcategory": "Rocket Countdown",
+      "learningOutcome": "Apply backward counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes before 1?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Review backward counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What comes before 8?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "correctAnswer": "7",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    }
+  ]
+}

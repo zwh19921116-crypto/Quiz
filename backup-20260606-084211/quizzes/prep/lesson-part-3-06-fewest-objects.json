@@ -1,0 +1,372 @@
+{
+  "id": "quiz-30",
+  "title": "Prep 3.06",
+  "description": "Learning Outcomes for Prep: Identify smallest group | Compare 3 groups | Compare multiple groups | Apply comparison | Mastery",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which group has the fewest apples? 🍎🍎, 🍎🍎🍎🍎, 🍎🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Identify smallest group",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest stars? ⭐⭐, ⭐⭐⭐⭐⭐, ⭐⭐⭐",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Identify smallest group",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest cars? 🚗🚗🚗🚗, 🚗🚗, 🚗🚗🚗",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Identify smallest group",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest dogs? 🐶🐶, 🐶🐶🐶🐶🐶, 🐶🐶🐶",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Identify smallest group",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest fish? 🐟🐟🐟, 🐟🐟🐟🐟🐟, 🐟🐟",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Identify smallest group",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest apples? 🍎🍎🍎🍎🍎, 🍎🍎🍎, 🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Compare 3 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest stars? ⭐⭐⭐⭐, ⭐⭐, ⭐⭐⭐⭐⭐",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Compare 3 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest cars? 🚗🚗, 🚗🚗🚗🚗🚗, 🚗🚗🚗",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Compare 3 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest dogs? 🐶🐶🐶🐶, 🐶🐶, 🐶🐶🐶",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Compare 3 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest fish? 🐟🐟, 🐟🐟🐟🐟, 🐟🐟🐟",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Compare 3 groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest apples? 🍎🍎🍎, 🍎🍎🍎🍎🍎, 🍎🍎🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Compare multiple groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest stars? ⭐⭐⭐, ⭐⭐⭐⭐⭐⭐, ⭐⭐⭐⭐",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Compare multiple groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest cars? 🚗🚗🚗🚗🚗, 🚗🚗, 🚗🚗🚗",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Compare multiple groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest dogs? 🐶🐶🐶, 🐶🐶🐶🐶🐶, 🐶🐶",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Compare multiple groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest fish? 🐟🐟🐟🐟, 🐟🐟🐟🐟🐟🐟, 🐟🐟",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Compare multiple groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia has 2 apples, Tom has 5 apples, Sam has 4 apples. Who has the fewest apples?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Mia",
+        "Tom",
+        "Sam",
+        ""
+      ],
+      "correctAnswer": "Mia",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Mia.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Ava has 7 stars, Leo has 3 stars, Ben has 6 stars. Who has the fewest stars?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Ava",
+        "Leo",
+        "Ben",
+        ""
+      ],
+      "correctAnswer": "Leo",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Leo.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Kim has 4 balloons, Max has 8 balloons, Jack has 5 balloons. Who has the fewest balloons?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Kim",
+        "Max",
+        "Jack",
+        ""
+      ],
+      "correctAnswer": "Kim",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Kim.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest objects? 🍎🍎🍎🍎, 🍎🍎🍎🍎🍎🍎, 🍎🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest objects? ⭐⭐⭐⭐⭐, ⭐⭐⭐, ⭐⭐⭐⭐",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    }
+  ]
+}

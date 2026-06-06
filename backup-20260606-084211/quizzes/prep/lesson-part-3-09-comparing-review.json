@@ -1,0 +1,372 @@
+{
+  "id": "quiz-33",
+  "title": "Prep 3.09",
+  "description": "Learning Outcomes for Prep: Compare quantities | Identify equal quantities | Identify largest group | Identify smallest group | Compare numbers | Recognise equal numbers | Apply comparison | Mastery | Consolidate learning",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which group has more apples? 🍎🍎 or 🍎🍎🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "More Objects",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has fewer stars? ⭐⭐⭐⭐⭐ or ⭐⭐",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Less Objects",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Do these groups have the same number? 🚗🚗🚗 and 🚗🚗🚗",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Comparing",
+      "subcategory": "Same Quantity",
+      "learningOutcome": "Identify equal quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Do these groups have the same number? 🐶🐶 and 🐶🐶🐶",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Comparing",
+      "subcategory": "Same Quantity",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the most fish? 🐟🐟, 🐟🐟🐟🐟, 🐟🐟🐟",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Most Objects",
+      "learningOutcome": "Identify largest group",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest apples? 🍎🍎🍎🍎, 🍎🍎, 🍎🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Identify smallest group",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "8",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Greater Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "2",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Recognition",
+      "subcategory": "Smaller Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Are these numbers the same? 7 and 7",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Recognition",
+      "subcategory": "Equal Numbers",
+      "learningOutcome": "Recognise equal numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Are these numbers the same? 9 and 6",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "No",
+      "category": "Recognition",
+      "subcategory": "Equal Numbers",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is No.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater?",
+      "resultType": "multiple-choice",
+      "options": [
+        "12",
+        "18",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Recognition",
+      "subcategory": "Greater Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "multiple-choice",
+      "options": [
+        "15",
+        "11",
+        "",
+        ""
+      ],
+      "correctAnswer": "15",
+      "category": "Recognition",
+      "subcategory": "Smaller Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 15.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the most stars? ⭐⭐⭐, ⭐⭐⭐⭐⭐⭐, ⭐⭐⭐⭐",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Most Objects",
+      "learningOutcome": "Identify largest group",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the fewest cars? 🚗🚗🚗🚗, 🚗🚗, 🚗🚗🚗",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Fewest Objects",
+      "learningOutcome": "Identify smallest group",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia has 4 apples. Tom has 7 apples. Who has more?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Mia",
+        "Tom",
+        "",
+        ""
+      ],
+      "correctAnswer": "Tom",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Tom.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Sam has 3 balloons. Ben has 8 balloons. Who has fewer?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Sam",
+        "Ben",
+        "",
+        ""
+      ],
+      "correctAnswer": "Sam",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Sam.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Ava has 5 stars. Leo has 5 stars. Do they have the same amount?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Yes",
+        "No",
+        "",
+        ""
+      ],
+      "correctAnswer": "Yes",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Yes.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is greater?",
+      "resultType": "multiple-choice",
+      "options": [
+        "17",
+        "20",
+        "",
+        ""
+      ],
+      "correctAnswer": "17",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 17.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "multiple-choice",
+      "options": [
+        "13",
+        "18",
+        "",
+        ""
+      ],
+      "correctAnswer": "13",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 13.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has the most objects? 🍎🍎🍎, 🍎🍎🍎🍎🍎, 🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Middle",
+        "Right",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate learning",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    }
+  ]
+}

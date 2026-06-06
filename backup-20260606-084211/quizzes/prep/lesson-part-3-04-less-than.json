@@ -1,0 +1,372 @@
+{
+  "id": "quiz-28",
+  "title": "Prep 3.04",
+  "description": "Learning Outcomes for Prep: Compare quantities | Compare numbers | Compare groups | Apply comparison | Mastery",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which group is smaller? 🍎🍎 or 🍎🍎🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Smaller Quantity",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group is smaller? ⭐⭐ or ⭐⭐⭐⭐⭐",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Smaller Quantity",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group is smaller? 🚗🚗🚗🚗 or 🚗🚗",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Smaller Quantity",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group is smaller? 🐶🐶🐶🐶🐶 or 🐶🐶🐶",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Smaller Quantity",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group is smaller? 🐟🐟🐟🐟 or 🐟🐟",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Smaller Quantity",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller? 2 or 5",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "5",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Recognition",
+      "subcategory": "Smaller Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller? 4 or 8",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "8",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Smaller Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller? 7 or 10",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "10",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Recognition",
+      "subcategory": "Smaller Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller? 3 or 9",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "9",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Recognition",
+      "subcategory": "Smaller Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller? 1 or 6",
+      "resultType": "multiple-choice",
+      "options": [
+        "1",
+        "6",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Recognition",
+      "subcategory": "Smaller Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has fewer stars? ⭐⭐⭐⭐ or ⭐⭐",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Find Smaller Group",
+      "learningOutcome": "Compare groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has fewer apples? 🍎🍎🍎🍎🍎 or 🍎🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Find Smaller Group",
+      "learningOutcome": "Compare groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has fewer cars? 🚗🚗🚗 or 🚗🚗🚗🚗",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Find Smaller Group",
+      "learningOutcome": "Compare groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has fewer dogs? 🐶🐶🐶🐶🐶 or 🐶🐶🐶",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Find Smaller Group",
+      "learningOutcome": "Compare groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has fewer fish? 🐟🐟🐟🐟 or 🐟🐟",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Find Smaller Group",
+      "learningOutcome": "Compare groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia has 4 apples. Tom has 6 apples. Who has fewer apples?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Mia",
+        "Tom",
+        "",
+        ""
+      ],
+      "correctAnswer": "Mia",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Mia.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Sam has 5 balloons. Ben has 8 balloons. Who has fewer balloons?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Sam",
+        "Ben",
+        "",
+        ""
+      ],
+      "correctAnswer": "Sam",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Sam.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Ava has 9 stars. Leo has 7 stars. Who has fewer stars?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Ava",
+        "Leo",
+        "",
+        ""
+      ],
+      "correctAnswer": "Leo",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Leo.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller? 8 or 10",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is smaller? 9 or 3",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "3",
+        "",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "id": "quiz-25",
+  "title": "Prep 3.01",
+  "description": "Learning Outcomes for Prep: Compare quantities | Compare numbers | Apply comparison | Mastery",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which group has more apples? 🍎🍎 or 🍎🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "More Objects",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has more stars? ⭐⭐ or ⭐⭐⭐⭐",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "More Objects",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has more cars? 🚗🚗🚗 or 🚗🚗",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "More Objects",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has more dogs? 🐶🐶🐶🐶 or 🐶🐶🐶",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "More Objects",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has more fish? 🐟🐟 or 🐟🐟🐟🐟",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "More Objects",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has fewer apples? 🍎🍎 or 🍎🍎🍎🍎",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Less Objects",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has fewer stars? ⭐⭐⭐⭐⭐ or ⭐⭐",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Less Objects",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has fewer cars? 🚗🚗🚗 or 🚗🚗🚗🚗",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Less Objects",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has fewer dogs? 🐶🐶 or 🐶🐶🐶🐶",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Less Objects",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has fewer fish? 🐟🐟🐟 or 🐟🐟🐟🐟🐟",
+      "resultType": "multiple-choice",
+      "options": [
+        "Left",
+        "Right",
+        "",
+        ""
+      ],
+      "correctAnswer": "Left",
+      "category": "Comparing",
+      "subcategory": "Less Objects",
+      "learningOutcome": "Compare quantities",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Left.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is more? 2 or 5",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "5",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Recognition",
+      "subcategory": "Bigger Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is more? 4 or 1",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "1",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Recognition",
+      "subcategory": "Bigger Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is more? 7 or 3",
+      "resultType": "multiple-choice",
+      "options": [
+        "7",
+        "3",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Recognition",
+      "subcategory": "Bigger Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 7.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is less? 3 or 7",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "7",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Recognition",
+      "subcategory": "Smaller Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is less? 9 or 5",
+      "resultType": "multiple-choice",
+      "options": [
+        "9",
+        "5",
+        "",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Recognition",
+      "subcategory": "Smaller Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is less? 10 or 2",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "2",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Recognition",
+      "subcategory": "Smaller Number",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia has 2 apples. Tom has 5 apples. Who has more apples?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Mia",
+        "Tom",
+        "",
+        ""
+      ],
+      "correctAnswer": "Tom",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Tom.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Sam has 7 balloons. Ben has 3 balloons. Who has fewer balloons?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Sam",
+        "Ben",
+        "",
+        ""
+      ],
+      "correctAnswer": "Ben",
+      "category": "Application",
+      "subcategory": "Real World Comparison",
+      "learningOutcome": "Apply comparison",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Ben.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Ava has 4 stars. Leo has 6 stars. Who has more stars?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Ava",
+        "Leo",
+        "",
+        ""
+      ],
+      "correctAnswer": "Leo",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Leo.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which number is less? 8 or 10",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Mastery",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    }
+  ]
+}

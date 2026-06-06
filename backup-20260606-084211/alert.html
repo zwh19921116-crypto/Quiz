@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flagged Question Alerts</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="container viewer-container" style="max-width: 1500px;">
+      <div class="page-header page-header-split" style="margin-bottom: 16px;">
+        <div class="page-header-main">
+          <p class="eyebrow">Moderation</p>
+          <h1>Alert Dashboard</h1>
+          <p class="quiz-description">Flagged questions are deduplicated and stored locally in JSON format.</p>
+        </div>
+      </div>
+
+      <div class="button-group" style="justify-content:flex-start; margin-bottom:12px;">
+        <a class="btn secondary" href="index.html">Home</a>
+        <a class="btn secondary" href="menu.html">Menu</a>
+        <button class="btn secondary" id="toggleJsonBtn" type="button">Show JSON</button>
+        <button class="btn secondary" id="downloadReportsBtn" type="button">Download JSON</button>
+        <button class="btn" id="clearResolvedBtn" type="button">Clear Resolved</button>
+      </div>
+
+      <div class="section-card">
+        <p id="alertSummary" class="helper-text">Loading reports...</p>
+        <div class="table-scroll-wrap">
+          <table class="alerts-table" aria-label="Flagged questions">
+            <thead>
+              <tr>
+                <th>Quiz</th>
+                <th>Category</th>
+                <th>Question</th>
+                <th>Count</th>
+                <th>First Reported</th>
+                <th>Last Reported</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="alertsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section-card hidden" id="alertsJsonSection" style="margin-top:14px;">
+        <h3 style="margin-top:0;">JSON Snapshot</h3>
+        <textarea id="alertsJsonView" class="alerts-json" readonly></textarea>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = "quiz_question_reports_v1";
+
+      function escapeHtml(value) {
+        return String(value || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/\"/g, "&quot;");
+      }
+
+      function loadPayload() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return { version: 1, items: [] };
+          const parsed = JSON.parse(raw);
+          const items = parsed && Array.isArray(parsed.items) ? parsed.items : [];
+          return {
+            version: 1,
+            items: items.filter((item) => item && typeof item === "object" && String(item.key || "").trim() !== "")
+          };
+        } catch (_error) {
+          return { version: 1, items: [] };
+        }
+      }
+
+      function savePayload(payload) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      }
+
+      function formatDate(value) {
+        if (!value) return "-";
+        const parsed = new Date(value);
+        if (Number.isNaN(parsed.getTime())) return "-";
+        return parsed.toLocaleString();
+      }
+
+      function getFlaggedItems(payload) {
+        return payload.items
+          .filter((item) => String(item.status || "flagged").toLowerCase() === "flagged")
+          .sort((left, right) => {
+            const l = new Date(left.lastReportedAt || left.firstReportedAt || 0).getTime();
+            const r = new Date(right.lastReportedAt || right.firstReportedAt || 0).getTime();
+            return r - l;
+          });
+      }
+
+      function render() {
+        const payload = loadPayload();
+        const flagged = getFlaggedItems(payload);
+        const tbody = document.getElementById("alertsTableBody");
+        const summary = document.getElementById("alertSummary");
+        const jsonView = document.getElementById("alertsJsonView");
+
+        if (jsonView instanceof HTMLTextAreaElement) {
+          jsonView.value = JSON.stringify(payload, null, 2);
+        }
+
+        if (!(tbody instanceof HTMLElement) || !(summary instanceof HTMLElement)) return;
+
+        if (flagged.length === 0) {
+          summary.textContent = "No flagged questions right now.";
+          tbody.innerHTML = '<tr><td colspan="7" class="alerts-empty">All clear.</td></tr>';
+          return;
+        }
+
+        summary.textContent = flagged.length + " flagged question" + (flagged.length === 1 ? "" : "s") + " currently open.";
+        tbody.innerHTML = flagged.map((item) => {
+          return "<tr>"
+            + "<td>" + escapeHtml(item.quizTitle || "Quiz") + "<div class=\"alerts-sub\">" + escapeHtml(item.sourceFile || "") + "</div></td>"
+            + "<td>" + escapeHtml(item.category || "-") + "</td>"
+            + "<td><div class=\"alerts-question\">" + escapeHtml(item.questionText || "(no question text)") + "</div></td>"
+            + "<td>" + String(Math.max(1, Number.parseInt(item.reportCount, 10) || 1)) + "</td>"
+            + "<td>" + escapeHtml(formatDate(item.firstReportedAt)) + "</td>"
+            + "<td>" + escapeHtml(formatDate(item.lastReportedAt)) + "</td>"
+            + "<td><button class=\"btn secondary small\" data-action=\"unflag\" data-key=\"" + escapeHtml(item.key) + "\">Unflag</button></td>"
+            + "</tr>";
+        }).join("");
+      }
+
+      function toggleJsonSection() {
+        const section = document.getElementById("alertsJsonSection");
+        const button = document.getElementById("toggleJsonBtn");
+        if (!(section instanceof HTMLElement) || !(button instanceof HTMLButtonElement)) return;
+        const isHidden = section.classList.contains("hidden");
+        section.classList.toggle("hidden", !isHidden);
+        button.textContent = isHidden ? "Hide JSON" : "Show JSON";
+      }
+
+      function unflagItem(key) {
+        const payload = loadPayload();
+        const item = payload.items.find((entry) => String(entry.key || "") === String(key || ""));
+        if (!item) return;
+        item.status = "resolved";
+        item.resolvedAt = new Date().toISOString();
+        savePayload(payload);
+        render();
+      }
+
+      function clearResolved() {
+        const payload = loadPayload();
+        payload.items = payload.items.filter((item) => String(item.status || "flagged").toLowerCase() !== "resolved");
+        savePayload(payload);
+        render();
+      }
+
+      function downloadJson() {
+        const payload = loadPayload();
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = "question-reports.json";
+        anchor.click();
+        URL.revokeObjectURL(url);
+      }
+
+      document.getElementById("alertsTableBody").addEventListener("click", function (event) {
+        const target = event.target;
+        if (!(target instanceof HTMLElement)) return;
+        const button = target.closest("button[data-action='unflag']");
+        if (!(button instanceof HTMLButtonElement)) return;
+        const key = button.dataset.key || "";
+        unflagItem(key);
+      });
+
+      document.getElementById("clearResolvedBtn").addEventListener("click", clearResolved);
+      document.getElementById("downloadReportsBtn").addEventListener("click", downloadJson);
+      document.getElementById("toggleJsonBtn").addEventListener("click", toggleJsonSection);
+      render();
+    })();
+  </script>
+</body>
+</html>

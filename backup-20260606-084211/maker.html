@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Maker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="maker-page">
+  <div class="app-shell">
+    <div class="container">
+      <div class="page-header">
+        <div class="logo-placeholder" aria-label="Logo placeholder">
+          <img
+            class="logo-image"
+            src="assets/logo.png"
+            alt="Quiz logo"
+            onload="this.style.display='block'; this.nextElementSibling.style.display='none'; this.parentElement.classList.remove('is-empty');"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex'; this.parentElement.classList.add('is-empty');"
+          />
+          <span class="logo-fallback">Add Logo</span>
+        </div>
+        <p class="eyebrow">Authoring Studio</p>
+        <h1>Quiz Maker <span id="versionBadge" style="font-size: 0.6em; opacity: 0.7; margin-left: 10px;"></span></h1>
+        <p class="helper-text">Build categories, quizzes, and questions from one workspace.</p>
+        <div class="shortcut-legend" aria-label="Keyboard shortcuts">
+          <span class="shortcut-pill"><kbd>N</kbd> New question</span>
+          <span class="shortcut-pill"><kbd>Delete</kbd> Remove selected</span>
+          <span class="shortcut-pill"><kbd>Ctrl</kbd> + <kbd>S</kbd> Download JSON</span>
+        </div>
+      </div>
+
+      <section class="section-card">
+        <div class="toolbar-row">
+          <label for="quizRootFolder">Quiz Root Folder</label>
+          <input type="text" id="quizRootFolder" value="quizzes" />
+
+          <label for="rootSourceMode">Root Source Mode</label>
+          <select id="rootSourceMode">
+            <option value="local" selected>Local</option>
+            <option value="github">GitHub</option>
+          </select>
+
+          <button class="btn secondary" id="refreshRootBtn" type="button">Refresh from Root</button>
+
+          <div id="localFolderRow" style="display:none">
+            <label>Selected Folder Path</label>
+            <input type="text" id="localFolderPath" readonly placeholder="No folder selected — click Refresh to choose (some browsers hide full path)" style="flex:1;opacity:0.8;cursor:default" />
+          </div>
+
+          <label for="quizFileName">Selected Quiz Filename</label>
+          <input type="text" id="quizFileName" placeholder="sample-quiz.json" />
+        </div>
+        <p class="helper-text" id="rootStatusText">Source: auto-detect from category folders in quizzes/</p>
+
+        <div class="button-group">
+          <button class="btn secondary" id="connectRootBtn" type="button">Connect Root Folder</button>
+          <button class="btn secondary" id="importTableBtn" type="button">Import Spreadsheet</button>
+          <button class="btn secondary" id="openResultValidationBtn" type="button">Result Validation</button>
+          <input type="file" id="importTableInput" class="hidden" accept=".xlsx,.xls,.csv" />
+          <button class="btn" id="saveQuizBtn">Save Selected Quiz</button>
+          <button class="btn secondary" id="downloadQuizBtn">Download Selected Quiz JSON</button>
+          <button class="btn secondary" id="copyJsonBtn">Copy JSON</button>
+          <button class="btn danger" id="clearQuizBtn">Clear All</button>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="maker-grid">
+          <aside class="panel-column">
+            <div class="panel-head">
+              <h2>Type of Quiz (Category)</h2>
+              <button class="btn small" id="addCategoryBtn">Add</button>
+            </div>
+            <input type="search" id="categorySearch" class="panel-search" placeholder="Search categories..." autocomplete="off" />
+            <div id="categoryList" class="item-list"></div>
+          </aside>
+
+          <aside class="panel-column">
+            <div class="panel-head">
+              <h2>Select Quiz</h2>
+              <div class="panel-head-actions">
+                <button class="btn secondary small scan-toggle-btn" id="toggleQuizScanBtn" type="button" aria-pressed="false" title="Scan quizzes and questions for issues">
+                  <span aria-hidden="true">&#128269;</span> Scan
+                </button>
+                <button class="btn secondary small" id="autoFixQuizIssuesBtn" type="button" title="Auto-fix common issues in this quiz">Auto Fix</button>
+                <button class="btn secondary small" id="openQuizSettingsBtn" type="button">Settings</button>
+                <button class="btn small" id="addQuizBtn">Add</button>
+              </div>
+            </div>
+            <input type="search" id="quizSearch" class="panel-search" placeholder="Search quizzes..." autocomplete="off" />
+            <div id="quizList" class="item-list"></div>
+          </aside>
+
+          <aside class="panel-column">
+            <div class="panel-head">
+              <h2>Questions</h2>
+              <div class="panel-head-actions">
+                <button class="btn small" id="addQuestionBtn">Add</button>
+                <button class="btn success small" id="scanInteractiveElementsBtn" type="button" title="Check for interactive elements beyond multiple-choice and short-answer" aria-label="Interactive Element scan">
+                  <span aria-hidden="true">&#9733;</span> I.E
+                </button>
+                <button class="btn secondary small" id="clearQuestionBtn" type="button">Clear Quiz Questions</button>
+              </div>
+            </div>
+            <input type="search" id="questionSearch" class="panel-search" placeholder="Search questions..." autocomplete="off" />
+            <p class="helper-text">Drag questions to reorder.</p>
+            <div id="questionsList" class="item-list"></div>
+          </aside>
+
+          <section class="panel-column question-editor-column">
+            <h2>Question Config</h2>
+            <p class="helper-text" id="editorHint">Select a question to edit details.</p>
+            <p class="helper-text" id="selectedQuestionSummary">No question selected.</p>
+            <p id="questionEditorEmptyState" class="helper-text">Select or create a category and quiz to edit questions.</p>
+
+            <div id="questionEditorContent" class="hidden">
+            <div id="questionValidationBox" class="validation-box"></div>
+
+            <div class="panel-head-actions auto-maker-launch">
+              <button class="btn secondary small" id="toggleAutoQuestionMakerBtn" type="button" aria-expanded="false" aria-controls="autoQuestionMakerPanel">Open Auto Question Maker</button>
+            </div>
+
+            <section class="editor-subpanel auto-maker-subpanel hidden" id="autoQuestionMakerPanel" aria-label="Auto question maker tools">
+              <div class="solution-panel-head">
+                <h3>Auto Question Maker</h3>
+                <button class="btn secondary small" id="closeAutoQuestionMakerBtn" type="button">Close</button>
+              </div>
+
+              <div class="nl-range-row">
+                <div>
+                  <label for="autoCreateCategory">Auto Create: Category</label>
+                  <select id="autoCreateCategory" class="nl-range-input">
+                    <option value="introduction-to-numbers">Introduction to Numbers</option>
+                    <option value="time">Time</option>
+                    <option value="cartesian-plane">Cartesian Plane</option>
+                    <option value="cartesian-plane-plot">Cartesian Plane - Plot</option>
+                    <option value="number-line">Number Line</option>
+                    <option value="bar-chart">Bar Chart</option>
+                    <option value="histogram">Histogram</option>
+                    <option value="box-plot">Box Plot</option>
+                    <option value="scatter-plot">Scatter Plot</option>
+                    <option value="probability-tree">Probability Tree</option>
+                    <option value="distribution-curve">Distribution Curve</option>
+                    <option value="arithmetic">Arithmetic</option>
+                    <option value="fractions">Fractions</option>
+                    <option value="network-graph">Network Graph</option>
+                    <option value="matrix">Matrices</option>
+                    <option value="stem-and-leaf">Stem-and-Leaf Plot</option>
+                    <option value="geometry-shapes">Geometry Shapes</option>
+                    <option value="pythagoras">Pythagoras Triangle</option>
+                    <option value="trigonometry">Trigonometry Triangle</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="autoCreateSubcategory">Auto Create: Subcategory</label>
+                  <select id="autoCreateSubcategory" class="nl-range-input">
+                    <option value="digital">Digital</option>
+                    <option value="analog">Analog</option>
+                    <option value="analog-to-digital">Analog to Digital</option>
+                    <option value="linear">Linear</option>
+                    <option value="quadratic">Quadratic</option>
+                    <option value="cubic">Cubic</option>
+                    <option value="exponential">Exponential</option>
+                    <option value="transformations">Transformations</option>
+                    <option value="domain-range">Domain and Range</option>
+                    <option value="intercepts">Intercepts</option>
+                    <option value="gradient">Gradient</option>
+                    <option value="asymptotes">Asymptotes</option>
+                    <option value="point-on-axes">Point On Axes</option>
+                    <option value="quadrant-identification">Quadrant Identification</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="nl-range-row">
+                <div>
+                  <label>Auto Difficulty (from Grade/Course)</label>
+                  <div id="autoCreateDifficultyBadge" class="helper-text">Auto Difficulty: Medium</div>
+                </div>
+                <div>
+                  <label for="autoCreateDifficultyLevel">Manual Difficulty (1-10)</label>
+                  <div class="nl-difficulty-row">
+                    <input type="range" id="autoCreateDifficultyLevel" class="nl-range-input" min="1" max="10" value="5" style="flex: 1;">
+                    <span id="autoCreateDifficultyValue" class="helper-text" style="min-width: 40px; text-align: center;">5</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nl-range-row">
+                <div>
+                  <label for="autoCreateResultType">Auto Create: Result Type</label>
+                  <select id="autoCreateResultType" class="nl-range-input">
+                    <option value="auto">Auto (Recommended)</option>
+                    <option value="short-answer">Short Answer</option>
+                    <option value="date">Date (DD/MM/YYYY)</option>
+                    <option value="plot">Plot</option>
+                    <option value="multiple-choice">Multiple Choice</option>
+                    <option value="true-false">True / False</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="nl-range-row">
+                <div>
+                  <label for="autoQuizGrade">Auto Quiz: Grade / Course</label>
+                  <select id="autoQuizGrade" class="nl-range-input">
+                    <option value="prep">Prep</option>
+                    <option value="year-1">Year 1</option>
+                    <option value="year-2">Year 2</option>
+                    <option value="year-3">Year 3</option>
+                    <option value="year-4">Year 4</option>
+                    <option value="year-5">Year 5</option>
+                    <option value="year-6">Year 6</option>
+                    <option value="year-7">Year 7</option>
+                    <option value="year-8">Year 8</option>
+                    <option value="year-9">Year 9</option>
+                    <option value="year-10">Year 10</option>
+                    <option value="vce-methods-unit-1">VCE Mathematical Methods Unit 1</option>
+                    <option value="vce-methods-unit-2">VCE Mathematical Methods Unit 2</option>
+                    <option value="vce-methods-unit-3">VCE Mathematical Methods Unit 3</option>
+                    <option value="vce-methods-unit-4">VCE Mathematical Methods Unit 4</option>
+                    <option value="vce-general-unit-1">VCE General Mathematics Unit 1</option>
+                    <option value="vce-general-unit-2">VCE General Mathematics Unit 2</option>
+                    <option value="vce-general-unit-3">VCE General Mathematics Unit 3</option>
+                    <option value="vce-general-unit-4">VCE General Mathematics Unit 4</option>
+                    <option value="vce-specialist-unit-1">VCE Specialist Mathematics Unit 1</option>
+                    <option value="vce-specialist-unit-2">VCE Specialist Mathematics Unit 2</option>
+                    <option value="vce-specialist-unit-3">VCE Specialist Mathematics Unit 3</option>
+                    <option value="vce-specialist-unit-4">VCE Specialist Mathematics Unit 4</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="autoQuizQuestionCount">Auto Quiz: Number of Questions</label>
+                  <input type="number" id="autoQuizQuestionCount" min="1" max="500" step="1" value="1" class="nl-range-input" />
+                </div>
+              </div>
+
+              <div class="panel-head-actions" style="margin-bottom:8px">
+                <button class="btn" id="autoCreateQuestionBtn" type="button">Auto Create Question</button>
+                <button class="btn secondary" id="recalculateAnswerBtn" type="button">Recalculate Answer + Solution</button>
+                <button class="btn" id="autoCreateQuizBtn" type="button">Auto Create Entire Quiz (VCAA)</button>
+                <button class="btn secondary" id="validateGeneratedQuestionBtn" type="button">Validate Question + Answer</button>
+              </div>
+              <p class="helper-text">Auto Create fills question text, solution, and interactive app config using deterministic templates (no AI). Entire Quiz mode builds VCAA-aligned quizzes for the selected category, subcategory, grade/course, and number of questions.</p>
+              <p class="helper-text">For Time questions: Auto Create is editable. Open Interactive App > Time and tick/untick "Use custom answer/options (do not auto-overwrite)" to control whether Maker updates or preserves your manual answer fields.</p>
+            </section>
+
+            <section class="editor-subpanel" aria-label="Question configuration">
+              <h3>Question Configuration</h3>
+
+              <label for="questionText">1) Question</label>
+              <textarea id="questionText" rows="2" placeholder="Enter question"></textarea>
+
+              <div class="nl-range-row">
+                <div>
+                  <label for="questionCategory">Category</label>
+                  <input type="text" id="questionCategory" placeholder="e.g. Writing" />
+                </div>
+                <div>
+                  <label for="questionSubcategory">Subcategory</label>
+                  <input type="text" id="questionSubcategory" placeholder="e.g. Draw Number 8" />
+                </div>
+                <div>
+                  <label for="questionLearningOutcome">Learning Outcome</label>
+                  <input type="text" id="questionLearningOutcome" placeholder="e.g. Write 8" />
+                </div>
+              </div>
+              <p class="helper-text" id="questionMetadataSummary">Metadata is detected from the selected question and interactive app.</p>
+
+              <label for="resultType">2) Result Type</label>
+              <select id="resultType">
+                <option value="multiple-choice">Multiple Choice</option>
+                <option value="short-answer">Short Answer</option>
+                <option value="date">Date (DD/MM/YYYY)</option>
+                <option value="plot">Plot</option>
+                <option value="true-false">True / False</option>
+                <option value="checkbox">Checkbox</option>
+              </select>
+
+              <div id="optionsBlock">
+                <label for="option1">Choice 1</label>
+                <input type="text" id="option1" placeholder="Option 1" />
+
+                <label for="option2">Choice 2</label>
+                <input type="text" id="option2" placeholder="Option 2" />
+
+                <label for="option3">Choice 3</label>
+                <input type="text" id="option3" placeholder="Option 3" />
+
+                <label for="option4">Choice 4</label>
+                <input type="text" id="option4" placeholder="Option 4" />
+              </div>
+
+              <label for="correctAnswer">3) Correct Answer</label>
+              <select id="correctAnswerSelect"></select>
+              <input type="text" id="correctAnswer" placeholder="Correct answer text" />
+              <div id="correctAnswerCheckboxWrap" class="correct-answer-checkbox-wrap"></div>
+              <p id="correctAnswerHint" class="helper-text">For checkbox, use comma-separated option values.</p>
+
+              <label for="attachmentsInput">4) Notes Attachments (other links, one per line)</label>
+              <textarea id="attachmentsInput" rows="3" placeholder="https://example.com/reference-link"></textarea>
+              <label for="notesYoutubeInput">YouTube URL (1 max)</label>
+              <input type="text" id="notesYoutubeInput" placeholder="https://www.youtube.com/watch?v=..." />
+              <label for="notesPdfUrlsInput">PDF URLs (optional, one per line)</label>
+              <textarea id="notesPdfUrlsInput" rows="3" placeholder="https://drive.google.com/file/d/...\nhttps://example.com/file.pdf"></textarea>
+              <div class="image-tools">
+                <button class="btn secondary small" id="attachNotesPdfBtn" type="button">Attach Notes PDF Files</button>
+                <input type="file" id="notesPdfInput" accept="application/pdf" class="hidden" multiple />
+                <span class="helper-text" id="notesPdfHint">Paste PDF URLs above or attach PDF files to embed them in quiz JSON.</span>
+              </div>
+              <button class="btn secondary" id="notesBtn" type="button">Notes: N/A</button>
+              <div id="notesPreview" class="helper-text">n/a</div>
+
+              <label for="questionImage">5) Image URL</label>
+              <input type="text" id="questionImage" placeholder="https://example.com/image.png" />
+              <div class="image-tools">
+                <button class="btn secondary small" id="attachImageBtn" type="button">Attach Question Image</button>
+                <input type="file" id="imageFileInput" accept="image/*" class="hidden" />
+                <span class="helper-text" id="imageAttachHint">Attach image for the selected question, or paste a URL above.</span>
+              </div>
+              <img id="questionImagePreview" class="question-image-preview hidden" alt="Question image preview" />
+            </section>
+
+            <div class="editor-divider" role="separator" aria-hidden="true"></div>
+
+            <section class="editor-subpanel" aria-label="Solution configuration">
+              <div class="solution-panel-head">
+                <h3>Solutions</h3>
+                <button class="btn secondary small" id="toggleSolutionPanelBtn" type="button" aria-expanded="true">Collapse</button>
+              </div>
+
+              <div id="solutionPanelBody">
+                <label for="solutionText">6) Solution</label>
+                <textarea id="solutionText" rows="3" placeholder="Explain the solution"></textarea>
+
+                <label for="solutionAttachmentsInput">7) Solution Attachments (one per line)</label>
+                <textarea id="solutionAttachmentsInput" rows="3" placeholder="https://example.com/solution.pdf"></textarea>
+                <div class="image-tools">
+                  <button class="btn secondary small" id="attachSolutionFileBtn" type="button">Attach Solution File</button>
+                  <input type="file" id="solutionFileInput" class="hidden" multiple />
+                  <span class="helper-text" id="solutionAttachHint">Add links above, or attach local files to embed them in the quiz JSON.</span>
+                </div>
+                <button class="btn secondary" id="solutionAssetsBtn" type="button">Solution Files: N/A</button>
+                <div id="solutionAttachmentsPreview" class="helper-text">n/a</div>
+              </div>
+            </section>
+
+            <div class="editor-divider" role="separator" aria-hidden="true"></div>
+
+            <section class="editor-subpanel" aria-label="Interactive app configuration">
+              <div class="solution-panel-head">
+                <h3>Interactive App</h3>
+                <button class="btn secondary small" id="toggleInteractiveAppPanelBtn" type="button" aria-expanded="true">Collapse</button>
+              </div>
+              <div id="interactiveAppPanelBody">
+                <label for="interactiveAppType">8) App Template</label>
+                <select id="interactiveAppType">
+                  <option value="">None</option>
+                  <option value="time">Time</option>
+                  <option value="number-tracing">Number Tracing</option>
+                  <option value="number-ordering">Number Ordering</option>
+                  <option value="icon-count">Icon Count</option>
+                  <option value="calendar-sequence">Calendar Sequence</option>
+                  <option value="arithmetic">Arithmetic</option>
+                  <option value="number-line">Number Line</option>
+                  <option value="cartesian-plane">Cartesian Plane</option>
+                  <option value="cartesian-plane-plot">Cartesian Plane - Plot</option>
+                  <option value="bar-chart">Bar Chart</option>
+                  <option value="histogram">Histogram</option>
+                  <option value="box-plot">Box Plot</option>
+                  <option value="scatter-plot">Scatter Plot</option>
+                  <option value="probability-tree">Probability Tree</option>
+                  <option value="distribution-curve">Distribution Curve</option>
+                  <option value="fractions">Fractions</option>
+                  <option value="network-graph">Network Graph</option>
+                  <option value="matrix">Matrices</option>
+                  <option value="stem-and-leaf">Stem-and-Leaf Plot</option>
+                  <option value="geometry-shapes">Geometry Shapes</option>
+                  <option value="pythagoras">Pythagoras Triangle</option>
+                  <option value="trigonometry">Trigonometry Triangle</option>
+                </select>
+
+                <div id="numberLineConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="nlMin">Min</label>
+                      <input type="number" id="nlMin" value="-10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="nlMax">Max</label>
+                      <input type="number" id="nlMax" value="10" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <label for="nlPoints">Marked Points (one per line: value, label, color)</label>
+                  <textarea id="nlPoints" rows="3" placeholder="-3, Start, #2563eb&#10;5, End, #dc2626"></textarea>
+                  <label for="nlArrows">Arrows (one per line: from → to, label)</label>
+                  <textarea id="nlArrows" rows="3" placeholder="-3 → 5, +8"></textarea>
+                </div>
+
+                <div id="arithmeticConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="arithLayout">Layout</label>
+                      <select id="arithLayout" class="nl-range-input">
+                        <option value="horizontal">Horizontal</option>
+                        <option value="vertical">Vertical</option>
+                        <option value="long">Long Division</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="arithOperator">Operator</label>
+                      <select id="arithOperator" class="nl-range-input">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="x">x</option>
+                        <option value="/">/</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="arithOperandA">Operand A</label>
+                      <input type="number" id="arithOperandA" class="nl-range-input" value="7" />
+                    </div>
+                    <div>
+                      <label for="arithOperandB">Operand B</label>
+                      <input type="number" id="arithOperandB" class="nl-range-input" value="5" />
+                    </div>
+                  </div>
+                  <label for="arithAnswer">Answer (optional override)</label>
+                  <input type="text" id="arithAnswer" class="nl-range-input" placeholder="Auto-computed if blank" />
+                </div>
+
+                <div id="numberTracingConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="ntTargetNumber">Target Number</label>
+                      <input type="number" id="ntTargetNumber" class="nl-range-input" min="0" max="100" value="5" />
+                    </div>
+                  </div>
+                  <label for="ntPrompt">Prompt</label>
+                  <input type="text" id="ntPrompt" class="nl-range-input" value="Tap the matching number, then trace it." />
+                  <div class="nl-range-row">
+                    <label><input type="checkbox" id="ntPrepMode" checked /> Prep mode (recognition-first)</label>
+                    <label><input type="checkbox" id="ntShowQuantityDots" checked /> Show quantity dots (0-20)</label>
+                  </div>
+                </div>
+
+                <div id="numberOrderingConfig" class="hidden">
+                  <label for="noPrompt">Prompt</label>
+                  <input type="text" id="noPrompt" class="nl-range-input" value="Order the number cards from smallest to largest." />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="noDirection">Direction</label>
+                      <select id="noDirection" class="nl-range-input">
+                        <option value="ascending">Ascending</option>
+                        <option value="descending">Descending</option>
+                      </select>
+                    </div>
+                  </div>
+                  <label for="noCards">Cards (comma separated)</label>
+                  <input type="text" id="noCards" class="nl-range-input" value="7, 3, 9, 5" placeholder="Example: 7, 3, 9, 5" />
+                  <label for="noCorrectOrder">Correct Order (comma separated)</label>
+                  <input type="text" id="noCorrectOrder" class="nl-range-input" value="3, 5, 7, 9" placeholder="Example: 3, 5, 7, 9" />
+                </div>
+
+                <div id="iconCountConfig" class="hidden">
+                  <label for="icPrompt">Prompt</label>
+                  <input type="text" id="icPrompt" class="nl-range-input" value="How many icons are shown in total?" />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="icTotalCount">Total Icons (0-20)</label>
+                      <input type="number" id="icTotalCount" class="nl-range-input" min="0" max="20" value="8" />
+                    </div>
+                    <div>
+                      <label for="icIconShape">Icon Shape</label>
+                      <select id="icIconShape" class="nl-range-input">
+                        <option value="circle">Circle</option>
+                        <option value="star">Star</option>
+                        <option value="apple">Apple</option>
+                      </select>
+                    </div>
+                  </div>
+                  <label for="icGroups">Group sizes (comma separated)</label>
+                  <input type="text" id="icGroups" class="nl-range-input" value="3, 2, 3" placeholder="Example: 3, 2, 3" />
+                </div>
+
+                <div id="calendarSequenceConfig" class="hidden">
+                  <label for="csPrompt">Prompt</label>
+                  <input type="text" id="csPrompt" class="nl-range-input" value="If today is Tuesday, what is the next day?" />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="csMode">Mode</label>
+                      <select id="csMode" class="nl-range-input">
+                        <option value="days">Days</option>
+                        <option value="months">Months</option>
+                        <option value="dates">Dates</option>
+                        <option value="years">Years</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="csCurrent">Current Item</label>
+                      <input type="text" id="csCurrent" class="nl-range-input" value="Tuesday" />
+                    </div>
+                    <div>
+                      <label for="csStep">Step</label>
+                      <input type="number" id="csStep" class="nl-range-input" min="1" max="10" value="1" />
+                    </div>
+                  </div>
+                  <label for="csValues">Sequence Values (comma separated)</label>
+                  <input type="text" id="csValues" class="nl-range-input" value="Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" />
+                </div>
+
+                <div id="timeConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="timeMode">Mode</label>
+                      <select id="timeMode" class="nl-range-input">
+                        <option value="digital">Digital</option>
+                        <option value="analog">Analog</option>
+                        <option value="analog-to-digital">Analog to Digital</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="timeFocus">Clock Focus</label>
+                      <select id="timeFocus" class="nl-range-input">
+                        <option value="exact-time">Exact time (hour + minute)</option>
+                        <option value="hour-only">By hour only (o'clock)</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="timeDigitalChallenge">Digital Practice</label>
+                      <select id="timeDigitalChallenge" class="nl-range-input">
+                        <option value="words-to-12h">Words to 12-hour</option>
+                        <option value="12h-to-24h">12-hour to 24-hour</option>
+                        <option value="24h-to-12h">24-hour to 12-hour</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="timePeriod">Period</label>
+                      <select id="timePeriod" class="nl-range-input">
+                        <option value="">Not set</option>
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="timeHour">Hour (1-12)</label>
+                      <input type="number" id="timeHour" class="nl-range-input" min="1" max="12" value="3" />
+                    </div>
+                    <div>
+                      <label for="timeMinute">Minute (0-59)</label>
+                      <input type="number" id="timeMinute" class="nl-range-input" min="0" max="59" value="15" />
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <label><input type="checkbox" id="timeAllowCustomAnswer" /> Use custom answer/options (do not auto-overwrite)</label>
+                  </div>
+                </div>
+
+                <div id="cartesianPlaneConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="cpXMin">X Min</label>
+                      <input type="number" id="cpXMin" value="-10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="cpXMax">X Max</label>
+                      <input type="number" id="cpXMax" value="10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="cpYMin">Y Min</label>
+                      <input type="number" id="cpYMin" value="-10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="cpYMax">Y Max</label>
+                      <input type="number" id="cpYMax" value="10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="cpAngleMode">Trig Angle Mode</label>
+                      <select id="cpAngleMode" class="nl-range-input">
+                        <option value="radians">Radians</option>
+                        <option value="degrees">Degrees</option>
+                      </select>
+                    </div>
+                  </div>
+                  <label for="cpPoints">Points (one per line: x, y, label, color)</label>
+                  <textarea id="cpPoints" rows="3" placeholder="3, -2, A, #2563eb&#10;-4, 5, B, #dc2626"></textarea>
+                  <label for="cpSegments">Segments (one per line: x1, y1 -> x2, y2, label, color)</label>
+                  <textarea id="cpSegments" rows="3" placeholder="0, 0 -> 4, 3, hypotenuse, #f59e0b"></textarea>
+                  <label for="cpParabolas">Parabolas (one per line: a, b, c, label, color)</label>
+                  <textarea id="cpParabolas" rows="3" placeholder="1, 0, 0, y = x^2, #7c3aed&#10;-0.5, 2, 1, y = -0.5x^2 + 2x + 1, #0f766e"></textarea>
+                  <label for="cpFunctions">Functions (one per line: expression, label, color)</label>
+                  <textarea id="cpFunctions" rows="3" placeholder="sin(x), y = sin(x), #0f766e&#10;x^3 - 2*x, y = x^3 - 2x, #0891b2"></textarea>
+                  <p class="helper-text">Supports x, + - * / ^, parentheses, and functions: sin, cos, tan, sqrt, abs, log, exp, min, max.</p>
+                </div>
+
+                <div id="cartesianPlotConfig" class="hidden">
+                  <p class="helper-text">Configure the grid and the <strong>answer points</strong> the student must plot.</p>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="cppXMin">X Min</label>
+                      <input type="number" id="cppXMin" value="-10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="cppXMax">X Max</label>
+                      <input type="number" id="cppXMax" value="10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="cppYMin">Y Min</label>
+                      <input type="number" id="cppYMin" value="-10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="cppYMax">Y Max</label>
+                      <input type="number" id="cppYMax" value="10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="cppTolerance">Tolerance</label>
+                      <input type="number" id="cppTolerance" value="0.5" min="0" step="0.5" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <label for="cppPoints">Answer Points (one per line: x, y, label)</label>
+                  <textarea id="cppPoints" rows="4" placeholder="3, 4, A&#10;-2, 1, B&#10;0, -3, C"></textarea>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="cppVceTemplate">VCE Template</label>
+                      <select id="cppVceTemplate" class="nl-range-input">
+                        <option value="">Custom</option>
+                        <option value="general-linear-intercepts">General Mathematics: Linear Intercepts</option>
+                        <option value="general-quadratic-turning-point">General Mathematics: Quadratic Turning Point</option>
+                        <option value="methods-transformed-parabola">Mathematical Methods: Transformed Parabola</option>
+                        <option value="methods-cubic-intercepts">Mathematical Methods: Cubic Intercepts/Shape</option>
+                        <option value="specialist-exponential-growth">Specialist Mathematics: Exponential Growth</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="cppPresetType">Preset Type</label>
+                      <select id="cppPresetType" class="nl-range-input">
+                        <option value="linear">Linear</option>
+                        <option value="quadratic">Quadratic (Parabola)</option>
+                        <option value="cubic">Cubic</option>
+                        <option value="exponential">Exponential</option>
+                      </select>
+                    </div>
+                    <div style="min-width:220px; flex:1">
+                      <label for="cppPresetExpression">Expression y = f(x)</label>
+                      <input type="text" id="cppPresetExpression" value="2*x + 1" class="nl-range-input" />
+                    </div>
+                    <div style="min-width:180px; flex:1">
+                      <label for="cppPresetXValues">Sample x values</label>
+                      <input type="text" id="cppPresetXValues" value="-2, -1, 0, 1, 2" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <button type="button" id="cppApplyTemplateBtn">Apply VCE Template</button>
+                  <button type="button" id="cppGeneratePointsBtn">Generate Key Points</button>
+                  <p class="helper-text">The student clicks the grid to place these points. Use integer coordinates. Tolerance is the max distance (in grid units) allowed per point.</p>
+                </div>
+
+                <div id="stemLeafConfig" class="hidden">
+                  <label for="slValues">Values (comma, space, or new line separated)</label>
+                  <textarea id="slValues" rows="4" placeholder="12, 13, 17, 21, 25, 29, 32"></textarea>
+                  <label for="slStemUnit">Stem Unit</label>
+                  <input type="number" id="slStemUnit" value="10" min="1" step="1" class="nl-range-input" />
+                </div>
+
+                <div id="barChartConfig" class="hidden">
+                  <label for="bcTitle">Chart Title</label>
+                  <input type="text" id="bcTitle" placeholder="Category Frequencies" class="nl-range-input" />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="bcYMax">Y Max (optional)</label>
+                      <input type="number" id="bcYMax" min="1" step="1" placeholder="Auto" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="bcOrientation">Orientation</label>
+                      <select id="bcOrientation" class="nl-range-input">
+                        <option value="vertical">Vertical</option>
+                        <option value="horizontal">Horizontal</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="bcCategoryAxisLabel">Category Axis Label</label>
+                      <input type="text" id="bcCategoryAxisLabel" value="Category" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="bcValueAxisLabel">Value Axis Label</label>
+                      <input type="text" id="bcValueAxisLabel" value="Value" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <label for="bcItems">Bars (one per line: category, frequency, color)</label>
+                  <textarea id="bcItems" rows="4" placeholder="Cats, 8, #2563eb&#10;Dogs, 12, #16a34a&#10;Birds, 5, #f59e0b"></textarea>
+                  <p class="helper-text">Frequency should be a non-negative number.</p>
+                </div>
+
+                <div id="histogramConfig" class="hidden">
+                  <label for="histTitle">Histogram Title</label>
+                  <input type="text" id="histTitle" placeholder="Continuous Data Distribution" class="nl-range-input" />
+                  <label for="histValues">Values (comma, space, or new line separated)</label>
+                  <textarea id="histValues" rows="4" placeholder="12, 13, 14, 16, 18, 22, 25, 27, 29, 33"></textarea>
+                  <label for="histBinCount">Bin Count</label>
+                  <input type="number" id="histBinCount" min="2" max="30" step="1" value="8" class="nl-range-input" />
+                </div>
+
+                <div id="boxPlotConfig" class="hidden">
+                  <label for="boxTitle">Box Plot Title</label>
+                  <input type="text" id="boxTitle" placeholder="Compare Datasets" class="nl-range-input" />
+                  <div class="box-dataset-count-group">
+                    <label for="boxDatasetCount">How Many Datasets</label>
+                    <input type="number" id="boxDatasetCount" min="1" max="8" step="1" value="2" class="nl-range-input" style="width:60px" />
+                  </div>
+                  <label for="boxDatasets">Datasets (one per line: label: values)</label>
+                  <textarea id="boxDatasets" rows="5" placeholder="A: 8, 9, 10, 12, 14, 17, 20&#10;B: 6, 8, 11, 12, 13, 14, 18"></textarea>
+                  <p class="helper-text">Example: C: 5, 7, 8, 9, 12</p>
+                </div>
+
+                <div id="scatterPlotConfig" class="hidden">
+                  <label for="scTitle">Scatter Plot Title</label>
+                  <input type="text" id="scTitle" placeholder="Correlation and Best Fit" class="nl-range-input" />
+                  <label for="scPoints">Points (one per line: x, y, label, color)</label>
+                  <textarea id="scPoints" rows="5" placeholder="1, 2, P1, #2563eb&#10;2, 3, P2, #2563eb&#10;3, 5, P3, #2563eb"></textarea>
+                </div>
+
+                <div id="probabilityTreeConfig" class="hidden">
+                  <label for="ptTitle">Probability Tree Title</label>
+                  <input type="text" id="ptTitle" placeholder="Sequential Probabilities" class="nl-range-input" />
+                  <label for="ptPaths">Paths (one per line: A&gt;B&gt;C, probability)</label>
+                  <textarea id="ptPaths" rows="5" placeholder="Rain&gt;Traffic, 0.3&#10;Rain&gt;NoTraffic, 0.1&#10;NoRain&gt;Traffic, 0.2&#10;NoRain&gt;NoTraffic, 0.4"></textarea>
+                  <label for="ptConditional">Conditional Query (optional: eventA|eventB)</label>
+                  <input type="text" id="ptConditional" placeholder="Traffic|Rain" class="nl-range-input" />
+                </div>
+
+                <div id="distributionCurveConfig" class="hidden">
+                  <label for="dcTitle">Distribution Curve Title</label>
+                  <input type="text" id="dcTitle" placeholder="Normal Distribution" class="nl-range-input" />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="dcMean">Mean</label>
+                      <input type="number" id="dcMean" value="0" step="0.1" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="dcStdDev">Std Dev</label>
+                      <input type="number" id="dcStdDev" value="1" min="0.01" step="0.1" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="dcFrom">Area From</label>
+                      <input type="number" id="dcFrom" value="-1" step="0.1" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="dcTo">Area To</label>
+                      <input type="number" id="dcTo" value="1" step="0.1" class="nl-range-input" />
+                    </div>
+                  </div>
+                </div>
+
+                <div id="networkGraphConfig" class="hidden">
+                  <label for="ngTitle">Network Graph Title</label>
+                  <input type="text" id="ngTitle" placeholder="Shortest Path, MST, Flow" class="nl-range-input" />
+                  <label for="ngNodes">Nodes (comma separated)</label>
+                  <input type="text" id="ngNodes" placeholder="A, B, C, D, E" class="nl-range-input" />
+                  <label for="ngEdges">Edges (one per line: from, to, weight, capacity)</label>
+                  <textarea id="ngEdges" rows="5" placeholder="A, B, 4, 8&#10;A, C, 2, 5&#10;B, D, 3, 6&#10;C, D, 1, 4&#10;D, E, 2, 7"></textarea>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="ngSource">Shortest Path Source</label>
+                      <input type="text" id="ngSource" value="A" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="ngTarget">Shortest Path Target</label>
+                      <input type="text" id="ngTarget" value="E" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="ngFlowSource">Flow Source</label>
+                      <input type="text" id="ngFlowSource" value="A" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="ngFlowSink">Flow Sink</label>
+                      <input type="text" id="ngFlowSink" value="E" class="nl-range-input" />
+                    </div>
+                  </div>
+                </div>
+
+                <div id="fractionsConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="fxOperation">Operation</label>
+                      <select id="fxOperation" class="nl-range-input">
+                        <option value="add">Addition (+)</option>
+                        <option value="subtract">Subtraction (-)</option>
+                        <option value="multiply">Multiplication (×)</option>
+                        <option value="divide">Division (÷)</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="fxNumeratorA">Fraction A Numerator</label>
+                      <input type="number" id="fxNumeratorA" value="1" step="1" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="fxDenominatorA">Fraction A Denominator</label>
+                      <input type="number" id="fxDenominatorA" value="2" step="1" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="fxNumeratorB">Fraction B Numerator</label>
+                      <input type="number" id="fxNumeratorB" value="1" step="1" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="fxDenominatorB">Fraction B Denominator</label>
+                      <input type="number" id="fxDenominatorB" value="3" step="1" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <p class="helper-text">Denominators must be non-zero. Division also requires Fraction B numerator to be non-zero.</p>
+                </div>
+
+                <div id="matrixConfig" class="hidden">
+                  <label for="mxTitle">Matrix Title</label>
+                  <input type="text" id="mxTitle" placeholder="Matrix Operations" class="nl-range-input" />
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="mxOperation">Operation</label>
+                      <select id="mxOperation" class="nl-range-input">
+                        <option value="add">A + B</option>
+                        <option value="subtract">A - B</option>
+                        <option value="multiply">A × B</option>
+                        <option value="determinant">det(A)</option>
+                        <option value="transpose">Aᵀ</option>
+                      </select>
+                    </div>
+                  </div>
+                  <label for="mxMatrixA">Matrix A (rows on new lines, values comma/space separated)</label>
+                  <textarea id="mxMatrixA" rows="4" placeholder="1, 2, 3&#10;4, 5, 6"></textarea>
+                  <label for="mxMatrixB">Matrix B (used for add/subtract/multiply)</label>
+                  <textarea id="mxMatrixB" rows="4" placeholder="7, 8&#10;9, 10&#10;11, 12"></textarea>
+                  <p class="helper-text">Use consistent row lengths. For add/subtract, A and B must match dimensions. For multiply, columns in A must equal rows in B.</p>
+                </div>
+
+                <div id="geometryShapesConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="geoCanvasWidth">Canvas Width</label>
+                      <input type="number" id="geoCanvasWidth" value="360" min="220" max="760" step="10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="geoCanvasHeight">Canvas Height</label>
+                      <input type="number" id="geoCanvasHeight" value="260" min="180" max="520" step="10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="geoUnit">Unit</label>
+                      <select id="geoUnit" class="nl-range-input">
+                        <option value="unit">No unit</option>
+                        <option value="cm">cm</option>
+                        <option value="m">m</option>
+                        <option value="in">in</option>
+                        <option value="ft">ft</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="geoFormulaNotation">Formula Display</label>
+                      <select id="geoFormulaNotation" class="nl-range-input">
+                        <option value="plain">Plain</option>
+                        <option value="math">Math style</option>
+                      </select>
+                    </div>
+                  </div>
+                  <label for="geoShapesInput">Shapes (type, x, y, w, h, d, label, color, fill)</label>
+                  <textarea id="geoShapesInput" rows="5" placeholder="rectangle, 90, 80, 90, 60, 0, Rect A, #2563eb, #dbeafe&#10;circle, 240, 80, 35, 35, 0, Circle B, #16a34a, #dcfce7&#10;cube, 170, 190, 70, 70, 70, Cube C, #dc2626, #fee2e2"></textarea>
+                  <p class="helper-text">Types: rectangle, square, circle, triangle, cube, cuboid, sphere, cylinder. Use d for depth/height in 3D formulas (set 0 for 2D).</p>
+                </div>
+
+                <div id="pythagorasConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="pySideA">Side a</label>
+                      <input type="text" id="pySideA" placeholder="3" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="pySideB">Side b</label>
+                      <input type="text" id="pySideB" placeholder="4" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="pySideC">Side c</label>
+                      <input type="text" id="pySideC" placeholder="5 or ?" class="nl-range-input" />
+                    </div>
+                  </div>
+                  <label for="pyCaption">Caption</label>
+                  <input type="text" id="pyCaption" placeholder="Use a² + b² = c²" class="nl-range-input" />
+                </div>
+
+                <div id="trigonometryConfig" class="hidden">
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="trigAngleDeg">Angle (degrees)</label>
+                      <input type="number" id="trigAngleDeg" value="35" step="1" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="trigFunction">Focus Function</label>
+                      <select id="trigFunction" class="nl-range-input">
+                        <option value="sin">sin</option>
+                        <option value="cos">cos</option>
+                        <option value="tan">tan</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="nl-range-row">
+                    <div>
+                      <label for="trigOpposite">Opposite</label>
+                      <input type="text" id="trigOpposite" placeholder="7" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="trigAdjacent">Adjacent</label>
+                      <input type="text" id="trigAdjacent" placeholder="10" class="nl-range-input" />
+                    </div>
+                    <div>
+                      <label for="trigHypotenuse">Hypotenuse</label>
+                      <input type="text" id="trigHypotenuse" placeholder="12.2" class="nl-range-input" />
+                    </div>
+                  </div>
+                </div>
+
+                <button class="btn secondary small" id="previewInteractiveAppBtn" type="button">Update Preview</button>
+
+                <div id="interactiveAppPreview" class="interactive-app-preview"></div>
+              </div>
+            </section>
+
+            <button class="btn" id="saveQuestionBtn" type="button">Save Question Changes</button>
+            <p class="helper-text">This confirms question edits in Maker. Use Save Selected Quiz to write JSON to file.</p>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <h2>Generated JSON</h2>
+        <textarea id="generatedJson" rows="12" readonly></textarea>
+        <p class="helper-text">Output now contains only the selected quiz. Save each quiz as its own JSON file.</p>
+      </section>
+
+      <section class="section-card">
+        <h2>Quiz Iframe Code</h2>
+        <label for="embedFormatSelect">Output Format</label>
+        <select id="embedFormatSelect">
+          <option value="link" selected>Link</option>
+          <option value="iframe">Iframe</option>
+        </select>
+        <textarea id="iframeCodeOutput" rows="4" readonly placeholder="Select a quiz to generate either a direct link or iframe code."></textarea>
+      </section>
+    </div>
+  </div>
+
+  <div id="importModal" class="viewer-modal hidden" aria-hidden="true">
+    <div class="viewer-modal-backdrop" data-close-import-modal="true"></div>
+    <div class="viewer-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="importModalTitle" style="max-width:min(1200px,96vw); width:96vw;">
+      <div class="viewer-modal-header">
+        <h2 id="importModalTitle">Spreadsheet Import</h2>
+        <div class="viewer-modal-header-actions">
+          <button class="btn secondary small" id="toggleImportFullscreenBtn" type="button" aria-label="Toggle fullscreen import view" aria-pressed="false">Full Screen</button>
+          <button class="icon-btn" id="closeImportModalBtn" type="button" aria-label="Close import dialog">x</button>
+        </div>
+      </div>
+      <div class="viewer-modal-body result-validation-modal-body">
+        <div class="panel-head" style="margin-bottom:8px;">
+          <h2 style="margin:0;">Import Preview</h2>
+          <div class="panel-head-actions">
+            <button class="btn secondary" id="selectImportFileBtn" type="button">Choose Spreadsheet</button>
+            <button class="btn secondary" id="exportValidationBtn" type="button" disabled>Export Validation CSV</button>
+            <button class="btn secondary" id="openImportReportBtn" type="button" disabled>View Auto-Fix Report</button>
+            <button class="btn" id="applyImportBtn" type="button">Apply Import</button>
+            <button class="btn secondary" id="clearImportPreviewBtn" type="button">Clear Preview</button>
+          </div>
+        </div>
+        <p class="helper-text">Choose file, review preview and validation, then click Apply Import.</p>
+        <p class="helper-text" id="importPreviewMeta">No spreadsheet loaded.</p>
+        <div id="importPreviewTableContainer" style="overflow:auto; border:1px solid #dbe3ee; border-radius:10px; background:#fff; max-height:360px;">
+          <table id="importPreviewTable" style="width:100%; border-collapse:collapse; min-width:900px;">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Grade</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Module</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Lesson Part</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Lesson Name</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Category</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Subcategory</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Q No</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Question Type</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Question</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Options</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Compute</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Learning Outcome</th>
+              </tr>
+            </thead>
+            <tbody id="importPreviewBody">
+              <tr><td colspan="12" style="padding:8px;">No rows loaded.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="importValidationCard" style="margin-top:10px; border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:10px;">
+          <h3 style="margin:0 0 6px 0; font-size:1rem;">Validation</h3>
+          <p class="helper-text" id="importValidationMeta">No validation run yet.</p>
+          <div id="importValidationTableContainer" style="overflow:auto; border:1px solid #eef2f8; border-radius:8px; max-height:220px;">
+            <table style="width:100%; border-collapse:collapse; min-width:720px;">
+              <thead>
+                <tr>
+                  <th style="text-align:left; padding:8px; border-bottom:1px solid #e7edf6;">Level</th>
+                  <th style="text-align:left; padding:8px; border-bottom:1px solid #e7edf6;">Grade</th>
+                  <th style="text-align:left; padding:8px; border-bottom:1px solid #e7edf6;">Lesson Part</th>
+                  <th style="text-align:left; padding:8px; border-bottom:1px solid #e7edf6;">Q No</th>
+                  <th style="text-align:left; padding:8px; border-bottom:1px solid #e7edf6;">Issue</th>
+                </tr>
+              </thead>
+              <tbody id="importValidationBody">
+                <tr><td colspan="5" style="padding:8px;">No issues detected.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="importReportModal" class="viewer-modal hidden" aria-hidden="true">
+    <div class="viewer-modal-backdrop" data-close-import-report-modal="true"></div>
+    <div class="viewer-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="importReportModalTitle" style="max-width:min(1260px,96vw); width:96vw;">
+      <div class="viewer-modal-header">
+        <h2 id="importReportModalTitle">Import Auto-Fix Report</h2>
+        <div class="viewer-modal-header-actions">
+          <button class="btn secondary small" id="exportAutoFixReportBtn" type="button" disabled>Export CSV</button>
+          <button class="icon-btn" id="closeImportReportModalBtn" type="button" aria-label="Close import report">x</button>
+        </div>
+      </div>
+      <div class="viewer-modal-body result-validation-modal-body">
+        <p class="helper-text" id="importReportMeta">No import report available yet.</p>
+        <div id="importReportTableContainer" style="overflow:auto; border:1px solid #dbe3ee; border-radius:10px; background:#fff; max-height:520px;">
+          <table style="width:100%; border-collapse:collapse; min-width:980px;">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Status</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Category</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Lesson Part</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Q No</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Question</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Before</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">After</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Changed Fields</th>
+              </tr>
+            </thead>
+            <tbody id="importReportBody">
+              <tr><td colspan="8" style="padding:8px;">No report rows available.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="quizAutoFixReportModal" class="viewer-modal hidden" aria-hidden="true">
+    <div class="viewer-modal-backdrop" data-close-quiz-autofix-report-modal="true"></div>
+    <div class="viewer-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="quizAutoFixReportModalTitle" style="max-width:min(1260px,96vw); width:96vw;">
+      <div class="viewer-modal-header">
+        <h2 id="quizAutoFixReportModalTitle">Quiz Auto-Fix Report</h2>
+        <div class="viewer-modal-header-actions">
+          <button class="btn secondary small" id="exportQuizAutoFixReportBtn" type="button" disabled>Export CSV</button>
+          <button class="icon-btn" id="closeQuizAutoFixReportModalBtn" type="button" aria-label="Close quiz auto-fix report">x</button>
+        </div>
+      </div>
+      <div class="viewer-modal-body result-validation-modal-body">
+        <p class="helper-text" id="quizAutoFixReportMeta">No auto-fix report available yet.</p>
+        <div id="quizAutoFixReportTableContainer" style="overflow:auto; border:1px solid #dbe3ee; border-radius:10px; background:#fff; max-height:520px;">
+          <table style="width:100%; border-collapse:collapse; min-width:1120px;">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Status</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Q No</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Question</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Before Issues</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">After Issues</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">From</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">To</th>
+              </tr>
+            </thead>
+            <tbody id="quizAutoFixReportBody">
+              <tr><td colspan="7" style="padding:8px;">No report rows available.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="quizSettingsModal" class="viewer-modal hidden" aria-hidden="true">
+    <div class="viewer-modal-backdrop" data-close-quiz-settings="true"></div>
+    <div class="viewer-modal-dialog quiz-settings-dialog" role="dialog" aria-modal="true" aria-labelledby="quizSettingsModalTitle">
+      <div class="viewer-modal-header">
+        <h2 id="quizSettingsModalTitle">Quiz Settings</h2>
+        <button class="icon-btn" id="closeQuizSettingsBtn" type="button" aria-label="Close quiz settings">x</button>
+      </div>
+      <div class="viewer-modal-body result-validation-modal-body">
+        <div class="quiz-settings-form">
+          <label for="quizSettingsTitle">Quiz Name</label>
+          <input id="quizSettingsTitle" type="text" placeholder="Quiz title" />
+
+          <label for="quizSettingsDescription">Description</label>
+          <textarea id="quizSettingsDescription" rows="3" placeholder="Optional description shown in viewer"></textarea>
+
+          <label for="quizSettingsOrder">Question Order</label>
+          <select id="quizSettingsOrder">
+            <option value="ordered">Ordered</option>
+            <option value="random">Random</option>
+          </select>
+
+          <label for="quizSettingsLimit">Question Limit (max shown)</label>
+          <input id="quizSettingsLimit" type="number" min="1" step="1" placeholder="No limit" />
+          <p class="helper-text">Example: limit 10 means show at most 10 questions from this quiz.</p>
+        </div>
+      </div>
+      <div class="quiz-settings-actions">
+        <button class="btn secondary" id="cancelQuizSettingsBtn" type="button">Cancel</button>
+        <button class="btn" id="saveQuizSettingsBtn" type="button">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="resultValidationModal" class="viewer-modal hidden" aria-hidden="true">
+    <div class="viewer-modal-backdrop" data-close-result-validation-modal="true"></div>
+    <div class="viewer-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="resultValidationModalTitle" style="max-width:min(1260px,96vw); width:96vw;">
+      <div class="viewer-modal-header">
+        <h2 id="resultValidationModalTitle">Module Result Validation</h2>
+        <div class="viewer-modal-header-actions">
+          <button class="btn secondary small" id="toggleResultValidationFullscreenBtn" type="button" aria-label="Toggle fullscreen validation view">Full Screen</button>
+          <button class="icon-btn" id="closeResultValidationModalBtn" type="button" aria-label="Close result validation dialog">x</button>
+        </div>
+      </div>
+      <div class="viewer-modal-body">
+        <div class="panel-head" style="margin-bottom:8px;">
+          <h2 style="margin:0;">Question / Answer / Solution Check</h2>
+          <div class="panel-head-actions">
+            <label for="resultValidationStatusFilter" style="font-size:0.9rem; color:#334155;">Filter</label>
+            <select id="resultValidationStatusFilter" style="min-width:120px;">
+              <option value="all" selected>All</option>
+              <option value="red">Red Only</option>
+              <option value="green">Green Only</option>
+            </select>
+            <button class="btn secondary" id="downloadImportTemplateBtn" type="button">Download Import Template</button>
+            <button class="btn secondary" id="runResultValidationBtn" type="button">Run Validation</button>
+            <button class="btn secondary" id="runStrictResultValidationBtn" type="button">Strict Validation</button>
+            <button class="btn secondary" id="runAiResultValidationBtn" type="button">AI Detect (Heuristic)</button>
+            <button class="btn" id="applyBulkResultValidationFixBtn" type="button" disabled>Bulk Update Red</button>
+            <button class="btn secondary" id="exportResultValidationBtn" type="button" disabled>Export Validation CSV</button>
+          </div>
+        </div>
+        <p class="helper-text" id="resultValidationMeta">Select a quiz/module and run validation.</p>
+        <div id="resultValidationSummary" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:8px; margin:8px 0 10px 0;">
+          <button id="summaryCardMissingSolutions" data-summary-filter="missing-solutions" type="button" style="text-align:left; border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:8px; cursor:pointer;">
+            <p class="helper-text" style="margin:0;">Missing Solutions</p>
+            <p id="summaryMissingSolutions" style="margin:4px 0 0 0; font-size:1.1rem; font-weight:700;">0</p>
+          </button>
+          <button id="summaryCardAnswerMismatches" data-summary-filter="answer-mismatches" type="button" style="text-align:left; border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:8px; cursor:pointer;">
+            <p class="helper-text" style="margin:0;">Answer Mismatches</p>
+            <p id="summaryAnswerMismatches" style="margin:4px 0 0 0; font-size:1.1rem; font-weight:700;">0</p>
+          </button>
+          <button id="summaryCardOptionTypeIssues" data-summary-filter="option-type-issues" type="button" style="text-align:left; border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:8px; cursor:pointer;">
+            <p class="helper-text" style="margin:0;">Option/Type Issues</p>
+            <p id="summaryOptionTypeIssues" style="margin:4px 0 0 0; font-size:1.1rem; font-weight:700;">0</p>
+          </button>
+          <button id="summaryCardInteractiveIssues" data-summary-filter="interactive-issues" type="button" style="text-align:left; border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:8px; cursor:pointer;">
+            <p class="helper-text" style="margin:0;">Interactive Config Issues</p>
+            <p id="summaryInteractiveIssues" style="margin:4px 0 0 0; font-size:1.1rem; font-weight:700;">0</p>
+          </button>
+        </div>
+        <div id="resultValidationTableContainer" tabindex="0" data-normal-max-height="520px" style="overflow:auto; border:1px solid #dbe3ee; border-radius:10px; background:#fff; max-height:520px;">
+          <table id="resultValidationTable" style="width:100%; border-collapse:collapse; min-width:1320px;">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Q No</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Question</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Result Type</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Module Type</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Viewer Compatibility</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Category (Imported)</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Subcategory (Imported)</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Category (Auto)</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Subcategory (Auto)</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Correct Answer</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Computed Answer</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Solution</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Issues</th>
+              </tr>
+            </thead>
+            <tbody id="resultValidationBody">
+              <tr><td colspan="13" style="padding:8px; border:1px solid #e5edf8;">No validation run yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="helper-text" id="resultValidationTip">Tip: click any row to preview details. Red rows include proposed fixes you can apply.</p>
+        <div id="resultValidationDetailGrid" style="margin-top:10px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div id="resultValidationPreviewPane" style="border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:10px;">
+            <h3 style="margin:0 0 6px 0; font-size:1rem;">Question Preview</h3>
+            <p class="helper-text" id="resultValidationPreviewMeta">Select a row to preview the question.</p>
+            <div id="resultValidationPreviewCard" style="font-size:0.95rem; line-height:1.45;"></div>
+          </div>
+          <div id="resultValidationFixPane" style="border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:10px;">
+            <h3 style="margin:0 0 6px 0; font-size:1rem;">Proposed Update</h3>
+            <p class="helper-text" id="resultValidationFixMeta">No fix proposal yet.</p>
+            <div id="resultValidationFixList" style="font-size:0.95rem; line-height:1.45; margin-bottom:10px;"></div>
+            <button class="btn" id="applyResultValidationFixBtn" type="button" disabled>Yes, Apply Proposed Update</button>
+            <button class="btn secondary" id="saveResultValidationQuestionBtn" type="button" disabled style="margin-top:8px;">Save Question Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="maker.js"></script>
+</body>
+</html>

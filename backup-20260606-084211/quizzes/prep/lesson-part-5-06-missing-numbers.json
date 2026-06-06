@@ -1,0 +1,405 @@
+{
+  "id": "quiz-50",
+  "title": "Prep 5.06",
+  "description": "Learning Outcomes for Prep: Find missing number | Apply subtraction | Consolidate subtraction skills",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "2 − __ = 1",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Subtrahend",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 − __ = 2",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Subtrahend",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 − __ = 3",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Subtrahend",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 − __ = 4",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Subtrahend",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 − __ = 3",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Subtrahend",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 − 1 = __",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "-1",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Result",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is -1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 − 2 = __",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Result",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 − 2 = __",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "-1",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Result",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is -1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 − 3 = __",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Result",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 − 3 = __",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Result",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "__ − 1 = 2",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Starting Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "__ − 2 = 2",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Starting Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "__ − 3 = 2",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Starting Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "__ − 2 = 3",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Starting Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "__ − 4 = 1",
+      "resultType": "short-answer",
+      "options": [
+        "5",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "-2",
+      "category": "Missing Numbers",
+      "subcategory": "Missing Starting Number",
+      "learningOutcome": "Find missing number",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is -2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Mia had 5 apples. She ate some apples and now has 3 left. How many apples did she eat?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Application",
+      "subcategory": "Real World Missing Number",
+      "learningOutcome": "Apply subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Mia had 5 apples. She ate some apples and now has 3 left. How many apples did she eat?",
+          "totalCount": 5,
+          "iconShape": "circle",
+          "groups": [
+            5
+          ]
+        }
+      }
+    },
+    {
+      "question": "Sam had 6 balloons. He lost some balloons and now has 4 left. How many balloons did he lose?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Application",
+      "subcategory": "Real World Missing Number",
+      "learningOutcome": "Apply subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sam had 6 balloons. He lost some balloons and now has 4 left. How many balloons did he lose?",
+          "totalCount": 6,
+          "iconShape": "circle",
+          "groups": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "question": "Ava had 7 stars. She gave away some stars and now has 5 left. How many stars did she give away?",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Application",
+      "subcategory": "Real World Missing Number",
+      "learningOutcome": "Apply subtraction",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Ava had 7 stars. She gave away some stars and now has 5 left. How many stars did she give away?",
+          "totalCount": 7,
+          "iconShape": "circle",
+          "groups": [
+            7
+          ]
+        }
+      }
+    },
+    {
+      "question": "__ − 5 = 3",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "1",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate subtraction skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 1.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "10 − __ = 6",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate subtraction skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "id": "quiz-55",
+  "title": "Prep 6.01",
+  "description": "Learning Outcomes for Prep: Recognise circles | Recognise squares | Recognise triangles | Recognise rectangles | Identify shapes | Match objects to shapes | Recognise shapes in life | Consolidate shape recognition",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "What shape is a clock face?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Shape Recognition",
+      "subcategory": "Circle",
+      "learningOutcome": "Recognise circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a coin?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Shape Recognition",
+      "subcategory": "Circle",
+      "learningOutcome": "Recognise circles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a checkerboard square?",
+      "resultType": "short-answer",
+      "options": [
+        "Square",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Square",
+      "category": "Shape Recognition",
+      "subcategory": "Square",
+      "learningOutcome": "Recognise squares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a sticky note?",
+      "resultType": "short-answer",
+      "options": [
+        "Square",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Square",
+      "category": "Shape Recognition",
+      "subcategory": "Square",
+      "learningOutcome": "Recognise squares",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a slice of pizza?",
+      "resultType": "short-answer",
+      "options": [
+        "Triangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Shape Recognition",
+      "subcategory": "Triangle",
+      "learningOutcome": "Recognise triangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a road warning sign (simplified)?",
+      "resultType": "short-answer",
+      "options": [
+        "Triangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Shape Recognition",
+      "subcategory": "Triangle",
+      "learningOutcome": "Recognise triangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a door?",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Shape Recognition",
+      "subcategory": "Rectangle",
+      "learningOutcome": "Recognise rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a book?",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Shape Recognition",
+      "subcategory": "Rectangle",
+      "learningOutcome": "Recognise rectangles",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape is round?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Shape Recognition",
+      "subcategory": "Mixed Shapes",
+      "learningOutcome": "Identify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 3 sides?",
+      "resultType": "short-answer",
+      "options": [
+        "Triangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Shape Recognition",
+      "subcategory": "Mixed Shapes",
+      "learningOutcome": "Identify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 3.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 4 equal sides?",
+      "resultType": "short-answer",
+      "options": [
+        "Square",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Shape Recognition",
+      "subcategory": "Mixed Shapes",
+      "learningOutcome": "Identify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape looks like a door?",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Shape Recognition",
+      "subcategory": "Mixed Shapes",
+      "learningOutcome": "Identify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A wheel is a ______.",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Shape Matching",
+      "subcategory": "Shape Names",
+      "learningOutcome": "Match objects to shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A window is usually a ______.",
+      "resultType": "short-answer",
+      "options": [
+        "Square",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Square",
+      "category": "Shape Matching",
+      "subcategory": "Shape Names",
+      "learningOutcome": "Match objects to shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A ruler is usually a ______.",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Shape Matching",
+      "subcategory": "Shape Names",
+      "learningOutcome": "Match objects to shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a soccer ball pattern panel (simplified)?",
+      "resultType": "short-answer",
+      "options": [
+        "Pentagon",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Pentagon",
+      "category": "Application",
+      "subcategory": "Everyday Shapes",
+      "learningOutcome": "Recognise shapes in life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Pentagon.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a slice of watermelon?",
+      "resultType": "short-answer",
+      "options": [
+        "Triangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Application",
+      "subcategory": "Everyday Shapes",
+      "learningOutcome": "Recognise shapes in life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "What shape is a picture frame?",
+      "resultType": "short-answer",
+      "options": [
+        "Rectangle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Application",
+      "subcategory": "Everyday Shapes",
+      "learningOutcome": "Recognise shapes in life",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has no corners?",
+      "resultType": "short-answer",
+      "options": [
+        "Circle",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "0",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate shape recognition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 0.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 4 sides?",
+      "resultType": "short-answer",
+      "options": [
+        "Square",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "learningOutcome": "Consolidate shape recognition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    }
+  ]
+}

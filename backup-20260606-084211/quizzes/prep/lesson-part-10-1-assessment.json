@@ -1,0 +1,836 @@
+{
+  "id": "quiz-104",
+  "title": "Prep 10.1",
+  "description": "Learning Outcomes for Prep: Count in 2s | Identify shapes | Count in 5s | Count in 10s | Count groups | Group counting | Sort shapes | Count sides | Repeated counting | Count corners | Identify properties | Real world shapes | Equal groups | Understand properties",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 40
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "⭐⭐ ⭐⭐ ⭐⭐ → Total stars?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "6",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number Patterns",
+      "subcategory": "Count by 2",
+      "learningOutcome": "Count in 2s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "(circle image) What shape is this?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Visual Recognition",
+      "learningOutcome": "Identify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "✋✋✋ → Total fingers?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "15",
+        "20",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number Patterns",
+      "subcategory": "Count by 5",
+      "learningOutcome": "Count in 5s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "(square image) What shape is this?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Visual Recognition",
+      "learningOutcome": "Identify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🔟 🔟 → Total?",
+      "resultType": "multiple-choice",
+      "options": [
+        "10",
+        "20",
+        "30",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Number Patterns",
+      "subcategory": "Count by 10",
+      "learningOutcome": "Count in 10s",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "(triangle image) What shape is this?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Visual Recognition",
+      "learningOutcome": "Identify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🍎🍎 🍎🍎 → Total apples?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Number Patterns",
+      "subcategory": "Mixed",
+      "learningOutcome": "Count groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 2.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "(rectangle image) What shape is this?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Visual Recognition",
+      "learningOutcome": "Identify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "🧸🧸 🧸🧸 🧸🧸 → Total toys?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "6",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Number Patterns",
+      "subcategory": "Mixed",
+      "learningOutcome": "Count groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "(circle image) Which shape is this?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Rectangle",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Visual Recognition",
+      "learningOutcome": "Identify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 bags with 2 apples each = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "5",
+        "2006",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Word Problems",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has only circles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "○○○",
+        "△△△",
+        "□□□",
+        ""
+      ],
+      "correctAnswer": "○○○",
+      "category": "Geometry",
+      "subcategory": "Sorting",
+      "learningOutcome": "Sort shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is ○○○.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 boxes with 5 toys each = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "2012",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Word Problems",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has only triangles?",
+      "resultType": "multiple-choice",
+      "options": [
+        "△△△",
+        "○○○",
+        "□□□",
+        ""
+      ],
+      "correctAnswer": "△△△",
+      "category": "Geometry",
+      "subcategory": "Sorting",
+      "learningOutcome": "Sort shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is △△△.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 plates with 1 cookie each = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Word Problems",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 4.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which group has only squares?",
+      "resultType": "multiple-choice",
+      "options": [
+        "□□□",
+        "○○○",
+        "△△△",
+        ""
+      ],
+      "correctAnswer": "□□□",
+      "category": "Geometry",
+      "subcategory": "Sorting",
+      "learningOutcome": "Sort shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is □□□.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 rows with 2 cars each = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "2012",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Word Problems",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many sides does a triangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "3",
+        "2004",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Count sides",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a triangle have?",
+          "totalCount": 3,
+          "iconShape": "circle",
+          "groups": [
+            3
+          ]
+        }
+      }
+    },
+    {
+      "question": "3 baskets with 3 balls each = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "9",
+        "2010",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Word Problems",
+      "subcategory": "Equal Groups",
+      "learningOutcome": "Group counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "How many sides does a square have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Count sides",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a square have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "2 + 2 + 2 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "6",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "4",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Repeated counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 2 + 2 = 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 2,
+          "operandB": 2,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "How many corners does a rectangle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "3",
+        "4",
+        "2005",
+        ""
+      ],
+      "correctAnswer": "3",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Count corners",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many corners does a rectangle have?",
+          "totalCount": 4,
+          "iconShape": "circle",
+          "groups": [
+            4
+          ]
+        }
+      }
+    },
+    {
+      "question": "5 + 5 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "2012",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Repeated counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 5 + 5 = 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 5,
+          "operandB": 5,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "How many sides does a circle have?",
+      "resultType": "multiple-choice",
+      "options": [
+        "2",
+        "1",
+        "2000",
+        ""
+      ],
+      "correctAnswer": "2",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count the objects shown and match the quantity. The answer is 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "How many sides does a circle have?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "10 + 10 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "10",
+        "20",
+        "30",
+        ""
+      ],
+      "correctAnswer": "20",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Repeated counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 10 + 10 = 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 10,
+          "operandB": 10,
+          "answer": "20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A clock is shaped like a…",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Real Life",
+      "learningOutcome": "Real world shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 + 3 + 3 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "6",
+        "8",
+        "2009",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Repeated counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 3 + 3 = 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 3,
+          "operandB": 3,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A door is shaped like a…",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rectangle",
+        "Circle",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Rectangle",
+      "category": "Geometry",
+      "subcategory": "Real Life",
+      "learningOutcome": "Real world shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Rectangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 + 4 + 4 = ?",
+      "resultType": "short-answer",
+      "options": [
+        "8",
+        "10",
+        "2012",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Repeated counting",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Compute 4 + 4 = 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "+",
+          "operandA": 4,
+          "operandB": 4,
+          "answer": "8",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "A pizza slice is shaped like a…",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Square",
+        "Circle",
+        ""
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "Real Life",
+      "learningOutcome": "Real world shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 groups of 5 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "2012",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "A window is usually a…",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Circle",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Real Life",
+      "learningOutcome": "Real world shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "3 groups of 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "4",
+        "6",
+        "2008",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape can roll?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Understand properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 groups of 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "6",
+        "8",
+        "2010",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape does NOT have corners?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Circle",
+        "Square",
+        "Rectangle",
+        ""
+      ],
+      "correctAnswer": "Circle",
+      "category": "Geometry",
+      "subcategory": "Properties",
+      "learningOutcome": "Identify properties",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Circle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 groups of 2 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "2012",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 4 equal sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Square",
+        "Rectangle",
+        "Triangle",
+        ""
+      ],
+      "correctAnswer": "Square",
+      "category": "Geometry",
+      "subcategory": "Mixed",
+      "learningOutcome": "Identify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Square.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "1 group of 10 = ?",
+      "resultType": "multiple-choice",
+      "options": [
+        "8",
+        "10",
+        "2012",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Mixed Skills",
+      "subcategory": "Fluency",
+      "learningOutcome": "Equal groups",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape has 3 sides?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        ""
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Geometry",
+      "subcategory": "Mixed",
+      "learningOutcome": "Identify shapes",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "The correct answer is Triangle.",
+      "solutionAttachments": []
+    }
+  ]
+}
