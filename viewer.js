@@ -10894,12 +10894,10 @@ async function goNext() {
       <h2>Quiz Complete</h2>
       <p>Your final score is ${score} out of ${total} (${percent}%).</p>
       <div class="button-group" style="justify-content:center; gap:10px;">
-        <button class="btn secondary" id="shareResultBtn">Share Quiz Link</button>
+        <button class="btn" id="nextQuizBtn" ${nextQuizEntry && nextQuizEntry.file ? `title="Next quiz: ${escapeHtml(String(nextQuizEntry.label || nextQuizEntry.file))}"` : "disabled"}>${nextQuizEntry && nextQuizEntry.file ? "Next Quiz" : "No Next Quiz"}</button>
         <button class="btn secondary" id="exportResultsBtn">Export PDF</button>
         <button class="btn secondary" id="toggleReviewBtn">${mistakes.length > 0 ? `Hide Review (${mistakes.length})` : "Show Review"}</button>
-        ${nextQuizEntry && nextQuizEntry.file ? `<button class="btn" id="nextQuizBtn" title="Next quiz: ${escapeHtml(String(nextQuizEntry.label || nextQuizEntry.file))}">Next Quiz</button>` : ""}
         <button class="btn secondary" id="selectAnotherQuizBtn">Select Another Quiz</button>
-        <button class="btn" id="restartBtn">Restart Quiz</button>
       </div>
       <section id="reviewPanel" class="review-panel${mistakes.length > 0 ? "" : " hidden"}">
         <h3>Review and Analytics</h3>
@@ -10931,13 +10929,6 @@ async function goNext() {
   syncQuestionNavigatorVisibility();
 
   wireReviewInteractivePreviews(reviewedAttempts);
-
-  const shareBtn = document.getElementById("shareResultBtn");
-  if (shareBtn instanceof HTMLButtonElement) {
-    shareBtn.addEventListener("click", async () => {
-      await shareQuizLink();
-    });
-  }
 
   const exportBtn = document.getElementById("exportResultsBtn");
   if (exportBtn instanceof HTMLButtonElement) {
@@ -10996,23 +10987,6 @@ async function goNext() {
     });
   }
 
-  document.getElementById("restartBtn").addEventListener("click", () => {
-    currentIndex = 0;
-    score = 0;
-    quizAnswerLog = [];
-    Object.keys(numberTracingCompletionByQuestion).forEach((key) => {
-      delete numberTracingCompletionByQuestion[key];
-    });
-    Object.keys(numberTracingSnapshotByQuestion).forEach((key) => {
-      delete numberTracingSnapshotByQuestion[key];
-    });
-    document.getElementById("checkAnswerBtn").style.display = "inline-block";
-    document.getElementById("nextQuestionBtn").style.display = "inline-block";
-    document.getElementById("notesViewerBtn").style.display = "inline-block";
-    document.getElementById("showSolutionBtn").classList.add("hidden");
-    answeredQuestionMap = {};
-    renderQuestion();
-  });
 }
 
 async function loadQuiz() {
