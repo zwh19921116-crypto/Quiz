@@ -15,6 +15,8 @@ let questionNavOpen = false;
 let questionNavFilter = "all";
 let answeredQuestionMap = {};
 let questionAttemptMap = {};
+let cachedQuizIndexEntries = null;
+let cachedNextQuizEntry = null;
 const numberTracingCompletionByQuestion = {};
 const numberTracingSnapshotByQuestion = {};
 const DEFAULT_TERMS_CONDITIONS_TXT_PATH = "terms-and-conditions.txt";
@@ -1437,6 +1439,80 @@ function flattenQuizIndexEntries(indexPayload) {
   });
 
   return entries;
+}
+
+function normalizeQuizFilePath(value) {
+  return String(value || "")
+    .trim()
+    .replace(/\\/g, "/")
+    .replace(/^\.\//, "")
+    .toLowerCase();
+}
+
+async function getQuizIndexEntries() {
+  if (Array.isArray(cachedQuizIndexEntries) && cachedQuizIndexEntries.length > 0) {
+    return cachedQuizIndexEntries;
+  }
+
+  try {
+    const response = await fetch("quizzes/index.json", { cache: "no-store" });
+    if (!response.ok) return [];
+    const payload = await response.json();
+    cachedQuizIndexEntries = flattenQuizIndexEntries(payload);
+    return cachedQuizIndexEntries;
+  } catch (_error) {
+    return [];
+  }
+}
+
+function getNextQuizEntryFromList(currentFile, entries) {
+  const list = Array.isArray(entries) ? entries : [];
+  if (list.length === 0) return null;
+
+  const normalizedCurrent = normalizeQuizFilePath(currentFile);
+  if (!normalizedCurrent) return null;
+
+  const exactIndex = list.findIndex((item) => normalizeQuizFilePath(item && item.file) === normalizedCurrent);
+  if (exactIndex >= 0) {
+    return exactIndex < list.length - 1 ? list[exactIndex + 1] : null;
+  }
+
+  const suffixIndex = list.findIndex((item) => {
+    const normalized = normalizeQuizFilePath(item && item.file);
+    return normalized.endsWith(normalizedCurrent) || normalizedCurrent.endsWith(normalized);
+  });
+  if (suffixIndex >= 0) {
+    return suffixIndex < list.length - 1 ? list[suffixIndex + 1] : null;
+  }
+
+  return null;
+}
+
+async function resolveNextQuizEntry() {
+  const currentFile = getRequestedFile();
+  if (
+    cachedNextQuizEntry
+    && normalizeQuizFilePath(cachedNextQuizEntry.currentFile) === normalizeQuizFilePath(currentFile)
+  ) {
+    return cachedNextQuizEntry.next || null;
+  }
+
+  const entries = await getQuizIndexEntries();
+  const next = getNextQuizEntryFromList(currentFile, entries);
+  cachedNextQuizEntry = {
+    currentFile,
+    next
+  };
+  return next;
+}
+
+function buildViewerQuizUrl(file) {
+  const target = String(file || "").trim();
+  if (!target) return "";
+  const url = new URL(window.location.href);
+  url.searchParams.set("file", target);
+  url.searchParams.delete("mode");
+  return url.toString();
 }
 
 function showQuizSelectorFromIndex() {
@@ -10793,7 +10869,7 @@ function highlightAnswerFeedback(question, userAnswer, isCorrect, expectedAnswer
   }
 }
 
-function goNext() {
+async function goNext() {
   if (!answerChecked) return;
 
   const nextBtn = document.getElementById("nextQuestionBtn");
@@ -10811,6 +10887,8 @@ function goNext() {
   const mistakes = reviewedAttempts.filter((item) => !item.isCorrect);
   const reviewMarkup = renderAttemptReviewMarkup(reviewedAttempts);
   const analyticsMarkup = buildReviewAnalyticsMarkup(reviewedAttempts);
+  const nextQuizEntry = await resolveNextQuizEntry();
+
   document.getElementById("quizContainer").innerHTML = `
     <div class="question-card viewer-question final-card">
       <h2>Quiz Complete</h2>
@@ -10819,6 +10897,8 @@ function goNext() {
         <button class="btn secondary" id="shareResultBtn">Share Quiz Link</button>
         <button class="btn secondary" id="exportResultsBtn">Export PDF</button>
         <button class="btn secondary" id="toggleReviewBtn">${mistakes.length > 0 ? `Hide Review (${mistakes.length})` : "Show Review"}</button>
+        ${nextQuizEntry && nextQuizEntry.file ? `<button class="btn" id="nextQuizBtn" title="Next quiz: ${escapeHtml(String(nextQuizEntry.label || nextQuizEntry.file))}">Next Quiz</button>` : ""}
+        <button class="btn secondary" id="selectAnotherQuizBtn">Select Another Quiz</button>
         <button class="btn" id="restartBtn">Restart Quiz</button>
       </div>
       <section id="reviewPanel" class="review-panel${mistakes.length > 0 ? "" : " hidden"}">
@@ -10900,6 +10980,22 @@ function goNext() {
     });
   });
 
+  const nextQuizBtn = document.getElementById("nextQuizBtn");
+  if (nextQuizBtn instanceof HTMLButtonElement && nextQuizEntry && nextQuizEntry.file) {
+    nextQuizBtn.addEventListener("click", () => {
+      const nextUrl = buildViewerQuizUrl(nextQuizEntry.file);
+      if (!nextUrl) return;
+      window.location.assign(nextUrl);
+    });
+  }
+
+  const selectAnotherQuizBtn = document.getElementById("selectAnotherQuizBtn");
+  if (selectAnotherQuizBtn instanceof HTMLButtonElement) {
+    selectAnotherQuizBtn.addEventListener("click", () => {
+      window.location.assign("menu.html");
+    });
+  }
+
   document.getElementById("restartBtn").addEventListener("click", () => {
     currentIndex = 0;
     score = 0;
@@ -10920,6 +11016,8 @@ function goNext() {
 }
 
 async function loadQuiz() {
+  resolveNextQuizEntry();
+
   if (isValidationEmbedMode()) {
     try {
       const payload = await waitForValidationEmbedQuizPayload();
