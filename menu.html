@@ -723,6 +723,11 @@
         return alnumCollator.compare(left, right);
       }
 
+      function isPrepCategoryName(value) {
+        const name = String(value || "").trim().toLowerCase();
+        return name === "prep" || name.startsWith("prep ") || name.startsWith("prep-");
+      }
+
       function getQuizSortLabel(quiz) {
         const raw = String((quiz && (quiz.title || quiz.file)) || "").trim();
         if (!raw) return "";
@@ -730,7 +735,51 @@
         return String(parts[parts.length - 1] || raw).trim();
       }
 
+      function parseLessonPartSortKey(quiz) {
+        const filePath = String((quiz && quiz.file) || "").trim().toLowerCase();
+        const fileMatch = filePath.match(/lesson-part-(\d+)-(\d+)\b/);
+        if (fileMatch) {
+          const modulePart = Number.parseInt(fileMatch[1], 10);
+          const lessonRaw = String(fileMatch[2] || "");
+          let lessonPart = Number.parseInt(lessonRaw, 10);
+          // Some generated files use "-1" to represent lesson 10 (e.g. lesson-part-6-1).
+          if (lessonRaw.length === 1 && lessonPart === 1) {
+            lessonPart = 10;
+          }
+          if (Number.isFinite(modulePart) && Number.isFinite(lessonPart)) {
+            return [modulePart, lessonPart];
+          }
+        }
+
+        const label = getQuizSortLabel(quiz);
+        const labelMatch = label.match(/\b(\d+)\.(\d{1,2})\b/);
+        if (labelMatch) {
+          const modulePart = Number.parseInt(labelMatch[1], 10);
+          const lessonRaw = String(labelMatch[2] || "");
+          let lessonPart = Number.parseInt(lessonRaw, 10);
+          if (lessonRaw.length === 1 && lessonPart === 1) {
+            lessonPart = 10;
+          }
+          if (Number.isFinite(modulePart) && Number.isFinite(lessonPart)) {
+            return [modulePart, lessonPart];
+          }
+        }
+
+        return null;
+      }
+
       function compareQuizEntriesNatural(leftQuiz, rightQuiz) {
+        const leftLessonKey = parseLessonPartSortKey(leftQuiz);
+        const rightLessonKey = parseLessonPartSortKey(rightQuiz);
+        if (leftLessonKey && rightLessonKey) {
+          if (leftLessonKey[0] !== rightLessonKey[0]) {
+            return leftLessonKey[0] - rightLessonKey[0];
+          }
+          if (leftLessonKey[1] !== rightLessonKey[1]) {
+            return leftLessonKey[1] - rightLessonKey[1];
+          }
+        }
+
         const leftLabel = getQuizSortLabel(leftQuiz);
         const rightLabel = getQuizSortLabel(rightQuiz);
         const byLabel = alnumCollator.compare(leftLabel, rightLabel);
@@ -1281,6 +1330,12 @@
             return normalizeSearchQuery(entry.cat && entry.cat.name).includes(query);
           })
           .sort((left, right) => {
+            const leftIsPrep = isPrepCategoryName(left && left.cat ? left.cat.name : "");
+            const rightIsPrep = isPrepCategoryName(right && right.cat ? right.cat.name : "");
+            if (leftIsPrep !== rightIsPrep) {
+              return leftIsPrep ? -1 : 1;
+            }
+
             const dir = getSortMode() === "desc" ? -1 : 1;
             const base = compareCategoryNamesAlnum(
               left && left.cat ? left.cat.name : "",

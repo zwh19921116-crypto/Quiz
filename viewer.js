@@ -1586,6 +1586,38 @@ function getNextQuizEntryFromList(currentFile, entries) {
   if (!normalizedCurrent) return null;
 
   const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
+  const parseLessonPartSortKey = (item) => {
+    const filePath = String((item && item.file) || "").trim().toLowerCase();
+    const fileMatch = filePath.match(/lesson-part-(\d+)-(\d+)\b/);
+    if (fileMatch) {
+      const modulePart = Number.parseInt(fileMatch[1], 10);
+      const lessonRaw = String(fileMatch[2] || "");
+      let lessonPart = Number.parseInt(lessonRaw, 10);
+      // Some generated files use "-1" to represent lesson 10 (e.g. lesson-part-6-1).
+      if (lessonRaw.length === 1 && lessonPart === 1) {
+        lessonPart = 10;
+      }
+      if (Number.isFinite(modulePart) && Number.isFinite(lessonPart)) {
+        return [modulePart, lessonPart];
+      }
+    }
+
+    const label = String(item && (item.label || item.title) || "").trim();
+    const labelMatch = label.match(/\b(\d+)\.(\d{1,2})\b/);
+    if (labelMatch) {
+      const modulePart = Number.parseInt(labelMatch[1], 10);
+      const lessonRaw = String(labelMatch[2] || "");
+      let lessonPart = Number.parseInt(lessonRaw, 10);
+      if (lessonRaw.length === 1 && lessonPart === 1) {
+        lessonPart = 10;
+      }
+      if (Number.isFinite(modulePart) && Number.isFinite(lessonPart)) {
+        return [modulePart, lessonPart];
+      }
+    }
+
+    return null;
+  };
   const getSortLabel = (item) => {
     if (!item || typeof item !== "object") return "";
     const label = String(item.label || item.title || "").trim();
@@ -1604,6 +1636,17 @@ function getNextQuizEntryFromList(currentFile, entries) {
   }).filter((entry) => entry.canonical !== "");
 
   const compareEntries = (left, right) => {
+    const leftLessonKey = parseLessonPartSortKey(left.item);
+    const rightLessonKey = parseLessonPartSortKey(right.item);
+    if (leftLessonKey && rightLessonKey) {
+      if (leftLessonKey[0] !== rightLessonKey[0]) {
+        return leftLessonKey[0] - rightLessonKey[0];
+      }
+      if (leftLessonKey[1] !== rightLessonKey[1]) {
+        return leftLessonKey[1] - rightLessonKey[1];
+      }
+    }
+
     const byLabel = collator.compare(left.sortLabel, right.sortLabel);
     if (byLabel !== 0) return byLabel;
     return collator.compare(left.canonical, right.canonical);
