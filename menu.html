@@ -739,6 +739,55 @@
         return root + "/" + f;
       }
 
+      function normalizeFilePath(value) {
+        return String(value || "")
+          .trim()
+          .replace(/\\/g, "/")
+          .replace(/^\.\//, "")
+          .replace(/^\/+/, "")
+          .replace(/\/\.\//g, "/")
+          .replace(/\/+/g, "/")
+          .toLowerCase();
+      }
+
+      function getInitialNavigationRequest() {
+        const params = new URLSearchParams(window.location.search || "");
+        return {
+          fromFile: String(params.get("fromFile") || "").trim(),
+          category: String(params.get("category") || "").trim()
+        };
+      }
+
+      function resolveCategoryIndexFromRequest(request) {
+        const categories = (indexData && Array.isArray(indexData.categories)) ? indexData.categories : [];
+        if (categories.length === 0) return -1;
+
+        const requestedFile = normalizeFilePath(request && request.fromFile ? request.fromFile : "");
+        if (requestedFile) {
+          for (let index = 0; index < categories.length; index += 1) {
+            const cat = categories[index];
+            const quizzes = Array.isArray(cat && cat.quizzes) ? cat.quizzes : [];
+            const hasMatch = quizzes.some((quiz) => {
+              const normalizedQuizPath = normalizeFilePath(resolveQuizFilePath(quiz && quiz.file));
+              return (
+                normalizedQuizPath === requestedFile
+                || normalizedQuizPath.endsWith("/" + requestedFile)
+                || requestedFile.endsWith("/" + normalizedQuizPath)
+              );
+            });
+            if (hasMatch) return index;
+          }
+        }
+
+        const requestedCategory = String(request && request.category ? request.category : "").trim().toLowerCase();
+        if (!requestedCategory) return -1;
+
+        const bySlug = categories.findIndex((cat) => slugify(cat && cat.name ? cat.name : "") === requestedCategory);
+        if (bySlug >= 0) return bySlug;
+
+        return categories.findIndex((cat) => String(cat && cat.name ? cat.name : "").trim().toLowerCase() === requestedCategory);
+      }
+
       function isLikelyLocalRuntime() {
         const host = String(window.location.hostname || "").toLowerCase();
         return window.location.protocol === "file:" || host === "localhost" || host === "127.0.0.1";
@@ -1401,6 +1450,14 @@
       async function loadIndex() {
         try {
           indexData = await resolveIndexData();
+          const initialRequest = getInitialNavigationRequest();
+          const initialCategoryIndex = resolveCategoryIndexFromRequest(initialRequest);
+
+          if (initialCategoryIndex >= 0) {
+            await openCategory(initialCategoryIndex, false);
+            updateMenuHistory("quizzes", initialCategoryIndex, true);
+            return;
+          }
 
           const existingState = window.history.state;
           if (existingState && existingState.menuLayer === "quizzes" && Number.isInteger(existingState.categoryIndex)) {

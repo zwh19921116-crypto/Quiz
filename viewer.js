@@ -1449,6 +1449,35 @@ function normalizeQuizFilePath(value) {
     .toLowerCase();
 }
 
+function resolveQuizFileRequestPath(value) {
+  const raw = String(value || "").trim().replace(/\\/g, "/").replace(/^\.\//, "");
+  if (!raw) return "";
+
+  const lowered = raw.toLowerCase();
+  if (
+    lowered.startsWith("http://")
+    || lowered.startsWith("https://")
+    || lowered.startsWith("data:")
+    || lowered.startsWith("blob:")
+  ) {
+    return raw;
+  }
+
+  if (lowered.startsWith("quizzes/")) {
+    return raw;
+  }
+
+  if (lowered === "quiz-database.json") {
+    return raw;
+  }
+
+  if (raw.includes("/")) {
+    return `quizzes/${raw}`;
+  }
+
+  return raw;
+}
+
 async function getQuizIndexEntries() {
   if (Array.isArray(cachedQuizIndexEntries) && cachedQuizIndexEntries.length > 0) {
     return cachedQuizIndexEntries;
@@ -1469,16 +1498,18 @@ function getNextQuizEntryFromList(currentFile, entries) {
   const list = Array.isArray(entries) ? entries : [];
   if (list.length === 0) return null;
 
-  const normalizedCurrent = normalizeQuizFilePath(currentFile);
+  const normalizedCurrent = normalizeQuizFilePath(resolveQuizFileRequestPath(currentFile));
   if (!normalizedCurrent) return null;
 
-  const exactIndex = list.findIndex((item) => normalizeQuizFilePath(item && item.file) === normalizedCurrent);
+  const exactIndex = list.findIndex(
+    (item) => normalizeQuizFilePath(resolveQuizFileRequestPath(item && item.file)) === normalizedCurrent
+  );
   if (exactIndex >= 0) {
     return exactIndex < list.length - 1 ? list[exactIndex + 1] : null;
   }
 
   const suffixIndex = list.findIndex((item) => {
-    const normalized = normalizeQuizFilePath(item && item.file);
+    const normalized = normalizeQuizFilePath(resolveQuizFileRequestPath(item && item.file));
     return normalized.endsWith(normalizedCurrent) || normalizedCurrent.endsWith(normalized);
   });
   if (suffixIndex >= 0) {
@@ -1507,7 +1538,7 @@ async function resolveNextQuizEntry() {
 }
 
 function buildViewerQuizUrl(file) {
-  const target = String(file || "").trim();
+  const target = resolveQuizFileRequestPath(file);
   if (!target) return "";
   const url = new URL(window.location.href);
   url.searchParams.set("file", target);
@@ -10983,7 +11014,12 @@ async function goNext() {
   const selectAnotherQuizBtn = document.getElementById("selectAnotherQuizBtn");
   if (selectAnotherQuizBtn instanceof HTMLButtonElement) {
     selectAnotherQuizBtn.addEventListener("click", () => {
-      window.location.assign("menu.html");
+      const currentFile = resolveQuizFileRequestPath(getRequestedFile());
+      const menuUrl = new URL("menu.html", window.location.href);
+      if (currentFile) {
+        menuUrl.searchParams.set("fromFile", currentFile);
+      }
+      window.location.assign(menuUrl.toString());
     });
   }
 
@@ -11006,7 +11042,7 @@ async function loadQuiz() {
     return;
   }
 
-  const requestedFile = getRequestedFile();
+  const requestedFile = resolveQuizFileRequestPath(getRequestedFile());
   try {
     const response = await fetch(requestedFile, { cache: "no-store" });
     if (!response.ok) {
