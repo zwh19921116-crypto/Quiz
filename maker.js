@@ -367,11 +367,23 @@ function hasStrongShapeOptionSet(options, answerSeed) {
   return allShapeLike && hasAnswerShape;
 }
 
+function isShapesCategory(value) {
+  const normalized = String(normalizeQuestionCategory(value) || "").trim().toLowerCase();
+  return normalized === "shapes" || normalized === "shape recognition";
+}
+
+function shouldForceShapeChoices(question) {
+  const questionText = String(question && question.question || "").toLowerCase();
+  const asksForShape = /\b(which|what)\s+shape\b/.test(questionText);
+  return asksForShape && isShapesCategory(question && question.category);
+}
+
 function buildShapeOptionsFromQuestion(question, answerSeed, targetCount = 4) {
   const appType = String(question && question.interactiveApp && question.interactiveApp.type || "").trim().toLowerCase();
   const questionText = String(question && question.question || "").toLowerCase();
   const shapeCue = /\bshape\b|\bcircle\b|\bsquare\b|\btriangle\b|\brectangle\b|\boval\b|\bpentagon\b|\bhexagon\b|\boctagon\b|\bstar\b|\bsphere\b|\bcube\b|\bcylinder\b|\bcone\b/.test(questionText)
-    || appType === "geometry-shapes";
+    || appType === "geometry-shapes"
+    || shouldForceShapeChoices(question);
   if (!shapeCue) {
     return [];
   }
@@ -1286,6 +1298,15 @@ function normalizeQuestionFieldValue(value) {
   return String(value || "").trim();
 }
 
+function normalizeQuestionCategory(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+  if (raw.toLowerCase() === "shape recognition") {
+    return "Shapes";
+  }
+  return raw;
+}
+
 function extractQuestionNumber(value) {
   const match = String(value || "").match(/\b(\d+)\b/);
   return match ? match[1] : "";
@@ -1309,7 +1330,7 @@ function inferQuestionMetadata(question) {
   const lowerText = questionText.toLowerCase();
   const targetNumber = String(appConfig.targetNumber || extractQuestionNumber(questionText) || question && question.correctAnswer || "").trim();
 
-  let category = normalizeQuestionFieldValue(question && question.category);
+  let category = normalizeQuestionCategory(question && question.category);
   let subcategory = normalizeQuestionFieldValue(question && question.subcategory);
   let learningOutcome = normalizeQuestionFieldValue(question && question.learningOutcome);
   let detectedSource = appType ? formatMetadataLabel(appType) : "Question text";
@@ -1405,8 +1426,13 @@ function applyDetectedQuestionMetadata(question) {
   if (!question) return inferQuestionMetadata(question);
   const detected = inferQuestionMetadata(question);
 
+  const normalizedCategory = normalizeQuestionCategory(question.category);
+  if (String(question.category || "") !== normalizedCategory) {
+    question.category = normalizedCategory;
+  }
+
   if (!normalizeQuestionFieldValue(question.category) && detected.category) {
-    question.category = detected.category;
+    question.category = normalizeQuestionCategory(detected.category);
   }
   if (!normalizeQuestionFieldValue(question.subcategory) && detected.subcategory) {
     question.subcategory = detected.subcategory;
@@ -10804,7 +10830,7 @@ function updateQuestionFromForm() {
   const previousNotesParts = splitNotesAttachments(question.notesAttachments || []);
 
   question.question = document.getElementById("questionText").value.trim();
-  question.category = document.getElementById("questionCategory").value.trim();
+  question.category = normalizeQuestionCategory(document.getElementById("questionCategory").value);
   question.subcategory = document.getElementById("questionSubcategory").value.trim();
   question.learningOutcome = document.getElementById("questionLearningOutcome").value.trim();
   question.resultType = normalizeResultType(document.getElementById("resultType").value);
@@ -10814,6 +10840,11 @@ function updateQuestionFromForm() {
     document.getElementById("option3").value.trim(),
     document.getElementById("option4").value.trim()
   ];
+
+  if (shouldForceShapeChoices(question)) {
+    question.resultType = "multiple-choice";
+    document.getElementById("resultType").value = "multiple-choice";
+  }
 
   if (question.resultType === "true-false") {
     ensureTrueFalseOptions(question);
@@ -12523,7 +12554,7 @@ function normalizeQuestion(item) {
     resultType,
     options,
     correctAnswer: correctAnswerValue,
-    category: item.category || "",
+    category: normalizeQuestionCategory(item.category),
     subcategory: item.subcategory || "",
     learningOutcome: item.learningOutcome || "",
     notesAttachments: buildNotesAttachments(splitNotesAttachments(Array.isArray(item.notesAttachments) ? item.notesAttachments : [])),
@@ -12539,6 +12570,12 @@ function normalizeQuestion(item) {
     normalized.interactiveApp = inferredInteractiveApp;
     normalized.resultType = "short-answer";
   }
+
+  if (shouldForceShapeChoices(normalized)) {
+    normalized.resultType = "multiple-choice";
+    ensureMultipleChoiceOptionSet(normalized, 4);
+  }
+
   return normalized;
 }
 
