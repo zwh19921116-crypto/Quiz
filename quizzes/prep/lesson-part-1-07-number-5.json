@@ -12,10 +12,10 @@
       "question": "Which number is 5?",
       "resultType": "multiple-choice",
       "options": [
-        "4",
-        "6",
         "3",
-        "5"
+        "4",
+        "5",
+        "6"
       ],
       "correctAnswer": "5",
       "category": "Recognition",
@@ -31,9 +31,9 @@
       "resultType": "multiple-choice",
       "options": [
         "6",
-        "8",
+        "5",
         "7",
-        "5"
+        "8"
       ],
       "correctAnswer": "5",
       "category": "Recognition",
@@ -48,28 +48,28 @@
       "question": "Which number means five?",
       "resultType": "multiple-choice",
       "options": [
-        "6",
-        "4",
         "3",
-        "5"
+        "4",
+        "5",
+        "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "5",
       "category": "Recognition",
       "subcategory": "Identify Number 5",
       "learningOutcome": "Understand quantity 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 5s",
       "resultType": "checkbox",
       "options": [
-        "2",
+        "5",
         "1",
         "5",
-        "5"
+        "2"
       ],
       "correctAnswer": "5",
       "category": "Recognition",
@@ -77,7 +77,7 @@
       "learningOutcome": "Recognise 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 5.",
+      "solution": "Select every correct option. The correct selection is: 5, 5, 5.",
       "solutionAttachments": []
     },
     {
@@ -85,8 +85,8 @@
       "resultType": "checkbox",
       "options": [
         "6",
-        "7",
         "5",
+        "7",
         "5"
       ],
       "correctAnswer": "5",
@@ -95,7 +95,7 @@
       "learningOutcome": "Recognise 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 5.",
+      "solution": "Select every correct option. The correct selection is: 5, 5.",
       "solutionAttachments": []
     },
     {
@@ -113,7 +113,7 @@
       "learningOutcome": "Write 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The dotted numeral is 5. Trace it while saying 5 aloud.",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -141,7 +141,7 @@
       "learningOutcome": "Write 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The dotted numeral is 5. Trace it while saying 5 aloud.",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -169,7 +169,7 @@
       "learningOutcome": "Write 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The dotted numeral is 5. Trace it while saying 5 aloud.",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -302,10 +302,10 @@
       "question": "Which number matches 🍎🍎🍎🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "6",
-        "5",
+        "3",
         "4",
-        "3"
+        "5",
+        "6"
       ],
       "correctAnswer": "5",
       "category": "Matching",
@@ -331,10 +331,10 @@
       "question": "Which number matches ⭐⭐⭐⭐⭐ ?",
       "resultType": "multiple-choice",
       "options": [
-        "4",
         "3",
-        "6",
-        "5"
+        "4",
+        "5",
+        "6"
       ],
       "correctAnswer": "5",
       "category": "Matching",
@@ -360,8 +360,8 @@
       "question": "Which group has 5 objects?",
       "resultType": "multiple-choice",
       "options": [
-        "🍎🍎🍎🍎🍎",
         "🍎🍎🍎🍎",
+        "🍎🍎🍎🍎🍎",
         "🍎🍎🍎",
         "🍎🍎🍎🍎🍎🍎"
       ],
@@ -379,8 +379,8 @@
       "resultType": "multiple-choice",
       "options": [
         "3",
-        "5",
         "4",
+        "5",
         "6"
       ],
       "correctAnswer": "5",
@@ -407,10 +407,10 @@
       "question": "Sara has 5 balloons. How many balloons does she have?",
       "resultType": "multiple-choice",
       "options": [
-        "6",
         "3",
         "4",
-        "5"
+        "5",
+        "6"
       ],
       "correctAnswer": "5",
       "category": "Application",
@@ -436,10 +436,10 @@
       "question": "There are 5 fish in the tank. How many fish are there?",
       "resultType": "multiple-choice",
       "options": [
-        "6",
-        "5",
         "3",
-        "4"
+        "4",
+        "5",
+        "6"
       ],
       "correctAnswer": "5",
       "category": "Application",
@@ -465,18 +465,18 @@
       "question": "Which number means five?",
       "resultType": "multiple-choice",
       "options": [
-        "5",
+        "3",
         "4",
-        "6",
-        "3"
+        "5",
+        "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "5",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review number 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "The correct answer is 5.",
       "solutionAttachments": []
     },
     {
@@ -484,9 +484,9 @@
       "resultType": "multiple-choice",
       "options": [
         "3",
+        "4",
         "5",
-        "6",
-        "4"
+        "6"
       ],
       "correctAnswer": "5",
       "category": "Mastery",

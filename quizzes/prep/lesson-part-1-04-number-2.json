@@ -1,5 +1,5 @@
 {
-  "id": "quiz-5",
+  "id": "quiz-4",
   "title": "Prep 1.04",
   "description": "Learning Outcomes for Prep: Recognise 2 | Understand quantity 2 | Write 2 | Count 2 objects | Match quantity | Apply quantity 2 | Review number 2 | Mastery of number 2",
   "settings": {
@@ -12,10 +12,10 @@
       "question": "Which number is 2?",
       "resultType": "multiple-choice",
       "options": [
-        "2",
         "1",
-        "4",
-        "3"
+        "2",
+        "3",
+        "4"
       ],
       "correctAnswer": "2",
       "category": "Recognition",
@@ -30,10 +30,10 @@
       "question": "Select the number 2",
       "resultType": "multiple-choice",
       "options": [
-        "5",
         "3",
+        "2",
         "4",
-        "2"
+        "5"
       ],
       "correctAnswer": "2",
       "category": "Recognition",
@@ -48,28 +48,28 @@
       "question": "Which number means two?",
       "resultType": "multiple-choice",
       "options": [
+        "1",
         "2",
         "3",
-        "4",
-        "1"
+        "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Identify Number 2",
       "learningOutcome": "Understand quantity 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 2s",
       "resultType": "checkbox",
       "options": [
-        "1",
-        "3",
         "2",
-        "2"
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "2",
       "category": "Recognition",
@@ -77,16 +77,16 @@
       "learningOutcome": "Recognise 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 2.",
+      "solution": "Select every correct option. The correct selection is: 2, 2, 2.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 2s",
       "resultType": "checkbox",
       "options": [
-        "5",
         "4",
         "2",
+        "5",
         "2"
       ],
       "correctAnswer": "2",
@@ -95,7 +95,7 @@
       "learningOutcome": "Recognise 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 2.",
+      "solution": "Select every correct option. The correct selection is: 2, 2.",
       "solutionAttachments": []
     },
     {
@@ -113,7 +113,7 @@
       "learningOutcome": "Write 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "The dotted numeral is 2. Trace it while saying 2 aloud.",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -141,7 +141,7 @@
       "learningOutcome": "Write 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "The dotted numeral is 2. Trace it while saying 2 aloud.",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -169,7 +169,7 @@
       "learningOutcome": "Write 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "The dotted numeral is 2. Trace it while saying 2 aloud.",
+      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -302,8 +302,8 @@
       "question": "Which number matches 🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "2",
         "1",
+        "2",
         "3",
         "4"
       ],
@@ -331,10 +331,10 @@
       "question": "Which number matches ⭐⭐ ?",
       "resultType": "multiple-choice",
       "options": [
-        "2",
         "1",
-        "4",
-        "3"
+        "2",
+        "3",
+        "4"
       ],
       "correctAnswer": "2",
       "category": "Matching",
@@ -360,10 +360,10 @@
       "question": "Which group has 2 objects?",
       "resultType": "multiple-choice",
       "options": [
-        "🍎🍎🍎🍎",
         "🍎",
         "🍎🍎",
-        "🍎🍎"
+        "🍎🍎",
+        "🍎🍎🍎🍎"
       ],
       "correctAnswer": "🍎🍎",
       "category": "Matching",
@@ -378,10 +378,10 @@
       "question": "Tom has 2 apples. How many apples does Tom have?",
       "resultType": "multiple-choice",
       "options": [
-        "4",
-        "3",
+        "1",
         "2",
-        "1"
+        "3",
+        "4"
       ],
       "correctAnswer": "2",
       "category": "Application",
@@ -407,9 +407,9 @@
       "question": "Sara has 2 balloons. How many balloons does she have?",
       "resultType": "multiple-choice",
       "options": [
+        "1",
         "2",
         "3",
-        "1",
         "4"
       ],
       "correctAnswer": "2",
@@ -436,10 +436,10 @@
       "question": "There are 2 fish in the tank. How many fish are there?",
       "resultType": "multiple-choice",
       "options": [
-        "3",
-        "4",
         "1",
-        "2"
+        "2",
+        "3",
+        "4"
       ],
       "correctAnswer": "2",
       "category": "Application",
@@ -465,28 +465,28 @@
       "question": "Which number means two?",
       "resultType": "multiple-choice",
       "options": [
-        "4",
-        "2",
         "1",
-        "3"
+        "2",
+        "3",
+        "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Review number 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "The correct answer is 2.",
       "solutionAttachments": []
     },
     {
       "question": "Select the number 2",
       "resultType": "multiple-choice",
       "options": [
-        "2",
-        "4",
         "1",
-        "3"
+        "2",
+        "3",
+        "4"
       ],
       "correctAnswer": "2",
       "category": "Mastery",

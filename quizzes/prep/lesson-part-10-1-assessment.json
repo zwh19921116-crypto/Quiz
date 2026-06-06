@@ -323,7 +323,7 @@
         "2004",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Geometry",
       "subcategory": "Properties",
       "learningOutcome": "Count sides",
@@ -370,7 +370,7 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Geometry",
       "subcategory": "Properties",
       "learningOutcome": "Count sides",
@@ -429,7 +429,7 @@
         "2005",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Geometry",
       "subcategory": "Properties",
       "learningOutcome": "Count corners",
@@ -488,7 +488,7 @@
         "2000",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "0",
       "category": "Geometry",
       "subcategory": "Properties",
       "learningOutcome": "Identify properties",
