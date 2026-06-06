@@ -10,12 +10,12 @@
   "questions": [
     {
       "question": "Which shape is a circle?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Circle",
       "category": "Shape Recognition",
@@ -28,30 +28,30 @@
     },
     {
       "question": "A circle is round. True or False?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "TRUE",
-        "",
-        "",
-        ""
+        "True",
+        "False",
+        "Yes",
+        "No"
       ],
-      "correctAnswer": "TRUE",
+      "correctAnswer": "True",
       "category": "Shape Recognition",
       "subcategory": "Identify Circles",
       "learningOutcome": "Recognise circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is TRUE.",
+      "solution": "The correct answer is True.",
       "solutionAttachments": []
     },
     {
       "question": "Does a circle have corners?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
+        "Yes",
         "No",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square"
       ],
       "correctAnswer": "No",
       "category": "Shape Recognition",
@@ -64,12 +64,12 @@
     },
     {
       "question": "Does a circle have sides?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
+        "Yes",
         "No",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square"
       ],
       "correctAnswer": "No",
       "category": "Shape Recognition",
@@ -82,12 +82,12 @@
     },
     {
       "question": "Which shape rolls easily?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Circle",
       "category": "Shape Recognition",
@@ -100,12 +100,12 @@
     },
     {
       "question": "What shape is a coin?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Circle",
       "category": "Everyday Objects",
@@ -118,12 +118,12 @@
     },
     {
       "question": "What shape is a clock face?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Circle",
       "category": "Everyday Objects",
@@ -136,12 +136,12 @@
     },
     {
       "question": "What shape is a plate?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Circle",
       "category": "Everyday Objects",
@@ -154,12 +154,12 @@
     },
     {
       "question": "What shape is a wheel?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Circle",
       "category": "Everyday Objects",
@@ -172,12 +172,12 @@
     },
     {
       "question": "What shape is a button?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Circle",
       "category": "Everyday Objects",
@@ -190,30 +190,30 @@
     },
     {
       "question": "Which shape has no corners?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
-      "correctAnswer": "0",
+      "correctAnswer": "Circle",
       "category": "Circle Properties",
       "subcategory": "Round Shapes",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
+      "solution": "The correct answer is Circle.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape is completely round?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Circle",
       "category": "Circle Properties",
@@ -226,12 +226,12 @@
     },
     {
       "question": "Can a circle roll?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Yes",
-        "",
-        "",
-        ""
+        "No",
+        "Circle",
+        "Square"
       ],
       "correctAnswer": "Yes",
       "category": "Circle Properties",
@@ -244,12 +244,12 @@
     },
     {
       "question": "Does a circle have straight edges?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
+        "Yes",
         "No",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square"
       ],
       "correctAnswer": "No",
       "category": "Circle Properties",
@@ -262,12 +262,12 @@
     },
     {
       "question": "Is a ball shape based on a circle?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Yes",
-        "",
-        "",
-        ""
+        "No",
+        "Circle",
+        "Square"
       ],
       "correctAnswer": "Yes",
       "category": "Circle Properties",
@@ -280,12 +280,12 @@
     },
     {
       "question": "Which object is a circle: coin or door?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Coin",
-        "",
-        "",
-        ""
+        "Door",
+        "Book",
+        "Ruler"
       ],
       "correctAnswer": "Coin",
       "category": "Application",
@@ -298,12 +298,12 @@
     },
     {
       "question": "Which object is a circle: plate or book?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Plate",
-        "",
-        "",
-        ""
+        "Book",
+        "Door",
+        "Ruler"
       ],
       "correctAnswer": "Plate",
       "category": "Application",
@@ -316,12 +316,12 @@
     },
     {
       "question": "Which object is a circle: wheel or ruler?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Wheel",
-        "",
-        "",
-        ""
+        "Ruler",
+        "Book",
+        "Door"
       ],
       "correctAnswer": "Wheel",
       "category": "Application",
@@ -334,30 +334,30 @@
     },
     {
       "question": "Name a shape with no corners.",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
-      "correctAnswer": "0",
+      "correctAnswer": "Circle",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "learningOutcome": "Consolidate circle recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
+      "solution": "The correct answer is Circle.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a clock?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Circle",
       "category": "Mastery",

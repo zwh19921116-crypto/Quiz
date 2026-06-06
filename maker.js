@@ -303,6 +303,252 @@ function buildExpectedSolutionForAutoFix(question) {
   return inferSolutionFromImport(question.question, answerText);
 }
 
+function appendUniqueNormalizedOption(list, value) {
+  const text = String(value || "").trim();
+  if (!text) return false;
+  if (list.some((item) => normalizeText(item) === normalizeText(text))) {
+    return false;
+  }
+  list.push(text);
+  return true;
+}
+
+const SHAPE_OPTION_POOL = [
+  "Circle",
+  "Square",
+  "Triangle",
+  "Rectangle",
+  "Oval",
+  "Pentagon",
+  "Hexagon",
+  "Octagon",
+  "Star",
+  "Sphere",
+  "Cube",
+  "Cylinder",
+  "Cone"
+];
+
+const SHAPE_TOKEN_SET = new Set(SHAPE_OPTION_POOL.map((item) => normalizeShapeToken(item)));
+
+function normalizeShapeToken(value) {
+  const token = String(value || "").trim().toLowerCase();
+  if (!token) return "";
+  const aliases = {
+    round: "circle",
+    circular: "circle",
+    rect: "rectangle",
+    box: "square",
+    ball: "sphere"
+  };
+  return aliases[token] || token;
+}
+
+function toShapeLabel(value) {
+  const token = normalizeShapeToken(value);
+  if (!token) return "";
+  return token.charAt(0).toUpperCase() + token.slice(1);
+}
+
+function isShapeLikeOption(value) {
+  const token = normalizeShapeToken(value);
+  return token ? SHAPE_TOKEN_SET.has(token) : false;
+}
+
+function hasStrongShapeOptionSet(options, answerSeed) {
+  const list = Array.isArray(options) ? options : [];
+  if (list.length === 0) return false;
+
+  const allShapeLike = list.every((item) => isShapeLikeOption(item));
+  const expectedAnswerToken = normalizeShapeToken(answerSeed);
+  const hasAnswerShape = !expectedAnswerToken
+    || list.some((item) => normalizeShapeToken(item) === expectedAnswerToken);
+
+  return allShapeLike && hasAnswerShape;
+}
+
+function buildShapeOptionsFromQuestion(question, answerSeed, targetCount = 4) {
+  const appType = String(question && question.interactiveApp && question.interactiveApp.type || "").trim().toLowerCase();
+  const questionText = String(question && question.question || "").toLowerCase();
+  const shapeCue = /\bshape\b|\bcircle\b|\bsquare\b|\btriangle\b|\brectangle\b|\boval\b|\bpentagon\b|\bhexagon\b|\boctagon\b|\bstar\b|\bsphere\b|\bcube\b|\bcylinder\b|\bcone\b/.test(questionText)
+    || appType === "geometry-shapes";
+  if (!shapeCue) {
+    return [];
+  }
+
+  const seeded = [];
+  const answerLabel = toShapeLabel(answerSeed);
+  if (answerLabel) {
+    appendUniqueNormalizedOption(seeded, answerLabel);
+  }
+
+  const foundInQuestion = questionText.match(/circle|square|triangle|rectangle|oval|pentagon|hexagon|octagon|star|sphere|cube|cylinder|cone/g) || [];
+  foundInQuestion.forEach((item) => {
+    appendUniqueNormalizedOption(seeded, toShapeLabel(item));
+  });
+
+  const configShapes = Array.isArray(question && question.interactiveApp && question.interactiveApp.config && question.interactiveApp.config.shapes)
+    ? question.interactiveApp.config.shapes
+    : [];
+  configShapes.forEach((shape) => {
+    appendUniqueNormalizedOption(seeded, toShapeLabel(shape && shape.type));
+  });
+
+  SHAPE_OPTION_POOL.forEach((item) => {
+    if (seeded.length < targetCount) {
+      appendUniqueNormalizedOption(seeded, item);
+    }
+  });
+
+  return seeded.slice(0, targetCount);
+}
+
+function buildSmartMultipleChoiceOptions(question, desiredCount = 4) {
+  const targetCount = Math.max(4, Number.parseInt(desiredCount, 10) || 4);
+  const seeded = [];
+  const currentOptions = Array.isArray(question && question.options) ? question.options : [];
+  currentOptions.forEach((item) => {
+    appendUniqueNormalizedOption(seeded, item);
+  });
+
+  const currentAnswer = String(question && question.correctAnswer || "").trim();
+  const computed = computeExpectedAnswerForQuestion(question || {});
+  const computedAnswer = String(computed && computed.value || "").trim();
+  const answerSeed = currentAnswer || computedAnswer;
+
+  const shapeOptions = buildShapeOptionsFromQuestion(question, answerSeed, targetCount);
+  if (shapeOptions.length >= targetCount) {
+    return shapeOptions;
+  }
+
+  if (answerSeed) {
+    appendUniqueNormalizedOption(seeded, answerSeed);
+  }
+
+  const questionText = String(question && question.question || "").trim();
+  const numbersInQuestion = Array.from(new Set(
+    (questionText.match(/-?\d+(?:\.\d+)?/g) || []).map((token) => String(token).trim())
+  ));
+  numbersInQuestion.forEach((token) => {
+    appendUniqueNormalizedOption(seeded, token);
+  });
+
+  const answerNumber = Number.parseFloat(answerSeed);
+  if (Number.isFinite(answerNumber)) {
+    const deltas = Number.isInteger(answerNumber)
+      ? [1, -1, 2, -2, 3, -3, 10, -10]
+      : [0.1, -0.1, 0.2, -0.2, 0.5, -0.5, 1, -1];
+    deltas.forEach((delta) => {
+      const candidate = Number.isInteger(answerNumber)
+        ? String(Math.round(answerNumber + delta))
+        : String(roundTo(answerNumber + delta, 2));
+      appendUniqueNormalizedOption(seeded, candidate);
+    });
+  }
+
+  if (seeded.length > targetCount) {
+    const answerFirst = [];
+    if (answerSeed) {
+      appendUniqueNormalizedOption(answerFirst, answerSeed);
+    }
+    seeded.forEach((item) => {
+      if (answerFirst.length < targetCount) {
+        appendUniqueNormalizedOption(answerFirst, item);
+      }
+    });
+    return answerFirst;
+  }
+
+  let fillerIndex = 1;
+  while (seeded.length < targetCount) {
+    appendUniqueNormalizedOption(seeded, `Option ${String.fromCharCode(64 + Math.min(26, fillerIndex))}`);
+    fillerIndex += 1;
+  }
+
+  return seeded;
+}
+
+function ensureMultipleChoiceOptionSet(question, targetCount = 4) {
+  if (!question || normalizeResultType(question.resultType) !== "multiple-choice") {
+    return { changed: false, options: getChoiceOptions(question) };
+  }
+
+  const currentAnswer = String(question.correctAnswer || "").trim();
+  const computed = computeExpectedAnswerForQuestion(question || {});
+  const computedAnswer = String(computed && computed.value || "").trim();
+  const answerSeed = currentAnswer || computedAnswer;
+
+  const currentChoiceOptions = getChoiceOptions(question);
+  const uniqueValidOptions = getUniqueValidChoiceOptions(question);
+  const shapeOptions = buildShapeOptionsFromQuestion(question, answerSeed, targetCount);
+  const shouldPreferShapeOptions = shapeOptions.length >= targetCount
+    && !hasStrongShapeOptionSet(currentChoiceOptions, answerSeed);
+
+  if (uniqueValidOptions.length >= targetCount && !shouldPreferShapeOptions) {
+    return { changed: false, options: currentChoiceOptions };
+  }
+
+  const nextOptions = shouldPreferShapeOptions
+    ? shapeOptions
+    : buildSmartMultipleChoiceOptions(question, targetCount);
+  const padded = [
+    nextOptions[0] || "",
+    nextOptions[1] || "",
+    nextOptions[2] || "",
+    nextOptions[3] || ""
+  ];
+
+  const changed = JSON.stringify(Array.isArray(question.options) ? question.options : []) !== JSON.stringify(padded);
+  if (changed) {
+    question.options = padded;
+  }
+
+  return { changed, options: getChoiceOptions(question) };
+}
+
+function prepareQuestionForPersistence(item) {
+  const normalizedItem = normalizeQuestion(item || {});
+  const question = {
+    ...normalizedItem,
+    options: Array.isArray(normalizedItem.options) ? normalizedItem.options.slice(0, 4) : ["", "", "", ""]
+  };
+
+  while (question.options.length < 4) {
+    question.options.push("");
+  }
+
+  const answerSeed = String(question.correctAnswer || "").trim()
+    || String(computeExpectedAnswerForQuestion(question).value || "").trim();
+  const shapeOptions = buildShapeOptionsFromQuestion(question, answerSeed, 4);
+  const hasShapeCue = shapeOptions.length >= 4;
+
+  if (hasShapeCue) {
+    question.resultType = "multiple-choice";
+    question.options = shapeOptions.slice(0, 4);
+    const canonicalAnswer = question.options.find((item) => normalizeText(item) === normalizeText(answerSeed));
+    question.correctAnswer = canonicalAnswer || question.options[0] || answerSeed;
+    return question;
+  }
+
+  if (question.resultType === "multiple-choice") {
+    const ensured = ensureMultipleChoiceOptionSet(question, 4);
+    if (ensured.changed) {
+      question.options = ensured.options.slice(0, 4);
+      while (question.options.length < 4) {
+        question.options.push("");
+      }
+    }
+  }
+
+  const choiceOptions = getChoiceOptions(question);
+  if (question.resultType === "multiple-choice" && choiceOptions.length > 0) {
+    const canonicalAnswer = choiceOptions.find((item) => normalizeText(item) === normalizeText(question.correctAnswer));
+    question.correctAnswer = canonicalAnswer || choiceOptions[0];
+  }
+
+  return question;
+}
+
 function autoFixQuestionIssues(question) {
   if (!question || typeof question !== "object") {
     return { changed: false, before: 0, after: 0 };
@@ -331,10 +577,9 @@ function autoFixQuestionIssues(question) {
   }
 
   let choiceOptions = getChoiceOptions(question);
-  if (["multiple-choice", "checkbox", "true-false"].includes(normalizedType) && choiceOptions.length < 2) {
-    normalizedType = "short-answer";
-    if (question.resultType !== "short-answer") {
-      question.resultType = "short-answer";
+  if (normalizedType === "multiple-choice") {
+    const ensured = ensureMultipleChoiceOptionSet(question, 4);
+    if (ensured.changed) {
       changed = true;
     }
   }
@@ -2291,7 +2536,13 @@ async function loadLibraryFromHandleCategoryFolders(rootHandle, rootFolder) {
       category.quizzes.push(quiz);
     }
 
-    loadedCategories.push(category);
+    if (category.quizzes.length > 0) {
+      loadedCategories.push(category);
+    }
+  }
+
+  if (loadedCategories.length === 0) {
+    throw new Error(`No quiz JSON files found in ${rootFolder}/`);
   }
 
   return loadedCategories;
@@ -2596,7 +2847,8 @@ async function loadLibraryFromRoot({ allowPrompt = true } = {}) {
         const freshHandle = await window.showDirectoryPicker({ mode: "readwrite" });
         rootDirectoryHandle = freshHandle;
         await saveRootDirectoryHandle(freshHandle);
-        loadedCategories = await loadLibraryFromHandleCategoryFolders(freshHandle, freshHandle.name);
+        const configuredHandle = await getConfiguredRootHandle({ create: false, allowPrompt: false, promptForPermission: true }) || freshHandle;
+        loadedCategories = await loadLibraryFromHandleCategoryFolders(configuredHandle, rootFolder);
         sourceMode = "handle-folder-scan";
         setLocalFolderPath(freshHandle);
       } catch (pickerError) {
@@ -2609,6 +2861,20 @@ async function loadLibraryFromRoot({ allowPrompt = true } = {}) {
     }
 
     // 4) Fallback: manifest (index.json)
+    if (loadedCategories.length === 0 && supportsFolderDeletion()) {
+      try {
+        const configuredRoot = await getConfiguredRootHandle({ create: false, allowPrompt: false });
+        if (configuredRoot) {
+          loadedCategories = await loadLibraryFromHandleManifest(configuredRoot, rootFolder);
+          sourceMode = "handle-manifest";
+          setLocalFolderPath(configuredRoot);
+        }
+      } catch (handleManifestError) {
+        console.warn("[LOCAL] Handle manifest fallback failed:", handleManifestError.message);
+      }
+    }
+
+    // 5) Fallback: manifest via fetch (index.json)
     if (loadedCategories.length === 0) {
       try {
         const indexPath = `${rootFolder}/index.json`;
@@ -2704,6 +2970,7 @@ function getQuestionValidationIssues(question) {
   );
   const optionValues = Array.isArray(question.options) ? question.options.map((item) => String(item || "").trim()) : [];
   const choiceOptions = optionValues.filter((item) => item !== "");
+  const uniqueValidChoiceOptions = getUniqueValidChoiceOptions(question);
   const answerValue = String(question.correctAnswer || "").trim();
 
   if (!String(question.question || "").trim()) {
@@ -2754,8 +3021,12 @@ function getQuestionValidationIssues(question) {
     }
   }
 
-  if (!isCartesianPlotQuestion && ["multiple-choice", "checkbox", "true-false"].includes(resultType) && choiceOptions.length < 2) {
-    issues.push("At least two options are required for this result type.");
+  if (!isCartesianPlotQuestion && resultType === "multiple-choice" && uniqueValidChoiceOptions.length <= 3) {
+    issues.push("Multiple-choice questions need at least 4 unique valid options.");
+  }
+
+  if (!isCartesianPlotQuestion && ["checkbox", "true-false"].includes(resultType) && uniqueValidChoiceOptions.length < 2) {
+    issues.push("At least two valid options are required for this result type.");
   }
 
   if (isCartesianPlotQuestion) {
@@ -2768,7 +3039,7 @@ function getQuestionValidationIssues(question) {
   } else if (!answerValue) {
     issues.push("Correct answer is required.");
   } else if (["multiple-choice", "true-false"].includes(resultType)) {
-    const matchesChoice = choiceOptions.some((item) => normalizeText(item) === normalizeText(answerValue));
+    const matchesChoice = uniqueValidChoiceOptions.some((item) => normalizeText(item) === normalizeText(answerValue));
     if (!matchesChoice) {
       issues.push("Correct answer must match one option exactly.");
     }
@@ -2778,13 +3049,31 @@ function getQuestionValidationIssues(question) {
     }
   } else if (resultType === "checkbox") {
     const answers = answerValue.split(",").map((item) => item.trim()).filter((item) => item !== "");
-    const invalid = answers.some((item) => !choiceOptions.some((option) => normalizeText(option) === normalizeText(item)));
+    const invalid = answers.some((item) => !uniqueValidChoiceOptions.some((option) => normalizeText(option) === normalizeText(item)));
     if (answers.length === 0 || invalid) {
       issues.push("Checkbox correct answer must be one or more comma-separated options.");
     }
   }
 
   return issues;
+}
+
+function isValidChoiceOptionText(value) {
+  const text = String(value || "").trim();
+  if (!text) return false;
+  return /[a-z0-9]/i.test(text);
+}
+
+function getUniqueValidChoiceOptions(question) {
+  const options = getChoiceOptions(question);
+  const unique = [];
+  options.forEach((item) => {
+    if (!isValidChoiceOptionText(item)) return;
+    if (!unique.some((existing) => normalizeText(existing) === normalizeText(item))) {
+      unique.push(item);
+    }
+  });
+  return unique;
 }
 
 function renderValidationBox(question) {
@@ -9913,17 +10202,29 @@ function renderEditor() {
   if (selectedQuestionSummary) {
     selectedQuestionSummary.textContent = `Selected: ${questionLabel}`;
   }
+  const normalizedForEditor = prepareQuestionForPersistence(question);
+  if (normalizedForEditor.resultType === "short-answer" && getChoiceOptions(normalizedForEditor).length > 0) {
+    normalizedForEditor.resultType = String(normalizedForEditor.correctAnswer || "").includes(",")
+      ? "checkbox"
+      : "multiple-choice";
+  }
+  if (normalizedForEditor.resultType === "multiple-choice") {
+    ensureMultipleChoiceOptionSet(normalizedForEditor, 4);
+  }
+  Object.assign(question, normalizedForEditor);
+
   const detectedMetadata = applyDetectedQuestionMetadata(question);
   ensureTrueFalseOptions(question);
+  const optionValues = Array.isArray(question.options) ? question.options : ["", "", "", ""];
   document.getElementById("questionText").value = question.question || "";
   document.getElementById("questionCategory").value = question.category || "";
   document.getElementById("questionSubcategory").value = question.subcategory || "";
   document.getElementById("questionLearningOutcome").value = question.learningOutcome || "";
   document.getElementById("resultType").value = getEditorResultType(question) || "multiple-choice";
-  document.getElementById("option1").value = question.options[0] || "";
-  document.getElementById("option2").value = question.options[1] || "";
-  document.getElementById("option3").value = question.options[2] || "";
-  document.getElementById("option4").value = question.options[3] || "";
+  document.getElementById("option1").value = optionValues[0] || "";
+  document.getElementById("option2").value = optionValues[1] || "";
+  document.getElementById("option3").value = optionValues[2] || "";
+  document.getElementById("option4").value = optionValues[3] || "";
   document.getElementById("correctAnswer").value = question.correctAnswer || "";
   document.getElementById("correctAnswerSelect").innerHTML = "";
   document.getElementById("correctAnswerCheckboxWrap").innerHTML = "";
@@ -9965,20 +10266,21 @@ function getQuizData() {
   const category = activeCategory();
   const selectedQuestions = selectedQuiz
     ? selectedQuiz.questions.map((item) => {
+      const normalizedItem = prepareQuestionForPersistence(item || {});
       const q = {
-        question: item.question || "",
-        resultType: item.resultType || "multiple-choice",
-        options: Array.isArray(item.options) ? item.options : ["", "", "", ""],
-        correctAnswer: item.correctAnswer || "",
-        category: item.category || "",
-        subcategory: item.subcategory || "",
-        learningOutcome: item.learningOutcome || "",
-        notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
-        image: item.image || "",
-        solution: item.solution || "",
-        solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)
+        question: normalizedItem.question || "",
+        resultType: normalizedItem.resultType || "multiple-choice",
+        options: Array.isArray(normalizedItem.options) ? normalizedItem.options : ["", "", "", ""],
+        correctAnswer: normalizedItem.correctAnswer || "",
+        category: normalizedItem.category || "",
+        subcategory: normalizedItem.subcategory || "",
+        learningOutcome: normalizedItem.learningOutcome || "",
+        notesAttachments: Array.isArray(normalizedItem.notesAttachments) ? normalizedItem.notesAttachments : [],
+        image: normalizedItem.image || "",
+        solution: normalizedItem.solution || "",
+        solutionAttachments: normalizeSolutionAttachments(normalizedItem.solutionAttachments)
       };
-      if (item.interactiveApp) q.interactiveApp = item.interactiveApp;
+      if (normalizedItem.interactiveApp) q.interactiveApp = normalizedItem.interactiveApp;
       return q;
     })
     : [];
@@ -10517,6 +10819,16 @@ function updateQuestionFromForm() {
     ensureTrueFalseOptions(question);
   }
 
+  if (question.resultType === "multiple-choice") {
+    const ensured = ensureMultipleChoiceOptionSet(question, 4);
+    if (ensured.changed) {
+      document.getElementById("option1").value = question.options[0] || "";
+      document.getElementById("option2").value = question.options[1] || "";
+      document.getElementById("option3").value = question.options[2] || "";
+      document.getElementById("option4").value = question.options[3] || "";
+    }
+  }
+
   if (["multiple-choice", "true-false"].includes(question.resultType)) {
     const select = document.getElementById("correctAnswerSelect");
     const selectedIndexFromUi = Number.parseInt(select.value, 10);
@@ -10693,7 +11005,7 @@ function buildPersistedQuizPayloadFrom(quiz, category) {
     settings: normalizeQuizSettings(quiz.settings),
     category: category.name || "General",
     questions: (quiz.questions || []).map((item) => {
-      const normalizedItem = normalizeQuestion(item || {});
+      const normalizedItem = prepareQuestionForPersistence(item || {});
       const question = {
         question: normalizedItem.question || "",
         resultType: normalizedItem.resultType || "multiple-choice",
@@ -14295,6 +14607,36 @@ function buildResultValidationFixPlan(question, row) {
     }
   }
 
+  if (nextResultType === "multiple-choice") {
+    const uniqueValidOptions = getUniqueValidChoiceOptions(question);
+    if (uniqueValidOptions.length < 4) {
+      const tmpQuestion = {
+        ...(question || {}),
+        resultType: "multiple-choice",
+        correctAnswer: nextAnswer,
+        options: Array.isArray(question && question.options) ? question.options.slice() : []
+      };
+      const ensured = ensureMultipleChoiceOptionSet(tmpQuestion, 4);
+      if (ensured.changed) {
+        updates.options = Array.isArray(tmpQuestion.options) ? tmpQuestion.options.slice(0, 4) : [];
+        trackChange(
+          "options",
+          "Options",
+          getChoiceOptions(question).join(", "),
+          getChoiceOptions(tmpQuestion).join(", ")
+        );
+        notes.push("Populate multiple-choice options to 4 based on question context.");
+
+        const canonical = getChoiceOptions(tmpQuestion).find((item) => normalizeText(item) === normalizeText(nextAnswer));
+        if (!canonical && getChoiceOptions(tmpQuestion)[0]) {
+          updates.correctAnswer = getChoiceOptions(tmpQuestion)[0];
+          trackChange("correctAnswer", "Correct Answer", question && question.correctAnswer, updates.correctAnswer);
+          nextAnswer = updates.correctAnswer;
+        }
+      }
+    }
+  }
+
   const currentSolution = String(question && question.solution || "").trim();
   const declaredAnswer = extractDeclaredAnswerFromSolution(currentSolution);
   const shouldRegenerateSolution = !currentSolution
@@ -14885,6 +15227,15 @@ async function applyResultValidationFixForQuestion(questionIndex, { confirmApply
   }
   if (Object.prototype.hasOwnProperty.call(plan.updates, "resultType")) {
     question.resultType = normalizeResultType(plan.updates.resultType);
+  }
+  if (Object.prototype.hasOwnProperty.call(plan.updates, "options")) {
+    const incoming = Array.isArray(plan.updates.options) ? plan.updates.options : [];
+    question.options = [
+      String(incoming[0] || "").trim(),
+      String(incoming[1] || "").trim(),
+      String(incoming[2] || "").trim(),
+      String(incoming[3] || "").trim()
+    ];
   }
   if (Object.prototype.hasOwnProperty.call(plan.updates, "solution")) {
     question.solution = String(plan.updates.solution || "").trim();
