@@ -835,6 +835,8 @@ function normalizeQuestion(item) {
     normalized.resultType = "short-answer";
   }
 
+  shuffleQuestionOptions(normalized);
+
   return normalized;
 }
 
@@ -958,6 +960,43 @@ function getQuestionOptionList(question) {
   return Array.isArray(question && question.options)
     ? question.options.map((item) => String(item).trim()).filter((item) => item !== "")
     : [];
+}
+
+function shuffleQuestionOptions(question) {
+  if (!question || typeof question !== "object") return;
+
+  const options = getQuestionOptionList(question);
+  if (options.length < 2) return;
+
+  const effectiveResultType = getEffectiveResultType(question);
+  if (![
+    "multiple-choice",
+    "checkbox",
+    "true-false"
+  ].includes(effectiveResultType)) {
+    return;
+  }
+
+  const expectedAnswers = getExpectedAnswers(question)
+    .map((item) => String(item || "").trim())
+    .filter((item) => item !== "");
+
+  const shuffled = options.slice();
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = shuffled[i];
+    shuffled[i] = shuffled[j];
+    shuffled[j] = temp;
+  }
+
+  question.options = shuffled;
+
+  // Keep correctness stable after shuffle by storing expected answers as text.
+  if (expectedAnswers.length > 0) {
+    question.correctAnswer = effectiveResultType === "checkbox"
+      ? expectedAnswers.join(", ")
+      : expectedAnswers[0];
+  }
 }
 
 function shouldRenderNumberOrderingInteractive(question) {

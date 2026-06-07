@@ -13,9 +13,9 @@
       "resultType": "multiple-choice",
       "options": [
         "Apple",
+        "1",
         "Star",
-        "Dog",
-        "1"
+        "Dog"
       ],
       "correctAnswer": "1",
       "category": "Recognition",
@@ -30,10 +30,10 @@
       "question": "Which of these is a number?",
       "resultType": "multiple-choice",
       "options": [
-        "Ball",
         "Cat",
         "2",
-        "Tree"
+        "Tree",
+        "Ball"
       ],
       "correctAnswer": "2",
       "category": "Recognition",
@@ -48,10 +48,10 @@
       "question": "Which of these is a number?",
       "resultType": "multiple-choice",
       "options": [
-        "Fish",
-        "3",
+        "Car",
         "House",
-        "Car"
+        "Fish",
+        "3"
       ],
       "correctAnswer": "3",
       "category": "Recognition",
@@ -68,8 +68,8 @@
       "options": [
         "Cat",
         "2",
-        "1",
-        "Dog"
+        "Dog",
+        "1"
       ],
       "correctAnswer": "1, 2",
       "category": "Recognition",
@@ -85,9 +85,9 @@
       "resultType": "multiple-choice",
       "options": [
         "4",
+        "3",
         "1",
-        "2",
-        "3"
+        "2"
       ],
       "correctAnswer": "3",
       "category": "Recognition",
@@ -247,10 +247,10 @@
       "question": "Which number matches 🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "2",
-        "1",
         "4",
-        "3"
+        "1",
+        "3",
+        "2"
       ],
       "correctAnswer": "1",
       "category": "Matching",
@@ -276,10 +276,10 @@
       "question": "Which number matches 🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "2",
         "1",
         "4",
-        "3"
+        "3",
+        "2"
       ],
       "correctAnswer": "2",
       "category": "Matching",
@@ -307,8 +307,8 @@
       "options": [
         "2",
         "1",
-        "4",
-        "3"
+        "3",
+        "4"
       ],
       "correctAnswer": "3",
       "category": "Matching",
@@ -335,8 +335,8 @@
       "resultType": "multiple-choice",
       "options": [
         "2",
-        "1",
         "3",
+        "1",
         "4"
       ],
       "correctAnswer": "2",
@@ -363,9 +363,9 @@
       "question": "Which number matches 🚗🚗🚗 ?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
-        "3",
         "4",
+        "3",
+        "1",
         "2"
       ],
       "correctAnswer": "3",
@@ -389,13 +389,13 @@
       }
     },
     {
-      "question": "What comes next? 1,2,__",
+      "question": "What comes next? 1,2,_",
       "resultType": "multiple-choice",
       "options": [
-        "4",
         "3",
         "1",
-        "2"
+        "2",
+        "4"
       ],
       "correctAnswer": "3",
       "category": "Sequencing",
@@ -407,12 +407,12 @@
       "solutionAttachments": []
     },
     {
-      "question": "What comes next? 2,3,__",
+      "question": "What comes next? 2,3,_",
       "resultType": "multiple-choice",
       "options": [
+        "5",
         "3",
         "2",
-        "5",
         "4"
       ],
       "correctAnswer": "4",
@@ -425,13 +425,13 @@
       "solutionAttachments": []
     },
     {
-      "question": "What comes next? 3,4,__",
+      "question": "What comes next? 3,4,_",
       "resultType": "multiple-choice",
       "options": [
-        "4",
-        "5",
         "3",
-        "6"
+        "5",
+        "6",
+        "4"
       ],
       "correctAnswer": "5",
       "category": "Sequencing",
@@ -475,9 +475,9 @@
       "question": "Which number matches 🍎🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "4",
-        "2",
         "3",
+        "2",
+        "4",
         "1"
       ],
       "correctAnswer": "3",
