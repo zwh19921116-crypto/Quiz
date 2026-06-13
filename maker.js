@@ -4007,6 +4007,17 @@ function toggleOptionsBlock(question) {
 function ensureTrueFalseOptions(question) {
   if (!question) return;
   if ((question.resultType || "multiple-choice") !== "true-false") return;
+  const storeOptions = question.resultStore && Array.isArray(question.resultStore.booleanOptions)
+    ? question.resultStore.booleanOptions
+      .map((item) => String(item || "").trim())
+      .filter((item) => item !== "")
+    : [];
+
+  if (storeOptions.length >= 2) {
+    question.options = [storeOptions[0], storeOptions[1], "", ""];
+    return;
+  }
+
   question.options = ["True", "False", "", ""];
 }
 
@@ -14107,7 +14118,10 @@ function applyQClassifyQuestionRules(question, { syncInteractiveApp = false } = 
   if (hasBoolean || (hasMultipleChoice && optionCount === 2)) {
     question.resultType = "true-false";
     ensureTrueFalseOptions(question);
-    question.correctAnswer = normalizeBooleanAnswerText(question.correctAnswer);
+    const storedBooleanResult = question.resultStore
+      ? String(question.resultStore.booleanResult || "").trim()
+      : "";
+    question.correctAnswer = normalizeBooleanAnswerText(storedBooleanResult || question.correctAnswer);
     ensureDefaultCorrectAnswer(question);
     return;
   }
@@ -14795,6 +14809,19 @@ function inferGroupComparisonAnswerFromQuestion(questionText, options = []) {
 
 function buildImportQuestionOptions(row, resultType = "") {
   const safeRow = row && typeof row === "object" ? row : {};
+  const normalizedType = normalizeResultType(resultType || safeRow.questionType || "short-answer");
+  const booleanOptions = [
+    String(safeRow.booleanOption1 || "").trim(),
+    String(safeRow.booleanOption2 || "").trim()
+  ].filter((item) => item !== "");
+
+  if (normalizedType === "true-false") {
+    if (booleanOptions.length >= 2) {
+      return [booleanOptions[0], booleanOptions[1], "", ""];
+    }
+    return ["True", "False", "", ""];
+  }
+
   const explicitMcq = [
     String(safeRow.mcqOption1 || "").trim(),
     String(safeRow.mcqOption2 || "").trim(),
@@ -14804,19 +14831,6 @@ function buildImportQuestionOptions(row, resultType = "") {
   const hasExplicitMcq = explicitMcq.some((item) => item !== "");
   if (hasExplicitMcq) {
     return explicitMcq;
-  }
-
-  const booleanOptions = [
-    String(safeRow.booleanOption1 || "").trim(),
-    String(safeRow.booleanOption2 || "").trim()
-  ].filter((item) => item !== "");
-
-  const normalizedType = normalizeResultType(resultType || safeRow.questionType || "short-answer");
-  if (normalizedType === "true-false") {
-    if (booleanOptions.length >= 2) {
-      return [booleanOptions[0], booleanOptions[1], "", ""];
-    }
-    return ["True", "False", "", ""];
   }
 
   const primary = Array.isArray(safeRow.options)

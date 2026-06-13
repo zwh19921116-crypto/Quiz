@@ -71,14 +71,14 @@
     },
     {
       "question": "0 is the number for none.",
-      "resultType": "short-answer",
+      "resultType": "true-false",
       "options": [
-        "PASS: boolean answer stored in BooleanResult.",
-        "",
+        "True",
+        "False",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "True",
       "category": "Recognition",
       "subcategory": "Select Number 0",
       "qClassify": "BOOLEAN",
@@ -90,14 +90,14 @@
     },
     {
       "question": "1 is the number for none.",
-      "resultType": "short-answer",
+      "resultType": "true-false",
       "options": [
-        "PASS: boolean answer stored in BooleanResult.",
-        "",
+        "True",
+        "False",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "True",
       "category": "Recognition",
       "subcategory": "Select Number 0",
       "qClassify": "BOOLEAN",
@@ -153,7 +153,17 @@
       "notesAttachments": [],
       "image": "",
       "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
-      "solutionAttachments": []
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 0,
+          "prompt": "Trace 0 three times.",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
     },
     {
       "question": "Draw the number 0.",
@@ -415,14 +425,14 @@
     },
     {
       "question": "If Sara has no balloons, she has 0 balloons.",
-      "resultType": "short-answer",
+      "resultType": "true-false",
       "options": [
-        "PASS: boolean answer stored in BooleanResult.",
-        "",
+        "True",
+        "False",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "True",
       "category": "Application",
       "subcategory": "Understanding Zero",
       "qClassify": "BOOLEAN",
@@ -483,14 +493,14 @@
     },
     {
       "question": "0 means there is one object.",
-      "resultType": "short-answer",
+      "resultType": "true-false",
       "options": [
-        "PASS: boolean answer stored in BooleanResult.",
-        "",
+        "True",
+        "False",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "True",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "BOOLEAN",
