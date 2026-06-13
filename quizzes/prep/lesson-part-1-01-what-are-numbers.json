@@ -14,7 +14,7 @@
   "questions": [
     {
       "question": "Which of these is a number?",
-      "resultType": "multiple-choice",
+      "resultType": "checkbox",
       "options": [
         "Dog",
         "1",
@@ -33,7 +33,7 @@
     },
     {
       "question": "Which of these is a number?",
-      "resultType": "multiple-choice",
+      "resultType": "checkbox",
       "options": [
         "Cat",
         "2",
@@ -52,7 +52,7 @@
     },
     {
       "question": "Which of these is a number?",
-      "resultType": "multiple-choice",
+      "resultType": "checkbox",
       "options": [
         "Car",
         "House",

@@ -43,3 +43,5 @@
 [2026-06-13T00:17:28.770Z] [INFO] Import apply completed. | {"source":"Prep.xlsx","importedQuizCount":104,"importedQuestionCount":2100,"saved":104,"total":104,"validationErrors":2941,"validationWarnings":662}
 [2026-06-13T06:23:07.674Z] [INFO] Import preview ready. | {"file":"Prep.xlsx","rows":2080,"accuracy":87,"errors":3157,"warnings":608}
 [2026-06-13T06:23:29.546Z] [INFO] Import apply completed. | {"source":"Prep.xlsx","importedQuizCount":104,"importedQuestionCount":2080,"saved":104,"total":104,"validationErrors":3157,"validationWarnings":608}
+[2026-06-13T06:29:37.906Z] [INFO] Import preview ready. | {"file":"Prep.xlsx","rows":2080,"accuracy":87,"errors":3157,"warnings":608}
+[2026-06-13T06:29:58.993Z] [INFO] Import apply completed. | {"source":"Prep.xlsx","importedQuizCount":104,"importedQuestionCount":2080,"saved":104,"total":104,"validationErrors":3157,"validationWarnings":608}

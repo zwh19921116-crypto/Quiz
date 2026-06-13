@@ -4,12 +4,12 @@
       "name": "Prep",
       "quizzes": [
         {
-          "title": "Prep 1.02",
-          "file": "prep/lesson-part-1-02-number-0.json"
-        },
-        {
           "title": "Prep 1.01",
           "file": "prep/lesson-part-1-01-what-are-numbers.json"
+        },
+        {
+          "title": "Prep 1.02",
+          "file": "prep/lesson-part-1-02-number-0.json"
         },
         {
           "title": "Prep 1.03",
@@ -28,76 +28,36 @@
           "file": "prep/lesson-part-1-06-number-4.json"
         },
         {
-          "title": "Prep 1.09",
-          "file": "prep/lesson-part-1-09-number-6.json"
-        },
-        {
           "title": "Prep 1.07",
           "file": "prep/lesson-part-1-07-number-5.json"
-        },
-        {
-          "title": "Prep 1.11",
-          "file": "prep/lesson-part-1-11-number-8.json"
         },
         {
           "title": "Prep 1.08",
           "file": "prep/lesson-part-1-08-review-0-5.json"
         },
         {
-          "title": "Prep 1.12",
-          "file": "prep/lesson-part-1-12-number-9.json"
-        },
-        {
-          "title": "Prep 1.14",
-          "file": "prep/lesson-part-1-14-review-0-10.json"
+          "title": "Prep 1.09",
+          "file": "prep/lesson-part-1-09-number-6.json"
         },
         {
           "title": "Prep 1.1",
           "file": "prep/lesson-part-1-1-number-7.json"
         },
         {
+          "title": "Prep 1.11",
+          "file": "prep/lesson-part-1-11-number-8.json"
+        },
+        {
+          "title": "Prep 1.12",
+          "file": "prep/lesson-part-1-12-number-9.json"
+        },
+        {
           "title": "Prep 1.13",
           "file": "prep/lesson-part-1-13-number-10.json"
         },
         {
-          "title": "Prep 10.01",
-          "file": "prep/lesson-part-10-01-introduction-to-multiplication.json"
-        },
-        {
-          "title": "Prep 10.02",
-          "file": "prep/lesson-part-10-02-arrays-and-visual-multiplication.json"
-        },
-        {
-          "title": "Prep 10.03",
-          "file": "prep/lesson-part-10-03-counting-by-2s.json"
-        },
-        {
-          "title": "Prep 10.04",
-          "file": "prep/lesson-part-10-04-counting-by-5s.json"
-        },
-        {
-          "title": "Prep 10.05",
-          "file": "prep/lesson-part-10-05-counting-by-10s.json"
-        },
-        {
-          "title": "Prep 10.06",
-          "file": "prep/lesson-part-10-06-counting-patterns-review.json"
-        },
-        {
-          "title": "Prep 10.07",
-          "file": "prep/lesson-part-10-07-equal-groups.json"
-        },
-        {
-          "title": "Prep 10.08",
-          "file": "prep/lesson-part-10-08-counting-review.json"
-        },
-        {
-          "title": "Prep 10.09",
-          "file": "prep/lesson-part-10-09-final-review.json"
-        },
-        {
-          "title": "Prep 10.1",
-          "file": "prep/lesson-part-10-1-assessment.json"
+          "title": "Prep 1.14",
+          "file": "prep/lesson-part-1-14-review-0-10.json"
         },
         {
           "title": "Prep 2.01",
@@ -136,6 +96,10 @@
           "file": "prep/lesson-part-2-09-counting-review.json"
         },
         {
+          "title": "Prep 2.1",
+          "file": "prep/lesson-part-2-1-counting-assessment.json"
+        },
+        {
           "title": "Prep 3.01",
           "file": "prep/lesson-part-3-01-more-and-less.json"
         },
@@ -144,12 +108,12 @@
           "file": "prep/lesson-part-3-02-same-quantity.json"
         },
         {
-          "title": "Prep 2.1",
-          "file": "prep/lesson-part-2-1-counting-assessment.json"
-        },
-        {
           "title": "Prep 3.03",
           "file": "prep/lesson-part-3-03-greater-than.json"
+        },
+        {
+          "title": "Prep 3.04",
+          "file": "prep/lesson-part-3-04-less-than.json"
         },
         {
           "title": "Prep 3.05",
@@ -158,10 +122,6 @@
         {
           "title": "Prep 3.06",
           "file": "prep/lesson-part-3-06-fewest-objects.json"
-        },
-        {
-          "title": "Prep 3.04",
-          "file": "prep/lesson-part-3-04-less-than.json"
         },
         {
           "title": "Prep 3.07",
@@ -264,12 +224,12 @@
           "file": "prep/lesson-part-6-01-introduction-to-shapes.json"
         },
         {
-          "title": "Prep 6.03",
-          "file": "prep/lesson-part-6-03-squares.json"
-        },
-        {
           "title": "Prep 6.02",
           "file": "prep/lesson-part-6-02-circles.json"
+        },
+        {
+          "title": "Prep 6.03",
+          "file": "prep/lesson-part-6-03-squares.json"
         },
         {
           "title": "Prep 6.04",
@@ -284,44 +244,44 @@
           "file": "prep/lesson-part-6-06-shape-properties.json"
         },
         {
-          "title": "Prep 6.09",
-          "file": "prep/lesson-part-6-09-shape-review.json"
+          "title": "Prep 6.07",
+          "file": "prep/lesson-part-6-07-shapes-in-everyday-life.json"
         },
         {
           "title": "Prep 6.08",
           "file": "prep/lesson-part-6-08-2d-shape-review.json"
         },
         {
-          "title": "Prep 6.07",
-          "file": "prep/lesson-part-6-07-shapes-in-everyday-life.json"
+          "title": "Prep 6.09",
+          "file": "prep/lesson-part-6-09-shape-review.json"
         },
         {
           "title": "Prep 6.1",
           "file": "prep/lesson-part-6-1-shape-assessment.json"
         },
         {
-          "title": "Prep 7.02",
-          "file": "prep/lesson-part-7-02-long-and-short.json"
-        },
-        {
           "title": "Prep 7.01",
           "file": "prep/lesson-part-7-01-introduction-to-measurement.json"
         },
         {
-          "title": "Prep 7.05",
-          "file": "prep/lesson-part-7-05-holds-more-or-less.json"
+          "title": "Prep 7.02",
+          "file": "prep/lesson-part-7-02-long-and-short.json"
+        },
+        {
+          "title": "Prep 7.03",
+          "file": "prep/lesson-part-7-03-tall-and-short.json"
         },
         {
           "title": "Prep 7.04",
           "file": "prep/lesson-part-7-04-heavy-and-light.json"
         },
         {
-          "title": "Prep 7.06",
-          "file": "prep/lesson-part-7-06-comparing-length.json"
+          "title": "Prep 7.05",
+          "file": "prep/lesson-part-7-05-holds-more-or-less.json"
         },
         {
-          "title": "Prep 7.03",
-          "file": "prep/lesson-part-7-03-tall-and-short.json"
+          "title": "Prep 7.06",
+          "file": "prep/lesson-part-7-06-comparing-length.json"
         },
         {
           "title": "Prep 7.07",
@@ -348,12 +308,12 @@
           "file": "prep/lesson-part-8-02-addition-using-objects.json"
         },
         {
-          "title": "Prep 8.04",
-          "file": "prep/lesson-part-8-04-adding-one-and-two.json"
-        },
-        {
           "title": "Prep 8.03",
           "file": "prep/lesson-part-8-03-making-10.json"
+        },
+        {
+          "title": "Prep 8.04",
+          "file": "prep/lesson-part-8-04-adding-one-and-two.json"
         },
         {
           "title": "Prep 8.05",
@@ -418,6 +378,46 @@
         {
           "title": "Prep 9.1",
           "file": "prep/lesson-part-9-1-subtraction-assessment.json"
+        },
+        {
+          "title": "Prep 10.01",
+          "file": "prep/lesson-part-10-01-introduction-to-multiplication.json"
+        },
+        {
+          "title": "Prep 10.02",
+          "file": "prep/lesson-part-10-02-arrays-and-visual-multiplication.json"
+        },
+        {
+          "title": "Prep 10.03",
+          "file": "prep/lesson-part-10-03-counting-by-2s.json"
+        },
+        {
+          "title": "Prep 10.04",
+          "file": "prep/lesson-part-10-04-counting-by-5s.json"
+        },
+        {
+          "title": "Prep 10.05",
+          "file": "prep/lesson-part-10-05-counting-by-10s.json"
+        },
+        {
+          "title": "Prep 10.06",
+          "file": "prep/lesson-part-10-06-counting-patterns-review.json"
+        },
+        {
+          "title": "Prep 10.07",
+          "file": "prep/lesson-part-10-07-equal-groups.json"
+        },
+        {
+          "title": "Prep 10.08",
+          "file": "prep/lesson-part-10-08-counting-review.json"
+        },
+        {
+          "title": "Prep 10.09",
+          "file": "prep/lesson-part-10-09-final-review.json"
+        },
+        {
+          "title": "Prep 10.1",
+          "file": "prep/lesson-part-10-1-assessment.json"
         }
       ]
     }
