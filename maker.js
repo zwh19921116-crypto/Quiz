@@ -12177,6 +12177,9 @@ function updateQuestionFromForm() {
     document.getElementById("resultType").value = "multiple-choice";
   }
 
+  applyQClassifyQuestionRules(question, { syncInteractiveApp: false });
+  document.getElementById("resultType").value = question.resultType;
+
   if (question.resultType === "true-false") {
     ensureTrueFalseOptions(question);
   }
@@ -12245,6 +12248,7 @@ function updateQuestionFromForm() {
     ...normalizeSolutionAttachments(question.solutionAttachments).filter((item) => item.embedded)
   ];
   question.interactiveApp = readInteractiveAppFromForm();
+  applyQClassifyQuestionRules(question, { syncInteractiveApp: true });
   applyDetectedQuestionMetadata(question);
   document.getElementById("resultType").value = getEditorResultType(question) || "multiple-choice";
 
@@ -14040,6 +14044,80 @@ function shouldForceShapeChoices(question) {
   return shapeCue;
 }
 
+function normalizeQClassifyText(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[\s_]+/g, " ");
+}
+
+function inferTraceTargetNumberFromQuestion(question) {
+  const questionText = String(question && question.question || "").trim();
+  const fromQuestion = firstNumberInText(questionText);
+  if (Number.isInteger(fromQuestion)) return Math.max(0, Math.min(100, fromQuestion));
+
+  const fromAnswer = Number.parseInt(String(question && question.correctAnswer || "").trim(), 10);
+  if (Number.isInteger(fromAnswer)) return Math.max(0, Math.min(100, fromAnswer));
+
+  const existingTarget = Number.parseInt(String(
+    question && question.interactiveApp && question.interactiveApp.config && question.interactiveApp.config.targetNumber || ""
+  ).trim(), 10);
+  if (Number.isInteger(existingTarget)) return Math.max(0, Math.min(100, existingTarget));
+
+  return 0;
+}
+
+function applyQClassifyQuestionRules(question, { syncInteractiveApp = false } = {}) {
+  if (!question || typeof question !== "object") return;
+
+  const qClassify = normalizeQClassifyText(question.qClassify);
+  if (!qClassify) return;
+
+  const optionCount = getChoiceOptions(question).length;
+  const hasTrace = /\btrace\b/.test(qClassify);
+  const hasMultiSelect = /\bmulti\s*select\b|\bmultiselect\b|\bcheckbox\b/.test(qClassify);
+  const hasBoolean = /\bboolean\b|\btrue\s*false\b|\btrue-false\b/.test(qClassify);
+  const hasMultipleChoice = /\bmultiple\s*choice\b|\bmultiple-choice\b|\bmcq\b/.test(qClassify);
+
+  if (hasTrace) {
+    question.resultType = "short-answer";
+    if (syncInteractiveApp) {
+      const targetNumber = inferTraceTargetNumberFromQuestion(question);
+      const prompt = String(question.question || "").trim() || `Trace the number ${targetNumber}`;
+      question.interactiveApp = {
+        type: "number-tracing",
+        config: {
+          targetNumber,
+          prompt,
+          prepMode: true,
+          showQuantityDots: true,
+          showInstructions: false
+        }
+      };
+    }
+    return;
+  }
+
+  if (hasMultiSelect) {
+    question.resultType = "checkbox";
+    ensureMultipleChoiceOptionSet(question, 4);
+    return;
+  }
+
+  if (hasBoolean || (hasMultipleChoice && optionCount === 2)) {
+    question.resultType = "true-false";
+    ensureTrueFalseOptions(question);
+    question.correctAnswer = normalizeBooleanAnswerText(question.correctAnswer);
+    ensureDefaultCorrectAnswer(question);
+    return;
+  }
+
+  if (hasMultipleChoice) {
+    question.resultType = "multiple-choice";
+    ensureMultipleChoiceOptionSet(question, 4);
+  }
+}
+
 function prepareQuestionForPersistence(item) {
   return normalizeQuestion(item);
 }
@@ -14093,6 +14171,8 @@ function normalizeQuestion(item) {
     normalized.resultType = "multiple-choice";
     ensureMultipleChoiceOptionSet(normalized, 4);
   }
+
+  applyQClassifyQuestionRules(normalized, { syncInteractiveApp: true });
 
   return normalized;
 }
