@@ -4,368 +4,392 @@
   "description": "Learning Outcomes for Prep: Compare weights | Identify heaviest object | Identify lightest object | Compare multiple objects | Apply weight concepts | Consolidate weight concepts",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Measurement",
+    "lessonPart": "7.07",
+    "lessonName": "Comparing Weight"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which is heavier: brick or feather?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Brick",
-        "",
-        "",
-        ""
+        "Feather",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Brick",
       "category": "Weight Comparison",
       "subcategory": "Heavier and Lighter",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare weights",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Brick.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Brick.",
       "solutionAttachments": []
     },
     {
       "question": "Which is lighter: brick or feather?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Feather",
-        "",
-        "",
-        ""
+        "Brick",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Feather",
       "category": "Weight Comparison",
       "subcategory": "Heavier and Lighter",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare weights",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Feather.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Feather.",
       "solutionAttachments": []
     },
     {
       "question": "Which is heavier: elephant or dog?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Elephant",
-        "",
-        "",
-        ""
+        "Dog",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Elephant",
       "category": "Weight Comparison",
       "subcategory": "Heavier and Lighter",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare weights",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Elephant.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Elephant.",
       "solutionAttachments": []
     },
     {
       "question": "Which is lighter: elephant or dog?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Dog",
-        "",
-        "",
-        ""
+        "Elephant",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Dog",
       "category": "Weight Comparison",
       "subcategory": "Heavier and Lighter",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare weights",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Dog.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Dog.",
       "solutionAttachments": []
     },
     {
       "question": "Which is heavier: table or chair?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Table",
-        "",
-        "",
-        ""
+        "Chair",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Table",
       "category": "Weight Comparison",
       "subcategory": "Heavier and Lighter",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare weights",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Table.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Table.",
       "solutionAttachments": []
     },
     {
       "question": "Which is heaviest: feather, book, table?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Table",
-        "",
-        "",
-        ""
+        "Feather",
+        "Book",
+        "Both are the same"
       ],
       "correctAnswer": "Table",
       "category": "Ordering Weight",
       "subcategory": "Heaviest",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify heaviest object",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Table.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Table.",
       "solutionAttachments": []
     },
     {
       "question": "Which is lightest: feather, book, table?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Feather",
-        "",
-        "",
-        ""
+        "Book",
+        "Table",
+        "Both are the same"
       ],
       "correctAnswer": "Feather",
       "category": "Ordering Weight",
       "subcategory": "Lightest",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify lightest object",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Feather.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Feather.",
       "solutionAttachments": []
     },
     {
       "question": "Which is heaviest: mouse, cat, elephant?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Elephant",
-        "",
-        "",
-        ""
+        "Mouse",
+        "Cat",
+        "Both are the same"
       ],
       "correctAnswer": "Elephant",
       "category": "Ordering Weight",
       "subcategory": "Heaviest",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify heaviest object",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Elephant.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Elephant.",
       "solutionAttachments": []
     },
     {
       "question": "Which is lightest: mouse, cat, elephant?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Mouse",
-        "",
-        "",
-        ""
+        "Cat",
+        "Elephant",
+        "Both are the same"
       ],
       "correctAnswer": "Mouse",
       "category": "Ordering Weight",
       "subcategory": "Lightest",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify lightest object",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Mouse.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mouse.",
       "solutionAttachments": []
     },
     {
       "question": "Which is heaviest: pencil, book, school bag?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "School Bag",
-        "",
-        "",
-        ""
+        "Pencil",
+        "Book",
+        "Both are the same"
       ],
       "correctAnswer": "School Bag",
       "category": "Ordering Weight",
       "subcategory": "Heaviest",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify heaviest object",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is School Bag.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to School Bag.",
       "solutionAttachments": []
     },
     {
       "question": "A truck is heavier than a car. A car is heavier than a bicycle. Which is heaviest?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Truck",
-        "",
-        "",
-        ""
+        "Option A",
+        "Option B",
+        "Option C"
       ],
       "correctAnswer": "Truck",
       "category": "Compare Three Objects",
       "subcategory": "Ordering",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Truck.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Truck.",
       "solutionAttachments": []
     },
     {
       "question": "A feather is lighter than a pencil. A pencil is lighter than a book. Which is lightest?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Feather",
-        "",
-        "",
-        ""
+        "Light",
+        "Heavy",
+        "Same Weight"
       ],
       "correctAnswer": "Feather",
       "category": "Compare Three Objects",
       "subcategory": "Ordering",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Feather.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Feather.",
       "solutionAttachments": []
     },
     {
       "question": "A dog is heavier than a cat. Which is lighter?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Cat",
-        "",
-        "",
-        ""
+        "Light",
+        "Heavy",
+        "Same Weight"
       ],
       "correctAnswer": "Cat",
       "category": "Compare Three Objects",
       "subcategory": "Ordering",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Cat.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cat.",
       "solutionAttachments": []
     },
     {
       "question": "A table is heavier than a chair. Which is heavier?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Table",
-        "",
-        "",
-        ""
+        "Option A",
+        "Option B",
+        "Option C"
       ],
       "correctAnswer": "Table",
       "category": "Compare Three Objects",
       "subcategory": "Ordering",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Table.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Table.",
       "solutionAttachments": []
     },
     {
       "question": "A school bag is heavier than a pencil case. Which is lighter?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Pencil Case",
-        "",
-        "",
-        ""
+        "Light",
+        "Heavy",
+        "Same Weight"
       ],
       "correctAnswer": "Pencil Case",
       "category": "Compare Three Objects",
       "subcategory": "Ordering",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Pencil Case.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pencil Case.",
       "solutionAttachments": []
     },
     {
       "question": "Which would usually be heavier: watermelon or apple?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Watermelon",
-        "",
-        "",
-        ""
+        "Apple",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Watermelon",
       "category": "Application",
       "subcategory": "Everyday Weight",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply weight concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Watermelon.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Watermelon.",
       "solutionAttachments": []
     },
     {
       "question": "Which would usually be lighter: refrigerator or spoon?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Spoon",
-        "",
-        "",
-        ""
+        "Refrigerator",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Spoon",
       "category": "Application",
       "subcategory": "Everyday Weight",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply weight concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Spoon.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Spoon.",
       "solutionAttachments": []
     },
     {
       "question": "Which would usually be heavier: horse or rabbit?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Horse",
-        "",
-        "",
-        ""
+        "Rabbit",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Horse",
       "category": "Application",
       "subcategory": "Everyday Weight",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply weight concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Horse.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Horse.",
       "solutionAttachments": []
     },
     {
       "question": "Which word means not heavy?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Light",
-        "",
-        "",
-        ""
+        "Heavy",
+        "Same Weight",
+        "Not Sure"
       ],
       "correctAnswer": "Light",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate weight concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Light.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Light.",
       "solutionAttachments": []
     },
     {
       "question": "Which word describes a feather compared to a brick?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Lighter",
-        "",
-        "",
-        ""
+        "Light",
+        "Heavy",
+        "Same Weight"
       ],
       "correctAnswer": "Lighter",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate weight concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Lighter.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Lighter.",
       "solutionAttachments": []
     }
   ]

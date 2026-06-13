@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Compare quantities | Compare numbers | Compare groups | Apply comparison | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Comparing Numbers",
+    "lessonPart": "3.03",
+    "lessonName": "Greater Than"
   },
   "category": "Prep",
   "questions": [
@@ -12,90 +16,95 @@
       "question": "Which group is greater? 🍎🍎🍎 or 🍎🍎",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🍎🍎🍎",
+        "🍎🍎",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🍎🍎🍎",
       "category": "Comparing",
       "subcategory": "Greater Quantity",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
       "question": "Which group is greater? ⭐⭐⭐⭐⭐ or ⭐⭐⭐",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "⭐⭐⭐⭐⭐",
+        "⭐⭐⭐",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "⭐⭐⭐⭐⭐",
       "category": "Comparing",
       "subcategory": "Greater Quantity",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to ⭐⭐⭐⭐⭐.",
       "solutionAttachments": []
     },
     {
       "question": "Which group is greater? 🚗🚗 or 🚗🚗🚗🚗",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🚗🚗",
+        "🚗🚗🚗🚗",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🚗🚗🚗🚗",
       "category": "Comparing",
       "subcategory": "Greater Quantity",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🚗🚗🚗🚗.",
       "solutionAttachments": []
     },
     {
       "question": "Which group is greater? 🐶🐶🐶🐶 or 🐶🐶",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🐶🐶🐶🐶",
+        "🐶🐶",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🐶🐶🐶🐶",
       "category": "Comparing",
       "subcategory": "Greater Quantity",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐶🐶🐶🐶.",
       "solutionAttachments": []
     },
     {
       "question": "Which group is greater? 🐟🐟🐟🐟🐟 or 🐟🐟🐟",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🐟🐟🐟",
+        "🐟🐟🐟🐟🐟",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🐟🐟🐟🐟🐟",
       "category": "Comparing",
       "subcategory": "Greater Quantity",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐟🐟🐟🐟🐟.",
       "solutionAttachments": []
     },
     {
@@ -110,10 +119,11 @@
       "correctAnswer": "5",
       "category": "Recognition",
       "subcategory": "Greater Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
       "solutionAttachments": []
     },
     {
@@ -128,10 +138,11 @@
       "correctAnswer": "8",
       "category": "Recognition",
       "subcategory": "Greater Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
       "solutionAttachments": []
     },
     {
@@ -146,10 +157,11 @@
       "correctAnswer": "10",
       "category": "Recognition",
       "subcategory": "Greater Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     },
     {
@@ -164,10 +176,11 @@
       "correctAnswer": "9",
       "category": "Recognition",
       "subcategory": "Greater Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     },
     {
@@ -182,100 +195,106 @@
       "correctAnswer": "6",
       "category": "Recognition",
       "subcategory": "Greater Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has more stars? ⭐⭐⭐⭐ or ⭐⭐",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "⭐⭐⭐⭐⭐",
+        "⭐⭐",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "⭐⭐⭐⭐⭐",
       "category": "Comparing",
       "subcategory": "Find Greater Group",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to ⭐⭐⭐⭐⭐.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has more apples? 🍎🍎🍎🍎🍎 or 🍎🍎🍎",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🍎🍎🍎🍎🍎",
+        "🍎🍎🍎",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🍎🍎🍎🍎🍎",
       "category": "Comparing",
       "subcategory": "Find Greater Group",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has more cars? 🚗🚗🚗 or 🚗🚗🚗🚗",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🚗🚗🚗",
+        "🚗🚗🚗🚗",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🚗🚗🚗🚗",
       "category": "Comparing",
       "subcategory": "Find Greater Group",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🚗🚗🚗🚗.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has more dogs? 🐶🐶🐶🐶🐶 or 🐶🐶🐶",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🐶🐶🐶🐶🐶",
+        "🐶🐶🐶",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🐶🐶🐶🐶🐶",
       "category": "Comparing",
       "subcategory": "Find Greater Group",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐶🐶🐶🐶🐶.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has more fish? 🐟🐟🐟🐟 or 🐟🐟",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🐟🐟",
+        "🐟🐟🐟🐟",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🐟🐟🐟🐟",
       "category": "Comparing",
       "subcategory": "Find Greater Group",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐟🐟🐟🐟.",
       "solutionAttachments": []
     },
     {
@@ -290,10 +309,11 @@
       "correctAnswer": "Mia",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Mia.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mia.",
       "solutionAttachments": []
     },
     {
@@ -308,10 +328,11 @@
       "correctAnswer": "Sam",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Sam.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sam.",
       "solutionAttachments": []
     },
     {
@@ -323,13 +344,14 @@
         "",
         ""
       ],
-      "correctAnswer": "Leo",
+      "correctAnswer": "Ava",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Leo.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ava.",
       "solutionAttachments": []
     },
     {
@@ -341,13 +363,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     },
     {
@@ -359,13 +382,14 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "9",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     }
   ]

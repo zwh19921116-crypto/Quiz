@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Compare quantities | Compare numbers | Compare groups | Apply comparison | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Comparing Numbers",
+    "lessonPart": "3.04",
+    "lessonName": "Less Than"
   },
   "category": "Prep",
   "questions": [
@@ -12,90 +16,95 @@
       "question": "Which group is smaller? 🍎🍎 or 🍎🍎🍎🍎",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🍎🍎🍎🍎",
+        "🍎🍎",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🍎🍎",
       "category": "Comparing",
       "subcategory": "Smaller Quantity",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎.",
       "solutionAttachments": []
     },
     {
       "question": "Which group is smaller? ⭐⭐ or ⭐⭐⭐⭐⭐",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "⭐⭐",
+        "⭐⭐⭐⭐⭐",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "⭐⭐",
       "category": "Comparing",
       "subcategory": "Smaller Quantity",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to ⭐⭐.",
       "solutionAttachments": []
     },
     {
       "question": "Which group is smaller? 🚗🚗🚗🚗 or 🚗🚗",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🚗🚗🚗🚗",
+        "🚗🚗",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🚗🚗",
       "category": "Comparing",
       "subcategory": "Smaller Quantity",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🚗🚗.",
       "solutionAttachments": []
     },
     {
       "question": "Which group is smaller? 🐶🐶🐶🐶🐶 or 🐶🐶🐶",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🐶🐶🐶🐶🐶",
+        "🐶🐶🐶",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🐶🐶🐶",
       "category": "Comparing",
       "subcategory": "Smaller Quantity",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐶🐶🐶.",
       "solutionAttachments": []
     },
     {
       "question": "Which group is smaller? 🐟🐟🐟🐟 or 🐟🐟",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🐟🐟",
+        "🐟🐟🐟🐟",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🐟🐟",
       "category": "Comparing",
       "subcategory": "Smaller Quantity",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐟🐟.",
       "solutionAttachments": []
     },
     {
@@ -110,10 +119,11 @@
       "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
@@ -128,10 +138,11 @@
       "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
@@ -146,10 +157,11 @@
       "correctAnswer": "7",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
       "solutionAttachments": []
     },
     {
@@ -164,10 +176,11 @@
       "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -182,100 +195,106 @@
       "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has fewer stars? ⭐⭐⭐⭐ or ⭐⭐",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "⭐⭐⭐⭐",
+        "⭐⭐",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "⭐⭐",
       "category": "Comparing",
       "subcategory": "Find Smaller Group",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to ⭐⭐.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has fewer apples? 🍎🍎🍎🍎🍎 or 🍎🍎🍎",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🍎🍎🍎🍎🍎",
+        "🍎🍎🍎",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🍎🍎🍎",
       "category": "Comparing",
       "subcategory": "Find Smaller Group",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has fewer cars? 🚗🚗🚗 or 🚗🚗🚗🚗",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🚗🚗🚗",
+        "🚗🚗🚗🚗",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🚗🚗🚗",
       "category": "Comparing",
       "subcategory": "Find Smaller Group",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🚗🚗🚗.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has fewer dogs? 🐶🐶🐶🐶🐶 or 🐶🐶🐶",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🐶🐶🐶",
+        "🐶🐶🐶🐶🐶",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🐶🐶🐶",
       "category": "Comparing",
       "subcategory": "Find Smaller Group",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐶🐶🐶.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has fewer fish? 🐟🐟🐟🐟 or 🐟🐟",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🐟🐟",
+        "🐟🐟🐟🐟",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🐟🐟",
       "category": "Comparing",
       "subcategory": "Find Smaller Group",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐟🐟.",
       "solutionAttachments": []
     },
     {
@@ -290,10 +309,11 @@
       "correctAnswer": "Mia",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Mia.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mia.",
       "solutionAttachments": []
     },
     {
@@ -308,10 +328,11 @@
       "correctAnswer": "Sam",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Sam.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sam.",
       "solutionAttachments": []
     },
     {
@@ -323,13 +344,14 @@
         "",
         ""
       ],
-      "correctAnswer": "Leo",
+      "correctAnswer": "Ava",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Leo.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ava.",
       "solutionAttachments": []
     },
     {
@@ -344,10 +366,11 @@
       "correctAnswer": "8",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
       "solutionAttachments": []
     },
     {
@@ -359,13 +382,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "3",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     }
   ]

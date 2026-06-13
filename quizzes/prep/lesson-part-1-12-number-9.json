@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Recognise 9 | Understand quantity 9 | Write 9 | Count 9 objects | Match quantity | Apply quantity 9 | Review number 9 | Mastery of number 9",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Numbers",
+    "lessonPart": "1.12",
+    "lessonName": "Number 9"
   },
   "category": "Prep",
   "questions": [
@@ -20,10 +24,11 @@
       "correctAnswer": "9",
       "category": "Recognition",
       "subcategory": "Identify Number 9",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     },
     {
@@ -38,10 +43,11 @@
       "correctAnswer": "9",
       "category": "Recognition",
       "subcategory": "Identify Number 9",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     },
     {
@@ -56,64 +62,68 @@
       "correctAnswer": "9",
       "category": "Recognition",
       "subcategory": "Identify Number 9",
+      "qClassify": "MCQ",
       "learningOutcome": "Understand quantity 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 9s",
       "resultType": "checkbox",
       "options": [
-        "9",
-        "1",
-        "9",
-        "2"
-      ],
-      "correctAnswer": "9",
-      "category": "Recognition",
-      "subcategory": "Select Number 9",
-      "learningOutcome": "Recognise 9",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Select every correct option. The correct selection is: 9, 9, 9.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "Select all the 9s",
-      "resultType": "checkbox",
-      "options": [
-        "10",
         "9",
         "8",
+        "9",
         "9"
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "9, 9, 9",
       "category": "Recognition",
       "subcategory": "Select Number 9",
+      "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 9, 9.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: 9, 9, and 9.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 9s",
+      "resultType": "checkbox",
+      "options": [
+        "9",
+        "8",
+        "19",
+        "9"
+      ],
+      "correctAnswer": "9, 9",
+      "category": "Recognition",
+      "subcategory": "Select Number 9",
+      "qClassify": "CHECKBOX",
+      "learningOutcome": "Recognise 9",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Check each option against the rule in the question, then select all valid choices: 9 and 9.",
       "solutionAttachments": []
     },
     {
       "question": "Trace the number 9",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Tracing",
       "subcategory": "Trace Number 9",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -130,18 +140,19 @@
       "question": "Trace the number 9 again",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Tracing",
       "subcategory": "Trace Number 9",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -158,18 +169,19 @@
       "question": "Draw the number 9",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "9",
-      "category": "Writing",
+      "correctAnswer": "PASS",
+      "category": "Tracing",
       "subcategory": "Draw Number 9",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -184,7 +196,7 @@
     },
     {
       "question": "🍎🍎🍎🍎🍎🍎🍎🍎🍎 How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "7",
         "8",
@@ -194,10 +206,11 @@
       "correctAnswer": "9",
       "category": "Counting",
       "subcategory": "Count Nine Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 9 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -213,7 +226,7 @@
     },
     {
       "question": "⭐⭐⭐⭐⭐⭐⭐⭐⭐ How many stars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "7",
         "8",
@@ -223,10 +236,11 @@
       "correctAnswer": "9",
       "category": "Counting",
       "subcategory": "Count Nine Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 9 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -242,7 +256,7 @@
     },
     {
       "question": "🚗🚗🚗🚗🚗🚗🚗🚗🚗 How many cars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "7",
         "8",
@@ -252,10 +266,11 @@
       "correctAnswer": "9",
       "category": "Counting",
       "subcategory": "Count Nine Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 9 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -271,7 +286,7 @@
     },
     {
       "question": "🐶🐶🐶🐶🐶🐶🐶🐶🐶 How many dogs are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "7",
         "8",
@@ -281,10 +296,11 @@
       "correctAnswer": "9",
       "category": "Counting",
       "subcategory": "Count Nine Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 9 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -310,10 +326,11 @@
       "correctAnswer": "9",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -339,10 +356,11 @@
       "correctAnswer": "9",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -368,10 +386,11 @@
       "correctAnswer": "🍎🍎🍎🍎🍎🍎🍎🍎🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🍎🍎🍎🍎🍎🍎🍎🍎🍎.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎🍎🍎🍎🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -386,10 +405,11 @@
       "correctAnswer": "9",
       "category": "Application",
       "subcategory": "Understanding Nine",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -415,10 +435,11 @@
       "correctAnswer": "9",
       "category": "Application",
       "subcategory": "Understanding Nine",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -444,10 +465,11 @@
       "correctAnswer": "9",
       "category": "Application",
       "subcategory": "Understanding Nine",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -473,10 +495,11 @@
       "correctAnswer": "9",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Review number 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     },
     {
@@ -491,10 +514,11 @@
       "correctAnswer": "9",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery of number 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     }
   ]

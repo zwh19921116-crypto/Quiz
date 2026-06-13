@@ -4,13 +4,17 @@
   "description": "Learning Outcomes for Prep: Recognise 0 | Recognise 2 | Recognise 5 | Recognise 8 | Recognise 10 | Recognise 3 | Recognise 7 | Write 4 | Write 9 | Write 6 | Count objects | Match quantity | Number sequence | Apply counting | Mastery 0-10",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Numbers",
+    "lessonPart": "1.14",
+    "lessonName": "Review 0-10"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which number is 0?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "0",
         "1",
@@ -20,15 +24,28 @@
       "correctAnswer": "0",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 0",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is 2?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "1",
         "2",
@@ -38,15 +55,28 @@
       "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is 5?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "5",
@@ -56,15 +86,28 @@
       "correctAnswer": "5",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is 8?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "7",
         "8",
@@ -74,15 +117,28 @@
       "correctAnswer": "8",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 8",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is 10?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "8",
         "9",
@@ -92,64 +148,104 @@
       "correctAnswer": "10",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Select all the 3s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
         "3",
-        "1",
+        "2",
         "3",
-        "2"
+        "3"
       ],
-      "correctAnswer": "3, 3",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Numbers",
+      "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: -10.",
-      "solutionAttachments": []
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Select all the 7s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
         "7",
-        "5",
         "7",
-        "8"
+        "7",
+        "77"
       ],
-      "correctAnswer": "7, 7",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Numbers",
+      "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 7",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: -10.",
-      "solutionAttachments": []
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Trace the number 4",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "-10",
+      "correctAnswer": "PASS",
       "category": "Tracing",
       "subcategory": "Trace Numbers",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is -10. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -168,18 +264,19 @@
       "question": "Trace the number 9",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "-10",
+      "correctAnswer": "PASS",
       "category": "Tracing",
       "subcategory": "Trace Numbers",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is -10. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -198,18 +295,19 @@
       "question": "Draw the number 6",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "-10",
-      "category": "Writing",
+      "correctAnswer": "PASS",
+      "category": "Tracing",
       "subcategory": "Draw Numbers",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is -10. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -226,7 +324,7 @@
     },
     {
       "question": "🍎🍎🍎🍎 How many apples are there?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "2",
         "3",
@@ -236,15 +334,28 @@
       "correctAnswer": "4",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -10.",
-      "solutionAttachments": []
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "⭐⭐⭐⭐⭐⭐ How many stars are there?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "5",
@@ -254,15 +365,28 @@
       "correctAnswer": "6",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -10.",
-      "solutionAttachments": []
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "🚗🚗🚗🚗🚗🚗🚗🚗 How many cars are there?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "6",
         "7",
@@ -272,15 +396,28 @@
       "correctAnswer": "8",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -10.",
-      "solutionAttachments": []
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶 How many dogs are there?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "8",
         "9",
@@ -290,15 +427,28 @@
       "correctAnswer": "10",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -10.",
-      "solutionAttachments": []
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number matches 🍎🍎🍎 ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "2",
         "3",
@@ -308,15 +458,28 @@
       "correctAnswer": "3",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -10.",
-      "solutionAttachments": []
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number matches ⭐⭐⭐⭐⭐⭐⭐ ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "5",
         "6",
@@ -326,15 +489,28 @@
       "correctAnswer": "7",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -10.",
-      "solutionAttachments": []
+      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "What comes next? 4,5,6,__",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "6",
         "7",
@@ -344,15 +520,28 @@
       "correctAnswer": "7",
       "category": "Sequencing",
       "subcategory": "Number Order",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Number sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is -10.",
-      "solutionAttachments": []
+      "solution": "The pattern increases by 1 each step. After 6, the next number is 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "What comes next? 7,8,9,__",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "8",
         "9",
@@ -362,15 +551,28 @@
       "correctAnswer": "10",
       "category": "Sequencing",
       "subcategory": "Number Order",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Number sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is -10.",
-      "solutionAttachments": []
+      "solution": "The pattern increases by 1 each step. After 9, the next number is 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Mia has 8 balloons. How many balloons does she have?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "6",
         "7",
@@ -380,11 +582,24 @@
       "correctAnswer": "8",
       "category": "Application",
       "subcategory": "Mixed Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is -10.",
-      "solutionAttachments": []
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which is the largest number?",
@@ -395,13 +610,14 @@
         "8",
         "10"
       ],
-      "correctAnswer": "-10",
+      "correctAnswer": "10",
       "category": "Mastery",
       "subcategory": "Mixed Assessment",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery 0-10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",

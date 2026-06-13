@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Read number sentences | Connect pictures to numbers | Apply addition | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Addition",
+    "lessonPart": "4.05",
+    "lessonName": "Number Sentences"
   },
   "category": "Prep",
   "questions": [
@@ -20,10 +24,11 @@
       "correctAnswer": "2",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 1 + 1 = 2.",
+      "solution": "Add the two numbers step by step: 1 + 1 = 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -50,10 +55,11 @@
       "correctAnswer": "3",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 2 + 1 = 3.",
+      "solution": "Add the two numbers step by step: 2 + 1 = 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -80,10 +86,11 @@
       "correctAnswer": "4",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 2 + 2 = 4.",
+      "solution": "Add the two numbers step by step: 2 + 2 = 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -110,10 +117,11 @@
       "correctAnswer": "4",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 3 + 1 = 4.",
+      "solution": "Add the two numbers step by step: 3 + 1 = 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -140,10 +148,11 @@
       "correctAnswer": "5",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 3 + 2 = 5.",
+      "solution": "Add the two numbers step by step: 3 + 2 = 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -170,10 +179,11 @@
       "correctAnswer": "5",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 4 + 1 = 5.",
+      "solution": "Add the two numbers step by step: 4 + 1 = 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -200,10 +210,11 @@
       "correctAnswer": "6",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 4 + 2 = 6.",
+      "solution": "Add the two numbers step by step: 4 + 2 = 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -230,10 +241,11 @@
       "correctAnswer": "6",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 5 + 1 = 6.",
+      "solution": "Add the two numbers step by step: 5 + 1 = 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -260,10 +272,11 @@
       "correctAnswer": "7",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 5 + 2 = 7.",
+      "solution": "Add the two numbers step by step: 5 + 2 = 7.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -290,10 +303,11 @@
       "correctAnswer": "8",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 5 + 3 = 8.",
+      "solution": "Add the two numbers step by step: 5 + 3 = 8.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -317,13 +331,14 @@
         "3+1=4",
         ""
       ],
-      "correctAnswer": "2+1=3",
+      "correctAnswer": "REVIEW",
       "category": "Match Pictures to Numbers",
       "subcategory": "Picture to Number Sentence",
+      "qClassify": "MCQ",
       "learningOutcome": "Connect pictures to numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2+1=3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -335,13 +350,14 @@
         "2+2=4",
         ""
       ],
-      "correctAnswer": "3+2=5",
+      "correctAnswer": "REVIEW",
       "category": "Match Pictures to Numbers",
       "subcategory": "Picture to Number Sentence",
+      "qClassify": "MCQ",
       "learningOutcome": "Connect pictures to numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3+2=5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -353,13 +369,14 @@
         "2+2=4",
         ""
       ],
-      "correctAnswer": "2+3=5",
+      "correctAnswer": "REVIEW",
       "category": "Match Pictures to Numbers",
       "subcategory": "Picture to Number Sentence",
+      "qClassify": "MCQ",
       "learningOutcome": "Connect pictures to numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2+3=5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -371,13 +388,14 @@
         "3+2=5",
         ""
       ],
-      "correctAnswer": "3+1=4",
+      "correctAnswer": "REVIEW",
       "category": "Match Pictures to Numbers",
       "subcategory": "Picture to Number Sentence",
+      "qClassify": "MCQ",
       "learningOutcome": "Connect pictures to numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3+1=4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -389,13 +407,14 @@
         "1+2=3",
         ""
       ],
-      "correctAnswer": "2+2=4",
+      "correctAnswer": "REVIEW",
       "category": "Match Pictures to Numbers",
       "subcategory": "Picture to Number Sentence",
+      "qClassify": "MCQ",
       "learningOutcome": "Connect pictures to numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2+2=4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -407,13 +426,14 @@
         "3+3=6",
         ""
       ],
-      "correctAnswer": "2+3=5",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Real World Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2+3=5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -425,13 +445,14 @@
         "3+1=4",
         ""
       ],
-      "correctAnswer": "4+1=5",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Real World Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4+1=5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -443,13 +464,14 @@
         "2+2=4",
         ""
       ],
-      "correctAnswer": "3+2=5",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Real World Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3+2=5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -464,10 +486,11 @@
       "correctAnswer": "8",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 6 + 2 = 8.",
+      "solution": "Add the two numbers step by step: 6 + 2 = 8.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -494,10 +517,11 @@
       "correctAnswer": "8",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 4 + 4 = 8.",
+      "solution": "Add the two numbers step by step: 4 + 4 = 8.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",

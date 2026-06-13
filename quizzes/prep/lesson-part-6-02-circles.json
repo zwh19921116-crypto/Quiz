@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Identify circles | Recognise circles | Recognise circle properties | Match objects to circles | Apply shape recognition | Consolidate circle recognition",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Shapes",
+    "lessonPart": "6.02",
+    "lessonName": "Circles"
   },
   "category": "Prep",
   "questions": [
@@ -18,66 +22,70 @@
         "Rectangle"
       ],
       "correctAnswer": "Circle",
-      "category": "Shape Recognition",
+      "category": "Shapes",
       "subcategory": "Identify Circles",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
       "question": "A circle is round. True or False?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "True",
-        "False",
-        "Yes",
-        "No"
+        "PASS: boolean result stored in BooleanResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "True",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Circles",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is True.",
+      "solution": "Evaluate the statement using the lesson rule, then decide whether it is true or false. The correct choice is PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Does a circle have corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "Yes",
-        "No",
-        "Circle",
-        "Square"
+        "PASS: boolean result stored in BooleanResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "No",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Circles",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Does a circle have sides?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "Yes",
-        "No",
-        "Circle",
-        "Square"
+        "PASS: boolean result stored in BooleanResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "No",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Circles",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -90,12 +98,13 @@
         "Rectangle"
       ],
       "correctAnswer": "Circle",
-      "category": "Shape Recognition",
+      "category": "Shapes",
       "subcategory": "Identify Circles",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
@@ -110,10 +119,11 @@
       "correctAnswer": "Circle",
       "category": "Everyday Objects",
       "subcategory": "Circle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
@@ -128,10 +138,11 @@
       "correctAnswer": "Circle",
       "category": "Everyday Objects",
       "subcategory": "Circle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
@@ -146,10 +157,11 @@
       "correctAnswer": "Circle",
       "category": "Everyday Objects",
       "subcategory": "Circle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
@@ -164,10 +176,11 @@
       "correctAnswer": "Circle",
       "category": "Everyday Objects",
       "subcategory": "Circle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
@@ -182,10 +195,11 @@
       "correctAnswer": "Circle",
       "category": "Everyday Objects",
       "subcategory": "Circle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
@@ -200,10 +214,11 @@
       "correctAnswer": "Circle",
       "category": "Circle Properties",
       "subcategory": "Round Shapes",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
@@ -218,64 +233,68 @@
       "correctAnswer": "Circle",
       "category": "Circle Properties",
       "subcategory": "Round Shapes",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
       "question": "Can a circle roll?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "Yes",
-        "No",
-        "Circle",
-        "Square"
+        "PASS: boolean result stored in BooleanResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "PASS",
       "category": "Circle Properties",
       "subcategory": "Round Shapes",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Does a circle have straight edges?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "Yes",
-        "No",
-        "Circle",
-        "Square"
+        "PASS: boolean result stored in BooleanResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "No",
+      "correctAnswer": "PASS",
       "category": "Circle Properties",
       "subcategory": "Round Shapes",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Is a ball shape based on a circle?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "Yes",
-        "No",
-        "Circle",
-        "Square"
+        "PASS: boolean result stored in BooleanResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "PASS",
       "category": "Circle Properties",
       "subcategory": "Round Shapes",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -284,16 +303,17 @@
       "options": [
         "Coin",
         "Door",
-        "Book",
-        "Ruler"
+        "Plate",
+        "Book"
       ],
       "correctAnswer": "Coin",
       "category": "Application",
       "subcategory": "Find Circles",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Coin.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Coin.",
       "solutionAttachments": []
     },
     {
@@ -301,17 +321,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Plate",
-        "Book",
+        "Coin",
         "Door",
-        "Ruler"
+        "Book"
       ],
       "correctAnswer": "Plate",
       "category": "Application",
       "subcategory": "Find Circles",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Plate.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Plate.",
       "solutionAttachments": []
     },
     {
@@ -319,17 +340,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Wheel",
-        "Ruler",
-        "Book",
-        "Door"
+        "Coin",
+        "Door",
+        "Plate"
       ],
       "correctAnswer": "Wheel",
       "category": "Application",
       "subcategory": "Find Circles",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Wheel.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Wheel.",
       "solutionAttachments": []
     },
     {
@@ -344,10 +366,11 @@
       "correctAnswer": "Circle",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate circle recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
@@ -362,10 +385,11 @@
       "correctAnswer": "Circle",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate circle recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     }
   ]

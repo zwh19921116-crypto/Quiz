@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Recognise 3 | Understand quantity 3 | Write 3 | Count 3 objects | Match quantity | Apply quantity 3 | Review number 3 | Mastery of number 3",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Numbers",
+    "lessonPart": "1.05",
+    "lessonName": "Number 3"
   },
   "category": "Prep",
   "questions": [
@@ -20,10 +24,11 @@
       "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Identify Number 3",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -38,10 +43,11 @@
       "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Identify Number 3",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -56,10 +62,11 @@
       "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Identify Number 3",
+      "qClassify": "MCQ",
       "learningOutcome": "Understand quantity 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -67,53 +74,56 @@
       "resultType": "checkbox",
       "options": [
         "3",
-        "1",
         "3",
-        "2"
+        "3",
+        "4"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "3, 3, 3",
       "category": "Recognition",
       "subcategory": "Select Number 3",
+      "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 3, 3, 3.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: 3, 3, and 3.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 3s",
       "resultType": "checkbox",
       "options": [
-        "4",
         "3",
-        "5",
-        "3"
+        "6",
+        "3",
+        "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "3, 3",
       "category": "Recognition",
       "subcategory": "Select Number 3",
+      "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 3, 3.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: 3 and 3.",
       "solutionAttachments": []
     },
     {
       "question": "Trace the number 3",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Tracing",
       "subcategory": "Trace Number 3",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -130,18 +140,19 @@
       "question": "Trace the number 3 again",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Tracing",
       "subcategory": "Trace Number 3",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -158,18 +169,19 @@
       "question": "Draw the number 3",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "3",
-      "category": "Writing",
+      "correctAnswer": "PASS",
+      "category": "Tracing",
       "subcategory": "Draw Number 3",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -184,7 +196,7 @@
     },
     {
       "question": "🍎🍎🍎 How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "1",
         "2",
@@ -194,10 +206,11 @@
       "correctAnswer": "3",
       "category": "Counting",
       "subcategory": "Count Three Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 3 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -213,7 +226,7 @@
     },
     {
       "question": "⭐⭐⭐ How many stars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "1",
         "2",
@@ -223,10 +236,11 @@
       "correctAnswer": "3",
       "category": "Counting",
       "subcategory": "Count Three Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 3 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -242,7 +256,7 @@
     },
     {
       "question": "🚗🚗🚗 How many cars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "1",
         "2",
@@ -252,10 +266,11 @@
       "correctAnswer": "3",
       "category": "Counting",
       "subcategory": "Count Three Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 3 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -271,7 +286,7 @@
     },
     {
       "question": "🐶🐶🐶 How many dogs are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "1",
         "2",
@@ -281,10 +296,11 @@
       "correctAnswer": "3",
       "category": "Counting",
       "subcategory": "Count Three Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 3 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -310,10 +326,11 @@
       "correctAnswer": "3",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQ",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -339,10 +356,11 @@
       "correctAnswer": "3",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQ",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -365,13 +383,14 @@
         "🍎🍎",
         "🍎🍎🍎🍎"
       ],
-      "correctAnswer": "🍎",
+      "correctAnswer": "REVIEW",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🍎🍎🍎.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -386,10 +405,11 @@
       "correctAnswer": "3",
       "category": "Application",
       "subcategory": "Understanding Three",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -415,10 +435,11 @@
       "correctAnswer": "3",
       "category": "Application",
       "subcategory": "Understanding Three",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -444,10 +465,11 @@
       "correctAnswer": "3",
       "category": "Application",
       "subcategory": "Understanding Three",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -473,10 +495,11 @@
       "correctAnswer": "3",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Review number 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -491,10 +514,11 @@
       "correctAnswer": "3",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery of number 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     }
   ]

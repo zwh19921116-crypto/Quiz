@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Continue counting sequence | Recognise sequence pattern | Complete sequence | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Counting",
+    "lessonPart": "2.08",
+    "lessonName": "Number Sequences"
   },
   "category": "Prep",
   "questions": [
@@ -20,10 +24,11 @@
       "correctAnswer": "3",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -38,10 +43,11 @@
       "correctAnswer": "4",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
@@ -56,10 +62,11 @@
       "correctAnswer": "5",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
       "solutionAttachments": []
     },
     {
@@ -74,10 +81,11 @@
       "correctAnswer": "6",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     },
     {
@@ -92,10 +100,11 @@
       "correctAnswer": "7",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
       "solutionAttachments": []
     },
     {
@@ -110,10 +119,11 @@
       "correctAnswer": "8",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
       "solutionAttachments": []
     },
     {
@@ -128,10 +138,11 @@
       "correctAnswer": "9",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     },
     {
@@ -146,10 +157,11 @@
       "correctAnswer": "10",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     },
     {
@@ -164,10 +176,11 @@
       "correctAnswer": "11",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
       "solutionAttachments": []
     },
     {
@@ -182,10 +195,11 @@
       "correctAnswer": "12",
       "category": "Sequencing",
       "subcategory": "Continue Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Continue counting sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
       "solutionAttachments": []
     },
     {
@@ -200,10 +214,11 @@
       "correctAnswer": "13",
       "category": "Recognition",
       "subcategory": "Identify Pattern",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise sequence pattern",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 13.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 13.",
       "solutionAttachments": []
     },
     {
@@ -218,10 +233,11 @@
       "correctAnswer": "16",
       "category": "Recognition",
       "subcategory": "Identify Pattern",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise sequence pattern",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 16.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 16.",
       "solutionAttachments": []
     },
     {
@@ -236,10 +252,11 @@
       "correctAnswer": "19",
       "category": "Recognition",
       "subcategory": "Identify Pattern",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise sequence pattern",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 19.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 19.",
       "solutionAttachments": []
     },
     {
@@ -254,10 +271,11 @@
       "correctAnswer": "7",
       "category": "Recognition",
       "subcategory": "Identify Pattern",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise sequence pattern",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
       "solutionAttachments": []
     },
     {
@@ -272,10 +290,11 @@
       "correctAnswer": "13",
       "category": "Recognition",
       "subcategory": "Identify Pattern",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise sequence pattern",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 13.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 13.",
       "solutionAttachments": []
     },
     {
@@ -287,13 +306,14 @@
         "4",
         "5"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "3",
       "category": "Application",
       "subcategory": "Complete Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Complete sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -305,13 +325,14 @@
         "10",
         "11"
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "9",
       "category": "Application",
       "subcategory": "Complete Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Complete sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     },
     {
@@ -323,13 +344,14 @@
         "17",
         "18"
       ],
-      "correctAnswer": "17",
+      "correctAnswer": "16",
       "category": "Application",
       "subcategory": "Complete Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Complete sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 17.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 16.",
       "solutionAttachments": []
     },
     {
@@ -344,10 +366,11 @@
       "correctAnswer": "20",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 20.",
+      "solution": "The pattern increases by 1 each step. After 19, the next number is 20.",
       "solutionAttachments": []
     },
     {
@@ -362,10 +385,11 @@
       "correctAnswer": "9",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 9.",
+      "solution": "The pattern increases by 1 each step. After 8, the next number is 9.",
       "solutionAttachments": []
     }
   ]

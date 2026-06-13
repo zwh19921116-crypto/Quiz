@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Add objects | Read number sentences | Find missing addend | Recall doubles facts | Apply addition | Consolidate addition skills",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Addition",
+    "lessonPart": "4.1",
+    "lessonName": "Addition Assessment"
   },
   "category": "Prep",
   "questions": [
@@ -17,13 +21,14 @@
         "3",
         "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Add Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +40,14 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Add Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +59,14 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Add Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +78,14 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Add Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +97,14 @@
         "6",
         "7"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Add Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Add objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -110,10 +119,11 @@
       "correctAnswer": "5",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 2 + 3 = 5.",
+      "solution": "Add the two numbers step by step: 2 + 3 = 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -140,10 +150,11 @@
       "correctAnswer": "6",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 4 + 2 = 6.",
+      "solution": "Add the two numbers step by step: 4 + 2 = 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -170,10 +181,11 @@
       "correctAnswer": "8",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 5 + 3 = 8.",
+      "solution": "Add the two numbers step by step: 5 + 3 = 8.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -200,10 +212,11 @@
       "correctAnswer": "8",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 6 + 2 = 8.",
+      "solution": "Add the two numbers step by step: 6 + 2 = 8.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -230,10 +243,11 @@
       "correctAnswer": "10",
       "category": "Number Sentences",
       "subcategory": "Complete Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Read number sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 5 + 5 = 10.",
+      "solution": "Add the two numbers step by step: 5 + 5 = 10.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -249,7 +263,7 @@
       }
     },
     {
-      "question": "3 + __ = 5",
+      "question": "3 + __ = 5?",
       "resultType": "multiple-choice",
       "options": [
         "1",
@@ -257,17 +271,18 @@
         "3",
         "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Missing Addends",
       "subcategory": "Find Missing Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Find missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
-      "question": "__ + 2 = 6",
+      "question": "__ + 2 = 6?",
       "resultType": "multiple-choice",
       "options": [
         "2",
@@ -275,17 +290,18 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Missing Addends",
       "subcategory": "Find Missing Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Find missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
-      "question": "5 + __ = 8",
+      "question": "5 + __ = 8?",
       "resultType": "multiple-choice",
       "options": [
         "1",
@@ -293,13 +309,14 @@
         "3",
         "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "3",
       "category": "Missing Addends",
       "subcategory": "Find Missing Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Find missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -314,10 +331,11 @@
       "correctAnswer": "8",
       "category": "Addition Facts",
       "subcategory": "Doubles",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall doubles facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 4 + 4 = 8.",
+      "solution": "Add the two numbers step by step: 4 + 4 = 8.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -344,10 +362,11 @@
       "correctAnswer": "10",
       "category": "Addition Facts",
       "subcategory": "Doubles",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall doubles facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 5 + 5 = 10.",
+      "solution": "Add the two numbers step by step: 5 + 5 = 10.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -371,22 +390,23 @@
         "7",
         "8"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "3",
       "category": "Application",
       "subcategory": "Word Problems",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 7.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Mia has 3 apples and gets 4 more. How many apples now?",
-          "totalCount": 7,
+          "totalCount": 3,
           "iconShape": "circle",
           "groups": [
-            7
+            3
           ]
         }
       }
@@ -400,22 +420,23 @@
         "7",
         "8"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "2",
       "category": "Application",
       "subcategory": "Word Problems",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 7.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Sam has 2 balloons and gets 5 more. How many balloons now?",
-          "totalCount": 7,
+          "totalCount": 2,
           "iconShape": "circle",
           "groups": [
-            7
+            2
           ]
         }
       }
@@ -429,22 +450,23 @@
         "8",
         "9"
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "4",
       "category": "Application",
       "subcategory": "Word Problems",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 8.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Ava has 4 stars and gets 4 more. How many stars now?",
-          "totalCount": 8,
+          "totalCount": 4,
           "iconShape": "circle",
           "groups": [
-            8
+            4
           ]
         }
       }
@@ -461,10 +483,11 @@
       "correctAnswer": "9",
       "category": "Mastery",
       "subcategory": "Mixed Assessment",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate addition skills",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 6 + 3 = 9.",
+      "solution": "Add the two numbers step by step: 6 + 3 = 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -491,10 +514,11 @@
       "correctAnswer": "9",
       "category": "Mastery",
       "subcategory": "Mixed Assessment",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate addition skills",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 7 + 2 = 9.",
+      "solution": "Add the two numbers step by step: 7 + 2 = 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",

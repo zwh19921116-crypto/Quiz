@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Subtract objects to 5 | Count remaining | Apply subtraction | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Subtraction",
+    "lessonPart": "5.02",
+    "lessonName": "Take Away Objects to 5"
   },
   "category": "Prep",
   "questions": [
@@ -17,13 +21,14 @@
         "2",
         "3"
       ],
-      "correctAnswer": "0",
+      "correctAnswer": "1",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +40,14 @@
         "3",
         "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +59,14 @@
         "2",
         "3"
       ],
-      "correctAnswer": "0",
+      "correctAnswer": "1",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +78,14 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +97,14 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "4",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +116,14 @@
         "3",
         "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +135,14 @@
         "3",
         "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
@@ -143,13 +154,14 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +173,14 @@
         "2",
         "3"
       ],
-      "correctAnswer": "0",
+      "correctAnswer": "1",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
       "solutionAttachments": []
     },
     {
@@ -179,13 +192,14 @@
         "3",
         "4"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +211,14 @@
         "4",
         "5"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Count Remaining",
+      "qClassify": "MCQ",
       "learningOutcome": "Count remaining",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -215,13 +230,14 @@
         "3",
         "4"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Count Remaining",
+      "qClassify": "MCQ",
       "learningOutcome": "Count remaining",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
@@ -236,10 +252,11 @@
       "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Count Remaining",
+      "qClassify": "MCQ",
       "learningOutcome": "Count remaining",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
@@ -251,13 +268,14 @@
         "3",
         "4"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Count Remaining",
+      "qClassify": "MCQ",
       "learningOutcome": "Count remaining",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
@@ -272,10 +290,11 @@
       "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Count Remaining",
+      "qClassify": "MCQ",
       "learningOutcome": "Count remaining",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
       "solutionAttachments": []
     },
     {
@@ -287,22 +306,23 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "5",
       "category": "Application",
       "subcategory": "Real World Take Away",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Mia has 5 apples. She eats 2 apples. How many are left?",
-          "totalCount": 3,
+          "totalCount": 5,
           "iconShape": "circle",
           "groups": [
-            3
+            5
           ]
         }
       }
@@ -316,22 +336,23 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "4",
       "category": "Application",
       "subcategory": "Real World Take Away",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Sam has 4 balloons. He gives away 2 balloons. How many are left?",
-          "totalCount": 2,
+          "totalCount": 4,
           "iconShape": "circle",
           "groups": [
-            2
+            4
           ]
         }
       }
@@ -345,22 +366,23 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "5",
       "category": "Application",
       "subcategory": "Real World Take Away",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Ava has 5 stars. She gives away 3 stars. How many are left?",
-          "totalCount": 2,
+          "totalCount": 5,
           "iconShape": "circle",
           "groups": [
-            2
+            5
           ]
         }
       }
@@ -377,10 +399,11 @@
       "correctAnswer": "1",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
       "solutionAttachments": []
     },
     {
@@ -395,10 +418,11 @@
       "correctAnswer": "0",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
       "solutionAttachments": []
     }
   ]

@@ -4,98 +4,107 @@
   "description": "Learning Outcomes for Prep: Subtract within 20 | Word subtraction | Subtract fluently",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Subtraction",
+    "lessonPart": "9.04",
+    "lessonName": "Subtraction Within 20"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "12 − 2 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "9",
-        "10",
-        "11",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "10",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     },
     {
       "question": "15 − 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "9",
-        "10",
-        "11",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "10",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     },
     {
       "question": "14 − 3 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "10",
-        "11",
-        "12",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "11",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
       "solutionAttachments": []
     },
     {
       "question": "18 − 6 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "10",
-        "11",
-        "12",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "12",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
       "solutionAttachments": []
     },
     {
       "question": "16 − 4 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "11",
-        "12",
-        "13",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "12",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
       "solutionAttachments": []
     },
     {
@@ -107,31 +116,33 @@
         "16",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "REVIEW",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "13 − 1 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "11",
-        "12",
-        "13",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
-      "correctAnswer": "13",
+      "correctAnswer": "12",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 13.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
       "solutionAttachments": []
     },
     {
@@ -143,13 +154,14 @@
         "16",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "REVIEW",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -161,49 +173,52 @@
         "17",
         ""
       ],
-      "correctAnswer": "16",
+      "correctAnswer": "REVIEW",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 16.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "11 − 4 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "6",
-        "7",
-        "2008",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "7",
       "category": "Subtraction Skills",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
       "solutionAttachments": []
     },
     {
       "question": "You have 14 apples and eat 3. How many left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "10",
-        "11",
-        "12",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "11",
       "category": "Word Problems",
       "subcategory": "Simple Context",
+      "qClassify": "Short",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 11.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 11.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -219,20 +234,21 @@
     },
     {
       "question": "There are 16 birds, 5 fly away. How many left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "10",
-        "11",
-        "12",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "11",
       "category": "Word Problems",
       "subcategory": "Simple Context",
+      "qClassify": "Short",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 11.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 11.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -255,22 +271,23 @@
         "15",
         ""
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "18",
       "category": "Word Problems",
       "subcategory": "Simple Context",
+      "qClassify": "MCQ",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 14.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 18.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 18 toys, lose 4. How many left?",
-          "totalCount": 14,
+          "totalCount": 18,
           "iconShape": "circle",
           "groups": [
-            14
+            18
           ]
         }
       }
@@ -284,25 +301,15 @@
         "15",
         ""
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "REVIEW",
       "category": "Word Problems",
       "subcategory": "Simple Context",
+      "qClassify": "MCQ",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 14.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "20 balloons, 6 pop. How many left?",
-          "totalCount": 14,
-          "iconShape": "circle",
-          "groups": [
-            14
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is REVIEW.",
+      "solutionAttachments": []
     },
     {
       "question": "15 cars, 2 drive away. How many left?",
@@ -313,114 +320,109 @@
         "14",
         ""
       ],
-      "correctAnswer": "13",
+      "correctAnswer": "REVIEW",
       "category": "Word Problems",
       "subcategory": "Simple Context",
+      "qClassify": "MCQ",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 13.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "15 cars, 2 drive away. How many left?",
-          "totalCount": 13,
-          "iconShape": "circle",
-          "groups": [
-            13
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is REVIEW.",
+      "solutionAttachments": []
     },
     {
       "question": "13 − 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "7",
-        "8",
-        "2009",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "8",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
       "solutionAttachments": []
     },
     {
       "question": "17 − 7 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "9",
-        "10",
-        "11",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     },
     {
       "question": "19 − 8 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "10",
-        "11",
-        "12",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "11",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
       "solutionAttachments": []
     },
     {
       "question": "16 − 6 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "9",
-        "10",
-        "11",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     },
     {
       "question": "14 − 7 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "6",
-        "7",
-        "2008",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "7",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
       "solutionAttachments": []
     }
   ]

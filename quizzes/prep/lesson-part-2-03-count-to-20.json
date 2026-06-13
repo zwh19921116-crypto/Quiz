@@ -4,13 +4,17 @@
   "description": "Learning Outcomes for Prep: Count to 20 | Connect quantity to number | Match quantity | Count different objects | Count forward | Count forward beyond 20 | Apply counting | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Counting",
+    "lessonPart": "2.03",
+    "lessonName": "Count to 20"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "There are 11 apples. How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "10",
         "11",
@@ -20,10 +24,11 @@
       "correctAnswer": "11",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count to 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 11.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 11.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -39,7 +44,7 @@
     },
     {
       "question": "There are 12 apples. How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "11",
         "12",
@@ -49,10 +54,11 @@
       "correctAnswer": "12",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count to 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 12.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -68,7 +74,7 @@
     },
     {
       "question": "There are 13 apples. How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "12",
         "13",
@@ -78,10 +84,11 @@
       "correctAnswer": "13",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count to 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 13.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 13.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -97,7 +104,7 @@
     },
     {
       "question": "There are 14 apples. How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "13",
         "14",
@@ -107,10 +114,11 @@
       "correctAnswer": "14",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count to 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 14.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 14.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -126,7 +134,7 @@
     },
     {
       "question": "There are 15 apples. How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "14",
         "15",
@@ -136,10 +144,11 @@
       "correctAnswer": "15",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count to 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 15.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 15.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -165,10 +174,11 @@
       "correctAnswer": "16",
       "category": "Recognition",
       "subcategory": "Number Recognition",
+      "qClassify": "MCQ",
       "learningOutcome": "Connect quantity to number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 16.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 16.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -194,10 +204,11 @@
       "correctAnswer": "18",
       "category": "Recognition",
       "subcategory": "Number Recognition",
+      "qClassify": "MCQ",
       "learningOutcome": "Connect quantity to number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 18.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 18.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -223,10 +234,11 @@
       "correctAnswer": "17",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQ",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 17.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 17.",
       "solutionAttachments": []
     },
     {
@@ -241,15 +253,16 @@
       "correctAnswer": "20",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQ",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
       "solutionAttachments": []
     },
     {
       "question": "There are 11 stars. How many stars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "10",
         "11",
@@ -259,10 +272,11 @@
       "correctAnswer": "11",
       "category": "Counting",
       "subcategory": "Mixed Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count different objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 11.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 11.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -278,7 +292,7 @@
     },
     {
       "question": "There are 15 cars. How many cars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "14",
         "15",
@@ -288,10 +302,11 @@
       "correctAnswer": "15",
       "category": "Counting",
       "subcategory": "Mixed Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count different objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 15.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 15.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -307,7 +322,7 @@
     },
     {
       "question": "There are 19 dogs. How many dogs are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "18",
         "19",
@@ -317,10 +332,11 @@
       "correctAnswer": "19",
       "category": "Counting",
       "subcategory": "Mixed Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count different objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 19.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 19.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -346,10 +362,11 @@
       "correctAnswer": "12",
       "category": "Sequencing",
       "subcategory": "Counting Forward",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Count forward",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 12.",
+      "solution": "The pattern increases by 1 each step. After 11, the next number is 12.",
       "solutionAttachments": []
     },
     {
@@ -364,10 +381,11 @@
       "correctAnswer": "16",
       "category": "Sequencing",
       "subcategory": "Counting Forward",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Count forward",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 16.",
+      "solution": "The pattern increases by 1 each step. After 15, the next number is 16.",
       "solutionAttachments": []
     },
     {
@@ -382,10 +400,11 @@
       "correctAnswer": "21",
       "category": "Sequencing",
       "subcategory": "Counting Forward",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Count forward beyond 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 21.",
+      "solution": "The pattern increases by 1 each step. After 20, the next number is 21.",
       "solutionAttachments": []
     },
     {
@@ -400,10 +419,11 @@
       "correctAnswer": "12",
       "category": "Application",
       "subcategory": "Real World Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 12.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -429,10 +449,11 @@
       "correctAnswer": "17",
       "category": "Application",
       "subcategory": "Real World Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 17.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 17.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -458,10 +479,11 @@
       "correctAnswer": "20",
       "category": "Application",
       "subcategory": "Real World Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 20.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 20.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -487,10 +509,11 @@
       "correctAnswer": "14",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 14.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 14.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -513,13 +536,14 @@
         "18",
         "20"
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "20",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
       "solutionAttachments": []
     }
   ]

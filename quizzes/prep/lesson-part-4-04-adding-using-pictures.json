@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Add picture groups | Count pictures | Use visual models | Apply addition | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Addition",
+    "lessonPart": "4.04",
+    "lessonName": "Adding Using Pictures"
   },
   "category": "Prep",
   "questions": [
@@ -17,13 +21,14 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Picture Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Add picture groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -35,13 +40,14 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Picture Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Add picture groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -53,13 +59,14 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Picture Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Add picture groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -71,13 +78,14 @@
         "6",
         "7"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Picture Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Add picture groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -89,13 +97,14 @@
         "6",
         "7"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Picture Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Add picture groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +116,14 @@
         "6",
         "7"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Count Pictures",
+      "qClassify": "MCQ",
       "learningOutcome": "Count pictures",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +135,14 @@
         "6",
         "7"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Count Pictures",
+      "qClassify": "MCQ",
       "learningOutcome": "Count pictures",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -143,13 +154,14 @@
         "7",
         "8"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Count Pictures",
+      "qClassify": "MCQ",
       "learningOutcome": "Count pictures",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +173,14 @@
         "7",
         "8"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Count Pictures",
+      "qClassify": "MCQ",
       "learningOutcome": "Count pictures",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -179,13 +192,14 @@
         "8",
         "9"
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Count Pictures",
+      "qClassify": "MCQ",
       "learningOutcome": "Count pictures",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +211,14 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "REVIEW",
       "category": "Visual Models",
       "subcategory": "Picture Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Use visual models",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -215,13 +230,14 @@
         "7",
         "8"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "REVIEW",
       "category": "Visual Models",
       "subcategory": "Picture Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Use visual models",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -233,13 +249,14 @@
         "6",
         "7"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "REVIEW",
       "category": "Visual Models",
       "subcategory": "Picture Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Use visual models",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -251,13 +268,14 @@
         "7",
         "8"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "REVIEW",
       "category": "Visual Models",
       "subcategory": "Picture Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Use visual models",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -269,13 +287,14 @@
         "7",
         "8"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "REVIEW",
       "category": "Visual Models",
       "subcategory": "Picture Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Use visual models",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -290,10 +309,11 @@
       "correctAnswer": "5",
       "category": "Application",
       "subcategory": "Real World Pictures",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -319,10 +339,11 @@
       "correctAnswer": "5",
       "category": "Application",
       "subcategory": "Real World Pictures",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -348,10 +369,11 @@
       "correctAnswer": "5",
       "category": "Application",
       "subcategory": "Real World Pictures",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -374,13 +396,14 @@
         "7",
         "8"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -392,13 +415,14 @@
         "8",
         "9"
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     }
   ]

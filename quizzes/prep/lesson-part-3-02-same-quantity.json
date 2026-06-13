@@ -4,98 +4,107 @@
   "description": "Learning Outcomes for Prep: Identify equal quantities | Compare quantities | Match equal groups | Recognise equal numbers | Compare numbers | Apply equality | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Comparing Numbers",
+    "lessonPart": "3.02",
+    "lessonName": "Same Quantity"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Do these groups have the same number? 🍎🍎 and 🍎🍎",
-      "resultType": "multiple-choice",
+      "resultType": "true-false",
       "options": [
-        "Yes",
-        "No",
+        "True",
+        "False",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "True",
       "category": "Comparing",
       "subcategory": "Same Quantity",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Identify equal quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to True.",
       "solutionAttachments": []
     },
     {
       "question": "Do these groups have the same number? ⭐⭐⭐ and ⭐⭐⭐",
-      "resultType": "multiple-choice",
+      "resultType": "true-false",
       "options": [
-        "Yes",
-        "No",
+        "True",
+        "False",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "True",
       "category": "Comparing",
       "subcategory": "Same Quantity",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Identify equal quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to True.",
       "solutionAttachments": []
     },
     {
       "question": "Do these groups have the same number? 🚗🚗 and 🚗🚗🚗",
-      "resultType": "multiple-choice",
+      "resultType": "true-false",
       "options": [
-        "Yes",
-        "No",
+        "True",
+        "False",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "False",
       "category": "Comparing",
       "subcategory": "Same Quantity",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to False.",
       "solutionAttachments": []
     },
     {
       "question": "Do these groups have the same number? 🐶🐶🐶🐶 and 🐶🐶🐶🐶",
-      "resultType": "multiple-choice",
+      "resultType": "true-false",
       "options": [
-        "Yes",
-        "No",
+        "True",
+        "False",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "True",
       "category": "Comparing",
       "subcategory": "Same Quantity",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Identify equal quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to True.",
       "solutionAttachments": []
     },
     {
       "question": "Do these groups have the same number? 🐟🐟🐟 and 🐟🐟",
-      "resultType": "multiple-choice",
+      "resultType": "true-false",
       "options": [
-        "Yes",
-        "No",
+        "True",
+        "False",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "False",
       "category": "Comparing",
       "subcategory": "Same Quantity",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to False.",
       "solutionAttachments": []
     },
     {
@@ -107,13 +116,14 @@
         "🍎🍎🍎🍎",
         ""
       ],
-      "correctAnswer": "🍎🍎",
+      "correctAnswer": "🍎🍎🍎🍎",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🍎🍎.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +135,14 @@
         "⭐⭐⭐⭐⭐",
         ""
       ],
-      "correctAnswer": "⭐⭐⭐",
+      "correctAnswer": "⭐⭐⭐⭐⭐",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is ⭐⭐⭐.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to ⭐⭐⭐⭐⭐.",
       "solutionAttachments": []
     },
     {
@@ -143,13 +154,14 @@
         "🚗🚗🚗",
         ""
       ],
-      "correctAnswer": "🚗",
+      "correctAnswer": "🚗🚗🚗",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🚗.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🚗🚗🚗.",
       "solutionAttachments": []
     },
     {
@@ -161,13 +173,14 @@
         "🐶🐶🐶",
         ""
       ],
-      "correctAnswer": "🐶🐶🐶🐶",
+      "correctAnswer": "🐶🐶🐶🐶🐶",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🐶🐶🐶🐶.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐶🐶🐶🐶🐶.",
       "solutionAttachments": []
     },
     {
@@ -179,13 +192,14 @@
         "🐟🐟",
         ""
       ],
-      "correctAnswer": "🐟🐟🐟",
+      "correctAnswer": "🐟🐟🐟🐟",
       "category": "Comparing",
       "subcategory": "Match Equal Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Match equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🐟🐟🐟.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐟🐟🐟🐟.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +211,14 @@
         "5",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
       "solutionAttachments": []
     },
     {
@@ -215,13 +230,14 @@
         "8",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "8",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
       "solutionAttachments": []
     },
     {
@@ -233,13 +249,14 @@
         "11",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "11",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
       "solutionAttachments": []
     },
     {
@@ -254,10 +271,11 @@
       "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": []
     },
     {
@@ -269,13 +287,14 @@
         "",
         ""
       ],
-      "correctAnswer": "No",
+      "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": []
     },
     {
@@ -290,10 +309,11 @@
       "correctAnswer": "Yes",
       "category": "Application",
       "subcategory": "Real World Equality",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply equality",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": []
     },
     {
@@ -305,13 +325,14 @@
         "",
         ""
       ],
-      "correctAnswer": "No",
+      "correctAnswer": "Yes",
       "category": "Application",
       "subcategory": "Real World Equality",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply equality",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": []
     },
     {
@@ -326,10 +347,11 @@
       "correctAnswer": "Yes",
       "category": "Application",
       "subcategory": "Real World Equality",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply equality",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": []
     },
     {
@@ -341,13 +363,14 @@
         "🍎🍎🍎🍎🍎",
         ""
       ],
-      "correctAnswer": "🍎🍎🍎",
+      "correctAnswer": "🍎🍎🍎🍎🍎",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🍎🍎🍎.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -362,10 +385,11 @@
       "correctAnswer": "Yes",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": []
     }
   ]

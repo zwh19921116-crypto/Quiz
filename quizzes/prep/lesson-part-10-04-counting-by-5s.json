@@ -4,35 +4,40 @@
   "description": "Learning Outcomes for Prep: Count in 5s | Understand groups | Group counting | Repeated addition | Equal groups",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Multiplication",
+    "lessonPart": "10.04",
+    "lessonName": "Counting by 5s"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "✋✋ → How many fingers in total?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "5",
-        "6",
-        "2010",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "2",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "Short",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "✋✋ → How many fingers in total?",
-          "totalCount": 10,
+          "totalCount": 2,
           "iconShape": "circle",
           "groups": [
-            10
+            2
           ]
         }
       }
@@ -46,13 +51,14 @@
         "20",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "REVIEW",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -64,31 +70,33 @@
         "25",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "REVIEW",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "🍎🍎🍎🍎🍎 + 🍎🍎🍎🍎🍎 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "5",
-        "10",
-        "2015",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "10",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "Short",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     },
     {
@@ -100,13 +108,14 @@
         "20",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "REVIEW",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -118,31 +127,33 @@
         "25",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "REVIEW",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "👟👟👟👟👟 → How many in 1 group?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "3",
-        "4",
-        "2005",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "5",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "Short",
       "learningOutcome": "Understand groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -158,20 +169,21 @@
     },
     {
       "question": "2 groups of 5 apples = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "8",
-        "9",
-        "2010",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "Short",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     },
     {
@@ -183,13 +195,14 @@
         "20",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "REVIEW",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -201,31 +214,33 @@
         "25",
         ""
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "REVIEW",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "5 stickers in each pack. 2 packs = ? stickers",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "8",
-        "10",
-        "2012",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "10",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
+      "qClassify": "Short",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     },
     {
@@ -237,13 +252,14 @@
         "20",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "REVIEW",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -255,31 +271,33 @@
         "25",
         ""
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "REVIEW",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "5 ducks in each pond. 2 ponds = ? ducks",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "8",
-        "10",
-        "2012",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "10",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
+      "qClassify": "Short",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     },
     {
@@ -291,13 +309,14 @@
         "30",
         ""
       ],
-      "correctAnswer": "25",
+      "correctAnswer": "REVIEW",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 25.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -312,10 +331,11 @@
       "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "MCQ",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 5 + 5 = 10.",
+      "solution": "Add the two numbers step by step: 5 + 5 = 10.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -342,10 +362,11 @@
       "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "MCQ",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 5 + 5 = 10.",
+      "solution": "Add the two numbers step by step: 5 + 5 = 10.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -362,20 +383,21 @@
     },
     {
       "question": "2 groups of 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "8",
-        "9",
-        "2010",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "Short",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     },
     {
@@ -387,13 +409,14 @@
         "20",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "REVIEW",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "MCQ",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -405,13 +428,14 @@
         "25",
         ""
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "REVIEW",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "MCQ",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     }
   ]

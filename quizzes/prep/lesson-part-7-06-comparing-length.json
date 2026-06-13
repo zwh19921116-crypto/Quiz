@@ -4,368 +4,392 @@
   "description": "Learning Outcomes for Prep: Compare lengths | Identify longest object | Identify shortest object | Compare multiple objects | Apply length concepts | Consolidate length concepts",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Measurement",
+    "lessonPart": "7.06",
+    "lessonName": "Comparing Length"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which is longer: ruler or pencil?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Ruler",
-        "",
-        "",
-        ""
+        "Pencil",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Ruler",
       "category": "Length Comparison",
       "subcategory": "Longer and Shorter",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare lengths",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Ruler.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ruler.",
       "solutionAttachments": []
     },
     {
       "question": "Which is shorter: ruler or pencil?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Pencil",
-        "",
-        "",
-        ""
+        "Ruler",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Pencil",
       "category": "Length Comparison",
       "subcategory": "Longer and Shorter",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare lengths",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Pencil.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pencil.",
       "solutionAttachments": []
     },
     {
       "question": "Which is longer: rope or shoelace?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Rope",
-        "",
-        "",
-        ""
+        "Shoelace",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Rope",
       "category": "Length Comparison",
       "subcategory": "Longer and Shorter",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare lengths",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Rope.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rope.",
       "solutionAttachments": []
     },
     {
       "question": "Which is shorter: rope or shoelace?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Shoelace",
-        "",
-        "",
-        ""
+        "Rope",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Shoelace",
       "category": "Length Comparison",
       "subcategory": "Longer and Shorter",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare lengths",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Shoelace.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Shoelace.",
       "solutionAttachments": []
     },
     {
       "question": "Which is longer: train or toy car?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Train",
-        "",
-        "",
-        ""
+        "Toy Car",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Train",
       "category": "Length Comparison",
       "subcategory": "Longer and Shorter",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare lengths",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Train.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Train.",
       "solutionAttachments": []
     },
     {
       "question": "Which is longest: pencil, ruler, paper clip?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Ruler",
-        "",
-        "",
-        ""
+        "Pencil",
+        "Paper Clip",
+        "Both are the same"
       ],
       "correctAnswer": "Ruler",
       "category": "Ordering Length",
       "subcategory": "Longest",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify longest object",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Ruler.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ruler.",
       "solutionAttachments": []
     },
     {
       "question": "Which is shortest: pencil, ruler, paper clip?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Paper Clip",
-        "",
-        "",
-        ""
+        "Pencil",
+        "Ruler",
+        "Both are the same"
       ],
       "correctAnswer": "Paper Clip",
       "category": "Ordering Length",
       "subcategory": "Shortest",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify shortest object",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Paper Clip.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Paper Clip.",
       "solutionAttachments": []
     },
     {
       "question": "Which is longest: worm, snake, caterpillar?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Snake",
-        "",
-        "",
-        ""
+        "Worm",
+        "Caterpillar",
+        "Both are the same"
       ],
       "correctAnswer": "Snake",
       "category": "Ordering Length",
       "subcategory": "Longest",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify longest object",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Snake.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Snake.",
       "solutionAttachments": []
     },
     {
       "question": "Which is shortest: worm, snake, caterpillar?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Caterpillar",
-        "",
-        "",
-        ""
+        "Worm",
+        "Snake",
+        "Both are the same"
       ],
       "correctAnswer": "Caterpillar",
       "category": "Ordering Length",
       "subcategory": "Shortest",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify shortest object",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Caterpillar.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Caterpillar.",
       "solutionAttachments": []
     },
     {
       "question": "Which is longest: crayon, marker, pencil?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Pencil",
-        "",
-        "",
-        ""
+        "Crayon",
+        "Marker",
+        "Both are the same"
       ],
       "correctAnswer": "Pencil",
       "category": "Ordering Length",
       "subcategory": "Longest",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify longest object",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Pencil.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pencil.",
       "solutionAttachments": []
     },
     {
       "question": "A rope is longer than a ruler. A ruler is longer than a pencil. Which is longest?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "Rope",
-        "",
-        "",
-        ""
+        "Longer Pencil",
+        "Shorter Pencil",
+        "Same Length",
+        "Not Sure"
       ],
-      "correctAnswer": "Rope",
+      "correctAnswer": "Longer Pencil",
       "category": "Compare Three Objects",
       "subcategory": "Ordering",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Rope.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Longer Pencil.",
       "solutionAttachments": []
     },
     {
       "question": "A pencil is longer than a crayon. A crayon is longer than a paper clip. Which is shortest?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "Paper Clip",
-        "",
-        "",
-        ""
+        "Longer Pencil",
+        "Shorter Pencil",
+        "Same Length",
+        "Not Sure"
       ],
-      "correctAnswer": "Paper Clip",
+      "correctAnswer": "Longer Pencil",
       "category": "Compare Three Objects",
       "subcategory": "Ordering",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Paper Clip.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Longer Pencil.",
       "solutionAttachments": []
     },
     {
       "question": "A snake is longer than a worm. Which is shorter?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Worm",
-        "",
-        "",
-        ""
+        "Short",
+        "Long",
+        "Same Length"
       ],
       "correctAnswer": "Worm",
       "category": "Compare Three Objects",
       "subcategory": "Ordering",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Worm.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Worm.",
       "solutionAttachments": []
     },
     {
       "question": "A ruler is longer than a pencil. Which is longer?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "Ruler",
-        "",
-        "",
-        ""
+        "Longer Pencil",
+        "Shorter Pencil",
+        "Same Length",
+        "Not Sure"
       ],
-      "correctAnswer": "Ruler",
+      "correctAnswer": "Longer Pencil",
       "category": "Compare Three Objects",
       "subcategory": "Ordering",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Ruler.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Longer Pencil.",
       "solutionAttachments": []
     },
     {
       "question": "A train is longer than a bus. Which is shorter?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Bus",
-        "",
-        "",
-        ""
+        "Short",
+        "Long",
+        "Same Length"
       ],
       "correctAnswer": "Bus",
       "category": "Compare Three Objects",
       "subcategory": "Ordering",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Bus.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bus.",
       "solutionAttachments": []
     },
     {
       "question": "Which would usually be longer: road or driveway?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Road",
-        "",
-        "",
-        ""
+        "Driveway",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Road",
       "category": "Application",
       "subcategory": "Everyday Length",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply length concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Road.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Road.",
       "solutionAttachments": []
     },
     {
       "question": "Which would usually be shorter: pencil or broom?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Pencil",
-        "",
-        "",
-        ""
+        "Broom",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Pencil",
       "category": "Application",
       "subcategory": "Everyday Length",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply length concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Pencil.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pencil.",
       "solutionAttachments": []
     },
     {
       "question": "Which would usually be longer: garden hose or shoelace?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Garden Hose",
-        "",
-        "",
-        ""
+        "Shoelace",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Garden Hose",
       "category": "Application",
       "subcategory": "Everyday Length",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply length concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Garden Hose.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Garden Hose.",
       "solutionAttachments": []
     },
     {
       "question": "Which word means not short?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Long",
-        "",
-        "",
-        ""
+        "Short",
+        "Heavy",
+        "Light"
       ],
       "correctAnswer": "Long",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate length concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Long.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Long.",
       "solutionAttachments": []
     },
     {
       "question": "Which word describes a paper clip compared to a ruler?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Shorter",
-        "",
-        "",
-        ""
+        "Short",
+        "Long",
+        "Same Length"
       ],
       "correctAnswer": "Shorter",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate length concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Shorter.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Shorter.",
       "solutionAttachments": []
     }
   ]

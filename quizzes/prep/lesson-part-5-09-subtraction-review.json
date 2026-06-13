@@ -4,116 +4,126 @@
   "description": "Learning Outcomes for Prep: Subtract objects | Read subtraction sentences | Find missing number | Recall subtraction facts | Apply subtraction | Consolidate subtraction skills",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Subtraction",
+    "lessonPart": "5.09",
+    "lessonName": "Subtraction Review"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "🍎🍎🍎 take away 🍎 = ?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
+        "0",
+        "1",
         "2",
-        "",
-        "",
-        ""
+        "3"
       ],
       "correctAnswer": "2",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
       "question": "⭐⭐⭐⭐ take away ⭐⭐ = ?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
+        "0",
+        "1",
         "2",
-        "",
-        "",
-        ""
+        "3"
       ],
       "correctAnswer": "2",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
       "question": "🚗🚗🚗🚗 take away 🚗 = ?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "3",
-        "",
-        "",
-        ""
+        "0",
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "3",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
       "question": "🐶🐶🐶🐶🐶 take away 🐶🐶 = ?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "3",
-        "",
-        "",
-        ""
+        "0",
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "3",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
       "question": "🐟🐟🐟🐟 take away 🐟🐟 = ?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
+        "0",
+        "1",
         "2",
-        "",
-        "",
-        ""
+        "3"
       ],
       "correctAnswer": "2",
       "category": "Subtraction",
       "subcategory": "Take Away Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
       "question": "5 - 2 = ?",
       "resultType": "short-answer",
       "options": [
-        "3",
-        "",
-        "",
-        ""
+        "0",
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "3",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
+      "qClassify": "MCQ",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 5 - 2 = 3.",
+      "solution": "Subtract the second number from the first: 5 - 2 = 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -132,18 +142,19 @@
       "question": "6 - 3 = ?",
       "resultType": "short-answer",
       "options": [
-        "3",
-        "",
-        "",
-        ""
+        "0",
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "3",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
+      "qClassify": "MCQ",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 6 - 3 = 3.",
+      "solution": "Subtract the second number from the first: 6 - 3 = 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -162,18 +173,19 @@
       "question": "8 - 4 = ?",
       "resultType": "short-answer",
       "options": [
+        "3",
         "4",
-        "",
-        "",
-        ""
+        "5",
+        "6"
       ],
       "correctAnswer": "4",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
+      "qClassify": "MCQ",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 8 - 4 = 4.",
+      "solution": "Subtract the second number from the first: 8 - 4 = 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -192,18 +204,19 @@
       "question": "10 - 5 = ?",
       "resultType": "short-answer",
       "options": [
+        "4",
         "5",
-        "",
-        "",
-        ""
+        "6",
+        "7"
       ],
       "correctAnswer": "5",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
+      "qClassify": "MCQ",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 10 - 5 = 5.",
+      "solution": "Subtract the second number from the first: 10 - 5 = 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -222,18 +235,19 @@
       "question": "7 - 2 = ?",
       "resultType": "short-answer",
       "options": [
+        "4",
         "5",
-        "",
-        "",
-        ""
+        "6",
+        "7"
       ],
       "correctAnswer": "5",
       "category": "Number Sentences",
       "subcategory": "Complete Subtraction",
+      "qClassify": "MCQ",
       "learningOutcome": "Read subtraction sentences",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 7 - 2 = 5.",
+      "solution": "Subtract the second number from the first: 7 - 2 = 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -249,39 +263,41 @@
       }
     },
     {
-      "question": "5 - __ = 3",
-      "resultType": "short-answer",
+      "question": "5 - __ = 3?",
+      "resultType": "multiple-choice",
       "options": [
+        "0",
+        "1",
         "2",
-        "",
-        "",
-        ""
+        "3"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "2",
       "category": "Missing Numbers",
       "subcategory": "Missing Subtrahend",
+      "qClassify": "MCQ",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
-      "question": "8 - 3 = __",
+      "question": "8 - 3 = __?",
       "resultType": "short-answer",
       "options": [
+        "4",
         "5",
-        "",
-        "",
-        ""
+        "6",
+        "7"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "REVIEW",
       "category": "Missing Numbers",
       "subcategory": "Missing Result",
+      "qClassify": "MCQ",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 8 - 3 = 5.",
+      "solution": "Subtract the second number from the first: 8 - 3 = REVIEW.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -297,57 +313,60 @@
       }
     },
     {
-      "question": "__ - 2 = 4",
-      "resultType": "short-answer",
+      "question": "__ - 2 = 4?",
+      "resultType": "multiple-choice",
       "options": [
+        "5",
         "6",
-        "",
-        "",
-        ""
+        "7",
+        "8"
       ],
       "correctAnswer": "6",
       "category": "Missing Numbers",
       "subcategory": "Missing Starting Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     },
     {
-      "question": "__ - 3 = 5",
-      "resultType": "short-answer",
+      "question": "__ - 3 = 5?",
+      "resultType": "multiple-choice",
       "options": [
+        "7",
         "8",
-        "",
-        "",
-        ""
+        "9",
+        "10"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "8",
       "category": "Missing Numbers",
       "subcategory": "Missing Starting Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
       "solutionAttachments": []
     },
     {
-      "question": "9 - 4 = __",
+      "question": "9 - 4 = __?",
       "resultType": "short-answer",
       "options": [
+        "4",
         "5",
-        "",
-        "",
-        ""
+        "6",
+        "7"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "REVIEW",
       "category": "Subtraction Facts",
       "subcategory": "Facts to 10",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 9 - 4 = 5.",
+      "solution": "Subtract the second number from the first: 9 - 4 = REVIEW.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -364,20 +383,21 @@
     },
     {
       "question": "Mia has 8 apples. She eats 3. How many are left?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
+        "4",
         "5",
-        "",
-        "",
-        ""
+        "6",
+        "7"
       ],
       "correctAnswer": "8",
       "category": "Application",
       "subcategory": "Word Problems",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 8.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -393,20 +413,21 @@
     },
     {
       "question": "Sam has 10 balloons. He loses 4. How many are left?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
+        "5",
         "6",
-        "",
-        "",
-        ""
+        "7",
+        "8"
       ],
       "correctAnswer": "10",
       "category": "Application",
       "subcategory": "Word Problems",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -422,20 +443,21 @@
     },
     {
       "question": "Ava has 7 stars. She gives away 2. How many are left?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
+        "4",
         "5",
-        "",
-        "",
-        ""
+        "6",
+        "7"
       ],
       "correctAnswer": "7",
       "category": "Application",
       "subcategory": "Word Problems",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 7.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -450,39 +472,41 @@
       }
     },
     {
-      "question": "10 - __ = 4",
-      "resultType": "short-answer",
+      "question": "10 - __ = 4?",
+      "resultType": "multiple-choice",
       "options": [
+        "5",
         "6",
-        "",
-        "",
-        ""
+        "7",
+        "8"
       ],
-      "correctAnswer": "-2",
+      "correctAnswer": "6",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate subtraction skills",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     },
     {
-      "question": "__ - 5 = 5",
-      "resultType": "short-answer",
+      "question": "__ - 5 = 5?",
+      "resultType": "multiple-choice",
       "options": [
+        "9",
         "10",
-        "",
-        "",
-        ""
+        "11",
+        "12"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "10",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate subtraction skills",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     }
   ]

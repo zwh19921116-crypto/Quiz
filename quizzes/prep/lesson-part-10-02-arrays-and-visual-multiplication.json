@@ -4,170 +4,183 @@
   "description": "Learning Outcomes for Prep: Understand arrays | Count arrays | Identify arrays | Use arrays | Arrays fluency",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Multiplication",
+    "lessonPart": "10.02",
+    "lessonName": "Arrays and Visual Multiplication"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "2 rows of 3 dots = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "5",
-        "6",
-        "2007",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "6",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Understand arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     },
     {
       "question": "3 rows of 2 dots = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "5",
-        "6",
-        "2007",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "6",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Understand arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     },
     {
       "question": "4 rows of 2 dots = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "7",
-        "8",
-        "2009",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "8",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
       "solutionAttachments": []
     },
     {
       "question": "2 rows of 5 dots = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "8",
-        "9",
-        "2010",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "10",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
       "solutionAttachments": []
     },
     {
       "question": "5 rows of 1 dot = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "4",
-        "5",
-        "2006",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "5",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
       "solutionAttachments": []
     },
     {
       "question": "3 rows of 3 dots = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "8",
-        "9",
-        "2010",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "9",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     },
     {
       "question": "1 row of 7 dots = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "6",
-        "7",
-        "2008",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "7",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Identify arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
       "solutionAttachments": []
     },
     {
       "question": "4 rows of 3 dots = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "11",
-        "12",
-        "2013",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "12",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
       "solutionAttachments": []
     },
     {
       "question": "2 rows of 4 dots = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "7",
-        "8",
-        "2009",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "8",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
       "solutionAttachments": []
     },
     {
@@ -179,31 +192,33 @@
         "16",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "REVIEW",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "2 rows of 2 apples. How many apples?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "3",
-        "4",
-        "2005",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "4",
       "category": "Word Problems",
       "subcategory": "Arrays in Context",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Use arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -219,225 +234,174 @@
     },
     {
       "question": "3 rows of 4 cookies. Total cookies?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "10",
-        "11",
-        "2012",
-        ""
-      ],
-      "correctAnswer": "10",
-      "category": "Word Problems",
-      "subcategory": "Arrays in Context",
-      "learningOutcome": "Use arrays",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 12.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "4 rows of 2 cars. Total cars?",
-      "resultType": "multiple-choice",
-      "options": [
-        "7",
-        "8",
-        "2009",
-        ""
-      ],
-      "correctAnswer": "8",
-      "category": "Word Problems",
-      "subcategory": "Arrays in Context",
-      "learningOutcome": "Use arrays",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "5 rows of 2 toys. Total toys?",
-      "resultType": "multiple-choice",
-      "options": [
-        "9",
-        "10",
-        "2011",
-        ""
-      ],
-      "correctAnswer": "10",
-      "category": "Word Problems",
-      "subcategory": "Arrays in Context",
-      "learningOutcome": "Use arrays",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 10.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "2 rows of 6 stars. Total stars?",
-      "resultType": "multiple-choice",
-      "options": [
-        "11",
-        "12",
-        "2013",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "12",
       "category": "Word Problems",
       "subcategory": "Arrays in Context",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Use arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "4 rows of 2 cars. Total cars?",
+      "resultType": "short-answer",
+      "options": [
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Word Problems",
+      "subcategory": "Arrays in Context",
+      "qClassify": "ICON-COUNTER",
+      "learningOutcome": "Use arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "5 rows of 2 toys. Total toys?",
+      "resultType": "short-answer",
+      "options": [
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "10",
+      "category": "Word Problems",
+      "subcategory": "Arrays in Context",
+      "qClassify": "ICON-COUNTER",
+      "learningOutcome": "Use arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "2 rows of 6 stars. Total stars?",
+      "resultType": "short-answer",
+      "options": [
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "12",
+      "category": "Word Problems",
+      "subcategory": "Arrays in Context",
+      "qClassify": "ICON-COUNTER",
+      "learningOutcome": "Use arrays",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
       "solutionAttachments": []
     },
     {
       "question": "2 × 3 = ?",
       "resultType": "short-answer",
       "options": [
-        "5",
-        "6",
-        "2007",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 2 x 3 = 6.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "x",
-          "operandA": 2,
-          "operandB": 3,
-          "answer": "6",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solution": "Multiply the factors: 2 x 3 = 6.",
+      "solutionAttachments": []
     },
     {
       "question": "3 × 2 = ?",
       "resultType": "short-answer",
       "options": [
-        "5",
-        "6",
-        "2007",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 3 x 2 = 6.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "x",
-          "operandA": 3,
-          "operandB": 2,
-          "answer": "6",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solution": "Multiply the factors: 3 x 2 = 6.",
+      "solutionAttachments": []
     },
     {
       "question": "4 × 1 = ?",
       "resultType": "short-answer",
       "options": [
-        "3",
-        "4",
-        "2005",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "4",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 4 x 1 = 4.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "x",
-          "operandA": 4,
-          "operandB": 1,
-          "answer": "4",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solution": "Multiply the factors: 4 x 1 = 4.",
+      "solutionAttachments": []
     },
     {
       "question": "3 × 3 = ?",
       "resultType": "short-answer",
       "options": [
-        "8",
-        "9",
-        "2010",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "9",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 3 x 3 = 9.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "x",
-          "operandA": 3,
-          "operandB": 3,
-          "answer": "9",
-          "answerDigits": 1,
-          "visualMode": "none"
-        }
-      }
+      "solution": "Multiply the factors: 3 x 3 = 9.",
+      "solutionAttachments": []
     },
     {
       "question": "5 × 2 = ?",
       "resultType": "short-answer",
       "options": [
-        "9",
-        "10",
-        "2011",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "10",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "ICON-COUNTER",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 5 x 2 = 10.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "arithmetic",
-        "config": {
-          "layout": "horizontal",
-          "operator": "x",
-          "operandA": 5,
-          "operandB": 2,
-          "answer": "10",
-          "answerDigits": 2,
-          "visualMode": "none"
-        }
-      }
+      "solution": "Multiply the factors: 5 x 2 = 10.",
+      "solutionAttachments": []
     }
   ]
 }

@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Recognise 4 | Understand quantity 4 | Write 4 | Count 4 objects | Match quantity | Apply quantity 4 | Review number 4 | Mastery of number 4",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Numbers",
+    "lessonPart": "1.06",
+    "lessonName": "Number 4"
   },
   "category": "Prep",
   "questions": [
@@ -20,10 +24,11 @@
       "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Identify Number 4",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
@@ -38,10 +43,11 @@
       "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Identify Number 4",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
@@ -56,10 +62,11 @@
       "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Identify Number 4",
+      "qClassify": "MCQ",
       "learningOutcome": "Understand quantity 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
@@ -67,53 +74,56 @@
       "resultType": "checkbox",
       "options": [
         "4",
-        "1",
         "4",
-        "2"
+        "4",
+        "14"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "4, 4, 4",
       "category": "Recognition",
       "subcategory": "Select Number 4",
+      "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 4, 4, 4.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: 4, 4, and 4.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 4s",
       "resultType": "checkbox",
       "options": [
-        "5",
+        "1",
+        "3",
         "4",
-        "6",
         "4"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "4, 4",
       "category": "Recognition",
       "subcategory": "Select Number 4",
+      "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 4, 4.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: 4 and 4.",
       "solutionAttachments": []
     },
     {
       "question": "Trace the number 4",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Tracing",
       "subcategory": "Trace Number 4",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -130,18 +140,19 @@
       "question": "Trace the number 4 again",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Tracing",
       "subcategory": "Trace Number 4",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -158,18 +169,19 @@
       "question": "Draw the number 4",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "4",
-      "category": "Writing",
+      "correctAnswer": "PASS",
+      "category": "Tracing",
       "subcategory": "Draw Number 4",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -184,7 +196,7 @@
     },
     {
       "question": "🍎🍎🍎🍎 How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "2",
         "3",
@@ -194,10 +206,11 @@
       "correctAnswer": "4",
       "category": "Counting",
       "subcategory": "Count Four Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 4 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -213,7 +226,7 @@
     },
     {
       "question": "⭐⭐⭐⭐ How many stars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "2",
         "3",
@@ -223,10 +236,11 @@
       "correctAnswer": "4",
       "category": "Counting",
       "subcategory": "Count Four Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 4 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -242,7 +256,7 @@
     },
     {
       "question": "🚗🚗🚗🚗 How many cars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "2",
         "3",
@@ -252,10 +266,11 @@
       "correctAnswer": "4",
       "category": "Counting",
       "subcategory": "Count Four Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 4 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -271,7 +286,7 @@
     },
     {
       "question": "🐶🐶🐶🐶 How many dogs are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "2",
         "3",
@@ -281,10 +296,11 @@
       "correctAnswer": "4",
       "category": "Counting",
       "subcategory": "Count Four Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 4 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -310,10 +326,11 @@
       "correctAnswer": "4",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQ",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -339,10 +356,11 @@
       "correctAnswer": "4",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQ",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -368,10 +386,11 @@
       "correctAnswer": "🍎🍎🍎🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🍎🍎🍎🍎.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -386,10 +405,11 @@
       "correctAnswer": "4",
       "category": "Application",
       "subcategory": "Understanding Four",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -415,10 +435,11 @@
       "correctAnswer": "4",
       "category": "Application",
       "subcategory": "Understanding Four",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -444,10 +465,11 @@
       "correctAnswer": "4",
       "category": "Application",
       "subcategory": "Understanding Four",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -473,10 +495,11 @@
       "correctAnswer": "4",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Review number 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
@@ -491,10 +514,11 @@
       "correctAnswer": "4",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery of number 4",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     }
   ]

@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Count backward | Complete backward sequence | Understand order | Find missing number | Apply backward counting | Review backward counting | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Counting",
+    "lessonPart": "2.06",
+    "lessonName": "Count Backward from 10"
   },
   "category": "Prep",
   "questions": [
@@ -20,10 +24,11 @@
       "correctAnswer": "9",
       "category": "Sequencing",
       "subcategory": "Count Backward",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Count backward",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     },
     {
@@ -38,10 +43,11 @@
       "correctAnswer": "8",
       "category": "Sequencing",
       "subcategory": "Count Backward",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Count backward",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
       "solutionAttachments": []
     },
     {
@@ -56,10 +62,11 @@
       "correctAnswer": "7",
       "category": "Sequencing",
       "subcategory": "Count Backward",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Count backward",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
       "solutionAttachments": []
     },
     {
@@ -74,10 +81,11 @@
       "correctAnswer": "6",
       "category": "Sequencing",
       "subcategory": "Count Backward",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Count backward",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     },
     {
@@ -92,10 +100,11 @@
       "correctAnswer": "5",
       "category": "Sequencing",
       "subcategory": "Count Backward",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Count backward",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
       "solutionAttachments": []
     },
     {
@@ -110,10 +119,11 @@
       "correctAnswer": "8",
       "category": "Sequencing",
       "subcategory": "Complete Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Complete backward sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
       "solutionAttachments": []
     },
     {
@@ -128,10 +138,11 @@
       "correctAnswer": "6",
       "category": "Sequencing",
       "subcategory": "Complete Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Complete backward sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     },
     {
@@ -146,10 +157,11 @@
       "correctAnswer": "4",
       "category": "Sequencing",
       "subcategory": "Complete Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Complete backward sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
@@ -164,10 +176,11 @@
       "correctAnswer": "2",
       "category": "Sequencing",
       "subcategory": "Complete Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Complete backward sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
@@ -182,10 +195,11 @@
       "correctAnswer": "0",
       "category": "Sequencing",
       "subcategory": "Complete Sequence",
+      "qClassify": "MCQ",
       "learningOutcome": "Complete backward sequence",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
       "solutionAttachments": []
     },
     {
@@ -200,10 +214,11 @@
       "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Number Order",
+      "qClassify": "MCQ",
       "learningOutcome": "Understand order",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
@@ -218,10 +233,11 @@
       "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Number Order",
+      "qClassify": "MCQ",
       "learningOutcome": "Understand order",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
       "solutionAttachments": []
     },
     {
@@ -236,10 +252,11 @@
       "correctAnswer": "6",
       "category": "Sequencing",
       "subcategory": "Missing Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     },
     {
@@ -254,10 +271,11 @@
       "correctAnswer": "3",
       "category": "Sequencing",
       "subcategory": "Missing Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -272,10 +290,11 @@
       "correctAnswer": "1",
       "category": "Sequencing",
       "subcategory": "Missing Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
       "solutionAttachments": []
     },
     {
@@ -287,13 +306,14 @@
         "7",
         "8"
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Rocket Countdown",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply backward counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "Count each object once, then match that total to the choices. The total count is REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -305,13 +325,14 @@
         "2",
         "3"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Rocket Countdown",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply backward counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -323,13 +344,14 @@
         "2",
         "3"
       ],
-      "correctAnswer": "0",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Rocket Countdown",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply backward counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
+      "solution": "Count each object once, then match that total to the choices. The total count is REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -344,10 +366,11 @@
       "correctAnswer": "0",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Review backward counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
       "solutionAttachments": []
     },
     {
@@ -362,10 +385,11 @@
       "correctAnswer": "7",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
       "solutionAttachments": []
     }
   ]

@@ -1,10 +1,14 @@
 {
-  "id": "quiz-368",
+  "id": "quiz-1",
   "title": "Prep 1.01",
   "description": "Learning Outcomes for Prep: Recognise numbers | Count objects | Match quantity | Number order | Apply learning",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Numbers",
+    "lessonPart": "1.01",
+    "lessonName": "What Are Numbers?"
   },
   "category": "Prep",
   "questions": [
@@ -12,14 +16,15 @@
       "question": "Which of these is a number?",
       "resultType": "multiple-choice",
       "options": [
-        "Apple",
+        "Dog",
         "1",
-        "Star",
-        "Dog"
+        "Apple",
+        "Star"
       ],
       "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
@@ -32,12 +37,13 @@
       "options": [
         "Cat",
         "2",
-        "Tree",
-        "Ball"
+        "Ball",
+        "Tree"
       ],
       "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
@@ -50,12 +56,13 @@
       "options": [
         "Car",
         "House",
-        "Fish",
-        "3"
+        "3",
+        "Fish"
       ],
       "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Identify Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
@@ -66,32 +73,34 @@
       "question": "Select all the numbers",
       "resultType": "checkbox",
       "options": [
-        "Cat",
+        "1",
         "2",
-        "Dog",
-        "1"
+        "3",
+        "4"
       ],
-      "correctAnswer": "1, 2",
+      "correctAnswer": "1, 2, 3",
       "category": "Recognition",
       "subcategory": "Select Numbers",
+      "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 1 and 2.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: 1, 2, and 3.",
       "solutionAttachments": []
     },
     {
       "question": "Which number is 3?",
       "resultType": "multiple-choice",
       "options": [
-        "4",
-        "3",
         "1",
-        "2"
+        "2",
+        "3",
+        "4"
       ],
       "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Select Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
@@ -100,7 +109,7 @@
     },
     {
       "question": "How many apples are there? 🍎",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "0",
         "1",
@@ -110,6 +119,7 @@
       "correctAnswer": "1",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
@@ -129,7 +139,7 @@
     },
     {
       "question": "How many apples are there? 🍎🍎",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "0",
         "1",
@@ -139,6 +149,7 @@
       "correctAnswer": "2",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
@@ -158,7 +169,7 @@
     },
     {
       "question": "How many apples are there? 🍎🍎🍎",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "1",
         "2",
@@ -168,6 +179,7 @@
       "correctAnswer": "3",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
@@ -187,7 +199,7 @@
     },
     {
       "question": "How many stars are there? ⭐⭐",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "0",
         "1",
@@ -197,6 +209,7 @@
       "correctAnswer": "2",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
@@ -216,7 +229,7 @@
     },
     {
       "question": "How many cars are there? 🚗🚗🚗",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "1",
         "2",
@@ -226,6 +239,7 @@
       "correctAnswer": "3",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
@@ -247,14 +261,15 @@
       "question": "Which number matches 🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "4",
         "1",
+        "2",
         "3",
-        "2"
+        "4"
       ],
       "correctAnswer": "1",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
@@ -277,13 +292,14 @@
       "resultType": "multiple-choice",
       "options": [
         "1",
-        "4",
+        "2",
         "3",
-        "2"
+        "4"
       ],
       "correctAnswer": "2",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
@@ -305,14 +321,15 @@
       "question": "Which number matches 🍎🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "2",
         "1",
+        "2",
         "3",
         "4"
       ],
       "correctAnswer": "3",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
@@ -334,14 +351,15 @@
       "question": "Which number matches ⭐⭐ ?",
       "resultType": "multiple-choice",
       "options": [
+        "1",
         "2",
         "3",
-        "1",
         "4"
       ],
       "correctAnswer": "2",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
@@ -363,14 +381,15 @@
       "question": "Which number matches 🚗🚗🚗 ?",
       "resultType": "multiple-choice",
       "options": [
-        "4",
-        "3",
         "1",
-        "2"
+        "2",
+        "3",
+        "4"
       ],
       "correctAnswer": "3",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
@@ -389,17 +408,18 @@
       }
     },
     {
-      "question": "What comes next? 1,2,_",
+      "question": "What comes next? 1,2,__",
       "resultType": "multiple-choice",
       "options": [
-        "3",
         "1",
         "2",
+        "3",
         "4"
       ],
       "correctAnswer": "3",
       "category": "Sequencing",
       "subcategory": "Number Order",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Number order",
       "notesAttachments": [],
       "image": "",
@@ -407,17 +427,18 @@
       "solutionAttachments": []
     },
     {
-      "question": "What comes next? 2,3,_",
+      "question": "What comes next? 2,3,__",
       "resultType": "multiple-choice",
       "options": [
-        "5",
-        "3",
         "2",
-        "4"
+        "3",
+        "4",
+        "5"
       ],
       "correctAnswer": "4",
       "category": "Sequencing",
       "subcategory": "Number Order",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Number order",
       "notesAttachments": [],
       "image": "",
@@ -425,17 +446,18 @@
       "solutionAttachments": []
     },
     {
-      "question": "What comes next? 3,4,_",
+      "question": "What comes next? 3,4,__",
       "resultType": "multiple-choice",
       "options": [
         "3",
+        "4",
         "5",
-        "6",
-        "4"
+        "6"
       ],
       "correctAnswer": "5",
       "category": "Sequencing",
       "subcategory": "Number Order",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Number order",
       "notesAttachments": [],
       "image": "",
@@ -446,14 +468,15 @@
       "question": "Which number matches 🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "3",
-        "4",
         "1",
-        "2"
+        "2",
+        "3",
+        "4"
       ],
       "correctAnswer": "2",
       "category": "Mixed Review",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Apply learning",
       "notesAttachments": [],
       "image": "",
@@ -475,14 +498,15 @@
       "question": "Which number matches 🍎🍎🍎 ?",
       "resultType": "multiple-choice",
       "options": [
-        "3",
+        "1",
         "2",
-        "4",
-        "1"
+        "3",
+        "4"
       ],
       "correctAnswer": "3",
       "category": "Mixed Review",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Apply learning",
       "notesAttachments": [],
       "image": "",

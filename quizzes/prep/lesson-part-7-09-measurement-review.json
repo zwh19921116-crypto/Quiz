@@ -4,368 +4,392 @@
   "description": "Learning Outcomes for Prep: Compare length | Compare height | Compare weight | Compare capacity | Compare multiple objects | Apply length concepts | Apply height concepts | Apply weight concepts | Apply capacity concepts | Use measurement vocabulary | Consolidate measurement concepts",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Measurement",
+    "lessonPart": "7.09",
+    "lessonName": "Measurement Review"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which is longer: ruler or pencil?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Ruler",
-        "",
-        "",
-        ""
+        "Pencil",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Ruler",
       "category": "Length",
       "subcategory": "Long and Short",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare length",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Ruler.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ruler.",
       "solutionAttachments": []
     },
     {
       "question": "Which is shorter: ruler or pencil?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Pencil",
-        "",
-        "",
-        ""
+        "Ruler",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Pencil",
       "category": "Length",
       "subcategory": "Long and Short",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare length",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Pencil.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pencil.",
       "solutionAttachments": []
     },
     {
       "question": "Which is taller: giraffe or dog?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Giraffe",
-        "",
-        "",
-        ""
+        "Dog",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Giraffe",
       "category": "Height",
       "subcategory": "Tall and Short",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Giraffe.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Giraffe.",
       "solutionAttachments": []
     },
     {
       "question": "Which is shorter: adult or baby?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Baby",
-        "",
-        "",
-        ""
+        "Adult",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Baby",
       "category": "Height",
       "subcategory": "Tall and Short",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Baby.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Baby.",
       "solutionAttachments": []
     },
     {
       "question": "Which is heavier: brick or feather?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Brick",
-        "",
-        "",
-        ""
+        "Feather",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Brick",
       "category": "Weight",
       "subcategory": "Heavy and Light",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare weight",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Brick.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Brick.",
       "solutionAttachments": []
     },
     {
       "question": "Which is lighter: brick or feather?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Feather",
-        "",
-        "",
-        ""
+        "Brick",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Feather",
       "category": "Weight",
       "subcategory": "Heavy and Light",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare weight",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Feather.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Feather.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds more water: bucket or cup?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Bucket",
-        "",
-        "",
-        ""
+        "Cup",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Bucket",
       "category": "Capacity",
       "subcategory": "More and Less",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Bucket.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bucket.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds less water: bucket or cup?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Cup",
-        "",
-        "",
-        ""
+        "Bucket",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Cup",
       "category": "Capacity",
       "subcategory": "More and Less",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Cup.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cup.",
       "solutionAttachments": []
     },
     {
       "question": "Which is longest: ruler, pencil, paper clip?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Ruler",
-        "",
-        "",
-        ""
+        "Pencil",
+        "Paper Clip",
+        "Both are the same"
       ],
       "correctAnswer": "Ruler",
       "category": "Length Comparison",
       "subcategory": "Compare Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Ruler.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ruler.",
       "solutionAttachments": []
     },
     {
       "question": "Which is tallest: tree, flower, bush?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Tree",
-        "",
-        "",
-        ""
+        "Flower",
+        "Bush",
+        "Both are the same"
       ],
       "correctAnswer": "Tree",
       "category": "Height Comparison",
       "subcategory": "Compare Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Tree.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tree.",
       "solutionAttachments": []
     },
     {
       "question": "Which is heaviest: feather, book, table?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Table",
-        "",
-        "",
-        ""
+        "Feather",
+        "Book",
+        "Both are the same"
       ],
       "correctAnswer": "Table",
       "category": "Weight Comparison",
       "subcategory": "Compare Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Table.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Table.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds the most: cup, bucket, swimming pool?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Swimming Pool",
-        "",
-        "",
-        ""
+        "Cup",
+        "Bucket",
+        "Both are the same"
       ],
       "correctAnswer": "Swimming Pool",
       "category": "Capacity Comparison",
       "subcategory": "Compare Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare multiple objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Swimming Pool.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Swimming Pool.",
       "solutionAttachments": []
     },
     {
       "question": "Which would usually be longer: road or driveway?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Road",
-        "",
-        "",
-        ""
+        "Driveway",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Road",
       "category": "Application",
       "subcategory": "Everyday Length",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply length concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Road.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Road.",
       "solutionAttachments": []
     },
     {
       "question": "Which would usually be taller: building or chair?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Building",
-        "",
-        "",
-        ""
+        "Chair",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Building",
       "category": "Application",
       "subcategory": "Everyday Height",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply height concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Building.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Building.",
       "solutionAttachments": []
     },
     {
       "question": "Which would usually be heavier: horse or rabbit?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Horse",
-        "",
-        "",
-        ""
+        "Rabbit",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Horse",
       "category": "Application",
       "subcategory": "Everyday Weight",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply weight concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Horse.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Horse.",
       "solutionAttachments": []
     },
     {
       "question": "Which would usually hold more: fish tank or cup?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Fish Tank",
-        "",
-        "",
-        ""
+        "Cup",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Fish Tank",
       "category": "Application",
       "subcategory": "Everyday Capacity",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply capacity concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Fish Tank.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Fish Tank.",
       "solutionAttachments": []
     },
     {
       "question": "Which word means not heavy?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Light",
-        "",
-        "",
-        ""
+        "Heavy",
+        "Same Weight",
+        "Not Sure"
       ],
       "correctAnswer": "Light",
       "category": "Measurement Vocabulary",
       "subcategory": "Vocabulary",
+      "qClassify": "MCQ",
       "learningOutcome": "Use measurement vocabulary",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Light.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Light.",
       "solutionAttachments": []
     },
     {
       "question": "Which word means not short?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "Tall",
-        "",
-        "",
-        ""
+        "Long",
+        "Short",
+        "Heavy",
+        "Light"
       ],
-      "correctAnswer": "Tall",
+      "correctAnswer": "Long",
       "category": "Measurement Vocabulary",
       "subcategory": "Vocabulary",
+      "qClassify": "MCQ",
       "learningOutcome": "Use measurement vocabulary",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Tall.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Long.",
       "solutionAttachments": []
     },
     {
       "question": "Which word describes a feather compared to a brick?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Lighter",
-        "",
-        "",
-        ""
+        "Light",
+        "Heavy",
+        "Same Weight"
       ],
       "correctAnswer": "Lighter",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate measurement concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Lighter.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Lighter.",
       "solutionAttachments": []
     },
     {
       "question": "Which word describes a bucket compared to a cup?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "More",
-        "",
-        "",
-        ""
+        "Option A",
+        "Option B",
+        "Option C"
       ],
       "correctAnswer": "More",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate measurement concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is More.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to More.",
       "solutionAttachments": []
     }
   ]

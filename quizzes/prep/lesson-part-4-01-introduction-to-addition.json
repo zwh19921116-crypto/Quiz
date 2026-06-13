@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Combine groups | Count combined groups | Apply addition | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Addition",
+    "lessonPart": "4.01",
+    "lessonName": "Introduction to Addition"
   },
   "category": "Prep",
   "questions": [
@@ -20,10 +24,11 @@
       "correctAnswer": "2",
       "category": "Addition",
       "subcategory": "Combine Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -49,10 +54,11 @@
       "correctAnswer": "2",
       "category": "Addition",
       "subcategory": "Combine Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -78,10 +84,11 @@
       "correctAnswer": "2",
       "category": "Addition",
       "subcategory": "Combine Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -107,10 +114,11 @@
       "correctAnswer": "2",
       "category": "Addition",
       "subcategory": "Combine Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -136,10 +144,11 @@
       "correctAnswer": "2",
       "category": "Addition",
       "subcategory": "Combine Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -162,13 +171,14 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Combine Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -180,13 +190,14 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Combine Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -198,13 +209,14 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Combine Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -216,13 +228,14 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Combine Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -234,13 +247,14 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "REVIEW",
       "category": "Addition",
       "subcategory": "Combine Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Combine groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -252,13 +266,14 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Count Altogether",
+      "qClassify": "MCQ",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -270,13 +285,14 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Count Altogether",
+      "qClassify": "MCQ",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -288,13 +304,14 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Count Altogether",
+      "qClassify": "MCQ",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -306,13 +323,14 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Count Altogether",
+      "qClassify": "MCQ",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -324,13 +342,14 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Count Altogether",
+      "qClassify": "MCQ",
       "learningOutcome": "Count combined groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -342,22 +361,23 @@
         "3",
         "4"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "1",
       "category": "Application",
       "subcategory": "Real World Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Mia has 1 apple. Tom gives her 1 more apple. How many apples does she have now?",
-          "totalCount": 2,
+          "totalCount": 1,
           "iconShape": "circle",
           "groups": [
-            2
+            1
           ]
         }
       }
@@ -371,22 +391,23 @@
         "4",
         "5"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Application",
       "subcategory": "Real World Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Sam has 2 balloons. He gets 1 more balloon. How many balloons now?",
-          "totalCount": 3,
+          "totalCount": 2,
           "iconShape": "circle",
           "groups": [
-            3
+            2
           ]
         }
       }
@@ -400,22 +421,23 @@
         "4",
         "5"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "2",
       "category": "Application",
       "subcategory": "Real World Addition",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Ava has 2 stars. She gets 2 more stars. How many stars now?",
-          "totalCount": 4,
+          "totalCount": 2,
           "iconShape": "circle",
           "groups": [
-            4
+            2
           ]
         }
       }
@@ -429,13 +451,14 @@
         "5",
         "6"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -447,13 +470,14 @@
         "4",
         "5"
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     }
   ]

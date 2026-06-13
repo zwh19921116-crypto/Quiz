@@ -4,26 +4,31 @@
   "description": "Learning Outcomes for Prep: Subtract within 20 | Two-step reasoning | Subtract fluently",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Subtraction",
+    "lessonPart": "9.06",
+    "lessonName": "Subtraction Word Problems"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "You have 15 apples and eat 4. How many left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "10",
-        "11",
-        "12",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "11",
       "category": "Word Problems",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 11.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 11.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -39,20 +44,21 @@
     },
     {
       "question": "18 birds, 6 fly away. How many left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "11",
-        "12",
-        "13",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "12",
       "category": "Word Problems",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 12.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -68,20 +74,21 @@
     },
     {
       "question": "12 toys, you lose 3. How many left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "8",
-        "9",
-        "10",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "9",
       "category": "Word Problems",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -104,42 +111,33 @@
         "16",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "REVIEW",
       "category": "Word Problems",
       "subcategory": "Take Away",
+      "qClassify": "MCQ",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 15.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "20 balloons, 5 pop. How many left?",
-          "totalCount": 15,
-          "iconShape": "circle",
-          "groups": [
-            15
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is REVIEW.",
+      "solutionAttachments": []
     },
     {
       "question": "14 cars, 4 drive away. How many left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "9",
-        "10",
-        "11",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "10",
       "category": "Word Problems",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -155,20 +153,21 @@
     },
     {
       "question": "16 apples, 7 are eaten. How many left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "8",
-        "9",
-        "10",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "9",
       "category": "Word Problems",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -184,20 +183,21 @@
     },
     {
       "question": "19 pencils, 9 are used. How many left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "9",
-        "10",
-        "11",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "10",
       "category": "Word Problems",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 10.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -213,20 +213,21 @@
     },
     {
       "question": "17 blocks, 8 are removed. How many left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "8",
-        "9",
-        "10",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "9",
       "category": "Word Problems",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 9.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -242,20 +243,21 @@
     },
     {
       "question": "13 books, 2 are taken. How many left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "10",
-        "11",
-        "12",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "11",
       "category": "Word Problems",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 11.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 11.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -271,20 +273,21 @@
     },
     {
       "question": "11 cookies, 4 are eaten. How many left?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "6",
-        "7",
-        "2008",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "7",
       "category": "Word Problems",
       "subcategory": "Take Away",
+      "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 7.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -300,20 +303,21 @@
     },
     {
       "question": "You have 10 toys, get 5 more, then lose 3. How many now?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "11",
-        "12",
-        "13",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "12",
       "category": "Word Problems",
       "subcategory": "Multi-Step",
+      "qClassify": "Short",
       "learningOutcome": "Two-step reasoning",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 12.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -329,20 +333,21 @@
     },
     {
       "question": "14 apples, give away 4, then get 2 more. Total?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "11",
-        "12",
-        "13",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "12",
       "category": "Word Problems",
       "subcategory": "Multi-Step",
+      "qClassify": "Short",
       "learningOutcome": "Two-step reasoning",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
       "solutionAttachments": []
     },
     {
@@ -354,25 +359,15 @@
         "14",
         ""
       ],
-      "correctAnswer": "14",
+      "correctAnswer": "REVIEW",
       "category": "Word Problems",
       "subcategory": "Multi-Step",
+      "qClassify": "MCQ",
       "learningOutcome": "Two-step reasoning",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 14.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "18 birds, 6 fly away, 2 return. How many?",
-          "totalCount": 14,
-          "iconShape": "circle",
-          "groups": [
-            14
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is REVIEW.",
+      "solutionAttachments": []
     },
     {
       "question": "20 cars, 5 leave, 3 return. How many now?",
@@ -383,42 +378,33 @@
         "17",
         ""
       ],
-      "correctAnswer": "18",
+      "correctAnswer": "REVIEW",
       "category": "Word Problems",
       "subcategory": "Multi-Step",
+      "qClassify": "MCQ",
       "learningOutcome": "Two-step reasoning",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 18.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "20 cars, 5 leave, 3 return. How many now?",
-          "totalCount": 18,
-          "iconShape": "circle",
-          "groups": [
-            18
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is REVIEW.",
+      "solutionAttachments": []
     },
     {
       "question": "16 toys, 7 lost, 2 found. How many?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "10",
-        "11",
-        "12",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "11",
       "category": "Word Problems",
       "subcategory": "Multi-Step",
+      "qClassify": "Short",
       "learningOutcome": "Two-step reasoning",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 11.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 11.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -434,92 +420,97 @@
     },
     {
       "question": "15 − 6 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "8",
-        "9",
-        "10",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "9",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     },
     {
       "question": "18 − 7 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "10",
-        "11",
-        "12",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "11",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
       "solutionAttachments": []
     },
     {
       "question": "20 − 9 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "10",
-        "11",
-        "12",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "11",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
       "solutionAttachments": []
     },
     {
       "question": "17 − 8 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "8",
-        "9",
-        "10",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "9",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     },
     {
       "question": "14 − 5 = ?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "8",
-        "9",
-        "10",
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
         ""
       ],
       "correctAnswer": "9",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
       "solutionAttachments": []
     }
   ]

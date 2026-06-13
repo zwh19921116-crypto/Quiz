@@ -4,206 +4,221 @@
   "description": "Learning Outcomes for Prep: Identify rectangles | Recognise rectangles | Match objects to rectangles | Recognise rectangle properties | Compare shapes | Apply shape recognition | Consolidate rectangle recognition",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Shapes",
+    "lessonPart": "6.05",
+    "lessonName": "Rectangles"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which shape is a rectangle?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Triangle"
       ],
       "correctAnswer": "Rectangle",
-      "category": "Shape Recognition",
+      "category": "Shapes",
       "subcategory": "Identify Rectangles",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
       "solutionAttachments": []
     },
     {
       "question": "Does a rectangle have 4 sides?",
       "resultType": "short-answer",
       "options": [
-        "Yes",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "4",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Rectangles",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Does a rectangle have 4 corners?",
       "resultType": "short-answer",
       "options": [
-        "Yes",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "4",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Rectangles",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Is a rectangle round?",
       "resultType": "short-answer",
       "options": [
-        "No",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "No",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Rectangles",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Can a rectangle roll easily?",
       "resultType": "short-answer",
       "options": [
-        "No",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "No",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Rectangles",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a door?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Triangle"
       ],
       "correctAnswer": "Rectangle",
       "category": "Everyday Objects",
       "subcategory": "Rectangle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a book?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Triangle"
       ],
       "correctAnswer": "Rectangle",
       "category": "Everyday Objects",
       "subcategory": "Rectangle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a ruler?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Triangle"
       ],
       "correctAnswer": "Rectangle",
       "category": "Everyday Objects",
       "subcategory": "Rectangle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a television screen?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Triangle"
       ],
       "correctAnswer": "Rectangle",
       "category": "Everyday Objects",
       "subcategory": "Rectangle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a phone screen?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Triangle"
       ],
       "correctAnswer": "Rectangle",
       "category": "Everyday Objects",
       "subcategory": "Rectangle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
       "solutionAttachments": []
     },
     {
       "question": "How many sides does a rectangle have?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "4",
-        "",
-        "",
-        ""
+        "3",
+        "0",
+        "5"
       ],
       "correctAnswer": "4",
       "category": "Rectangle Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise rectangle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -219,20 +234,21 @@
     },
     {
       "question": "How many corners does a rectangle have?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "4",
-        "",
-        "",
-        ""
+        "3",
+        "0",
+        "5"
       ],
       "correctAnswer": "4",
       "category": "Rectangle Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise rectangle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -250,144 +266,152 @@
       "question": "Does a rectangle have more sides than a triangle?",
       "resultType": "short-answer",
       "options": [
-        "Yes",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "PASS",
       "category": "Rectangle Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Does a rectangle have the same number of corners as a square?",
       "resultType": "short-answer",
       "options": [
-        "Yes",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "PASS",
       "category": "Rectangle Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Can a rectangle have 3 sides?",
       "resultType": "short-answer",
       "options": [
-        "No",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Rectangle Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise rectangle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a rectangle: door or coin?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Door",
-        "",
-        "",
-        ""
+        "Coin",
+        "Plate",
+        "Book"
       ],
       "correctAnswer": "Door",
       "category": "Application",
       "subcategory": "Find Rectangles",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Door.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Door.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a rectangle: ruler or plate?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Ruler",
-        "",
-        "",
-        ""
+        "Coin",
+        "Door",
+        "Plate"
       ],
       "correctAnswer": "Ruler",
       "category": "Application",
       "subcategory": "Find Rectangles",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Ruler.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ruler.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a rectangle: book or wheel?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Book",
-        "",
-        "",
-        ""
+        "Coin",
+        "Door",
+        "Plate"
       ],
       "correctAnswer": "Book",
       "category": "Application",
       "subcategory": "Find Rectangles",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Book.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Book.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape looks like a door?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Triangle"
       ],
       "correctAnswer": "Rectangle",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate rectangle recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape has 4 sides and 4 corners but is not always a square?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Triangle"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "Rectangle",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate rectangle recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
       "solutionAttachments": []
     }
   ]

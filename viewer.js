@@ -4619,10 +4619,20 @@ function buildTrigonometryMarkup(config) {
   `;
 }
 
-function normalizeArithmeticLayout(value) {
-  const v = String(value || "horizontal").trim().toLowerCase();
+function normalizeArithmeticLayout(value, operator = "", config = null) {
+  const v = String(value || "").trim().toLowerCase();
+  const op = String(operator || "").trim().toLowerCase();
+  const visualMode = String(config && config.visualMode ? config.visualMode : "").trim().toLowerCase();
+  const allowAutoVertical = visualMode !== "objects";
+
   if (v === "vertical") return "vertical";
   if (v === "long") return "long";
+
+  // Apply vertical working for standard subtraction and multiplication by default.
+  if ((v === "" || v === "horizontal") && allowAutoVertical && ["-", "x", "*"].includes(op)) {
+    return "vertical";
+  }
+
   return "horizontal";
 }
 
@@ -5536,7 +5546,7 @@ function buildArithmeticLinkToTenMarkup(config, { readOnly = false, revealAnswer
 }
 
 function buildArithmeticWorkspaceMarkup(config, { readOnly = false, revealAnswer = false, questionText = "" } = {}) {
-  const layout = normalizeArithmeticLayout(config && config.layout);
+  const layout = normalizeArithmeticLayout(config && config.layout, operatorRaw, config);
   const operatorRaw = String(config && config.operator ? config.operator : "+").trim() || "+";
   const operator = escapeHtml(operatorRaw);
   const operandAText = String(config && config.operandA != null ? config.operandA : 0);
@@ -8016,7 +8026,7 @@ function buildArithmeticDetailLines(app) {
   const a = Number.parseInt(config.operandA, 10);
   const b = Number.parseInt(config.operandB, 10);
   const operator = String(config.operator || "+").trim() || "+";
-  const layout = normalizeArithmeticLayout(config.layout);
+  const layout = normalizeArithmeticLayout(config.layout, operator, config);
   const answer = computeArithmeticAnswerFromConfig(config);
 
   if (!Number.isFinite(a) || !Number.isFinite(b)) {
@@ -10979,10 +10989,17 @@ function prepareSolutionModal(question, expectedAnswers) {
   if (isNumberTracingApp) {
     const tracingConfig = (question.interactiveApp && question.interactiveApp.config) || {};
     const numeral = normalizeTracingTargetNumber(tracingConfig.targetNumber != null ? tracingConfig.targetNumber : fallback);
-    const numeralWord = numberToSimpleWord(numeral);
+    const safeN = escapeHtml(String(numeral));
     correctAnswerMarkup = `
-      <span class="solution-number-word">${escapeHtml(numeralWord)}</span>
-      <span class="solution-number-digit">${escapeHtml(String(numeral))}</span>
+      <div style="max-width:260px; border:1px solid #dbe6f3; border-radius:10px; background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%); padding:6px;">
+        <svg viewBox="0 0 260 130" style="display:block; width:100%; height:auto;" role="img" aria-label="Perfectly traced number ${safeN}">
+          <line x1="18" y1="24" x2="242" y2="24" stroke="#cbd5e1" stroke-width="1" />
+          <line x1="18" y1="65" x2="242" y2="65" stroke="#6ee7b7" stroke-width="1.2" />
+          <line x1="18" y1="106" x2="242" y2="106" stroke="#cbd5e1" stroke-width="1" />
+          <text x="50%" y="64%" text-anchor="middle" dominant-baseline="middle" style="font-size:96px; font-weight:700; font-family:'Comic Sans MS','Segoe UI',cursive; fill:none; stroke:#fb7185; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1 6;">${safeN}</text>
+          <text x="50%" y="64%" text-anchor="middle" dominant-baseline="middle" style="font-size:96px; font-weight:700; font-family:'Comic Sans MS','Segoe UI',cursive; fill:none; stroke:#0ea5e9; stroke-width:7; stroke-linecap:round; stroke-linejoin:round;">${safeN}</text>
+        </svg>
+      </div>
     `;
   }
 

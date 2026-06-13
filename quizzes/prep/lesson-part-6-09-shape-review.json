@@ -4,134 +4,145 @@
   "description": "Learning Outcomes for Prep: Identify circles | Identify squares | Identify triangles | Identify rectangles | Compare shapes | Recall shape properties | Identify real-world shapes | Consolidate shape knowledge",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Shapes",
+    "lessonPart": "6.09",
+    "lessonName": "Shape Review"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which shape is round?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Circle",
-      "category": "Shape Recognition",
+      "category": "Shapes",
       "subcategory": "Circle",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape has 4 equal sides?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Square",
-        "",
-        "",
-        ""
+        "Circle",
+        "Triangle",
+        "Rectangle"
       ],
-      "correctAnswer": "4",
-      "category": "Shape Recognition",
+      "correctAnswer": "Square",
+      "category": "Shapes",
       "subcategory": "Square",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape has 3 sides?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Rectangle"
       ],
-      "correctAnswer": "3",
-      "category": "Shape Recognition",
+      "correctAnswer": "Triangle",
+      "category": "Shapes",
       "subcategory": "Triangle",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape looks like a door?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Triangle"
       ],
       "correctAnswer": "Rectangle",
-      "category": "Shape Recognition",
+      "category": "Shapes",
       "subcategory": "Rectangle",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape has no corners?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
-      "correctAnswer": "0",
-      "category": "Shape Recognition",
+      "correctAnswer": "Circle",
+      "category": "Shapes",
       "subcategory": "Mixed Shapes",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape has 4 corners and 4 sides?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Square",
-        "",
-        "",
-        ""
+        "Circle",
+        "Triangle",
+        "Rectangle"
       ],
-      "correctAnswer": "4",
-      "category": "Shape Recognition",
+      "correctAnswer": "Square",
+      "category": "Shapes",
       "subcategory": "Mixed Shapes",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
       "solutionAttachments": []
     },
     {
       "question": "How many sides does a triangle have?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "3",
-        "",
-        "",
-        ""
+        "4",
+        "0",
+        "5"
       ],
       "correctAnswer": "3",
       "category": "Shape Properties",
       "subcategory": "Sides",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall shape properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -147,20 +158,21 @@
     },
     {
       "question": "How many sides does a square have?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "4",
-        "",
-        "",
-        ""
+        "3",
+        "0",
+        "5"
       ],
       "correctAnswer": "4",
       "category": "Shape Properties",
       "subcategory": "Sides",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall shape properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -176,20 +188,21 @@
     },
     {
       "question": "How many corners does a rectangle have?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "4",
-        "",
-        "",
-        ""
+        "3",
+        "0",
+        "5"
       ],
       "correctAnswer": "4",
       "category": "Shape Properties",
       "subcategory": "Corners",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall shape properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -204,26 +217,27 @@
       }
     },
     {
-      "question": "How many corners does a circle have?",
-      "resultType": "short-answer",
+      "question": "How many corners does a circle have? (There are no objects shown.)",
+      "resultType": "multiple-choice",
       "options": [
         "0",
-        "",
-        "",
-        ""
+        "3",
+        "4",
+        "1"
       ],
       "correctAnswer": "0",
       "category": "Shape Properties",
       "subcategory": "Corners",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall shape properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 0.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 0.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
-          "prompt": "How many corners does a circle have?",
+          "prompt": "How many corners does a circle have? (There are no objects shown.)",
           "totalCount": 0,
           "iconShape": "circle",
           "groups": [
@@ -234,182 +248,192 @@
     },
     {
       "question": "Which shape has more sides: triangle or rectangle?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Triangle"
       ],
       "correctAnswer": "Rectangle",
       "category": "Shape Comparison",
       "subcategory": "Compare Shapes",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape has fewer corners: circle or square?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Circle",
       "category": "Shape Comparison",
       "subcategory": "Compare Shapes",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
       "question": "Which two shapes have 4 corners?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Square and Rectangle",
-        "",
-        "",
-        ""
+        "Circle and Triangle",
+        "Circle and Square",
+        "Triangle and Rectangle"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "Square and Rectangle",
       "category": "Shape Comparison",
       "subcategory": "Compare Shapes",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square and Rectangle.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape is completely round?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Circle",
       "category": "Shape Comparison",
       "subcategory": "Compare Shapes",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a coin?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Circle",
       "category": "Everyday Shapes",
       "subcategory": "Everyday Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify real-world shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a pizza slice?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Rectangle"
       ],
       "correctAnswer": "Triangle",
       "category": "Everyday Shapes",
       "subcategory": "Everyday Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify real-world shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a sticky note?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Square",
-        "",
-        "",
-        ""
+        "Circle",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Square",
       "category": "Everyday Shapes",
       "subcategory": "Everyday Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify real-world shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a book?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Triangle"
       ],
       "correctAnswer": "Rectangle",
       "category": "Everyday Shapes",
       "subcategory": "Everyday Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify real-world shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape has 3 sides and 3 corners?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Rectangle"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "Triangle",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate shape knowledge",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape has no sides and no corners?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "",
-        "",
-        ""
+        "Square",
+        "Triangle",
+        "Rectangle"
       ],
-      "correctAnswer": "0",
+      "correctAnswer": "Circle",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate shape knowledge",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
       "solutionAttachments": []
     }
   ]

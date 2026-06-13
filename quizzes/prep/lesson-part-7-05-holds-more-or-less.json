@@ -4,368 +4,392 @@
   "description": "Learning Outcomes for Prep: Compare capacity | Compare containers | Apply capacity concepts | Consolidate capacity concepts",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Measurement",
+    "lessonPart": "7.05",
+    "lessonName": "Holds More or Less"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which holds more water: bucket or cup?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Bucket",
-        "",
-        "",
-        ""
+        "Cup",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Bucket",
       "category": "Capacity",
       "subcategory": "Holds More",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Bucket.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bucket.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds more water: bathtub or bottle?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Bathtub",
-        "",
-        "",
-        ""
+        "Bottle",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Bathtub",
       "category": "Capacity",
       "subcategory": "Holds More",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Bathtub.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bathtub.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds more water: swimming pool or bucket?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Swimming Pool",
-        "",
-        "",
-        ""
+        "Bucket",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Swimming Pool",
       "category": "Capacity",
       "subcategory": "Holds More",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Swimming Pool.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Swimming Pool.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds more juice: jug or cup?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Jug",
-        "",
-        "",
-        ""
+        "Cup",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Jug",
       "category": "Capacity",
       "subcategory": "Holds More",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Jug.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Jug.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds more: watering can or mug?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Watering Can",
-        "",
-        "",
-        ""
+        "Mug",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Watering Can",
       "category": "Capacity",
       "subcategory": "Holds More",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Watering Can.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Watering Can.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds less water: bucket or cup?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Cup",
-        "",
-        "",
-        ""
+        "Bucket",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Cup",
       "category": "Capacity",
       "subcategory": "Holds Less",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Cup.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cup.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds less water: bathtub or bottle?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Bottle",
-        "",
-        "",
-        ""
+        "Bathtub",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Bottle",
       "category": "Capacity",
       "subcategory": "Holds Less",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Bottle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bottle.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds less water: swimming pool or bucket?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Bucket",
-        "",
-        "",
-        ""
+        "Swimming Pool",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Bucket",
       "category": "Capacity",
       "subcategory": "Holds Less",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Bucket.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bucket.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds less juice: jug or cup?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Cup",
-        "",
-        "",
-        ""
+        "Jug",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Cup",
       "category": "Capacity",
       "subcategory": "Holds Less",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Cup.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cup.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds less: watering can or mug?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Mug",
-        "",
-        "",
-        ""
+        "Watering Can",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Mug",
       "category": "Capacity",
       "subcategory": "Holds Less",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Mug.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mug.",
       "solutionAttachments": []
     },
     {
       "question": "A bucket holds more than a cup. Which holds more?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "Bucket",
-        "",
-        "",
-        ""
+        "Larger Bucket",
+        "Smaller Bucket",
+        "Empty Bucket",
+        "Same Capacity"
       ],
-      "correctAnswer": "Bucket",
+      "correctAnswer": "Larger Bucket",
       "category": "Capacity Comparison",
       "subcategory": "Compare Containers",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare containers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Bucket.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Larger Bucket.",
       "solutionAttachments": []
     },
     {
       "question": "A bottle holds less than a bathtub. Which holds less?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Bottle",
-        "",
-        "",
-        ""
+        "Cup",
+        "Bucket",
+        "Same Capacity"
       ],
       "correctAnswer": "Bottle",
       "category": "Capacity Comparison",
       "subcategory": "Compare Containers",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare containers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Bottle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bottle.",
       "solutionAttachments": []
     },
     {
       "question": "A jug holds more than a mug. Which holds more?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Jug",
-        "",
-        "",
-        ""
+        "Cup",
+        "Bucket",
+        "Same Capacity"
       ],
       "correctAnswer": "Jug",
       "category": "Capacity Comparison",
       "subcategory": "Compare Containers",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare containers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Jug.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Jug.",
       "solutionAttachments": []
     },
     {
       "question": "A cup holds less than a bucket. Which holds less?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Cup",
-        "",
-        "",
-        ""
+        "Bucket",
+        "Same Capacity",
+        "Not Sure"
       ],
       "correctAnswer": "Cup",
       "category": "Capacity Comparison",
       "subcategory": "Compare Containers",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare containers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Cup.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cup.",
       "solutionAttachments": []
     },
     {
       "question": "A swimming pool holds more than a bath. Which holds more?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Swimming Pool",
-        "",
-        "",
-        ""
+        "Cup",
+        "Bucket",
+        "Same Capacity"
       ],
       "correctAnswer": "Swimming Pool",
       "category": "Capacity Comparison",
       "subcategory": "Compare Containers",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare containers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Swimming Pool.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Swimming Pool.",
       "solutionAttachments": []
     },
     {
       "question": "Which would hold more water: fish tank or cup?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Fish Tank",
-        "",
-        "",
-        ""
+        "Cup",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Fish Tank",
       "category": "Application",
       "subcategory": "Everyday Capacity",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply capacity concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Fish Tank.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Fish Tank.",
       "solutionAttachments": []
     },
     {
       "question": "Which would hold less drink: mug or bucket?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Mug",
-        "",
-        "",
-        ""
+        "Bucket",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Mug",
       "category": "Application",
       "subcategory": "Everyday Capacity",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply capacity concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Mug.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mug.",
       "solutionAttachments": []
     },
     {
       "question": "Which would hold more: watering can or spoon?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Watering Can",
-        "",
-        "",
-        ""
+        "Spoon",
+        "Both are the same",
+        "Not enough information"
       ],
       "correctAnswer": "Watering Can",
       "category": "Application",
       "subcategory": "Everyday Capacity",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply capacity concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Watering Can.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Watering Can.",
       "solutionAttachments": []
     },
     {
       "question": "Which word describes a bucket compared to a cup?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "More",
-        "",
-        "",
-        ""
+        "Option A",
+        "Option B",
+        "Option C"
       ],
       "correctAnswer": "More",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate capacity concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is More.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to More.",
       "solutionAttachments": []
     },
     {
       "question": "Which word describes a cup compared to a bathtub?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Less",
-        "",
-        "",
-        ""
+        "Option A",
+        "Option B",
+        "Option C"
       ],
       "correctAnswer": "Less",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate capacity concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Less.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Less.",
       "solutionAttachments": []
     }
   ]

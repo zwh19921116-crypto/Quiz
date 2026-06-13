@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Count in 10s | Understand base 10 | Group counting | Repeated addition | Equal groups",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Multiplication",
+    "lessonPart": "10.05",
+    "lessonName": "Counting by 10s"
   },
   "category": "Prep",
   "questions": [
@@ -17,22 +21,23 @@
         "30",
         ""
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "3",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 20.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "🔟 🔟 → How many in total?",
-          "totalCount": 20,
+          "totalCount": 3,
           "iconShape": "circle",
           "groups": [
-            20
+            3
           ]
         }
       }
@@ -46,13 +51,14 @@
         "40",
         ""
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "REVIEW",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -64,13 +70,14 @@
         "50",
         ""
       ],
-      "correctAnswer": "30",
+      "correctAnswer": "REVIEW",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 30.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -85,10 +92,11 @@
       "correctAnswer": "20",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 10 + 10 = 20.",
+      "solution": "Add the two numbers step by step: 10 + 10 = 20.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -115,10 +123,11 @@
       "correctAnswer": "20",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 10 + 10 = 20.",
+      "solution": "Add the two numbers step by step: 10 + 10 = 20.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -145,10 +154,11 @@
       "correctAnswer": "20",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 10 + 10 = 20.",
+      "solution": "Add the two numbers step by step: 10 + 10 = 20.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -172,13 +182,14 @@
         "30",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "REVIEW",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Understand base 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -190,13 +201,14 @@
         "30",
         ""
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "REVIEW",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -208,13 +220,14 @@
         "40",
         ""
       ],
-      "correctAnswer": "30",
+      "correctAnswer": "REVIEW",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 30.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -226,13 +239,14 @@
         "50",
         ""
       ],
-      "correctAnswer": "40",
+      "correctAnswer": "REVIEW",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Count in 10s",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 40.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -244,13 +258,14 @@
         "30",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "REVIEW",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -262,13 +277,14 @@
         "40",
         ""
       ],
-      "correctAnswer": "30",
+      "correctAnswer": "REVIEW",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 30.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -280,13 +296,14 @@
         "50",
         ""
       ],
-      "correctAnswer": "40",
+      "correctAnswer": "REVIEW",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 40.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -298,13 +315,14 @@
         "60",
         ""
       ],
-      "correctAnswer": "50",
+      "correctAnswer": "REVIEW",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 50.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -316,13 +334,14 @@
         "70",
         ""
       ],
-      "correctAnswer": "60",
+      "correctAnswer": "REVIEW",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
+      "qClassify": "MCQ",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 60.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -337,10 +356,11 @@
       "correctAnswer": "20",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "MCQ",
       "learningOutcome": "Repeated addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 10 + 10 = 20.",
+      "solution": "Add the two numbers step by step: 10 + 10 = 20.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -364,13 +384,14 @@
         "30",
         ""
       ],
-      "correctAnswer": "20",
+      "correctAnswer": "REVIEW",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "MCQ",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -382,13 +403,14 @@
         "40",
         ""
       ],
-      "correctAnswer": "30",
+      "correctAnswer": "REVIEW",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "MCQ",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 30.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -400,13 +422,14 @@
         "50",
         ""
       ],
-      "correctAnswer": "40",
+      "correctAnswer": "REVIEW",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "MCQ",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 40.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -418,13 +441,14 @@
         "60",
         ""
       ],
-      "correctAnswer": "50",
+      "correctAnswer": "REVIEW",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
+      "qClassify": "MCQ",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 50.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     }
   ]

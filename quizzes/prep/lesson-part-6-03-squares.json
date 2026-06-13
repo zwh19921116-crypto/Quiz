@@ -4,206 +4,221 @@
   "description": "Learning Outcomes for Prep: Identify squares | Recognise squares | Match objects to squares | Recognise square properties | Compare shapes | Apply shape recognition | Consolidate square recognition",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Shapes",
+    "lessonPart": "6.03",
+    "lessonName": "Squares"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which shape is a square?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Square",
-        "",
-        "",
-        ""
+        "Circle",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Square",
-      "category": "Shape Recognition",
+      "category": "Shapes",
       "subcategory": "Identify Squares",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
       "solutionAttachments": []
     },
     {
       "question": "Does a square have 4 sides?",
       "resultType": "short-answer",
       "options": [
-        "Yes",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "4",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Squares",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Does a square have 4 corners?",
       "resultType": "short-answer",
       "options": [
-        "Yes",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "4",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Squares",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Are all sides of a square the same length?",
       "resultType": "short-answer",
       "options": [
-        "Yes",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Squares",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Does a square roll?",
       "resultType": "short-answer",
       "options": [
-        "No",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "No",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Squares",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a sticky note?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Square",
-        "",
-        "",
-        ""
+        "Circle",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Square",
       "category": "Everyday Objects",
       "subcategory": "Square Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a checkerboard square?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Square",
-        "",
-        "",
-        ""
+        "Circle",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Square",
       "category": "Everyday Objects",
       "subcategory": "Square Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a floor tile (square tile)?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Square",
-        "",
-        "",
-        ""
+        "Circle",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Square",
       "category": "Everyday Objects",
       "subcategory": "Square Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a square picture frame?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Square",
-        "",
-        "",
-        ""
+        "Circle",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Square",
       "category": "Everyday Objects",
       "subcategory": "Square Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a square biscuit?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Square",
-        "",
-        "",
-        ""
+        "Circle",
+        "Triangle",
+        "Rectangle"
       ],
       "correctAnswer": "Square",
       "category": "Everyday Objects",
       "subcategory": "Square Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
       "solutionAttachments": []
     },
     {
       "question": "How many sides does a square have?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "4",
-        "",
-        "",
-        ""
+        "3",
+        "0",
+        "5"
       ],
       "correctAnswer": "4",
       "category": "Square Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise square properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -219,20 +234,21 @@
     },
     {
       "question": "How many corners does a square have?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "4",
-        "",
-        "",
-        ""
+        "3",
+        "0",
+        "5"
       ],
       "correctAnswer": "4",
       "category": "Square Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise square properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -250,144 +266,152 @@
       "question": "Does a square have more sides than a triangle?",
       "resultType": "short-answer",
       "options": [
-        "Yes",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "PASS",
       "category": "Square Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Is a square round?",
       "resultType": "short-answer",
       "options": [
-        "No",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "No",
+      "correctAnswer": "PASS",
       "category": "Square Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise square properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Can a square have 3 corners?",
       "resultType": "short-answer",
       "options": [
-        "No",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Square Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise square properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a square: sticky note or coin?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Sticky Note",
-        "",
-        "",
-        ""
+        "Coin",
+        "Door",
+        "Plate"
       ],
       "correctAnswer": "Sticky Note",
       "category": "Application",
       "subcategory": "Find Squares",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Sticky Note.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sticky Note.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a square: tile or wheel?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Tile",
-        "",
-        "",
-        ""
+        "Coin",
+        "Door",
+        "Plate"
       ],
       "correctAnswer": "Tile",
       "category": "Application",
       "subcategory": "Find Squares",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Tile.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tile.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a square: checkerboard square or plate?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Checkerboard Square",
-        "",
-        "",
-        ""
+        "Coin",
+        "Door",
+        "Plate"
       ],
       "correctAnswer": "Checkerboard Square",
       "category": "Application",
       "subcategory": "Find Squares",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Checkerboard Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Checkerboard Square.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape has 4 equal sides?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Square",
-        "",
-        "",
-        ""
+        "Circle",
+        "Triangle",
+        "Rectangle"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "Square",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate square recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape has 4 corners and 4 sides?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Square",
-        "",
-        "",
-        ""
+        "Circle",
+        "Triangle",
+        "Rectangle"
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "Square",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate square recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
       "solutionAttachments": []
     }
   ]

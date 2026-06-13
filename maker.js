@@ -143,7 +143,9 @@ const state = {
   selectedQuestionIndex: -1,
   draggingQuestionIndex: -1,
   quizScanEnabled: false,
-  interactiveElementScanEnabled: false
+  interactiveElementScanEnabled: false,
+  qClassifyFilter: [],
+  globalJsonSearchResults: []
 };
 
 function getQuizValidationIssueCount(quiz) {
@@ -337,228 +339,24 @@ function normalizeShapeToken(value) {
   const aliases = {
     round: "circle",
     circular: "circle",
-    rect: "rectangle",
-    box: "square",
-    ball: "sphere"
+    round: "circle",
+    circular: "circle",
+    sphere: "sphere",
+    globe: "sphere",
+    cuboid: "cube",
+    box: "cube",
+    cylinder: "cylinder",
+    cone: "cone",
+    triangle: "triangle",
+    square: "square",
+    rectangle: "rectangle",
+    oval: "oval",
+    pentagon: "pentagon",
+    hexagon: "hexagon",
+    octagon: "octagon",
+    star: "star"
   };
   return aliases[token] || token;
-}
-
-function toShapeLabel(value) {
-  const token = normalizeShapeToken(value);
-  if (!token) return "";
-  return token.charAt(0).toUpperCase() + token.slice(1);
-}
-
-function isShapeLikeOption(value) {
-  const token = normalizeShapeToken(value);
-  return token ? SHAPE_TOKEN_SET.has(token) : false;
-}
-
-function hasStrongShapeOptionSet(options, answerSeed) {
-  const list = Array.isArray(options) ? options : [];
-  if (list.length === 0) return false;
-
-  const allShapeLike = list.every((item) => isShapeLikeOption(item));
-  const expectedAnswerToken = normalizeShapeToken(answerSeed);
-  const hasAnswerShape = !expectedAnswerToken
-    || list.some((item) => normalizeShapeToken(item) === expectedAnswerToken);
-
-  return allShapeLike && hasAnswerShape;
-}
-
-function isShapesCategory(value) {
-  const normalized = String(normalizeQuestionCategory(value) || "").trim().toLowerCase();
-  return normalized === "shapes" || normalized === "shape recognition";
-}
-
-function shouldForceShapeChoices(question) {
-  const questionText = String(question && question.question || "").toLowerCase();
-  const asksForShape = /\b(which|what)\s+shape\b/.test(questionText);
-  return asksForShape && isShapesCategory(question && question.category);
-}
-
-function buildShapeOptionsFromQuestion(question, answerSeed, targetCount = 4) {
-  const appType = String(question && question.interactiveApp && question.interactiveApp.type || "").trim().toLowerCase();
-  const questionText = String(question && question.question || "").toLowerCase();
-  const shapeCue = /\bshape\b|\bcircle\b|\bsquare\b|\btriangle\b|\brectangle\b|\boval\b|\bpentagon\b|\bhexagon\b|\boctagon\b|\bstar\b|\bsphere\b|\bcube\b|\bcylinder\b|\bcone\b/.test(questionText)
-    || appType === "geometry-shapes"
-    || shouldForceShapeChoices(question);
-  if (!shapeCue) {
-    return [];
-  }
-
-  const seeded = [];
-  const answerLabel = toShapeLabel(answerSeed);
-  if (answerLabel) {
-    appendUniqueNormalizedOption(seeded, answerLabel);
-  }
-
-  const foundInQuestion = questionText.match(/circle|square|triangle|rectangle|oval|pentagon|hexagon|octagon|star|sphere|cube|cylinder|cone/g) || [];
-  foundInQuestion.forEach((item) => {
-    appendUniqueNormalizedOption(seeded, toShapeLabel(item));
-  });
-
-  const configShapes = Array.isArray(question && question.interactiveApp && question.interactiveApp.config && question.interactiveApp.config.shapes)
-    ? question.interactiveApp.config.shapes
-    : [];
-  configShapes.forEach((shape) => {
-    appendUniqueNormalizedOption(seeded, toShapeLabel(shape && shape.type));
-  });
-
-  SHAPE_OPTION_POOL.forEach((item) => {
-    if (seeded.length < targetCount) {
-      appendUniqueNormalizedOption(seeded, item);
-    }
-  });
-
-  return seeded.slice(0, targetCount);
-}
-
-function buildSmartMultipleChoiceOptions(question, desiredCount = 4) {
-  const targetCount = Math.max(4, Number.parseInt(desiredCount, 10) || 4);
-  const seeded = [];
-  const currentOptions = Array.isArray(question && question.options) ? question.options : [];
-  currentOptions.forEach((item) => {
-    appendUniqueNormalizedOption(seeded, item);
-  });
-
-  const currentAnswer = String(question && question.correctAnswer || "").trim();
-  const computed = computeExpectedAnswerForQuestion(question || {});
-  const computedAnswer = String(computed && computed.value || "").trim();
-  const answerSeed = currentAnswer || computedAnswer;
-
-  const shapeOptions = buildShapeOptionsFromQuestion(question, answerSeed, targetCount);
-  if (shapeOptions.length >= targetCount) {
-    return shapeOptions;
-  }
-
-  if (answerSeed) {
-    appendUniqueNormalizedOption(seeded, answerSeed);
-  }
-
-  const questionText = String(question && question.question || "").trim();
-  const numbersInQuestion = Array.from(new Set(
-    (questionText.match(/-?\d+(?:\.\d+)?/g) || []).map((token) => String(token).trim())
-  ));
-  numbersInQuestion.forEach((token) => {
-    appendUniqueNormalizedOption(seeded, token);
-  });
-
-  const answerNumber = Number.parseFloat(answerSeed);
-  if (Number.isFinite(answerNumber)) {
-    const deltas = Number.isInteger(answerNumber)
-      ? [1, -1, 2, -2, 3, -3, 10, -10]
-      : [0.1, -0.1, 0.2, -0.2, 0.5, -0.5, 1, -1];
-    deltas.forEach((delta) => {
-      const candidate = Number.isInteger(answerNumber)
-        ? String(Math.round(answerNumber + delta))
-        : String(roundTo(answerNumber + delta, 2));
-      appendUniqueNormalizedOption(seeded, candidate);
-    });
-  }
-
-  if (seeded.length > targetCount) {
-    const answerFirst = [];
-    if (answerSeed) {
-      appendUniqueNormalizedOption(answerFirst, answerSeed);
-    }
-    seeded.forEach((item) => {
-      if (answerFirst.length < targetCount) {
-        appendUniqueNormalizedOption(answerFirst, item);
-      }
-    });
-    return answerFirst;
-  }
-
-  let fillerIndex = 1;
-  while (seeded.length < targetCount) {
-    appendUniqueNormalizedOption(seeded, `Option ${String.fromCharCode(64 + Math.min(26, fillerIndex))}`);
-    fillerIndex += 1;
-  }
-
-  return seeded;
-}
-
-function ensureMultipleChoiceOptionSet(question, targetCount = 4) {
-  if (!question || normalizeResultType(question.resultType) !== "multiple-choice") {
-    return { changed: false, options: getChoiceOptions(question) };
-  }
-
-  const currentAnswer = String(question.correctAnswer || "").trim();
-  const computed = computeExpectedAnswerForQuestion(question || {});
-  const computedAnswer = String(computed && computed.value || "").trim();
-  const answerSeed = currentAnswer || computedAnswer;
-
-  const currentChoiceOptions = getChoiceOptions(question);
-  const uniqueValidOptions = getUniqueValidChoiceOptions(question);
-  const shapeOptions = buildShapeOptionsFromQuestion(question, answerSeed, targetCount);
-  const shouldPreferShapeOptions = shapeOptions.length >= targetCount
-    && !hasStrongShapeOptionSet(currentChoiceOptions, answerSeed);
-
-  if (uniqueValidOptions.length >= targetCount && !shouldPreferShapeOptions) {
-    return { changed: false, options: currentChoiceOptions };
-  }
-
-  const nextOptions = shouldPreferShapeOptions
-    ? shapeOptions
-    : buildSmartMultipleChoiceOptions(question, targetCount);
-  const padded = [
-    nextOptions[0] || "",
-    nextOptions[1] || "",
-    nextOptions[2] || "",
-    nextOptions[3] || ""
-  ];
-
-  const changed = JSON.stringify(Array.isArray(question.options) ? question.options : []) !== JSON.stringify(padded);
-  if (changed) {
-    question.options = padded;
-  }
-
-  return { changed, options: getChoiceOptions(question) };
-}
-
-function prepareQuestionForPersistence(item) {
-  const normalizedItem = normalizeQuestion(item || {});
-  const question = {
-    ...normalizedItem,
-    options: Array.isArray(normalizedItem.options) ? normalizedItem.options.slice(0, 4) : ["", "", "", ""]
-  };
-
-  while (question.options.length < 4) {
-    question.options.push("");
-  }
-
-  const answerSeed = String(question.correctAnswer || "").trim()
-    || String(computeExpectedAnswerForQuestion(question).value || "").trim();
-  const shapeOptions = buildShapeOptionsFromQuestion(question, answerSeed, 4);
-  const hasShapeCue = shapeOptions.length >= 4;
-
-  if (hasShapeCue) {
-    question.resultType = "multiple-choice";
-    question.options = shapeOptions.slice(0, 4);
-    const canonicalAnswer = question.options.find((item) => normalizeText(item) === normalizeText(answerSeed));
-    question.correctAnswer = canonicalAnswer || question.options[0] || answerSeed;
-    return question;
-  }
-
-  if (question.resultType === "multiple-choice") {
-    const ensured = ensureMultipleChoiceOptionSet(question, 4);
-    if (ensured.changed) {
-      question.options = ensured.options.slice(0, 4);
-      while (question.options.length < 4) {
-        question.options.push("");
-      }
-    }
-  }
-
-  const choiceOptions = getChoiceOptions(question);
-  if (question.resultType === "multiple-choice" && choiceOptions.length > 0) {
-    const canonicalAnswer = choiceOptions.find((item) => normalizeText(item) === normalizeText(question.correctAnswer));
-    question.correctAnswer = canonicalAnswer || choiceOptions[0];
-  }
-
-  return question;
 }
 
 function autoFixQuestionIssues(question) {
@@ -589,9 +387,10 @@ function autoFixQuestionIssues(question) {
   }
 
   let choiceOptions = getChoiceOptions(question);
-  if (normalizedType === "multiple-choice") {
-    const ensured = ensureMultipleChoiceOptionSet(question, 4);
-    if (ensured.changed) {
+  if (["multiple-choice", "checkbox", "true-false"].includes(normalizedType) && choiceOptions.length < 2) {
+    normalizedType = "short-answer";
+    if (question.resultType !== "short-answer") {
+      question.resultType = "short-answer";
       changed = true;
     }
   }
@@ -1001,11 +800,49 @@ let pendingImportRows = [];
 let pendingImportSourceName = "";
 let pendingImportValidation = null;
 let pendingImportAutoFixReport = null;
+let pendingImportQualityReport = null;
+let pendingImportLogReports = [];
+let pendingImportLogSelectedFileName = "";
+let pendingImportStartTime = null;
+let pendingImportSaveSecondsPerFileEstimate = 0.35;
 let pendingQuizAutoFixReport = null;
 let pendingResultValidation = null;
 let pendingResultValidationSelectedIndex = -1;
+let pendingResultValidationSelectedGlobalRowId = "";
+let pendingResultValidationDetailRaf = 0;
 let pendingResultValidationFilter = "all";
 let pendingResultValidationIssueFilter = "all";
+let pendingResultValidationQuestionFilter = "";
+let pendingResultValidationHeaderFilters = {};
+
+const RESULT_VALIDATION_HEADER_COLUMN_KEYS = [
+  "grade",
+  "module",
+  "lessonPart",
+  "lessonName",
+  "category",
+  "subcategory",
+  "questionType",
+  "qNo",
+  "question",
+  "mcqOption1",
+  "mcqOption2",
+  "mcqOption3",
+  "mcqOption4",
+  "mcqResult",
+  "boolOption1",
+  "boolOption2",
+  "boolResult",
+  "shortAnswer",
+  "otherResult",
+  "qClassify",
+  "difficulty",
+  "learningOutcome",
+  "issue"
+];
+
+let resultValidationHeaderFilterAnchorButton = null;
+const RESULT_VALIDATION_DETECT_ONLY = true;
 
 const ALLOWED_IMPORT_GRADE_CATEGORIES = [
   "Prep",
@@ -1020,16 +857,29 @@ const ALLOWED_IMPORT_GRADE_CATEGORIES = [
 const IMPORT_TEMPLATE_HEADERS = [
   "Grade",
   "Module",
-  "Lesson Part",
-  "Lesson Name",
+  "LessonPart",
+  "LessonName",
   "Category",
   "Subcategory",
-  "Q No",
-  "Question Type",
+  "QuestionNumber",
+  "QuestionType",
   "Question",
-  "Options",
-  "Compute",
-  "Learning Outcome"
+  "ShortAnswer",
+  "MCQOption1",
+  "MCQOption2",
+  "MCQOption3",
+  "MCQOption4",
+  "BooleanOption1",
+  "BooleanOption2",
+  "BooleanResult",
+  "MCQResult",
+  "OtherResult",
+  "QCLASSIFY",
+  "Difficulty",
+  "Learning Outcome",
+  "Compute Question",
+  "ComputeResultOptions",
+  "ComputeFinal"
 ];
 
 const IMPORT_GRADE_ALIASES = {
@@ -1094,6 +944,291 @@ function showToast(message, variant = "info") {
   }, 3500);
 }
 
+function formatImportLogLine(level, message, details = null) {
+  const stamp = new Date().toISOString();
+  const safeLevel = String(level || "INFO").trim().toUpperCase();
+  const safeMessage = String(message || "").replace(/\s+/g, " ").trim();
+  const detailText = details && typeof details === "object"
+    ? ` | ${JSON.stringify(details)}`
+    : "";
+  return `[${stamp}] [${safeLevel}] ${safeMessage}${detailText}`;
+}
+
+function formatImportReportTimestampForFile(dateValue = new Date()) {
+  const d = dateValue instanceof Date ? dateValue : new Date();
+  const yyyy = String(d.getFullYear());
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  const hh = String(d.getHours()).padStart(2, "0");
+  const mi = String(d.getMinutes()).padStart(2, "0");
+  const ss = String(d.getSeconds()).padStart(2, "0");
+  return `${yyyy}${mm}${dd}-${hh}${mi}${ss}`;
+}
+
+function buildImportExecutionReport(payload = {}) {
+  const now = new Date();
+  const validationIssues = payload.validation && Array.isArray(payload.validation.issues)
+    ? payload.validation.issues.slice(0, 5000)
+    : [];
+  return {
+    type: "IMPORT",
+    createdAtIso: now.toISOString(),
+    createdAtLocal: now.toLocaleString(),
+    sourceName: String(payload.sourceName || "spreadsheet"),
+    summary: {
+      status: String(payload.status || "unknown"),
+      rows: Number(payload.rows || 0),
+      importedQuizCount: Number(payload.importedQuizCount || 0),
+      importedQuestionCount: Number(payload.importedQuestionCount || 0),
+      saved: Number(payload.saved || 0),
+      total: Number(payload.total || 0),
+      accuracyScore: Number(payload.accuracyScore || 0),
+      validationErrors: Number(payload.validation && payload.validation.errors || 0),
+      validationWarnings: Number(payload.validation && payload.validation.warnings || 0)
+    },
+    validation: {
+      errors: Number(payload.validation && payload.validation.errors || 0),
+      warnings: Number(payload.validation && payload.validation.warnings || 0),
+      issueCount: validationIssues.length,
+      issues: validationIssues
+    },
+    quality: {
+      overallScore: Number(payload.quality && payload.quality.overallScore || 0),
+      rowCount: Number(payload.quality && Array.isArray(payload.quality.rowReports) ? payload.quality.rowReports.length : 0)
+    },
+    autoFix: {
+      fixedCount: Number(payload.autoFix && payload.autoFix.fixedCount || 0),
+      improvedCount: Number(payload.autoFix && payload.autoFix.improvedCount || 0),
+      unresolvedCount: Number(payload.autoFix && payload.autoFix.unresolvedCount || 0),
+      changedCount: Number(payload.autoFix && payload.autoFix.changedCount || 0)
+    }
+  };
+}
+
+async function writeImportExecutionReportFile(report, options = {}) {
+  const { allowPrompt = false } = options;
+  const rootHandle = await getRootDirectoryHandle({ allowPrompt, promptForPermission: allowPrompt });
+  if (!rootHandle) {
+    return { saved: false, fileName: "", reason: "root-not-connected" };
+  }
+
+  const importDir = await rootHandle.getDirectoryHandle("Import", { create: true });
+  const stamp = formatImportReportTimestampForFile(new Date());
+  const fileName = `IMPORT-${stamp}.json`;
+  const fileHandle = await importDir.getFileHandle(fileName, { create: true });
+  const writable = await fileHandle.createWritable();
+  await writable.write(JSON.stringify(report, null, 2));
+  await writable.close();
+  return { saved: true, fileName, reason: "" };
+}
+
+async function loadImportExecutionReports(options = {}) {
+  const { allowPrompt = false } = options;
+  const rootHandle = await getRootDirectoryHandle({ allowPrompt, promptForPermission: allowPrompt });
+  if (!rootHandle) return [];
+
+  let importDir = null;
+  try {
+    importDir = await rootHandle.getDirectoryHandle("Import", { create: false });
+  } catch (_error) {
+    return [];
+  }
+
+  const reports = [];
+  for await (const [name, handle] of importDir.entries()) {
+    if (!handle || handle.kind !== "file") continue;
+    if (!/\.json$/i.test(name)) continue;
+    try {
+      const file = await handle.getFile();
+      const text = await file.text();
+      const parsed = JSON.parse(text);
+      reports.push({
+        fileName: name,
+        report: parsed
+      });
+    } catch (_parseError) {
+      // Skip invalid files.
+    }
+  }
+
+  reports.sort((a, b) => String(b.fileName || "").localeCompare(String(a.fileName || "")));
+  return reports;
+}
+
+function closeImportLogModal() {
+  const modal = document.getElementById("importLogModal");
+  if (!(modal instanceof HTMLElement)) return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+function getSelectedImportLogReport() {
+  if (!pendingImportLogSelectedFileName) return null;
+  return pendingImportLogReports.find((item) => String(item.fileName || "") === pendingImportLogSelectedFileName) || null;
+}
+
+function renderImportLogIssuesTable() {
+  const issuesBody = document.getElementById("importLogIssuesBody");
+  const issueSearch = document.getElementById("importLogIssueSearch");
+  const issueLevelFilter = document.getElementById("importLogIssueLevelFilter");
+  if (!(issuesBody instanceof HTMLElement)
+    || !(issueSearch instanceof HTMLInputElement)
+    || !(issueLevelFilter instanceof HTMLSelectElement)) {
+    return;
+  }
+
+  const selected = getSelectedImportLogReport();
+  if (!selected || !selected.report || !selected.report.validation || !Array.isArray(selected.report.validation.issues)) {
+    issuesBody.innerHTML = '<tr><td colspan="5" style="padding:8px;">Select a report to view issues.</td></tr>';
+    return;
+  }
+
+  const term = normalizeText(issueSearch.value || "");
+  const level = String(issueLevelFilter.value || "all").trim().toLowerCase();
+  const filtered = selected.report.validation.issues.filter((item) => {
+    const currentLevel = String(item && item.level || "warning").toLowerCase();
+    if (level !== "all" && currentLevel !== level) return false;
+    if (!term) return true;
+    const haystack = normalizeText([
+      item && item.grade,
+      item && item.lessonPart,
+      item && item.qNo,
+      item && item.message
+    ].join(" "));
+    return haystack.includes(term);
+  });
+
+  if (filtered.length === 0) {
+    issuesBody.innerHTML = '<tr><td colspan="5" style="padding:8px;">No issues match this filter.</td></tr>';
+    return;
+  }
+
+  issuesBody.innerHTML = filtered.slice(0, 1000).map((item) => `
+    <tr>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(item.level || "").toUpperCase())}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(item.grade || ""))}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(item.lessonPart || ""))}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(item.qNo || ""))}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8; white-space:normal;">${escapeInteractiveHtml(String(item.message || ""))}</td>
+    </tr>
+  `).join("");
+}
+
+function renderImportLogReportsTable() {
+  const meta = document.getElementById("importLogMeta");
+  const runsBody = document.getElementById("importLogRunsBody");
+  const jsonOutput = document.getElementById("importLogJsonOutput");
+  const reportSearch = document.getElementById("importLogReportSearch");
+  if (!(meta instanceof HTMLElement)
+    || !(runsBody instanceof HTMLElement)
+    || !(jsonOutput instanceof HTMLElement)
+    || !(reportSearch instanceof HTMLInputElement)) {
+    return;
+  }
+
+  const term = normalizeText(reportSearch.value || "");
+  const filtered = pendingImportLogReports.filter((entry) => {
+    if (!term) return true;
+    const report = entry && entry.report ? entry.report : {};
+    const haystack = normalizeText([
+      entry && entry.fileName,
+      report && report.type,
+      report && report.createdAtIso,
+      report && report.sourceName
+    ].join(" "));
+    return haystack.includes(term);
+  });
+
+  meta.textContent = `Import folder reports: ${filtered.length} item(s).`;
+  if (filtered.length === 0) {
+    runsBody.innerHTML = '<tr><td colspan="8" style="padding:8px;">No import reports found.</td></tr>';
+    jsonOutput.textContent = "Select a report to preview JSON.";
+    renderImportLogIssuesTable();
+    return;
+  }
+
+  if (!pendingImportLogSelectedFileName || !filtered.some((item) => item.fileName === pendingImportLogSelectedFileName)) {
+    pendingImportLogSelectedFileName = filtered[0].fileName;
+  }
+
+  runsBody.innerHTML = filtered.map((entry) => {
+    const report = entry && entry.report ? entry.report : {};
+    const summary = report && report.summary ? report.summary : {};
+    const created = new Date(String(report.createdAtIso || ""));
+    const dateText = Number.isNaN(created.getTime()) ? "" : created.toLocaleDateString();
+    const timeText = Number.isNaN(created.getTime()) ? "" : created.toLocaleTimeString();
+    const selected = entry.fileName === pendingImportLogSelectedFileName;
+    return `
+      <tr data-import-log-file="${escapeInteractiveHtml(entry.fileName)}" style="cursor:pointer;${selected ? " background:#eaf3ff;" : ""}">
+        <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(report.type || "IMPORT"))}</td>
+        <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(dateText)}</td>
+        <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(timeText)}</td>
+        <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(report.sourceName || ""))}</td>
+        <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(summary.rows || 0))}</td>
+        <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(summary.accuracyScore || 0))}</td>
+        <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(summary.validationErrors || 0))}</td>
+        <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(summary.validationWarnings || 0))}</td>
+      </tr>
+    `;
+  }).join("");
+
+  const selected = getSelectedImportLogReport();
+  jsonOutput.textContent = selected ? JSON.stringify(selected.report || {}, null, 2) : "Select a report to preview JSON.";
+  renderImportLogIssuesTable();
+}
+
+async function openImportLogModal() {
+  const modal = document.getElementById("importLogModal");
+  if (!(modal instanceof HTMLElement)) return;
+
+  pendingImportLogReports = await loadImportExecutionReports({ allowPrompt: true });
+  pendingImportLogSelectedFileName = pendingImportLogReports.length > 0
+    ? String(pendingImportLogReports[0].fileName || "")
+    : "";
+
+  const reportSearch = document.getElementById("importLogReportSearch");
+  const issueSearch = document.getElementById("importLogIssueSearch");
+  const issueLevelFilter = document.getElementById("importLogIssueLevelFilter");
+  if (reportSearch instanceof HTMLInputElement) reportSearch.value = "";
+  if (issueSearch instanceof HTMLInputElement) issueSearch.value = "";
+  if (issueLevelFilter instanceof HTMLSelectElement) issueLevelFilter.value = "all";
+
+  renderImportLogReportsTable();
+
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+async function appendImportLogEntry(level, message, details = null) {
+  try {
+    const rootHandle = await getRootDirectoryHandle({ allowPrompt: false, promptForPermission: false });
+    if (!rootHandle) {
+      return false;
+    }
+
+    const logsHandle = await rootHandle.getDirectoryHandle("Logs", { create: true });
+    const logFileHandle = await logsHandle.getFileHandle("importlog.txt", { create: true });
+    let existing = "";
+    try {
+      const file = await logFileHandle.getFile();
+      existing = await file.text();
+    } catch (_readError) {
+      existing = "";
+    }
+
+    const line = formatImportLogLine(level, message, details);
+    const content = `${existing}${existing ? "\n" : ""}${line}`;
+    const writable = await logFileHandle.createWritable();
+    await writable.write(content);
+    await writable.close();
+    return true;
+  } catch (_error) {
+    return false;
+  }
+}
+
 function isTypingInField(target) {
   if (!(target instanceof HTMLElement)) return false;
   const tag = target.tagName;
@@ -1114,7 +1249,8 @@ function saveDraft() {
     rootSourceMode: state.rootSourceMode,
     selectedCategoryId: state.selectedCategoryId,
     selectedQuizId: state.selectedQuizId,
-    selectedQuestionIndex: state.selectedQuestionIndex
+    selectedQuestionIndex: state.selectedQuestionIndex,
+    qClassifyFilter: state.qClassifyFilter
   };
 
   try {
@@ -1164,6 +1300,7 @@ function loadDraft() {
     state.selectedCategoryId = parsed.selectedCategoryId || null;
     state.selectedQuizId = parsed.selectedQuizId || null;
     state.selectedQuestionIndex = Number.isInteger(parsed.selectedQuestionIndex) ? parsed.selectedQuestionIndex : -1;
+    state.qClassifyFilter = normalizeQClassifyFilterValues(parsed.qClassifyFilter || []);
 
     reseedCountersFromState();
     return true;
@@ -1180,6 +1317,7 @@ function createEmptyQuestion() {
     correctAnswer: "",
     category: "",
     subcategory: "",
+    qClassify: "",
     learningOutcome: "",
     notesAttachments: [],
     image: "",
@@ -1459,7 +1597,11 @@ function normalizeQuizSettings(value) {
   const settings = value && typeof value === "object" ? value : {};
   return {
     questionOrder: normalizeQuizQuestionOrder(settings.questionOrder),
-    questionLimit: normalizeQuizQuestionLimit(settings.questionLimit)
+    questionLimit: normalizeQuizQuestionLimit(settings.questionLimit),
+    grade: String(settings.grade || "").trim(),
+    module: String(settings.module || "").trim(),
+    lessonPart: String(settings.lessonPart || "").trim(),
+    lessonName: String(settings.lessonName || "").trim()
   };
 }
 
@@ -2368,6 +2510,9 @@ async function createStarterQuizFileOnDisk(category, quiz) {
           resultType: item.resultType || "multiple-choice",
           options: Array.isArray(item.options) ? item.options : ["", "", "", ""],
           correctAnswer: item.correctAnswer || "",
+          resultStore: item.resultStore && typeof item.resultStore === "object"
+            ? JSON.parse(JSON.stringify(item.resultStore))
+            : undefined,
           notesAttachments: Array.isArray(item.notesAttachments) ? item.notesAttachments : [],
           image: item.image || "",
           solution: item.solution || "",
@@ -2965,6 +3110,13 @@ async function refreshLibraryFromRoot(notify = true, allowPrompt = true) {
     }
     return true;
   } catch (error) {
+    if (normalizeRootSourceMode(state.rootSourceMode) === ROOT_SOURCE_MODES.LOCAL) {
+      state.categories = [];
+      state.selectedCategoryId = null;
+      state.selectedQuizId = null;
+      state.selectedQuestionIndex = -1;
+      renderAll();
+    }
     setRootStatus(`Source: could not load categories from ${state.rootFolder} (folder scan and index.json fallback failed)`);
     if (notify) {
       showToast(String(error.message || "Could not load root library."), "warning");
@@ -3138,14 +3290,36 @@ function ensureSelection() {
   const category = activeCategory();
   if (!category) return;
 
-  if (!category.quizzes.some((item) => item.id === state.selectedQuizId)) {
-    state.selectedQuizId = category.quizzes[0] ? category.quizzes[0].id : null;
-  }
+  let quiz = activeQuiz();
 
-  const quiz = activeQuiz();
-  if (!quiz) {
-    state.selectedQuestionIndex = -1;
-    return;
+  const qClassifyFilter = getActiveQClassifyFilter();
+  if (qClassifyFilter.length > 0) {
+    const matchingQuizzes = category.quizzes.filter((item) => getQuizQClassifyMatchCount(item, qClassifyFilter) > 0);
+    if (matchingQuizzes.length === 0) {
+      state.selectedQuizId = null;
+      state.selectedQuestionIndex = -1;
+      return;
+    }
+
+    const matchingQuiz = category.quizzes.find((item) => getQuizQClassifyMatchCount(item, qClassifyFilter) > 0);
+    if (matchingQuiz) {
+      state.selectedQuizId = matchingQuiz.id;
+      quiz = activeQuiz();
+    }
+
+    const matchIndexes = getQuizQClassifyMatchIndexes(quiz, qClassifyFilter);
+    if (matchIndexes.length > 0) {
+      state.selectedQuestionIndex = matchIndexes[0];
+    }
+  } else {
+    if (!category.quizzes.some((item) => item.id === state.selectedQuizId)) {
+      state.selectedQuizId = category.quizzes[0] ? category.quizzes[0].id : null;
+    }
+    quiz = activeQuiz();
+    if (!quiz) {
+      state.selectedQuestionIndex = -1;
+      return;
+    }
   }
 
   const createdDefaultQuestion = ensureQuizHasDefaultQuestion(quiz);
@@ -3193,6 +3367,312 @@ function renderCategoryList() {
   });
 }
 
+const QCLASSIFY_NULL_TOKEN = "__qclassify_null__";
+
+function isQClassifyValueMissing(value) {
+  return normalizeText(value || "") === "";
+}
+
+function formatQClassifyOptionLabel(value) {
+  return value === QCLASSIFY_NULL_TOKEN ? "NULL" : value;
+}
+
+function buildQClassifyNeedles(filter = state.qClassifyFilter) {
+  const needles = new Set();
+  normalizeQClassifyFilterValues(filter).forEach((item) => {
+    if (item === QCLASSIFY_NULL_TOKEN) {
+      needles.add(QCLASSIFY_NULL_TOKEN);
+      return;
+    }
+
+    const normalized = normalizeText(item);
+    if (normalized) needles.add(normalized);
+  });
+  return needles;
+}
+
+function doesQuestionMatchQClassifyNeedles(question, needles) {
+  if (!(needles instanceof Set) || needles.size === 0) return true;
+
+  const value = normalizeText(question && question.qClassify || "");
+  if (!value) {
+    return needles.has(QCLASSIFY_NULL_TOKEN);
+  }
+
+  return needles.has(value);
+}
+
+function normalizeQClassifyFilterValues(value) {
+  const items = Array.isArray(value)
+    ? value
+    : String(value || "")
+      .split(/[|,]/g)
+      .map((item) => item.trim())
+      .filter((item) => item !== "");
+
+  const values = [];
+  items.forEach((item) => {
+    let token = normalizeWhitespace(item);
+    if (!token) return;
+    if (normalizeText(token) === "null") {
+      token = QCLASSIFY_NULL_TOKEN;
+    }
+    if (!values.includes(token)) {
+      values.push(token);
+    }
+  });
+  return values;
+}
+
+function getActiveQClassifyFilter() {
+  return normalizeQClassifyFilterValues(state.qClassifyFilter);
+}
+
+function hasActiveQClassifyFilter() {
+  return getActiveQClassifyFilter().length > 0;
+}
+
+function formatQClassifyFilterLabel(values = getActiveQClassifyFilter()) {
+  const list = normalizeQClassifyFilterValues(values).map((item) => formatQClassifyOptionLabel(item));
+  if (list.length === 0) return "";
+  if (list.length <= 3) return list.join(", ");
+  return `${list.slice(0, 3).join(", ")} +${list.length - 3} more`;
+}
+
+function collectQClassifyFilterOptions() {
+  const stats = new Map();
+  let nullQuestionCount = 0;
+  let nullQuizCount = 0;
+
+  state.categories.forEach((category) => {
+    const quizzes = Array.isArray(category && category.quizzes) ? category.quizzes : [];
+    quizzes.forEach((quiz) => {
+      const questions = Array.isArray(quiz && quiz.questions) ? quiz.questions : [];
+      const perQuizValues = new Set();
+      let hasNullInQuiz = false;
+
+      questions.forEach((question) => {
+        const value = normalizeWhitespace(question && question.qClassify || "");
+        if (!value) {
+          nullQuestionCount += 1;
+          hasNullInQuiz = true;
+          return;
+        }
+
+        if (!stats.has(value)) {
+          stats.set(value, { value, label: value, questionCount: 0, quizCount: 0, sortValue: value });
+        }
+
+        const entry = stats.get(value);
+        entry.questionCount += 1;
+        perQuizValues.add(value);
+      });
+
+      if (hasNullInQuiz) {
+        nullQuizCount += 1;
+      }
+
+      perQuizValues.forEach((value) => {
+        const entry = stats.get(value);
+        if (entry) entry.quizCount += 1;
+      });
+    });
+  });
+
+  stats.set(QCLASSIFY_NULL_TOKEN, {
+    value: QCLASSIFY_NULL_TOKEN,
+    label: "NULL",
+    questionCount: nullQuestionCount,
+    quizCount: nullQuizCount,
+    sortValue: "NULL"
+  });
+
+  return Array.from(stats.values()).sort((left, right) => {
+    const leftIsNull = left && left.value === QCLASSIFY_NULL_TOKEN;
+    const rightIsNull = right && right.value === QCLASSIFY_NULL_TOKEN;
+
+    if (leftIsNull && !rightIsNull) return 1;
+    if (!leftIsNull && rightIsNull) return -1;
+
+    return String(left.sortValue || left.label || left.value).localeCompare(
+      String(right.sortValue || right.label || right.value),
+      undefined,
+      { sensitivity: "base", numeric: true }
+    );
+  });
+}
+
+function getQuizQClassifyMatchIndexes(quiz, filter = state.qClassifyFilter) {
+  const needles = buildQClassifyNeedles(filter);
+  if (needles.size === 0 || !quiz || !Array.isArray(quiz.questions)) return [];
+
+  const indexes = [];
+  quiz.questions.forEach((question, index) => {
+    if (doesQuestionMatchQClassifyNeedles(question, needles)) {
+      indexes.push(index);
+    }
+  });
+  return indexes;
+}
+
+function getQuizQClassifyMatchCount(quiz, filter = state.qClassifyFilter) {
+  return getQuizQClassifyMatchIndexes(quiz, filter).length;
+}
+
+function findFirstQClassifyMatch(filter = state.qClassifyFilter) {
+  const needles = normalizeQClassifyFilterValues(filter);
+  if (needles.length === 0) return null;
+
+  const category = activeCategory();
+  if (!category) return null;
+
+  for (const quiz of category.quizzes) {
+    const matchIndexes = getQuizQClassifyMatchIndexes(quiz, needles);
+    if (matchIndexes.length > 0) {
+      return {
+        categoryId: category.id,
+        quizId: quiz.id,
+        questionIndex: matchIndexes[0]
+      };
+    }
+  }
+
+  return null;
+}
+
+function renderQClassifyFilterState() {
+  const button = document.getElementById("qClassifyFilterBtn");
+  if (button instanceof HTMLButtonElement) {
+    const active = hasActiveQClassifyFilter();
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", active ? "true" : "false");
+    button.textContent = active ? `QClassify Filter (${getActiveQClassifyFilter().length})` : "QClassify Filter";
+    button.title = active
+      ? `Filtering by QClassify: ${formatQClassifyFilterLabel()}. Click to change.`
+      : "Filter quizzes and questions by QClassify values.";
+  }
+
+  const summary = document.getElementById("qClassifyFilterSummary");
+  if (summary instanceof HTMLElement) {
+    summary.textContent = hasActiveQClassifyFilter()
+      ? `QClassify filter active: ${formatQClassifyFilterLabel()}`
+      : "No QClassify filter active.";
+  }
+}
+
+function renderQClassifyFilterModal() {
+  const modal = document.getElementById("qClassifyFilterModal");
+  const host = document.getElementById("qClassifyFilterList");
+  const summary = document.getElementById("qClassifyFilterModalSummary");
+  const searchInput = document.getElementById("qClassifyFilterSearch");
+  if (!(modal instanceof HTMLElement) || !(host instanceof HTMLElement)) return;
+
+  const selected = new Set(getActiveQClassifyFilter());
+  const options = collectQClassifyFilterOptions();
+  const searchTerm = searchInput instanceof HTMLInputElement
+    ? normalizeText(searchInput.value || "")
+    : "";
+  const filteredOptions = searchTerm
+    ? options.filter((item) => normalizeText(item.label || item.value).includes(searchTerm))
+    : options;
+
+  host.innerHTML = "";
+  if (summary instanceof HTMLElement) {
+    summary.textContent = options.length > 0
+      ? `Showing ${filteredOptions.length} of ${options.length} available QClassify values. Tick the ones you want to see.`
+      : "No QClassify values are available yet.";
+  }
+
+  if (options.length === 0) {
+    host.innerHTML = "<p class='helper-text'>No QClassify values found in the current data.</p>";
+    return;
+  }
+
+  if (filteredOptions.length === 0) {
+    host.innerHTML = "<p class='helper-text'>No QClassify values match your search.</p>";
+    return;
+  }
+
+  filteredOptions.forEach((option) => {
+    const row = document.createElement("div");
+    row.className = "qclassify-filter-option";
+    const optionLabel = option.label || formatQClassifyOptionLabel(option.value);
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.dataset.qclassifyValue = option.value;
+    checkbox.checked = selected.has(option.value);
+    checkbox.title = optionLabel;
+    checkbox.setAttribute("aria-label", optionLabel);
+
+    const labelText = document.createElement("span");
+    labelText.className = "qclassify-filter-option-label";
+    labelText.textContent = `${optionLabel} (${option.quizCount} ${option.quizCount === 1 ? "quiz" : "quizzes"}, ${option.questionCount} ${option.questionCount === 1 ? "question" : "questions"})`;
+
+    row.addEventListener("click", (event) => {
+      const target = event.target;
+      if (target instanceof HTMLInputElement && target.type === "checkbox") {
+        toggleQClassifyFilterValue(option.value, checkbox.checked);
+        return;
+      }
+      checkbox.checked = !checkbox.checked;
+      toggleQClassifyFilterValue(option.value, checkbox.checked);
+    });
+
+    row.appendChild(checkbox);
+    row.appendChild(labelText);
+    host.appendChild(row);
+  });
+}
+
+function openQClassifyFilterModal() {
+  const modal = document.getElementById("qClassifyFilterModal");
+  if (!(modal instanceof HTMLElement)) return;
+
+  renderQClassifyFilterModal();
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeQClassifyFilterModal() {
+  const modal = document.getElementById("qClassifyFilterModal");
+  if (!(modal instanceof HTMLElement)) return;
+
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+function setQClassifyFilterValues(values) {
+  state.qClassifyFilter = normalizeQClassifyFilterValues(values);
+
+  if (hasActiveQClassifyFilter()) {
+    const match = findFirstQClassifyMatch(state.qClassifyFilter);
+    if (match) {
+      state.selectedCategoryId = match.categoryId;
+      state.selectedQuizId = match.quizId;
+      state.selectedQuestionIndex = match.questionIndex;
+    }
+  }
+
+  renderAll();
+}
+
+function toggleQClassifyFilterValue(value, checked) {
+  const current = new Set(getActiveQClassifyFilter());
+  const token = normalizeQClassifyFilterValues([value])[0] || "";
+  if (!token) return;
+
+  if (checked) {
+    current.add(token);
+  } else {
+    current.delete(token);
+  }
+
+  setQClassifyFilterValues(Array.from(current));
+}
+
 function renderQuizList() {
   const host = document.getElementById("quizList");
   host.innerHTML = "";
@@ -3210,9 +3690,12 @@ function renderQuizList() {
 
   const searchInput = document.getElementById("quizSearch");
   const term = searchInput ? searchInput.value.trim().toLowerCase() : "";
-  const filtered = term
-    ? category.quizzes.filter((quiz) => quiz.title.toLowerCase().includes(term))
-    : category.quizzes;
+  const qClassifyFilter = getActiveQClassifyFilter();
+  const filtered = category.quizzes.filter((quiz) => {
+    const matchesSearch = !term || quiz.title.toLowerCase().includes(term);
+    const matchesQClassify = qClassifyFilter.length === 0 || getQuizQClassifyMatchCount(quiz, qClassifyFilter) > 0;
+    return matchesSearch && matchesQClassify;
+  });
   const sortedQuizzes = filtered.slice().sort((left, right) => {
     const leftTitle = String(left && left.title ? left.title : "").trim();
     const rightTitle = String(right && right.title ? right.title : "").trim();
@@ -3220,21 +3703,29 @@ function renderQuizList() {
   });
 
   if (sortedQuizzes.length === 0) {
-    host.innerHTML = "<p class='helper-text'>No quizzes match.</p>";
+    host.innerHTML = qClassifyFilter.length > 0
+      ? "<p class='helper-text'>No quizzes match the active QClassify filter.</p>"
+      : "<p class='helper-text'>No quizzes match.</p>";
     return;
   }
 
   sortedQuizzes.forEach((quiz) => {
     const issueCount = getQuizValidationIssueCount(quiz);
     const isIssueHighlight = state.quizScanEnabled && issueCount > 0;
+    const qClassifyMatchCount = qClassifyFilter.length > 0 ? getQuizQClassifyMatchCount(quiz, qClassifyFilter) : 0;
+    const isQClassifyHighlight = qClassifyFilter.length > 0 && qClassifyMatchCount > 0;
     const row = document.createElement("div");
-    row.className = `list-item ${quiz.id === state.selectedQuizId ? "active" : ""} ${isIssueHighlight ? "issue-scan-hit" : ""}`.trim();
+    row.className = `list-item ${quiz.id === state.selectedQuizId ? "active" : ""} ${isIssueHighlight ? "issue-scan-hit" : ""} ${isQClassifyHighlight ? "qclassify-filter-hit" : ""}`.trim();
     const scanBadge = state.quizScanEnabled
       ? `<span class="status-chip ${issueCount === 0 ? "ok" : "warn"}">${issueCount === 0 ? "No issues" : `${issueCount} issue${issueCount === 1 ? "" : "s"}`}</span>`
+      : "";
+    const qClassifyBadge = isQClassifyHighlight
+      ? `<span class="status-chip ok">${qClassifyMatchCount} match${qClassifyMatchCount === 1 ? "" : "es"}</span>`
       : "";
     row.innerHTML = `
       <button class="list-main" data-id="${quiz.id}" type="button">${quiz.title}</button>
       ${scanBadge}
+      ${qClassifyBadge}
       <button class="icon-btn secondary" data-action="settings" data-id="${quiz.id}" type="button">Settings</button>
       <button class="icon-btn secondary" data-action="replicate" data-id="${quiz.id}" type="button">Replicate</button>
       <button class="icon-btn secondary" data-action="auto" data-id="${quiz.id}" type="button">Auto</button>
@@ -3335,8 +3826,19 @@ function renderQuestionsList() {
 
   const searchInput = document.getElementById("questionSearch");
   const term = searchInput ? searchInput.value.trim().toLowerCase() : "";
+  const qClassifyFilter = getActiveQClassifyFilter();
+  const qClassifyNeedles = buildQClassifyNeedles(qClassifyFilter);
 
-  quiz.questions.forEach((item, index) => {
+  const questions = qClassifyFilter.length > 0
+    ? quiz.questions.map((item, index) => ({ item, index })).filter(({ item }) => doesQuestionMatchQClassifyNeedles(item, qClassifyNeedles))
+    : quiz.questions.map((item, index) => ({ item, index }));
+
+  if (qClassifyFilter.length > 0 && questions.length === 0) {
+    host.innerHTML = "<p class='helper-text'>No questions match the active QClassify filter.</p>";
+    return;
+  }
+
+  questions.forEach(({ item, index }) => {
     const title = item.question || `Untitled Question ${index + 1}`;
     if (term && !title.toLowerCase().includes(term)) {
       return;
@@ -3352,13 +3854,18 @@ function renderQuestionsList() {
     const hasAdvancedResultType = !["multiple-choice", "short-answer", "checkbox"].includes(resultType);
     const hasInteractiveElement = hasAdvancedResultType || appType !== "";
     const isInteractiveHighlight = state.interactiveElementScanEnabled && hasInteractiveElement;
-    row.className = `list-item ${index === state.selectedQuestionIndex ? "active" : ""} ${isIssueHighlight ? "issue-scan-hit" : ""} ${isInteractiveHighlight ? "interactive-element-hit" : ""}`.trim();
+    const isQClassifyHighlight = qClassifyFilter.length > 0 && doesQuestionMatchQClassifyNeedles(item, qClassifyNeedles);
+    const qClassifyBadgeValue = isQClassifyValueMissing(item && item.qClassify)
+      ? "NULL"
+      : (item.qClassify || "QClassify");
+    row.className = `list-item ${index === state.selectedQuestionIndex ? "active" : ""} ${isIssueHighlight ? "issue-scan-hit" : ""} ${isInteractiveHighlight ? "interactive-element-hit" : ""} ${isQClassifyHighlight ? "qclassify-filter-hit" : ""}`.trim();
     row.draggable = true;
     row.dataset.dragIndex = String(index);
     row.dataset.questionIndex = String(index);
     row.innerHTML = `
       <button class="list-main" data-index="${index}" type="button">Q${index + 1}: ${title}</button>
       <span class="${badgeClass}">${badgeText}</span>
+      ${qClassifyFilter.length > 0 ? `<span class="status-chip ok">${qClassifyBadgeValue}</span>` : ""}
       <button class="icon-btn danger" data-action="delete" data-index="${index}" type="button">x</button>
     `;
     host.appendChild(row);
@@ -3367,6 +3874,113 @@ function renderQuestionsList() {
   if (host.children.length === 0) {
     host.innerHTML = "<p class='helper-text'>No questions match.</p>";
   }
+}
+
+function buildGlobalJsonSearchResults(term) {
+  const needle = String(term || "").trim().toLowerCase();
+  if (!needle) return [];
+
+  const results = [];
+  state.categories.forEach((category) => {
+    const quizzes = Array.isArray(category && category.quizzes) ? category.quizzes : [];
+    quizzes.forEach((quiz) => {
+      const quizMeta = {
+        title: quiz && quiz.title ? quiz.title : "",
+        description: normalizeQuizDescription(quiz && quiz.description),
+        settings: normalizeQuizSettings(quiz && quiz.settings),
+        fileName: quiz && quiz.fileName ? quiz.fileName : "",
+        sourcePath: quiz && quiz.sourcePath ? quiz.sourcePath : "",
+        category: category && category.name ? category.name : ""
+      };
+      const quizHasMatch = JSON.stringify(quizMeta).toLowerCase().includes(needle);
+      const questions = Array.isArray(quiz && quiz.questions) ? quiz.questions : [];
+      questions.forEach((question, index) => {
+        const questionHasMatch = JSON.stringify(question || {}).toLowerCase().includes(needle);
+        if (!quizHasMatch && !questionHasMatch) return;
+
+        const questionTitle = String(question && question.question ? question.question : `Untitled Question ${index + 1}`)
+          .replace(/\s+/g, " ")
+          .trim();
+        const scope = questionHasMatch
+          ? (quizHasMatch ? "quiz+question" : "question")
+          : "quiz";
+
+        results.push({
+          categoryId: category.id,
+          quizId: quiz.id,
+          questionIndex: index,
+          categoryName: String(category && category.name ? category.name : "General"),
+          quizTitle: String(quiz && quiz.title ? quiz.title : "Untitled Quiz"),
+          quizFileName: String(quiz && (quiz.sourcePath || quiz.fileName) ? (quiz.sourcePath || quiz.fileName) : ""),
+          questionTitle,
+          scope
+        });
+      });
+    });
+  });
+
+  return results;
+}
+
+function renderGlobalJsonSearchResults() {
+  const input = document.getElementById("globalJsonSearch");
+  const summary = document.getElementById("globalJsonSearchSummary");
+  const host = document.getElementById("globalJsonSearchResults");
+  if (!(host instanceof HTMLElement) || !(summary instanceof HTMLElement)) return;
+
+  const term = input instanceof HTMLInputElement ? input.value.trim() : "";
+  host.innerHTML = "";
+
+  if (!term) {
+    summary.textContent = "Type a keyword to search every loaded quiz and question JSON.";
+    return;
+  }
+
+  const results = Array.isArray(state.globalJsonSearchResults) ? state.globalJsonSearchResults : [];
+  if (results.length === 0) {
+    summary.textContent = `No matches for \"${term}\".`;
+    host.innerHTML = "<p class='helper-text'>No quiz or question JSON entries match.</p>";
+    return;
+  }
+
+  const quizKeys = new Set(results.map((item) => `${item.categoryId}::${item.quizId}`));
+  summary.textContent = `Found ${results.length} matching question${results.length === 1 ? "" : "s"} across ${quizKeys.size} quiz${quizKeys.size === 1 ? "" : "zes"}.`;
+
+  results.forEach((item, idx) => {
+    const row = document.createElement("div");
+    const isActive = item.categoryId === state.selectedCategoryId
+      && item.quizId === state.selectedQuizId
+      && item.questionIndex === state.selectedQuestionIndex;
+    row.className = `list-item ${isActive ? "active" : ""}`.trim();
+
+    const sourceLabel = item.scope === "quiz+question"
+      ? "Quiz + Q"
+      : (item.scope === "quiz" ? "Quiz" : "Q");
+
+    row.innerHTML = `
+      <button class="list-main" type="button" data-result-index="${idx}">
+        ${escapeInteractiveHtml(item.categoryName)} > ${escapeInteractiveHtml(item.quizTitle)} - Q${item.questionIndex + 1}: ${escapeInteractiveHtml(item.questionTitle || "Untitled")}
+      </button>
+      <span class="status-chip warn">${sourceLabel}</span>
+    `;
+    host.appendChild(row);
+  });
+}
+
+function executeGlobalJsonSearch() {
+  const input = document.getElementById("globalJsonSearch");
+  const term = input instanceof HTMLInputElement ? input.value.trim() : "";
+  state.globalJsonSearchResults = buildGlobalJsonSearchResults(term);
+  renderGlobalJsonSearchResults();
+}
+
+function clearGlobalJsonSearch() {
+  const input = document.getElementById("globalJsonSearch");
+  if (input instanceof HTMLInputElement) {
+    input.value = "";
+  }
+  state.globalJsonSearchResults = [];
+  renderGlobalJsonSearchResults();
 }
 
 function renderQuizScanToggle() {
@@ -3394,6 +4008,23 @@ function ensureTrueFalseOptions(question) {
   if (!question) return;
   if ((question.resultType || "multiple-choice") !== "true-false") return;
   question.options = ["True", "False", "", ""];
+}
+
+function ensureMultipleChoiceOptionSet(question, count = 4) {
+  if (!question) return question;
+  if (typeof count !== "number" || count < 1) count = 4;
+  
+  if (!Array.isArray(question.options)) {
+    question.options = [];
+  }
+  
+  // Pad or trim options to match count
+  while (question.options.length < count) {
+    question.options.push("");
+  }
+  question.options = question.options.slice(0, count);
+  
+  return question;
 }
 
 function getChoiceOptions(question) {
@@ -10244,6 +10875,7 @@ function renderEditor() {
     document.getElementById("questionText").value = "";
     document.getElementById("questionCategory").value = "";
     document.getElementById("questionSubcategory").value = "";
+    document.getElementById("questionQClassify").value = "";
     document.getElementById("questionLearningOutcome").value = "";
     document.getElementById("resultType").value = "multiple-choice";
     document.getElementById("option1").value = "";
@@ -10275,6 +10907,7 @@ function renderEditor() {
     refreshCorrectAnswerSelect({ resultType: "multiple-choice", options: ["", "", "", ""], correctAnswer: "" });
     renderValidationBox(null);
     populateInteractiveAppForm(null);
+    renderQClassifySuggestions();
     return;
   }
 
@@ -10300,6 +10933,7 @@ function renderEditor() {
   document.getElementById("questionText").value = question.question || "";
   document.getElementById("questionCategory").value = question.category || "";
   document.getElementById("questionSubcategory").value = question.subcategory || "";
+  document.getElementById("questionQClassify").value = question.qClassify || "";
   document.getElementById("questionLearningOutcome").value = question.learningOutcome || "";
   document.getElementById("resultType").value = getEditorResultType(question) || "multiple-choice";
   document.getElementById("option1").value = optionValues[0] || "";
@@ -10340,6 +10974,36 @@ function renderEditor() {
   refreshCorrectAnswerSelect(question);
   renderValidationBox(question);
   populateInteractiveAppForm(question.interactiveApp || null);
+  renderQClassifySuggestions();
+}
+
+function collectQClassifySuggestions() {
+  const values = new Set();
+  state.categories.forEach((category) => {
+    const quizzes = Array.isArray(category && category.quizzes) ? category.quizzes : [];
+    quizzes.forEach((quiz) => {
+      const questions = Array.isArray(quiz && quiz.questions) ? quiz.questions : [];
+      questions.forEach((question) => {
+        const token = String(question && question.qClassify || "").trim();
+        if (token) {
+          values.add(token);
+        }
+      });
+    });
+  });
+  return Array.from(values).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base", numeric: true }));
+}
+
+function renderQClassifySuggestions() {
+  const host = document.getElementById("qClassifySuggestions");
+  if (!(host instanceof HTMLDataListElement)) return;
+  const suggestions = collectQClassifySuggestions();
+  host.innerHTML = "";
+  suggestions.forEach((value) => {
+    const option = document.createElement("option");
+    option.value = value;
+    host.appendChild(option);
+  });
 }
 
 function getQuizData() {
@@ -10355,6 +11019,7 @@ function getQuizData() {
         correctAnswer: normalizedItem.correctAnswer || "",
         category: normalizedItem.category || "",
         subcategory: normalizedItem.subcategory || "",
+        qClassify: normalizedItem.qClassify || "",
         learningOutcome: normalizedItem.learningOutcome || "",
         notesAttachments: Array.isArray(normalizedItem.notesAttachments) ? normalizedItem.notesAttachments : [],
         image: normalizedItem.image || "",
@@ -10397,9 +11062,12 @@ function renderAll() {
   ensureSelection();
   renderQuizScanToggle();
   renderInteractiveElementScanToggle();
+  renderQClassifyFilterState();
+  renderQClassifyFilterModal();
   renderCategoryList();
   renderQuizList();
   renderQuestionsList();
+  renderGlobalJsonSearchResults();
   renderEditor();
   updateGeneratedJson();
   updateEmbedOutputForActiveQuiz();
@@ -10499,6 +11167,10 @@ function openQuizSettingsModal(quizId = state.selectedQuizId) {
   const normalizedSettings = normalizeQuizSettings(quiz.settings);
   document.getElementById("quizSettingsOrder").value = normalizedSettings.questionOrder;
   document.getElementById("quizSettingsLimit").value = normalizedSettings.questionLimit ? String(normalizedSettings.questionLimit) : "";
+  document.getElementById("quizSettingsGrade").value = normalizedSettings.grade || "";
+  document.getElementById("quizSettingsModule").value = normalizedSettings.module || "";
+  document.getElementById("quizSettingsLessonPart").value = normalizedSettings.lessonPart || "";
+  document.getElementById("quizSettingsLessonName").value = normalizedSettings.lessonName || "";
 
   modal.classList.remove("hidden");
   modal.setAttribute("aria-hidden", "false");
@@ -10526,6 +11198,11 @@ function openImportModal() {
 function closeImportModal() {
   const modal = document.getElementById("importModal");
   if (!(modal instanceof HTMLElement)) return;
+  pendingImportStartTime = null;
+  const bar = document.getElementById("importProcessingBar");
+  if (bar instanceof HTMLElement) {
+    bar.style.background = "linear-gradient(90deg, #2563eb 0%, #22c55e 100%)";
+  }
   setImportModalFullscreen(false);
   modal.classList.add("hidden");
   modal.setAttribute("aria-hidden", "true");
@@ -10584,10 +11261,12 @@ function refreshResultValidationFullscreenLayout() {
   }
 
   const inFullscreen = modal.classList.contains("result-validation-fullscreen") && !modal.classList.contains("hidden");
+  const defaultMaxHeight = String(tableContainer.dataset.normalMaxHeight || "520px");
+  const defaultMinHeight = String(tableContainer.dataset.normalMinHeight || "500px");
   if (!inFullscreen) {
-    const defaultMaxHeight = String(tableContainer.dataset.normalMaxHeight || "520px");
     tableContainer.style.height = "";
     tableContainer.style.maxHeight = defaultMaxHeight;
+    tableContainer.style.minHeight = defaultMinHeight;
     detailGrid.style.height = "";
     return;
   }
@@ -10600,6 +11279,7 @@ function refreshResultValidationFullscreenLayout() {
   const maxTableHeight = Math.max(240, Math.floor(dialogRect.bottom - tableTop - tipHeight - tableBottomPadding));
   tableContainer.style.height = `${maxTableHeight}px`;
   tableContainer.style.maxHeight = `${maxTableHeight}px`;
+  tableContainer.style.minHeight = `${maxTableHeight}px`;
 
   const detailTop = detailGrid.getBoundingClientRect().top;
   const detailBottomPadding = 12;
@@ -10621,6 +11301,45 @@ function setupResultValidationTableContainerScrollControls() {
   }, { passive: false });
 
   tableContainer.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      const rows = Array.from(document.querySelectorAll("#resultValidationBody tr[data-question-index]"));
+      if (rows.length === 0) return;
+
+      event.preventDefault();
+      const isGlobalScope = Boolean(pendingResultValidation && pendingResultValidation.scope === "global");
+      let currentRowIndex = -1;
+      if (isGlobalScope) {
+        const selectedGlobalRowId = String(pendingResultValidationSelectedGlobalRowId || "");
+        currentRowIndex = rows.findIndex((row) => String(row.dataset.globalRowId || "") === selectedGlobalRowId);
+      }
+
+      if (currentRowIndex < 0) {
+        currentRowIndex = rows.findIndex((row) => {
+          const rowQuestionIndex = Number.parseInt(row.dataset.questionIndex || "", 10);
+          return Number.isInteger(rowQuestionIndex) && rowQuestionIndex === pendingResultValidationSelectedIndex;
+        });
+      }
+
+      const direction = event.key === "ArrowDown" ? 1 : -1;
+      const nextRowIndex = currentRowIndex < 0
+        ? (direction > 0 ? 0 : rows.length - 1)
+        : Math.max(0, Math.min(rows.length - 1, currentRowIndex + direction));
+      const nextRow = rows[nextRowIndex];
+      if (!(nextRow instanceof HTMLElement)) return;
+
+      const questionIndex = Number.parseInt(nextRow.dataset.questionIndex || "", 10);
+      if (!Number.isInteger(questionIndex) || questionIndex < 0) return;
+      const globalRowId = String(nextRow.dataset.globalRowId || "").trim();
+
+      selectResultValidationRow(questionIndex, globalRowId, {
+        syncEditor: false,
+        rerenderTable: false,
+        detailMode: "defer"
+      });
+      nextRow.scrollIntoView({ block: "nearest" });
+      return;
+    }
+
     if (!modal.classList.contains("result-validation-fullscreen")) return;
     const page = Math.max(120, Math.floor(tableContainer.clientHeight * 0.85));
     if (event.key === "PageDown") {
@@ -10643,6 +11362,557 @@ function setupResultValidationTableContainerScrollControls() {
       tableContainer.scrollTop = tableContainer.scrollHeight;
     }
   });
+
+}
+
+function updateResultValidationRowSelectionUI(questionIndex, globalRowId = "") {
+  const rows = Array.from(document.querySelectorAll("#resultValidationBody tr[data-question-index]"));
+  if (rows.length === 0) return;
+
+  const isGlobalScope = Boolean(pendingResultValidation && pendingResultValidation.scope === "global");
+  const selectedGlobalRowId = String(globalRowId || "").trim();
+  rows.forEach((row) => {
+    if (!(row instanceof HTMLElement)) return;
+    const rowQuestionIndex = Number.parseInt(row.dataset.questionIndex || "", 10);
+    const rowGlobalRowId = String(row.dataset.globalRowId || "").trim();
+    const selected = isGlobalScope
+      ? rowGlobalRowId === selectedGlobalRowId
+      : Number.isInteger(rowQuestionIndex) && rowQuestionIndex === questionIndex;
+    row.style.boxShadow = selected ? "inset 0 0 0 2px #1f6feb" : "none";
+  });
+}
+
+function scheduleResultValidationDetailRender(questionIndex, globalRowId = "") {
+  if (pendingResultValidationDetailRaf) {
+    window.cancelAnimationFrame(pendingResultValidationDetailRaf);
+    pendingResultValidationDetailRaf = 0;
+  }
+  pendingResultValidationDetailRaf = window.requestAnimationFrame(() => {
+    pendingResultValidationDetailRaf = 0;
+    renderResultValidationDetail(questionIndex, globalRowId);
+  });
+}
+
+function selectResultValidationRow(questionIndex, globalRowId = "", options = {}) {
+  if (!Number.isInteger(questionIndex) || questionIndex < 0) return;
+  const syncEditor = options && options.syncEditor !== undefined ? Boolean(options.syncEditor) : true;
+  const rerenderTable = options && options.rerenderTable !== undefined ? Boolean(options.rerenderTable) : true;
+  const detailMode = options && typeof options.detailMode === "string" ? options.detailMode : "immediate";
+  const normalizedGlobalRowId = String(globalRowId || "").trim();
+  let resolvedQuestionIndex = questionIndex;
+  let resolvedGlobalRowId = normalizedGlobalRowId;
+
+  if (pendingResultValidation && pendingResultValidation.scope === "global") {
+    const rows = Array.isArray(pendingResultValidation.rows) ? pendingResultValidation.rows : [];
+    const picked = rows.find((item) => String(item && item.globalRowId || "") === normalizedGlobalRowId)
+      || rows.find((item) => Number.isInteger(item && item.index) && Number(item.index) === questionIndex)
+      || null;
+    if (!picked) return;
+    state.selectedCategoryId = String(picked.categoryId || "");
+    state.selectedQuizId = String(picked.quizId || "");
+    resolvedQuestionIndex = Number.isInteger(picked.index) ? picked.index : questionIndex;
+    resolvedGlobalRowId = String(picked.globalRowId || "");
+    state.selectedQuestionIndex = resolvedQuestionIndex;
+    pendingResultValidationSelectedGlobalRowId = resolvedGlobalRowId;
+    pendingResultValidationSelectedIndex = resolvedQuestionIndex;
+  } else {
+    pendingResultValidationSelectedGlobalRowId = "";
+    pendingResultValidationSelectedIndex = resolvedQuestionIndex;
+    state.selectedQuestionIndex = resolvedQuestionIndex;
+  }
+
+  if (syncEditor) {
+    focusResultValidationQuestion(resolvedQuestionIndex);
+  }
+  if (detailMode === "defer") {
+    scheduleResultValidationDetailRender(resolvedQuestionIndex, resolvedGlobalRowId);
+  } else {
+    renderResultValidationDetail(resolvedQuestionIndex, resolvedGlobalRowId);
+  }
+  if (rerenderTable && pendingResultValidation) {
+    renderResultValidation(pendingResultValidation);
+  } else {
+    updateResultValidationRowSelectionUI(resolvedQuestionIndex, resolvedGlobalRowId);
+  }
+}
+
+function ensureResultValidationHeaderFilterMenu() {
+  let menu = document.getElementById("resultValidationHeaderFilterMenu");
+  if (!(menu instanceof HTMLElement)) {
+    menu = document.createElement("div");
+    menu.id = "resultValidationHeaderFilterMenu";
+    menu.className = "result-validation-header-filter-menu hidden";
+    menu.setAttribute("role", "dialog");
+    menu.setAttribute("aria-label", "Column filter");
+    menu.innerHTML = `
+      <div class="result-validation-filter-menu-title" id="resultValidationHeaderFilterMenuTitle">Filter</div>
+      <div class="result-validation-filter-menu-actions">
+        <button type="button" class="btn secondary small" data-filter-menu-action="all">Select All</button>
+        <input type="search" id="resultValidationHeaderFilterSearch" class="result-validation-filter-menu-search" placeholder="Search values..." aria-label="Search filter values" />
+        <button type="button" class="btn secondary small" data-filter-menu-action="none">Clear</button>
+        <button type="button" class="btn secondary small" data-filter-menu-action="remove">Remove Filter</button>
+      </div>
+      <div id="resultValidationHeaderFilterMenuList" class="result-validation-filter-menu-list"></div>
+    `;
+    document.body.appendChild(menu);
+  }
+  return menu;
+}
+
+function applyResultValidationHeaderFilterSelection(columnKey, list) {
+  if (!columnKey || !(list instanceof HTMLElement)) return;
+
+  const options = Array.from(list.querySelectorAll("input[type='checkbox'][data-filter-option-value]"));
+  const allValues = options
+    .map((input) => (input instanceof HTMLInputElement ? normalizeResultValidationHeaderFilterValue(input.dataset.filterOptionValue || "") : ""))
+    .filter((value) => value !== "");
+  const selectedValues = options
+    .filter((input) => input instanceof HTMLInputElement && input.checked)
+    .map((input) => normalizeResultValidationHeaderFilterValue(input.dataset.filterOptionValue || ""));
+
+  const sameAsAll = selectedValues.length === allValues.length;
+  if (sameAsAll) {
+    delete pendingResultValidationHeaderFilters[columnKey];
+  } else if (selectedValues.length === 0) {
+    pendingResultValidationHeaderFilters[columnKey] = [];
+  } else {
+    pendingResultValidationHeaderFilters[columnKey] = selectedValues;
+  }
+
+  if (pendingResultValidation) {
+    renderResultValidation(pendingResultValidation);
+  }
+}
+
+function applyResultValidationHeaderFilterSearch() {
+  const menu = document.getElementById("resultValidationHeaderFilterMenu");
+  const searchInput = document.getElementById("resultValidationHeaderFilterSearch");
+  const list = document.getElementById("resultValidationHeaderFilterMenuList");
+  if (!(menu instanceof HTMLElement)
+    || menu.classList.contains("hidden")
+    || !(searchInput instanceof HTMLInputElement)
+    || !(list instanceof HTMLElement)) {
+    return;
+  }
+
+  const query = normalizeText(String(searchInput.value || ""));
+  const options = Array.from(list.querySelectorAll(".result-validation-filter-option"));
+  let visibleCount = 0;
+  options.forEach((option) => {
+    if (!(option instanceof HTMLElement)) return;
+    const labelText = normalizeText(String(option.dataset.filterOptionLabel || ""));
+    const visible = !query || labelText.includes(query);
+    option.style.display = visible ? "flex" : "none";
+    if (visible) {
+      visibleCount += 1;
+    }
+  });
+
+  let emptyState = list.querySelector("[data-filter-empty='true']");
+  if (!(emptyState instanceof HTMLElement)) {
+    emptyState = document.createElement("p");
+    emptyState.className = "helper-text";
+    emptyState.dataset.filterEmpty = "true";
+    emptyState.style.margin = "0";
+    list.appendChild(emptyState);
+  }
+
+  if (visibleCount === 0) {
+    emptyState.textContent = query ? "No values match your search." : "No values available.";
+    emptyState.style.display = "block";
+  } else {
+    emptyState.style.display = "none";
+  }
+}
+
+function closeResultValidationHeaderFilterMenu() {
+  const menu = document.getElementById("resultValidationHeaderFilterMenu");
+  if (!(menu instanceof HTMLElement)) return;
+  menu.classList.add("hidden");
+  menu.dataset.columnKey = "";
+  if (resultValidationHeaderFilterAnchorButton instanceof HTMLButtonElement) {
+    resultValidationHeaderFilterAnchorButton.setAttribute("aria-expanded", "false");
+  }
+  resultValidationHeaderFilterAnchorButton = null;
+}
+
+function positionResultValidationHeaderFilterMenu(anchorButton) {
+  const menu = document.getElementById("resultValidationHeaderFilterMenu");
+  if (!(menu instanceof HTMLElement) || !(anchorButton instanceof HTMLButtonElement)) return;
+
+  const anchorCell = anchorButton.closest("th");
+  if (!(anchorCell instanceof HTMLElement)) return;
+
+  const tableContainer = document.getElementById("resultValidationTableContainer");
+  const modal = document.getElementById("resultValidationModal");
+  const isFullscreen = modal instanceof HTMLElement && modal.classList.contains("result-validation-fullscreen");
+  if (isFullscreen) {
+    if (menu.parentElement !== document.body) {
+      document.body.appendChild(menu);
+    }
+  } else if (menu.parentElement !== anchorCell) {
+    anchorCell.appendChild(menu);
+  }
+
+  const panelWidth = tableContainer instanceof HTMLElement
+    ? Math.floor(tableContainer.getBoundingClientRect().width)
+    : Math.floor(window.innerWidth);
+  const targetWidth = Math.min(420, Math.max(320, panelWidth - 24));
+  const viewportPadding = 8;
+  const anchorRect = anchorButton.getBoundingClientRect();
+
+  menu.style.width = `${targetWidth}px`;
+  menu.style.position = isFullscreen ? "fixed" : "absolute";
+  menu.style.left = isFullscreen
+    ? `${Math.floor(Math.min(window.innerWidth - viewportPadding - targetWidth, Math.max(viewportPadding, anchorRect.left)))}px`
+    : "0px";
+  menu.style.right = "auto";
+  menu.style.top = isFullscreen
+    ? `${Math.floor(Math.max(viewportPadding, anchorRect.bottom + 6))}px`
+    : "calc(100% + 6px)";
+  menu.style.bottom = "auto";
+  menu.style.visibility = "hidden";
+  menu.classList.remove("hidden");
+
+  const measuredRect = menu.getBoundingClientRect();
+  if (!isFullscreen && measuredRect.right > window.innerWidth - viewportPadding) {
+    menu.style.left = "auto";
+    menu.style.right = "0px";
+  }
+
+  if (!isFullscreen && measuredRect.bottom > window.innerHeight - viewportPadding) {
+    menu.style.top = "auto";
+    menu.style.bottom = "calc(100% + 6px)";
+  }
+
+  let adjustedRect = menu.getBoundingClientRect();
+  if (!isFullscreen && adjustedRect.top < viewportPadding) {
+    menu.style.top = "calc(100% + 6px)";
+    menu.style.bottom = "auto";
+    adjustedRect = menu.getBoundingClientRect();
+  }
+
+  if (!isFullscreen) {
+    menu.style.left = "0px";
+    menu.style.right = "auto";
+    adjustedRect = menu.getBoundingClientRect();
+
+    if (adjustedRect.left < viewportPadding) {
+      const shiftRight = viewportPadding - adjustedRect.left;
+      const currentLeft = Number.parseFloat(menu.style.left || "0") || 0;
+      menu.style.left = `${currentLeft + shiftRight}px`;
+      adjustedRect = menu.getBoundingClientRect();
+    }
+
+    if (adjustedRect.right > window.innerWidth - viewportPadding) {
+      const shiftLeft = adjustedRect.right - (window.innerWidth - viewportPadding);
+      const currentLeft = Number.parseFloat(menu.style.left || "0") || 0;
+      menu.style.left = `${currentLeft - shiftLeft}px`;
+      adjustedRect = menu.getBoundingClientRect();
+    }
+  }
+
+  const maxAvailableHeight = Math.max(160, Math.floor(window.innerHeight - viewportPadding * 2));
+  const tableHeight = tableContainer instanceof HTMLElement
+    ? Math.floor(tableContainer.getBoundingClientRect().height - 12)
+    : maxAvailableHeight;
+  const listElement = document.getElementById("resultValidationHeaderFilterMenuList");
+  const sampleOption = listElement instanceof HTMLElement
+    ? listElement.querySelector(".result-validation-filter-option")
+    : null;
+  const checkboxRowHeight = sampleOption instanceof HTMLElement
+    ? Math.max(22, Math.ceil(sampleOption.getBoundingClientRect().height))
+    : 26;
+  const targetVisibleCheckboxRows = 12;
+  const targetListHeight = (checkboxRowHeight * targetVisibleCheckboxRows) + 8;
+  const currentMenuHeight = menu.getBoundingClientRect().height;
+  const currentListHeight = listElement instanceof HTMLElement ? listElement.getBoundingClientRect().height : 0;
+  const nonListHeight = Math.max(120, Math.ceil(currentMenuHeight - currentListHeight));
+  const minimumMenuHeight = Math.max(160, Math.ceil(nonListHeight + (checkboxRowHeight * 3) + 8));
+  const fullscreenTargetHeight = Math.ceil(nonListHeight + targetListHeight);
+  const spaceBelow = Math.floor(window.innerHeight - anchorRect.bottom - viewportPadding - 6);
+  const spaceAbove = Math.floor(anchorRect.top - viewportPadding - 6);
+  const useAbove = spaceAbove > spaceBelow;
+  if (isFullscreen) {
+    menu.style.top = useAbove ? "auto" : `${Math.floor(Math.max(viewportPadding, anchorRect.bottom + 6))}px`;
+    menu.style.bottom = useAbove ? `${Math.floor(Math.max(viewportPadding, window.innerHeight - anchorRect.top + 6))}px` : "auto";
+  } else {
+    menu.style.top = useAbove ? "auto" : "calc(100% + 6px)";
+    menu.style.bottom = useAbove ? "calc(100% + 6px)" : "auto";
+  }
+  const fullscreenModeMaxHeight = Math.max(140, useAbove ? spaceAbove : spaceBelow);
+  const fullscreenCapHeight = Math.min(maxAvailableHeight, fullscreenModeMaxHeight);
+  const normalTargetHeight = Math.ceil(nonListHeight + targetListHeight);
+  const normalFineTuneReduction = 24;
+  const normalAdjustedTargetHeight = Math.max(220, normalTargetHeight - normalFineTuneReduction);
+  const normalModeMaxHeight = Math.max(140, (useAbove ? spaceAbove : spaceBelow) - 24);
+  const normalCapHeight = Math.min(maxAvailableHeight, normalModeMaxHeight);
+  const targetHeight = isFullscreen
+    ? Math.max(Math.min(minimumMenuHeight, fullscreenCapHeight), Math.min(fullscreenCapHeight, fullscreenTargetHeight))
+    : Math.max(220, Math.min(normalCapHeight, normalAdjustedTargetHeight));
+
+  menu.style.height = `${targetHeight}px`;
+  menu.style.maxHeight = `${targetHeight}px`;
+  adjustedRect = menu.getBoundingClientRect();
+
+  if (adjustedRect.bottom > window.innerHeight - viewportPadding) {
+    const overflow = adjustedRect.bottom - (window.innerHeight - viewportPadding);
+    const currentHeight = Number.parseFloat(window.getComputedStyle(menu).height || "0") || targetHeight;
+    const loweredMinimum = isFullscreen ? Math.max(140, Math.min(minimumMenuHeight, fullscreenCapHeight)) : 220;
+    const tightened = Math.max(loweredMinimum, Math.floor(currentHeight - overflow - 4));
+    menu.style.height = `${tightened}px`;
+    menu.style.maxHeight = `${tightened}px`;
+  }
+
+  menu.style.visibility = "visible";
+}
+
+function renderResultValidationHeaderFilterIndicators() {
+  const table = document.getElementById("resultValidationTable");
+  if (!(table instanceof HTMLTableElement)) return;
+  const activeFilters = getResultValidationActiveHeaderFilters();
+
+  RESULT_VALIDATION_HEADER_COLUMN_KEYS.forEach((columnKey) => {
+    const button = table.querySelector(`button[data-filter-column="${columnKey}"]`);
+    if (!(button instanceof HTMLButtonElement)) return;
+    const headerCell = button.closest("th");
+    const hasFilter = Object.prototype.hasOwnProperty.call(activeFilters, columnKey);
+    const activeCount = Array.isArray(activeFilters[columnKey]) ? activeFilters[columnKey].length : 0;
+    button.classList.toggle("has-filter", hasFilter);
+    if (headerCell instanceof HTMLElement) {
+      headerCell.classList.toggle("result-validation-header-has-filter", hasFilter);
+    }
+    const titleText = !hasFilter
+      ? "Filter column"
+      : activeCount === 0
+        ? "Filtered (0 values selected)"
+        : `Filtered (${activeCount} value${activeCount === 1 ? "" : "s"})`;
+    button.setAttribute("title", titleText);
+  });
+}
+
+function openResultValidationHeaderFilterMenu(columnKey, anchorButton) {
+  if (!RESULT_VALIDATION_HEADER_COLUMN_KEYS.includes(columnKey)) return;
+  if (!(anchorButton instanceof HTMLButtonElement)) return;
+
+  const menu = ensureResultValidationHeaderFilterMenu();
+  const title = document.getElementById("resultValidationHeaderFilterMenuTitle");
+  const list = document.getElementById("resultValidationHeaderFilterMenuList");
+  const searchInput = document.getElementById("resultValidationHeaderFilterSearch");
+  if (!(title instanceof HTMLElement)
+    || !(list instanceof HTMLElement)
+    || !(searchInput instanceof HTMLInputElement)) return;
+
+  const headerLabel = String(anchorButton.dataset.filterLabel || "Column").trim() || "Column";
+  title.textContent = `Filter: ${headerLabel}`;
+
+  const sourceRows = pendingResultValidation && Array.isArray(pendingResultValidation.rows)
+    ? applyResultValidationHeaderFilters(
+      getResultValidationRowsAfterBasicFilters(pendingResultValidation),
+      { excludeColumnKey: columnKey }
+    )
+    : [];
+
+  const valueMap = new Map();
+  sourceRows.forEach((row) => {
+    const value = normalizeResultValidationHeaderFilterValue(getResultValidationRowColumnValue(row, columnKey));
+    const token = normalizeText(value);
+    if (!token || valueMap.has(token)) return;
+    valueMap.set(token, value);
+  });
+
+  const values = Array.from(valueMap.values()).sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }));
+  const activeFilters = getResultValidationActiveHeaderFilters();
+  const hasSavedSelection = Object.prototype.hasOwnProperty.call(activeFilters, columnKey);
+  const selected = hasSavedSelection && Array.isArray(activeFilters[columnKey]) ? activeFilters[columnKey] : [];
+  const selectedTokens = new Set(selected.map((item) => normalizeText(item)));
+  const isUnfiltered = !hasSavedSelection;
+
+  list.innerHTML = values.length === 0
+    ? '<p class="helper-text" style="margin:0;">No values available.</p>'
+    : values.map((value, index) => {
+      const token = normalizeText(value);
+      const checked = isUnfiltered || selectedTokens.has(token);
+      const optionId = `rv-col-filter-${columnKey}-${index}`;
+      return `
+        <label class="result-validation-filter-option" data-filter-option-label="${escapeInteractiveHtml(value)}" for="${optionId}">
+          <input id="${optionId}" type="checkbox" data-filter-option-value="${escapeInteractiveHtml(value)}" ${checked ? "checked" : ""} />
+          <span>${escapeInteractiveHtml(value)}</span>
+        </label>
+      `;
+    }).join("");
+
+  searchInput.value = "";
+  applyResultValidationHeaderFilterSearch();
+
+  menu.dataset.columnKey = columnKey;
+  menu.classList.remove("hidden");
+  resultValidationHeaderFilterAnchorButton = anchorButton;
+  anchorButton.setAttribute("aria-expanded", "true");
+  positionResultValidationHeaderFilterMenu(anchorButton);
+}
+
+function setupResultValidationHeaderFilters() {
+  const table = document.getElementById("resultValidationTable");
+  if (!(table instanceof HTMLTableElement)) return;
+  const headerCells = Array.from(table.querySelectorAll("thead th"));
+
+  headerCells.forEach((cell, index) => {
+    if (!(cell instanceof HTMLTableCellElement)) return;
+    const columnKey = RESULT_VALIDATION_HEADER_COLUMN_KEYS[index] || "";
+    if (!columnKey) return;
+
+    cell.dataset.filterColumn = columnKey;
+    const existingBtn = cell.querySelector("button[data-filter-column]");
+    if (existingBtn instanceof HTMLButtonElement) {
+      existingBtn.dataset.filterLabel = String(existingBtn.dataset.filterLabel || existingBtn.textContent || "").trim();
+      return;
+    }
+
+    const label = String(cell.textContent || "").trim();
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "result-validation-header-btn";
+    button.dataset.filterColumn = columnKey;
+    button.dataset.filterLabel = label;
+    button.setAttribute("aria-haspopup", "dialog");
+    button.setAttribute("aria-expanded", "false");
+
+    const labelNode = document.createElement("span");
+    labelNode.className = "result-validation-header-label";
+    labelNode.textContent = label;
+
+    const caretNode = document.createElement("span");
+    caretNode.className = "result-validation-header-caret";
+    caretNode.textContent = "▾";
+
+    button.appendChild(labelNode);
+    button.appendChild(caretNode);
+
+    cell.textContent = "";
+    cell.appendChild(button);
+  });
+
+  if (table.dataset.headerFilterBound !== "true") {
+    table.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) return;
+      const button = target.closest("button[data-filter-column]");
+      if (!(button instanceof HTMLButtonElement)) return;
+      event.preventDefault();
+      event.stopPropagation();
+
+      const columnKey = String(button.dataset.filterColumn || "").trim();
+      const menu = document.getElementById("resultValidationHeaderFilterMenu");
+      const isSameColumnOpen = menu instanceof HTMLElement
+        && !menu.classList.contains("hidden")
+        && String(menu.dataset.columnKey || "") === columnKey;
+      if (isSameColumnOpen) {
+        closeResultValidationHeaderFilterMenu();
+        return;
+      }
+      openResultValidationHeaderFilterMenu(columnKey, button);
+    });
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Node)) return;
+      const menu = document.getElementById("resultValidationHeaderFilterMenu");
+      if (!(menu instanceof HTMLElement) || menu.classList.contains("hidden")) return;
+      if (menu.contains(target)) return;
+      const headerBtn = target instanceof HTMLElement ? target.closest("button[data-filter-column]") : null;
+      if (headerBtn instanceof HTMLButtonElement) return;
+      closeResultValidationHeaderFilterMenu();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeResultValidationHeaderFilterMenu();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      closeResultValidationHeaderFilterMenu();
+    });
+
+    table.dataset.headerFilterBound = "true";
+  }
+
+  const menu = ensureResultValidationHeaderFilterMenu();
+  if (menu.dataset.bound !== "true") {
+    const searchInput = document.getElementById("resultValidationHeaderFilterSearch");
+    const list = document.getElementById("resultValidationHeaderFilterMenuList");
+    if (searchInput instanceof HTMLInputElement) {
+      searchInput.addEventListener("input", () => {
+        applyResultValidationHeaderFilterSearch();
+      });
+    }
+    if (list instanceof HTMLElement) {
+      list.addEventListener("wheel", (event) => {
+        const canScroll = list.scrollHeight > list.clientHeight;
+        if (!canScroll) return;
+        event.preventDefault();
+        event.stopPropagation();
+        list.scrollTop += event.deltaY;
+      }, { passive: false });
+
+      list.addEventListener("touchmove", (event) => {
+        event.stopPropagation();
+      }, { passive: true });
+    }
+
+    menu.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) return;
+      const actionButton = target.closest("button[data-filter-menu-action]");
+      if (!(actionButton instanceof HTMLButtonElement)) return;
+      const action = String(actionButton.dataset.filterMenuAction || "").trim().toLowerCase();
+      const list = document.getElementById("resultValidationHeaderFilterMenuList");
+      const columnKey = String(menu.dataset.columnKey || "").trim();
+      if (!(list instanceof HTMLElement) || !columnKey) return;
+
+      const options = Array.from(list.querySelectorAll("input[type='checkbox'][data-filter-option-value]"));
+      if (action === "all") {
+        const allChecked = options.length > 0 && options.every((input) => input instanceof HTMLInputElement && input.checked);
+        options.forEach((input) => {
+          if (input instanceof HTMLInputElement) input.checked = !allChecked;
+        });
+        applyResultValidationHeaderFilterSelection(columnKey, list);
+        return;
+      }
+      if (action === "none") {
+        options.forEach((input) => {
+          if (input instanceof HTMLInputElement) input.checked = false;
+        });
+        applyResultValidationHeaderFilterSelection(columnKey, list);
+        return;
+      }
+      if (action === "remove") {
+        delete pendingResultValidationHeaderFilters[columnKey];
+        options.forEach((input) => {
+          if (input instanceof HTMLInputElement) input.checked = true;
+        });
+        if (pendingResultValidation) {
+          renderResultValidation(pendingResultValidation);
+        }
+      }
+    });
+
+    menu.addEventListener("change", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLInputElement)) return;
+      if (target.type !== "checkbox" || !target.dataset.filterOptionValue) return;
+
+      const list = document.getElementById("resultValidationHeaderFilterMenuList");
+      const columnKey = String(menu.dataset.columnKey || "").trim();
+      if (!(list instanceof HTMLElement) || !columnKey) return;
+      applyResultValidationHeaderFilterSelection(columnKey, list);
+    });
+
+    menu.dataset.bound = "true";
+  }
+
+  renderResultValidationHeaderFilterIndicators();
 }
 
 function openResultValidationModal() {
@@ -10666,6 +11936,7 @@ function openResultValidationModal() {
 function closeResultValidationModal() {
   const modal = document.getElementById("resultValidationModal");
   if (!(modal instanceof HTMLElement)) return;
+  closeResultValidationHeaderFilterMenu();
   setResultValidationFullscreen(false);
   refreshResultValidationFullscreenLayout();
   modal.classList.add("hidden");
@@ -10696,7 +11967,11 @@ function saveQuizSettingsFromModal() {
   quiz.description = normalizeQuizDescription(document.getElementById("quizSettingsDescription").value);
   quiz.settings = normalizeQuizSettings({
     questionOrder: document.getElementById("quizSettingsOrder").value,
-    questionLimit: document.getElementById("quizSettingsLimit").value
+    questionLimit: document.getElementById("quizSettingsLimit").value,
+    grade: document.getElementById("quizSettingsGrade").value,
+    module: document.getElementById("quizSettingsModule").value,
+    lessonPart: document.getElementById("quizSettingsLessonPart").value,
+    lessonName: document.getElementById("quizSettingsLessonName").value
   });
 
   renderAll();
@@ -10887,6 +12162,7 @@ function updateQuestionFromForm() {
   question.question = document.getElementById("questionText").value.trim();
   question.category = normalizeQuestionCategory(document.getElementById("questionCategory").value);
   question.subcategory = document.getElementById("questionSubcategory").value.trim();
+  question.qClassify = document.getElementById("questionQClassify").value.trim();
   question.learningOutcome = document.getElementById("questionLearningOutcome").value.trim();
   question.resultType = normalizeResultType(document.getElementById("resultType").value);
   question.options = [
@@ -11063,6 +12339,7 @@ function updateQuestionFromForm() {
   renderQuestionsList();
   renderValidationBox(question);
   updateGeneratedJson();
+  renderQClassifySuggestions();
   saveDraft();
   scheduleSilentDiskSave();
 }
@@ -11099,6 +12376,7 @@ function buildPersistedQuizPayloadFrom(quiz, category) {
         correctAnswer: normalizedItem.correctAnswer || "",
         category: normalizedItem.category || "",
         subcategory: normalizedItem.subcategory || "",
+        qClassify: normalizedItem.qClassify || "",
         learningOutcome: normalizedItem.learningOutcome || "",
         notesAttachments: Array.isArray(normalizedItem.notesAttachments) ? normalizedItem.notesAttachments : [],
         image: normalizedItem.image || "",
@@ -11299,7 +12577,17 @@ async function writeQuizToDiskWithRoot(rootHandle, quiz, category, options = {})
   }
 }
 
-async function persistImportedQuizzesToDisk(importedTargets, allowPrompt = true) {
+async function persistImportedQuizzesToDisk(importedTargets, allowPromptOrCallback = true) {
+  // Handle both old boolean param and new callback param
+  let allowPrompt = true;
+  let onProgress = null;
+  if (typeof allowPromptOrCallback === "function") {
+    onProgress = allowPromptOrCallback;
+    allowPrompt = true;
+  } else {
+    allowPrompt = Boolean(allowPromptOrCallback);
+  }
+
   if (!supportsFolderDeletion()) {
     return { total: 0, saved: 0, skipped: 0, prompted: false };
   }
@@ -11311,7 +12599,7 @@ async function persistImportedQuizzesToDisk(importedTargets, allowPrompt = true)
 
   const configuredRoot = await getConfiguredRootHandle({
     create: true,
-    allowPrompt,
+    allowPrompt: allowPrompt,
     promptForPermission: allowPrompt
   });
   if (!configuredRoot) {
@@ -11321,6 +12609,16 @@ async function persistImportedQuizzesToDisk(importedTargets, allowPrompt = true)
   const uniqueKeys = new Set();
   let saved = 0;
   let skipped = 0;
+
+  // Pre-calculate total unique targets (accounts for duplicates)
+  const targetMap = new Map();
+  for (const item of targets) {
+    const key = `${item.categoryId}::${item.quizId}`;
+    if (!targetMap.has(key)) {
+      targetMap.set(key, item);
+    }
+  }
+  const totalToProcess = targetMap.size;
 
   for (const item of targets) {
     const category = state.categories.find((cat) => cat && cat.id === item.categoryId);
@@ -11343,6 +12641,11 @@ async function persistImportedQuizzesToDisk(importedTargets, allowPrompt = true)
       saved += 1;
     } else {
       skipped += 1;
+    }
+
+    // Call progress callback after each save - use fixed total, not growing size
+    if (typeof onProgress === "function") {
+      onProgress(saved + skipped, totalToProcess);
     }
   }
 
@@ -11624,19 +12927,46 @@ document.getElementById("clearQuestionBtn").addEventListener("click", () => {
   void clearQuizQuestions();
 });
 
-document.getElementById("autoFixQuizIssuesBtn").addEventListener("click", () => {
-  autoFixActiveQuizIssues();
+document.getElementById("qClassifyFilterBtn").addEventListener("click", () => {
+  openQClassifyFilterModal();
 });
 
-document.getElementById("autoFixAllQuizIssuesBtn").addEventListener("click", () => {
-  autoFixAllQuizIssues();
+document.getElementById("qClassifyFilterSearch").addEventListener("input", () => {
+  renderQClassifyFilterModal();
 });
 
-document.getElementById("toggleQuizScanBtn").addEventListener("click", () => {
-  state.quizScanEnabled = !state.quizScanEnabled;
-  renderQuizScanToggle();
-  renderQuizList();
-  renderQuestionsList();
+document.getElementById("qClassifyFilterList").addEventListener("change", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return;
+  if (target.type !== "checkbox") return;
+
+  const value = target.dataset.qclassifyValue || "";
+  toggleQClassifyFilterValue(value, target.checked);
+});
+
+document.getElementById("selectAllQClassifyFilterBtn").addEventListener("click", () => {
+  const options = collectQClassifyFilterOptions().map((item) => item.value);
+  setQClassifyFilterValues(options);
+});
+
+document.getElementById("clearQClassifyFilterBtn").addEventListener("click", () => {
+  setQClassifyFilterValues([]);
+});
+
+document.getElementById("doneQClassifyFilterBtn").addEventListener("click", () => {
+  closeQClassifyFilterModal();
+});
+
+document.getElementById("closeQClassifyFilterModalBtn").addEventListener("click", () => {
+  closeQClassifyFilterModal();
+});
+
+document.querySelectorAll("[data-close-qclassify-filter-modal='true']").forEach((element) => {
+  if (element instanceof HTMLElement) {
+    element.addEventListener("click", () => {
+      closeQClassifyFilterModal();
+    });
+  }
 });
 
 document.getElementById("toggleAutoQuestionMakerBtn").addEventListener("click", () => {
@@ -11652,6 +12982,15 @@ document.getElementById("closeAutoQuestionMakerBtn").addEventListener("click", (
 document.getElementById("categorySearch").addEventListener("input", renderCategoryList);
 document.getElementById("quizSearch").addEventListener("input", renderQuizList);
 document.getElementById("questionSearch").addEventListener("input", renderQuestionsList);
+document.getElementById("globalJsonSearch").addEventListener("input", () => {
+  executeGlobalJsonSearch();
+});
+document.getElementById("globalJsonSearchBtn").addEventListener("click", () => {
+  executeGlobalJsonSearch();
+});
+document.getElementById("globalJsonSearchClearBtn").addEventListener("click", () => {
+  clearGlobalJsonSearch();
+});
 document.getElementById("attachImageBtn").addEventListener("click", () => {
   const question = activeQuestion();
   if (!question) {
@@ -11752,9 +13091,32 @@ document.getElementById("quizList").addEventListener("click", async (event) => {
   state.selectedQuizId = id;
   state.selectedQuestionIndex = -1;
   const quiz = activeQuiz();
-  if (ensureQuizHasDefaultQuestion(quiz)) {
+  const qClassifyFilter = getActiveQClassifyFilter();
+  if (qClassifyFilter.length > 0) {
+    const matchIndexes = getQuizQClassifyMatchIndexes(quiz, qClassifyFilter);
+    state.selectedQuestionIndex = matchIndexes[0] ?? -1;
+  } else if (ensureQuizHasDefaultQuestion(quiz)) {
     state.selectedQuestionIndex = 0;
   }
+  renderAll();
+});
+
+document.getElementById("globalJsonSearchResults").addEventListener("click", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLElement)) return;
+
+  const trigger = target.closest("[data-result-index]");
+  if (!(trigger instanceof HTMLElement)) return;
+
+  const idx = Number.parseInt(trigger.dataset.resultIndex || "", 10);
+  if (!Number.isInteger(idx) || idx < 0) return;
+
+  const match = Array.isArray(state.globalJsonSearchResults) ? state.globalJsonSearchResults[idx] : null;
+  if (!match) return;
+
+  state.selectedCategoryId = match.categoryId;
+  state.selectedQuizId = match.quizId;
+  state.selectedQuestionIndex = match.questionIndex;
   renderAll();
 });
 
@@ -12028,7 +13390,7 @@ document.getElementById("validateGeneratedQuestionBtn").addEventListener("click"
   showToast(`Validation found ${issues.length} issue(s).`, "warning");
 });
 
-["questionText", "questionCategory", "questionSubcategory", "questionLearningOutcome", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "timeMode", "timeFocus", "timeAllowCustomAnswer", "timeDigitalChallenge", "timeHour", "timeMinute", "timePeriod", "arithLayout", "arithOperator", "arithOperandA", "arithOperandB", "arithAnswer", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "cppXMin", "cppXMax", "cppYMin", "cppYMax", "cppTolerance", "cppPoints", "cppVceTemplate", "cppPresetType", "cppPresetExpression", "cppPresetXValues", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxDatasetCount", "boxDatasets", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
+["questionText", "questionCategory", "questionSubcategory", "questionQClassify", "questionLearningOutcome", "resultType", "option1", "option2", "option3", "option4", "correctAnswer", "attachmentsInput", "notesYoutubeInput", "notesPdfUrlsInput", "questionImage", "solutionText", "solutionAttachmentsInput", "timeMode", "timeFocus", "timeAllowCustomAnswer", "timeDigitalChallenge", "timeHour", "timeMinute", "timePeriod", "arithLayout", "arithOperator", "arithOperandA", "arithOperandB", "arithAnswer", "nlMin", "nlMax", "nlPoints", "nlArrows", "cpXMin", "cpXMax", "cpYMin", "cpYMax", "cpAngleMode", "cpPoints", "cpSegments", "cpParabolas", "cpFunctions", "cppXMin", "cppXMax", "cppYMin", "cppYMax", "cppTolerance", "cppPoints", "cppVceTemplate", "cppPresetType", "cppPresetExpression", "cppPresetXValues", "bcTitle", "bcYMax", "bcOrientation", "bcCategoryAxisLabel", "bcValueAxisLabel", "bcItems", "histTitle", "histValues", "histBinCount", "boxTitle", "boxDatasetCount", "boxDatasets", "scTitle", "scPoints", "ptTitle", "ptPaths", "ptConditional", "dcTitle", "dcMean", "dcStdDev", "dcFrom", "dcTo", "fxOperation", "fxNumeratorA", "fxDenominatorA", "fxNumeratorB", "fxDenominatorB", "ngTitle", "ngNodes", "ngEdges", "ngSource", "ngTarget", "ngFlowSource", "ngFlowSink", "mxTitle", "mxOperation", "mxMatrixA", "mxMatrixB", "slValues", "slStemUnit", "geoCanvasWidth", "geoCanvasHeight", "geoUnit", "geoFormulaNotation", "geoShapesInput", "pySideA", "pySideB", "pySideC", "pyCaption", "trigAngleDeg", "trigFunction", "trigOpposite", "trigAdjacent", "trigHypotenuse"]
   .forEach((id) => {
     document.getElementById(id).addEventListener("input", updateQuestionFromForm);
     document.getElementById(id).addEventListener("change", updateQuestionFromForm);
@@ -12155,9 +13517,9 @@ document.getElementById("importTableBtn").addEventListener("click", () => {
   openImportModal();
 });
 
-document.getElementById("openResultValidationBtn").addEventListener("click", () => {
+document.getElementById("openGlobalResultValidationBtn").addEventListener("click", () => {
   openResultValidationModal();
-  runResultValidation(false, false);
+  runGlobalResultValidation(false, false);
 });
 
 document.getElementById("downloadImportTemplateBtn").addEventListener("click", () => {
@@ -12187,17 +13549,23 @@ document.getElementById("resultValidationBody").addEventListener("click", (event
   if (!(row instanceof HTMLElement)) return;
   const questionIndex = Number.parseInt(row.dataset.questionIndex || "", 10);
   if (!Number.isInteger(questionIndex) || questionIndex < 0) return;
-  focusResultValidationQuestion(questionIndex);
-  renderResultValidationDetail(questionIndex);
-  if (pendingResultValidation) {
-    renderResultValidation(pendingResultValidation);
-  }
+  const globalRowId = String(row.dataset.globalRowId || "").trim();
+  selectResultValidationRow(questionIndex, globalRowId);
 });
 
 document.getElementById("resultValidationStatusFilter").addEventListener("change", (event) => {
   const target = event.target;
   if (!(target instanceof HTMLSelectElement)) return;
   pendingResultValidationFilter = normalizeResultValidationFilter(target.value);
+  if (pendingResultValidation) {
+    renderResultValidation(pendingResultValidation);
+  }
+});
+
+document.getElementById("resultValidationQuestionFilter").addEventListener("input", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return;
+  pendingResultValidationQuestionFilter = String(target.value || "").trim();
   if (pendingResultValidation) {
     renderResultValidation(pendingResultValidation);
   }
@@ -12218,28 +13586,46 @@ document.getElementById("resultValidationSummary").addEventListener("click", (ev
 });
 
 document.getElementById("applyResultValidationFixBtn").addEventListener("click", async () => {
+  if (RESULT_VALIDATION_DETECT_ONLY) {
+    showToast("Result Validation is currently detect-only. Apply is disabled.", "info");
+    return;
+  }
   const button = document.getElementById("applyResultValidationFixBtn");
   if (!(button instanceof HTMLButtonElement)) return;
   const questionIndex = Number.parseInt(button.dataset.questionIndex || "", 10);
+  const globalRowId = String(button.dataset.globalRowId || "").trim();
   if (!Number.isInteger(questionIndex) || questionIndex < 0) {
     showToast("Select a row first.", "warning");
     return;
   }
 
-  const changed = await applyResultValidationFixForQuestion(questionIndex, { confirmApply: true });
+  const changed = await applyResultValidationFixForQuestion(questionIndex, { confirmApply: true, globalRowId });
   if (!changed) return;
 
   renderAll();
   await persistSelectedQuizAfterMutation("Validation update");
-  runResultValidation(
-    Boolean(pendingResultValidation && pendingResultValidation.aiMode),
-    Boolean(pendingResultValidation && pendingResultValidation.strictMode)
-  );
-  renderResultValidationDetail(questionIndex);
+  const isGlobalScope = Boolean(pendingResultValidation && pendingResultValidation.scope === "global");
+  if (isGlobalScope) {
+    runGlobalResultValidation(
+      Boolean(pendingResultValidation && pendingResultValidation.aiMode),
+      Boolean(pendingResultValidation && pendingResultValidation.strictMode)
+    );
+    renderResultValidationDetail(questionIndex, globalRowId);
+  } else {
+    runResultValidation(
+      Boolean(pendingResultValidation && pendingResultValidation.aiMode),
+      Boolean(pendingResultValidation && pendingResultValidation.strictMode)
+    );
+    renderResultValidationDetail(questionIndex);
+  }
   showToast("Proposed update applied.", "success");
 });
 
 document.getElementById("saveResultValidationQuestionBtn").addEventListener("click", async () => {
+  if (RESULT_VALIDATION_DETECT_ONLY) {
+    showToast("Result Validation is currently detect-only. Editing is disabled.", "info");
+    return;
+  }
   const button = document.getElementById("saveResultValidationQuestionBtn");
   const editor = document.getElementById("resultValidationQuestionEditor");
   const quiz = activeQuiz();
@@ -12256,6 +13642,7 @@ document.getElementById("saveResultValidationQuestionBtn").addEventListener("cli
   }
 
   const questionIndex = Number.parseInt(button.dataset.questionIndex || "", 10);
+  const globalRowId = String(button.dataset.globalRowId || "").trim();
   if (!Number.isInteger(questionIndex) || questionIndex < 0 || questionIndex >= quiz.questions.length) {
     showToast("Select a row first.", "warning");
     return;
@@ -12279,11 +13666,20 @@ document.getElementById("saveResultValidationQuestionBtn").addEventListener("cli
 
   renderAll();
   await persistSelectedQuizAfterMutation("Question edit from validator");
-  runResultValidation(
-    Boolean(pendingResultValidation && pendingResultValidation.aiMode),
-    Boolean(pendingResultValidation && pendingResultValidation.strictMode)
-  );
-  renderResultValidationDetail(questionIndex);
+  const isGlobalScope = Boolean(pendingResultValidation && pendingResultValidation.scope === "global");
+  if (isGlobalScope) {
+    runGlobalResultValidation(
+      Boolean(pendingResultValidation && pendingResultValidation.aiMode),
+      Boolean(pendingResultValidation && pendingResultValidation.strictMode)
+    );
+    renderResultValidationDetail(questionIndex, globalRowId);
+  } else {
+    runResultValidation(
+      Boolean(pendingResultValidation && pendingResultValidation.aiMode),
+      Boolean(pendingResultValidation && pendingResultValidation.strictMode)
+    );
+    renderResultValidationDetail(questionIndex);
+  }
   showToast("Question updated from validator.", "success");
 });
 
@@ -12306,6 +13702,10 @@ document.getElementById("resultValidationPreviewCard").addEventListener("click",
   }
 
   if (action === "start") {
+    if (RESULT_VALIDATION_DETECT_ONLY) {
+      showToast("Result Validation is currently detect-only. Inline editing is disabled.", "info");
+      return;
+    }
     editor.readOnly = false;
     editor.style.background = "#ffffff";
     editor.style.borderColor = "#1f6feb";
@@ -12330,6 +13730,10 @@ document.getElementById("resultValidationPreviewCard").addEventListener("click",
 });
 
 document.getElementById("applyBulkResultValidationFixBtn").addEventListener("click", async () => {
+  if (RESULT_VALIDATION_DETECT_ONLY) {
+    showToast("Result Validation is currently detect-only. Bulk apply is disabled.", "info");
+    return;
+  }
   await applyBulkResultValidationFixes();
 });
 
@@ -12389,18 +13793,6 @@ document.getElementById("exportValidationBtn").addEventListener("click", () => {
   downloadImportValidationCsv();
 });
 
-document.getElementById("openImportReportBtn").addEventListener("click", () => {
-  if (!pendingImportAutoFixReport || !Array.isArray(pendingImportAutoFixReport.rows) || pendingImportAutoFixReport.rows.length === 0) {
-    showToast("No auto-fix report available yet.", "warning");
-    return;
-  }
-  openImportReportModal();
-});
-
-document.getElementById("exportAutoFixReportBtn").addEventListener("click", () => {
-  downloadImportAutoFixReportCsv();
-});
-
 document.getElementById("closeQuizAutoFixReportModalBtn").addEventListener("click", () => {
   closeQuizAutoFixReportModal();
 });
@@ -12431,17 +13823,38 @@ document.getElementById("applyImportBtn").addEventListener("click", async () => 
   if (pendingImportValidation && pendingImportValidation.errors > 0) {
     const proceed = confirm(`Validation found ${pendingImportValidation.errors} error(s). Import now anyway and fix in Result Validation?`);
     if (!proceed) {
+      await appendImportLogEntry("WARN", "Import canceled by user due to validation errors.", {
+        source: pendingImportSourceName || "spreadsheet",
+        rows: Array.isArray(pendingImportRows) ? pendingImportRows.length : 0,
+        errors: Number(pendingImportValidation.errors || 0),
+        warnings: Number(pendingImportValidation.warnings || 0)
+      });
       showToast("Import canceled. Run validation cleanup first if needed.", "info");
       return;
     }
   }
   try {
+    // Start ETA from the actual import/apply action.
+    pendingImportStartTime = Date.now();
+    updateImportProcessingStatus(0, "Starting import apply...");
     const result = await applyPendingImportToMaker();
-    if (result && result.importedQuizCount > 0) {
-      closeImportModal();
-      openImportReportModal();
-    }
+    updateImportProcessingStatus(100, "Import completed.");
+    await appendImportLogEntry("INFO", "Import apply completed.", {
+      source: pendingImportSourceName || "spreadsheet",
+      importedQuizCount: Number(result && result.importedQuizCount || 0),
+      importedQuestionCount: Number(result && result.importedQuestionCount || 0),
+      saved: Number(result && result.saved || 0),
+      total: Number(result && result.total || 0),
+      validationErrors: Number(pendingImportValidation && pendingImportValidation.errors || 0),
+      validationWarnings: Number(pendingImportValidation && pendingImportValidation.warnings || 0)
+    });
+    // Do not auto-close; let user close manually
   } catch (error) {
+    updateImportProcessingStatus(0, "Import failed. Please review the error and try again.");
+    await appendImportLogEntry("ERROR", "Import apply failed.", {
+      source: pendingImportSourceName || "spreadsheet",
+      message: String(error && error.message ? error.message : error)
+    });
     showToast(`Import failed: ${String(error && error.message ? error.message : error)}`, "error");
     console.error("Apply Import failed", error);
   }
@@ -12452,11 +13865,14 @@ document.getElementById("clearImportPreviewBtn").addEventListener("click", () =>
   pendingImportSourceName = "";
   pendingImportValidation = null;
   pendingImportAutoFixReport = null;
-  renderImportPreview([], "spreadsheet");
-  const reportBtn = document.getElementById("openImportReportBtn");
-  if (reportBtn instanceof HTMLButtonElement) {
-    reportBtn.disabled = true;
+  pendingImportQualityReport = null;
+  pendingImportStartTime = null;
+  const bar = document.getElementById("importProcessingBar");
+  if (bar instanceof HTMLElement) {
+    bar.style.background = "linear-gradient(90deg, #2563eb 0%, #22c55e 100%)";
   }
+  updateImportProcessingStatus(0, "Waiting for spreadsheet selection.");
+  renderImportPreview([], "spreadsheet");
   showToast("Import preview cleared.", "info");
 });
 
@@ -12464,20 +13880,12 @@ document.getElementById("closeImportModalBtn").addEventListener("click", () => {
   closeImportModal();
 });
 
-document.getElementById("closeImportReportModalBtn").addEventListener("click", () => {
-  closeImportReportModal();
-});
+// Callback wrapper to track save progress
+window._importSaveProgressCallback = null;
 
 document.getElementById("toggleImportFullscreenBtn").addEventListener("click", () => {
   toggleImportModalFullscreen();
 });
-
-const importReportBackdrop = document.querySelector("[data-close-import-report-modal='true']");
-if (importReportBackdrop instanceof HTMLElement) {
-  importReportBackdrop.addEventListener("click", () => {
-    closeImportReportModal();
-  });
-}
 
 const quizAutoFixReportBackdrop = document.querySelector("[data-close-quiz-autofix-report-modal='true']");
 if (quizAutoFixReportBackdrop instanceof HTMLElement) {
@@ -12494,17 +13902,54 @@ document.getElementById("downloadQuizBtn").addEventListener("click", () => {
   downloadSelectedQuizJson();
 });
 
-document.getElementById("copyJsonBtn").addEventListener("click", async () => {
-  if (activeQuestion()) {
-    updateQuestionFromForm();
-  }
-  const json = JSON.stringify(getQuizData(), null, 2);
+document.getElementById("reviewImportLogBtn").addEventListener("click", async () => {
   try {
-    await navigator.clipboard.writeText(json);
-    showToast("JSON copied.", "success");
+    await openImportLogModal();
   } catch (error) {
-    showToast("Could not copy JSON. Use the Generated JSON box.", "error");
+    showToast(`Could not open Import log review: ${String(error && error.message ? error.message : error)}`, "warning");
   }
+});
+
+document.getElementById("closeImportLogModalBtn").addEventListener("click", () => {
+  closeImportLogModal();
+});
+
+const importLogBackdrop = document.querySelector("[data-close-import-log-modal='true']");
+if (importLogBackdrop instanceof HTMLElement) {
+  importLogBackdrop.addEventListener("click", () => {
+    closeImportLogModal();
+  });
+}
+
+document.getElementById("refreshImportLogBtn").addEventListener("click", async () => {
+  pendingImportLogReports = await loadImportExecutionReports({ allowPrompt: false });
+  if (!pendingImportLogSelectedFileName && pendingImportLogReports.length > 0) {
+    pendingImportLogSelectedFileName = String(pendingImportLogReports[0].fileName || "");
+  }
+  renderImportLogReportsTable();
+});
+
+document.getElementById("importLogReportSearch").addEventListener("input", () => {
+  renderImportLogReportsTable();
+});
+
+document.getElementById("importLogIssueSearch").addEventListener("input", () => {
+  renderImportLogIssuesTable();
+});
+
+document.getElementById("importLogIssueLevelFilter").addEventListener("change", () => {
+  renderImportLogIssuesTable();
+});
+
+document.getElementById("importLogRunsBody").addEventListener("click", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLElement)) return;
+  const row = target.closest("tr[data-import-log-file]");
+  if (!(row instanceof HTMLElement)) return;
+  const fileName = String(row.dataset.importLogFile || "").trim();
+  if (!fileName) return;
+  pendingImportLogSelectedFileName = fileName;
+  renderImportLogReportsTable();
 });
 
 document.getElementById("clearQuizBtn").addEventListener("click", () => {
@@ -12585,6 +14030,20 @@ document.getElementById("toggleInteractiveAppPanelBtn").addEventListener("click"
   btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
 });
 
+function shouldForceShapeChoices(question) {
+  if (!question || typeof question !== "object") return false;
+  const questionText = String(question.question || "").toLowerCase();
+  if (!questionText) return false;
+  const asksForShape = /\b(which|what)\s+shape\b/.test(questionText);
+  if (!asksForShape) return false;
+  const shapeCue = /\bshape\b|\bcircle\b|\bsquare\b|\btriangle\b|\brectangle\b|\boval\b|\bpentagon\b|\bhexagon\b|\boctagon\b|\bstar\b|\bsphere\b|\bcube\b|\bcylinder\b|\bcone\b/.test(questionText);
+  return shapeCue;
+}
+
+function prepareQuestionForPersistence(item) {
+  return normalizeQuestion(item);
+}
+
 function normalizeQuestion(item) {
   const options = Array.isArray(item.options) ? item.options.slice(0, 4) : ["", "", "", ""];
   while (options.length < 4) {
@@ -12611,11 +14070,15 @@ function normalizeQuestion(item) {
     correctAnswer: correctAnswerValue,
     category: normalizeQuestionCategory(item.category),
     subcategory: item.subcategory || "",
+    qClassify: String(item.qClassify || "").trim(),
     learningOutcome: item.learningOutcome || "",
     notesAttachments: buildNotesAttachments(splitNotesAttachments(Array.isArray(item.notesAttachments) ? item.notesAttachments : [])),
     image: item.image || "",
     solution: item.solution || "",
-    solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments)
+    solutionAttachments: normalizeSolutionAttachments(item.solutionAttachments),
+    resultStore: item.resultStore && typeof item.resultStore === "object"
+      ? JSON.parse(JSON.stringify(item.resultStore))
+      : undefined
   };
 
   const inferredInteractiveApp = inferLegacyTracingInteractiveApp(normalized);
@@ -12781,22 +14244,56 @@ function resolveImportColumnKey(normalizedHeader) {
     questioncategory: "category",
     subcategory: "subcategory",
     questionsubcategory: "subcategory",
+    qclassify: "qClassify",
+    qclassification: "qClassify",
+    classify: "qClassify",
     qno: "qNo",
     questionno: "qNo",
     questionnumber: "qNo",
     questiontype: "questionType",
     type: "questionType",
     question: "question",
+    shortanswer: "shortAnswer",
+    mcqoption1: "mcqOption1",
+    mcqoption2: "mcqOption2",
+    mcqoption3: "mcqOption3",
+    mcqoption4: "mcqOption4",
+    booleanoption1: "booleanOption1",
+    booleanoption2: "booleanOption2",
+    booleanresult: "booleanResult",
+    mcqresult: "mcqResult",
+    otherresult: "otherResult",
+    difficulty: "difficulty",
+    computequestion: "computeQuestion",
+    computedquestion: "computeQuestion",
+    rewordedquestion: "computeQuestion",
+    revisedquestion: "computeQuestion",
+    computeresultoptions: "computeResultOptions",
     options: "options",
     compute: "compute",
     computed: "compute",
     computedanswer: "compute",
     answer: "compute",
     correctanswer: "compute",
+    computefinal: "computeFinal",
     learningoutcome: "learningOutcome",
     outcome: "learningOutcome"
   };
   return map[normalizedHeader] || "";
+}
+
+function getEffectiveImportQuestion(row) {
+  if (!row || typeof row !== "object") return "";
+  const computed = String(row.computeQuestion || "").trim();
+  if (computed) return computed;
+  return String(row.question || "").trim();
+}
+
+function getImportInferenceQuestion(row) {
+  if (!row || typeof row !== "object") return "";
+  const source = String(row.sourceQuestion || "").trim();
+  if (source) return source;
+  return String(row.question || "").trim();
 }
 
 function parseImportOptions(value) {
@@ -12846,12 +14343,18 @@ function inferResultTypeFromImport(questionType, options = [], question = "", te
     return optionList.length >= 2 ? "checkbox" : "short-answer";
   }
   if (/\bselect all\b/.test(questionText)) return "checkbox";
-  if (normalized.includes("multiple choice")) {
+  if (
+    normalized.includes("multiple choice")
+    || normalized === "mcq"
+    || normalized.includes("multiplechoice")
+    || normalized.includes("multiple-choice")
+  ) {
     return optionList.length >= 2 ? "multiple-choice" : "short-answer";
   }
 
   if (
     normalized.includes("true") && normalized.includes("false")
+    || normalized.includes("boolean")
     || /\btrue\s*\/\s*false\b/.test(questionText)
     || /\btrue or false\b/.test(questionText)
   ) {
@@ -12918,7 +14421,7 @@ function extractArithmeticStructureFromText(text) {
 }
 
 function inferArithmeticStructureFromImportRow(row) {
-  const question = String(row && row.question ? row.question : "").trim();
+  const question = getImportInferenceQuestion(row);
   const questionType = String(row && row.questionType ? row.questionType : "").trim();
   const category = String(row && row.category ? row.category : "").trim();
   const subcategory = String(row && row.subcategory ? row.subcategory : "").trim();
@@ -12966,7 +14469,7 @@ function computeArithmeticAnswerFromStructure(structure) {
 }
 
 function inferTemplateTypeFromImportRow(row) {
-  const question = String(row && row.question ? row.question : "").trim();
+  const question = getImportInferenceQuestion(row);
   const questionType = String(row && row.questionType ? row.questionType : "").trim();
   const category = String(row && row.category ? row.category : "").trim();
   const subcategory = String(row && row.subcategory ? row.subcategory : "").trim();
@@ -13099,17 +14602,269 @@ function inferExpectedNumericAnswerFromQuestion(questionText) {
   return null;
 }
 
+function extractGroupSegmentsFromQuestion(questionText) {
+  const question = String(questionText || "").trim();
+  if (!question) return [];
+
+  const splitMatch = question.match(/[?:]\s*(.+)$/);
+  const segmentText = splitMatch && splitMatch[1] ? splitMatch[1] : "";
+  if (!segmentText) return [];
+
+  return segmentText
+    .split(",")
+    .map((item) => String(item || "").trim())
+    .filter((item) => item !== "");
+}
+
+function countObjectsInGroupSegment(segment) {
+  const text = String(segment || "").trim();
+  if (!text) return -1;
+
+  const emojiCount = countEmojiGlyphs(text);
+  if (emojiCount > 0) return emojiCount;
+
+  const numericTokens = text.match(/\d+/g) || [];
+  if (numericTokens.length > 0) {
+    const parsed = Number.parseInt(numericTokens[0], 10);
+    if (Number.isInteger(parsed)) return parsed;
+  }
+
+  return -1;
+}
+
+function resolveGroupPositionOption(options, index, totalGroups) {
+  const list = Array.isArray(options) ? options : [];
+  const clean = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
+  const normalized = list.map((item) => ({ raw: String(item || "").trim(), key: clean(item) }));
+
+  const letters = ["a", "b", "c", "d", "e", "f"];
+  const ordinals = ["first", "second", "third", "fourth", "fifth", "sixth"];
+  const numbers = ["1", "2", "3", "4", "5", "6"];
+  const positionNames = ["left", "middle", "right", "farright", "farright"];
+
+  const candidates = new Set();
+  candidates.add(clean(`group ${index + 1}`));
+  candidates.add(clean(`option ${letters[index] || ""}`));
+  candidates.add(clean(letters[index] || ""));
+  candidates.add(clean(ordinals[index] || ""));
+  candidates.add(clean(numbers[index] || ""));
+
+  if (totalGroups === 3) {
+    if (index === 0) candidates.add(clean("left"));
+    if (index === 1) {
+      candidates.add(clean("middle"));
+      candidates.add(clean("centre"));
+      candidates.add(clean("center"));
+    }
+    if (index === 2) candidates.add(clean("right"));
+  }
+
+  if (totalGroups === 2) {
+    if (index === 0) candidates.add(clean("left"));
+    if (index === 1) candidates.add(clean("right"));
+  }
+
+  const matched = normalized.find((item) => candidates.has(item.key) && item.raw !== "");
+  if (matched) return matched.raw;
+
+  if (totalGroups === 3) {
+    return ["Left", "Middle", "Right"][index] || `Group ${index + 1}`;
+  }
+  if (totalGroups === 2) {
+    return ["Left", "Right"][index] || `Group ${index + 1}`;
+  }
+  return `Group ${index + 1}`;
+}
+
+function inferGroupComparisonAnswerFromQuestion(questionText, options = []) {
+  const question = String(questionText || "").trim();
+  const qLower = question.toLowerCase();
+  if (!/\bwhich\s+group\b/.test(qLower)) return "";
+
+  const askFewest = /\b(fewest|least|smallest)\b/.test(qLower);
+  const askMost = /\b(most|greatest|largest)\b/.test(qLower);
+  if (!askFewest && !askMost) return "";
+
+  const segments = extractGroupSegmentsFromQuestion(question);
+  if (segments.length < 2) return "";
+
+  const counts = segments.map((segment) => countObjectsInGroupSegment(segment));
+  if (counts.some((value) => !Number.isInteger(value) || value < 0)) return "";
+
+  let targetIndex = 0;
+  if (askFewest) {
+    let min = counts[0];
+    for (let i = 1; i < counts.length; i += 1) {
+      if (counts[i] < min) {
+        min = counts[i];
+        targetIndex = i;
+      }
+    }
+  } else {
+    let max = counts[0];
+    for (let i = 1; i < counts.length; i += 1) {
+      if (counts[i] > max) {
+        max = counts[i];
+        targetIndex = i;
+      }
+    }
+  }
+
+  return resolveGroupPositionOption(options, targetIndex, segments.length);
+}
+
+function buildImportQuestionOptions(row, resultType = "") {
+  const safeRow = row && typeof row === "object" ? row : {};
+  const explicitMcq = [
+    String(safeRow.mcqOption1 || "").trim(),
+    String(safeRow.mcqOption2 || "").trim(),
+    String(safeRow.mcqOption3 || "").trim(),
+    String(safeRow.mcqOption4 || "").trim()
+  ];
+  const hasExplicitMcq = explicitMcq.some((item) => item !== "");
+  if (hasExplicitMcq) {
+    return explicitMcq;
+  }
+
+  const booleanOptions = [
+    String(safeRow.booleanOption1 || "").trim(),
+    String(safeRow.booleanOption2 || "").trim()
+  ].filter((item) => item !== "");
+
+  const normalizedType = normalizeResultType(resultType || safeRow.questionType || "short-answer");
+  if (normalizedType === "true-false") {
+    if (booleanOptions.length >= 2) {
+      return [booleanOptions[0], booleanOptions[1], "", ""];
+    }
+    return ["True", "False", "", ""];
+  }
+
+  const primary = Array.isArray(safeRow.options)
+    ? safeRow.options.map((item) => String(item || "").trim()).filter((item) => item !== "")
+    : [];
+  if (primary.length > 0) {
+    return [primary[0] || "", primary[1] || "", primary[2] || "", primary[3] || ""];
+  }
+
+  const computeResultOptions = parseImportOptions(String(safeRow.computeResultOptions || ""));
+  if (computeResultOptions.length > 0) {
+    return [
+      computeResultOptions[0] || "",
+      computeResultOptions[1] || "",
+      computeResultOptions[2] || "",
+      computeResultOptions[3] || ""
+    ];
+  }
+
+  if (booleanOptions.length > 0) {
+    return [booleanOptions[0] || "", booleanOptions[1] || "", "", ""];
+  }
+
+  return [];
+}
+
+function normalizeBooleanAnswerText(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+  const key = normalizeText(raw);
+  if (["true", "t", "yes", "y", "1"].includes(key)) return "True";
+  if (["false", "f", "no", "n", "0"].includes(key)) return "False";
+  return raw;
+}
+
+function resolveImportCorrectAnswer(row, resultType, options = [], fallback = "") {
+  const safeRow = row && typeof row === "object" ? row : {};
+  const normalizedType = normalizeResultType(resultType || safeRow.questionType || "short-answer");
+  const optionList = Array.isArray(options) ? options.map((item) => String(item || "").trim()).filter((item) => item !== "") : [];
+  const shortAnswer = String(safeRow.shortAnswer || "").trim();
+  const booleanResult = String(safeRow.booleanResult || "").trim();
+  const mcqResult = String(safeRow.mcqResult || "").trim();
+  const otherResult = String(safeRow.otherResult || "").trim();
+  const computeFinal = String(safeRow.computeFinal || safeRow.compute || "").trim();
+  const fallbackAnswer = String(fallback || "").trim();
+
+  if (normalizedType === "true-false") {
+    return normalizeBooleanAnswerText(booleanResult || computeFinal || fallbackAnswer);
+  }
+
+  if (normalizedType === "multiple-choice") {
+    const candidate = mcqResult || computeFinal || fallbackAnswer;
+    const matched = optionList.find((item) => normalizeText(item) === normalizeText(candidate));
+    return matched || candidate;
+  }
+
+  // Some sheets mark MCQ using custom question-type labels (for example "MCQ").
+  // If MCQ result/options are present, prefer MCQResult even when type inference is imperfect.
+  if (mcqResult && optionList.length >= 2) {
+    const matched = optionList.find((item) => normalizeText(item) === normalizeText(mcqResult));
+    return matched || mcqResult;
+  }
+
+  if (normalizedType === "checkbox") {
+    const candidate = otherResult || computeFinal || fallbackAnswer;
+    if (!candidate) return "";
+    const tokens = candidate.split(",").map((item) => item.trim()).filter((item) => item !== "");
+    if (tokens.length === 0) return candidate;
+    const resolved = tokens.map((token) => {
+      const matched = optionList.find((item) => normalizeText(item) === normalizeText(token));
+      return matched || token;
+    });
+    return resolved.join(", ");
+  }
+
+  return shortAnswer || computeFinal || otherResult || fallbackAnswer;
+}
+
+function buildImportResultStore(row) {
+  const safeRow = row && typeof row === "object" ? row : {};
+  return {
+    shortAnswer: String(safeRow.shortAnswer || "").trim(),
+    mcqOptions: [
+      String(safeRow.mcqOption1 || "").trim(),
+      String(safeRow.mcqOption2 || "").trim(),
+      String(safeRow.mcqOption3 || "").trim(),
+      String(safeRow.mcqOption4 || "").trim()
+    ],
+    booleanOptions: [
+      String(safeRow.booleanOption1 || "").trim(),
+      String(safeRow.booleanOption2 || "").trim()
+    ],
+    booleanResult: String(safeRow.booleanResult || "").trim(),
+    mcqResult: String(safeRow.mcqResult || "").trim(),
+    otherResult: String(safeRow.otherResult || "").trim(),
+    computeQuestion: String(safeRow.computeQuestion || "").trim(),
+    computeResultOptions: parseImportOptions(String(safeRow.computeResultOptions || "")),
+    computeFinal: String(safeRow.computeFinal || safeRow.compute || "").trim(),
+    difficulty: String(safeRow.difficulty || "").trim()
+  };
+}
+
 function inferAnswerFromImportRow(row, templateType = "") {
-  const question = String(row.question || "").trim();
+  const displayQuestion = String(row.question || "").trim();
+  const question = getImportInferenceQuestion(row);
   const qLower = question.toLowerCase();
   const options = Array.isArray(row.options) ? row.options : [];
   const resolvedTemplateType = String(templateType || inferTemplateTypeFromImportRow(row)).trim().toLowerCase();
-  const baseResultType = inferResultTypeFromImport(row.questionType, options, question, resolvedTemplateType);
+  const baseResultType = inferResultTypeFromImport(row.questionType, options, displayQuestion || question, resolvedTemplateType);
+  const hasExplicitMcqOptions = [row && row.mcqOption1, row && row.mcqOption2, row && row.mcqOption3, row && row.mcqOption4]
+    .some((item) => String(item || "").trim() !== "");
+  const hasExplicitMcqResult = String(row && row.mcqResult || "").trim() !== "";
+  const questionTypeHint = String(row && row.questionType || "").trim().toLowerCase();
+  const looksLikeBooleanType = questionTypeHint.includes("boolean")
+    || (questionTypeHint.includes("true") && questionTypeHint.includes("false"));
+  const resolvedResultType = (baseResultType === "short-answer" && hasExplicitMcqResult && (hasExplicitMcqOptions || options.length >= 2) && !looksLikeBooleanType)
+    ? "multiple-choice"
+    : baseResultType;
   const computeValue = String(row && row.compute ? row.compute : "").trim();
   const expectedNumericFromQuestion = inferExpectedNumericAnswerFromQuestion(question);
   const arithmeticStructure = inferArithmeticStructureFromImportRow(row);
   const arithmeticAnswer = computeArithmeticAnswerFromStructure(arithmeticStructure);
   const emojiArithmeticAnswer = extractEmojiArithmeticExpectedAnswer(question);
+  const groupComparisonAnswer = inferGroupComparisonAnswerFromQuestion(question, options);
+
+  if (groupComparisonAnswer) {
+    return { resultType: "multiple-choice", correctAnswer: groupComparisonAnswer };
+  }
 
   if (Number.isFinite(arithmeticAnswer)) {
     const arithmeticText = Number.isInteger(arithmeticAnswer)
@@ -13122,7 +14877,7 @@ function inferAnswerFromImportRow(row, templateType = "") {
     const emojiText = Number.isInteger(emojiArithmeticAnswer)
       ? String(Math.trunc(emojiArithmeticAnswer))
       : String(roundTo(emojiArithmeticAnswer, 2));
-    return { resultType: baseResultType, correctAnswer: emojiText };
+    return { resultType: resolvedResultType, correctAnswer: emojiText };
   }
 
   if (computeValue && normalizeText(computeValue) !== "n/a") {
@@ -13134,12 +14889,12 @@ function inferAnswerFromImportRow(row, templateType = "") {
       }
     }
 
-    if (["multiple-choice", "true-false"].includes(baseResultType)) {
+    if (["multiple-choice", "true-false"].includes(resolvedResultType)) {
       const matched = options.find((item) => normalizeText(item) === normalizeText(resolvedComputeValue));
-      return { resultType: baseResultType, correctAnswer: matched ? String(matched).trim() : resolvedComputeValue };
+      return { resultType: resolvedResultType, correctAnswer: matched ? String(matched).trim() : resolvedComputeValue };
     }
 
-    if (baseResultType === "checkbox") {
+    if (resolvedResultType === "checkbox") {
       const requested = resolvedComputeValue
         .split(",")
         .map((item) => item.trim())
@@ -13148,28 +14903,25 @@ function inferAnswerFromImportRow(row, templateType = "") {
         const hit = options.find((item) => normalizeText(item) === normalizeText(token));
         return hit ? String(hit).trim() : token;
       });
-      return { resultType: baseResultType, correctAnswer: resolved.join(", ") };
+      return { resultType: resolvedResultType, correctAnswer: resolved.join(", ") };
     }
 
-    return { resultType: baseResultType, correctAnswer: resolvedComputeValue };
+    return { resultType: resolvedResultType, correctAnswer: resolvedComputeValue };
   }
 
-  const whichNumberMatch = question.match(/which number is\s*(\d+)/i);
-  if (whichNumberMatch) {
-    return { resultType: baseResultType, correctAnswer: whichNumberMatch[1] };
-  }
-
-  const selectNumberMatch = question.match(/select the number\s*(\d+)/i);
-  if (selectNumberMatch) {
-    return { resultType: baseResultType, correctAnswer: selectNumberMatch[1] };
+  const explicitNumberPrompt = question.match(/\b(?:which\s+number\s+(?:is|means|equals|represents)|select\s+the\s+number)\s*(?:the\s+number\s+)?(-?\d+(?:\.\d+)?)/i);
+  if (explicitNumberPrompt) {
+    const target = String(explicitNumberPrompt[1] || "").trim();
+    const matchedOption = options.find((item) => normalizeText(item) === normalizeText(target));
+    return { resultType: resolvedResultType, correctAnswer: matchedOption ? String(matchedOption).trim() : target };
   }
 
   if (qLower.includes("means none") || qLower.includes("empty") || qLower.includes("no ")) {
-    return { resultType: baseResultType, correctAnswer: "0" };
+    return { resultType: resolvedResultType, correctAnswer: "0" };
   }
 
   if (qLower.includes("means one")) {
-    return { resultType: baseResultType, correctAnswer: "1" };
+    return { resultType: resolvedResultType, correctAnswer: "1" };
   }
 
   if (qLower.includes("select all")) {
@@ -13186,11 +14938,11 @@ function inferAnswerFromImportRow(row, templateType = "") {
   if (qLower.includes("how many") || qLower.includes("which number matches")) {
     const emojiCount = countEmojiGlyphs(question);
     if (emojiCount > 0) {
-      return { resultType: baseResultType, correctAnswer: String(emojiCount) };
+      return { resultType: resolvedResultType, correctAnswer: String(emojiCount) };
     }
     const extractedNumber = firstNumberInText(question);
     if (Number.isInteger(extractedNumber)) {
-      return { resultType: baseResultType, correctAnswer: String(extractedNumber) };
+      return { resultType: resolvedResultType, correctAnswer: String(extractedNumber) };
     }
   }
 
@@ -13206,22 +14958,22 @@ function inferAnswerFromImportRow(row, templateType = "") {
   if (Number.isInteger(expectedNumeric)) {
     const expectedText = String(expectedNumeric);
     const matchedOption = options.find((item) => normalizeText(item) === normalizeText(expectedText));
-    return { resultType: baseResultType, correctAnswer: matchedOption ? String(matchedOption).trim() : expectedText };
+    return { resultType: resolvedResultType, correctAnswer: matchedOption ? String(matchedOption).trim() : expectedText };
   }
 
-  if (baseResultType === "multiple-choice") {
+  if (resolvedResultType === "multiple-choice") {
     const firstNumeric = options.find((item) => /^\d+$/.test(String(item).trim()));
     if (firstNumeric) {
-      return { resultType: baseResultType, correctAnswer: String(firstNumeric).trim() };
+      return { resultType: resolvedResultType, correctAnswer: String(firstNumeric).trim() };
     }
   }
 
   const fallbackNumber = firstNumberInText(question);
   if (Number.isInteger(fallbackNumber)) {
-    return { resultType: baseResultType, correctAnswer: String(fallbackNumber) };
+    return { resultType: resolvedResultType, correctAnswer: String(fallbackNumber) };
   }
 
-  return { resultType: baseResultType, correctAnswer: options.length > 0 ? String(options[0]).trim() : "" };
+  return { resultType: resolvedResultType, correctAnswer: options.length > 0 ? String(options[0]).trim() : "" };
 }
 
 function inferSolutionFromImport(question, answer) {
@@ -13435,9 +15187,25 @@ function normalizeImportedRows(rawRows) {
       lessonName: "",
       category: "",
       subcategory: "",
+      qClassify: "",
       qNo: idx + 1,
       questionType: "",
       question: "",
+      sourceQuestion: "",
+      shortAnswer: "",
+      mcqOption1: "",
+      mcqOption2: "",
+      mcqOption3: "",
+      mcqOption4: "",
+      booleanOption1: "",
+      booleanOption2: "",
+      booleanResult: "",
+      mcqResult: "",
+      otherResult: "",
+      difficulty: "",
+      computeQuestion: "",
+      computeResultOptions: "",
+      computeFinal: "",
       compute: "",
       learningOutcome: "",
       options: []
@@ -13458,6 +15226,14 @@ function normalizeImportedRows(rawRows) {
     });
 
     mapped.grade = normalizeImportGradeName(mapped.grade);
+    mapped.sourceQuestion = String(mapped.question || "").trim();
+    if ((mapped.options || []).length === 0) {
+      mapped.options = buildImportQuestionOptions(mapped, mapped.questionType);
+    }
+    if (!String(mapped.compute || "").trim()) {
+      mapped.compute = String(mapped.computeFinal || "").trim();
+    }
+    mapped.question = getEffectiveImportQuestion(mapped);
 
     if (!mapped.grade || !mapped.lessonPart || !mapped.question) return;
     normalized.push(mapped);
@@ -13605,7 +15381,9 @@ function validateImportedRows(rows) {
     const grade = String(row.grade || "").trim();
     const lessonPart = String(row.lessonPart || "").trim();
     const qNo = Number.parseInt(String(row.qNo || ""), 10);
-    const question = String(row.question || "").trim();
+    const question = getEffectiveImportQuestion(row);
+    const originalQuestion = String(row.question || "").trim();
+    const computeQuestion = String(row.computeQuestion || "").trim();
     const questionType = String(row.questionType || "").trim().toLowerCase();
     const options = Array.isArray(row.options) ? row.options.filter((item) => String(item || "").trim() !== "") : [];
     const moduleKey = `${grade}::${lessonPart}`;
@@ -13622,6 +15400,10 @@ function validateImportedRows(rows) {
       issues.push({ level: "error", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "Question text is required." });
     }
 
+    if (computeQuestion && originalQuestion && normalizeWhitespace(computeQuestion) !== normalizeWhitespace(originalQuestion)) {
+      issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "Compute Question differs from Question and will be used as the final question text." });
+    }
+
     if (!String(row.lessonName || "").trim()) {
       issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "Lesson Name is blank." });
     }
@@ -13636,6 +15418,10 @@ function validateImportedRows(rows) {
 
     if (!String(row.subcategory || "").trim()) {
       issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "Subcategory is blank." });
+    }
+
+    if (!String(row.qClassify || "").trim()) {
+      issues.push({ level: "warning", grade, lessonPart, qNo: row.qNo || "", rowIndex, message: "QClassify is blank." });
     }
 
     const detectedTemplateType = inferTemplateTypeFromImportRow(row);
@@ -13914,10 +15700,119 @@ function rowMatchesResultValidationIssueFilter(row, issueFilter) {
   return issues.some((message) => classifyResultValidationIssueType(message) === normalizedFilter);
 }
 
-function getFilteredResultValidationRows(validation) {
+function normalizeResultValidationQuestionFilter(value) {
+  return normalizeText(String(value || ""));
+}
+
+function rowMatchesResultValidationQuestionFilter(row, questionFilter) {
+  const normalizedFilter = normalizeResultValidationQuestionFilter(questionFilter);
+  if (!normalizedFilter) return true;
+  const questionText = normalizeText(String(row && row.question || ""));
+  return questionText.includes(normalizedFilter);
+}
+
+function normalizeResultValidationHeaderFilterValue(value) {
+  const text = normalizeWhitespace(String(value == null ? "" : value));
+  return text || "(blank)";
+}
+
+function getResultValidationRowDisplayData(row) {
+  const optionList = Array.isArray(row && row.options) ? row.options : [];
+  const option1 = String(optionList[0] || "").trim();
+  const option2 = String(optionList[1] || "").trim();
+  const option3 = String(optionList[2] || "").trim();
+  const option4 = String(optionList[3] || "").trim();
+  const questionTypeRaw = String(row && (row.questionType || row.resultType) || "").trim();
+  const questionTypeToken = normalizeText(questionTypeRaw);
+  const isMcq = questionTypeToken.includes("mcq") || String(row && row.resultType || "") === "multiple-choice";
+  const isBoolean = questionTypeToken.includes("boolean") || String(row && row.resultType || "") === "checkbox";
+  const isShort = questionTypeToken.includes("short") || String(row && row.resultType || "") === "short-answer";
+  const issueText = Array.isArray(row && row.issues) && row.issues.length > 0
+    ? row.issues.map((item) => String(item || "").trim()).filter((item) => item !== "").join(" | ")
+    : "";
+
+  return {
+    grade: String(row && row.grade || "-").trim(),
+    module: String(row && row.module || "-").trim(),
+    lessonPart: String(row && row.lessonPart || "-").trim(),
+    lessonName: String(row && row.lessonName || "-").trim(),
+    category: String(row && row.importedCategory || "-").trim(),
+    subcategory: String(row && row.importedSubcategory || "-").trim(),
+    questionType: questionTypeRaw || String(row && row.resultType || "").trim(),
+    qNo: String(Number.isInteger(row && row.index) ? row.index + 1 : "").trim(),
+    question: String(row && row.question || "").trim(),
+    mcqOption1: option1,
+    mcqOption2: option2,
+    mcqOption3: option3,
+    mcqOption4: option4,
+    mcqResult: isMcq ? String(row && row.correctAnswer || "").trim() : "",
+    boolOption1: isBoolean ? option1 : "",
+    boolOption2: isBoolean ? option2 : "",
+    boolResult: isBoolean ? String(row && row.correctAnswer || "").trim() : "",
+    shortAnswer: isShort ? String(row && row.correctAnswer || "").trim() : "",
+    otherResult: (!isMcq && !isBoolean && !isShort) ? String(row && row.correctAnswer || "").trim() : "",
+    qClassify: String(row && row.moduleType || "").trim(),
+    difficulty: String(row && row.difficulty || "").trim(),
+    learningOutcome: String(row && row.learningOutcome || "").trim(),
+    issue: issueText
+  };
+}
+
+function getResultValidationRowColumnValue(row, columnKey) {
+  const display = getResultValidationRowDisplayData(row);
+  if (!display || !Object.prototype.hasOwnProperty.call(display, columnKey)) {
+    return "";
+  }
+  return String(display[columnKey] || "").trim();
+}
+
+function getResultValidationActiveHeaderFilters() {
+  const next = {};
+  const source = pendingResultValidationHeaderFilters && typeof pendingResultValidationHeaderFilters === "object"
+    ? pendingResultValidationHeaderFilters
+    : {};
+
+  RESULT_VALIDATION_HEADER_COLUMN_KEYS.forEach((columnKey) => {
+    const hasKey = Object.prototype.hasOwnProperty.call(source, columnKey);
+    const values = Array.isArray(source[columnKey]) ? source[columnKey] : [];
+    const normalized = [];
+    const seen = new Set();
+    values.forEach((value) => {
+      const displayValue = normalizeResultValidationHeaderFilterValue(value);
+      const token = normalizeText(displayValue);
+      if (!token || seen.has(token)) return;
+      seen.add(token);
+      normalized.push(displayValue);
+    });
+    if (hasKey) {
+      next[columnKey] = normalized;
+    }
+  });
+
+  pendingResultValidationHeaderFilters = next;
+  return next;
+}
+
+function applyResultValidationHeaderFilters(rows, { excludeColumnKey = "" } = {}) {
+  const sourceRows = Array.isArray(rows) ? rows : [];
+  const activeFilters = getResultValidationActiveHeaderFilters();
+  const keys = Object.keys(activeFilters).filter((key) => key !== String(excludeColumnKey || ""));
+  if (keys.length === 0) return sourceRows;
+
+  return sourceRows.filter((row) => keys.every((columnKey) => {
+    const allowed = Array.isArray(activeFilters[columnKey]) ? activeFilters[columnKey] : [];
+    if (allowed.length === 0) return false;
+    const rowValue = normalizeResultValidationHeaderFilterValue(getResultValidationRowColumnValue(row, columnKey));
+    const rowToken = normalizeText(rowValue);
+    return allowed.some((item) => normalizeText(item) === rowToken);
+  }));
+}
+
+function getResultValidationRowsAfterBasicFilters(validation) {
   if (!validation || !Array.isArray(validation.rows)) return [];
   const statusFilter = normalizeResultValidationFilter(pendingResultValidationFilter);
   const issueFilter = normalizeResultValidationIssueFilter(pendingResultValidationIssueFilter);
+  const questionFilter = normalizeResultValidationQuestionFilter(pendingResultValidationQuestionFilter);
 
   const statusFiltered = validation.rows.filter((row) => {
     if (statusFilter === "red") {
@@ -13929,11 +15824,40 @@ function getFilteredResultValidationRows(validation) {
     return true;
   });
 
-  if (issueFilter === "all") {
-    return statusFiltered;
+  const issueFiltered = issueFilter === "all"
+    ? statusFiltered
+    : statusFiltered.filter((row) => rowMatchesResultValidationIssueFilter(row, issueFilter));
+
+  if (!questionFilter) {
+    return issueFiltered;
   }
 
-  return statusFiltered.filter((row) => rowMatchesResultValidationIssueFilter(row, issueFilter));
+  return issueFiltered.filter((row) => rowMatchesResultValidationQuestionFilter(row, questionFilter));
+}
+
+function getFilteredResultValidationRows(validation) {
+  const basicRows = getResultValidationRowsAfterBasicFilters(validation);
+  return applyResultValidationHeaderFilters(basicRows);
+}
+
+function getResultValidationHeaderFilterSummaryText() {
+  const activeFilters = getResultValidationActiveHeaderFilters();
+  const parts = RESULT_VALIDATION_HEADER_COLUMN_KEYS
+    .filter((columnKey) => Array.isArray(activeFilters[columnKey]) && activeFilters[columnKey].length > 0)
+    .map((columnKey) => {
+      const table = document.getElementById("resultValidationTable");
+      const headerButton = table instanceof HTMLTableElement
+        ? table.querySelector(`button[data-filter-column="${columnKey}"]`)
+        : null;
+      const label = headerButton instanceof HTMLButtonElement
+        ? String(headerButton.dataset.filterLabel || "").trim()
+        : columnKey;
+      const count = activeFilters[columnKey].length;
+      return `${label} (${count})`;
+    });
+
+  if (parts.length === 0) return "";
+  return ` Header filters: ${parts.join(", ")}.`;
 }
 
 function buildResultValidationIssueSummary(validation) {
@@ -14044,12 +15968,15 @@ function inferExpectedAnswerFromQuestionSemantics(question) {
   const asksForOneNumber = /\bwhich(?:\s+of\s+these|\s+one)?\s+is\s+a\s+number\b|\bselect\s+the\s+number\b/.test(questionText);
   const asksForAllNumbers = /\bselect\s+all\s+(?:the\s+)?numbers\b|\bwhich\s+(?:of\s+these\s+)?are\s+numbers\b/.test(questionText);
 
-  const explicitTargetMatch = questionText.match(/\bwhich\s+number\s+is\s+(-?\d+(?:\.\d+)?)\b/i);
+  const explicitTargetMatch = questionText.match(/\b(?:which\s+number\s+(?:is|means|equals|represents)|select\s+the\s+number)\s*(?:the\s+number\s+)?(-?\d+(?:\.\d+)?)\b/i);
   if (explicitTargetMatch && explicitTargetMatch[1]) {
     const target = String(explicitTargetMatch[1]).trim();
     const matchedOption = options.find((item) => normalizeText(item) === normalizeText(target));
     if (matchedOption) {
       return matchedOption;
+    }
+    if (/^-?\d+(?:\.\d+)?$/.test(target)) {
+      return target;
     }
   }
 
@@ -14273,7 +16200,7 @@ function buildResultValidationViewerPayload(question, questionIndex, interactive
   };
 }
 
-function renderResultValidationDetail(questionIndex) {
+function renderResultValidationDetail(questionIndex, globalRowId = "") {
   const meta = document.getElementById("resultValidationPreviewMeta");
   const card = document.getElementById("resultValidationPreviewCard");
   const fixMeta = document.getElementById("resultValidationFixMeta");
@@ -14300,9 +16227,21 @@ function renderResultValidationDetail(questionIndex) {
     return;
   }
 
-  const row = pendingResultValidation.rows.find((item) => item.index === questionIndex) || null;
+  const isGlobalScope = String(pendingResultValidation.scope || "module") === "global";
+  const normalizedGlobalRowId = String(globalRowId || pendingResultValidationSelectedGlobalRowId || "").trim();
+  const row = isGlobalScope
+    ? (pendingResultValidation.rows.find((item) => String(item && item.globalRowId || "") === normalizedGlobalRowId) || null)
+    : (pendingResultValidation.rows.find((item) => item.index === questionIndex) || null);
+
+  if (isGlobalScope && row) {
+    state.selectedCategoryId = String(row.categoryId || "");
+    state.selectedQuizId = String(row.quizId || "");
+    state.selectedQuestionIndex = Number.isInteger(row.index) ? row.index : questionIndex;
+  }
+
   const quiz = activeQuiz();
-  const question = quiz && Array.isArray(quiz.questions) ? (quiz.questions[questionIndex] || null) : null;
+  const resolvedQuestionIndex = Number.isInteger(row && row.index) ? row.index : questionIndex;
+  const question = quiz && Array.isArray(quiz.questions) ? (quiz.questions[resolvedQuestionIndex] || null) : null;
   if (!row || !question) {
     meta.textContent = "Select a row to preview the question.";
     card.innerHTML = "";
@@ -14310,14 +16249,18 @@ function renderResultValidationDetail(questionIndex) {
     fixList.innerHTML = "";
     applyBtn.disabled = true;
     applyBtn.dataset.questionIndex = "";
+    applyBtn.dataset.globalRowId = "";
     applyBtn.textContent = "Yes, Apply Proposed Update";
     saveQuestionBtn.disabled = true;
     saveQuestionBtn.dataset.questionIndex = "";
+    saveQuestionBtn.dataset.globalRowId = "";
     pendingResultValidationSelectedIndex = -1;
+    pendingResultValidationSelectedGlobalRowId = "";
     return;
   }
 
-  pendingResultValidationSelectedIndex = questionIndex;
+  pendingResultValidationSelectedIndex = resolvedQuestionIndex;
+  pendingResultValidationSelectedGlobalRowId = isGlobalScope ? String(row.globalRowId || "") : "";
   const statusText = row.isValid ? "GREEN (valid)" : "RED (issue found)";
   const viewerCompatibilityText = row.hasViewerCompatibilityIssue
     ? `Needs fix (${row.viewerCompatibilityIssueCount} issue${row.viewerCompatibilityIssueCount === 1 ? "" : "s"})`
@@ -14329,7 +16272,7 @@ function renderResultValidationDetail(questionIndex) {
   const appType = app && app.type ? String(app.type) : "None";
   const hasInteractiveAnswerMode = Boolean(app && app.type);
   const interactiveMarkup = app ? buildInteractiveAppMarkup(app, { questionText: String(question && question.question || "") }) : "";
-  const viewerRuntimePayload = app ? buildResultValidationViewerPayload(question, questionIndex, app) : null;
+  const viewerRuntimePayload = app ? buildResultValidationViewerPayload(question, resolvedQuestionIndex, app) : null;
   const solutionAttachments = normalizeSolutionAttachments(question && question.solutionAttachments);
   const currentSolutionText = String(question && question.solution || "").trim();
   const questionImage = String(question && question.image || "").trim();
@@ -14397,9 +16340,29 @@ function renderResultValidationDetail(questionIndex) {
       <div><strong>Feedback:</strong> ${escapeInteractiveHtml(resultFeedback)}</div>
     </div>
     <div style="border:1px solid #e5eaf3; border-radius:10px; padding:10px; background:#fff;">
-      <p style="margin:0 0 6px 0; font-weight:700; color:#1e293b;">Stored Solution Text</p>
-      <p class="helper-text" style="margin:0 0 8px 0;">Type-specific live solution rendering is shown in the Viewer runtime above.</p>
-      <div style="margin-bottom:8px;"><strong>Solution:</strong><br>${escapeInteractiveHtml(currentSolutionText).replace(/\n/g, "<br>")}</div>
+      <p style="margin:0 0 6px 0; font-weight:700; color:#1e293b;">Solution</p>
+      ${(() => {
+        const isTraceRow = normalizeText(row.moduleType || "").includes("trace");
+        const traceDigit = String(row.traceDigit || row.solution || "").trim();
+        if (isTraceRow && traceDigit) {
+          const safeDigit = escapeInteractiveHtml(traceDigit);
+          return `
+            <div style="display:grid; gap:4px; margin-bottom:8px;">
+              <p class="helper-text" style="margin:0; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.05em; color:#64748b;">Correct answer</p>
+              <div style="max-width:240px; border:1px solid #dbe6f3; border-radius:10px; background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%); padding:6px;">
+                <svg viewBox="0 0 240 120" style="display:block; width:100%; height:auto;" role="img" aria-label="Perfect traced number ${safeDigit}">
+                  <line x1="16" y1="22" x2="224" y2="22" stroke="#cbd5e1" stroke-width="1" />
+                  <line x1="16" y1="60" x2="224" y2="60" stroke="#6ee7b7" stroke-width="1.1" />
+                  <line x1="16" y1="98" x2="224" y2="98" stroke="#cbd5e1" stroke-width="1" />
+                  <text x="50%" y="64%" text-anchor="middle" dominant-baseline="middle" style="font-size:88px; font-weight:700; font-family:'Comic Sans MS','Segoe UI',cursive; fill:none; stroke:#fb7185; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1 6;">${safeDigit}</text>
+                  <text x="50%" y="64%" text-anchor="middle" dominant-baseline="middle" style="font-size:88px; font-weight:700; font-family:'Comic Sans MS','Segoe UI',cursive; fill:none; stroke:#0ea5e9; stroke-width:6; stroke-linecap:round; stroke-linejoin:round;">${safeDigit}</text>
+                </svg>
+              </div>
+            </div>
+          `;
+        }
+        return `<div style="margin-bottom:8px;"><strong>Solution:</strong><br>${escapeInteractiveHtml(currentSolutionText).replace(/\n/g, "<br>")}</div>`;
+      })()}
       <div><strong>Solution Attachments:</strong>${solutionAttachmentMarkup}</div>
     </div>
   `;
@@ -14426,7 +16389,8 @@ function renderResultValidationDetail(questionIndex) {
   }
 
   saveQuestionBtn.disabled = true;
-  saveQuestionBtn.dataset.questionIndex = String(questionIndex);
+  saveQuestionBtn.dataset.questionIndex = String(resolvedQuestionIndex);
+  saveQuestionBtn.dataset.globalRowId = isGlobalScope ? String(row.globalRowId || "") : "";
   saveQuestionBtn.dataset.editing = "false";
 
   const plan = buildResultValidationFixPlan(question, row);
@@ -14468,12 +16432,13 @@ function renderResultValidationDetail(questionIndex) {
       ? `<ul style="margin:8px 0 0 0; padding-left:18px;">${plan.notes.map((item) => `<li>${escapeInteractiveHtml(item)}</li>`).join("")}</ul>`
       : "";
     fixList.innerHTML = `${renderFixCards(plan.proposals, { editable: true })}${noteList}`;
-    applyBtn.disabled = !hasManualProposals;
-    applyBtn.dataset.questionIndex = String(questionIndex);
-    const manualCount = Array.isArray(plan.proposals) ? plan.proposals.length : 0;
-    applyBtn.textContent = manualCount > 0
-      ? `Yes, Apply Proposed Update (${manualCount})`
-      : "Yes, Apply Proposed Update";
+    applyBtn.disabled = true;
+    applyBtn.dataset.questionIndex = String(resolvedQuestionIndex);
+    applyBtn.dataset.globalRowId = isGlobalScope ? String(row.globalRowId || "") : "";
+    applyBtn.textContent = "Detect-only mode (Apply disabled)";
+    if (RESULT_VALIDATION_DETECT_ONLY) {
+      fixMeta.textContent = "Detect-only mode: review issues and proposals, but changes are disabled.";
+    }
     return;
   }
 
@@ -14484,19 +16449,26 @@ function renderResultValidationDetail(questionIndex) {
     ? `<ul style="margin:8px 0 0 0; padding-left:18px;">${plan.notes.map((item) => `<li>${escapeInteractiveHtml(item)}</li>`).join("")}</ul>`
     : "";
   fixList.innerHTML = `${changeCards}${manualCards}${noteList}`;
-  applyBtn.disabled = false;
-  applyBtn.dataset.questionIndex = String(questionIndex);
-  const changeCount = Array.isArray(plan.changes) ? plan.changes.length : 0;
-  applyBtn.textContent = changeCount > 0
-    ? `Yes, Apply Proposed Update (${changeCount})`
-    : "Yes, Apply Proposed Update";
+  applyBtn.disabled = true;
+  applyBtn.dataset.questionIndex = String(resolvedQuestionIndex);
+  applyBtn.dataset.globalRowId = isGlobalScope ? String(row.globalRowId || "") : "";
+  applyBtn.textContent = "Detect-only mode (Apply disabled)";
+  if (RESULT_VALIDATION_DETECT_ONLY) {
+    fixMeta.textContent = "Detect-only mode: proposed updates are shown for review only.";
+  }
 }
 
 function getResultValidationManualProposalEdits(questionIndex) {
   const button = document.getElementById("applyResultValidationFixBtn");
   if (!(button instanceof HTMLButtonElement)) return [];
   const selectedIndex = Number.parseInt(button.dataset.questionIndex || "", 10);
+  const selectedGlobalRowId = String(button.dataset.globalRowId || "").trim();
   if (!Number.isInteger(selectedIndex) || selectedIndex !== questionIndex) return [];
+  if (pendingResultValidation && String(pendingResultValidation.scope || "module") === "global") {
+    if (!selectedGlobalRowId || selectedGlobalRowId !== String(pendingResultValidationSelectedGlobalRowId || "")) {
+      return [];
+    }
+  }
 
   const fixList = document.getElementById("resultValidationFixList");
   if (!(fixList instanceof HTMLElement)) return [];
@@ -15211,6 +17183,7 @@ function buildResultValidationForActiveQuiz(aiMode = false, strictMode = false) 
   const finalValid = rows.length - finalErrors;
 
   return {
+    scope: "module",
     categoryId: category ? String(category.id || "") : "",
     quizId: String(quiz.id || ""),
     categoryName: category ? String(category.name || "") : "",
@@ -15224,28 +17197,331 @@ function buildResultValidationForActiveQuiz(aiMode = false, strictMode = false) 
   };
 }
 
+function buildResultValidationForAllQuizzes(aiMode = false, strictMode = false) {
+  const categories = Array.isArray(state.categories) ? state.categories : [];
+  const quizTargets = categories.flatMap((category) => {
+    const quizzes = Array.isArray(category && category.quizzes) ? category.quizzes : [];
+    return quizzes.map((quiz) => ({
+      categoryId: String(category && category.id || ""),
+      quizId: String(quiz && quiz.id || "")
+    }));
+  });
+
+  if (quizTargets.length === 0) {
+    return {
+      scope: "global",
+      categoryId: "",
+      quizId: "",
+      categoryName: "All Categories",
+      quizTitle: "All Quizzes",
+      total: 0,
+      valid: 0,
+      errors: 0,
+      aiMode,
+      strictMode,
+      rows: []
+    };
+  }
+
+  const previousSelection = {
+    categoryId: state.selectedCategoryId,
+    quizId: state.selectedQuizId,
+    questionIndex: state.selectedQuestionIndex
+  };
+
+  const rows = [];
+
+  try {
+    quizTargets.forEach((target) => {
+      state.selectedCategoryId = target.categoryId;
+      state.selectedQuizId = target.quizId;
+      state.selectedQuestionIndex = 0;
+
+      const moduleResult = buildResultValidationForActiveQuiz(aiMode, strictMode);
+      if (!moduleResult || !Array.isArray(moduleResult.rows)) return;
+
+      moduleResult.rows.forEach((row) => {
+        rows.push({
+          ...row,
+          categoryId: moduleResult.categoryId,
+          quizId: moduleResult.quizId,
+          categoryName: moduleResult.categoryName,
+          quizTitle: moduleResult.quizTitle,
+          globalRowId: `${moduleResult.categoryId}::${moduleResult.quizId}::${row.index}`
+        });
+      });
+    });
+  } finally {
+    state.selectedCategoryId = previousSelection.categoryId;
+    state.selectedQuizId = previousSelection.quizId;
+    state.selectedQuestionIndex = previousSelection.questionIndex;
+  }
+
+  const errors = rows.filter((row) => !row.isValid).length;
+  const valid = rows.length - errors;
+
+  return {
+    scope: "global",
+    categoryId: "",
+    quizId: "",
+    categoryName: "All Categories",
+    quizTitle: "All Quizzes",
+    total: rows.length,
+    valid,
+    errors,
+    aiMode,
+    strictMode,
+    rows
+  };
+}
+
+function getQClassifyValidationRule(qClassifyValue) {
+  const raw = normalizeWhitespace(String(qClassifyValue || ""));
+  const token = normalizeText(raw);
+
+  if (!token || token === "null") {
+    return {
+      key: "null",
+      label: raw || "NULL",
+      expectedResultType: null,
+      requiredOptionCount: null,
+      minimumOptionCount: null
+    };
+  }
+
+  if (token === "mcq" || token.startsWith("mcq") || token.includes("multiplechoice")) {
+    return {
+      key: "mcq",
+      label: raw,
+      expectedResultType: "multiple-choice",
+      requiredOptionCount: 4,
+      minimumOptionCount: null
+    };
+  }
+
+  if (token.includes("checkbox") || token.includes("multiselect")) {
+    return {
+      key: "checkbox",
+      label: raw,
+      expectedResultType: "checkbox",
+      requiredOptionCount: null,
+      minimumOptionCount: 2
+    };
+  }
+
+  if (token.includes("trace")) {
+    return {
+      key: "trace",
+      label: raw,
+      expectedResultType: "short-answer",
+      requiredOptionCount: 0,
+      minimumOptionCount: null
+    };
+  }
+
+  if (token.includes("short")) {
+    return {
+      key: "short",
+      label: raw,
+      expectedResultType: "short-answer",
+      requiredOptionCount: 0,
+      minimumOptionCount: null
+    };
+  }
+
+  return {
+    key: "other",
+    label: raw,
+    expectedResultType: null,
+    requiredOptionCount: null,
+    minimumOptionCount: null
+  };
+}
+
+function buildQClassifyStructureValidationForAllQuizzes() {
+  const categories = Array.isArray(state.categories) ? state.categories : [];
+  const rows = [];
+
+  function resolveTraceTargetDigit(question) {
+    const answerText = String(question && question.correctAnswer || "").trim();
+    const appTargetRaw = question
+      && question.interactiveApp
+      && question.interactiveApp.config
+      ? question.interactiveApp.config.targetNumber
+      : null;
+    const appTarget = Number.parseInt(String(appTargetRaw || ""), 10);
+    const answerNumber = firstNumberInText(answerText);
+    const questionNumber = firstNumberInText(question && question.question || "");
+    const traceTarget = Number.isInteger(appTarget)
+      ? String(Math.max(0, Math.min(100, appTarget)))
+      : (Number.isInteger(answerNumber)
+      ? String(answerNumber)
+      : (Number.isInteger(questionNumber) ? String(questionNumber) : ""));
+    return traceTarget || "(missing target)";
+  }
+
+  function buildViewerSolutionPreview(question, qClassifyLabel) {
+    const solutionText = String(question && question.solution || "").trim();
+    const answerText = String(question && question.correctAnswer || "").trim();
+    const qClassifyToken = normalizeText(qClassifyLabel || "");
+
+    if (qClassifyToken.includes("trace")) {
+      return resolveTraceTargetDigit(question);
+    }
+
+    if (solutionText) {
+      return solutionText;
+    }
+
+    if (answerText) {
+      return `Correct answer: ${answerText}`;
+    }
+
+    return inferSolutionFromImport(question && question.question || "", answerText);
+  }
+
+  categories.forEach((category) => {
+    const quizzes = Array.isArray(category && category.quizzes) ? category.quizzes : [];
+    quizzes.forEach((quiz) => {
+      const quizSettings = normalizeQuizSettings(quiz && quiz.settings);
+      const questions = Array.isArray(quiz && quiz.questions) ? quiz.questions : [];
+      questions.forEach((question, index) => {
+        const qClassifyRaw = normalizeWhitespace(String(question && question.qClassify || ""));
+        const qClassifyLabel = qClassifyRaw || "NULL";
+        const resultType = normalizeResultType(question && question.resultType);
+        const rule = getQClassifyValidationRule(qClassifyRaw);
+        const gradeValue = String(question && question.grade || quizSettings && quizSettings.grade || category && category.name || "").trim();
+        const moduleValue = String(question && question.module || quizSettings && quizSettings.module || quiz && quiz.category || category && category.name || "").trim();
+        const lessonPartValue = String(question && question.lessonPart || quizSettings && quizSettings.lessonPart || quiz && quiz.title || "").trim();
+        const lessonNameValue = String(question && question.lessonName || quizSettings && quizSettings.lessonName || quiz && quiz.title || "").trim();
+        const traceDigit = rule.key === "trace" ? resolveTraceTargetDigit(question) : "";
+        const optionCount = getUniqueValidChoiceOptions(question || {}).length;
+        const issues = [];
+
+        if (rule.expectedResultType && resultType !== rule.expectedResultType) {
+          issues.push(`Result type should be \"${rule.expectedResultType}\" for QClassify \"${qClassifyLabel}\".`);
+        }
+
+        if (Number.isInteger(rule.requiredOptionCount) && optionCount !== rule.requiredOptionCount) {
+          issues.push(`QClassify \"${qClassifyLabel}\" requires exactly ${rule.requiredOptionCount} options, found ${optionCount}.`);
+        }
+
+        if (Number.isInteger(rule.minimumOptionCount) && optionCount < rule.minimumOptionCount) {
+          issues.push(`QClassify \"${qClassifyLabel}\" requires at least ${rule.minimumOptionCount} options, found ${optionCount}.`);
+        }
+
+        const requirementText = Number.isInteger(rule.requiredOptionCount)
+          ? `Expected: exactly ${rule.requiredOptionCount} options`
+          : (Number.isInteger(rule.minimumOptionCount)
+            ? `Expected: at least ${rule.minimumOptionCount} options`
+            : "No strict option count rule");
+
+        rows.push({
+          index,
+          question: String(question && question.question || "").trim(),
+          grade: gradeValue,
+          module: moduleValue,
+          lessonPart: lessonPartValue,
+          lessonName: lessonNameValue,
+          questionType: String(question && question.questionType || "").trim(),
+          resultType,
+          suggestedResultType: rule.expectedResultType || "",
+          suggestedResultTypeConfidence: 1,
+          moduleType: qClassifyLabel,
+          importedCategory: String(question && question.category || "").trim(),
+          importedSubcategory: String(question && question.subcategory || "").trim(),
+          difficulty: String(question && question.difficulty || "").trim(),
+          learningOutcome: String(question && question.learningOutcome || "").trim(),
+          computeQuestion: String(question && question.computeQuestion || "").trim(),
+          computeResultOptionsText: Array.isArray(question && question.computeResultOptions)
+            ? question.computeResultOptions.map((item) => String(item || "").trim()).filter((item) => item !== "").join(", ")
+            : String(question && question.computeResultOptions || "").trim(),
+          computeFinal: String(question && question.computeFinal || "").trim(),
+          suggestedCategory: rule.expectedResultType || "-",
+          suggestedSubcategory: requirementText,
+          options: Array.isArray(question && question.options)
+            ? question.options.map((item) => String(item || "").trim()).filter((item) => item !== "")
+            : [],
+          correctAnswer: String(question && question.correctAnswer || "").trim(),
+          computedAnswer: `${optionCount} option${optionCount === 1 ? "" : "s"}`,
+          computedSource: "qclassify-rule",
+          autoApplyConfidence: 0,
+          autoApplySafe: false,
+          autoApplyReason: "Review and update options/result type manually.",
+          solution: buildViewerSolutionPreview(question, qClassifyRaw),
+          traceDigit,
+          viewerCompatibilityIssueCount: issues.length,
+          hasViewerCompatibilityIssue: issues.length > 0,
+          issues,
+          isValid: issues.length === 0,
+          categoryId: String(category && category.id || ""),
+          quizId: String(quiz && quiz.id || ""),
+          categoryName: String(category && category.name || ""),
+          quizTitle: String(quiz && quiz.title || "Untitled Quiz"),
+          globalRowId: `${String(category && category.id || "")}::${String(quiz && quiz.id || "")}::${index}`
+        });
+      });
+    });
+  });
+
+  const errors = rows.filter((row) => !row.isValid).length;
+  const valid = rows.length - errors;
+
+  return {
+    scope: "global",
+    categoryId: "",
+    quizId: "",
+    categoryName: "All Categories",
+    quizTitle: "Global QClassify Validation",
+    total: rows.length,
+    valid,
+    errors,
+    aiMode: false,
+    strictMode: false,
+    validationMode: "qclassify-structure",
+    rows
+  };
+}
+
 function renderResultValidation(validation) {
   const meta = document.getElementById("resultValidationMeta");
   const body = document.getElementById("resultValidationBody");
   const exportBtn = document.getElementById("exportResultValidationBtn");
   const filterSelect = document.getElementById("resultValidationStatusFilter");
+  const questionSearchInput = document.getElementById("resultValidationQuestionFilter");
   const bulkBtn = document.getElementById("applyBulkResultValidationFixBtn");
+  const tableContainer = document.getElementById("resultValidationTableContainer");
+  const modal = document.getElementById("resultValidationModal");
   if (!(meta instanceof HTMLElement)
     || !(body instanceof HTMLElement)
     || !(exportBtn instanceof HTMLButtonElement)
     || !(filterSelect instanceof HTMLSelectElement)
+    || !(questionSearchInput instanceof HTMLInputElement)
     || !(bulkBtn instanceof HTMLButtonElement)) return;
 
+  if (tableContainer instanceof HTMLElement) {
+    const inFullscreen = modal instanceof HTMLElement
+      && modal.classList.contains("result-validation-fullscreen")
+      && !modal.classList.contains("hidden");
+    if (!inFullscreen) {
+      tableContainer.style.minHeight = String(tableContainer.dataset.normalMinHeight || "500px");
+    }
+  }
+
   filterSelect.value = normalizeResultValidationFilter(pendingResultValidationFilter);
+  questionSearchInput.value = pendingResultValidationQuestionFilter;
 
   if (!validation) {
     meta.textContent = "Select a quiz/module and run validation.";
-    body.innerHTML = '<tr><td colspan="13" style="padding:8px; border:1px solid #e5edf8;">No validation run yet.</td></tr>';
+    body.innerHTML = '<tr><td colspan="23" style="padding:8px;">No validation run yet.</td></tr>';
     exportBtn.disabled = true;
     bulkBtn.disabled = true;
     pendingResultValidationIssueFilter = "all";
+    pendingResultValidationHeaderFilters = {};
+    closeResultValidationHeaderFilterMenu();
     renderResultValidationSummary(null);
     renderResultValidationDetail(-1);
+    setupResultValidationHeaderFilters();
     return;
   }
 
@@ -15253,56 +17529,89 @@ function renderResultValidation(validation) {
 
   const visibleRows = getFilteredResultValidationRows(validation);
   const redVisible = visibleRows.filter((row) => !row.isValid).length;
-  const safeVisible = visibleRows.filter((row) => !row.isValid && row.autoApplySafe).length;
+  const isGlobalScope = String(validation && validation.scope || "module") === "global";
 
   const issueFilterText = normalizeResultValidationIssueFilter(pendingResultValidationIssueFilter) !== "all"
     ? ` Issue filter: ${normalizeResultValidationIssueFilter(pendingResultValidationIssueFilter)}.`
     : "";
-  meta.textContent = `${validation.categoryName} / ${validation.quizTitle}: ${validation.valid}/${validation.total} green (correct), ${validation.errors}/${validation.total} red (incorrect). Showing ${visibleRows.length} row(s). Safe auto-apply: ${safeVisible}/${redVisible} red row(s).${issueFilterText}${validation.strictMode ? " Strict mode enabled." : ""} ${validation.aiMode ? "AI heuristic mode enabled." : validation.strictMode ? "" : "Deterministic mode."}`;
+  const questionFilterText = normalizeResultValidationQuestionFilter(pendingResultValidationQuestionFilter)
+    ? ` Question search: "${pendingResultValidationQuestionFilter}".`
+    : "";
+  const headerFilterText = getResultValidationHeaderFilterSummaryText();
+  const scopeLabel = isGlobalScope
+    ? `${validation.quizTitle}`
+    : `${validation.categoryName} / ${validation.quizTitle}`;
+  meta.textContent = `${scopeLabel}: ${validation.valid}/${validation.total} green (correct), ${validation.errors}/${validation.total} red (incorrect). Showing ${visibleRows.length} row(s).${issueFilterText}${questionFilterText}${headerFilterText}${isGlobalScope ? " Global scope active." : ""}`;
   exportBtn.disabled = validation.total === 0;
-  bulkBtn.disabled = redVisible === 0;
+  bulkBtn.disabled = RESULT_VALIDATION_DETECT_ONLY || redVisible === 0;
 
   if (!Array.isArray(validation.rows) || validation.rows.length === 0) {
-    body.innerHTML = '<tr><td colspan="13" style="padding:8px; border:1px solid #e5edf8;">This module has no questions.</td></tr>';
+    body.innerHTML = '<tr><td colspan="23" style="padding:8px;">This module has no questions.</td></tr>';
+    setupResultValidationHeaderFilters();
     renderResultValidationDetail(-1);
     return;
   }
 
   if (visibleRows.length === 0) {
-    body.innerHTML = '<tr><td colspan="13" style="padding:8px; border:1px solid #e5edf8;">No rows match this filter.</td></tr>';
+    body.innerHTML = '<tr><td colspan="23" style="padding:8px;">No rows match this filter.</td></tr>';
+    setupResultValidationHeaderFilters();
     renderResultValidationDetail(-1);
     return;
   }
 
   body.innerHTML = visibleRows.map((row) => {
     const rowBg = row.isValid ? "#ecfdf3" : "#fff1f1";
-    const rowOutline = row.index === pendingResultValidationSelectedIndex
+    const isSelected = isGlobalScope
+      ? String(row.globalRowId || "") === String(pendingResultValidationSelectedGlobalRowId || "")
+      : row.index === pendingResultValidationSelectedIndex;
+    const rowOutline = isSelected
       ? "box-shadow:inset 0 0 0 2px #1f6feb;"
       : "";
-    const issueText = row.isValid
-      ? "No"
-      : `Yes (${row.issues.length})<br>${row.issues.map((item) => escapeInteractiveHtml(item)).join("<br>")}`;
-    const compatibilityTag = row.hasViewerCompatibilityIssue
-      ? `<span style="display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:999px; border:1px solid #f59e0b; background:#fff7ed; color:#9a3412; font-weight:700; font-size:0.78rem;">Needs fix (${row.viewerCompatibilityIssueCount})</span>`
-      : `<span style="display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:999px; border:1px solid #86efac; background:#ecfdf3; color:#166534; font-weight:700; font-size:0.78rem;">Compatible</span>`;
+    const display = getResultValidationRowDisplayData(row);
     return `
-      <tr data-question-index="${row.index}" style="cursor:pointer; background:${rowBg}; ${rowOutline}">
-        <td style="padding:8px; border:1px solid #e5edf8;">${row.index + 1}</td>
-        <td style="padding:8px; border:1px solid #e5edf8; max-width:360px; white-space:normal;">${escapeInteractiveHtml(row.question || "")}</td>
-        <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.resultType || "")}</td>
-        <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.moduleType || "standard")}</td>
-        <td style="padding:8px; border:1px solid #e5edf8;">${compatibilityTag}</td>
-        <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.importedCategory || "-")}</td>
-        <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.importedSubcategory || "-")}</td>
-        <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.suggestedCategory || "-")}</td>
-        <td style="padding:8px; border:1px solid #e5edf8;">${escapeInteractiveHtml(row.suggestedSubcategory || "-")}</td>
-        <td style="padding:8px; border:1px solid #e5edf8; max-width:200px; white-space:normal;">${escapeInteractiveHtml(row.correctAnswer || "")}</td>
-        <td style="padding:8px; border:1px solid #e5edf8; max-width:200px; white-space:normal;">${escapeInteractiveHtml(row.computedAnswer || "-")}</td>
-        <td style="padding:8px; border:1px solid #e5edf8; max-width:320px; white-space:normal;">${escapeInteractiveHtml(row.solution || "")}</td>
-        <td style="padding:8px; border:1px solid #e5edf8; max-width:380px; white-space:normal;">${issueText}</td>
+      <tr data-question-index="${row.index}" data-global-row-id="${escapeInteractiveHtml(String(row.globalRowId || ""))}" style="cursor:pointer; background:${rowBg}; ${rowOutline}">
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.grade)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.module)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.lessonPart)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.lessonName)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.category)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.subcategory)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.questionType || "-")}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.qNo)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee; max-width:360px; white-space:normal;">${escapeInteractiveHtml(display.question)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.mcqOption1)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.mcqOption2)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.mcqOption3)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.mcqOption4)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.mcqResult)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.boolOption1)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.boolOption2)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.boolResult)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.shortAnswer)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.otherResult)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.qClassify)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee;">${escapeInteractiveHtml(display.difficulty)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee; max-width:200px; white-space:normal;">${escapeInteractiveHtml(display.learningOutcome)}</td>
+        <td style="padding:8px; border-bottom:1px solid #dbe3ee; max-width:360px; white-space:normal;">${escapeInteractiveHtml(display.issue)}</td>
       </tr>
     `;
   }).join("");
+
+  setupResultValidationHeaderFilters();
+
+  if (isGlobalScope) {
+    const selectedGlobalRowId = String(pendingResultValidationSelectedGlobalRowId || "");
+    const selectedStillVisible = visibleRows.some((row) => String(row.globalRowId || "") === selectedGlobalRowId);
+    const defaultRow = selectedStillVisible
+      ? visibleRows.find((row) => String(row.globalRowId || "") === selectedGlobalRowId)
+      : visibleRows[0];
+    if (!defaultRow) {
+      renderResultValidationDetail(-1);
+      return;
+    }
+    renderResultValidationDetail(Number(defaultRow.index || 0), String(defaultRow.globalRowId || ""));
+    return;
+  }
 
   const selectedStillVisible = visibleRows.some((row) => row.index === pendingResultValidationSelectedIndex);
   const defaultIndex = selectedStillVisible ? pendingResultValidationSelectedIndex : visibleRows[0].index;
@@ -15334,17 +17643,50 @@ function runResultValidation(aiMode = false, strictMode = false) {
   showToast(`${modeLabel} complete: ${result.valid}/${result.total} correct, ${result.errors} incorrect.`, result.errors > 0 ? "warning" : "success");
 }
 
-async function applyResultValidationFixForQuestion(questionIndex, { confirmApply = true } = {}) {
+function runGlobalResultValidation(aiMode = false, strictMode = false) {
+  if (activeQuestion()) {
+    updateQuestionFromForm();
+  }
+
+  const result = buildQClassifyStructureValidationForAllQuizzes();
+  pendingResultValidation = result;
+  renderResultValidation(result);
+  showToast(`Global QClassify validation complete: ${result.valid}/${result.total} correct, ${result.errors} incorrect across all quizzes.`, result.errors > 0 ? "warning" : "success");
+}
+
+async function applyResultValidationFixForQuestion(questionIndex, { confirmApply = true, globalRowId = "" } = {}) {
+  if (RESULT_VALIDATION_DETECT_ONLY) {
+    return false;
+  }
+  if (!pendingResultValidation || !Array.isArray(pendingResultValidation.rows)) return false;
+
+  const isGlobalScope = String(pendingResultValidation.scope || "module") === "global";
+  let row = null;
+
+  if (isGlobalScope) {
+    const rowId = String(globalRowId || pendingResultValidationSelectedGlobalRowId || "").trim();
+    row = pendingResultValidation.rows.find((item) => String(item && item.globalRowId || "") === rowId) || null;
+    if (!row) {
+      showToast("Select a global validation row first.", "warning");
+      return false;
+    }
+    state.selectedCategoryId = String(row.categoryId || "");
+    state.selectedQuizId = String(row.quizId || "");
+    state.selectedQuestionIndex = Number.isInteger(row.index) ? row.index : questionIndex;
+    questionIndex = Number.isInteger(row.index) ? row.index : questionIndex;
+  }
+
   const quiz = activeQuiz();
   if (!quiz || !Array.isArray(quiz.questions)) return false;
   if (!Number.isInteger(questionIndex) || questionIndex < 0 || questionIndex >= quiz.questions.length) return false;
-  if (!pendingResultValidation || !Array.isArray(pendingResultValidation.rows)) return false;
-  if (pendingResultValidation.quizId && pendingResultValidation.quizId !== String(quiz.id || "")) {
+  if (!isGlobalScope && pendingResultValidation.quizId && pendingResultValidation.quizId !== String(quiz.id || "")) {
     showToast("Validation data belongs to a different quiz. Re-run validation for the selected quiz.", "warning");
     return false;
   }
 
-  const row = pendingResultValidation.rows.find((item) => item.index === questionIndex) || null;
+  if (!row) {
+    row = pendingResultValidation.rows.find((item) => item.index === questionIndex) || null;
+  }
   const question = quiz.questions[questionIndex] || null;
   if (!row || !question) return false;
 
@@ -15433,17 +17775,22 @@ async function applyResultValidationFixForQuestion(questionIndex, { confirmApply
 }
 
 async function applyBulkResultValidationFixes() {
+  if (RESULT_VALIDATION_DETECT_ONLY) {
+    showToast("Result Validation is currently detect-only. Bulk apply is disabled.", "info");
+    return;
+  }
   if (!pendingResultValidation || !Array.isArray(pendingResultValidation.rows)) {
     showToast("Run validation first.", "warning");
     return;
   }
+  const isGlobalScope = String(pendingResultValidation.scope || "module") === "global";
 
   const quiz = activeQuiz();
-  if (!quiz || !Array.isArray(quiz.questions)) {
+  if (!isGlobalScope && (!quiz || !Array.isArray(quiz.questions))) {
     showToast("Select a quiz first.", "warning");
     return;
   }
-  if (pendingResultValidation.quizId && pendingResultValidation.quizId !== String(quiz.id || "")) {
+  if (!isGlobalScope && pendingResultValidation.quizId && pendingResultValidation.quizId !== String(quiz.id || "")) {
     showToast("Validation data belongs to a different quiz. Re-run validation for the selected quiz.", "warning");
     return;
   }
@@ -15466,8 +17813,14 @@ async function applyBulkResultValidationFixes() {
 
   let applied = 0;
   for (const row of targets) {
-    const changed = await applyResultValidationFixForQuestion(row.index, { confirmApply: false });
+    const changed = await applyResultValidationFixForQuestion(row.index, {
+      confirmApply: false,
+      globalRowId: isGlobalScope ? String(row && row.globalRowId || "") : ""
+    });
     if (changed) applied += 1;
+    if (changed) {
+      await persistSelectedQuizAfterMutation("Bulk validation updates");
+    }
   }
 
   if (applied === 0) {
@@ -15476,11 +17829,17 @@ async function applyBulkResultValidationFixes() {
   }
 
   renderAll();
-  await persistSelectedQuizAfterMutation("Bulk validation updates");
-  runResultValidation(
-    Boolean(pendingResultValidation && pendingResultValidation.aiMode),
-    Boolean(pendingResultValidation && pendingResultValidation.strictMode)
-  );
+  if (isGlobalScope) {
+    runGlobalResultValidation(
+      Boolean(pendingResultValidation && pendingResultValidation.aiMode),
+      Boolean(pendingResultValidation && pendingResultValidation.strictMode)
+    );
+  } else {
+    runResultValidation(
+      Boolean(pendingResultValidation && pendingResultValidation.aiMode),
+      Boolean(pendingResultValidation && pendingResultValidation.strictMode)
+    );
+  }
   showToast(`Applied updates to ${applied} question(s).${blockedCount > 0 ? ` ${blockedCount} still require manual review.` : ""}`, "success");
 }
 
@@ -15531,7 +17890,10 @@ function downloadResultValidationCsv() {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = `result-validation-${slugify(pendingResultValidation.quizTitle || "module")}-${stamp}.csv`;
+  const scopeName = String(pendingResultValidation && pendingResultValidation.scope || "module") === "global"
+    ? "global"
+    : slugify(pendingResultValidation.quizTitle || "module");
+  link.download = `result-validation-${scopeName}-${stamp}.csv`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -15541,13 +17903,22 @@ function downloadResultValidationCsv() {
 
 function renderImportValidation(validation) {
   const meta = document.getElementById("importValidationMeta");
+  const accuracyMeta = document.getElementById("importAccuracyMeta");
   const body = document.getElementById("importValidationBody");
   const applyBtn = document.getElementById("applyImportBtn");
   const exportBtn = document.getElementById("exportValidationBtn");
   if (!(meta instanceof HTMLElement)
+    || !(accuracyMeta instanceof HTMLElement)
     || !(body instanceof HTMLElement)
     || !(applyBtn instanceof HTMLButtonElement)
     || !(exportBtn instanceof HTMLButtonElement)) return;
+
+  const qualityScore = Number(pendingImportQualityReport && pendingImportQualityReport.overallScore);
+  if (Number.isFinite(qualityScore) && qualityScore > 0) {
+    accuracyMeta.textContent = `Accuracy score: ${qualityScore}/100.`;
+  } else {
+    accuracyMeta.textContent = "Accuracy score: not available yet.";
+  }
 
   if (!validation) {
     meta.textContent = "No validation run yet.";
@@ -15581,23 +17952,6 @@ function renderImportValidation(validation) {
   // Keep Apply clickable so users can import first and clean up via Result Validation.
   applyBtn.disabled = pendingImportRows.length === 0;
   exportBtn.disabled = pendingImportRows.length === 0;
-}
-
-function closeImportReportModal() {
-  const modal = document.getElementById("importReportModal");
-  if (!(modal instanceof HTMLElement)) return;
-  modal.classList.add("hidden");
-  modal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("modal-open");
-}
-
-function openImportReportModal() {
-  const modal = document.getElementById("importReportModal");
-  if (!(modal instanceof HTMLElement)) return;
-  modal.classList.remove("hidden");
-  modal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-open");
-  renderImportAutoFixReport(pendingImportAutoFixReport);
 }
 
 function closeQuizAutoFixReportModal() {
@@ -15703,22 +18057,27 @@ function renderImportAutoFixReport(report) {
 
   if (!report || !Array.isArray(report.rows) || report.rows.length === 0) {
     meta.textContent = "No import report available yet.";
-    body.innerHTML = '<tr><td colspan="8" style="padding:8px;">No report rows available.</td></tr>';
+    body.innerHTML = '<tr><td colspan="13" style="padding:8px;">No report rows available.</td></tr>';
     exportBtn.disabled = true;
     return;
   }
 
-  meta.textContent = `Fixed ${report.fixedCount} | Improved ${report.improvedCount} | Unresolved ${report.unresolvedCount} | Changed ${report.changedCount}`;
+  meta.textContent = `Imported ${report.rows.length} question(s)`;
   body.innerHTML = report.rows.map((row) => `
     <tr>
-      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.status || "")}</td>
       <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.category || "")}</td>
       <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.lessonPart || "")}</td>
       <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(row.qNo || ""))}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.questionType || "")}</td>
       <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:280px; white-space:normal;">${escapeInteractiveHtml(row.question || "")}</td>
-      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(row.beforeIssues ?? ""))}</td>
-      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(String(row.afterIssues ?? ""))}</td>
-      <td style="padding:8px; border-bottom:1px solid #eef2f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.changedFields || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.mcqResult || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.shortAnswer || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.booleanResult || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.otherResult || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.qClassify || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.difficulty || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.resultType || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #eef2f8;">${escapeInteractiveHtml(row.correctAnswer || "")}</td>
     </tr>
   `).join("");
   exportBtn.disabled = false;
@@ -15733,50 +18092,310 @@ function downloadImportAutoFixReportCsv() {
 
   const now = new Date();
   const stamp = `${String(now.getFullYear())}${String(now.getMonth() + 1).padStart(2, "0")}${String(now.getDate()).padStart(2, "0")}-${String(now.getHours()).padStart(2, "0")}${String(now.getMinutes()).padStart(2, "0")}${String(now.getSeconds()).padStart(2, "0")}`;
-  const header = ["Status", "Category", "Lesson Part", "Q No", "Question", "Before Issues", "After Issues", "Changed Fields", "Result Type", "Correct Answer", "Solution"];
+  const header = [
+    "Category",
+    "Lesson Part",
+    "Q No",
+    "Question Type",
+    "Question",
+    "MCQ Result",
+    "Short Answer",
+    "Boolean Result",
+    "Other Result",
+    "QClassify",
+    "Difficulty",
+    "Result Type",
+    "Correct Answer"
+  ];
   const rows = report.rows.map((row) => [
-    row.status || "",
     row.category || "",
     row.lessonPart || "",
     String(row.qNo || ""),
+    row.questionType || "",
     row.question || "",
-    String(row.beforeIssues ?? ""),
-    String(row.afterIssues ?? ""),
-    row.changedFields || "",
+    row.mcqResult || "",
+    row.shortAnswer || "",
+    row.booleanResult || "",
+    row.otherResult || "",
+    row.qClassify || "",
+    row.difficulty || "",
     row.resultType || "",
-    row.correctAnswer || "",
-    row.solution || ""
+    row.correctAnswer || ""
   ]);
-  const summary = [
-    "SUMMARY",
-    `fixed=${report.fixedCount}; improved=${report.improvedCount}; unresolved=${report.unresolvedCount}; changed=${report.changedCount}`,
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
-  ];
-  const csv = [header, ...rows, summary].map((row) => row.map((cell) => escapeCsvCell(cell)).join(",")).join("\r\n");
+  const csv = [header, ...rows].map((row) => row.map((cell) => escapeCsvCell(cell)).join(",")).join("\r\n");
   const blob = new Blob(["\uFEFF", csv], { type: "text/csv;charset=utf-8" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = `import-autofix-report-${stamp}.csv`;
+  link.download = `import-report-${stamp}.csv`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
-  showToast("Auto-fix report downloaded.", "success");
+  showToast("Import report downloaded.", "success");
 }
 
 function escapeCsvCell(value) {
   const text = String(value == null ? "" : value);
   if (!/[",\r\n]/.test(text)) return text;
   return `"${text.replace(/"/g, '""')}"`;
+}
+
+function updateImportProcessingStatus(percent, status, etaSecondsOverride = null) {
+  const safePercent = Math.max(0, Math.min(100, Number(percent) || 0));
+  const bar = document.getElementById("importProcessingBar");
+  const percentEl = document.getElementById("importProcessingPercent");
+  const statusEl = document.getElementById("importProcessingStatus");
+  const timeEl = document.getElementById("importProcessingTime");
+
+  if (bar instanceof HTMLElement) {
+    bar.style.width = `${safePercent}%`;
+    // Turn bar green on completion (100%)
+    if (safePercent >= 100) {
+      bar.style.background = "linear-gradient(90deg, #10b981 0%, #34d399 100%)";
+    } else if (safePercent === 0) {
+      bar.style.background = "linear-gradient(90deg, #2563eb 0%, #22c55e 100%)";
+    }
+  }
+  if (percentEl instanceof HTMLElement) {
+    percentEl.textContent = `${Math.round(safePercent)}%`;
+  }
+  if (statusEl instanceof HTMLElement) {
+    statusEl.textContent = String(status || "").trim() || "Processing...";
+  }
+
+  // Calculate and display time remaining
+  if (timeEl instanceof HTMLElement) {
+    if (safePercent >= 100 || safePercent <= 0) {
+      timeEl.textContent = "--:--";
+    } else if (typeof etaSecondsOverride === "number" && isFinite(etaSecondsOverride)) {
+      const normalizedRemainingSec = Math.max(1, Math.floor(etaSecondsOverride));
+      const minutes = Math.floor(normalizedRemainingSec / 60);
+      const seconds = normalizedRemainingSec % 60;
+      timeEl.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+    } else if (pendingImportStartTime) {
+      const elapsedMs = Date.now() - pendingImportStartTime;
+      const elapsedSec = elapsedMs / 1000;
+      // Avoid division by zero and invalid values
+      if (elapsedSec > 0 && safePercent > 0) {
+        const percentPerSec = safePercent / elapsedSec;
+        const remainingPercent = 100 - safePercent;
+        const remainingSec = remainingPercent / percentPerSec;
+        
+        if (isFinite(remainingSec) && remainingSec > 0) {
+          const normalizedRemainingSec = Math.max(1, Math.floor(remainingSec));
+          const minutes = Math.floor(normalizedRemainingSec / 60);
+          const seconds = normalizedRemainingSec % 60;
+          timeEl.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        } else {
+          timeEl.textContent = "--:--";
+        }
+      } else {
+        timeEl.textContent = "--:--";
+      }
+    }
+  }
+}
+
+function getQuestionTextQualityIssues(questionText) {
+  const issues = [];
+  const text = normalizeWhitespace(String(questionText || ""));
+  const lower = text.toLowerCase();
+
+  if (!text) {
+    issues.push({ level: "error", message: "Question text is missing.", bucket: "question" });
+    return issues;
+  }
+
+  if (text.length < 8) {
+    issues.push({ level: "warning", message: "Question text is very short and may be unclear.", bucket: "question" });
+  }
+
+  const hasWord = /[a-z]/i.test(text);
+  const hasNumber = /\d/.test(text);
+  if (!hasWord && hasNumber) {
+    issues.push({ level: "warning", message: "Question appears numeric-only and may not make sense for learners.", bucket: "question" });
+  }
+
+  if (/\b(no|none|nothing)\b/.test(lower) && /\bhow many\b/.test(lower)) {
+    issues.push({ level: "warning", message: "Question wording may be contradictory (uses 'no/none' and asks 'how many').", bucket: "question" });
+  }
+
+  return issues;
+}
+
+function scoreImportedRowQuality(row, rowIndex) {
+  const questionText = getEffectiveImportQuestion(row);
+  const sourceQuestion = String(row && row.question || "").trim();
+  const options = Array.isArray(row && row.options) ? row.options.map((item) => String(item || "").trim()).filter((item) => item !== "") : [];
+  const computeRaw = String(row && row.compute || "").trim();
+  const templateType = inferTemplateTypeFromImportRow(row);
+  const inferred = inferAnswerFromImportRow(row, templateType);
+  const resultType = normalizeResultType(inferred.resultType || inferResultTypeFromImport(row && row.questionType, options, questionText, templateType));
+  const expectedAnswer = String(inferred.correctAnswer || "").trim();
+  const synthesized = {
+    question: questionText,
+    resultType,
+    options,
+    correctAnswer: expectedAnswer,
+    category: String(row && row.category || "").trim(),
+    subcategory: String(row && row.subcategory || "").trim(),
+    solution: inferSolutionFromImport(questionText, expectedAnswer)
+  };
+  const computed = computeExpectedAnswerForQuestion(synthesized);
+  const computedValue = String(computed && computed.value || "").trim();
+
+  const issues = [];
+  const pushIssue = (level, bucket, message) => {
+    issues.push({ level, bucket, message });
+  };
+
+  getQuestionTextQualityIssues(questionText).forEach((item) => pushIssue(item.level, item.bucket, item.message));
+  getQuestionSenseIssues(synthesized).forEach((message) => pushIssue("warning", "question", String(message || "")));
+
+  if (sourceQuestion && questionText && normalizeWhitespace(sourceQuestion) !== normalizeWhitespace(questionText)) {
+    pushIssue("info", "question", "Compute Question replaces Question text during import.");
+  }
+
+  if (["multiple-choice", "checkbox", "true-false"].includes(resultType) && options.length < 2) {
+    pushIssue("error", "options", "Result options are insufficient for this result type.");
+  }
+
+  if (resultType === "true-false") {
+    const tfValid = options.some((opt) => normalizeText(opt) === "true") && options.some((opt) => normalizeText(opt) === "false");
+    if (!tfValid && options.length > 0) {
+      pushIssue("warning", "options", "True/False question should include both 'True' and 'False' options.");
+    }
+  }
+
+  if (resultType === "multiple-choice" || resultType === "true-false") {
+    const answerInOptions = options.some((opt) => normalizeText(opt) === normalizeText(expectedAnswer));
+    if (!answerInOptions && expectedAnswer) {
+      pushIssue("error", "options", "Computed result is not found in result options.");
+    }
+  }
+
+  if (resultType === "checkbox") {
+    const answerTokens = splitAnswerTokens(expectedAnswer);
+    const missingTokens = answerTokens.filter((token) => !options.some((opt) => normalizeText(opt) === normalizeText(token)));
+    if (missingTokens.length > 0) {
+      pushIssue("error", "options", `Some computed checkbox answers are not in options: ${missingTokens.join(", ")}.`);
+    }
+  }
+
+  const answerToCheck = computedValue || expectedAnswer;
+  if (!answerToCheck) {
+    pushIssue("warning", "result", "Could not compute a reliable result from question content.");
+  }
+
+  if (computeRaw && answerToCheck) {
+    const matches = compareAnswersForResultType(resultType, computeRaw, answerToCheck);
+    if (!matches) {
+      pushIssue("error", "result", `Spreadsheet result '${computeRaw}' differs from computed result '${answerToCheck}'.`);
+    }
+  }
+
+  getSemanticAnswerConsistencyIssues({
+    question: questionText,
+    resultType,
+    options,
+    correctAnswer: expectedAnswer
+  }).forEach((message) => pushIssue("warning", "result", String(message || "")));
+
+  const solution = String(synthesized.solution || "").trim();
+  if (!solution) {
+    pushIssue("warning", "solution", "Solution is blank after generation.");
+  } else {
+    const includesAnswer = expectedAnswer
+      ? expectedAnswer.split(",").every((token) => {
+        const trimmed = token.trim();
+        return !trimmed || normalizeText(solution).includes(normalizeText(trimmed));
+      })
+      : false;
+    if (expectedAnswer && !includesAnswer) {
+      pushIssue("warning", "solution", "Solution may not clearly reference the computed result.");
+    }
+  }
+
+  const buckets = {
+    question: 20,
+    options: 20,
+    result: 30,
+    solution: 20,
+    consistency: 10
+  };
+
+  issues.forEach((issue) => {
+    const severityPenalty = issue.level === "error" ? 8 : issue.level === "warning" ? 4 : 2;
+    const bucketKey = issue.bucket in buckets ? issue.bucket : "consistency";
+    buckets[bucketKey] = Math.max(0, buckets[bucketKey] - severityPenalty);
+  });
+
+  const score = Math.max(0, Math.min(100, buckets.question + buckets.options + buckets.result + buckets.solution + buckets.consistency));
+  return {
+    rowIndex,
+    grade: String(row && row.grade || "").trim(),
+    lessonPart: String(row && row.lessonPart || "").trim(),
+    qNo: String(row && row.qNo || "").trim(),
+    score,
+    issues
+  };
+}
+
+async function buildImportQualityReport(rows, onProgress) {
+  const safeRows = Array.isArray(rows) ? rows : [];
+  if (safeRows.length === 0) {
+    return {
+      overallScore: 0,
+      rowReports: [],
+      issues: [],
+      errors: 0,
+      warnings: 0
+    };
+  }
+
+  const rowReports = [];
+  const issues = [];
+  let errors = 0;
+  let warnings = 0;
+  let scoreTotal = 0;
+
+  for (let index = 0; index < safeRows.length; index += 1) {
+    const report = scoreImportedRowQuality(safeRows[index], index);
+    rowReports.push(report);
+    scoreTotal += report.score;
+
+    report.issues.forEach((issue) => {
+      const level = issue.level === "error" ? "error" : "warning";
+      if (level === "error") errors += 1;
+      else warnings += 1;
+      issues.push({
+        level,
+        grade: String(report.grade || ""),
+        lessonPart: String(report.lessonPart || ""),
+        qNo: String(report.qNo || ""),
+        rowIndex: report.rowIndex,
+        message: `[quality/${issue.bucket}] ${issue.message}`
+      });
+    });
+
+    if (typeof onProgress === "function") {
+      onProgress(index + 1, safeRows.length);
+    }
+
+    if (index > 0 && index % 20 === 0) {
+      await new Promise((resolve) => window.setTimeout(resolve, 0));
+    }
+  }
+
+  const overallScore = Math.round(scoreTotal / safeRows.length);
+  return {
+    overallScore,
+    rowReports,
+    issues,
+    errors,
+    warnings
+  };
 }
 
 function downloadImportValidationCsv() {
@@ -15862,8 +18481,10 @@ function renderImportPreview(rows, sourceName) {
 
   if (!Array.isArray(rows) || rows.length === 0) {
     meta.textContent = "No valid rows detected from spreadsheet.";
-    body.innerHTML = '<tr><td colspan="12" style="padding:8px;">No rows loaded.</td></tr>';
+    body.innerHTML = '<tr><td colspan="25" style="padding:8px;">No rows loaded.</td></tr>';
     pendingImportValidation = null;
+    pendingImportQualityReport = null;
+    updateImportProcessingStatus(0, "Waiting for spreadsheet selection.");
     renderImportValidation(pendingImportValidation);
     return;
   }
@@ -15880,26 +18501,46 @@ function renderImportPreview(rows, sourceName) {
       <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(row.lessonName)}</td>
       <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(row.category)}</td>
       <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(row.subcategory)}</td>
-      <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(String(row.qNo || ""))}</td>
       <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(row.questionType)}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8;">${escapeInteractiveHtml(String(row.qNo || ""))}</td>
       <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:340px; white-space:normal;">${escapeInteractiveHtml(row.question)}</td>
-      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:280px; white-space:normal;">${escapeInteractiveHtml((row.options || []).join(", "))}</td>
-      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:160px; white-space:normal;">${escapeInteractiveHtml(row.compute || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.mcqOption1 || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.mcqOption2 || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.mcqOption3 || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.mcqOption4 || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.mcqResult || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.booleanOption1 || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.booleanOption2 || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.booleanResult || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.shortAnswer || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.otherResult || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.qClassify || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:140px; white-space:normal;">${escapeInteractiveHtml(row.difficulty || "")}</td>
       <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:280px; white-space:normal;">${escapeInteractiveHtml(row.learningOutcome)}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:340px; white-space:normal;">${escapeInteractiveHtml(row.computeQuestion || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:280px; white-space:normal;">${escapeInteractiveHtml(row.computeResultOptions || "")}</td>
+      <td style="padding:8px; border-bottom:1px solid #f0f4f8; max-width:180px; white-space:normal;">${escapeInteractiveHtml(row.computeFinal || row.compute || "")}</td>
     </tr>
   `).join("");
 
   const applyBtn = document.getElementById("applyImportBtn");
   const exportBtn = document.getElementById("exportValidationBtn");
-  const reportBtn = document.getElementById("openImportReportBtn");
   if (applyBtn instanceof HTMLButtonElement) applyBtn.disabled = false;
   if (exportBtn instanceof HTMLButtonElement) exportBtn.disabled = false;
-  if (reportBtn instanceof HTMLButtonElement) {
-    reportBtn.disabled = !(pendingImportAutoFixReport && Array.isArray(pendingImportAutoFixReport.rows) && pendingImportAutoFixReport.rows.length > 0);
-  }
 
   try {
-    pendingImportValidation = validateImportedRows(rows);
+    const baseValidation = validateImportedRows(rows);
+    const qualityIssues = pendingImportQualityReport && Array.isArray(pendingImportQualityReport.issues)
+      ? pendingImportQualityReport.issues
+      : [];
+    pendingImportValidation = {
+      errors: Number(baseValidation && baseValidation.errors || 0) + Number(pendingImportQualityReport && pendingImportQualityReport.errors || 0),
+      warnings: Number(baseValidation && baseValidation.warnings || 0) + Number(pendingImportQualityReport && pendingImportQualityReport.warnings || 0),
+      issues: [
+        ...(Array.isArray(baseValidation && baseValidation.issues) ? baseValidation.issues : []),
+        ...qualityIssues
+      ]
+    };
   } catch (error) {
     pendingImportValidation = {
       errors: 0,
@@ -15938,6 +18579,13 @@ async function applyPendingImportToMaker() {
     return { importedQuizCount: 0, importedQuestionCount: 0, saved: 0, total: 0 };
   }
 
+  const totalImportRows = pendingImportRows.length;
+  let importedRowCount = 0;
+  const overallStart = pendingImportStartTime || Date.now();
+  let overallEstimatedTotalSec = null;
+  const importPhaseStart = Date.now();
+  updateImportProcessingStatus(0, `Applying import to Maker: 0/${totalImportRows} rows...`);
+
   const importedTargets = [];
   let autoFixChangedCount = 0;
   let autoFixImprovedCount = 0;
@@ -15950,7 +18598,26 @@ async function applyPendingImportToMaker() {
     groupedByCategory.get(row.grade).push(row);
   });
 
+  // Pre-calculate total quizzes that will be created
+  let totalQuizzesToCreate = 0;
+  const categoryStructure = [];
   groupedByCategory.forEach((rowsInCategory, categoryName) => {
+    const groupedByModule = new Map();
+    rowsInCategory.forEach((row) => {
+      const moduleKey = String(row.lessonPart || "").trim();
+      if (!groupedByModule.has(moduleKey)) groupedByModule.set(moduleKey, []);
+      groupedByModule.get(moduleKey).push(row);
+    });
+    totalQuizzesToCreate += groupedByModule.size;
+    categoryStructure.push({ categoryName, moduleCount: groupedByModule.size });
+  });
+  const estimatedSaveTotalSec = Math.max(0.05, Number(pendingImportSaveSecondsPerFileEstimate) || 0.35) * Math.max(1, totalQuizzesToCreate);
+
+  let currentQuizIndex = 0;
+
+  // Process categories sequentially
+  const categoryEntries = Array.from(groupedByCategory.entries());
+  for (const [categoryName, rowsInCategory] of categoryEntries) {
     let category = findCategoryByName(categoryName);
     if (!category) {
       category = createCategory(categoryName);
@@ -15964,7 +18631,9 @@ async function applyPendingImportToMaker() {
       groupedByModule.get(moduleKey).push(row);
     });
 
-    groupedByModule.forEach((moduleRows, moduleKey) => {
+    // Process modules sequentially to allow progress updates
+    const moduleEntries = Array.from(groupedByModule.entries());
+    for (const [moduleKey, moduleRows] of moduleEntries) {
       const lessonPart = moduleKey;
       const representative = moduleRows[0] || {};
       const lessonName = String(representative.lessonName || representative.module || "Imported Module").trim();
@@ -15985,60 +18654,130 @@ async function applyPendingImportToMaker() {
       quiz.description = outcomesSummary
         ? `Learning Outcomes for ${categoryName}: ${outcomesSummary}`
         : `Learning Outcomes for ${categoryName}: Not specified.`;
-      quiz.settings = normalizeQuizSettings({ questionOrder: "ordered", questionLimit: sortedRows.length });
+      quiz.settings = normalizeQuizSettings({
+        questionOrder: "ordered",
+        questionLimit: sortedRows.length,
+        grade: String(representative.grade || categoryName || "").trim(),
+        module: String(representative.module || "").trim(),
+        lessonPart: String(lessonPart || "").trim(),
+        lessonName: String(lessonName || "").trim()
+      });
+
+      // Show quiz creation progress
+      currentQuizIndex += 1;
+      const quizProgressPercent = Math.round((currentQuizIndex / Math.max(1, totalQuizzesToCreate)) * 80);
+      updateImportProcessingStatus(quizProgressPercent, `Importing quiz ${currentQuizIndex} of ${totalQuizzesToCreate}...`);
+      
+      // Yield to event loop to allow UI update
+      await new Promise(resolve => setTimeout(resolve, 10));
 
       quiz.questions = sortedRows.map((row) => {
-        const templateType = inferTemplateTypeFromImportRow(row);
-        const inferred = inferAnswerFromImportRow(row, templateType);
-        const interactiveApp = buildInteractiveAppFromImport(row, inferred.correctAnswer, templateType);
-        const inferredCategory = inferImportCategoryFromTemplateType(templateType);
-        const inferredSubcategory = inferImportSubcategoryFromTemplateType(templateType, row.question);
-        const payload = {
-          question: row.question,
-          resultType: inferred.resultType,
-          options: row.options.length > 0 ? row.options : ["", "", "", ""],
-          correctAnswer: inferred.correctAnswer,
-          category: row.category || inferredCategory,
-          subcategory: row.subcategory || inferredSubcategory,
-          learningOutcome: row.learningOutcome || "",
-          notesAttachments: [],
-          image: "",
-          solution: inferSolutionFromImport(row.question, inferred.correctAnswer),
-          solutionAttachments: []
-        };
-        if (interactiveApp) payload.interactiveApp = interactiveApp;
-        return normalizeQuestion(payload);
+        importedRowCount += 1;
+        const runningImportRatio = totalImportRows > 0 ? importedRowCount / totalImportRows : 0;
+        const runningImportPercent = Math.round(runningImportRatio * 80);
+        const elapsedOverallSec = Math.max(0.001, (Date.now() - overallStart) / 1000);
+        const elapsedImportSec = Math.max(0.001, (Date.now() - importPhaseStart) / 1000);
+        const rowRate = importedRowCount / elapsedImportSec;
+        const rowsRemaining = Math.max(0, totalImportRows - importedRowCount);
+        const importEtaSec = rowRate > 0 ? rowsRemaining / rowRate : null;
+        const phaseEtaSec = typeof importEtaSec === "number" ? importEtaSec + estimatedSaveTotalSec : null;
+        if (typeof phaseEtaSec === "number") {
+          const candidateTotalSec = elapsedOverallSec + phaseEtaSec;
+          if (typeof overallEstimatedTotalSec !== "number") {
+            overallEstimatedTotalSec = candidateTotalSec;
+          } else {
+            overallEstimatedTotalSec = (overallEstimatedTotalSec * 0.8) + (candidateTotalSec * 0.2);
+          }
+        }
+        const overallEtaSec = typeof overallEstimatedTotalSec === "number"
+          ? Math.max(0, overallEstimatedTotalSec - elapsedOverallSec)
+          : null;
+        updateImportProcessingStatus(
+          runningImportPercent,
+          `Importing quiz ${currentQuizIndex} of ${totalQuizzesToCreate}...`,
+          overallEtaSec
+        );
+        try {
+          const templateType = inferTemplateTypeFromImportRow(row);
+          const inferred = inferAnswerFromImportRow(row, templateType);
+          const rowOptions = buildImportQuestionOptions(row, inferred.resultType);
+          const explicitCorrectAnswer = resolveImportCorrectAnswer(
+            row,
+            inferred.resultType,
+            rowOptions,
+            inferred.correctAnswer
+          );
+          const interactiveApp = buildInteractiveAppFromImport(row, explicitCorrectAnswer, templateType);
+          const inferredCategory = inferImportCategoryFromTemplateType(templateType);
+          const inferredSubcategory = inferImportSubcategoryFromTemplateType(templateType, row.question);
+          const payload = {
+            question: row.question,
+            resultType: inferred.resultType,
+            options: rowOptions.length > 0 ? rowOptions : ["", "", "", ""],
+            correctAnswer: explicitCorrectAnswer,
+            category: row.category || inferredCategory,
+            subcategory: row.subcategory || inferredSubcategory,
+            qClassify: String(row.qClassify || "").trim(),
+            learningOutcome: row.learningOutcome || "",
+            notesAttachments: [],
+            image: "",
+            solution: inferSolutionFromImport(row.question, explicitCorrectAnswer),
+            solutionAttachments: [],
+            resultStore: buildImportResultStore(row)
+          };
+          if (interactiveApp) payload.interactiveApp = interactiveApp;
+          return normalizeQuestion(payload);
+        } catch (error) {
+          const fallbackQuestion = String(getEffectiveImportQuestion(row) || row.question || "").trim();
+          const fallbackResultType = normalizeResultType(String(row.questionType || "multiple-choice").trim() || "multiple-choice");
+          const fallbackOptions = buildImportQuestionOptions(row, fallbackResultType);
+          const fallbackAnswer = resolveImportCorrectAnswer(row, fallbackResultType, fallbackOptions, String(row.computeFinal || row.compute || row.correctAnswer || row.shortAnswer || "").trim());
+          return normalizeQuestion({
+            question: fallbackQuestion,
+            resultType: fallbackResultType,
+            options: fallbackOptions.length > 0 ? fallbackOptions : ["", "", "", ""],
+            correctAnswer: fallbackAnswer,
+            category: String(row.category || "").trim(),
+            subcategory: String(row.subcategory || "").trim(),
+            qClassify: String(row.qClassify || "").trim(),
+            learningOutcome: String(row.learningOutcome || "").trim(),
+            notesAttachments: [],
+            image: "",
+            solution: inferSolutionFromImport(fallbackQuestion, fallbackAnswer),
+            solutionAttachments: [],
+            resultStore: buildImportResultStore(row)
+          });
+        }
       });
 
       quiz.questions.forEach((question, questionIndex) => {
-        const beforeSnapshot = snapshotImportAutoFixFields(question);
-        const fixResult = autoFixQuestionIssues(question);
-        const afterSnapshot = snapshotImportAutoFixFields(question);
         const row = sortedRows[questionIndex] || {};
-        const changedFields = describeImportAutoFixChanges(beforeSnapshot, afterSnapshot);
-        const status = getImportAutoFixStatus(fixResult.before, fixResult.after, fixResult.changed);
         autoFixReportRows.push({
-          status,
           category: categoryName,
           lessonPart,
           qNo: row.qNo || "",
+          questionType: String(row.questionType || ""),
           question: String(question.question || ""),
-          beforeIssues: fixResult.before,
-          afterIssues: fixResult.after,
-          changedFields,
+          shortAnswer: String(row.shortAnswer || ""),
+          mcqResult: String(row.mcqResult || ""),
+          booleanResult: String(row.booleanResult || ""),
+          otherResult: String(row.otherResult || ""),
+          qClassify: String(row.qClassify || ""),
+          difficulty: String(row.difficulty || ""),
           resultType: String(question.resultType || ""),
-          correctAnswer: String(question.correctAnswer || ""),
-          solution: String(question.solution || "")
+          correctAnswer: String(question.correctAnswer || "")
         });
-        if (fixResult.changed) autoFixChangedCount += 1;
-        if (fixResult.after < fixResult.before) autoFixImprovedCount += 1;
-        if (fixResult.after > 0) autoFixUnresolvedCount += 1;
       });
 
       quiz.fileName = buildUniqueQuizFileName(`lesson-part-${lessonPart}-${lessonName}`, quiz.id);
       importedTargets.push({ categoryId: category.id, quizId: quiz.id });
-    });
-  });
+      
+      // Update overall percentage as we finish each quiz
+      const importRatio = totalImportRows > 0 ? importedRowCount / totalImportRows : 0;
+      const importPercent = Math.round(importRatio * 80);
+      updateImportProcessingStatus(importPercent, `Importing quiz ${currentQuizIndex} of ${totalQuizzesToCreate}...`);
+    }
+  }
 
   const orderedCategories = sortCategoriesForDisplay(state.categories);
   state.categories = orderedCategories;
@@ -16056,22 +18795,58 @@ async function applyPendingImportToMaker() {
   }
   ensureQuizFileNames();
   renderAll();
-
   pendingImportAutoFixReport = {
-    rows: autoFixReportRows,
-    fixedCount: autoFixReportRows.filter((item) => item.status === "fixed").length,
-    improvedCount: autoFixReportRows.filter((item) => item.status === "improved").length,
-    unresolvedCount: autoFixReportRows.filter((item) => item.status === "unresolved").length,
-    changedCount: autoFixReportRows.filter((item) => item.status === "fixed" || item.status === "improved").length
+    rows: autoFixReportRows
   };
 
-  const reportBtn = document.getElementById("openImportReportBtn");
-  if (reportBtn instanceof HTMLButtonElement) {
-    reportBtn.disabled = !(pendingImportAutoFixReport && pendingImportAutoFixReport.rows && pendingImportAutoFixReport.rows.length > 0);
-  }
-
-  const saveResult = await persistImportedQuizzesToDisk(importedTargets, true);
+  // Saving phase: 75-100%
+  updateImportProcessingStatus(80, `Saving ${importedTargets.length} quiz file(s) to disk (0/${importedTargets.length})...`);
+  const savePhaseStart = Date.now();
+  const saveResult = await persistImportedQuizzesToDisk(importedTargets, (done, total) => {
+    const safeTotal = Math.max(1, total);
+    const savePercent = 80 + Math.round((done / safeTotal) * 19);
+    const elapsedOverallSec = Math.max(0.001, (Date.now() - overallStart) / 1000);
+    const elapsedSaveSec = Math.max(0.001, (Date.now() - savePhaseStart) / 1000);
+    const saveRate = done / elapsedSaveSec;
+    const saveRemaining = Math.max(0, safeTotal - done);
+    const saveEtaSec = saveRate > 0 ? saveRemaining / saveRate : null;
+    if (typeof saveEtaSec === "number") {
+      const candidateTotalSec = elapsedOverallSec + saveEtaSec;
+      if (typeof overallEstimatedTotalSec !== "number") {
+        overallEstimatedTotalSec = candidateTotalSec;
+      } else {
+        overallEstimatedTotalSec = (overallEstimatedTotalSec * 0.8) + (candidateTotalSec * 0.2);
+      }
+    }
+    const overallEtaSec = typeof overallEstimatedTotalSec === "number"
+      ? Math.max(0, overallEstimatedTotalSec - elapsedOverallSec)
+      : saveEtaSec;
+    if (done > 0) {
+      const observedPerFile = elapsedSaveSec / done;
+      pendingImportSaveSecondsPerFileEstimate = (pendingImportSaveSecondsPerFileEstimate * 0.5) + (observedPerFile * 0.5);
+    }
+    updateImportProcessingStatus(
+      savePercent,
+      `Saving ${importedTargets.length} quiz file(s) to disk (${done}/${safeTotal})...`,
+      overallEtaSec
+    );
+  });
   if (saveResult === null) {
+    updateImportProcessingStatus(100, "Import applied in Maker, but files were not saved.");
+    const executionReport = buildImportExecutionReport({
+      status: "applied-not-saved",
+      sourceName: pendingImportSourceName,
+      rows: pendingImportRows.length,
+      importedQuizCount: importedTargets.length,
+      importedQuestionCount: pendingImportRows.length,
+      saved: 0,
+      total: importedTargets.length,
+      validation: pendingImportValidation,
+      quality: pendingImportQualityReport,
+      autoFix: pendingImportAutoFixReport
+    });
+    // Report file save disabled - only actual quiz files are saved
+
     showToast("Import applied in Maker, but files were not saved. Connect/select root folder, then save quizzes.", "warning");
     return {
       importedQuizCount: importedTargets.length,
@@ -16082,6 +18857,21 @@ async function applyPendingImportToMaker() {
   }
 
   if (saveResult.saved === saveResult.total) {
+    updateImportProcessingStatus(100, "Import completed.");
+    const executionReport = buildImportExecutionReport({
+      status: "saved-all",
+      sourceName: pendingImportSourceName,
+      rows: pendingImportRows.length,
+      importedQuizCount: importedTargets.length,
+      importedQuestionCount: pendingImportRows.length,
+      saved: saveResult.saved,
+      total: saveResult.total,
+      validation: pendingImportValidation,
+      quality: pendingImportQualityReport,
+      autoFix: pendingImportAutoFixReport
+    });
+    // Report file save disabled - only actual quiz files are saved
+
     showToast(`Spreadsheet import applied and saved ${saveResult.saved} file(s). Smart auto-fix changed ${autoFixChangedCount} question(s), improved ${autoFixImprovedCount}, unresolved ${autoFixUnresolvedCount}.`, autoFixUnresolvedCount > 0 ? "warning" : "success");
     return {
       importedQuizCount: importedTargets.length,
@@ -16090,6 +18880,22 @@ async function applyPendingImportToMaker() {
       total: saveResult.total
     };
   }
+
+  updateImportProcessingStatus(100, "Import completed.");
+
+  const executionReport = buildImportExecutionReport({
+    status: "saved-partial",
+    sourceName: pendingImportSourceName,
+    rows: pendingImportRows.length,
+    importedQuizCount: importedTargets.length,
+    importedQuestionCount: pendingImportRows.length,
+    saved: saveResult.saved,
+    total: saveResult.total,
+    validation: pendingImportValidation,
+    quality: pendingImportQualityReport,
+    autoFix: pendingImportAutoFixReport
+  });
+  // Report file save disabled - only actual quiz files are saved
 
   showToast(`Import applied. Saved ${saveResult.saved}/${saveResult.total} file(s); ${saveResult.skipped} not saved. Smart auto-fix changed ${autoFixChangedCount} question(s), improved ${autoFixImprovedCount}, unresolved ${autoFixUnresolvedCount}.`, "warning");
   return {
@@ -16104,19 +18910,55 @@ async function handleTableImportSelection(file) {
   if (!file) return;
   try {
     openImportModal();
+    pendingImportStartTime = null;
+    updateImportProcessingStatus(3, "Reading spreadsheet file...");
+    const applyBtn = document.getElementById("applyImportBtn");
+    const exportBtn = document.getElementById("exportValidationBtn");
+    if (applyBtn instanceof HTMLButtonElement) applyBtn.disabled = true;
+    if (exportBtn instanceof HTMLButtonElement) exportBtn.disabled = true;
+
     const importedRows = await readSpreadsheetRows(file);
+    updateImportProcessingStatus(22, `Spreadsheet parsed. ${importedRows.length} row(s) loaded.`);
+
+    updateImportProcessingStatus(30, "Running question/options/result/solution quality checks...");
+    pendingImportQualityReport = await buildImportQualityReport(importedRows, (done, total) => {
+      const ratio = total > 0 ? done / total : 0;
+      const percent = 30 + Math.round(ratio * 62);
+      updateImportProcessingStatus(percent, `Analyzing row ${done}/${total}: checking sense, options, result, and solution...`);
+    });
+
+    updateImportProcessingStatus(95, "Finalizing preview and validation summary...");
     pendingImportRows = importedRows;
     pendingImportSourceName = file.name || "spreadsheet";
     renderImportPreview(importedRows, pendingImportSourceName);
+    updateImportProcessingStatus(100, `Processing complete. Accuracy ${Number(pendingImportQualityReport && pendingImportQualityReport.overallScore || 0)}/100.`);
     if (importedRows.length === 0) {
+      await appendImportLogEntry("WARN", "Import preview loaded with zero valid rows.", {
+        file: String(file && file.name || "spreadsheet")
+      });
       showToast("No valid rows found. Allowed Grade values: Prep, Grade 1, Grade 2, Grade 3, Grade 4, Grade 5, Grade 6.", "warning");
       return;
     }
-    showToast(`Imported preview ready: ${importedRows.length} row(s). Click Apply Import.`, "success");
+
+    await appendImportLogEntry("INFO", "Import preview ready.", {
+      file: String(file && file.name || "spreadsheet"),
+      rows: importedRows.length,
+      accuracy: Number(pendingImportQualityReport && pendingImportQualityReport.overallScore || 0),
+      errors: Number(pendingImportValidation && pendingImportValidation.errors || 0),
+      warnings: Number(pendingImportValidation && pendingImportValidation.warnings || 0)
+    });
+
+    showToast(`Imported preview ready: ${importedRows.length} row(s). Accuracy ${Number(pendingImportQualityReport && pendingImportQualityReport.overallScore || 0)}/100. Click Apply Import.`, "success");
   } catch (error) {
     pendingImportRows = [];
     pendingImportSourceName = "";
+    pendingImportQualityReport = null;
+    updateImportProcessingStatus(0, "Processing failed. Please check file format and try again.");
     renderImportPreview([], file && file.name ? file.name : "spreadsheet");
+    await appendImportLogEntry("ERROR", "Import preview failed.", {
+      file: String(file && file.name || "spreadsheet"),
+      message: String(error && error.message ? error.message : error)
+    });
     showToast(String(error && error.message ? error.message : "Could not import spreadsheet."), "warning");
   }
 }
@@ -16128,6 +18970,16 @@ async function initialize() {
   const loadedFromRoot = await refreshLibraryFromRoot(false, false);
   if (loadedFromRoot) {
     showToast("Detected quizzes from root folder.", "success");
+    return;
+  }
+
+  if (normalizeRootSourceMode(state.rootSourceMode) === ROOT_SOURCE_MODES.LOCAL) {
+    state.categories = [];
+    state.selectedCategoryId = null;
+    state.selectedQuizId = null;
+    state.selectedQuestionIndex = -1;
+    renderAll();
+    setRootStatus(`Source: no local quiz categories found in ${state.rootFolder}/`);
     return;
   }
 
@@ -16157,6 +19009,7 @@ window.addEventListener("keydown", (event) => {
     closeImportModal();
     closeResultValidationModal();
     closeQuizAutoFixReportModal();
+    closeImportLogModal();
   }
 
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {

@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Recall subtraction facts | Recognise related facts | Apply subtraction | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Subtraction",
+    "lessonPart": "5.08",
+    "lessonName": "Subtraction Facts to 10"
   },
   "category": "Prep",
   "questions": [
@@ -20,10 +24,11 @@
       "correctAnswer": "1",
       "category": "Subtraction Facts",
       "subcategory": "Facts to 5",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 2 - 1 = 1.",
+      "solution": "Subtract the second number from the first: 2 - 1 = 1.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -50,10 +55,11 @@
       "correctAnswer": "2",
       "category": "Subtraction Facts",
       "subcategory": "Facts to 5",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 3 - 1 = 2.",
+      "solution": "Subtract the second number from the first: 3 - 1 = 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -80,10 +86,11 @@
       "correctAnswer": "2",
       "category": "Subtraction Facts",
       "subcategory": "Facts to 5",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 4 - 2 = 2.",
+      "solution": "Subtract the second number from the first: 4 - 2 = 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -110,10 +117,11 @@
       "correctAnswer": "3",
       "category": "Subtraction Facts",
       "subcategory": "Facts to 5",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 5 - 2 = 3.",
+      "solution": "Subtract the second number from the first: 5 - 2 = 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -140,10 +148,11 @@
       "correctAnswer": "0",
       "category": "Subtraction Facts",
       "subcategory": "Facts to 5",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 5 - 5 = 0.",
+      "solution": "Subtract the second number from the first: 5 - 5 = 0.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -170,10 +179,11 @@
       "correctAnswer": "5",
       "category": "Subtraction Facts",
       "subcategory": "Facts to 10",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 6 - 1 = 5.",
+      "solution": "Subtract the second number from the first: 6 - 1 = 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -200,10 +210,11 @@
       "correctAnswer": "5",
       "category": "Subtraction Facts",
       "subcategory": "Facts to 10",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 7 - 2 = 5.",
+      "solution": "Subtract the second number from the first: 7 - 2 = 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -230,10 +241,11 @@
       "correctAnswer": "5",
       "category": "Subtraction Facts",
       "subcategory": "Facts to 10",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 8 - 3 = 5.",
+      "solution": "Subtract the second number from the first: 8 - 3 = 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -260,10 +272,11 @@
       "correctAnswer": "5",
       "category": "Subtraction Facts",
       "subcategory": "Facts to 10",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 9 - 4 = 5.",
+      "solution": "Subtract the second number from the first: 9 - 4 = 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -290,10 +303,11 @@
       "correctAnswer": "5",
       "category": "Subtraction Facts",
       "subcategory": "Facts to 10",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 10 - 5 = 5.",
+      "solution": "Subtract the second number from the first: 10 - 5 = 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -317,13 +331,14 @@
         "3",
         "4"
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Fact Families",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise related facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 5 - 2 = 3.",
+      "solution": "Subtract the second number from the first: 5 - 2 = 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -347,13 +362,14 @@
         "2",
         "3"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Fact Families",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise related facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 6 - 1 = 5.",
+      "solution": "Subtract the second number from the first: 6 - 1 = 1.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -380,10 +396,11 @@
       "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Fact Families",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 8 - 5 = 3.",
+      "solution": "Subtract the second number from the first: 8 - 5 = 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -410,10 +427,11 @@
       "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Fact Families",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 9 - 6 = 3.",
+      "solution": "Subtract the second number from the first: 9 - 6 = 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -440,10 +458,11 @@
       "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Fact Families",
+      "qClassify": "MCQ",
       "learningOutcome": "Recall subtraction facts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 10 - 7 = 3.",
+      "solution": "Subtract the second number from the first: 10 - 7 = 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -467,22 +486,23 @@
         "6",
         "7"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "8",
       "category": "Application",
       "subcategory": "Real World",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Mia has 8 apples and eats 3. How many remain?",
-          "totalCount": 5,
+          "totalCount": 8,
           "iconShape": "circle",
           "groups": [
-            5
+            8
           ]
         }
       }
@@ -496,22 +516,23 @@
         "6",
         "7"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "9",
       "category": "Application",
       "subcategory": "Real World",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Sam has 9 balloons and loses 4. How many remain?",
-          "totalCount": 5,
+          "totalCount": 9,
           "iconShape": "circle",
           "groups": [
-            5
+            9
           ]
         }
       }
@@ -525,22 +546,23 @@
         "6",
         "7"
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "10",
       "category": "Application",
       "subcategory": "Real World",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "Ava has 10 stars and gives away 5. How many remain?",
-          "totalCount": 5,
+          "totalCount": 10,
           "iconShape": "circle",
           "groups": [
-            5
+            10
           ]
         }
       }
@@ -557,10 +579,11 @@
       "correctAnswer": "7",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 10 - 3 = 7.",
+      "solution": "Subtract the second number from the first: 10 - 3 = 7.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -587,10 +610,11 @@
       "correctAnswer": "7",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "Compute 9 - 2 = 7.",
+      "solution": "Subtract the second number from the first: 9 - 2 = 7.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",

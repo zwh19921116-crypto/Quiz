@@ -4,13 +4,172 @@
   "description": "Learning Outcomes for Prep: Compare numbers | Recognise equal numbers | Apply comparison | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Comparing Numbers",
+    "lessonPart": "3.07",
+    "lessonName": "Compare Numbers 0-10"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
+      "options": [
+        "2",
+        "5",
+        "",
+        ""
+      ],
+      "correctAnswer": "5",
+      "category": "Recognition",
+      "subcategory": "Greater Number",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which number is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "1",
+        "7",
+        "",
+        ""
+      ],
+      "correctAnswer": "7",
+      "category": "Recognition",
+      "subcategory": "Greater Number",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which number is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "4",
+        "9",
+        "",
+        ""
+      ],
+      "correctAnswer": "9",
+      "category": "Recognition",
+      "subcategory": "Greater Number",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which number is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "3",
+        "8",
+        "",
+        ""
+      ],
+      "correctAnswer": "8",
+      "category": "Recognition",
+      "subcategory": "Greater Number",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which number is greater?",
+      "resultType": "short-answer",
+      "options": [
+        "0",
+        "6",
+        "",
+        ""
+      ],
+      "correctAnswer": "6",
+      "category": "Recognition",
+      "subcategory": "Greater Number",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare numbers",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
+    },
+    {
+      "question": "Which number is smaller?",
+      "resultType": "short-answer",
       "options": [
         "2",
         "5",
@@ -19,106 +178,29 @@
       ],
       "correctAnswer": "2",
       "category": "Recognition",
-      "subcategory": "Greater Number",
-      "learningOutcome": "Compare numbers",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 2.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "Which number is greater?",
-      "resultType": "multiple-choice",
-      "options": [
-        "1",
-        "7",
-        "",
-        ""
-      ],
-      "correctAnswer": "1",
-      "category": "Recognition",
-      "subcategory": "Greater Number",
-      "learningOutcome": "Compare numbers",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 1.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "Which number is greater?",
-      "resultType": "multiple-choice",
-      "options": [
-        "4",
-        "9",
-        "",
-        ""
-      ],
-      "correctAnswer": "4",
-      "category": "Recognition",
-      "subcategory": "Greater Number",
-      "learningOutcome": "Compare numbers",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 4.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "Which number is greater?",
-      "resultType": "multiple-choice",
-      "options": [
-        "3",
-        "8",
-        "",
-        ""
-      ],
-      "correctAnswer": "3",
-      "category": "Recognition",
-      "subcategory": "Greater Number",
-      "learningOutcome": "Compare numbers",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 3.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "Which number is greater?",
-      "resultType": "multiple-choice",
-      "options": [
-        "0",
-        "6",
-        "",
-        ""
-      ],
-      "correctAnswer": "0",
-      "category": "Recognition",
-      "subcategory": "Greater Number",
-      "learningOutcome": "Compare numbers",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 0.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
-      "options": [
-        "2",
-        "5",
-        "",
-        ""
-      ],
-      "correctAnswer": "2",
-      "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 2.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "1",
         "7",
@@ -128,15 +210,28 @@
       "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "4",
         "9",
@@ -146,15 +241,28 @@
       "correctAnswer": "4",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "3",
         "8",
@@ -164,15 +272,28 @@
       "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "0",
         "6",
@@ -182,11 +303,24 @@
       "correctAnswer": "0",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 0.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Are these numbers the same? 4 and 4",
@@ -197,13 +331,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-10",
+      "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -227,13 +362,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-10",
+      "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -257,13 +393,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-10",
+      "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -287,13 +424,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-10",
+      "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -317,13 +455,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-10",
+      "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -347,13 +486,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-10",
+      "correctAnswer": "Mia",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mia.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -377,13 +517,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-10",
+      "correctAnswer": "Ben",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ben.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -407,13 +548,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-10",
+      "correctAnswer": "Yes",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -430,25 +572,38 @@
     },
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "9",
         "10",
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "10",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 9.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "1",
         "4",
@@ -458,11 +613,24 @@
       "correctAnswer": "1",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 10,
+          "answer": "-10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     }
   ]
 }

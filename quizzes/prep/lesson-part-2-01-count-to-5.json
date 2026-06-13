@@ -4,13 +4,17 @@
   "description": "Learning Outcomes for Prep: Count to 5 | Connect counting to numbers | Match quantity | Count different objects | Count forward | Apply counting | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Counting",
+    "lessonPart": "2.01",
+    "lessonName": "Count to 5"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "🍎 How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "1",
         "2",
@@ -20,10 +24,11 @@
       "correctAnswer": "1",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 1.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 1.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -39,7 +44,7 @@
     },
     {
       "question": "🍎🍎 How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "1",
         "2",
@@ -49,10 +54,11 @@
       "correctAnswer": "2",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -68,7 +74,7 @@
     },
     {
       "question": "🍎🍎🍎 How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "2",
         "3",
@@ -78,10 +84,11 @@
       "correctAnswer": "3",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -97,7 +104,7 @@
     },
     {
       "question": "🍎🍎🍎🍎 How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "3",
         "4",
@@ -107,10 +114,11 @@
       "correctAnswer": "4",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -126,7 +134,7 @@
     },
     {
       "question": "🍎🍎🍎🍎🍎 How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "4",
         "5",
@@ -136,10 +144,11 @@
       "correctAnswer": "5",
       "category": "Counting",
       "subcategory": "Count Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count to 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -165,10 +174,11 @@
       "correctAnswer": "3",
       "category": "Recognition",
       "subcategory": "Number Recognition",
+      "qClassify": "MCQICON",
       "learningOutcome": "Connect counting to numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -194,10 +204,11 @@
       "correctAnswer": "5",
       "category": "Recognition",
       "subcategory": "Number Recognition",
+      "qClassify": "MCQICON",
       "learningOutcome": "Connect counting to numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -223,10 +234,11 @@
       "correctAnswer": "🍎🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🍎🍎.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -241,15 +253,16 @@
       "correctAnswer": "🍎🍎🍎🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🍎🍎🍎🍎.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
       "question": "⭐⭐⭐ How many stars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "2",
         "3",
@@ -259,10 +272,11 @@
       "correctAnswer": "3",
       "category": "Counting",
       "subcategory": "Mixed Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count different objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -278,7 +292,7 @@
     },
     {
       "question": "🚗🚗🚗🚗 How many cars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "3",
         "4",
@@ -288,10 +302,11 @@
       "correctAnswer": "4",
       "category": "Counting",
       "subcategory": "Mixed Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count different objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -307,7 +322,7 @@
     },
     {
       "question": "🐶🐶🐶🐶🐶 How many dogs are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "4",
         "5",
@@ -317,10 +332,11 @@
       "correctAnswer": "5",
       "category": "Counting",
       "subcategory": "Mixed Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count different objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -346,10 +362,11 @@
       "correctAnswer": "3",
       "category": "Sequencing",
       "subcategory": "Counting Forward",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Count forward",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 3.",
+      "solution": "The pattern increases by 1 each step. After 2, the next number is 3.",
       "solutionAttachments": []
     },
     {
@@ -364,10 +381,11 @@
       "correctAnswer": "4",
       "category": "Sequencing",
       "subcategory": "Counting Forward",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Count forward",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 4.",
+      "solution": "The pattern increases by 1 each step. After 3, the next number is 4.",
       "solutionAttachments": []
     },
     {
@@ -382,10 +400,11 @@
       "correctAnswer": "5",
       "category": "Sequencing",
       "subcategory": "Counting Forward",
+      "qClassify": "MCQMissingNumber",
       "learningOutcome": "Count forward",
       "notesAttachments": [],
       "image": "",
-      "solution": "Continue the counting pattern by 1. The next number is 5.",
+      "solution": "The pattern increases by 1 each step. After 4, the next number is 5.",
       "solutionAttachments": []
     },
     {
@@ -400,10 +419,11 @@
       "correctAnswer": "2",
       "category": "Application",
       "subcategory": "Real World Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -429,10 +449,11 @@
       "correctAnswer": "5",
       "category": "Application",
       "subcategory": "Real World Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -458,10 +479,11 @@
       "correctAnswer": "4",
       "category": "Application",
       "subcategory": "Real World Counting",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -487,10 +509,11 @@
       "correctAnswer": "4",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -513,13 +536,14 @@
         "4",
         "5"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "5",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
       "solutionAttachments": []
     }
   ]

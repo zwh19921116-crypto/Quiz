@@ -1,0 +1,396 @@
+{
+  "id": "quiz-74",
+  "title": "Prep 7.1",
+  "description": "Learning Outcomes for Prep: Compare weight | Compare capacity | Compare length | Compare height | Apply length | Apply weight | Apply capacity | Apply height | Use vocabulary | Consolidate skills",
+  "settings": {
+    "questionOrder": "ordered",
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Measurement",
+    "lessonPart": "7.1",
+    "lessonName": "Assessment"
+  },
+  "category": "Prep",
+  "questions": [
+    {
+      "question": "Which is heavier: school bag or pencil case?",
+      "resultType": "multiple-choice",
+      "options": [
+        "School Bag",
+        "Pencil Case",
+        "Both are the same",
+        "Not enough information"
+      ],
+      "correctAnswer": "School Bag",
+      "category": "Weight",
+      "subcategory": "Heavy and Light",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to School Bag.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more: jug or mug?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Jug",
+        "Mug",
+        "Both are the same",
+        "Not enough information"
+      ],
+      "correctAnswer": "Jug",
+      "category": "Capacity",
+      "subcategory": "More and Less",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Jug.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter: pencil or marker?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Pencil",
+        "Marker",
+        "Both are the same",
+        "Not enough information"
+      ],
+      "correctAnswer": "Pencil",
+      "category": "Length",
+      "subcategory": "Long and Short",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pencil.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is taller: lamp post or child?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Lamp Post",
+        "Child",
+        "Both are the same",
+        "Not enough information"
+      ],
+      "correctAnswer": "Lamp Post",
+      "category": "Height",
+      "subcategory": "Tall and Short",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare height",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Lamp Post.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds the least: bottle, bucket, cup?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Cup",
+        "Bottle",
+        "Bucket",
+        "Both are the same"
+      ],
+      "correctAnswer": "Cup",
+      "category": "Capacity",
+      "subcategory": "Compare Objects",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cup.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longest: rope, shoelace, ribbon?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rope",
+        "Shoelace",
+        "Ribbon",
+        "Both are the same"
+      ],
+      "correctAnswer": "Rope",
+      "category": "Length",
+      "subcategory": "Compare Objects",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rope.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is lightest: backpack, lunchbox, book?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Book",
+        "Backpack",
+        "Lunchbox",
+        "Both are the same"
+      ],
+      "correctAnswer": "Book",
+      "category": "Weight",
+      "subcategory": "Compare Objects",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Book.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is tallest: giraffe, horse, dog?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Giraffe",
+        "Horse",
+        "Dog",
+        "Both are the same"
+      ],
+      "correctAnswer": "Giraffe",
+      "category": "Height",
+      "subcategory": "Compare Objects",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare height",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Giraffe.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would be longer: river or pencil?",
+      "resultType": "multiple-choice",
+      "options": [
+        "River",
+        "Pencil",
+        "Both are the same",
+        "Not enough information"
+      ],
+      "correctAnswer": "River",
+      "category": "Length",
+      "subcategory": "Application",
+      "qClassify": "MCQ",
+      "learningOutcome": "Apply length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to River.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would be heavier: car or bicycle?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Car",
+        "Bicycle",
+        "Both are the same",
+        "Not enough information"
+      ],
+      "correctAnswer": "Car",
+      "category": "Weight",
+      "subcategory": "Application",
+      "qClassify": "MCQ",
+      "learningOutcome": "Apply weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Car.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds more: swimming pool or bucket?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Swimming Pool",
+        "Bucket",
+        "Both are the same",
+        "Not enough information"
+      ],
+      "correctAnswer": "Swimming Pool",
+      "category": "Capacity",
+      "subcategory": "Application",
+      "qClassify": "MCQ",
+      "learningOutcome": "Apply capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Swimming Pool.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which would be shorter: building or toy tower?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Toy Tower",
+        "Building",
+        "Both are the same",
+        "Not enough information"
+      ],
+      "correctAnswer": "Toy Tower",
+      "category": "Height",
+      "subcategory": "Application",
+      "qClassify": "MCQ",
+      "learningOutcome": "Apply height",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Toy Tower.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is shorter: rope or cable?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Rope",
+        "Cable",
+        "Both are the same",
+        "Not enough information"
+      ],
+      "correctAnswer": "Rope",
+      "category": "Length",
+      "subcategory": "Mixed",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare length",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rope.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is heavier: suitcase or book?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Suitcase",
+        "Book",
+        "Both are the same",
+        "Not enough information"
+      ],
+      "correctAnswer": "Suitcase",
+      "category": "Weight",
+      "subcategory": "Mixed",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare weight",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Suitcase.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds less: bowl or bathtub?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Bowl",
+        "Bathtub",
+        "Both are the same",
+        "Not enough information"
+      ],
+      "correctAnswer": "Bowl",
+      "category": "Capacity",
+      "subcategory": "Mixed",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare capacity",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bowl.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is taller: tree or bush?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Tree",
+        "Bush",
+        "Both are the same",
+        "Not enough information"
+      ],
+      "correctAnswer": "Tree",
+      "category": "Height",
+      "subcategory": "Mixed",
+      "qClassify": "MCQ",
+      "learningOutcome": "Compare height",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tree.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word describes something not heavy?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Light",
+        "Heavy",
+        "Same Weight",
+        "Not Sure"
+      ],
+      "correctAnswer": "Light",
+      "category": "Vocabulary",
+      "subcategory": "Measurement Words",
+      "qClassify": "MCQ",
+      "learningOutcome": "Use vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Light.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which word describes something not short?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Long",
+        "Short",
+        "Same Length",
+        "Not Sure"
+      ],
+      "correctAnswer": "Long",
+      "category": "Vocabulary",
+      "subcategory": "Measurement Words",
+      "qClassify": "MCQ",
+      "learningOutcome": "Use vocabulary",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Long.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which is longest: pencil, ruler, eraser?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Ruler",
+        "Pencil",
+        "Eraser",
+        "Both are the same"
+      ],
+      "correctAnswer": "Ruler",
+      "category": "Mixed Review",
+      "subcategory": "Multi Concept",
+      "qClassify": "MCQ",
+      "learningOutcome": "Consolidate skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ruler.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which holds the most: cup, bottle, jug?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Jug",
+        "Cup",
+        "Bottle",
+        "Both are the same"
+      ],
+      "correctAnswer": "Jug",
+      "category": "Mixed Review",
+      "subcategory": "Multi Concept",
+      "qClassify": "MCQ",
+      "learningOutcome": "Consolidate skills",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Jug.",
+      "solutionAttachments": []
+    }
+  ]
+}

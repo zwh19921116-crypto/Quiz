@@ -4,49 +4,79 @@
   "description": "Learning Outcomes for Prep: Compare numbers | Recognise equal numbers | Apply comparison | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Comparing Numbers",
+    "lessonPart": "3.08",
+    "lessonName": "Compare Numbers 0-20"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "12",
         "15",
         "",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "15",
       "category": "Recognition",
       "subcategory": "Greater Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 15.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 20,
+          "answer": "-20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "8",
         "14",
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "14",
       "category": "Recognition",
       "subcategory": "Greater Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 14.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 20,
+          "answer": "-20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "19",
         "17",
@@ -56,51 +86,90 @@
       "correctAnswer": "19",
       "category": "Recognition",
       "subcategory": "Greater Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 19.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 19.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 20,
+          "answer": "-20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "6",
         "11",
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "11",
       "category": "Recognition",
       "subcategory": "Greater Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 20,
+          "answer": "-20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "13",
         "20",
         "",
         ""
       ],
-      "correctAnswer": "13",
+      "correctAnswer": "20",
       "category": "Recognition",
       "subcategory": "Greater Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 13.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 20,
+          "answer": "-20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "12",
         "15",
@@ -110,15 +179,28 @@
       "correctAnswer": "12",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 20,
+          "answer": "-20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "8",
         "14",
@@ -128,33 +210,59 @@
       "correctAnswer": "8",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 8.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 20,
+          "answer": "-20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "19",
         "17",
         "",
         ""
       ],
-      "correctAnswer": "19",
+      "correctAnswer": "17",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 19.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 17.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 20,
+          "answer": "-20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "6",
         "11",
@@ -164,15 +272,28 @@
       "correctAnswer": "6",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 20,
+          "answer": "-20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "13",
         "20",
@@ -182,11 +303,24 @@
       "correctAnswer": "13",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 13.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 13.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 20,
+          "answer": "-20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Are these numbers the same? 14 and 14",
@@ -197,13 +331,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-20",
+      "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -227,13 +362,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-20",
+      "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -257,13 +393,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-20",
+      "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -287,13 +424,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-20",
+      "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -317,13 +455,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-20",
+      "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -347,13 +486,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-20",
+      "correctAnswer": "Mia",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mia.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -377,13 +517,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-20",
+      "correctAnswer": "Ben",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ben.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -407,13 +548,14 @@
         "",
         ""
       ],
-      "correctAnswer": "-20",
+      "correctAnswer": "Yes",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is -20.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -430,25 +572,38 @@
     },
     {
       "question": "Which number is greater?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "18",
         "20",
         "",
         ""
       ],
-      "correctAnswer": "18",
+      "correctAnswer": "20",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 18.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 20,
+          "answer": "-20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "Which number is smaller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "11",
         "14",
@@ -458,11 +613,24 @@
       "correctAnswer": "11",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 11.",
-      "solutionAttachments": []
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "-",
+          "operandA": 0,
+          "operandB": 20,
+          "answer": "-20",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     }
   ]
 }

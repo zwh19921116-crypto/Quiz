@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Compare quantities | Identify equal quantities | Identify largest group | Identify smallest group | Compare numbers | Recognise equal numbers | Apply comparison | Mastery | Consolidate learning",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Comparing Numbers",
+    "lessonPart": "3.1",
+    "lessonName": "Comparing Assessment"
   },
   "category": "Prep",
   "questions": [
@@ -12,108 +16,114 @@
       "question": "Which group has more apples? 🍎🍎 or 🍎🍎🍎🍎",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "🍎🍎",
+        "🍎🍎🍎🍎",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🍎🍎🍎🍎",
       "category": "Comparing",
       "subcategory": "More Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has fewer stars? ⭐⭐⭐⭐⭐ or ⭐⭐",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Right",
+        "⭐⭐⭐⭐⭐",
+        "⭐⭐",
         "",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "⭐⭐",
       "category": "Comparing",
       "subcategory": "Less Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to ⭐⭐.",
       "solutionAttachments": []
     },
     {
       "question": "Do these groups have the same number? 🚗🚗🚗 and 🚗🚗🚗",
-      "resultType": "multiple-choice",
+      "resultType": "true-false",
       "options": [
-        "Yes",
-        "No",
+        "True",
+        "False",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "True",
       "category": "Comparing",
       "subcategory": "Same Quantity",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Identify equal quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to True.",
       "solutionAttachments": []
     },
     {
       "question": "Do these groups have the same number? 🐶🐶 and 🐶🐶🐶",
-      "resultType": "multiple-choice",
+      "resultType": "true-false",
       "options": [
-        "Yes",
-        "No",
+        "True",
+        "False",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "False",
       "category": "Comparing",
       "subcategory": "Same Quantity",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to False.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has the most fish? 🐟🐟, 🐟🐟🐟🐟, 🐟🐟🐟",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Middle",
-        "Right",
+        "🐟🐟",
+        "🐟🐟🐟🐟",
+        "🐟🐟🐟",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🐟🐟🐟🐟",
       "category": "Comparing",
       "subcategory": "Most Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify largest group",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐟🐟🐟🐟.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has the fewest apples? 🍎🍎🍎🍎, 🍎🍎, 🍎🍎🍎",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Middle",
-        "Right",
+        "🍎🍎🍎🍎",
+        "🍎🍎",
+        "🍎🍎🍎",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🍎🍎",
       "category": "Comparing",
       "subcategory": "Fewest Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify smallest group",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -125,13 +135,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "8",
       "category": "Recognition",
       "subcategory": "Greater Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
       "solutionAttachments": []
     },
     {
@@ -143,13 +154,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "2",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
       "solutionAttachments": []
     },
     {
@@ -164,10 +176,11 @@
       "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise equal numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": []
     },
     {
@@ -179,13 +192,14 @@
         "",
         ""
       ],
-      "correctAnswer": "No",
+      "correctAnswer": "Yes",
       "category": "Recognition",
       "subcategory": "Equal Numbers",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": []
     },
     {
@@ -197,13 +211,14 @@
         "",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "18",
       "category": "Recognition",
       "subcategory": "Greater Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 12.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 18.",
       "solutionAttachments": []
     },
     {
@@ -215,49 +230,52 @@
         "",
         ""
       ],
-      "correctAnswer": "15",
+      "correctAnswer": "11",
       "category": "Recognition",
       "subcategory": "Smaller Number",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 15.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has the most stars? ⭐⭐⭐, ⭐⭐⭐⭐⭐⭐, ⭐⭐⭐⭐",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Middle",
-        "Right",
+        "⭐⭐⭐",
+        "⭐⭐⭐⭐⭐⭐",
+        "⭐⭐⭐⭐",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "⭐⭐⭐⭐⭐⭐",
       "category": "Comparing",
       "subcategory": "Most Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify largest group",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to ⭐⭐⭐⭐⭐⭐.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has the fewest cars? 🚗🚗🚗🚗, 🚗🚗, 🚗🚗🚗",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Middle",
-        "Right",
+        "🚗🚗🚗🚗🚗",
+        "🚗🚗",
+        "🚗🚗🚗",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🚗🚗",
       "category": "Comparing",
       "subcategory": "Fewest Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify smallest group",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🚗🚗.",
       "solutionAttachments": []
     },
     {
@@ -269,13 +287,14 @@
         "",
         ""
       ],
-      "correctAnswer": "Tom",
+      "correctAnswer": "Mia",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Tom.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mia.",
       "solutionAttachments": []
     },
     {
@@ -290,10 +309,11 @@
       "correctAnswer": "Sam",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Sam.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sam.",
       "solutionAttachments": []
     },
     {
@@ -308,10 +328,11 @@
       "correctAnswer": "Yes",
       "category": "Application",
       "subcategory": "Real World Comparison",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Yes.",
       "solutionAttachments": []
     },
     {
@@ -323,13 +344,14 @@
         "",
         ""
       ],
-      "correctAnswer": "17",
+      "correctAnswer": "20",
       "category": "Mastery",
       "subcategory": "Mixed Assessment",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 17.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 20.",
       "solutionAttachments": []
     },
     {
@@ -344,28 +366,30 @@
       "correctAnswer": "13",
       "category": "Mastery",
       "subcategory": "Mixed Assessment",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 13.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 13.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has the most objects? 🍎🍎🍎, 🍎🍎🍎🍎🍎, 🍎🍎",
       "resultType": "multiple-choice",
       "options": [
-        "Left",
-        "Middle",
-        "Right",
+        "🍎🍎🍎",
+        "🍎🍎🍎🍎🍎",
+        "🍎🍎",
         ""
       ],
-      "correctAnswer": "Left",
+      "correctAnswer": "🍎🍎🍎🍎🍎",
       "category": "Mastery",
       "subcategory": "Mixed Assessment",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate learning",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Left.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎🍎🍎🍎.",
       "solutionAttachments": []
     }
   ]

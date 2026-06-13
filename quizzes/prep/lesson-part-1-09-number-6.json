@@ -4,7 +4,11 @@
   "description": "Learning Outcomes for Prep: Recognise 6 | Understand quantity 6 | Write 6 | Count 6 objects | Match quantity | Apply quantity 6 | Review number 6 | Mastery of number 6",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Numbers",
+    "lessonPart": "1.09",
+    "lessonName": "Number 6"
   },
   "category": "Prep",
   "questions": [
@@ -20,10 +24,11 @@
       "correctAnswer": "6",
       "category": "Recognition",
       "subcategory": "Identify Number 6",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     },
     {
@@ -38,10 +43,11 @@
       "correctAnswer": "6",
       "category": "Recognition",
       "subcategory": "Identify Number 6",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     },
     {
@@ -56,10 +62,11 @@
       "correctAnswer": "6",
       "category": "Recognition",
       "subcategory": "Identify Number 6",
+      "qClassify": "MCQ",
       "learningOutcome": "Understand quantity 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     },
     {
@@ -67,53 +74,56 @@
       "resultType": "checkbox",
       "options": [
         "6",
-        "1",
+        "4",
         "6",
-        "2"
-      ],
-      "correctAnswer": "6",
-      "category": "Recognition",
-      "subcategory": "Select Number 6",
-      "learningOutcome": "Recognise 6",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Select every correct option. The correct selection is: 6, 6, 6.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "Select all the 6s",
-      "resultType": "checkbox",
-      "options": [
-        "7",
-        "6",
-        "8",
         "6"
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "6, 6, 6",
       "category": "Recognition",
       "subcategory": "Select Number 6",
+      "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "Select every correct option. The correct selection is: 6, 6.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: 6, 6, and 6.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Select all the 6s",
+      "resultType": "checkbox",
+      "options": [
+        "12",
+        "6",
+        "6",
+        "10"
+      ],
+      "correctAnswer": "6, 6",
+      "category": "Recognition",
+      "subcategory": "Select Number 6",
+      "qClassify": "CHECKBOX",
+      "learningOutcome": "Recognise 6",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Check each option against the rule in the question, then select all valid choices: 6 and 6.",
       "solutionAttachments": []
     },
     {
       "question": "Trace the number 6",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Tracing",
       "subcategory": "Trace Number 6",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -130,18 +140,19 @@
       "question": "Trace the number 6 again",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Tracing",
       "subcategory": "Trace Number 6",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -158,18 +169,19 @@
       "question": "Draw the number 6",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "6",
-      "category": "Writing",
+      "correctAnswer": "PASS",
+      "category": "Tracing",
       "subcategory": "Draw Number 6",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The target numeral is Completed. Complete the tracing/writing step using that number.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -184,7 +196,7 @@
     },
     {
       "question": "🍎🍎🍎🍎🍎🍎 How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "4",
         "5",
@@ -194,10 +206,11 @@
       "correctAnswer": "6",
       "category": "Counting",
       "subcategory": "Count Six Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 6 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -213,7 +226,7 @@
     },
     {
       "question": "⭐⭐⭐⭐⭐⭐ How many stars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "4",
         "5",
@@ -223,10 +236,11 @@
       "correctAnswer": "6",
       "category": "Counting",
       "subcategory": "Count Six Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 6 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -242,7 +256,7 @@
     },
     {
       "question": "🚗🚗🚗🚗🚗🚗 How many cars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "4",
         "5",
@@ -252,10 +266,11 @@
       "correctAnswer": "6",
       "category": "Counting",
       "subcategory": "Count Six Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 6 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -271,7 +286,7 @@
     },
     {
       "question": "🐶🐶🐶🐶🐶🐶 How many dogs are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "4",
         "5",
@@ -281,10 +296,11 @@
       "correctAnswer": "6",
       "category": "Counting",
       "subcategory": "Count Six Objects",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 6 objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -310,10 +326,11 @@
       "correctAnswer": "6",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQ",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -339,10 +356,11 @@
       "correctAnswer": "6",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQ",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -368,10 +386,11 @@
       "correctAnswer": "🍎🍎🍎🍎🍎🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 🍎🍎🍎🍎🍎🍎.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎🍎🍎🍎🍎.",
       "solutionAttachments": []
     },
     {
@@ -386,10 +405,11 @@
       "correctAnswer": "6",
       "category": "Application",
       "subcategory": "Understanding Six",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -415,10 +435,11 @@
       "correctAnswer": "6",
       "category": "Application",
       "subcategory": "Understanding Six",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -444,10 +465,11 @@
       "correctAnswer": "6",
       "category": "Application",
       "subcategory": "Understanding Six",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 6.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -473,10 +495,11 @@
       "correctAnswer": "6",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Review number 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     },
     {
@@ -491,10 +514,11 @@
       "correctAnswer": "6",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery of number 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
       "solutionAttachments": []
     }
   ]

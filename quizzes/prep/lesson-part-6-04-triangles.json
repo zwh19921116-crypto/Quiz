@@ -4,206 +4,221 @@
   "description": "Learning Outcomes for Prep: Identify triangles | Recognise triangles | Match objects to triangles | Recognise triangle properties | Compare shapes | Apply shape recognition | Consolidate triangle recognition",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Shapes",
+    "lessonPart": "6.04",
+    "lessonName": "Triangles"
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which shape is a triangle?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Rectangle"
       ],
       "correctAnswer": "Triangle",
-      "category": "Shape Recognition",
+      "category": "Shapes",
       "subcategory": "Identify Triangles",
+      "qClassify": "MCQ",
       "learningOutcome": "Identify triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
       "solutionAttachments": []
     },
     {
       "question": "Does a triangle have 3 sides?",
       "resultType": "short-answer",
       "options": [
-        "Yes",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "3",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Triangles",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Does a triangle have 3 corners?",
       "resultType": "short-answer",
       "options": [
-        "Yes",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "3",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Triangles",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Is a triangle round?",
       "resultType": "short-answer",
       "options": [
-        "No",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "No",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Triangles",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Can a triangle roll easily?",
       "resultType": "short-answer",
       "options": [
-        "No",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "No",
-      "category": "Shape Recognition",
+      "correctAnswer": "PASS",
+      "category": "Shapes",
       "subcategory": "Identify Triangles",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a slice of pizza?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Rectangle"
       ],
       "correctAnswer": "Triangle",
       "category": "Everyday Objects",
       "subcategory": "Triangle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a nacho chip?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Rectangle"
       ],
       "correctAnswer": "Triangle",
       "category": "Everyday Objects",
       "subcategory": "Triangle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a yield sign (simplified)?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Rectangle"
       ],
       "correctAnswer": "Triangle",
       "category": "Everyday Objects",
       "subcategory": "Triangle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a pennant flag?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Rectangle"
       ],
       "correctAnswer": "Triangle",
       "category": "Everyday Objects",
       "subcategory": "Triangle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
       "solutionAttachments": []
     },
     {
       "question": "What shape is a watermelon slice?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Rectangle"
       ],
       "correctAnswer": "Triangle",
       "category": "Everyday Objects",
       "subcategory": "Triangle Objects",
+      "qClassify": "MCQ",
       "learningOutcome": "Match objects to triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
       "solutionAttachments": []
     },
     {
       "question": "How many sides does a triangle have?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "3",
-        "",
-        "",
-        ""
+        "4",
+        "0",
+        "5"
       ],
       "correctAnswer": "3",
       "category": "Triangle Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise triangle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -219,20 +234,21 @@
     },
     {
       "question": "How many corners does a triangle have?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "3",
-        "",
-        "",
-        ""
+        "4",
+        "0",
+        "5"
       ],
       "correctAnswer": "3",
       "category": "Triangle Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise triangle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count the objects shown and match the quantity. The answer is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
@@ -250,144 +266,152 @@
       "question": "Does a triangle have fewer sides than a square?",
       "resultType": "short-answer",
       "options": [
-        "Yes",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "Yes",
+      "correctAnswer": "PASS",
       "category": "Triangle Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Yes.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Does a triangle have more corners than a square?",
       "resultType": "short-answer",
       "options": [
-        "No",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "No",
+      "correctAnswer": "PASS",
       "category": "Triangle Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is No.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Can a triangle have 4 sides?",
       "resultType": "short-answer",
       "options": [
-        "No",
+        "PASS: boolean result stored in BooleanResult.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Triangle Properties",
       "subcategory": "Sides and Corners",
+      "qClassify": "BOOLEAN",
       "learningOutcome": "Recognise triangle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a triangle: pizza slice or coin?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Pizza Slice",
-        "",
-        "",
-        ""
+        "Coin",
+        "Door",
+        "Plate"
       ],
       "correctAnswer": "Pizza Slice",
       "category": "Application",
       "subcategory": "Find Triangles",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Pizza Slice.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pizza Slice.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a triangle: plate or nacho chip?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Nacho Chip",
-        "",
-        "",
-        ""
+        "Coin",
+        "Door",
+        "Plate"
       ],
       "correctAnswer": "Nacho Chip",
       "category": "Application",
       "subcategory": "Find Triangles",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Nacho Chip.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Nacho Chip.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a triangle: ruler or pennant flag?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Pennant Flag",
-        "",
-        "",
-        ""
+        "Coin",
+        "Door",
+        "Plate"
       ],
       "correctAnswer": "Pennant Flag",
       "category": "Application",
       "subcategory": "Find Triangles",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Pennant Flag.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pennant Flag.",
       "solutionAttachments": []
     },
     {
       "question": "Which shape has 3 sides and 3 corners?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "3",
-      "category": "Mastery",
-      "subcategory": "Mixed Review",
-      "learningOutcome": "Consolidate triangle recognition",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The correct answer is 3.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "Which shape looks like a pizza slice?",
-      "resultType": "short-answer",
-      "options": [
-        "Triangle",
-        "",
-        "",
-        ""
+        "Circle",
+        "Square",
+        "Rectangle"
       ],
       "correctAnswer": "Triangle",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Consolidate triangle recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "The correct answer is Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solutionAttachments": []
+    },
+    {
+      "question": "Which shape looks like a pizza slice?",
+      "resultType": "multiple-choice",
+      "options": [
+        "Triangle",
+        "Circle",
+        "Square",
+        "Rectangle"
+      ],
+      "correctAnswer": "Triangle",
+      "category": "Mastery",
+      "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
+      "learningOutcome": "Consolidate triangle recognition",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
       "solutionAttachments": []
     }
   ]

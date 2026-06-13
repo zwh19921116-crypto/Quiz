@@ -1,10 +1,14 @@
 {
-  "id": "quiz-369",
+  "id": "quiz-3",
   "title": "Prep 1.03",
   "description": "Learning Outcomes for Prep: Recognise 1 | Understand quantity 1 | Write 1 | Count 1 object | Match quantity | Apply quantity 1 | Review number 1 | Mastery of number 1",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20
+    "questionLimit": 20,
+    "grade": "Prep",
+    "module": "Numbers",
+    "lessonPart": "1.03",
+    "lessonName": "Number 1"
   },
   "category": "Prep",
   "questions": [
@@ -13,13 +17,14 @@
       "resultType": "multiple-choice",
       "options": [
         "0",
+        "1",
         "2",
-        "3",
-        "1"
+        "3"
       ],
       "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Identify Number 1",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 1",
       "notesAttachments": [],
       "image": "",
@@ -30,14 +35,15 @@
       "question": "Select the number 1",
       "resultType": "multiple-choice",
       "options": [
+        "2",
         "1",
         "3",
-        "4",
-        "2"
+        "4"
       ],
       "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Identify Number 1",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise 1",
       "notesAttachments": [],
       "image": "",
@@ -49,13 +55,14 @@
       "resultType": "multiple-choice",
       "options": [
         "0",
-        "3",
         "1",
-        "2"
+        "2",
+        "3"
       ],
       "correctAnswer": "1",
       "category": "Recognition",
       "subcategory": "Identify Number 1",
+      "qClassify": "MCQ",
       "learningOutcome": "Understand quantity 1",
       "notesAttachments": [],
       "image": "",
@@ -66,18 +73,19 @@
       "question": "Select all the 1s",
       "resultType": "checkbox",
       "options": [
-        "2",
         "1",
         "1",
-        "3"
+        "1",
+        "8"
       ],
-      "correctAnswer": "1, 1",
+      "correctAnswer": "1, 1, 1",
       "category": "Recognition",
       "subcategory": "Select Number 1",
+      "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 1.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: 1, 1, and 1.",
       "solutionAttachments": []
     },
     {
@@ -85,35 +93,37 @@
       "resultType": "checkbox",
       "options": [
         "1",
-        "4",
         "1",
-        "5"
+        "4",
+        "6"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "1, 1",
       "category": "Recognition",
       "subcategory": "Select Number 1",
+      "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 1.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: 1 and 1.",
       "solutionAttachments": []
     },
     {
       "question": "Trace the number 1",
       "resultType": "short-answer",
       "options": [
-        "",
+        "PASS: non-MCQ response field populated or not required.",
         "",
         "",
         ""
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "PASS",
       "category": "Tracing",
       "subcategory": "Trace Number 1",
+      "qClassify": "TRACE",
       "learningOutcome": "Write 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "The dotted numeral is 1. Trace it while saying 1 aloud.",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "number-tracing",
@@ -127,8 +137,66 @@
       }
     },
     {
-      "question": "🍎 How many apples are there?",
+      "question": "Trace the number 1 again",
       "resultType": "short-answer",
+      "options": [
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "PASS",
+      "category": "Tracing",
+      "subcategory": "Trace Number 1",
+      "qClassify": "TRACE",
+      "learningOutcome": "Write 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 1,
+          "prompt": "Trace the number 1 again",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "Draw the number 1",
+      "resultType": "short-answer",
+      "options": [
+        "PASS: non-MCQ response field populated or not required.",
+        "",
+        "",
+        ""
+      ],
+      "correctAnswer": "PASS",
+      "category": "Tracing",
+      "subcategory": "Draw Number 1",
+      "qClassify": "TRACE",
+      "learningOutcome": "Write 1",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Use the prompt to identify the target number, then trace or write it carefully. The target is PASS.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "number-tracing",
+        "config": {
+          "targetNumber": 1,
+          "prompt": "Draw the number 1",
+          "prepMode": true,
+          "showQuantityDots": true,
+          "showInstructions": false
+        }
+      }
+    },
+    {
+      "question": "🍎 How many apples are there?",
+      "resultType": "multiple-choice",
       "options": [
         "0",
         "1",
@@ -138,6 +206,7 @@
       "correctAnswer": "1",
       "category": "Counting",
       "subcategory": "Count One Object",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 1 object",
       "notesAttachments": [],
       "image": "",
@@ -157,7 +226,7 @@
     },
     {
       "question": "⭐ How many stars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "0",
         "1",
@@ -167,6 +236,7 @@
       "correctAnswer": "1",
       "category": "Counting",
       "subcategory": "Count One Object",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 1 object",
       "notesAttachments": [],
       "image": "",
@@ -186,7 +256,7 @@
     },
     {
       "question": "🚗 How many cars are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "0",
         "1",
@@ -196,6 +266,7 @@
       "correctAnswer": "1",
       "category": "Counting",
       "subcategory": "Count One Object",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 1 object",
       "notesAttachments": [],
       "image": "",
@@ -215,7 +286,7 @@
     },
     {
       "question": "🐶 How many dogs are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
         "0",
         "1",
@@ -225,6 +296,7 @@
       "correctAnswer": "1",
       "category": "Counting",
       "subcategory": "Count One Object",
+      "qClassify": "MCQICON",
       "learningOutcome": "Count 1 object",
       "notesAttachments": [],
       "image": "",
@@ -246,14 +318,15 @@
       "question": "Which number matches 🍎 ?",
       "resultType": "multiple-choice",
       "options": [
+        "0",
         "1",
         "2",
-        "0",
         "3"
       ],
       "correctAnswer": "1",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQ",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
@@ -272,45 +345,18 @@
       }
     },
     {
-      "question": "Draw the number 1",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "1",
-      "category": "Writing",
-      "subcategory": "Draw Number 1",
-      "learningOutcome": "Write 1",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The dotted numeral is 1. Trace it while saying 1 aloud.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 1,
-          "prompt": "Draw the number 1",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
-    },
-    {
       "question": "Which number matches ⭐ ?",
       "resultType": "multiple-choice",
       "options": [
+        "0",
         "1",
         "2",
-        "0",
         "3"
       ],
       "correctAnswer": "1",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQ",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
@@ -332,32 +378,34 @@
       "question": "Which group has 1 object?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
-        "🍎🍎🍎🍎",
         "🍎",
-        "🍎🍎"
+        "🍎🍎",
+        "🍎🍎",
+        "🍎🍎🍎🍎"
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "🍎",
       "category": "Matching",
       "subcategory": "Quantity Matching",
+      "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎.",
       "solutionAttachments": []
     },
     {
       "question": "Tom has 1 apple. How many apples does Tom have?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "0",
-        "3",
-        "2"
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "1",
       "category": "Application",
       "subcategory": "Understanding One",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 1",
       "notesAttachments": [],
       "image": "",
@@ -380,13 +428,14 @@
       "resultType": "multiple-choice",
       "options": [
         "0",
+        "1",
         "2",
-        "3",
-        "1"
+        "3"
       ],
       "correctAnswer": "1",
       "category": "Application",
       "subcategory": "Understanding One",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 1",
       "notesAttachments": [],
       "image": "",
@@ -408,14 +457,15 @@
       "question": "There is 1 fish in the tank. How many fish are there?",
       "resultType": "multiple-choice",
       "options": [
-        "1",
         "0",
-        "3",
-        "2"
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "1",
       "category": "Application",
       "subcategory": "Understanding One",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply quantity 1",
       "notesAttachments": [],
       "image": "",
@@ -437,14 +487,15 @@
       "question": "Which number means one?",
       "resultType": "multiple-choice",
       "options": [
-        "2",
-        "3",
+        "0",
         "1",
-        "0"
+        "2",
+        "3"
       ],
       "correctAnswer": "1",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Review number 1",
       "notesAttachments": [],
       "image": "",
@@ -452,45 +503,18 @@
       "solutionAttachments": []
     },
     {
-      "question": "Trace the number 1 again",
-      "resultType": "short-answer",
-      "options": [
-        "",
-        "",
-        "",
-        ""
-      ],
-      "correctAnswer": "1",
-      "category": "Tracing",
-      "subcategory": "Trace Number 1",
-      "learningOutcome": "Write 1",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "The dotted numeral is 1. Trace it while saying 1 aloud.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "number-tracing",
-        "config": {
-          "targetNumber": 1,
-          "prompt": "Trace the number 1 again",
-          "prepMode": true,
-          "showQuantityDots": true,
-          "showInstructions": false
-        }
-      }
-    },
-    {
       "question": "Select the number 1",
       "resultType": "multiple-choice",
       "options": [
-        "3",
-        "2",
         "0",
-        "1"
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "1",
       "category": "Mastery",
       "subcategory": "Mixed Review",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery of number 1",
       "notesAttachments": [],
       "image": "",
