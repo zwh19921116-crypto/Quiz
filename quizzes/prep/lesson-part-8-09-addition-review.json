@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Add within 10 | Make 10 | Add within 20 | Word addition | Counting on | Missing addend | Add fluently | Double addition | Multi-step addition",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Addition",
-    "lessonPart": "8.09",
-    "lessonName": "Addition Review"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -207,23 +203,23 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "5",
       "category": "Word Problems",
       "subcategory": "Simple Context",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 5 apples and get 4 more. How many?",
-          "totalCount": 9,
+          "totalCount": 5,
           "iconShape": "circle",
           "groups": [
-            9
+            5
           ]
         }
       }
@@ -237,14 +233,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Context",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -287,14 +283,14 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Number",
       "qClassify": "Short",
       "learningOutcome": "Missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -430,14 +426,14 @@
         "",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Mixed Context",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -480,14 +476,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "7",
       "category": "Mixed Skills",
       "subcategory": "Multi-step",
       "qClassify": "Short",
       "learningOutcome": "Multi-step addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 2 + 3 = 9.",
+      "solution": "Add the two numbers step by step: 2 + 3 = 7.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -511,14 +507,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "5",
       "category": "Mixed Skills",
       "subcategory": "Multi-step",
       "qClassify": "Short",
       "learningOutcome": "Multi-step addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 5 + 2 = 10.",
+      "solution": "Add the two numbers step by step: 5 + 2 = 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -542,14 +538,14 @@
         "",
         ""
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "qClassify": "Short",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {

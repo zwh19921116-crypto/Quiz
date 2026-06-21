@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Make 10 | Find missing number | Add to 10 | Subtraction idea | Missing addend | Number bonds",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Addition",
-    "lessonPart": "8.03",
-    "lessonName": "Making 10"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -331,14 +327,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Addend",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -350,14 +346,14 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Addend",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -369,14 +365,14 @@
         "",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Addend",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -388,14 +384,14 @@
         "",
         ""
       ],
-      "correctAnswer": "1",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Addend",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 1.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -407,14 +403,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Addend",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -426,23 +422,23 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "3",
       "category": "Number Bonds",
       "subcategory": "Word Problems",
       "qClassify": "Short",
       "learningOutcome": "Add to 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 3 apples and need 10 total. How many more?",
-          "totalCount": 7,
+          "totalCount": 3,
           "iconShape": "circle",
           "groups": [
-            7
+            3
           ]
         }
       }
@@ -456,26 +452,15 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Word Problems",
       "qClassify": "Short",
       "learningOutcome": "Subtraction idea",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "10 birds sit, 4 fly away. How many left?",
-          "totalCount": 6,
-          "iconShape": "circle",
-          "groups": [
-            6
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "2 + ? = 10",
@@ -486,14 +471,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Word Problems",
       "qClassify": "Short",
       "learningOutcome": "Missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -505,14 +490,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Mixed Review",
       "qClassify": "Short",
       "learningOutcome": "Number bonds",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -524,14 +509,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Mixed Review",
       "qClassify": "Short",
       "learningOutcome": "Number bonds",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     }
   ]

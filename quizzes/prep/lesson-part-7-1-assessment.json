@@ -1,14 +1,10 @@
 {
   "id": "quiz-74",
-  "title": "Prep 7.1",
+  "title": "Prep 7.10",
   "description": "Learning Outcomes for Prep: Compare weight | Compare capacity | Compare length | Compare height | Apply length | Apply weight | Apply capacity | Apply height | Use vocabulary | Consolidate skills",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Measurement",
-    "lessonPart": "7.1",
-    "lessonName": "Assessment"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -18,17 +14,17 @@
       "options": [
         "School Bag",
         "Pencil Case",
-        "Both are the same",
-        "Not enough information"
+        "",
+        ""
       ],
-      "correctAnswer": "School Bag",
+      "correctAnswer": "REVIEW",
       "category": "Weight",
       "subcategory": "Heavy and Light",
       "qClassify": "MCQ",
       "learningOutcome": "Compare weight",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to School Bag.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -37,17 +33,17 @@
       "options": [
         "Jug",
         "Mug",
-        "Both are the same",
-        "Not enough information"
+        "",
+        ""
       ],
-      "correctAnswer": "Jug",
+      "correctAnswer": "REVIEW",
       "category": "Capacity",
       "subcategory": "More and Less",
       "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Jug.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -56,17 +52,17 @@
       "options": [
         "Pencil",
         "Marker",
-        "Both are the same",
-        "Not enough information"
+        "",
+        ""
       ],
-      "correctAnswer": "Pencil",
+      "correctAnswer": "REVIEW",
       "category": "Length",
       "subcategory": "Long and Short",
       "qClassify": "MCQ",
       "learningOutcome": "Compare length",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pencil.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -75,36 +71,36 @@
       "options": [
         "Lamp Post",
         "Child",
-        "Both are the same",
-        "Not enough information"
+        "",
+        ""
       ],
-      "correctAnswer": "Lamp Post",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Tall and Short",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Lamp Post.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds the least: bottle, bucket, cup?",
       "resultType": "multiple-choice",
       "options": [
-        "Cup",
         "Bottle",
         "Bucket",
-        "Both are the same"
+        "Cup",
+        ""
       ],
-      "correctAnswer": "Cup",
+      "correctAnswer": "REVIEW",
       "category": "Capacity",
       "subcategory": "Compare Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cup.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -114,35 +110,35 @@
         "Rope",
         "Shoelace",
         "Ribbon",
-        "Both are the same"
+        ""
       ],
-      "correctAnswer": "Rope",
+      "correctAnswer": "REVIEW",
       "category": "Length",
       "subcategory": "Compare Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare length",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rope.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is lightest: backpack, lunchbox, book?",
       "resultType": "multiple-choice",
       "options": [
-        "Book",
         "Backpack",
         "Lunchbox",
-        "Both are the same"
+        "Book",
+        ""
       ],
-      "correctAnswer": "Book",
+      "correctAnswer": "REVIEW",
       "category": "Weight",
       "subcategory": "Compare Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare weight",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Book.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -152,16 +148,16 @@
         "Giraffe",
         "Horse",
         "Dog",
-        "Both are the same"
+        ""
       ],
-      "correctAnswer": "Giraffe",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Compare Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Giraffe.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -170,17 +166,17 @@
       "options": [
         "River",
         "Pencil",
-        "Both are the same",
-        "Not enough information"
+        "",
+        ""
       ],
-      "correctAnswer": "River",
+      "correctAnswer": "REVIEW",
       "category": "Length",
       "subcategory": "Application",
       "qClassify": "MCQ",
       "learningOutcome": "Apply length",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to River.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -189,17 +185,17 @@
       "options": [
         "Car",
         "Bicycle",
-        "Both are the same",
-        "Not enough information"
+        "",
+        ""
       ],
-      "correctAnswer": "Car",
+      "correctAnswer": "REVIEW",
       "category": "Weight",
       "subcategory": "Application",
       "qClassify": "MCQ",
       "learningOutcome": "Apply weight",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Car.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -208,36 +204,36 @@
       "options": [
         "Swimming Pool",
         "Bucket",
-        "Both are the same",
-        "Not enough information"
+        "",
+        ""
       ],
-      "correctAnswer": "Swimming Pool",
+      "correctAnswer": "REVIEW",
       "category": "Capacity",
       "subcategory": "Application",
       "qClassify": "MCQ",
       "learningOutcome": "Apply capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Swimming Pool.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which would be shorter: building or toy tower?",
       "resultType": "multiple-choice",
       "options": [
-        "Toy Tower",
         "Building",
-        "Both are the same",
-        "Not enough information"
+        "Toy Tower",
+        "",
+        ""
       ],
-      "correctAnswer": "Toy Tower",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Application",
       "qClassify": "MCQ",
       "learningOutcome": "Apply height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Toy Tower.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -246,17 +242,17 @@
       "options": [
         "Rope",
         "Cable",
-        "Both are the same",
-        "Not enough information"
+        "",
+        ""
       ],
-      "correctAnswer": "Rope",
+      "correctAnswer": "REVIEW",
       "category": "Length",
       "subcategory": "Mixed",
       "qClassify": "MCQ",
       "learningOutcome": "Compare length",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rope.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -265,17 +261,17 @@
       "options": [
         "Suitcase",
         "Book",
-        "Both are the same",
-        "Not enough information"
+        "",
+        ""
       ],
-      "correctAnswer": "Suitcase",
+      "correctAnswer": "REVIEW",
       "category": "Weight",
       "subcategory": "Mixed",
       "qClassify": "MCQ",
       "learningOutcome": "Compare weight",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Suitcase.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -284,17 +280,17 @@
       "options": [
         "Bowl",
         "Bathtub",
-        "Both are the same",
-        "Not enough information"
+        "",
+        ""
       ],
-      "correctAnswer": "Bowl",
+      "correctAnswer": "REVIEW",
       "category": "Capacity",
       "subcategory": "Mixed",
       "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bowl.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -303,17 +299,17 @@
       "options": [
         "Tree",
         "Bush",
-        "Both are the same",
-        "Not enough information"
+        "",
+        ""
       ],
-      "correctAnswer": "Tree",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Mixed",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tree.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -322,74 +318,74 @@
       "options": [
         "Light",
         "Heavy",
-        "Same Weight",
-        "Not Sure"
+        "Tall",
+        ""
       ],
-      "correctAnswer": "Light",
+      "correctAnswer": "REVIEW",
       "category": "Vocabulary",
       "subcategory": "Measurement Words",
       "qClassify": "MCQ",
       "learningOutcome": "Use vocabulary",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Light.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which word describes something not short?",
       "resultType": "multiple-choice",
       "options": [
-        "Long",
         "Short",
-        "Same Length",
-        "Not Sure"
+        "Tall",
+        "Long",
+        ""
       ],
-      "correctAnswer": "Long",
+      "correctAnswer": "REVIEW",
       "category": "Vocabulary",
       "subcategory": "Measurement Words",
       "qClassify": "MCQ",
       "learningOutcome": "Use vocabulary",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Long.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is longest: pencil, ruler, eraser?",
       "resultType": "multiple-choice",
       "options": [
-        "Ruler",
         "Pencil",
+        "Ruler",
         "Eraser",
-        "Both are the same"
+        ""
       ],
-      "correctAnswer": "Ruler",
+      "correctAnswer": "REVIEW",
       "category": "Mixed Review",
       "subcategory": "Multi Concept",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate skills",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ruler.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds the most: cup, bottle, jug?",
       "resultType": "multiple-choice",
       "options": [
-        "Jug",
         "Cup",
         "Bottle",
-        "Both are the same"
+        "Jug",
+        ""
       ],
-      "correctAnswer": "Jug",
+      "correctAnswer": "REVIEW",
       "category": "Mixed Review",
       "subcategory": "Multi Concept",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate skills",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Jug.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     }
   ]

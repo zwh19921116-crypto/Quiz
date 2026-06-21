@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Count in 2s | Count in 5s | Count in 10s | Count groups | Group counting | Repeated counting",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Counting & Patterns",
-    "lessonPart": "10.06",
-    "lessonName": "Counting Patterns Review"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -21,14 +17,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Number Patterns",
       "subcategory": "Count by 2 (Visual)",
       "qClassify": "Short",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -40,14 +36,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Number Patterns",
       "subcategory": "Count by 2 (Visual)",
       "qClassify": "Short",
       "learningOutcome": "Count in 2s",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -135,14 +131,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Number Patterns",
       "subcategory": "Mixed Visual",
       "qClassify": "Short",
       "learningOutcome": "Count groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -154,14 +150,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Number Patterns",
       "subcategory": "Mixed Visual",
       "qClassify": "Short",
       "learningOutcome": "Count groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -173,14 +169,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Number Patterns",
       "subcategory": "Mixed Visual",
       "qClassify": "Short",
       "learningOutcome": "Count groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -192,14 +188,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "PASS",
       "category": "Number Patterns",
       "subcategory": "Mixed Visual",
       "qClassify": "Short",
       "learningOutcome": "Count groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -211,14 +207,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "qClassify": "Short",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -230,14 +226,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "qClassify": "Short",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -268,14 +264,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "qClassify": "Short",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -287,14 +283,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "qClassify": "Short",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -306,14 +302,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "4",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 2 + 2 = 6.",
+      "solution": "Add the two numbers step by step: 2 + 2 = 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -399,14 +395,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 3 + 3 = 9.",
+      "solution": "Add the two numbers step by step: 3 + 3 = 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -430,14 +426,14 @@
         "",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "8",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Repeated counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 4 + 4 = 12.",
+      "solution": "Add the two numbers step by step: 4 + 4 = 8.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",

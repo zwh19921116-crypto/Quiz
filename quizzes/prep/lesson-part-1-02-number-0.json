@@ -1,19 +1,15 @@
 {
-  "id": "quiz-1",
+  "id": "quiz-2",
   "title": "Prep 1.02",
   "description": "Learning Outcomes for Prep: Recognise 0 | Understand zero | Write 0 | Count 0 objects | Match quantity | Apply zero | Review zero | Mastery of zero",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Numbers",
-    "lessonPart": "1.02",
-    "lessonName": "Number 0"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
     {
-      "question": "Which digit shows zero?",
+      "question": "Which number is 0?",
       "resultType": "multiple-choice",
       "options": [
         "0",
@@ -32,7 +28,7 @@
       "solutionAttachments": []
     },
     {
-      "question": "Which number is 0?",
+      "question": "Select the number 0",
       "resultType": "multiple-choice",
       "options": [
         "1",
@@ -57,7 +53,7 @@
         "0",
         "1",
         "2",
-        "4"
+        "3"
       ],
       "correctAnswer": "0",
       "category": "Recognition",
@@ -70,45 +66,45 @@
       "solutionAttachments": []
     },
     {
-      "question": "0 is the number for none.",
-      "resultType": "true-false",
+      "question": "Select all the 0s",
+      "resultType": "short-answer",
       "options": [
-        "True",
-        "False",
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
         "",
         ""
       ],
-      "correctAnswer": "True",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 0",
-      "qClassify": "BOOLEAN",
+      "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 0",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
-      "question": "1 is the number for none.",
-      "resultType": "true-false",
+      "question": "Select all the 0s",
+      "resultType": "short-answer",
       "options": [
-        "True",
-        "False",
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
         "",
         ""
       ],
-      "correctAnswer": "True",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 0",
-      "qClassify": "BOOLEAN",
+      "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 0",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
-      "question": "Trace the number 0.",
+      "question": "Trace the number 0",
       "resultType": "short-answer",
       "options": [
         "PASS: non-MCQ response field populated or not required.",
@@ -129,7 +125,7 @@
         "type": "number-tracing",
         "config": {
           "targetNumber": 0,
-          "prompt": "Trace the number 0.",
+          "prompt": "Trace the number 0",
           "prepMode": true,
           "showQuantityDots": true,
           "showInstructions": false
@@ -137,7 +133,7 @@
       }
     },
     {
-      "question": "Trace 0 three times.",
+      "question": "Trace the number 0 again",
       "resultType": "short-answer",
       "options": [
         "PASS: non-MCQ response field populated or not required.",
@@ -158,7 +154,7 @@
         "type": "number-tracing",
         "config": {
           "targetNumber": 0,
-          "prompt": "Trace 0 three times.",
+          "prompt": "Trace the number 0 again",
           "prepMode": true,
           "showQuantityDots": true,
           "showInstructions": false
@@ -166,7 +162,7 @@
       }
     },
     {
-      "question": "Draw the number 0.",
+      "question": "Draw the number 0",
       "resultType": "short-answer",
       "options": [
         "PASS: non-MCQ response field populated or not required.",
@@ -175,7 +171,7 @@
         ""
       ],
       "correctAnswer": "PASS",
-      "category": "Tracing",
+      "category": "Writing",
       "subcategory": "Draw Number 0",
       "qClassify": "TRACE",
       "learningOutcome": "Write 0",
@@ -187,7 +183,7 @@
         "type": "number-tracing",
         "config": {
           "targetNumber": 0,
-          "prompt": "Draw the number 0.",
+          "prompt": "Draw the number 0",
           "prepMode": true,
           "showQuantityDots": true,
           "showInstructions": false
@@ -196,17 +192,17 @@
     },
     {
       "question": "There are no apples in the basket. How many apples are there?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "PASS: short answer stored in ShortAnswer.",
-        "",
-        "",
-        ""
+        "0",
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "0",
       "category": "Counting",
       "subcategory": "Zero Objects",
-      "qClassify": "SHORTANSWER",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 0 objects",
       "notesAttachments": [],
       "image": "",
@@ -225,18 +221,18 @@
       }
     },
     {
-      "question": "There are no balls on the table. How many balls are there?",
-      "resultType": "short-answer",
+      "question": "There are no stars in the sky. How many stars are there?",
+      "resultType": "multiple-choice",
       "options": [
-        "PASS: short answer stored in ShortAnswer.",
-        "",
-        "",
-        ""
+        "0",
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "0",
       "category": "Counting",
       "subcategory": "Zero Objects",
-      "qClassify": "SHORTANSWER",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 0 objects",
       "notesAttachments": [],
       "image": "",
@@ -245,7 +241,7 @@
       "interactiveApp": {
         "type": "icon-count",
         "config": {
-          "prompt": "There are no balls on the table. How many balls are there?",
+          "prompt": "There are no stars in the sky. How many stars are there?",
           "totalCount": 0,
           "iconShape": "circle",
           "groups": [
@@ -255,18 +251,18 @@
       }
     },
     {
-      "question": "There are no birds in the tree. How many birds are there?",
-      "resultType": "short-answer",
+      "question": "There are no cars. How many cars are there?",
+      "resultType": "multiple-choice",
       "options": [
-        "PASS: short answer stored in ShortAnswer.",
-        "",
-        "",
-        ""
+        "0",
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "0",
       "category": "Counting",
       "subcategory": "Zero Objects",
-      "qClassify": "SHORTANSWER",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 0 objects",
       "notesAttachments": [],
       "image": "",
@@ -275,7 +271,7 @@
       "interactiveApp": {
         "type": "icon-count",
         "config": {
-          "prompt": "There are no birds in the tree. How many birds are there?",
+          "prompt": "There are no cars. How many cars are there?",
           "totalCount": 0,
           "iconShape": "circle",
           "groups": [
@@ -285,18 +281,18 @@
       }
     },
     {
-      "question": "There are no crayons in the box. How many crayons are there?",
-      "resultType": "short-answer",
+      "question": "There are no dogs. How many dogs are there?",
+      "resultType": "multiple-choice",
       "options": [
-        "PASS: short answer stored in ShortAnswer.",
-        "",
-        "",
-        ""
+        "0",
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "0",
       "category": "Counting",
       "subcategory": "Zero Objects",
-      "qClassify": "SHORTANSWER",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 0 objects",
       "notesAttachments": [],
       "image": "",
@@ -305,7 +301,7 @@
       "interactiveApp": {
         "type": "icon-count",
         "config": {
-          "prompt": "There are no crayons in the box. How many crayons are there?",
+          "prompt": "There are no dogs. How many dogs are there?",
           "totalCount": 0,
           "iconShape": "circle",
           "groups": [
@@ -315,7 +311,7 @@
       }
     },
     {
-      "question": "The box is empty. Which number matches the box?",
+      "question": "The box is empty. Which number shows how many objects are in the box?",
       "resultType": "multiple-choice",
       "options": [
         "0",
@@ -335,7 +331,7 @@
       "interactiveApp": {
         "type": "icon-count",
         "config": {
-          "prompt": "The box is empty. Which number matches the box?",
+          "prompt": "The box is empty. Which number shows how many objects are in the box?",
           "totalCount": 0,
           "iconShape": "circle",
           "groups": [
@@ -345,7 +341,7 @@
       }
     },
     {
-      "question": "There are no stars. Which number matches this amount?",
+      "question": "There are no apples. Which number matches this amount?",
       "resultType": "multiple-choice",
       "options": [
         "0",
@@ -365,7 +361,7 @@
       "interactiveApp": {
         "type": "icon-count",
         "config": {
-          "prompt": "There are no stars. Which number matches this amount?",
+          "prompt": "There are no apples. Which number matches this amount?",
           "totalCount": 0,
           "iconShape": "circle",
           "groups": [
@@ -375,26 +371,26 @@
       }
     },
     {
-      "question": "Which picture shows zero apples?",
+      "question": "Which group shows zero objects?",
       "resultType": "multiple-choice",
       "options": [
-        "An empty plate",
-        "One apple",
-        "Two apples",
-        "Three apples"
+        "No Apples",
+        "🍎",
+        "🍎🍎",
+        "🍎🍎🍎"
       ],
-      "correctAnswer": "An empty plate",
+      "correctAnswer": "No Apples",
       "category": "Matching",
       "subcategory": "Quantity Matching",
       "qClassify": "MCQICON",
       "learningOutcome": "Match quantity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to An empty plate.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to No Apples.",
       "solutionAttachments": []
     },
     {
-      "question": "Tom has no apples. How many apples does Tom have?",
+      "question": "Tom has 0 apples. How many apples does Tom have? (There are no objects shown.)",
       "resultType": "multiple-choice",
       "options": [
         "0",
@@ -414,7 +410,7 @@
       "interactiveApp": {
         "type": "icon-count",
         "config": {
-          "prompt": "Tom has no apples. How many apples does Tom have?",
+          "prompt": "Tom has 0 apples. How many apples does Tom have? (There are no objects shown.)",
           "totalCount": 0,
           "iconShape": "circle",
           "groups": [
@@ -424,37 +420,48 @@
       }
     },
     {
-      "question": "If Sara has no balloons, she has 0 balloons.",
-      "resultType": "true-false",
+      "question": "Sara has no balloons. How many balloons does she have?",
+      "resultType": "multiple-choice",
       "options": [
-        "True",
-        "False",
-        "",
-        ""
-      ],
-      "correctAnswer": "True",
-      "category": "Application",
-      "subcategory": "Understanding Zero",
-      "qClassify": "BOOLEAN",
-      "learningOutcome": "Apply zero",
-      "notesAttachments": [],
-      "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
-      "solutionAttachments": []
-    },
-    {
-      "question": "There are no fish in the tank. How many fish are there?",
-      "resultType": "short-answer",
-      "options": [
-        "PASS: short answer stored in ShortAnswer.",
-        "",
-        "",
-        ""
+        "0",
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "0",
       "category": "Application",
       "subcategory": "Understanding Zero",
-      "qClassify": "SHORTANSWER",
+      "qClassify": "MCQ",
+      "learningOutcome": "Apply zero",
+      "notesAttachments": [],
+      "image": "",
+      "solution": "Count each object once, then match that total to the choices. The total count is 0.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "icon-count",
+        "config": {
+          "prompt": "Sara has no balloons. How many balloons does she have?",
+          "totalCount": 0,
+          "iconShape": "circle",
+          "groups": [
+            0
+          ]
+        }
+      }
+    },
+    {
+      "question": "There are no fish in the tank. How many fish are there?",
+      "resultType": "multiple-choice",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "0",
+      "category": "Application",
+      "subcategory": "Understanding Zero",
+      "qClassify": "MCQ",
       "learningOutcome": "Apply zero",
       "notesAttachments": [],
       "image": "",
@@ -473,7 +480,7 @@
       }
     },
     {
-      "question": "Which number shows zero objects?",
+      "question": "Which number means none?",
       "resultType": "multiple-choice",
       "options": [
         "0",
@@ -492,22 +499,22 @@
       "solutionAttachments": []
     },
     {
-      "question": "0 means there is one object.",
-      "resultType": "true-false",
+      "question": "Select the number 0",
+      "resultType": "multiple-choice",
       "options": [
-        "True",
-        "False",
-        "",
-        ""
+        "0",
+        "1",
+        "2",
+        "3"
       ],
-      "correctAnswer": "True",
+      "correctAnswer": "0",
       "category": "Mastery",
       "subcategory": "Mixed Review",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Mastery of zero",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
       "solutionAttachments": []
     }
   ]

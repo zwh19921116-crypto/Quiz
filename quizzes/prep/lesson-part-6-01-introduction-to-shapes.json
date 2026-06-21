@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Recognise circles | Recognise squares | Recognise triangles | Recognise rectangles | Identify shapes | Match objects to shapes | Recognise shapes in life | Consolidate shape recognition",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Shapes",
-    "lessonPart": "6.01",
-    "lessonName": "Introduction to Shapes"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -17,18 +13,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Circle",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -36,18 +32,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Circle",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -55,18 +51,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Square",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -74,18 +70,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Square",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -93,18 +89,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "Circle",
-        "Square",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Triangle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Triangle",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -112,18 +108,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "Circle",
-        "Square",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Triangle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Triangle",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -131,18 +127,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "Circle",
-        "Square",
-        "Triangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Rectangle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Rectangle",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -150,18 +146,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "Circle",
-        "Square",
-        "Triangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Rectangle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Rectangle",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -169,18 +165,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Mixed Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Identify shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -188,18 +184,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "Circle",
-        "Square",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Triangle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Mixed Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Identify shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -207,18 +203,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Mixed Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Identify shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -226,75 +222,75 @@
       "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "Circle",
-        "Square",
-        "Triangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Rectangle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Mixed Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Identify shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "A wheel is a ______.",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Shape Matching",
       "subcategory": "Shape Names",
       "qClassify": "MCQ",
       "learningOutcome": "Match objects to shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "A window is usually a ______.",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Shape Matching",
       "subcategory": "Shape Names",
       "qClassify": "MCQ",
       "learningOutcome": "Match objects to shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "A ruler is usually a ______.",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Rectangle",
-        "Circle",
-        "Square",
-        "Triangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Rectangle",
+      "correctAnswer": "REVIEW",
       "category": "Shape Matching",
       "subcategory": "Shape Names",
       "qClassify": "MCQ",
       "learningOutcome": "Match objects to shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -302,18 +298,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Pentagon",
-        "Circle",
-        "Square",
-        "Triangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Pentagon",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Everyday Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise shapes in life",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pentagon.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -321,18 +317,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "Circle",
-        "Square",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Triangle",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Everyday Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise shapes in life",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -340,18 +336,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "Circle",
-        "Square",
-        "Triangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Rectangle",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Everyday Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise shapes in life",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -359,18 +355,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -378,18 +374,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     }
   ]

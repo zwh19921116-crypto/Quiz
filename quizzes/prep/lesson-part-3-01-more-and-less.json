@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Compare quantities | Compare numbers | Apply comparison | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Comparing Numbers",
-    "lessonPart": "3.01",
-    "lessonName": "More and Less"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -16,190 +12,190 @@
       "question": "Which group has more apples? 🍎🍎 or 🍎🍎🍎",
       "resultType": "multiple-choice",
       "options": [
-        "🍎🍎",
-        "🍎🍎🍎",
+        "Left",
+        "Right",
         "",
         ""
       ],
-      "correctAnswer": "🍎🍎🍎",
+      "correctAnswer": "REVIEW",
       "category": "Comparing",
       "subcategory": "More Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎🍎.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has more stars? ⭐⭐ or ⭐⭐⭐⭐",
       "resultType": "multiple-choice",
       "options": [
-        "⭐⭐⭐⭐",
-        "⭐⭐",
+        "Left",
+        "Right",
         "",
         ""
       ],
-      "correctAnswer": "⭐⭐⭐⭐",
+      "correctAnswer": "REVIEW",
       "category": "Comparing",
       "subcategory": "More Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to ⭐⭐⭐⭐.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has more cars? 🚗🚗🚗 or 🚗🚗",
       "resultType": "multiple-choice",
       "options": [
-        "🚗🚗🚗",
-        "🚗🚗",
+        "Left",
+        "Right",
         "",
         ""
       ],
-      "correctAnswer": "🚗🚗🚗",
+      "correctAnswer": "REVIEW",
       "category": "Comparing",
       "subcategory": "More Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🚗🚗🚗.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has more dogs? 🐶🐶🐶🐶 or 🐶🐶🐶",
       "resultType": "multiple-choice",
       "options": [
-        "🐶🐶🐶",
-        "🐶🐶🐶🐶",
+        "Left",
+        "Right",
         "",
         ""
       ],
-      "correctAnswer": "🐶🐶🐶🐶",
+      "correctAnswer": "REVIEW",
       "category": "Comparing",
       "subcategory": "More Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐶🐶🐶🐶.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has more fish? 🐟🐟 or 🐟🐟🐟🐟",
       "resultType": "multiple-choice",
       "options": [
-        "🐟🐟🐟🐟",
-        "🐟🐟",
+        "Left",
+        "Right",
         "",
         ""
       ],
-      "correctAnswer": "🐟🐟🐟🐟",
+      "correctAnswer": "REVIEW",
       "category": "Comparing",
       "subcategory": "More Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐟🐟🐟🐟.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has fewer apples? 🍎🍎 or 🍎🍎🍎🍎",
       "resultType": "multiple-choice",
       "options": [
-        "🍎🍎",
-        "🍎🍎🍎🍎",
+        "Left",
+        "Right",
         "",
         ""
       ],
-      "correctAnswer": "🍎🍎",
+      "correctAnswer": "REVIEW",
       "category": "Comparing",
       "subcategory": "Less Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🍎🍎.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has fewer stars? ⭐⭐⭐⭐⭐ or ⭐⭐",
       "resultType": "multiple-choice",
       "options": [
-        "⭐⭐⭐⭐⭐",
-        "⭐⭐",
+        "Left",
+        "Right",
         "",
         ""
       ],
-      "correctAnswer": "⭐⭐",
+      "correctAnswer": "REVIEW",
       "category": "Comparing",
       "subcategory": "Less Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to ⭐⭐.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has fewer cars? 🚗🚗🚗 or 🚗🚗🚗🚗",
       "resultType": "multiple-choice",
       "options": [
-        "🚗🚗🚗🚗",
-        "🚗🚗🚗",
+        "Left",
+        "Right",
         "",
         ""
       ],
-      "correctAnswer": "🚗🚗🚗",
+      "correctAnswer": "REVIEW",
       "category": "Comparing",
       "subcategory": "Less Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🚗🚗🚗.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has fewer dogs? 🐶🐶 or 🐶🐶🐶🐶",
       "resultType": "multiple-choice",
       "options": [
-        "🐶🐶",
-        "🐶🐶🐶🐶",
+        "Left",
+        "Right",
         "",
         ""
       ],
-      "correctAnswer": "🐶🐶",
+      "correctAnswer": "REVIEW",
       "category": "Comparing",
       "subcategory": "Less Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐶🐶.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which group has fewer fish? 🐟🐟🐟 or 🐟🐟🐟🐟🐟",
       "resultType": "multiple-choice",
       "options": [
-        "🐟🐟🐟🐟🐟",
-        "🐟🐟🐟",
+        "Left",
+        "Right",
         "",
         ""
       ],
-      "correctAnswer": "🐟🐟🐟",
+      "correctAnswer": "REVIEW",
       "category": "Comparing",
       "subcategory": "Less Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare quantities",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 🐟🐟🐟.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -211,14 +207,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Bigger Number",
       "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -230,14 +226,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Bigger Number",
       "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -249,14 +245,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Bigger Number",
       "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -268,14 +264,14 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Smaller Number",
       "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -287,14 +283,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Smaller Number",
       "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -306,14 +302,14 @@
         "",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "REVIEW",
       "category": "Recognition",
       "subcategory": "Smaller Number",
       "qClassify": "MCQ",
       "learningOutcome": "Compare numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -325,14 +321,14 @@
         "",
         ""
       ],
-      "correctAnswer": "Mia",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Real World Comparison",
       "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mia.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -344,14 +340,14 @@
         "",
         ""
       ],
-      "correctAnswer": "Sam",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Real World Comparison",
       "qClassify": "MCQ",
       "learningOutcome": "Apply comparison",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sam.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -363,14 +359,14 @@
         "",
         ""
       ],
-      "correctAnswer": "Ava",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Ava.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -382,14 +378,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Mastery",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     }
   ]

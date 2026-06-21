@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Count in 5s | Understand groups | Group counting | Repeated addition | Equal groups",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Multiplication",
-    "lessonPart": "10.04",
-    "lessonName": "Counting by 5s"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -21,23 +17,23 @@
         "",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "qClassify": "Short",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "✋✋ → How many fingers in total?",
-          "totalCount": 2,
+          "totalCount": 3,
           "iconShape": "circle",
           "groups": [
-            2
+            3
           ]
         }
       }
@@ -89,14 +85,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "PASS",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "qClassify": "Short",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -146,23 +142,23 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "6",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "qClassify": "Short",
       "learningOutcome": "Understand groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "👟👟👟👟👟 → How many in 1 group?",
-          "totalCount": 5,
+          "totalCount": 6,
           "iconShape": "circle",
           "groups": [
-            5
+            6
           ]
         }
       }
@@ -176,14 +172,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "PASS",
       "category": "Number Patterns",
       "subcategory": "Visual Counting",
       "qClassify": "Short",
       "learningOutcome": "Count in 5s",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -233,14 +229,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "qClassify": "Short",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -290,14 +286,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Groups",
       "qClassify": "Short",
       "learningOutcome": "Group counting",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -390,14 +386,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Equal groups",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {

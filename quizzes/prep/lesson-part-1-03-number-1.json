@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Recognise 1 | Understand quantity 1 | Write 1 | Count 1 object | Match quantity | Apply quantity 1 | Review number 1 | Mastery of number 1",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Numbers",
-    "lessonPart": "1.03",
-    "lessonName": "Number 1"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -71,40 +67,40 @@
     },
     {
       "question": "Select all the 1s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "1",
-        "1",
-        "1",
-        "8"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "1, 1, 1",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 1",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 1, 1, and 1.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 1s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "1",
-        "1",
-        "4",
-        "6"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "1, 1",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 1",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 1",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 1 and 1.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
@@ -175,7 +171,7 @@
         ""
       ],
       "correctAnswer": "PASS",
-      "category": "Tracing",
+      "category": "Writing",
       "subcategory": "Draw Number 1",
       "qClassify": "TRACE",
       "learningOutcome": "Write 1",
@@ -206,7 +202,7 @@
       "correctAnswer": "1",
       "category": "Counting",
       "subcategory": "Count One Object",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 1 object",
       "notesAttachments": [],
       "image": "",
@@ -236,7 +232,7 @@
       "correctAnswer": "1",
       "category": "Counting",
       "subcategory": "Count One Object",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 1 object",
       "notesAttachments": [],
       "image": "",
@@ -266,7 +262,7 @@
       "correctAnswer": "1",
       "category": "Counting",
       "subcategory": "Count One Object",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 1 object",
       "notesAttachments": [],
       "image": "",
@@ -296,7 +292,7 @@
       "correctAnswer": "1",
       "category": "Counting",
       "subcategory": "Count One Object",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 1 object",
       "notesAttachments": [],
       "image": "",

@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Identify squares | Recognise squares | Match objects to squares | Recognise square properties | Compare shapes | Apply shape recognition | Consolidate square recognition",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Shapes",
-    "lessonPart": "6.03",
-    "lessonName": "Squares"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -17,94 +13,94 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Identify Squares",
       "qClassify": "MCQ",
       "learningOutcome": "Identify squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Does a square have 4 sides?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "Yes",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "4",
       "category": "Shapes",
       "subcategory": "Identify Squares",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
       "question": "Does a square have 4 corners?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "Yes",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "4",
       "category": "Shapes",
       "subcategory": "Identify Squares",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
       "question": "Are all sides of a square the same length?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "Yes",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "4",
       "category": "Shapes",
       "subcategory": "Identify Squares",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
       "question": "Does a square roll?",
       "resultType": "short-answer",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "No",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Identify Squares",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -112,18 +108,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Objects",
       "subcategory": "Square Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Match objects to squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -131,18 +127,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Objects",
       "subcategory": "Square Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Match objects to squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -150,18 +146,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Objects",
       "subcategory": "Square Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Match objects to squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -169,18 +165,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Objects",
       "subcategory": "Square Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Match objects to squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -188,28 +184,28 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Objects",
       "subcategory": "Square Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Match objects to squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "How many sides does a square have?",
       "resultType": "multiple-choice",
       "options": [
-        "4",
         "3",
-        "0",
-        "5"
+        "4",
+        "5",
+        "6"
       ],
       "correctAnswer": "4",
       "category": "Square Properties",
@@ -236,10 +232,10 @@
       "question": "How many corners does a square have?",
       "resultType": "multiple-choice",
       "options": [
-        "4",
         "3",
-        "0",
-        "5"
+        "4",
+        "5",
+        "6"
       ],
       "correctAnswer": "4",
       "category": "Square Properties",
@@ -264,116 +260,116 @@
     },
     {
       "question": "Does a square have more sides than a triangle?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "Yes",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "3",
       "category": "Square Properties",
       "subcategory": "Sides and Corners",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
       "question": "Is a square round?",
       "resultType": "short-answer",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "No",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "REVIEW",
       "category": "Square Properties",
       "subcategory": "Sides and Corners",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise square properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Can a square have 3 corners?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "No",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "4",
       "category": "Square Properties",
       "subcategory": "Sides and Corners",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise square properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a square: sticky note or coin?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Sticky Note",
-        "Coin",
-        "Door",
-        "Plate"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Sticky Note",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Find Squares",
       "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Sticky Note.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a square: tile or wheel?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Tile",
-        "Coin",
-        "Door",
-        "Plate"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Tile",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Find Squares",
       "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tile.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a square: checkerboard square or plate?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Checkerboard Square",
-        "Coin",
-        "Door",
-        "Plate"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Checkerboard Square",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Find Squares",
       "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Checkerboard Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -381,18 +377,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate square recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -400,18 +396,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate square recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     }
   ]

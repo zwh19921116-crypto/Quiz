@@ -4,392 +4,388 @@
   "description": "Learning Outcomes for Prep: Compare length | Compare height | Compare weight | Compare capacity | Understand length | Understand height | Understand weight | Understand capacity | Learn measurement words | Apply measurement concepts | Consolidate measurement concepts",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Measurement",
-    "lessonPart": "7.01",
-    "lessonName": "Introduction to Measurement"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which pencil is longer?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Longer Pencil",
-        "Shorter Pencil",
-        "Same Length",
-        "Not Sure"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Longer Pencil",
+      "correctAnswer": "REVIEW",
       "category": "Measurement Concepts",
       "subcategory": "Compare Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare length",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Longer Pencil.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which tower is taller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Taller Tower",
-        "Shorter Tower",
-        "Same Height",
-        "Not Sure"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Taller Tower",
+      "correctAnswer": "REVIEW",
       "category": "Measurement Concepts",
       "subcategory": "Compare Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Taller Tower.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which rock is heavier?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Heavier Rock",
-        "Lighter Rock",
-        "Same Weight",
-        "Not Sure"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Heavier Rock",
+      "correctAnswer": "REVIEW",
       "category": "Measurement Concepts",
       "subcategory": "Compare Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare weight",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Heavier Rock.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which bucket holds more water?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Larger Bucket",
-        "Smaller Bucket",
-        "Empty Bucket",
-        "Same Capacity"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Larger Bucket",
+      "correctAnswer": "REVIEW",
       "category": "Measurement Concepts",
       "subcategory": "Compare Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Larger Bucket.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which ribbon is shorter?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Shorter Ribbon",
-        "Longer Ribbon",
-        "Same Length",
-        "Not Sure"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Shorter Ribbon",
+      "correctAnswer": "REVIEW",
       "category": "Measurement Concepts",
       "subcategory": "Compare Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Compare length",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Shorter Ribbon.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
-      "question": "A giraffes neck is usually long or short?",
-      "resultType": "multiple-choice",
+      "question": "A snake is usually long or short?",
+      "resultType": "short-answer",
       "options": [
         "Long",
-        "Short",
-        "Same Length",
-        "Not Sure"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Long",
+      "correctAnswer": "REVIEW",
       "category": "Length",
       "subcategory": "Long and Short",
       "qClassify": "MCQ",
       "learningOutcome": "Understand length",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Long.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "A crayon is usually shorter than a ruler. True or False?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
-        "",
-        "",
-        ""
+        "0",
+        "1",
+        "2",
+        "3"
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "REVIEW",
       "category": "Length",
       "subcategory": "Long and Short",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Understand length",
       "notesAttachments": [],
       "image": "",
-      "solution": "Evaluate the statement using the lesson rule, then decide whether it is true or false. The correct choice is PASS.",
+      "solution": "Evaluate the statement using the lesson rule, then decide whether it is true or false. The correct choice is REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Is a giraffe usually taller than a dog?",
       "resultType": "short-answer",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "Yes",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Tall and Short",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Understand height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Is a child usually shorter than a tree?",
       "resultType": "short-answer",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "Yes",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Tall and Short",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Understand height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is heavier: feather or brick?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Brick",
-        "Feather",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Brick",
+      "correctAnswer": "REVIEW",
       "category": "Weight",
       "subcategory": "Heavy and Light",
       "qClassify": "MCQ",
       "learningOutcome": "Understand weight",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Brick.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is lighter: elephant or mouse?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Mouse",
-        "Elephant",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Mouse",
+      "correctAnswer": "REVIEW",
       "category": "Weight",
       "subcategory": "Heavy and Light",
       "qClassify": "MCQ",
       "learningOutcome": "Understand weight",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Mouse.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds more water: cup or bucket?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Bucket",
-        "Cup",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Bucket",
+      "correctAnswer": "REVIEW",
       "category": "Capacity",
       "subcategory": "More and Less",
       "qClassify": "MCQ",
       "learningOutcome": "Understand capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Bucket.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds less water: bathtub or cup?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Cup",
-        "Bathtub",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Cup",
+      "correctAnswer": "REVIEW",
       "category": "Capacity",
       "subcategory": "More and Less",
       "qClassify": "MCQ",
       "learningOutcome": "Understand capacity",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Cup.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which word means not heavy?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Light",
-        "Heavy",
-        "Same Weight",
-        "Not Sure"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Light",
+      "correctAnswer": "REVIEW",
       "category": "Measurement Vocabulary",
       "subcategory": "Vocabulary",
       "qClassify": "MCQ",
       "learningOutcome": "Learn measurement words",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Light.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which word means not short?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
-        "Long",
-        "Short",
-        "Heavy",
-        "Light"
+        "Tall",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Long",
+      "correctAnswer": "REVIEW",
       "category": "Measurement Vocabulary",
       "subcategory": "Vocabulary",
       "qClassify": "MCQ",
       "learningOutcome": "Learn measurement words",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Long.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is longer: pencil or eraser?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Pencil",
-        "Eraser",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Pencil",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Everyday Measurement",
       "qClassify": "MCQ",
       "learningOutcome": "Apply measurement concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Pencil.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is taller: house or toy block?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "House",
-        "Toy Block",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "House",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Everyday Measurement",
       "qClassify": "MCQ",
       "learningOutcome": "Apply measurement concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to House.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is heavier: school bag or paper clip?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "School Bag",
-        "Paper Clip",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "School Bag",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Everyday Measurement",
       "qClassify": "MCQ",
       "learningOutcome": "Apply measurement concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to School Bag.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which holds more: bottle or swimming pool?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Swimming Pool",
-        "Bottle",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Swimming Pool",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate measurement concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Swimming Pool.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is lighter: basketball or feather?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Feather",
-        "Basketball",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Feather",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate measurement concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Feather.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     }
   ]

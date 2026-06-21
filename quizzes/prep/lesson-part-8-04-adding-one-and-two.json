@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Add 1 | Add 2 | Add small numbers | Word addition | Add fluently",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Addition",
-    "lessonPart": "8.04",
-    "lessonName": "Adding One and Two"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -486,23 +482,23 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Word Problems",
       "subcategory": "Simple Stories",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 2 apples and get 1 more. How many?",
-          "totalCount": 3,
+          "totalCount": 2,
           "iconShape": "circle",
           "groups": [
-            3
+            2
           ]
         }
       }
@@ -516,14 +512,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Stories",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -535,14 +531,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Stories",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {

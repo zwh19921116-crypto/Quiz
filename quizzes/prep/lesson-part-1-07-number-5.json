@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Recognise 5 | Understand quantity 5 | Write 5 | Count 5 objects | Match quantity | Apply quantity 5 | Review number 5 | Mastery of number 5",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Numbers",
-    "lessonPart": "1.07",
-    "lessonName": "Number 5"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -71,40 +67,40 @@
     },
     {
       "question": "Select all the 5s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "5",
-        "55",
-        "5",
-        "5"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "5, 5, 5",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 5",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 5, 5, and 5.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 5s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "5",
-        "5",
-        "6",
-        "7"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "5, 5",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 5",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 5",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 5 and 5.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
@@ -175,7 +171,7 @@
         ""
       ],
       "correctAnswer": "PASS",
-      "category": "Tracing",
+      "category": "Writing",
       "subcategory": "Draw Number 5",
       "qClassify": "TRACE",
       "learningOutcome": "Write 5",
@@ -206,7 +202,7 @@
       "correctAnswer": "5",
       "category": "Counting",
       "subcategory": "Count Five Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 5 objects",
       "notesAttachments": [],
       "image": "",
@@ -236,7 +232,7 @@
       "correctAnswer": "5",
       "category": "Counting",
       "subcategory": "Count Five Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 5 objects",
       "notesAttachments": [],
       "image": "",
@@ -266,7 +262,7 @@
       "correctAnswer": "5",
       "category": "Counting",
       "subcategory": "Count Five Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 5 objects",
       "notesAttachments": [],
       "image": "",
@@ -296,7 +292,7 @@
       "correctAnswer": "5",
       "category": "Counting",
       "subcategory": "Count Five Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 5 objects",
       "notesAttachments": [],
       "image": "",

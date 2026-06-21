@@ -57,7 +57,7 @@
           <button class="btn secondary" id="connectRootBtn" type="button">Connect Root Folder</button>
           <button class="btn secondary" id="importTableBtn" type="button">Import Spreadsheet</button>
           <button class="btn secondary" id="openGlobalResultValidationBtn" type="button">Global Result Validation</button>
-          <button class="btn secondary qclassify-filter-btn" id="qClassifyFilterBtn" type="button" aria-pressed="false" title="Filter quizzes and questions by QClassify">QClassify Filter</button>
+          <button class="btn secondary" id="openResultValidationBtn" type="button">Result Validation</button>
           <input type="file" id="importTableInput" class="hidden" accept=".xlsx,.xls,.csv" />
           <button class="btn" id="saveQuizBtn">Save Selected Quiz</button>
           <button class="btn secondary" id="downloadQuizBtn">Download Selected Quiz JSON</button>
@@ -95,12 +95,16 @@
             <div class="panel-head">
               <h2>Select Quiz</h2>
               <div class="panel-head-actions">
+                <button class="btn secondary small scan-toggle-btn" id="toggleQuizScanBtn" type="button" aria-pressed="false" title="Scan quizzes and questions for issues">
+                  <span aria-hidden="true">&#128269;</span> Scan
+                </button>
+                <button class="btn secondary small" id="autoFixQuizIssuesBtn" type="button" title="Auto-fix common issues in this quiz">A.F</button>
+                <button class="btn secondary small" id="autoFixAllQuizIssuesBtn" type="button" title="Auto-fix common issues in all quizzes">A.F.A</button>
                 <button class="btn secondary small" id="openQuizSettingsBtn" type="button">Settings</button>
                 <button class="btn small" id="addQuizBtn">Add</button>
               </div>
             </div>
             <input type="search" id="quizSearch" class="panel-search" placeholder="Search quizzes..." autocomplete="off" />
-            <p class="helper-text" id="qClassifyFilterSummary">No QClassify filter active.</p>
             <div id="quizList" class="item-list"></div>
           </aside>
 
@@ -273,14 +277,6 @@
                   <label for="questionSubcategory">Subcategory</label>
                   <input type="text" id="questionSubcategory" placeholder="e.g. Draw Number 8" />
                 </div>
-              </div>
-
-              <div class="nl-range-row">
-                <div>
-                  <label for="questionQClassify">QClassify</label>
-                  <input type="text" id="questionQClassify" list="qClassifySuggestions" placeholder="e.g. vaddition" />
-                  <datalist id="qClassifySuggestions"></datalist>
-                </div>
                 <div>
                   <label for="questionLearningOutcome">Learning Outcome</label>
                   <input type="text" id="questionLearningOutcome" placeholder="e.g. Write 8" />
@@ -331,6 +327,10 @@
               </div>
               <button class="btn secondary" id="notesBtn" type="button">Notes: N/A</button>
               <div id="notesPreview" class="helper-text">n/a</div>
+
+              <label for="questionQClassify">QClassify</label>
+              <input type="text" id="questionQClassify" list="qClassifySuggestions" placeholder="e.g. vaddition" />
+              <datalist id="qClassifySuggestions"></datalist>
               <p class="helper-text">Used as question classification identifier. Existing values will appear as suggestions.</p>
 
               <label for="questionImage">5) Image URL</label>
@@ -1001,18 +1001,6 @@
           </div>
         </div>
         <p class="helper-text" id="importPreviewMeta">No spreadsheet loaded.</p>
-        <div id="importProcessingPanel" style="margin:8px 0 10px 0; border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:8px 10px;">
-          <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px;">
-            <span id="importProcessingStatus" class="helper-text" style="margin:0; color:#334155;">Waiting for spreadsheet selection.</span>
-            <div style="display:flex; gap:12px; align-items:center;">
-              <strong id="importProcessingPercent" style="font-size:0.9rem; color:#0f172a;">0%</strong>
-              <span id="importProcessingTime" style="font-size:0.85rem; color:#64748b;">--:--</span>
-            </div>
-          </div>
-          <div style="width:100%; height:10px; border-radius:999px; background:#e2e8f0; overflow:hidden;">
-            <div id="importProcessingBar" style="width:0%; height:100%; background:linear-gradient(90deg,#2563eb 0%,#22c55e 100%);"></div>
-          </div>
-        </div>
         <div id="importPreviewTableContainer" style="overflow:auto; border:3px solid #94a3b8; border-radius:10px; background:#fff; max-height:360px;">
           <table id="importPreviewTable" style="width:100%; border-collapse:collapse; min-width:2600px;">
             <thead>
@@ -1250,46 +1238,11 @@
           <label for="quizSettingsLimit">Question Limit (max shown)</label>
           <input id="quizSettingsLimit" type="number" min="1" step="1" placeholder="No limit" />
           <p class="helper-text">Example: limit 10 means show at most 10 questions from this quiz.</p>
-
-          <label for="quizSettingsGrade">Grade</label>
-          <input id="quizSettingsGrade" type="text" placeholder="e.g. Grade 3" />
-
-          <label for="quizSettingsModule">Module</label>
-          <input id="quizSettingsModule" type="text" placeholder="e.g. Number and Algebra" />
-
-          <label for="quizSettingsLessonPart">Lesson Part</label>
-          <input id="quizSettingsLessonPart" type="text" placeholder="e.g. Lesson 2" />
-
-          <label for="quizSettingsLessonName">Lesson Name</label>
-          <input id="quizSettingsLessonName" type="text" placeholder="e.g. Fractions Basics" />
         </div>
       </div>
       <div class="quiz-settings-actions">
         <button class="btn secondary" id="cancelQuizSettingsBtn" type="button">Cancel</button>
         <button class="btn" id="saveQuizSettingsBtn" type="button">Save Settings</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="qClassifyFilterModal" class="viewer-modal hidden" aria-hidden="true">
-    <div class="viewer-modal-backdrop" data-close-qclassify-filter-modal="true"></div>
-    <div class="viewer-modal-dialog qclassify-filter-dialog" role="dialog" aria-modal="true" aria-labelledby="qClassifyFilterModalTitle">
-      <div class="viewer-modal-header">
-        <h2 id="qClassifyFilterModalTitle">QClassify Filter</h2>
-        <div class="viewer-modal-header-actions">
-          <button class="btn secondary small" id="selectAllQClassifyFilterBtn" type="button">Select All</button>
-          <button class="btn secondary small" id="clearQClassifyFilterBtn" type="button">Clear All</button>
-          <button class="icon-btn" id="closeQClassifyFilterModalBtn" type="button" aria-label="Close QClassify filter">x</button>
-        </div>
-      </div>
-      <div class="viewer-modal-body">
-        <label for="qClassifyFilterSearch" class="helper-text" style="display:block; margin-bottom:6px;">Search QClassify</label>
-        <input type="search" id="qClassifyFilterSearch" class="panel-search" placeholder="Type to filter QClassify values..." autocomplete="off" />
-        <p class="helper-text" id="qClassifyFilterModalSummary">Showing available QClassify values.</p>
-        <div id="qClassifyFilterList" class="qclassify-filter-list"></div>
-      </div>
-      <div class="quiz-settings-actions">
-        <button class="btn secondary" id="doneQClassifyFilterBtn" type="button">Done</button>
       </div>
     </div>
   </div>
@@ -1314,13 +1267,11 @@
               <option value="red">Red Only</option>
               <option value="green">Green Only</option>
             </select>
-            <label for="resultValidationQuestionFilter" style="font-size:0.9rem; color:#334155;">Question Search</label>
-            <input type="search" id="resultValidationQuestionFilter" placeholder="Search question text..." autocomplete="off" style="min-width:220px; padding:7px 10px; border:1px solid #c8d4e3; border-radius:8px; font-size:0.88rem; background:#fff;" />
-            <button class="btn secondary" id="downloadImportTemplateBtn" type="button" style="display:none;">Download Import Template</button>
-            <button class="btn secondary" id="runResultValidationBtn" type="button" style="display:none;">Run Validation</button>
-            <button class="btn secondary" id="runStrictResultValidationBtn" type="button" style="display:none;">Strict Validation</button>
-            <button class="btn secondary" id="runAiResultValidationBtn" type="button" style="display:none;">AI Detect (Heuristic)</button>
-            <button class="btn" id="applyBulkResultValidationFixBtn" type="button" disabled style="display:none;">Bulk Update Red</button>
+            <button class="btn secondary" id="downloadImportTemplateBtn" type="button">Download Import Template</button>
+            <button class="btn secondary" id="runResultValidationBtn" type="button">Run Validation</button>
+            <button class="btn secondary" id="runStrictResultValidationBtn" type="button">Strict Validation</button>
+            <button class="btn secondary" id="runAiResultValidationBtn" type="button">AI Detect (Heuristic)</button>
+            <button class="btn" id="applyBulkResultValidationFixBtn" type="button" disabled>Bulk Update Red</button>
             <button class="btn secondary" id="exportResultValidationBtn" type="button" disabled>Export Validation CSV</button>
           </div>
         </div>
@@ -1343,48 +1294,38 @@
             <p id="summaryInteractiveIssues" style="margin:4px 0 0 0; font-size:1.1rem; font-weight:700;">0</p>
           </button>
         </div>
-        <div id="resultValidationTableContainer" tabindex="0" data-normal-max-height="520px" style="overflow:auto; border:3px solid #94a3b8; border-radius:10px; background:#fff; max-height:520px;">
-          <table id="resultValidationTable" style="width:100%; border-collapse:collapse; min-width:2600px;">
+        <div id="resultValidationTableContainer" tabindex="0" data-normal-max-height="520px" style="overflow:auto; border:1px solid #dbe3ee; border-radius:10px; background:#fff; max-height:520px;">
+          <table id="resultValidationTable" style="width:100%; border-collapse:collapse; min-width:1320px;">
             <thead>
               <tr>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Grade</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Module</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Lesson Part</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Lesson Name</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Category</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Subcategory</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Question Type</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Q No</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Question</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">MCQ Option 1</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">MCQ Option 2</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">MCQ Option 3</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">MCQ Option 4</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">MCQ Result</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Boolean Option 1</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Boolean Option 2</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Boolean Result</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Short Answer</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Other Result</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">QClassify</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Difficulty</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Learning Outcome</th>
-                <th style="text-align:left; padding:8px; border-bottom:1px solid #dbe3ee;">Issue</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Q No</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Question</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Result Type</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Module Type</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Viewer Compatibility</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Category (Imported)</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Subcategory (Imported)</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Category (Auto)</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Subcategory (Auto)</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Correct Answer</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Computed Answer</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Solution</th>
+                <th style="text-align:left; padding:8px; border:1px solid #dbe3ee; background:#f8fbff;">Issues</th>
               </tr>
             </thead>
             <tbody id="resultValidationBody">
-              <tr><td colspan="23" style="padding:8px;">No validation run yet.</td></tr>
+              <tr><td colspan="13" style="padding:8px; border:1px solid #e5edf8;">No validation run yet.</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="helper-text" id="resultValidationTip">Tip: click any row to preview details.</p>
-        <div id="resultValidationDetailGrid" style="margin-top:10px; display:grid; grid-template-columns:1fr; gap:10px;">
+        <p class="helper-text" id="resultValidationTip">Tip: click any row to preview details. Red rows include proposed fixes you can apply.</p>
+        <div id="resultValidationDetailGrid" style="margin-top:10px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
           <div id="resultValidationPreviewPane" style="border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:10px;">
             <h3 style="margin:0 0 6px 0; font-size:1rem;">Question Preview</h3>
             <p class="helper-text" id="resultValidationPreviewMeta">Select a row to preview the question.</p>
             <div id="resultValidationPreviewCard" style="font-size:0.95rem; line-height:1.45;"></div>
           </div>
-          <div id="resultValidationFixPane" style="display:none; border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:10px;">
+          <div id="resultValidationFixPane" style="border:1px solid #dbe3ee; border-radius:10px; background:#fff; padding:10px;">
             <h3 style="margin:0 0 6px 0; font-size:1rem;">Proposed Update</h3>
             <p class="helper-text" id="resultValidationFixMeta">No fix proposal yet.</p>
             <div id="resultValidationFixList" style="font-size:0.95rem; line-height:1.45; margin-bottom:10px;"></div>

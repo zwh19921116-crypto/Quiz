@@ -1,14 +1,10 @@
 {
   "id": "quiz-24",
-  "title": "Prep 2.1",
+  "title": "Prep 2.10",
   "description": "Learning Outcomes for Prep: Count objects | Match quantity | Count forward | Count backward | Missing numbers | Number order | Apply counting | Complete sequence | Mastery",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Counting",
-    "lessonPart": "2.1",
-    "lessonName": "Counting Assessment"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -24,7 +20,7 @@
       "correctAnswer": "2",
       "category": "Counting",
       "subcategory": "Count Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
@@ -54,7 +50,7 @@
       "correctAnswer": "4",
       "category": "Counting",
       "subcategory": "Count Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
@@ -84,7 +80,7 @@
       "correctAnswer": "6",
       "category": "Counting",
       "subcategory": "Count Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
@@ -114,7 +110,7 @@
       "correctAnswer": "8",
       "category": "Counting",
       "subcategory": "Count Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",

@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Count on 1 | Count on 2 | Counting strategy | Counting on | Add fluently",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Addition",
-    "lessonPart": "8.06",
-    "lessonName": "Addition Strategies"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -207,14 +203,14 @@
         "",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "3",
       "category": "Counting On",
       "subcategory": "Mixed",
       "qClassify": "Short",
       "learningOutcome": "Counting strategy",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 2 + 1 = 2.",
+      "solution": "Add the two numbers step by step: 2 + 1 = 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -331,26 +327,15 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple",
       "qClassify": "Short",
       "learningOutcome": "Counting on",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "You start with 3 toys and add 1 more. How many?",
-          "totalCount": 4,
-          "iconShape": "circle",
-          "groups": [
-            4
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "You start with 5 apples and add 2 more. How many?",
@@ -361,26 +346,15 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple",
       "qClassify": "Short",
       "learningOutcome": "Counting on",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "You start with 5 apples and add 2 more. How many?",
-          "totalCount": 7,
-          "iconShape": "circle",
-          "groups": [
-            7
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "You start with 1 car and add 2 more. How many?",
@@ -391,26 +365,15 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple",
       "qClassify": "Short",
       "learningOutcome": "Counting on",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "You start with 1 car and add 2 more. How many?",
-          "totalCount": 3,
-          "iconShape": "circle",
-          "groups": [
-            3
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "You start with 7 blocks and add 1 more. How many?",
@@ -421,26 +384,15 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple",
       "qClassify": "Short",
       "learningOutcome": "Counting on",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "You start with 7 blocks and add 1 more. How many?",
-          "totalCount": 8,
-          "iconShape": "circle",
-          "groups": [
-            8
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "You start with 4 stars and add 2 more. How many?",
@@ -451,26 +403,15 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple",
       "qClassify": "Short",
       "learningOutcome": "Counting on",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "You start with 4 stars and add 2 more. How many?",
-          "totalCount": 6,
-          "iconShape": "circle",
-          "groups": [
-            6
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "5 + 1 = ?",
@@ -605,14 +546,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "3",
       "category": "Mixed Review",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Add fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 2 + 2 = 5.",
+      "solution": "Add the two numbers step by step: 2 + 2 = 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",

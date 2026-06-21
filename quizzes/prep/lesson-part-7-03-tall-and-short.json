@@ -4,392 +4,388 @@
   "description": "Learning Outcomes for Prep: Compare height | Compare heights | Apply height concepts | Consolidate height concepts",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Measurement",
-    "lessonPart": "7.03",
-    "lessonName": "Tall and Short"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which is taller: giraffe or dog?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Giraffe",
-        "Dog",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Giraffe",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Identify Tall",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Giraffe.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is taller: tree or flower?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Tree",
-        "Flower",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Tree",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Identify Tall",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tree.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is taller: building or car?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Building",
-        "Car",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Building",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Identify Tall",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Building.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is taller: adult or baby?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Adult",
-        "Baby",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Adult",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Identify Tall",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Adult.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is taller: lamp post or chair?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Lamp Post",
-        "Chair",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Lamp Post",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Identify Tall",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Lamp Post.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is shorter: giraffe or dog?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Dog",
-        "Giraffe",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Dog",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Identify Short",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Dog.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is shorter: tree or flower?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Flower",
-        "Tree",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Flower",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Identify Short",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Flower.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is shorter: building or car?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Car",
-        "Building",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Car",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Identify Short",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Car.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is shorter: adult or baby?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Baby",
-        "Adult",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Baby",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Identify Short",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Baby.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which is shorter: lamp post or chair?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Chair",
-        "Lamp Post",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Chair",
+      "correctAnswer": "REVIEW",
       "category": "Height",
       "subcategory": "Identify Short",
       "qClassify": "MCQ",
       "learningOutcome": "Compare height",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Chair.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "A tree is taller than a bush. Which is taller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Tree",
-        "Short",
-        "Tall",
-        "Same Height"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Tree",
+      "correctAnswer": "REVIEW",
       "category": "Height Comparison",
       "subcategory": "Compare Heights",
       "qClassify": "MCQ",
       "learningOutcome": "Compare heights",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tree.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "A child is shorter than an adult. Which is taller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Adult",
-        "Short",
-        "Tall",
-        "Same Height"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Adult",
+      "correctAnswer": "REVIEW",
       "category": "Height Comparison",
       "subcategory": "Compare Heights",
       "qClassify": "MCQ",
       "learningOutcome": "Compare heights",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Adult.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "A ladder is taller than a chair. Which is shorter?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Chair",
-        "Short",
-        "Tall",
-        "Same Height"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Chair",
+      "correctAnswer": "REVIEW",
       "category": "Height Comparison",
       "subcategory": "Compare Heights",
       "qClassify": "MCQ",
       "learningOutcome": "Compare heights",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Chair.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "A building is taller than a house. Which is taller?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Building",
-        "Short",
-        "Tall",
-        "Same Height"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Building",
+      "correctAnswer": "REVIEW",
       "category": "Height Comparison",
       "subcategory": "Compare Heights",
       "qClassify": "MCQ",
       "learningOutcome": "Compare heights",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Building.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "A flower is shorter than a tree. Which is shorter?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Flower",
-        "Option A",
-        "Option B",
-        "Option C"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Flower",
+      "correctAnswer": "REVIEW",
       "category": "Height Comparison",
       "subcategory": "Compare Heights",
       "qClassify": "MCQ",
       "learningOutcome": "Compare heights",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Flower.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which would usually be taller: tree or mailbox?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Tree",
-        "Mailbox",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Tree",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Everyday Height",
       "qClassify": "MCQ",
       "learningOutcome": "Apply height concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tree.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which would usually be shorter: table or building?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Table",
-        "Building",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Table",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Everyday Height",
       "qClassify": "MCQ",
       "learningOutcome": "Apply height concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Table.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which would usually be taller: giraffe or sheep?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Giraffe",
-        "Sheep",
-        "Both are the same",
-        "Not enough information"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Giraffe",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Everyday Height",
       "qClassify": "MCQ",
       "learningOutcome": "Apply height concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Giraffe.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which word describes a tree compared to a flower?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Tall",
-        "Short",
-        "Same Height",
-        "Not Sure"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Tall",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate height concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Tall.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which word describes a baby compared to an adult?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Short",
-        "Long",
-        "Same Length",
-        "Not Sure"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Short",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate height concepts",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Short.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     }
   ]

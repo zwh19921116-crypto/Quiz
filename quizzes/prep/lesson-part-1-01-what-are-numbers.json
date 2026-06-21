@@ -4,17 +4,13 @@
   "description": "Learning Outcomes for Prep: Recognise numbers | Count objects | Match quantity | Number order | Apply learning",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Numbers",
-    "lessonPart": "1.01",
-    "lessonName": "What Are Numbers?"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
     {
       "question": "Which of these is a number?",
-      "resultType": "checkbox",
+      "resultType": "multiple-choice",
       "options": [
         "Dog",
         "1",
@@ -33,7 +29,7 @@
     },
     {
       "question": "Which of these is a number?",
-      "resultType": "checkbox",
+      "resultType": "multiple-choice",
       "options": [
         "Cat",
         "2",
@@ -52,7 +48,7 @@
     },
     {
       "question": "Which of these is a number?",
-      "resultType": "checkbox",
+      "resultType": "multiple-choice",
       "options": [
         "Car",
         "House",
@@ -71,21 +67,21 @@
     },
     {
       "question": "Select all the numbers",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "1, 2, 3",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Numbers",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 1, 2, and 3.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {

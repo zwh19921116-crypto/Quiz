@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Add within 20 | Find missing number | Word addition | Add fluently",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Addition",
-    "lessonPart": "8.07",
-    "lessonName": "Addition Within 20"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -331,14 +327,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Number",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -350,14 +346,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Number",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -369,14 +365,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Number",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -388,14 +384,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Number",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -407,14 +403,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Number",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -456,14 +452,14 @@
         "",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Stories",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {

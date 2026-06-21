@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Count objects | Add numbers | Word addition | Add multiple numbers",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Addition",
-    "lessonPart": "8.02",
-    "lessonName": "Addition Using Objects"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -21,14 +17,14 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Count Objects",
       "qClassify": "Short",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -40,14 +36,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Count Objects",
       "qClassify": "Short",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -59,14 +55,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Count Objects",
       "qClassify": "Short",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -78,14 +74,14 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Count Objects",
       "qClassify": "Short",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -97,14 +93,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Count Objects",
       "qClassify": "Short",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -116,14 +112,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Count Objects",
       "qClassify": "Short",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -135,14 +131,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Count Objects",
       "qClassify": "Short",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -154,14 +150,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Count Objects",
       "qClassify": "Short",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -173,14 +169,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Count Objects",
       "qClassify": "Short",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -192,14 +188,14 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Count Objects",
       "qClassify": "Short",
       "learningOutcome": "Count objects",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -366,23 +362,23 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "2",
       "category": "Addition Concepts",
       "subcategory": "Word Problems",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 2 apples and get 2 more. How many?",
-          "totalCount": 4,
+          "totalCount": 2,
           "iconShape": "circle",
           "groups": [
-            4
+            2
           ]
         }
       }
@@ -396,14 +392,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Word Problems",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -415,14 +411,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Word Problems",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -434,14 +430,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "3",
       "category": "Addition Concepts",
       "subcategory": "Mixed Review",
       "qClassify": "Short",
       "learningOutcome": "Add multiple numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 2 + 2 = 5.",
+      "solution": "Add the two numbers step by step: 2 + 2 = 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -465,14 +461,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "4",
       "category": "Addition Concepts",
       "subcategory": "Mixed Review",
       "qClassify": "Short",
       "learningOutcome": "Add multiple numbers",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 3 + 2 = 7.",
+      "solution": "Add the two numbers step by step: 3 + 2 = 4.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",

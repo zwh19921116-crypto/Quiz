@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Add within 10 | Add within 20 | Multi-step addition",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Addition",
-    "lessonPart": "8.08",
-    "lessonName": "Addition Word Problems"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -21,23 +17,23 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "3",
       "category": "Word Problems",
       "subcategory": "Objects",
       "qClassify": "Short",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 3 apples and get 2 more. How many?",
-          "totalCount": 5,
+          "totalCount": 3,
           "iconShape": "circle",
           "groups": [
-            5
+            3
           ]
         }
       }
@@ -51,14 +47,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Objects",
       "qClassify": "Short",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -70,14 +66,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Objects",
       "qClassify": "Short",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -89,14 +85,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Objects",
       "qClassify": "Short",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -108,14 +104,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Objects",
       "qClassify": "Short",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -127,14 +123,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Objects",
       "qClassify": "Short",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -146,14 +142,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Objects",
       "qClassify": "Short",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -165,14 +161,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Objects",
       "qClassify": "Short",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -184,14 +180,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Objects",
       "qClassify": "Short",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -203,14 +199,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Objects",
       "qClassify": "Short",
       "learningOutcome": "Add within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -458,14 +454,14 @@
         "",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "8",
       "category": "Word Problems",
       "subcategory": "Mixed Review",
       "qClassify": "Short",
       "learningOutcome": "Multi-step addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 4 + 6 = 12.",
+      "solution": "Add the two numbers step by step: 4 + 6 = 8.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",

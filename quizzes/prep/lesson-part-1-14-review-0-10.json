@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Recognise 0 | Recognise 2 | Recognise 5 | Recognise 8 | Recognise 10 | Recognise 3 | Recognise 7 | Write 4 | Write 9 | Write 6 | Count objects | Match quantity | Number sequence | Apply counting | Mastery 0-10",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Numbers",
-    "lessonPart": "1.14",
-    "lessonName": "Review 0-10"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -171,10 +167,10 @@
       "question": "Select all the 3s",
       "resultType": "short-answer",
       "options": [
-        "3",
-        "2",
-        "3",
-        "3"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
       "correctAnswer": "PASS",
       "category": "Recognition",
@@ -202,10 +198,10 @@
       "question": "Select all the 7s",
       "resultType": "short-answer",
       "options": [
-        "7",
-        "7",
-        "7",
-        "77"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
       "correctAnswer": "PASS",
       "category": "Recognition",
@@ -301,7 +297,7 @@
         ""
       ],
       "correctAnswer": "PASS",
-      "category": "Tracing",
+      "category": "Writing",
       "subcategory": "Draw Numbers",
       "qClassify": "TRACE",
       "learningOutcome": "Write 6",

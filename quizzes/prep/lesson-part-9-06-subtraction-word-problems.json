@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Subtract within 20 | Two-step reasoning | Subtract fluently",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Subtraction",
-    "lessonPart": "9.06",
-    "lessonName": "Subtraction Word Problems"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -21,23 +17,23 @@
         "",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "15",
       "category": "Word Problems",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 11.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 15.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 15 apples and eat 4. How many left?",
-          "totalCount": 11,
+          "totalCount": 15,
           "iconShape": "circle",
           "groups": [
-            11
+            15
           ]
         }
       }
@@ -51,26 +47,15 @@
         "",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "18 birds, 6 fly away. How many left?",
-          "totalCount": 12,
-          "iconShape": "circle",
-          "groups": [
-            12
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "12 toys, you lose 3. How many left?",
@@ -81,26 +66,15 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "12 toys, you lose 3. How many left?",
-          "totalCount": 9,
-          "iconShape": "circle",
-          "groups": [
-            9
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "20 balloons, 5 pop. How many left?",
@@ -130,26 +104,15 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "14 cars, 4 drive away. How many left?",
-          "totalCount": 10,
-          "iconShape": "circle",
-          "groups": [
-            10
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "16 apples, 7 are eaten. How many left?",
@@ -160,26 +123,15 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "16 apples, 7 are eaten. How many left?",
-          "totalCount": 9,
-          "iconShape": "circle",
-          "groups": [
-            9
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "19 pencils, 9 are used. How many left?",
@@ -190,26 +142,15 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "19 pencils, 9 are used. How many left?",
-          "totalCount": 10,
-          "iconShape": "circle",
-          "groups": [
-            10
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "17 blocks, 8 are removed. How many left?",
@@ -220,26 +161,15 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "17 blocks, 8 are removed. How many left?",
-          "totalCount": 9,
-          "iconShape": "circle",
-          "groups": [
-            9
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "13 books, 2 are taken. How many left?",
@@ -250,26 +180,15 @@
         "",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 11.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "13 books, 2 are taken. How many left?",
-          "totalCount": 11,
-          "iconShape": "circle",
-          "groups": [
-            11
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "11 cookies, 4 are eaten. How many left?",
@@ -280,26 +199,15 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "11 cookies, 4 are eaten. How many left?",
-          "totalCount": 7,
-          "iconShape": "circle",
-          "groups": [
-            7
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "You have 10 toys, get 5 more, then lose 3. How many now?",
@@ -310,23 +218,23 @@
         "",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "10",
       "category": "Word Problems",
       "subcategory": "Multi-Step",
       "qClassify": "Short",
       "learningOutcome": "Two-step reasoning",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 10.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 10 toys, get 5 more, then lose 3. How many now?",
-          "totalCount": 12,
+          "totalCount": 10,
           "iconShape": "circle",
           "groups": [
-            12
+            10
           ]
         }
       }
@@ -340,14 +248,14 @@
         "",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Multi-Step",
       "qClassify": "Short",
       "learningOutcome": "Two-step reasoning",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -397,26 +305,15 @@
         "",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Multi-Step",
       "qClassify": "Short",
       "learningOutcome": "Two-step reasoning",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 11.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "16 toys, 7 lost, 2 found. How many?",
-          "totalCount": 11,
-          "iconShape": "circle",
-          "groups": [
-            11
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "15 − 6 = ?",
@@ -427,14 +324,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -446,14 +343,14 @@
         "",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -465,14 +362,14 @@
         "",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -484,14 +381,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -503,14 +400,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     }
   ]

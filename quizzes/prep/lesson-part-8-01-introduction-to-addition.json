@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Understand addition | Simple addition | Visual addition | Multi-step addition | Worded addition | Addition fluency",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Addition",
-    "lessonPart": "8.01",
-    "lessonName": "Introduction to Addition"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -21,23 +17,23 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "2",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "qClassify": "Short",
       "learningOutcome": "Understand addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 3.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 2 apples and get 1 more. How many in total?",
-          "totalCount": 3,
+          "totalCount": 2,
           "iconShape": "circle",
           "groups": [
-            3
+            2
           ]
         }
       }
@@ -51,14 +47,14 @@
         "",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "qClassify": "Short",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 1 + 1 = 2.",
+      "solution": "Add the two numbers step by step: 1 + 1 = PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -82,14 +78,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "qClassify": "Short",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 3 + 1 = 4.",
+      "solution": "Add the two numbers step by step: 3 + 1 = PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -113,14 +109,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "qClassify": "Short",
       "learningOutcome": "Understand addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -132,14 +128,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "qClassify": "Short",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 2 + 2 = 4.",
+      "solution": "Add the two numbers step by step: 2 + 2 = PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -163,14 +159,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "qClassify": "Short",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 5 + 1 = 6.",
+      "solution": "Add the two numbers step by step: 5 + 1 = PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -194,14 +190,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "qClassify": "Short",
       "learningOutcome": "Understand addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -213,14 +209,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "qClassify": "Short",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 2 + 3 = 5.",
+      "solution": "Add the two numbers step by step: 2 + 3 = PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -244,14 +240,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "qClassify": "Short",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 4 + 1 = 5.",
+      "solution": "Add the two numbers step by step: 4 + 1 = PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -275,14 +271,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Joining Groups",
       "qClassify": "Short",
       "learningOutcome": "Understand addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -294,14 +290,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Visual Addition",
       "qClassify": "Short",
       "learningOutcome": "Visual addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -313,14 +309,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Visual Addition",
       "qClassify": "Short",
       "learningOutcome": "Visual addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -332,14 +328,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Visual Addition",
       "qClassify": "Short",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 1 + 4 = 5.",
+      "solution": "Add the two numbers step by step: 1 + 4 = PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -363,14 +359,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Visual Addition",
       "qClassify": "Short",
       "learningOutcome": "Multi-step addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 2 + 1 = 4.",
+      "solution": "Add the two numbers step by step: 2 + 1 = PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -394,14 +390,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Visual Addition",
       "qClassify": "Short",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 5 + 2 = 7.",
+      "solution": "Add the two numbers step by step: 5 + 2 = PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -425,23 +421,23 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "2",
       "category": "Addition Concepts",
       "subcategory": "Word Problems",
       "qClassify": "Short",
       "learningOutcome": "Worded addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 2.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 2 apples, buy 3 more. How many?",
-          "totalCount": 5,
+          "totalCount": 2,
           "iconShape": "circle",
           "groups": [
-            5
+            2
           ]
         }
       }
@@ -455,14 +451,14 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Word Problems",
       "qClassify": "Short",
       "learningOutcome": "Worded addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -474,14 +470,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Word Problems",
       "qClassify": "Short",
       "learningOutcome": "Simple addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -493,14 +489,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Mixed Review",
       "qClassify": "Short",
       "learningOutcome": "Addition fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 2 + 2 = 5.",
+      "solution": "Add the two numbers step by step: 2 + 2 = PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -524,14 +520,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Addition Concepts",
       "subcategory": "Mixed Review",
       "qClassify": "Short",
       "learningOutcome": "Addition fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 4 + 3 = 7.",
+      "solution": "Add the two numbers step by step: 4 + 3 = PASS.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",

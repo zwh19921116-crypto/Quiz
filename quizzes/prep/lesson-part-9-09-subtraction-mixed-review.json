@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Subtract within 20 | Find missing number | Word subtraction | Subtract fluently",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Subtraction",
-    "lessonPart": "9.09",
-    "lessonName": "Subtraction Mixed Review"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -21,14 +17,14 @@
         "",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -59,14 +55,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Number",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -78,14 +74,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Number",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -97,23 +93,23 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "12",
       "category": "Word Problems",
       "subcategory": "Simple",
       "qClassify": "Short",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 8.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 12.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 12 apples, eat 4. How many left?",
-          "totalCount": 8,
+          "totalCount": 12,
           "iconShape": "circle",
           "groups": [
-            8
+            12
           ]
         }
       }
@@ -127,26 +123,15 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple",
       "qClassify": "Short",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "15 birds, 6 fly away. How many left?",
-          "totalCount": 9,
-          "iconShape": "circle",
-          "groups": [
-            9
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "17 − 8 = ?",
@@ -157,14 +142,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -176,14 +161,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -195,14 +180,14 @@
         "",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -214,14 +199,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 20",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -233,26 +218,15 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Mixed",
       "qClassify": "Short",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "10 toys, lose 3. How many left?",
-          "totalCount": 7,
-          "iconShape": "circle",
-          "groups": [
-            7
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "9 cookies, eat 5. How many left?",
@@ -263,26 +237,15 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Mixed",
       "qClassify": "Short",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "9 cookies, eat 5. How many left?",
-          "totalCount": 4,
-          "iconShape": "circle",
-          "groups": [
-            4
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "15 − 6 = ?",
@@ -293,14 +256,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -312,14 +275,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -331,14 +294,14 @@
         "",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -350,14 +313,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Number",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -369,14 +332,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Missing Number",
       "qClassify": "Short",
       "learningOutcome": "Find missing number",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -388,26 +351,15 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Mixed",
       "qClassify": "Short",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 9.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "14 cars, 5 leave. How many left?",
-          "totalCount": 9,
-          "iconShape": "circle",
-          "groups": [
-            9
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "12 − 6 = ?",
@@ -418,14 +370,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -437,14 +389,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     }
   ]

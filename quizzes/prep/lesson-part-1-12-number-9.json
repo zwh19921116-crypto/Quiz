@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Recognise 9 | Understand quantity 9 | Write 9 | Count 9 objects | Match quantity | Apply quantity 9 | Review number 9 | Mastery of number 9",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Numbers",
-    "lessonPart": "1.12",
-    "lessonName": "Number 9"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -71,40 +67,40 @@
     },
     {
       "question": "Select all the 9s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "9",
-        "8",
-        "9",
-        "9"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "9, 9, 9",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 9",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 9, 9, and 9.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 9s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "9",
-        "8",
-        "19",
-        "9"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "9, 9",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 9",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 9",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 9 and 9.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
@@ -175,7 +171,7 @@
         ""
       ],
       "correctAnswer": "PASS",
-      "category": "Tracing",
+      "category": "Writing",
       "subcategory": "Draw Number 9",
       "qClassify": "TRACE",
       "learningOutcome": "Write 9",

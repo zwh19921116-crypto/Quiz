@@ -1,14 +1,10 @@
 {
   "id": "quiz-84",
-  "title": "Prep 8.1",
+  "title": "Prep 8.10",
   "description": "Learning Outcomes for Prep: Add within 10 | Add within 20 | Make 10 | Word addition | Counting on | Missing addend | Add fluently | Multi-step addition",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Addition",
-    "lessonPart": "8.1",
-    "lessonName": "Addition Assessment"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -114,23 +110,23 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "5",
       "category": "Word Problems",
       "subcategory": "Simple",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 7.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 5 apples and get 2 more. How many?",
-          "totalCount": 7,
+          "totalCount": 5,
           "iconShape": "circle",
           "groups": [
-            7
+            5
           ]
         }
       }
@@ -206,14 +202,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -225,14 +221,14 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Missing Number",
       "qClassify": "Short",
       "learningOutcome": "Missing addend",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -306,14 +302,14 @@
         "",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Mixed",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -418,14 +414,14 @@
         "",
         ""
       ],
-      "correctAnswer": "11",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Mixed",
       "qClassify": "Short",
       "learningOutcome": "Word addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 11.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -437,14 +433,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "6",
       "category": "Mixed Skills",
       "subcategory": "Multi-step",
       "qClassify": "Short",
       "learningOutcome": "Multi-step addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 3 + 2 = 9.",
+      "solution": "Add the two numbers step by step: 3 + 2 = 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -468,14 +464,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "5",
       "category": "Mixed Skills",
       "subcategory": "Multi-step",
       "qClassify": "Short",
       "learningOutcome": "Multi-step addition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Add the two numbers step by step: 4 + 4 = 9.",
+      "solution": "Add the two numbers step by step: 4 + 4 = 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "arithmetic",
@@ -530,14 +526,14 @@
         "",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "PASS",
       "category": "Number Bonds",
       "subcategory": "Make 10",
       "qClassify": "Short",
       "learningOutcome": "Make 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {

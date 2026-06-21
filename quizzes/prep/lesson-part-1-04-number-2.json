@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Recognise 2 | Understand quantity 2 | Write 2 | Count 2 objects | Match quantity | Apply quantity 2 | Review number 2 | Mastery of number 2",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Numbers",
-    "lessonPart": "1.04",
-    "lessonName": "Number 2"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -71,40 +67,40 @@
     },
     {
       "question": "Select all the 2s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "2",
-        "4",
-        "2",
-        "2"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "2, 2, 2",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 2",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 2, 2, and 2.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 2s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "2",
-        "1",
-        "2",
-        "3"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "2, 2",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 2",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 2",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 2 and 2.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
@@ -175,7 +171,7 @@
         ""
       ],
       "correctAnswer": "PASS",
-      "category": "Tracing",
+      "category": "Writing",
       "subcategory": "Draw Number 2",
       "qClassify": "TRACE",
       "learningOutcome": "Write 2",
@@ -206,7 +202,7 @@
       "correctAnswer": "2",
       "category": "Counting",
       "subcategory": "Count Two Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 2 objects",
       "notesAttachments": [],
       "image": "",
@@ -236,7 +232,7 @@
       "correctAnswer": "2",
       "category": "Counting",
       "subcategory": "Count Two Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 2 objects",
       "notesAttachments": [],
       "image": "",
@@ -266,7 +262,7 @@
       "correctAnswer": "2",
       "category": "Counting",
       "subcategory": "Count Two Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 2 objects",
       "notesAttachments": [],
       "image": "",
@@ -296,7 +292,7 @@
       "correctAnswer": "2",
       "category": "Counting",
       "subcategory": "Count Two Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 2 objects",
       "notesAttachments": [],
       "image": "",

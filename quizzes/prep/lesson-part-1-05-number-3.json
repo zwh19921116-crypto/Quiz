@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Recognise 3 | Understand quantity 3 | Write 3 | Count 3 objects | Match quantity | Apply quantity 3 | Review number 3 | Mastery of number 3",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Numbers",
-    "lessonPart": "1.05",
-    "lessonName": "Number 3"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -71,40 +67,40 @@
     },
     {
       "question": "Select all the 3s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "3",
-        "3",
-        "3",
-        "4"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "3, 3, 3",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 3",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 3, 3, and 3.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 3s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "3",
-        "6",
-        "3",
-        "5"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "3, 3",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 3",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 3",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 3 and 3.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
@@ -175,7 +171,7 @@
         ""
       ],
       "correctAnswer": "PASS",
-      "category": "Tracing",
+      "category": "Writing",
       "subcategory": "Draw Number 3",
       "qClassify": "TRACE",
       "learningOutcome": "Write 3",
@@ -206,7 +202,7 @@
       "correctAnswer": "3",
       "category": "Counting",
       "subcategory": "Count Three Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 3 objects",
       "notesAttachments": [],
       "image": "",
@@ -236,7 +232,7 @@
       "correctAnswer": "3",
       "category": "Counting",
       "subcategory": "Count Three Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 3 objects",
       "notesAttachments": [],
       "image": "",
@@ -266,7 +262,7 @@
       "correctAnswer": "3",
       "category": "Counting",
       "subcategory": "Count Three Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 3 objects",
       "notesAttachments": [],
       "image": "",
@@ -296,7 +292,7 @@
       "correctAnswer": "3",
       "category": "Counting",
       "subcategory": "Count Three Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 3 objects",
       "notesAttachments": [],
       "image": "",

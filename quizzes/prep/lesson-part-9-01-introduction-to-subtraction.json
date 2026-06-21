@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Understand subtraction | Subtract within 10 | Word subtraction | Subtract fluently",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Subtraction",
-    "lessonPart": "9.01",
-    "lessonName": "Introduction to Subtraction"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -21,23 +17,23 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "5",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Understand subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 5 apples and take away 1. How many left?",
-          "totalCount": 4,
+          "totalCount": 5,
           "iconShape": "circle",
           "groups": [
-            4
+            5
           ]
         }
       }
@@ -51,14 +47,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -70,14 +66,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -89,14 +85,14 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -108,14 +104,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -127,14 +123,14 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 4.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -146,14 +142,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -165,14 +161,14 @@
         "",
         ""
       ],
-      "correctAnswer": "2",
+      "correctAnswer": "PASS",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 2.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -184,14 +180,14 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -203,14 +199,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Subtraction Concepts",
       "subcategory": "Take Away",
       "qClassify": "Short",
       "learningOutcome": "Subtract within 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -222,23 +218,23 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "6",
       "category": "Word Problems",
       "subcategory": "Simple Take Away",
       "qClassify": "Short",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
+      "solution": "Count each object once, then match that total to the choices. The total count is 6.",
       "solutionAttachments": [],
       "interactiveApp": {
         "type": "icon-count",
         "config": {
           "prompt": "You have 6 toys and lose 2. How many left?",
-          "totalCount": 4,
+          "totalCount": 6,
           "iconShape": "circle",
           "groups": [
-            4
+            6
           ]
         }
       }
@@ -252,26 +248,15 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Take Away",
       "qClassify": "Short",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "5 birds were on a tree, 1 flew away. How many left?",
-          "totalCount": 4,
-          "iconShape": "circle",
-          "groups": [
-            4
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "8 apples, take away 3. How many left?",
@@ -282,26 +267,15 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Take Away",
       "qClassify": "Short",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "8 apples, take away 3. How many left?",
-          "totalCount": 5,
-          "iconShape": "circle",
-          "groups": [
-            5
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "9 cars, 4 drive away. How many left?",
@@ -312,26 +286,15 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Take Away",
       "qClassify": "Short",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "9 cars, 4 drive away. How many left?",
-          "totalCount": 5,
-          "iconShape": "circle",
-          "groups": [
-            5
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "10 balloons, 5 pop. How many left?",
@@ -342,26 +305,15 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Simple Take Away",
       "qClassify": "Short",
       "learningOutcome": "Word subtraction",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 5.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "10 balloons, 5 pop. How many left?",
-          "totalCount": 5,
-          "iconShape": "circle",
-          "groups": [
-            5
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "6 − 1 = ?",
@@ -372,14 +324,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -391,14 +343,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -410,14 +362,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -429,14 +381,14 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -448,14 +400,14 @@
         "",
         ""
       ],
-      "correctAnswer": "3",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
       "qClassify": "Short",
       "learningOutcome": "Subtract fluently",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     }
   ]

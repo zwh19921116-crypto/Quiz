@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Identify circles | Recognise circles | Recognise circle properties | Match objects to circles | Apply shape recognition | Consolidate circle recognition",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Shapes",
-    "lessonPart": "6.02",
-    "lessonName": "Circles"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -17,75 +13,75 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Identify Circles",
       "qClassify": "MCQ",
       "learningOutcome": "Identify circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "A circle is round. True or False?",
       "resultType": "short-answer",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "True/False",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Identify Circles",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Evaluate the statement using the lesson rule, then decide whether it is true or false. The correct choice is PASS.",
+      "solution": "Evaluate the statement using the lesson rule, then decide whether it is true or false. The correct choice is REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Does a circle have corners?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "No",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "0",
       "category": "Shapes",
       "subcategory": "Identify Circles",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
       "solutionAttachments": []
     },
     {
       "question": "Does a circle have sides?",
-      "resultType": "short-answer",
+      "resultType": "multiple-choice",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "No",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "0",
       "category": "Shapes",
       "subcategory": "Identify Circles",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
       "solutionAttachments": []
     },
     {
@@ -93,18 +89,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Identify Circles",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -112,18 +108,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Objects",
       "subcategory": "Circle Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Match objects to circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -131,18 +127,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Objects",
       "subcategory": "Circle Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Match objects to circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -150,18 +146,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Objects",
       "subcategory": "Circle Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Match objects to circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -169,18 +165,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Objects",
       "subcategory": "Circle Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Match objects to circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -188,18 +184,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Objects",
       "subcategory": "Circle Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Match objects to circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -207,18 +203,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Circle Properties",
       "subcategory": "Round Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -226,151 +222,151 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Circle Properties",
       "subcategory": "Round Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Can a circle roll?",
       "resultType": "short-answer",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "Yes",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "REVIEW",
       "category": "Circle Properties",
       "subcategory": "Round Shapes",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Does a circle have straight edges?",
       "resultType": "short-answer",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "No",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "REVIEW",
       "category": "Circle Properties",
       "subcategory": "Round Shapes",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Is a ball shape based on a circle?",
       "resultType": "short-answer",
       "options": [
-        "PASS: boolean result stored in BooleanResult.",
+        "Yes",
         "",
         "",
         ""
       ],
-      "correctAnswer": "PASS",
+      "correctAnswer": "REVIEW",
       "category": "Circle Properties",
       "subcategory": "Round Shapes",
-      "qClassify": "BOOLEAN",
+      "qClassify": "MCQ",
       "learningOutcome": "Recognise circle properties",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a circle: coin or door?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Coin",
-        "Door",
-        "Plate",
-        "Book"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Coin",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Find Circles",
       "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Coin.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a circle: plate or book?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Plate",
-        "Coin",
-        "Door",
-        "Book"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Plate",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Find Circles",
       "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Plate.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Which object is a circle: wheel or ruler?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Wheel",
-        "Coin",
-        "Door",
-        "Plate"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Wheel",
+      "correctAnswer": "REVIEW",
       "category": "Application",
       "subcategory": "Find Circles",
       "qClassify": "MCQ",
       "learningOutcome": "Apply shape recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Wheel.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "Name a shape with no corners.",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate circle recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -378,18 +374,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate circle recognition",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     }
   ]

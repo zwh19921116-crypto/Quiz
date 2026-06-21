@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Recognise 6 | Understand quantity 6 | Write 6 | Count 6 objects | Match quantity | Apply quantity 6 | Review number 6 | Mastery of number 6",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Numbers",
-    "lessonPart": "1.09",
-    "lessonName": "Number 6"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -71,40 +67,40 @@
     },
     {
       "question": "Select all the 6s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "6",
-        "4",
-        "6",
-        "6"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "6, 6, 6",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 6",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 6, 6, and 6.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 6s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "12",
-        "6",
-        "6",
-        "10"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "6, 6",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 6",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 6",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 6 and 6.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
@@ -175,7 +171,7 @@
         ""
       ],
       "correctAnswer": "PASS",
-      "category": "Tracing",
+      "category": "Writing",
       "subcategory": "Draw Number 6",
       "qClassify": "TRACE",
       "learningOutcome": "Write 6",
@@ -206,7 +202,7 @@
       "correctAnswer": "6",
       "category": "Counting",
       "subcategory": "Count Six Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 6 objects",
       "notesAttachments": [],
       "image": "",
@@ -236,7 +232,7 @@
       "correctAnswer": "6",
       "category": "Counting",
       "subcategory": "Count Six Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 6 objects",
       "notesAttachments": [],
       "image": "",
@@ -266,7 +262,7 @@
       "correctAnswer": "6",
       "category": "Counting",
       "subcategory": "Count Six Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 6 objects",
       "notesAttachments": [],
       "image": "",
@@ -296,7 +292,7 @@
       "correctAnswer": "6",
       "category": "Counting",
       "subcategory": "Count Six Objects",
-      "qClassify": "MCQICON",
+      "qClassify": "MCQ",
       "learningOutcome": "Count 6 objects",
       "notesAttachments": [],
       "image": "",

@@ -1,14 +1,10 @@
 {
   "id": "quiz-10",
-  "title": "Prep 1.1",
+  "title": "Prep 1.10",
   "description": "Learning Outcomes for Prep: Recognise 7 | Understand quantity 7 | Write 7 | Count 7 objects | Match quantity | Apply quantity 7 | Review number 7 | Mastery of number 7",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Numbers",
-    "lessonPart": "1.1",
-    "lessonName": "Number 7"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -71,40 +67,40 @@
     },
     {
       "question": "Select all the 7s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "7",
-        "5",
-        "7",
-        "7"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "7, 7, 7",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 7",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 7",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 7, 7, and 7.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 7s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "7",
-        "6",
-        "5",
-        "7"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "7, 7",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 7",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 7",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 7 and 7.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
@@ -175,7 +171,7 @@
         ""
       ],
       "correctAnswer": "PASS",
-      "category": "Tracing",
+      "category": "Writing",
       "subcategory": "Draw Number 7",
       "qClassify": "TRACE",
       "learningOutcome": "Write 7",

@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Recognise 10 | Understand quantity 10 | Write 10 | Count 10 objects | Match quantity | Apply quantity 10 | Review number 10 | Mastery of number 10",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Numbers",
-    "lessonPart": "1.13",
-    "lessonName": "Number 10"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -71,40 +67,40 @@
     },
     {
       "question": "Select all the 10s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "10",
-        "10",
-        "10",
-        "11"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "10, 10, 10",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 10",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 10, 10, and 10.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
       "question": "Select all the 10s",
-      "resultType": "checkbox",
+      "resultType": "short-answer",
       "options": [
-        "10",
-        "10",
-        "9",
-        "8"
+        "PASS: multiselect answers stored in OtherResult.",
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "10, 10",
+      "correctAnswer": "PASS",
       "category": "Recognition",
       "subcategory": "Select Number 10",
       "qClassify": "CHECKBOX",
       "learningOutcome": "Recognise 10",
       "notesAttachments": [],
       "image": "",
-      "solution": "Check each option against the rule in the question, then select all valid choices: 10 and 10.",
+      "solution": "Check each option against the rule in the question, then select all valid choices: PASS.",
       "solutionAttachments": []
     },
     {
@@ -175,7 +171,7 @@
         ""
       ],
       "correctAnswer": "PASS",
-      "category": "Tracing",
+      "category": "Writing",
       "subcategory": "Draw Number 10",
       "qClassify": "TRACE",
       "learningOutcome": "Write 10",

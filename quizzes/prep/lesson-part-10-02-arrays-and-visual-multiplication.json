@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Understand arrays | Count arrays | Identify arrays | Use arrays | Arrays fluency",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Multiplication",
-    "lessonPart": "10.02",
-    "lessonName": "Arrays and Visual Multiplication"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -21,14 +17,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Understand arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -40,14 +36,14 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Understand arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 6.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -59,14 +55,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "PASS",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -78,14 +74,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "PASS",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -97,14 +93,14 @@
         "",
         ""
       ],
-      "correctAnswer": "5",
+      "correctAnswer": "PASS",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 5.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -116,14 +112,14 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 9.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -135,14 +131,14 @@
         "",
         ""
       ],
-      "correctAnswer": "7",
+      "correctAnswer": "PASS",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Identify arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 7.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -154,14 +150,14 @@
         "",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "PASS",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -173,14 +169,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "PASS",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -195,7 +191,7 @@
       "correctAnswer": "REVIEW",
       "category": "Multiplication Concepts",
       "subcategory": "Arrays",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "MCQ",
       "learningOutcome": "Count arrays",
       "notesAttachments": [],
       "image": "",
@@ -211,26 +207,15 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Arrays in Context",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Use arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Count each object once, then match that total to the choices. The total count is 4.",
-      "solutionAttachments": [],
-      "interactiveApp": {
-        "type": "icon-count",
-        "config": {
-          "prompt": "2 rows of 2 apples. How many apples?",
-          "totalCount": 4,
-          "iconShape": "circle",
-          "groups": [
-            4
-          ]
-        }
-      }
+      "solution": "Count each object once, then match that total to the choices. The total count is PASS.",
+      "solutionAttachments": []
     },
     {
       "question": "3 rows of 4 cookies. Total cookies?",
@@ -241,14 +226,14 @@
         "",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Arrays in Context",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Use arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -260,14 +245,14 @@
         "",
         ""
       ],
-      "correctAnswer": "8",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Arrays in Context",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Use arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 8.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -279,14 +264,14 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Arrays in Context",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Use arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 10.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -298,14 +283,14 @@
         "",
         ""
       ],
-      "correctAnswer": "12",
+      "correctAnswer": "PASS",
       "category": "Word Problems",
       "subcategory": "Arrays in Context",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Use arrays",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 12.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to PASS.",
       "solutionAttachments": []
     },
     {
@@ -317,15 +302,27 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "Multiply the factors: 2 x 3 = 6.",
-      "solutionAttachments": []
+      "solution": "Multiply the factors: 2 x 3 = PASS.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 2,
+          "operandB": 3,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "3 × 2 = ?",
@@ -336,15 +333,27 @@
         "",
         ""
       ],
-      "correctAnswer": "6",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "Multiply the factors: 3 x 2 = 6.",
-      "solutionAttachments": []
+      "solution": "Multiply the factors: 3 x 2 = PASS.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 3,
+          "operandB": 2,
+          "answer": "6",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "4 × 1 = ?",
@@ -355,15 +364,27 @@
         "",
         ""
       ],
-      "correctAnswer": "4",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "Multiply the factors: 4 x 1 = 4.",
-      "solutionAttachments": []
+      "solution": "Multiply the factors: 4 x 1 = PASS.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 4,
+          "operandB": 1,
+          "answer": "4",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "3 × 3 = ?",
@@ -374,15 +395,27 @@
         "",
         ""
       ],
-      "correctAnswer": "9",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "Multiply the factors: 3 x 3 = 9.",
-      "solutionAttachments": []
+      "solution": "Multiply the factors: 3 x 3 = PASS.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 3,
+          "operandB": 3,
+          "answer": "9",
+          "answerDigits": 1,
+          "visualMode": "none"
+        }
+      }
     },
     {
       "question": "5 × 2 = ?",
@@ -393,15 +426,27 @@
         "",
         ""
       ],
-      "correctAnswer": "10",
+      "correctAnswer": "PASS",
       "category": "Mixed Skills",
       "subcategory": "Fluency",
-      "qClassify": "ICON-COUNTER",
+      "qClassify": "Short",
       "learningOutcome": "Arrays fluency",
       "notesAttachments": [],
       "image": "",
-      "solution": "Multiply the factors: 5 x 2 = 10.",
-      "solutionAttachments": []
+      "solution": "Multiply the factors: 5 x 2 = PASS.",
+      "solutionAttachments": [],
+      "interactiveApp": {
+        "type": "arithmetic",
+        "config": {
+          "layout": "horizontal",
+          "operator": "x",
+          "operandA": 5,
+          "operandB": 2,
+          "answer": "10",
+          "answerDigits": 2,
+          "visualMode": "none"
+        }
+      }
     }
   ]
 }

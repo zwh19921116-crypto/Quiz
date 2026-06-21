@@ -4,11 +4,7 @@
   "description": "Learning Outcomes for Prep: Identify circles | Identify squares | Identify triangles | Identify rectangles | Compare shapes | Recall shape properties | Identify real-world shapes | Consolidate shape knowledge",
   "settings": {
     "questionOrder": "ordered",
-    "questionLimit": 20,
-    "grade": "Prep",
-    "module": "Shapes",
-    "lessonPart": "6.09",
-    "lessonName": "Shape Review"
+    "questionLimit": 20
   },
   "category": "Prep",
   "questions": [
@@ -17,18 +13,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Circle",
       "qClassify": "MCQ",
       "learningOutcome": "Identify circles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -36,18 +32,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Square",
       "qClassify": "MCQ",
       "learningOutcome": "Identify squares",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -55,18 +51,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "Circle",
-        "Square",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Triangle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Triangle",
       "qClassify": "MCQ",
       "learningOutcome": "Identify triangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -74,18 +70,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "Circle",
-        "Square",
-        "Triangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Rectangle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Rectangle",
       "qClassify": "MCQ",
       "learningOutcome": "Identify rectangles",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -93,18 +89,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Mixed Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -112,28 +108,28 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Shapes",
       "subcategory": "Mixed Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
       "question": "How many sides does a triangle have?",
       "resultType": "multiple-choice",
       "options": [
-        "3",
-        "4",
         "0",
-        "5"
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "3",
       "category": "Shape Properties",
@@ -160,10 +156,10 @@
       "question": "How many sides does a square have?",
       "resultType": "multiple-choice",
       "options": [
-        "4",
         "3",
-        "0",
-        "5"
+        "4",
+        "5",
+        "6"
       ],
       "correctAnswer": "4",
       "category": "Shape Properties",
@@ -190,10 +186,10 @@
       "question": "How many corners does a rectangle have?",
       "resultType": "multiple-choice",
       "options": [
-        "4",
         "3",
-        "0",
-        "5"
+        "4",
+        "5",
+        "6"
       ],
       "correctAnswer": "4",
       "category": "Shape Properties",
@@ -221,9 +217,9 @@
       "resultType": "multiple-choice",
       "options": [
         "0",
-        "3",
-        "4",
-        "1"
+        "1",
+        "2",
+        "3"
       ],
       "correctAnswer": "0",
       "category": "Shape Properties",
@@ -251,18 +247,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "Circle",
-        "Square",
-        "Triangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Rectangle",
+      "correctAnswer": "3",
       "category": "Shape Comparison",
       "subcategory": "Compare Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 3.",
       "solutionAttachments": []
     },
     {
@@ -270,37 +266,37 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "0",
       "category": "Shape Comparison",
       "subcategory": "Compare Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to 0.",
       "solutionAttachments": []
     },
     {
       "question": "Which two shapes have 4 corners?",
-      "resultType": "multiple-choice",
+      "resultType": "short-answer",
       "options": [
         "Square and Rectangle",
-        "Circle and Triangle",
-        "Circle and Square",
-        "Triangle and Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square and Rectangle",
+      "correctAnswer": "REVIEW",
       "category": "Shape Comparison",
       "subcategory": "Compare Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square and Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -308,18 +304,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Shape Comparison",
       "subcategory": "Compare Shapes",
       "qClassify": "MCQ",
       "learningOutcome": "Compare shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -327,18 +323,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Shapes",
       "subcategory": "Everyday Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Identify real-world shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -346,18 +342,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "Circle",
-        "Square",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Triangle",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Shapes",
       "subcategory": "Everyday Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Identify real-world shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -365,18 +361,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Square",
-        "Circle",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Square",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Shapes",
       "subcategory": "Everyday Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Identify real-world shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Square.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -384,18 +380,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Rectangle",
-        "Circle",
-        "Square",
-        "Triangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Rectangle",
+      "correctAnswer": "REVIEW",
       "category": "Everyday Shapes",
       "subcategory": "Everyday Objects",
       "qClassify": "MCQ",
       "learningOutcome": "Identify real-world shapes",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Rectangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -403,18 +399,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Triangle",
-        "Circle",
-        "Square",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Triangle",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate shape knowledge",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Triangle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     },
     {
@@ -422,18 +418,18 @@
       "resultType": "multiple-choice",
       "options": [
         "Circle",
-        "Square",
-        "Triangle",
-        "Rectangle"
+        "",
+        "",
+        ""
       ],
-      "correctAnswer": "Circle",
+      "correctAnswer": "REVIEW",
       "category": "Mastery",
       "subcategory": "Mixed Review",
       "qClassify": "MCQ",
       "learningOutcome": "Consolidate shape knowledge",
       "notesAttachments": [],
       "image": "",
-      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to Circle.",
+      "solution": "Use the key clue in the question and apply the lesson method step by step. This leads to REVIEW.",
       "solutionAttachments": []
     }
   ]
